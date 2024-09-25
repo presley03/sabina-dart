@@ -5,48 +5,60 @@ class CareSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Perawatan Ibu Hamil',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
-            ),
-            TextButton(
-              onPressed: () {
-                // Navigasi ke halaman perawatan lengkap
-              },
-              child: const Text(
-                'Lihat Selengkapnya',
-                style: TextStyle(color: Colors.white, decoration: TextDecoration.underline),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16), // Ubah padding sesuai dengan "Informasi Untuk Ibu"
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Perawatan Ibu Hamil',
+                style: TextStyle(
+                  fontSize: 18, 
+                  fontWeight: FontWeight.bold, 
+                  color: Colors.black,
+                ),
+                textAlign: TextAlign.left,
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            Expanded(
-              child: _buildCareCard(
-                title: 'Makanan',
-                icon: Icons.restaurant,
-                color: Colors.blue,
+              TextButton(
+                onPressed: () {
+                  // Navigasi ke halaman perawatan lengkap
+                },
+                child: const Text(
+                  'Lihat Selengkapnya',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.blue, 
+                    decoration: TextDecoration.underline
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: _buildCareCard(
-                title: 'Perawatan\nSehari-hari',
-                icon: Icons.spa,
-                color: Colors.red,
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                child: _buildCareCard(
+                  title: 'Makanan',
+                  icon: Icons.restaurant,
+                  color: Colors.blue,
+                ),
               ),
-            ),
-          ],
-        ),
-      ],
+              const SizedBox(width: 10),
+              Expanded(
+                child: _buildCareCard(
+                  title: 'Perawatan\nSehari-hari',
+                  icon: Icons.spa,
+                  color: Colors.red,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

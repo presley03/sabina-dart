@@ -7,26 +7,49 @@ class PregnancyHistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Riwayat Kehamilan',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                Image.asset(AppAssets.pregnantSitting, height: 60),
+                const SizedBox(width: 16),
+                const Expanded(
+                  child: Text(
+                    'Apakah Ibu sudah pernah melahirkan sebelumnya?',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 10),
-            const Text('Apakah Ibu sudah pernah melahirkan sebelumnya?'),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primaryPink,
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Navigasi ke halaman riwayat kehamilan
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFF85BE),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                child: const Text(
+                  'Isi Riwayat Kehamilan',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
-              onPressed: () {
-                // Navigasi ke halaman isi riwayat kehamilan
-              },
-              child: const Text('Isi Riwayat Kehamilan'),
             ),
           ],
         ),

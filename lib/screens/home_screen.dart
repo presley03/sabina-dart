@@ -20,6 +20,19 @@ class SabinaHomeScreen extends StatelessWidget {
           children: const [
             PregnancyHistoryCard(),
             SizedBox(height: 16),
+            Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Text(
+                'Informasi Untuk Ibu',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 8, 8, 8), 
+                  fontSize: 18, 
+                  fontWeight: FontWeight.bold
+                  ),
+                  textAlign: TextAlign.left,
+              ),
+            ),
+            SizedBox(height: 8),
             InformationSection(),
             SizedBox(height: 16),
             CareSection(),

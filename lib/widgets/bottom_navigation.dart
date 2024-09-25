@@ -17,12 +17,12 @@ class SabinaBottomNavigation extends StatelessWidget {
           label: 'Beranda',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.calendar_today),
-          label: 'Jadwal',
+          icon: Icon(Icons.safety_check),
+          label: 'Skrining',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.book),
-          label: 'Edukasi',
+          label: 'Complaint',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.favorite),

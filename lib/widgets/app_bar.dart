@@ -6,22 +6,38 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppColors.primaryPink,
-      elevation: 0,
-      title: Row(
-        children: [
-          Image.asset(AppAssets.logoHorizontal, height: 30),
-          const SizedBox(width: 10),
-          const Text('Sabina', style: TextStyle(color: Colors.white)),
-        ],
-      ),
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.person),
-          onPressed: () {
-            // Navigasi ke halaman profil
-          },
+    return Stack(
+      children: [
+        // Background image
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: Image.asset(
+            AppAssets.backgroundImage1060,
+            fit: BoxFit.fitWidth,
+            height: kToolbarHeight + MediaQuery.of(context).padding.top,
+          ),
+        ),
+        // AppBar content
+        AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Row(
+            children: [
+              Image.asset(AppAssets.logoVertical, height: 30),
+              const SizedBox(width: 8),
+              const Text('Sabina', style: TextStyle(color: Colors.transparent)),
+            ],
+          ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.person, color: Colors.white),
+              onPressed: () {
+                // Navigasi ke profil
+              },
+            ),
+          ],
         ),
       ],
     );
