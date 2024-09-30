@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 
 class SabinaBottomNavigation extends StatelessWidget {
-  const SabinaBottomNavigation({super.key});
+  final int currentIndex;
+  final Function(int) onTap;
+
+  const SabinaBottomNavigation({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      currentIndex: currentIndex,
+      onTap: onTap,
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.white,
       selectedItemColor: AppColors.primaryPink,
@@ -29,9 +38,6 @@ class SabinaBottomNavigation extends StatelessWidget {
           label: 'Favorit',
         ),
       ],
-      onTap: (index) {
-        // Implementasi navigasi ke halaman yang sesuai
-      },
     );
   }
 }

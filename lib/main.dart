@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'screens/splash_screen.dart';
+import 'package:provider/provider.dart';
+import 'screens/home_screen.dart';
+import 'models/preeclampsia_model.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PreeclampsiaScreeningModel()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,9 +23,8 @@ class MyApp extends StatelessWidget {
       title: 'Sabina App',
       theme: ThemeData(
         primarySwatch: Colors.pink,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const SplashScreen(),
+      home: const SabinaHomeScreen(),
     );
   }
 }

@@ -12,4 +12,5 @@ class AppAssets {
   static const String pregnantSitting = 'assets/images/pregnant_sitting.png';
   static const String pregnantStanding = 'assets/images/pregnant_standing.png';
   static const String backgroundImage1060 = 'assets/images/rectangle_1060.png';
+  static const String backgroundPattern = 'assets/images/background_kuisioner.png';
 }

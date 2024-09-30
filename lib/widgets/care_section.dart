@@ -5,12 +5,12 @@ class CareSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16), // Ubah padding sesuai dengan "Informasi Untuk Ibu"
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
@@ -20,7 +20,6 @@ class CareSection extends StatelessWidget {
                   fontWeight: FontWeight.bold, 
                   color: Colors.black,
                 ),
-                textAlign: TextAlign.left,
               ),
               TextButton(
                 onPressed: () {
@@ -29,7 +28,7 @@ class CareSection extends StatelessWidget {
                 child: const Text(
                   'Lihat Selengkapnya',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 10,
                     color: Colors.blue, 
                     decoration: TextDecoration.underline
                   ),
@@ -37,8 +36,11 @@ class CareSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
-          Row(
+        ),
+        const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
             children: [
               Expanded(
                 child: _buildCareCard(
@@ -57,31 +59,41 @@ class CareSection extends StatelessWidget {
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _buildCareCard({required String title, required IconData icon, required Color color}) {
-    return Card(
-      color: color,
-      child: InkWell(
-        onTap: () {
-          // Navigasi ke halaman detail perawatan
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, color: Colors.white, size: 40),
-              const SizedBox(height: 8),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-            ],
+    return SizedBox(
+      height: 140, // Tinggi tetap untuk kedua box
+      child: Card(
+        color: color,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: InkWell(
+          onTap: () {
+            // Navigasi ke halaman detail perawatan
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(icon, color: Colors.white, size: 40),
+                const SizedBox(height: 8),
+                Flexible(
+                  child: Text(
+                    title,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.white, 
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
