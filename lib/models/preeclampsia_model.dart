@@ -26,6 +26,12 @@ class PreeclampsiaScreeningModel extends ChangeNotifier {
   List<bool?> answers = List.filled(12, null);
   int currentQuestionIndex = 0;
 
+  Question get currentQuestion => questions[currentQuestionIndex];
+
+  bool get isQuestionnaireCompleted => 
+      currentQuestionIndex >= questions.length - 1 && 
+      answers.every((answer) => answer != null);
+
   void answerQuestion(bool answer) {
     answers[currentQuestionIndex] = answer;
     if (currentQuestionIndex < questions.length - 1) {
@@ -44,7 +50,6 @@ class PreeclampsiaScreeningModel extends ChangeNotifier {
           hasRedYes = true;
         } else {
           yellowYesCount++;
-
         }
       }
     }
