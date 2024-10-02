@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
-import 'preeclampsia_questionnaire_screen.dart';
+import 'penapisan_questionnaire_screen.dart';
 
-class PreeclampsiaScreeningScreen extends StatelessWidget {
-  const PreeclampsiaScreeningScreen({super.key});
+class PenapisanScreen extends StatelessWidget {
+  const PenapisanScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                 ),
                 child: const Center(
                   child: Text(
-                    'Skrining\nPreeklampsia',
+                    'Penapisan\nPersalinan',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -53,22 +53,22 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             Text(
-                              'Kuesioner ini terdiri dari berbagai pernyataan yang mungkin sesuai dengan pengalaman ibu ketika hamil*',
+                              'Kuesioner ini terdiri dari berbagai pertanyaan yang mungkin sesuai dengan pengalaman ibu ketika hamil*',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                ),
+                              ),
                               textAlign: TextAlign.center,
                             ),
                             SizedBox(height: 10),
                             Text(
-                              'Silahkan pilih "Ya" atau "Tidak" dari setiap pernyataan yang muncul',
+                              'Silahkan pilih "Ya" atau "Tidak" dari setiap pertanyaan yang muncul',
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                ),
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -79,7 +79,7 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const QuestionnaireScreen()),
+                          MaterialPageRoute(builder: (context) => const PenapisanQuestionnaireScreen()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -95,7 +95,7 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                           fontSize: 18,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          ),
+                        ),
                       ),
                     ),
                   ],

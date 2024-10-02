@@ -4,18 +4,26 @@ import '../utils/constants.dart';
 class SabinaBottomNavigation extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
+  final VoidCallback resetToHome; // Tambahkan parameter ini
 
   const SabinaBottomNavigation({
     super.key,
     required this.currentIndex,
     required this.onTap,
+    required this.resetToHome, // Tambahkan parameter ini ke constructor
   });
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: currentIndex,
-      onTap: onTap,
+      onTap: (index) {
+        if (index == 0) {
+          resetToHome(); // Gunakan resetToHome untuk tab Beranda
+        } else {
+          onTap(index);
+        }
+      },
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.white,
       selectedItemColor: AppColors.primaryPink,
@@ -30,8 +38,8 @@ class SabinaBottomNavigation extends StatelessWidget {
           label: 'Skrining',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.book),
-          label: 'Complaint',
+          icon: Icon(Icons.medical_services),
+          label: 'Penapisan',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.favorite),
