@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
-import 'keluhan_questionnaire_screen.dart';
+import 'mual_muntah/mual_muntah_screen.dart';
 
 class KeluhanMenuScreen extends StatelessWidget {
   const KeluhanMenuScreen({super.key});
@@ -106,9 +106,9 @@ class KeluhanMenuScreen extends StatelessWidget {
                       Colors.pink[100]!,
                       150,
                       150,
-                      imageWidth: 200,
-                      imageHeight: 200,
-                      imageAlignment: Alignment.center,
+                      imageWidth: 140,
+                      imageHeight: 140,
+                      imageAlignment: Alignment.bottomCenter,
                       textStyle: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
@@ -178,7 +178,7 @@ class KeluhanMenuScreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => KeluhanQuestionnaireScreen(keluhanType: title),
+              builder: (context) => const MualMuntahScreen(),
             ),
           );
         },

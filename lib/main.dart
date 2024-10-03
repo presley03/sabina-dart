@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sabina_app/models/mual_muntah_model.dart';
 //import 'package:sabina_app/screens/splash_screen.dart';
 import 'models/preeclampsia_model.dart';
 import 'models/penapisan_model.dart';
@@ -11,6 +12,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => PreeclampsiaScreeningModel()),
         ChangeNotifierProvider(create: (_) => PenapisanModel()),
+        ChangeNotifierProvider(create: (_) => MualMuntahModel()),
       ],
       child: const MyApp(),
     ),
