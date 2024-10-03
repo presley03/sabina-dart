@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utils/constants.dart';
+import '../../utils/constants.dart';
 import 'penapisan_questionnaire_screen.dart';
 
 class PenapisanScreen extends StatelessWidget {

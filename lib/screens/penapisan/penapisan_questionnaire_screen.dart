@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/penapisan_model.dart';
-import '../widgets/custom_button.dart';
+import '../../models/penapisan_model.dart';
+import '../../widgets/custom_button.dart';
 import 'penapisan_result_screen.dart';
 
 class PenapisanQuestionnaireScreen extends StatelessWidget {

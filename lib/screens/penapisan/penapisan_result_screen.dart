@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/penapisan_model.dart';
-import '../widgets/custom_button.dart';
-import '../utils/constants.dart';
+import '../../models/penapisan_model.dart';
+import '../../widgets/custom_button.dart';
+import '../../utils/constants.dart';
 
 class PenapisanResultScreen extends StatelessWidget {
   const PenapisanResultScreen({super.key});

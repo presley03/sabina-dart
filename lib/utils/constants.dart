@@ -13,4 +13,9 @@ class AppAssets {
   static const String pregnantStanding = 'assets/images/pregnant_standing.png';
   static const String backgroundImage1060 = 'assets/images/rectangle_1060.png';
   static const String backgroundPattern = 'assets/images/background_kuisioner.png';
+  static const String bengkakIcon = 'assets/images/bengkak_bagian_tubuh.png';
+  static const String keluarCairanIcon = 'assets/images/keluar_cairan.png';
+  static const String keluarDarahIcon = 'assets/images/keluar_darah.png';
+  static const String mualMuntahIcon = 'assets/images/mual_muntah.png';
+  static const String sakitKepalaIcon = 'assets/images/sakit_kepala.png';
 }

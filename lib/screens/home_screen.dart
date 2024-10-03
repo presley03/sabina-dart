@@ -5,8 +5,9 @@ import '../widgets/pregnancy_history_card.dart';
 import '../widgets/information_section.dart';
 import '../widgets/care_section.dart';
 import '../widgets/bottom_navigation.dart';
-import 'preeclampsia_screening_screen.dart';
-import 'penapisan_screen.dart';
+import 'preeclampsia/preeclampsia_screening_screen.dart';
+import 'penapisan/penapisan_screen.dart';
+import 'keluhan/keluhan_menu_screen.dart';
 
 class SabinaHomeScreen extends StatefulWidget {
   const SabinaHomeScreen({super.key});
@@ -23,6 +24,7 @@ class _SabinaHomeScreenState extends State<SabinaHomeScreen> {
     const HomeContent(),
     const PreeclampsiaScreeningScreen(),
     const PenapisanScreen(),
+    const KeluhanMenuScreen(),
     const Placeholder(), // Placeholder untuk tab Favorit
   ];
 

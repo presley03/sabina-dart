@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/preeclampsia_model.dart';
-import '../widgets/custom_button.dart';
-import '../utils/constants.dart';
+import '../../models/preeclampsia_model.dart';
+import '../../widgets/custom_button.dart';
+import '../../utils/constants.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key});

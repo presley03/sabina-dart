@@ -38,12 +38,12 @@ class SabinaBottomNavigation extends StatelessWidget {
           label: 'Skrining',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.medical_services),
+          icon: Icon(Icons.pregnant_woman),
           label: 'Penapisan',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
-          label: 'Favorit',
+          icon: Icon(Icons.healing),
+          label: 'Keluhan',
         ),
       ],
     );

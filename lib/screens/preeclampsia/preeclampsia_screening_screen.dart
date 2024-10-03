@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utils/constants.dart';
+import '../../utils/constants.dart';
 import 'preeclampsia_questionnaire_screen.dart';
 
 class PreeclampsiaScreeningScreen extends StatelessWidget {

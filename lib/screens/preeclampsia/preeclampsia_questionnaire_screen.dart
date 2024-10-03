@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/preeclampsia_model.dart';
+import '../../models/preeclampsia_model.dart';
 import 'preeclampsia_result_screen.dart';
 
 class QuestionnaireScreen extends StatelessWidget {
