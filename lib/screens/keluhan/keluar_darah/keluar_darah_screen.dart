@@ -1,11 +1,10 @@
-// Kode untuk halaman Mual Muntah yang diperbaiki
 import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
-import 'mual_muntah_questionnaire_screen.dart';
+import 'keluar_darah_questionnaire_screen.dart';
 import '../../../widgets/app_bar.dart';
 
-class MualMuntahScreen extends StatelessWidget {
-  const MualMuntahScreen({super.key});
+class KeluarDarahScreen extends StatelessWidget {
+  const KeluarDarahScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class MualMuntahScreen extends StatelessWidget {
       appBar: const SabinaAppBar(),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0), // Konsisten dengan Sakit Kepala
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               AspectRatio(
@@ -24,18 +23,18 @@ class MualMuntahScreen extends StatelessWidget {
                     color: AppColors.primaryGrey,
                     borderRadius: BorderRadius.circular(15),
                     image: const DecorationImage(
-                      image: AssetImage(AppAssets.bgMualMuntah),
+                      image: AssetImage(AppAssets.bgKeluarDarah),
                       fit: BoxFit.cover,
                     ),
                   ),
                   child: const Center(
                     child: Text(
-                      'Mual\nMuntah',
+                      'Keluar\nDarah',
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontFamily: 'Poppins', // Font yang seragam
+                        fontFamily: 'Poppins',
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -50,12 +49,12 @@ class MualMuntahScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: const Padding(
-                    padding: EdgeInsets.all(16), // Mengikuti standar padding Sakit Kepala
+                    padding: EdgeInsets.all(16),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center, // Konsisten penataan tengah
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan mual dan muntah selama kehamilan',
+                          'Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan keluar darah selama kehamilan',
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black,
@@ -82,7 +81,7 @@ class MualMuntahScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const MualMuntahQuestionnaireScreen()),
+                    MaterialPageRoute(builder: (context) => const KeluarDarahQuestionnaireScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -98,7 +97,7 @@ class MualMuntahScreen extends StatelessWidget {
                     fontSize: 18,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Roboto', // Sama dengan halaman lainnya
+                    fontFamily: 'Roboto',
                   ),
                 ),
               ),

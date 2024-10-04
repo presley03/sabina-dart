@@ -34,6 +34,7 @@ class SakitKepalaScreen extends StatelessWidget {
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
+                        fontFamily: 'Poppins', // Set custom font
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -96,6 +97,7 @@ class SakitKepalaScreen extends StatelessWidget {
                     fontSize: 18,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Roboto', // Set custom font
                   ),
                 ),
               ),

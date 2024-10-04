@@ -18,8 +18,16 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: AppColors.primaryPink,
                   borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
                   image: const DecorationImage(
-                    image: AssetImage(AppAssets.backgroundPattern),
+                    image: AssetImage(AppAssets.backgroundPatternPink),
                     fit: BoxFit.cover,
                   ),
                 ),

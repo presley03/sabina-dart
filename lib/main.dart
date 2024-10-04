@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sabina_app/models/keluar_darah_model.dart';
 import 'package:sabina_app/models/mual_muntah_model.dart';
 //import 'package:sabina_app/screens/splash_screen.dart';
 import 'models/preeclampsia_model.dart';
 import 'models/penapisan_model.dart';
 import 'models/sakit_kepala_model.dart';
+import 'models/keluar_cairan_model.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -15,6 +17,8 @@ void main() {
         ChangeNotifierProvider(create: (_) => PenapisanModel()),
         ChangeNotifierProvider(create: (_) => MualMuntahModel()),
         ChangeNotifierProvider(create: (_) => SakitKepalaModel()),
+        ChangeNotifierProvider(create: (_) => KeluarDarahModel()),
+        ChangeNotifierProvider(create: (_) => KeluarCairanModel()),
       ],
       child: const MyApp(),
     ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
 import 'mual_muntah/mual_muntah_screen.dart';
 import 'sakit_kepala/sakit_kepala_screen.dart';
+import 'keluar_darah/keluar_darah_screen.dart';
+import 'keluar_cairan/keluar_cairan_screen.dart';
 
 class KeluhanMenuScreen extends StatelessWidget {
   const KeluhanMenuScreen({super.key});
@@ -19,8 +21,16 @@ class KeluhanMenuScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: AppColors.primaryPink,
                   borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
                   image: const DecorationImage(
-                    image: AssetImage(AppAssets.backgroundPattern),
+                    image: AssetImage(AppAssets.backgroundPatternPurple),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -31,6 +41,7 @@ class KeluhanMenuScreen extends StatelessWidget {
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
+                      fontFamily: 'Poppins'
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -88,6 +99,50 @@ class KeluhanMenuScreen extends StatelessWidget {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const SakitKepalaScreen()),
+                      ),
+                    ),
+                    _buildKeluhanCard(
+                      context,
+                      'Keluar Darah',
+                      AppAssets.keluarDarahIcon,
+                      Colors.green[100]!,
+                      150,
+                      150,
+                      imageWidth: 140,
+                      imageHeight: 140,
+                      imageAlignment: Alignment.bottomLeft,
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                        fontFamily: 'Roboto',
+                      ),
+                      textAlignment: Alignment.topLeft,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const KeluarDarahScreen()),
+                      ),
+                    ),
+                    _buildKeluhanCard(
+                      context,
+                      'Keluar Cairan',
+                      AppAssets.keluarCairanIcon,
+                      Colors.blueGrey[100]!,
+                      150,
+                      150,
+                      imageWidth: 140,
+                      imageHeight: 140,
+                      imageAlignment: Alignment.bottomLeft,
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                        fontFamily: 'Roboto',
+                      ),
+                      textAlignment: Alignment.topLeft,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const KeluarCairanScreen()),
                       ),
                     ),
                     // Tambahkan card keluhan lainnya di sini
