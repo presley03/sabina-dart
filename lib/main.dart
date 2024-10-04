@@ -4,6 +4,7 @@ import 'package:sabina_app/models/mual_muntah_model.dart';
 //import 'package:sabina_app/screens/splash_screen.dart';
 import 'models/preeclampsia_model.dart';
 import 'models/penapisan_model.dart';
+import 'models/sakit_kepala_model.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -13,6 +14,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => PreeclampsiaScreeningModel()),
         ChangeNotifierProvider(create: (_) => PenapisanModel()),
         ChangeNotifierProvider(create: (_) => MualMuntahModel()),
+        ChangeNotifierProvider(create: (_) => SakitKepalaModel()),
       ],
       child: const MyApp(),
     ),

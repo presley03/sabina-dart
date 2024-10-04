@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../models/mual_muntah_model.dart';
+import '../../../models/sakit_kepala_model.dart';
 import '../../../utils/constants.dart';
 import '../../../widgets/app_bar.dart';
-import 'mual_muntah_result_screen.dart';
+import 'sakit_kepala_result_screen.dart';
 
-class MualMuntahQuestionnaireScreen extends StatelessWidget {
-  const MualMuntahQuestionnaireScreen({super.key});
+class SakitKepalaQuestionnaireScreen extends StatelessWidget {
+  const SakitKepalaQuestionnaireScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<MualMuntahModel>(
+    return Consumer<SakitKepalaModel>(
       builder: (context, model, child) {
         if (model.isQuestionnaireCompleted) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const MualMuntahResultScreen()),
+              MaterialPageRoute(builder: (context) => const SakitKepalaResultScreen()),
             );
           });
           return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -48,8 +48,8 @@ class MualMuntahQuestionnaireScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              _buildAnswerButton(context, 'Ya', () => _answerAndCheckCompletion(context, model, true)),
-                              _buildAnswerButton(context, 'Tidak', () => _answerAndCheckCompletion(context, model, false)),
+                              _buildAnswerButton(context, 'Ya', () => model.answerQuestion(true)),
+                              _buildAnswerButton(context, 'Tidak', () => model.answerQuestion(false)),
                             ],
                           ),
                         ],
@@ -81,14 +81,5 @@ class MualMuntahQuestionnaireScreen extends StatelessWidget {
         style: const TextStyle(fontSize: 18),
       ),
     );
-  }
-
-  void _answerAndCheckCompletion(BuildContext context, MualMuntahModel model, bool answer) {
-    model.answerQuestion(answer);
-    if (model.isQuestionnaireCompleted) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const MualMuntahResultScreen()),
-      );
-    }
   }
 }

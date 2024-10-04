@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../models/mual_muntah_model.dart';
+import '../../../models/sakit_kepala_model.dart';
 import '../../../utils/constants.dart';
 //import '../../../widgets/app_bar.dart';
 
-class MualMuntahResultScreen extends StatelessWidget {
-  const MualMuntahResultScreen({super.key});
+class SakitKepalaResultScreen extends StatelessWidget {
+  const SakitKepalaResultScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<MualMuntahModel>(context, listen: false);
+    final model = Provider.of<SakitKepalaModel>(context, listen: false);
     final result = model.getResult();
-    final score = model.calculateScore(); // Anda perlu menambahkan method ini ke MualMuntahModel
+    final score = model.calculateScore();
 
     return Scaffold(
       backgroundColor: AppColors.lightPink,
       appBar: AppBar(
-        title: const Text('Hasil kuesioner', style: TextStyle(color: Colors.black)),
+        title: const Text('Hasil Sakit Kepala', style: TextStyle(color: Colors.black)),
         backgroundColor: AppColors.primaryPink,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -39,7 +39,7 @@ class MualMuntahResultScreen extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Text(
-                            'Rekomendasi :',
+                            'Rekomendasi dari jawaban Ibu :',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,

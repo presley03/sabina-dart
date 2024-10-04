@@ -30,6 +30,7 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
+                      fontFamily: 'Poppins', // Set custom font
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -55,10 +56,11 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                             Text(
                               'Kuesioner ini terdiri dari berbagai pernyataan yang mungkin sesuai dengan pengalaman ibu ketika hamil*',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                ),
+                                //fontFamily: 'Nunito', // Custom font
+                              ),
                               textAlign: TextAlign.center,
                             ),
                             SizedBox(height: 10),
@@ -67,8 +69,9 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                ),
+                                fontWeight: FontWeight.w400, //jenis font reguler
+                                //fontFamily: 'Nunito', // Custom font
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -90,12 +93,13 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                         minimumSize: const Size(double.infinity, 50),
                       ),
                       child: const Text(
-                        'Lanjutkan',
+                        'Mulai',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          ),
+                          fontFamily: 'Roboto', // Custom font for button
+                        ),
                       ),
                     ),
                   ],

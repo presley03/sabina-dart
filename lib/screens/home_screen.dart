@@ -19,16 +19,13 @@ class SabinaHomeScreen extends StatefulWidget {
 class _SabinaHomeScreenState extends State<SabinaHomeScreen> {
   int _currentIndex = 0;
 
-  // Daftar halaman yang akan ditampilkan sesuai dengan indeks bottom navigation
   final List<Widget> _pages = [
     const HomeContent(),
     const PreeclampsiaScreeningScreen(),
     const PenapisanScreen(),
     const KeluhanMenuScreen(),
-    const Placeholder(), // Placeholder untuk tab Favorit
   ];
 
-  // Method untuk mereset ke halaman beranda
   void resetToHome() {
     setState(() {
       _currentIndex = 0;
@@ -40,7 +37,10 @@ class _SabinaHomeScreenState extends State<SabinaHomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryPink,
       appBar: const SabinaAppBar(),
-      body: _pages[_currentIndex], // Menampilkan halaman sesuai indeks
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _pages,
+      ),
       bottomNavigationBar: SabinaBottomNavigation(
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -48,13 +48,12 @@ class _SabinaHomeScreenState extends State<SabinaHomeScreen> {
             _currentIndex = index;
           });
         },
-        resetToHome: resetToHome, // Menambahkan resetToHome ke SabinaBottomNavigation
+        resetToHome: resetToHome,
       ),
     );
   }
 }
 
-// Widget untuk konten halaman utama
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
 

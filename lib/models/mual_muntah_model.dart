@@ -21,6 +21,8 @@ class MualMuntahModel extends ChangeNotifier {
   List<bool?> answers = List.filled(7, null);
   int currentQuestionIndex = 0;
 
+  MualMuntahQuestion get currentQuestion => questions[currentQuestionIndex];
+
   bool get isQuestionnaireCompleted =>
       currentQuestionIndex >= questions.length - 1 &&
       answers.every((answer) => answer != null);
@@ -33,8 +35,13 @@ class MualMuntahModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  int calculateScore() {
+    return answers.where((answer) => answer == true).length;
+  }
+
   String getResult() {
-    if (answers[0] == true && answers.sublist(1).every((answer) => answer == false)) {
+    int score = calculateScore();
+    if (answers[0] == true && score == 1) {
       return 'Anda mengalami mual muntah kehamilan (morning sickness) yang biasa terjadi pada usia kehamilan 0-16 minggu karena pengaruh hormon. Cobalah untuk makan dalam porsi sedikit namun sering dan hindari makanan/minuman yang berbau tajam';
     } else {
       return 'Segera periksa ke petugas kesehatan terdekat (Bidan, dokter umum atau dokter kandungan) dan sampaikan secara rinci keluhan yang ibu rasakan';

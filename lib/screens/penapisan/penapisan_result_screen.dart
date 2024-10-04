@@ -51,7 +51,7 @@ class PenapisanResultScreen extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               const Text(
-                                'Hasil Penapisan Persalinan',
+                                'Rekomendasi dari jawaban Ibu :',
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,

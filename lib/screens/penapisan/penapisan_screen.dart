@@ -90,7 +90,7 @@ class PenapisanScreen extends StatelessWidget {
                         minimumSize: const Size(double.infinity, 50),
                       ),
                       child: const Text(
-                        'Lanjutkan',
+                        'Mulai',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.black,

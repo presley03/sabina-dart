@@ -6,6 +6,8 @@ class AppColors {
   static const Color lightPink = Color(0xFFFFF0F5); // Sesuaikan kode warna ini
   static const Color primaryBlack = Colors.black;
   static const Color primaryBlue = Colors.blue;
+  static const Color primaryGrey = Colors.grey;
+  static const Color primaryTranparent = Colors.transparent;
 
 }
 

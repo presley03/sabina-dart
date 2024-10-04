@@ -32,8 +32,8 @@ class SabinaBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.home,
-            size: 30, // Mengatur ukuran ikon
-            color: currentIndex == 0 ? AppColors.primaryBlack : Colors.grey, // Mengatur warna ikon
+            size: 30,
+            color: currentIndex == 0 ? AppColors.primaryBlack : Colors.grey,
           ),
           label: 'Beranda',
           tooltip: 'Halaman Beranda',
@@ -41,8 +41,8 @@ class SabinaBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.safety_check,
-            size: 30, // Mengatur ukuran ikon
-            color: currentIndex == 1 ? AppColors.primaryBlack : Colors.grey, // Mengatur warna ikon
+            size: 30,
+            color: currentIndex == 1 ? AppColors.primaryBlack : Colors.grey,
           ),
           label: 'Skrining',
           tooltip: 'Halaman Skrining',
@@ -50,8 +50,8 @@ class SabinaBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.pregnant_woman,
-            size: 30, // Mengatur ukuran ikon
-            color: currentIndex == 2 ? AppColors.primaryBlack : Colors.grey, // Mengatur warna ikon
+            size: 30,
+            color: currentIndex == 2 ? AppColors.primaryBlack : Colors.grey,
           ),
           label: 'Penapisan',
           tooltip: 'Halaman Penapisan',
@@ -59,20 +59,20 @@ class SabinaBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.healing,
-            size: 30, // Mengatur ukuran ikon
-            color: currentIndex == 3 ? AppColors.primaryBlack : Colors.grey, // Mengatur warna ikon
+            size: 30,
+            color: currentIndex == 3 ? AppColors.primaryBlack : Colors.grey,
           ),
           label: 'Keluhan',
           tooltip: 'Halaman Keluhan',
         ),
       ],
       selectedLabelStyle: const TextStyle(
-        fontSize: 14, // Mengatur ukuran teks yang dipilih
+        fontSize: 14,
         fontWeight: FontWeight.bold,
         color: AppColors.primaryPink,
       ),
       unselectedLabelStyle: const TextStyle(
-        fontSize: 12, // Mengatur ukuran teks yang tidak dipilih
+        fontSize: 12,
         color: Colors.grey,
       ),
     );

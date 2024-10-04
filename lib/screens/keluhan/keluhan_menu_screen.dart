@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
 import 'mual_muntah/mual_muntah_screen.dart';
+import 'sakit_kepala/sakit_kepala_screen.dart';
 
 class KeluhanMenuScreen extends StatelessWidget {
   const KeluhanMenuScreen({super.key});
@@ -62,12 +63,16 @@ class KeluhanMenuScreen extends StatelessWidget {
                         fontFamily: 'Roboto',
                       ),
                       textAlignment: Alignment.topLeft,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const MualMuntahScreen()),
+                      ),
                     ),
                     _buildKeluhanCard(
                       context,
                       'Sakit Kepala',
                       AppAssets.sakitKepalaIcon,
-                      Colors.green[100]!,
+                      Colors.pink[100]!,
                       150,
                       150,
                       imageWidth: 200,
@@ -80,61 +85,12 @@ class KeluhanMenuScreen extends StatelessWidget {
                         fontFamily: 'Roboto',
                       ),
                       textAlignment: Alignment.topLeft,
-                    ),
-                    _buildKeluhanCard(
-                      context,
-                      'Keluar Darah',
-                      AppAssets.keluarDarahIcon,
-                      Colors.purple[100]!,
-                      150,
-                      150,
-                      imageWidth: 140,
-                      imageHeight: 140,
-                      imageAlignment: Alignment.bottomCenter,
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                        fontFamily: 'Roboto',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SakitKepalaScreen()),
                       ),
-                      textAlignment: Alignment.topLeft,
                     ),
-                    _buildKeluhanCard(
-                      context,
-                      'Keluar Cairan',
-                      AppAssets.keluarCairanIcon,
-                      Colors.pink[100]!,
-                      150,
-                      150,
-                      imageWidth: 140,
-                      imageHeight: 140,
-                      imageAlignment: Alignment.bottomCenter,
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.white,
-                        fontFamily: 'Roboto',
-                      ),
-                      textAlignment: Alignment.topLeft,
-                    ),
-                    _buildKeluhanCard(
-                      context,
-                      'Bengkak',
-                      AppAssets.bengkakIcon,
-                      Colors.red[100]!,
-                      150,
-                      150,
-                      imageWidth: 200,
-                      imageHeight: 200,
-                      imageAlignment: Alignment.topCenter,
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
-                        fontFamily: 'Roboto',
-                      ),
-                      textAlignment: Alignment.topLeft,
-                    ),
+                    // Tambahkan card keluhan lainnya di sini
                   ],
                 ),
               ),
@@ -157,6 +113,7 @@ class KeluhanMenuScreen extends StatelessWidget {
     required Alignment imageAlignment,
     required TextStyle textStyle,
     required Alignment textAlignment,
+    required VoidCallback onTap,
   }) {
     return Container(
       width: width,
@@ -174,14 +131,7 @@ class KeluhanMenuScreen extends StatelessWidget {
         ],
       ),
       child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const MualMuntahScreen(),
-            ),
-          );
-        },
+        onTap: onTap,
         child: Stack(
           children: [
             Align(
