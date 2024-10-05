@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sabina_app/models/keluar_darah_model.dart';
 import 'package:sabina_app/models/mual_muntah_model.dart';
-//import 'package:sabina_app/screens/splash_screen.dart';
+import 'package:sabina_app/screens/splash_screen.dart';
 import 'models/preeclampsia_model.dart';
 import 'models/penapisan_model.dart';
 import 'models/sakit_kepala_model.dart';
 import 'models/keluar_cairan_model.dart';
 import 'models/bengkak_model.dart';
 import 'models/pergerakan_janin_model.dart';
-import 'screens/home_screen.dart';
+//import 'screens/home_screen.dart';
 
 void main() {
   runApp(
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      home: const SabinaHomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }

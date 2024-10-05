@@ -16,7 +16,7 @@ class PenapisanScreen extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryPink,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
@@ -92,7 +92,7 @@ class PenapisanScreen extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryPink,
+                        backgroundColor: Colors.pink[200]!,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),

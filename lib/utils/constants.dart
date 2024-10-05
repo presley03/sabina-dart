@@ -8,13 +8,14 @@ class AppColors {
   static const Color primaryBlue = Colors.blue;
   static const Color primaryGrey = Colors.grey;
   static const Color primaryTranparent = Colors.transparent;
+  static const Color primaryWhite = Colors.white;
 
 }
 
 class AppAssets {
   static const String logoVertical = 'assets/images/sabina_logo_vertical.png';
   static const String logoHorizontal = 'assets/images/sabina_logo.png';
-  static const String backgroundImage = 'assets/images/sabina_background.png';
+  //static const String backgroundImage = 'assets/images/sabina_background.png';
   static const String pregnantSitting = 'assets/images/pregnant_sitting.png';
   static const String pregnantStanding = 'assets/images/pregnant_standing.png';
   static const String backgroundImage1060 = 'assets/images/rectangle_1060.png';
@@ -33,4 +34,10 @@ class AppAssets {
   static const String bgMualMuntah = 'assets/images/bg_mual_muntah.png';
   static const String bgSakitKepala = 'assets/images/bg_sakit_kepala.png';
   static const String bgPergerakanJanin = 'assets/images/bg_pergerakan_janin.png';
+}
+
+class AppPadding {
+  static const EdgeInsets horizontal = EdgeInsets.symmetric(horizontal: 16.0);
+  static const EdgeInsets vertical = EdgeInsets.symmetric(vertical: 8.0);
+  static const EdgeInsets all16 = EdgeInsets.all(16.0);
 }

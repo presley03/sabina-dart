@@ -16,8 +16,8 @@ class CareSection extends StatelessWidget {
               const Text(
                 'Perawatan Ibu Hamil',
                 style: TextStyle(
-                  fontSize: 18, 
-                  fontWeight: FontWeight.bold, 
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
               ),
@@ -29,8 +29,8 @@ class CareSection extends StatelessWidget {
                   'Lihat Selengkapnya',
                   style: TextStyle(
                     fontSize: 10,
-                    color: Colors.blue, 
-                    decoration: TextDecoration.underline
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
                   ),
                 ),
               ),
@@ -46,7 +46,7 @@ class CareSection extends StatelessWidget {
                 child: _buildCareCard(
                   title: 'Makanan',
                   icon: Icons.restaurant,
-                  color: Colors.blue,
+                  color: Colors.blue[100]!,
                 ),
               ),
               const SizedBox(width: 10),
@@ -54,7 +54,7 @@ class CareSection extends StatelessWidget {
                 child: _buildCareCard(
                   title: 'Perawatan\nSehari-hari',
                   icon: Icons.spa,
-                  color: Colors.red,
+                  color: Colors.red[100]!,
                 ),
               ),
             ],
@@ -64,12 +64,18 @@ class CareSection extends StatelessWidget {
     );
   }
 
-  Widget _buildCareCard({required String title, required IconData icon, required Color color}) {
+  Widget _buildCareCard({
+    required String title,
+    required IconData icon,
+    required Color color,
+  }) {
     return SizedBox(
       height: 140, // Tinggi tetap untuk kedua box
       child: Card(
         color: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        elevation: 4, // Tambahkan efek shadow
+        shadowColor: Colors.grey, // Warna shadow abu-abu
         child: InkWell(
           onTap: () {
             // Navigasi ke halaman detail perawatan
@@ -79,16 +85,19 @@ class CareSection extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, color: Colors.white, size: 40),
+                // Ganti warna ikon menjadi hitam
+                Icon(icon, color: Colors.black, size: 40),
                 const SizedBox(height: 8),
                 Flexible(
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
+                    // Ganti warna teks menjadi hitam
                     style: const TextStyle(
-                      color: Colors.white, 
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
+                      fontFamily: 'Roboto'
                     ),
                   ),
                 ),

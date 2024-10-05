@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../models/mual_muntah_model.dart';
 import '../../../utils/constants.dart';
-//import '../../../widgets/app_bar.dart';
 
 class MualMuntahResultScreen extends StatelessWidget {
   const MualMuntahResultScreen({super.key});
@@ -11,7 +10,6 @@ class MualMuntahResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<MualMuntahModel>(context, listen: false);
     final result = model.getResult();
-    final score = model.calculateScore(); // Anda perlu menambahkan method ini ke MualMuntahModel
 
     return Scaffold(
       backgroundColor: AppColors.lightPink,
@@ -42,15 +40,6 @@ class MualMuntahResultScreen extends StatelessWidget {
                             'Rekomendasi :',
                             style: TextStyle(
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Skor: $score',
-                            style: const TextStyle(
-                              fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
                             textAlign: TextAlign.center,

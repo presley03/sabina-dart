@@ -35,14 +35,11 @@ class MualMuntahModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  int calculateScore() {
-    return answers.where((answer) => answer == true).length;
-  }
-
   String getResult() {
-    int score = calculateScore();
-    if (answers[0] == true && score == 1) {
+    if (answers[0] == true && answers.sublist(1).every((answer) => answer == false)) {
       return 'Anda mengalami mual muntah kehamilan (morning sickness) yang biasa terjadi pada usia kehamilan 0-16 minggu karena pengaruh hormon. Cobalah untuk makan dalam porsi sedikit namun sering dan hindari makanan/minuman yang berbau tajam';
+    } else if (answers.every((answer) => answer == false)) {
+      return 'Anda tidak memiliki masalah mual muntah, makan lah makanan bergizi dan minum yang cukup untuk menjaga kesehatan anda dan bayi di dalam kandungan.';
     } else {
       return 'Segera periksa ke petugas kesehatan terdekat (Bidan, dokter umum atau dokter kandungan) dan sampaikan secara rinci keluhan yang ibu rasakan';
     }

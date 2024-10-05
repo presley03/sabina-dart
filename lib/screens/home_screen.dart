@@ -35,7 +35,7 @@ class _SabinaHomeScreenState extends State<SabinaHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryPink,
+      backgroundColor: AppColors.primaryWhite,
       appBar: const SabinaAppBar(),
       body: IndexedStack(
         index: _currentIndex,

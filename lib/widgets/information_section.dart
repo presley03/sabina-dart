@@ -9,6 +9,8 @@ class InformationSection extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: AppColors.secondaryPink,
+      elevation: 4, // Menambahkan elevation untuk shadow
+      shadowColor: Colors.grey, // Mengatur warna shadow menjadi abu-abu
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
@@ -24,9 +26,8 @@ class InformationSection extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white, 
                       fontSize: 16, 
-                      fontWeight: 
-                      FontWeight.bold
-                      ),
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                   const SizedBox(height: 8),
                   ElevatedButton(

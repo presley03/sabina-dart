@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../utils/constants.dart';
-import '../widgets/custom_text_field.dart';
-import '../widgets/custom_button.dart';
 import '../services/database_helper.dart';
 import '../models/user_identity.dart';
 import 'home_screen.dart';
@@ -15,14 +13,14 @@ class IdentityScreen extends StatefulWidget {
 }
 
 class IdentityScreenState extends State<IdentityScreen> {
+  final _formKey = GlobalKey<FormState>();
   final _namaController = TextEditingController();
   final _tanggalLahirController = TextEditingController();
   final _alamatController = TextEditingController();
   final _golonganDarahController = TextEditingController();
   String? _selectedAgama;
-  DateTime? _selectedDate;
 
-  final List<String> _agamaList = [
+  final List<String> _agamaList = const [
     'Islam', 'Protestan', 'Katolik', 'Hindu', 'Buddha', 'Kong Hu Cu', 'Lainnya'
   ];
 
@@ -30,138 +28,207 @@ class IdentityScreenState extends State<IdentityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Identitas Ibu'),
+        title: const Text('Identitas Ibu', style: TextStyle(color: Colors.white)),
         backgroundColor: AppColors.primaryPink,
+        elevation: 0,
       ),
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(AppAssets.backgroundImage),
-            fit: BoxFit.none,
-            scale: 1,
-            alignment: Alignment.bottomLeft,
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [AppColors.primaryPink, Colors.white],
           ),
         ),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Image.asset(AppAssets.logoHorizontal, height: 100),
-              const SizedBox(height: 20),
-              CustomTextField(
-                label: 'Nama Lengkap',
-                controller: _namaController,
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Text(
+                    'Lengkapi Data Diri Anda',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 30),
+                  _buildInputField(
+                    label: 'Nama Lengkap',
+                    controller: _namaController,
+                    icon: Icons.person,
+                    validator: (value) => value?.isEmpty ?? true ? 'Nama tidak boleh kosong' : null,
+                  ),
+                  _buildAgamaDropdown(),
+                  _buildTanggalLahirField(),
+                  _buildInputField(
+                    label: 'Alamat',
+                    controller: _alamatController,
+                    icon: Icons.home,
+                    validator: (value) => value?.isEmpty ?? true ? 'Alamat tidak boleh kosong' : null,
+                  ),
+                  _buildGolonganDarahDropdown(),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    onPressed: _saveIdentity,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primaryPink,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    ),
+                    child: const Text('Simpan', style: TextStyle(fontSize: 18)),
+                  ),
+                ],
               ),
-              const SizedBox(height: 10),
-              _buildAgamaDropdown(),
-              const SizedBox(height: 10),
-              _buildTanggalLahirField(),
-              const SizedBox(height: 10),
-              CustomTextField(
-                label: 'Alamat',
-                controller: _alamatController,
-              ),
-              const SizedBox(height: 10),
-              _buildGolonganDarahDropdown(),
-              const SizedBox(height: 20),
-              CustomButton(
-                text: 'Simpan',
-                onPressed: _saveIdentity,
-              ),
-            ],
+            ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildInputField({
+    required String label,
+    required TextEditingController controller,
+    required IconData icon,
+    String? Function(String?)? validator,
+    bool readOnly = false,
+    VoidCallback? onTap,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: label,
+          prefixIcon: Icon(icon, color: AppColors.primaryPink),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+          filled: true,
+          fillColor: Colors.white,
+        ),
+        readOnly: readOnly,
+        validator: validator,
+        onTap: onTap,
       ),
     );
   }
 
   Widget _buildAgamaDropdown() {
-    return DropdownButtonFormField<String>(
-      decoration: const InputDecoration(
-        labelText: 'Agama',
-        border: OutlineInputBorder(),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: DropdownButtonFormField<String>(
+        decoration: InputDecoration(
+          labelText: 'Agama',
+          prefixIcon: const Icon(Icons.church, color: AppColors.primaryPink),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+          filled: true,
+          fillColor: Colors.white,
+        ),
+        value: _selectedAgama,
+        items: _agamaList.map((String value) => DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        )).toList(),
+        onChanged: (String? newValue) {
+          setState(() {
+            _selectedAgama = newValue;
+          });
+        },
+        validator: (value) => value == null ? 'Pilih agama' : null,
       ),
-      value: _selectedAgama,
-      items: _agamaList.map((String value) => DropdownMenuItem<String>(
-        value: value,
-        child: Text(value),
-      )).toList(),
-      onChanged: (String? newValue) {
-        setState(() {
-          _selectedAgama = newValue;
-        });
-      },
     );
   }
 
   Widget _buildTanggalLahirField() {
-    return GestureDetector(
-      onTap: () => _selectDate(context),
-      child: AbsorbPointer(
-        child: CustomTextField(
-          label: 'Tanggal Lahir',
-          controller: _tanggalLahirController,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildGolonganDarahDropdown() {
-    return DropdownButtonFormField<String>(
-      decoration: const InputDecoration(
-        labelText: 'Golongan Darah',
-        border: OutlineInputBorder(),
-      ),
-      value: _golonganDarahController.text.isEmpty
-          ? null
-          : _golonganDarahController.text,
-      items: ['A', 'B', 'AB', 'O'].map((String value) => DropdownMenuItem<String>(
-        value: value,
-        child: Text(value),
-      )).toList(),
-      onChanged: (String? newValue) {
-        if (newValue != null) {
+    return _buildInputField(
+      label: 'Tanggal Lahir',
+      controller: _tanggalLahirController,
+      icon: Icons.calendar_today,
+      readOnly: true,
+      validator: (value) => value?.isEmpty ?? true ? 'Tanggal lahir tidak boleh kosong' : null,
+      onTap: () async {
+        final DateTime? pickedDate = await showDatePicker(
+          context: context,
+          initialDate: DateTime.now(),
+          firstDate: DateTime(1900),
+          lastDate: DateTime.now(),
+        );
+        if (pickedDate != null) {
           setState(() {
-            _golonganDarahController.text = newValue;
+            _tanggalLahirController.text = DateFormat('dd-MM-yyyy').format(pickedDate);
           });
         }
       },
     );
   }
 
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: _selectedDate ?? DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
+  Widget _buildGolonganDarahDropdown() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: DropdownButtonFormField<String>(
+        decoration: InputDecoration(
+          labelText: 'Golongan Darah',
+          prefixIcon: const Icon(Icons.opacity, color: AppColors.primaryPink),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+          filled: true,
+          fillColor: Colors.white,
+        ),
+        value: _golonganDarahController.text.isEmpty ? null : _golonganDarahController.text,
+        items: const ['A', 'B', 'AB', 'O'].map((String value) => DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        )).toList(),
+        onChanged: (String? newValue) {
+          if (newValue != null) {
+            setState(() {
+              _golonganDarahController.text = newValue;
+            });
+          }
+        },
+        validator: (value) => value == null ? 'Pilih golongan darah' : null,
+      ),
     );
-    if (picked != null && picked != _selectedDate) {
-      setState(() {
-        _selectedDate = picked;
-        _tanggalLahirController.text = DateFormat('dd-MM-yyyy').format(picked);
-      });
-    }
   }
 
   void _saveIdentity() async {
-    final identity = UserIdentity(
-      nama: _namaController.text,
-      agama: _selectedAgama ?? '',
-      tanggalLahir: _tanggalLahirController.text,
-      alamat: _alamatController.text,
-      golonganDarah: _golonganDarahController.text,
-    );
+    if (_formKey.currentState?.validate() ?? false) {
+      final identity = UserIdentity(
+        nama: _namaController.text,
+        agama: _selectedAgama ?? '',
+        tanggalLahir: _tanggalLahirController.text,
+        alamat: _alamatController.text,
+        golonganDarah: _golonganDarahController.text,
+      );
 
-    await DatabaseHelper.instance.insertIdentity(identity.toMap());
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Data identitas berhasil disimpan')),
-      );
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const SabinaHomeScreen()),
-      );
+      await DatabaseHelper.instance.insertIdentity(identity.toMap());
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Data identitas berhasil disimpan'),
+            backgroundColor: AppColors.primaryPink,
+          ),
+        );
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const SabinaHomeScreen()),
+        );
+      }
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _tanggalLahirController.text = DateFormat('dd-MM-yyyy').format(DateTime.now());
+  }
+
+  @override
+  void dispose() {
+    _namaController.dispose();
+    _tanggalLahirController.dispose();
+    _alamatController.dispose();
+    _golonganDarahController.dispose();
+    super.dispose();
   }
 }

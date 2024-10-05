@@ -16,7 +16,7 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryPink,
+                  color: Colors.white, // Ubah warna menjadi putih
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
@@ -37,8 +37,8 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontFamily: 'Poppins', // Set custom font
+                      color: Colors.white, // Pastikan teks tetap terlihat jelas
+                      fontFamily: 'Poppins',
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -67,7 +67,6 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                                 fontSize: 14,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                //fontFamily: 'Nunito', // Custom font
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -77,8 +76,7 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.black,
-                                fontWeight: FontWeight.w400, //jenis font reguler
-                                //fontFamily: 'Nunito', // Custom font
+                                fontWeight: FontWeight.w400,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -94,7 +92,7 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryPink,
+                        backgroundColor: Colors.pink[200], // Mengubah warna button sesuai skema warna
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -106,7 +104,7 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                           fontSize: 18,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'Roboto', // Custom font for button
+                          fontFamily: 'Roboto',
                         ),
                       ),
                     ),

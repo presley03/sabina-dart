@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
+import '../screens/user_identity_screen.dart';
 
 class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SabinaAppBar({super.key});
@@ -19,27 +20,65 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
             height: kToolbarHeight + MediaQuery.of(context).padding.top,
           ),
         ),
-        // AppBar content
+        // AppBar content with search bar
         AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           elevation: 0,
-          title: Row(
-            children: [
-              Image.asset(AppAssets.logoVertical, height: 30),
-              const SizedBox(width: 8),
-              const Text('Sabina', style: TextStyle(color: Colors.transparent)),
-            ],
+          title: Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Cari...",
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  prefixIcon: const Icon(Icons.search, color: Colors.black),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                      width: 1.0,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                      width: 1.5,
+                    ),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
+                ),
+              ),
+            ),
           ),
           actions: [
             IconButton(
-              icon: const Icon(Icons.person, color: Colors.white),
+              icon: const Icon(Icons.account_circle, color: Colors.black),
               onPressed: () {
-                // Navigasi ke profil
+                _showUserIdentity(context);
               },
             ),
           ],
         ),
       ],
+    );
+  }
+
+  void _showUserIdentity(BuildContext context) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => const UserIdentityScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      ),
     );
   }
 
