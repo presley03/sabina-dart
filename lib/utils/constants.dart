@@ -24,6 +24,7 @@ class AppAssets {
   static const String bengkakIcon = 'assets/images/bengkak_bagian_tubuh.png';
   static const String keluarCairanIcon = 'assets/images/keluar_cairan.png';
   static const String keluarDarahIcon = 'assets/images/keluar_darah.png';
+  static const String pergerakanJaninIcon = 'assets/images/pergerakan_janin.png';
   static const String mualMuntahIcon = 'assets/images/mual_muntah.png';
   static const String sakitKepalaIcon = 'assets/images/sakit_kepala.png';
   static const String bgBengkak = 'assets/images/bg_bengkak_bagian_tubuh.png';
@@ -31,4 +32,5 @@ class AppAssets {
   static const String bgKeluarDarah = 'assets/images/bg_keluar_darah.png';
   static const String bgMualMuntah = 'assets/images/bg_mual_muntah.png';
   static const String bgSakitKepala = 'assets/images/bg_sakit_kepala.png';
+  static const String bgPergerakanJanin = 'assets/images/bg_pergerakan_janin.png';
 }

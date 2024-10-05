@@ -7,6 +7,8 @@ import 'models/preeclampsia_model.dart';
 import 'models/penapisan_model.dart';
 import 'models/sakit_kepala_model.dart';
 import 'models/keluar_cairan_model.dart';
+import 'models/bengkak_model.dart';
+import 'models/pergerakan_janin_model.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -19,6 +21,8 @@ void main() {
         ChangeNotifierProvider(create: (_) => SakitKepalaModel()),
         ChangeNotifierProvider(create: (_) => KeluarDarahModel()),
         ChangeNotifierProvider(create: (_) => KeluarCairanModel()),
+        ChangeNotifierProvider(create: (_) => BengkakModel()),
+        ChangeNotifierProvider(create: (_) => PergerakanJaninModel()),
       ],
       child: const MyApp(),
     ),

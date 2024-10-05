@@ -72,12 +72,6 @@ flutter:
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 700
 
-    - family: Nunito
-      fonts:
-        - asset: assets/fonts/Nunito-Regular.ttf
-        - asset: assets/fonts/Nunito-Bold.ttf
-          weight: 700
-
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf

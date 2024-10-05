@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sabina_app/screens/keluhan/pergerakan_janin/pergerakan_janin_screen.dart';
 import '../../utils/constants.dart';
 import 'mual_muntah/mual_muntah_screen.dart';
 import 'sakit_kepala/sakit_kepala_screen.dart';
 import 'keluar_darah/keluar_darah_screen.dart';
 import 'keluar_cairan/keluar_cairan_screen.dart';
+import 'bengkak/bengkak_screen.dart';
 
 class KeluhanMenuScreen extends StatelessWidget {
   const KeluhanMenuScreen({super.key});
@@ -83,7 +85,7 @@ class KeluhanMenuScreen extends StatelessWidget {
                       context,
                       'Sakit Kepala',
                       AppAssets.sakitKepalaIcon,
-                      Colors.pink[100]!,
+                      Colors.redAccent[100]!,
                       150,
                       150,
                       imageWidth: 200,
@@ -143,6 +145,50 @@ class KeluhanMenuScreen extends StatelessWidget {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const KeluarCairanScreen()),
+                      ),
+                    ),
+                    _buildKeluhanCard(
+                      context,
+                      'Bengkak pada Tubuh',
+                      AppAssets.bengkakIcon,
+                      Colors.pinkAccent[100]!,
+                      150,
+                      150,
+                      imageWidth: 140,
+                      imageHeight: 140,
+                      imageAlignment: Alignment.bottomLeft,
+                      textStyle: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                        fontFamily: 'Roboto',
+                      ),
+                      textAlignment: Alignment.topLeft,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const BengkakScreen()),
+                      ),
+                    ),
+                    _buildKeluhanCard(
+                      context,
+                      'Pergerakan Janin',
+                      AppAssets.pergerakanJaninIcon,
+                      Colors.purpleAccent[100]!,
+                      150,
+                      150,
+                      imageWidth: 140,
+                      imageHeight: 140,
+                      imageAlignment: Alignment.bottomLeft,
+                      textStyle: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                        fontFamily: 'Roboto',
+                      ),
+                      textAlignment: Alignment.topLeft,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const PergerakanJaninScreen()),
                       ),
                     ),
                     // Tambahkan card keluhan lainnya di sini
