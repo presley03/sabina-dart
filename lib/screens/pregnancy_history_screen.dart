@@ -38,39 +38,24 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       appBar: AppBar(
         title: const Text('Riwayat Kehamilan'),
         backgroundColor: AppColors.primaryPink,
+        elevation: 0,
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildDateInput(),
-                _buildNumberInput('Berat Badan', _weightController, 'Kg'),
-                _buildNumberInput('Tinggi Badan', _heightController, 'cm'),
-                _buildDropdown('Kehamilan Ke', ['1', '2', '3', '4', '5+'], _pregnancyNumber),
-                _buildDropdown('Jumlah Anak', ['0', '1', '2', '3', '4', '5+'], _childrenCount),
-                _buildDropdown('Riwayat Keguguran', ['Ya', 'Tidak'], _miscarriageHistory),
-                _buildDropdown('Riwayat Kelahiran', ['Ya', 'Tidak'], _childbirthHistory),
-                _buildDropdown('Anak Ke', ['1', '2', '3', '4', '5+'], _childNumber),
-                _buildDropdown('Tahun Lahir', List.generate(30, (index) => (DateTime.now().year - index).toString()), _birthYear),
-                _buildNumberInput('Berat Badan saat lahir', _weightAtBirthController, 'gram'),
-                _buildTextInput('Cara Persalinan', _typeOfDeliveryController),
-                _buildTextInput('Penolong Persalinan', _birthAttendantController),
-                _buildTextInput('Penyakit / Komplikasi pada kehamilan / persalinan lalu', _complicationsController),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryPink,
-                    minimumSize: const Size(double.infinity, 50),
-                  ),
-                  onPressed: _submitForm,
-                  child: const Text('Simpan'),
-                ),
-              ],
-            ),
+        padding: const EdgeInsets.all(20.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildDateInput(),
+              const SizedBox(height: 20),
+              _buildNumberInput('Berat Badan', _weightController, 'Kg'),
+              _buildNumberInput('Tinggi Badan', _heightController, 'cm'),
+              const SizedBox(height: 20),
+              _buildGridInputs(),
+              const SizedBox(height: 30),
+              _buildSaveButton(),
+            ],
           ),
         ),
       ),
@@ -80,9 +65,10 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   Widget _buildDateInput() {
     return TextFormField(
       controller: _dateController,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         labelText: 'Tanggal Pemeriksaan Terakhir',
-        suffixIcon: Icon(Icons.calendar_today),
+        suffixIcon: const Icon(Icons.calendar_today, color: AppColors.primaryPink),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),
       readOnly: true,
       onTap: () async {
@@ -102,75 +88,109 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   }
 
   Widget _buildNumberInput(String label, TextEditingController controller, String suffix) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: label,
-        suffixText: suffix,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: label,
+          suffixText: suffix,
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+        keyboardType: TextInputType.number,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Harap isi field ini';
+          }
+          return null;
+        },
       ),
-      keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Harap isi field ini';
-        }
-        return null;
-      },
     );
   }
 
   Widget _buildDropdown(String label, List<String> items, String? value) {
-    return DropdownButtonFormField<String>(
-      decoration: InputDecoration(labelText: label),
-      value: value,
-      items: items.map((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-      onChanged: (String? newValue) {
-        setState(() {
-          switch (label) {
-            case 'Kehamilan Ke':
-              _pregnancyNumber = newValue;
-              break;
-            case 'Jumlah Anak':
-              _childrenCount = newValue;
-              break;
-            case 'Riwayat Keguguran':
-              _miscarriageHistory = newValue;
-              break;
-            case 'Riwayat Kelahiran':
-              _childbirthHistory = newValue;
-              break;
-            case 'Anak Ke':
-              _childNumber = newValue;
-              break;
-            case 'Tahun Lahir':
-              _birthYear = newValue;
-              break;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: DropdownButtonFormField<String>(
+        decoration: InputDecoration(
+          labelText: label,
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+        value: value,
+        items: items.map((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {
+          setState(() {
+            switch (label) {
+              case 'Kehamilan Ke':
+                _pregnancyNumber = newValue;
+                break;
+              case 'Jumlah Anak':
+                _childrenCount = newValue;
+                break;
+              case 'Riwayat Keguguran':
+                _miscarriageHistory = newValue;
+                break;
+              case 'Riwayat Kelahiran':
+                _childbirthHistory = newValue;
+                break;
+              case 'Anak Ke':
+                _childNumber = newValue;
+                break;
+              case 'Tahun Lahir':
+                _birthYear = newValue;
+                break;
+            }
+          });
+        },
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Harap pilih salah satu opsi';
           }
-        });
-      },
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Harap pilih salah satu opsi';
-        }
-        return null;
-      },
+          return null;
+        },
+      ),
     );
   }
 
-  Widget _buildTextInput(String label, TextEditingController controller) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(labelText: label),
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Harap isi field ini';
-        }
-        return null;
-      },
+  // Function to create grid layout for inputs
+  Widget _buildGridInputs() {
+    return GridView(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // Set the number of columns
+        crossAxisSpacing: 16.0, // Space between columns
+        mainAxisSpacing: 16.0, // Space between rows
+        childAspectRatio: 2.5, // Adjust ratio to control input size
+      ),
+      children: [
+        _buildDropdown('Kehamilan Ke', ['1', '2', '3', '4', '5+'], _pregnancyNumber),
+        _buildDropdown('Jumlah Anak', ['0', '1', '2', '3', '4', '5+'], _childrenCount),
+        _buildDropdown('Riwayat Keguguran', ['Ya', 'Tidak'], _miscarriageHistory),
+        _buildDropdown('Riwayat Kelahiran', ['Ya', 'Tidak'], _childbirthHistory),
+        _buildDropdown('Anak Ke', ['1', '2', '3', '4', '5+'], _childNumber),
+        _buildDropdown(
+            'Tahun Lahir',
+            List.generate(30, (index) => (DateTime.now().year - index).toString()),
+            _birthYear),
+      ],
+    );
+  }
+
+  Widget _buildSaveButton() {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primaryPink,
+        minimumSize: const Size(double.infinity, 50),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+      onPressed: _submitForm,
+      child: const Text('Simpan', style: TextStyle(fontSize: 18)),
     );
   }
 
