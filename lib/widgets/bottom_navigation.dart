@@ -16,17 +16,35 @@ class SabinaBottomNavigation extends StatelessWidget {
   });
 
   // Fungsi untuk meluncurkan WhatsApp
-  void _launchWhatsApp() async {
-    String phoneNumber = '6283141499437'; // Ganti dengan nomor WhatsApp yang diinginkan
-    String url = 'https://wa.me/$phoneNumber';
-    Uri uri = Uri.parse(url);
+  Future<void> _launchWhatsApp(BuildContext context) async {
+    const phoneNumber = '6283141499437'; // Ganti dengan nomor WhatsApp admin Sabina yang valid
+    const message = 'Halo, saya ingin berkonsultasi.';
+    final encodedMessage = Uri.encodeComponent(message);
+    
+    final whatsappUrl = Uri.parse('https://wa.me/$phoneNumber/?text=$encodedMessage');
 
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      throw 'Tidak dapat membuka WhatsApp';
+    try {
+      if (await canLaunchUrl(whatsappUrl)) {
+        await launchUrl(whatsappUrl, mode: LaunchMode.externalApplication);
+      } else {
+        throw 'Tidak dapat membuka WhatsApp';
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('Gagal membuka WhatsApp: Pastikan WhatsApp terinstal dan nomor valid'),
+            duration: const Duration(seconds: 5),
+            action: SnackBarAction(
+              label: 'OK',
+              onPressed: () {},
+            ),
+          ),
+        );
+      }
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +54,7 @@ class SabinaBottomNavigation extends StatelessWidget {
         if (index == 0) {
           resetToHome();
         } else if (index == 4) {
-          // Pastikan ikon keempat adalah untuk WhatsApp
-          _launchWhatsApp(); // Fungsi untuk membuka WhatsApp
+          _launchWhatsApp(context);
         } else {
           onTap(index);
         }
@@ -46,49 +63,29 @@ class SabinaBottomNavigation extends StatelessWidget {
       backgroundColor: Colors.white,
       selectedItemColor: AppColors.primaryBlack,
       unselectedItemColor: Colors.grey,
-      items: [
+      items: const [
         BottomNavigationBarItem(
-          icon: Icon(
-            Icons.home,
-            size: 30,
-            color: currentIndex == 0 ? AppColors.primaryBlack : Colors.grey,
-          ),
+          icon: Icon(Icons.home, size: 30),
           label: 'Beranda',
           tooltip: 'Halaman Beranda',
         ),
         BottomNavigationBarItem(
-          icon: Icon(
-            Icons.safety_check,
-            size: 30,
-            color: currentIndex == 1 ? AppColors.primaryBlack : Colors.grey,
-          ),
+          icon: Icon(Icons.safety_check, size: 30),
           label: 'Skrining',
           tooltip: 'Halaman Skrining',
         ),
         BottomNavigationBarItem(
-          icon: Icon(
-            Icons.pregnant_woman,
-            size: 30,
-            color: currentIndex == 2 ? AppColors.primaryBlack : Colors.grey,
-          ),
+          icon: Icon(Icons.pregnant_woman, size: 30),
           label: 'Penapisan',
           tooltip: 'Halaman Penapisan',
         ),
         BottomNavigationBarItem(
-          icon: Icon(
-            Icons.feedback,
-            size: 30,
-            color: currentIndex == 3 ? AppColors.primaryBlack : Colors.grey,
-          ),
+          icon: Icon(Icons.feedback, size: 30),
           label: 'Keluhan',
           tooltip: 'Halaman Keluhan',
         ),
         BottomNavigationBarItem(
-          icon: FaIcon(
-            FontAwesomeIcons.whatsapp, // Menggunakan ikon Font Awesome untuk WhatsApp
-            size: 30,
-            color: currentIndex == 4 ? AppColors.primaryBlack : Colors.grey,
-          ),
+          icon: FaIcon(FontAwesomeIcons.whatsapp, size: 30),
           label: 'Konsultasi',
           tooltip: 'Konsultasi via WhatsApp',
         ),
