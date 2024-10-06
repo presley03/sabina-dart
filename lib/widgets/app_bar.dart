@@ -24,43 +24,48 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
         AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          title: Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Cari...",
-                  hintStyle: const TextStyle(color: Colors.grey),
-                  prefixIcon: const Icon(Icons.search, color: Colors.black),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: const BorderSide(
-                      color: Colors.grey,
-                      width: 1.0,
+          title: Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: SizedBox(
+                    height: 40, // Tinggi yang tetap
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "Cari...",
+                        hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
+                        prefixIcon: const Icon(Icons.search, color: Colors.black, size: 20),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          borderSide: const BorderSide(
+                            color: Colors.grey,
+                            width: 1.0,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          borderSide: const BorderSide(
+                            color: Colors.grey,
+                            width: 1.5,
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      ),
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: const BorderSide(
-                      color: Colors.grey,
-                      width: 1.5,
-                    ),
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
                 ),
               ),
-            ),
+              IconButton(
+                icon: const Icon(Icons.account_circle, color: Colors.black),
+                onPressed: () {
+                  _showUserIdentity(context);
+                },
+              ),
+            ],
           ),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.account_circle, color: Colors.black),
-              onPressed: () {
-                _showUserIdentity(context);
-              },
-            ),
-          ],
         ),
       ],
     );

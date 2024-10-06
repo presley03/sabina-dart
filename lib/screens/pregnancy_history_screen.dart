@@ -190,7 +190,11 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       onPressed: _submitForm,
-      child: const Text('Simpan', style: TextStyle(fontSize: 18)),
+      child: const Text('Simpan', style: TextStyle(
+        fontSize: 18,
+        fontFamily: 'Roboto',
+        ),
+      ),
     );
   }
 

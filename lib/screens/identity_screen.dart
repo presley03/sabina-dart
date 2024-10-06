@@ -6,7 +6,9 @@ import '../models/user_identity.dart';
 import 'home_screen.dart';
 
 class IdentityScreen extends StatefulWidget {
-  const IdentityScreen({super.key});
+  final UserIdentity? userIdentity;
+
+  const IdentityScreen({super.key, this.userIdentity});
 
   @override
   IdentityScreenState createState() => IdentityScreenState();
@@ -14,10 +16,10 @@ class IdentityScreen extends StatefulWidget {
 
 class IdentityScreenState extends State<IdentityScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _namaController = TextEditingController();
-  final _tanggalLahirController = TextEditingController();
-  final _alamatController = TextEditingController();
-  final _golonganDarahController = TextEditingController();
+  late TextEditingController _namaController;
+  late TextEditingController _tanggalLahirController;
+  late TextEditingController _alamatController;
+  late TextEditingController _golonganDarahController;
   String? _selectedAgama;
 
   final List<String> _agamaList = const [
@@ -25,10 +27,28 @@ class IdentityScreenState extends State<IdentityScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _namaController = TextEditingController(text: widget.userIdentity?.nama ?? '');
+    _tanggalLahirController = TextEditingController(text: widget.userIdentity?.tanggalLahir ?? '');
+    _alamatController = TextEditingController(text: widget.userIdentity?.alamat ?? '');
+    _golonganDarahController = TextEditingController(text: widget.userIdentity?.golonganDarah ?? '');
+    _selectedAgama = widget.userIdentity?.agama;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Identitas Ibu', style: TextStyle(color: Colors.white)),
+        title: Text(
+          widget.userIdentity != null ? 'Edit Identitas' : 'Identitas Ibu',
+          style: const TextStyle(
+            fontSize: 28, // Mengatur ukuran font
+            fontWeight: FontWeight.bold, // Mengatur ketebalan font
+            color: Colors.white, // Mengatur warna teks
+            fontFamily: 'Roboto', // Anda bisa mengganti dengan font yang diinginkan
+          ),
+        ),
         backgroundColor: AppColors.primaryPink,
         elevation: 0,
       ),
@@ -50,7 +70,12 @@ class IdentityScreenState extends State<IdentityScreen> {
                 children: [
                   const Text(
                     'Lengkapi Data Diri Anda',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primaryTranparent, // Mengatur warna teks
+                      fontFamily: 'Roboto', // Mengatur jenis font
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 30),
@@ -78,7 +103,15 @@ class IdentityScreenState extends State<IdentityScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                     ),
-                    child: const Text('Simpan', style: TextStyle(fontSize: 18)),
+                    child: Text(
+                      widget.userIdentity != null ? 'Simpan Perubahan' : 'Simpan',
+                      style: const TextStyle(
+                        fontSize: 18, // Ukuran font teks pada tombol
+                        fontWeight: FontWeight.bold, // Ketebalan teks
+                        color: Colors.black, // Warna teks
+                        fontFamily: 'Roboto', // Jenis font
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -195,6 +228,7 @@ class IdentityScreenState extends State<IdentityScreen> {
   void _saveIdentity() async {
     if (_formKey.currentState?.validate() ?? false) {
       final identity = UserIdentity(
+        id: widget.userIdentity?.id,
         nama: _namaController.text,
         agama: _selectedAgama ?? '',
         tanggalLahir: _tanggalLahirController.text,
@@ -202,7 +236,12 @@ class IdentityScreenState extends State<IdentityScreen> {
         golonganDarah: _golonganDarahController.text,
       );
 
-      await DatabaseHelper.instance.insertIdentity(identity.toMap());
+      if (widget.userIdentity != null) {
+        await DatabaseHelper.instance.updateIdentity(identity.toMap());
+      } else {
+        await DatabaseHelper.instance.insertIdentity(identity.toMap());
+      }
+
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -215,12 +254,6 @@ class IdentityScreenState extends State<IdentityScreen> {
         );
       }
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _tanggalLahirController.text = DateFormat('dd-MM-yyyy').format(DateTime.now());
   }
 
   @override

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../utils/constants.dart';
 
 class SabinaBottomNavigation extends StatelessWidget {
@@ -13,6 +15,19 @@ class SabinaBottomNavigation extends StatelessWidget {
     required this.resetToHome,
   });
 
+  // Fungsi untuk meluncurkan WhatsApp
+  void _launchWhatsApp() async {
+    String phoneNumber = '6283141499437'; // Ganti dengan nomor WhatsApp yang diinginkan
+    String url = 'https://wa.me/$phoneNumber';
+    Uri uri = Uri.parse(url);
+
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Tidak dapat membuka WhatsApp';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -20,12 +35,15 @@ class SabinaBottomNavigation extends StatelessWidget {
       onTap: (index) {
         if (index == 0) {
           resetToHome();
+        } else if (index == 4) {
+          // Pastikan ikon keempat adalah untuk WhatsApp
+          _launchWhatsApp(); // Fungsi untuk membuka WhatsApp
         } else {
           onTap(index);
         }
       },
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.yellow[100]!,
+      backgroundColor: Colors.white,
       selectedItemColor: AppColors.primaryBlack,
       unselectedItemColor: Colors.grey,
       items: [
@@ -58,12 +76,21 @@ class SabinaBottomNavigation extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.healing,
+            Icons.feedback,
             size: 30,
             color: currentIndex == 3 ? AppColors.primaryBlack : Colors.grey,
           ),
           label: 'Keluhan',
           tooltip: 'Halaman Keluhan',
+        ),
+        BottomNavigationBarItem(
+          icon: FaIcon(
+            FontAwesomeIcons.whatsapp, // Menggunakan ikon Font Awesome untuk WhatsApp
+            size: 30,
+            color: currentIndex == 4 ? AppColors.primaryBlack : Colors.grey,
+          ),
+          label: 'Konsultasi',
+          tooltip: 'Konsultasi via WhatsApp',
         ),
       ],
       selectedLabelStyle: const TextStyle(
