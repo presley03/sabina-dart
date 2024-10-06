@@ -26,30 +26,29 @@ class KeluarCairanQuestionnaireScreen extends StatelessWidget {
           appBar: const SabinaAppBar(),
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Pertanyaan ${model.currentQuestionIndex + 1} dari ${model.questions.length}',
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 16),
-                  Expanded(
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            model.currentQuestion.text,
-                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 24),
-                          _buildAnswerButtons(context, model),
-                        ],
-                      ),
+                    "Pertanyaan ${model.currentQuestionIndex + 1} dari ${model.questions.length}",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54,
                     ),
                   ),
+                  const SizedBox(height: 20),
+                  Text(
+                    model.currentQuestion.text,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 40),
+                  _buildAnswerButtons(context, model),
                 ],
               ),
             ),
@@ -63,27 +62,27 @@ class KeluarCairanQuestionnaireScreen extends StatelessWidget {
     if (model.currentQuestionIndex == 0) {
       return Column(
         children: [
-          _buildAnswerButton(context, 'Bening', () => _answerAndCheckCompletion(context, model, 'Bening')),
+          _buildAnswerButton(context, 'Bening', () => model.answerQuestion('Bening')),
           const SizedBox(height: 10),
-          _buildAnswerButton(context, 'Keruh', () => _answerAndCheckCompletion(context, model, 'Keruh')),
+          _buildAnswerButton(context, 'Keruh', () => model.answerQuestion('Keruh')),
           const SizedBox(height: 10),
-          _buildAnswerButton(context, 'Darah', () => _answerAndCheckCompletion(context, model, 'Darah')),
+          _buildAnswerButton(context, 'Darah', () => model.answerQuestion('Darah')),
         ],
       );
     } else if (model.currentQuestionIndex == 2) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildAnswerButton(context, 'Tidak ada', () => _answerAndCheckCompletion(context, model, 'Tidak ada')),
-          _buildAnswerButton(context, 'Berbau', () => _answerAndCheckCompletion(context, model, 'Berbau')),
+          _buildAnswerButton(context, 'Tidak ada', () => model.answerQuestion('Tidak ada')),
+          _buildAnswerButton(context, 'Berbau', () => model.answerQuestion('Berbau')),
         ],
       );
     } else {
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildAnswerButton(context, 'Ya', () => _answerAndCheckCompletion(context, model, 'Ya')),
-          _buildAnswerButton(context, 'Tidak', () => _answerAndCheckCompletion(context, model, 'Tidak')),
+          _buildAnswerButton(context, 'Ya', () => model.answerQuestion('Ya')),
+          _buildAnswerButton(context, 'Tidak', () => model.answerQuestion('Tidak')),
         ],
       );
     }
@@ -91,28 +90,23 @@ class KeluarCairanQuestionnaireScreen extends StatelessWidget {
 
   Widget _buildAnswerButton(BuildContext context, String text, VoidCallback onPressed) {
     return ElevatedButton(
-      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primaryPink,
-        foregroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        minimumSize: const Size(120, 60),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        elevation: 3,
       ),
+      onPressed: onPressed,
       child: Text(
         text,
-        style: const TextStyle(fontSize: 18),
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
-  }
-
-  void _answerAndCheckCompletion(BuildContext context, KeluarCairanModel model, String answer) {
-    model.answerQuestion(answer);
-    if (model.isQuestionnaireCompleted) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const KeluarCairanResultScreen()),
-      );
-    }
   }
 }

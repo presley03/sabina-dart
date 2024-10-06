@@ -26,35 +26,34 @@ class MualMuntahQuestionnaireScreen extends StatelessWidget {
           appBar: const SabinaAppBar(),
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Pertanyaan ${model.currentQuestionIndex + 1} dari ${model.questions.length}',
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 16),
-                  Expanded(
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            model.currentQuestion.text,
-                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 24),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              _buildAnswerButton(context, 'Ya', () => _answerAndCheckCompletion(context, model, true)),
-                              _buildAnswerButton(context, 'Tidak', () => _answerAndCheckCompletion(context, model, false)),
-                            ],
-                          ),
-                        ],
-                      ),
+                    "Pertanyaan ${model.currentQuestionIndex + 1} dari ${model.questions.length}",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54,
                     ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    model.currentQuestion.text,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 40),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _buildAnswerButton(context, model, true),
+                      _buildAnswerButton(context, model, false),
+                    ],
                   ),
                 ],
               ),
@@ -65,30 +64,25 @@ class MualMuntahQuestionnaireScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildAnswerButton(BuildContext context, String text, VoidCallback onPressed) {
+  Widget _buildAnswerButton(BuildContext context, MualMuntahModel model, bool answer) {
     return ElevatedButton(
-      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primaryPink,
-        foregroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        minimumSize: const Size(120, 60),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        elevation: 3,
       ),
+      onPressed: () => model.answerQuestion(answer),
       child: Text(
-        text,
-        style: const TextStyle(fontSize: 18),
+        answer ? 'Ya' : 'Tidak',
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
-  }
-
-  void _answerAndCheckCompletion(BuildContext context, MualMuntahModel model, bool answer) {
-    model.answerQuestion(answer);
-    if (model.isQuestionnaireCompleted) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const MualMuntahResultScreen()),
-      );
-    }
   }
 }

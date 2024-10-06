@@ -15,7 +15,7 @@ class PenapisanResultScreen extends StatelessWidget {
         int score = model.calculateScore();
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Hasil Penapisan', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+            title: const Text('Hasil', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
             backgroundColor: AppColors.primaryPink,
             elevation: 0,
             iconTheme: const IconThemeData(color: Colors.black),
@@ -51,7 +51,7 @@ class PenapisanResultScreen extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               const Text(
-                                'Rekomendasi dari jawaban Ibu :',
+                                'Rekomendasi :',
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,

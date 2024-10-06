@@ -32,19 +32,28 @@ class QuestionnaireScreen extends StatelessWidget {
           ),
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
+                    "Pertanyaan ${model.currentQuestionIndex + 1} dari ${model.questions.length}",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
                     model.currentQuestion.text,
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -65,15 +74,20 @@ class QuestionnaireScreen extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFFFFB6C1),
-        minimumSize: const Size(100, 50),
+        foregroundColor: Colors.black,
+        minimumSize: const Size(120, 60),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(15),
         ),
+        elevation: 3,
       ),
       onPressed: () => model.answerQuestion(answer),
       child: Text(
         answer ? 'Ya' : 'Tidak',
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }

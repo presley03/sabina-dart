@@ -26,34 +26,30 @@ class PergerakanJaninQuestionnaireScreen extends StatelessWidget {
           appBar: const SabinaAppBar(),
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Pertanyaan ${model.currentQuestionIndex + 1} dari ${model.questions.length}',
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 16),
-                  Expanded(
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            model.currentQuestion.text,
-                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 24),
-                          ...model.currentQuestion.options.map((option) =>
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: _buildAnswerButton(context, option, () => _answerAndCheckCompletion(context, model, option)),
-                            ),
-                          ),
-                        ],
-                      ),
+                    "Pertanyaan ${model.currentQuestionIndex + 1} dari ${model.questions.length}",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54,
                     ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    model.currentQuestion.text,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 40),
+                  ...model.currentQuestion.options.map((option) =>
+                    _buildAnswerButton(context, model, option),
                   ),
                 ],
               ),
@@ -64,31 +60,28 @@ class PergerakanJaninQuestionnaireScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildAnswerButton(BuildContext context, String text, VoidCallback onPressed) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primaryPink,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+  Widget _buildAnswerButton(BuildContext context, PergerakanJaninModel model, String answer) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primaryPink,
+          foregroundColor: Colors.black,
+          minimumSize: const Size(double.infinity, 60),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          elevation: 3,
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-        minimumSize: const Size(200, 50),
-      ),
-      child: Text(
-        text,
-        style: const TextStyle(fontSize: 18),
+        onPressed: () => model.answerQuestion(answer),
+        child: Text(
+          answer,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
-  }
-
-  void _answerAndCheckCompletion(BuildContext context, PergerakanJaninModel model, String answer) {
-    model.answerQuestion(answer);
-    if (model.isQuestionnaireCompleted) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const PergerakanJaninResultScreen()),
-      );
-    }
   }
 }

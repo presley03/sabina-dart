@@ -14,7 +14,7 @@ class MualMuntahResultScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.lightPink,
       appBar: AppBar(
-        title: const Text('Hasil kuesioner', style: TextStyle(color: Colors.black)),
+        title: const Text('Hasil', style: TextStyle(color: Colors.black)),
         backgroundColor: AppColors.primaryPink,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
