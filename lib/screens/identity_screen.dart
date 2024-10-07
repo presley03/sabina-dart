@@ -45,7 +45,7 @@ class IdentityScreenState extends State<IdentityScreen> {
           style: const TextStyle(
             fontSize: 28, // Mengatur ukuran font
             fontWeight: FontWeight.bold, // Mengatur ketebalan font
-            color: Colors.white, // Mengatur warna teks
+            color: Colors.transparent, // Mengatur warna teks
             fontFamily: 'Roboto', // Anda bisa mengganti dengan font yang diinginkan
           ),
         ),
@@ -73,7 +73,7 @@ class IdentityScreenState extends State<IdentityScreen> {
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.primaryTranparent, // Mengatur warna teks
+                      color: AppColors.primaryWhite, // Mengatur warna teks
                       fontFamily: 'Roboto', // Mengatur jenis font
                     ),
                     textAlign: TextAlign.center,

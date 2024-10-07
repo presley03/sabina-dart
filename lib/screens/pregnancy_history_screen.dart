@@ -12,24 +12,37 @@ class PregnancyHistoryScreen extends StatefulWidget {
 
 class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _dateController = TextEditingController();
-  final _weightController = TextEditingController();
+  final _lastPeriodDateController = TextEditingController();
+  final _preBBController = TextEditingController();
   final _heightController = TextEditingController();
-  String? _pregnancyNumber;
-  String? _childrenCount;
+  int _pregnancyNumber = 1;
+  int _childrenCount = 0;
   String? _miscarriageHistory;
-  String? _childbirthHistory;
-  String? _childNumber;
-  String? _birthYear;
-  final _weightAtBirthController = TextEditingController();
-  final _typeOfDeliveryController = TextEditingController();
-  final _birthAttendantController = TextEditingController();
-  final _complicationsController = TextEditingController();
+  int _lastChildInfo = 1;
+  int _lastChildBirthYear = DateTime.now().year;
+  String _lastChildBirthWeight = '2500-4000 gram';
+  String _lastChildDeliveryMethod = 'Normal per vagina';
+  String _lastChildBirthAttendant = 'Dokter';
+  final _lastPregnancyComplicationsController = TextEditingController();
+  String _pregnancyAge = '';
 
   @override
   void initState() {
     super.initState();
-    _dateController.text = DateFormat('dd MMM yyyy').format(DateTime.now());
+    _lastPeriodDateController.addListener(_calculatePregnancyAge);
+  }
+
+  void _calculatePregnancyAge() {
+    if (_lastPeriodDateController.text.isNotEmpty) {
+      final lastPeriod = DateFormat('dd-MM-yyyy').parse(_lastPeriodDateController.text);
+      final today = DateTime.now();
+      final difference = today.difference(lastPeriod);
+      final weeks = difference.inDays ~/ 7;
+      final days = difference.inDays % 7;
+      setState(() {
+        _pregnancyAge = '$weeks minggu $days hari';
+      });
+    }
   }
 
   @override
@@ -41,159 +54,201 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         elevation: 0,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildDateInput(),
-              const SizedBox(height: 20),
-              _buildNumberInput('Berat Badan', _weightController, 'Kg'),
-              _buildNumberInput('Tinggi Badan', _heightController, 'cm'),
-              const SizedBox(height: 20),
-              _buildGridInputs(),
-              const SizedBox(height: 30),
-              _buildSaveButton(),
-            ],
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildDateInput('Hari pertama haid terakhir', _lastPeriodDateController),
+                const SizedBox(height: 8),
+                Text('Usia Kehamilan: $_pregnancyAge', style: const TextStyle(fontWeight: FontWeight.bold)),
+                const SizedBox(height: 16),
+                _buildNumberInput('BB sebelum hamil (Kg)', _preBBController),
+                _buildNumberInput('TB (cm)', _heightController),
+                _buildSlider('Kehamilan ke', _pregnancyNumber, 1, 10, (value) {
+                  setState(() => _pregnancyNumber = value);
+                }),
+                _buildSlider('Jumlah Anak yang ada', _childrenCount, 0, 10, (value) {
+                  setState(() => _childrenCount = value);
+                }),
+                _buildDropdown('Riwayat keguguran', ['Ya', 'Tidak'], _miscarriageHistory, (value) {
+                  setState(() => _miscarriageHistory = value);
+                }),
+                const SizedBox(height: 24),
+                const Text('Riwayat kehamilan Lalu (jika Ada)', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                const SizedBox(height: 16),
+                _buildSlider('Anak Ke', _lastChildInfo, 1, 10, (value) {
+                  setState(() => _lastChildInfo = value);
+                }),
+                _buildYearPicker('Tahun Lahir', _lastChildBirthYear, (value) {
+                  setState(() => _lastChildBirthYear = value);
+                }),
+                _buildDropdown('BB Lahir', ['< 2500 gram', '2500-4000 gram', '> 4000 gram'], _lastChildBirthWeight, (value) {
+                  setState(() => _lastChildBirthWeight = value!);
+                }),
+                _buildDropdown('Cara persalinan', ['Normal per vagina', 'Operasi Caesar'], _lastChildDeliveryMethod, (value) {
+                  setState(() => _lastChildDeliveryMethod = value!);
+                }),
+                _buildDropdown('Penolong persalinan', ['Dokter', 'Bidan', 'Dukun bersalin'], _lastChildBirthAttendant, (value) {
+                  setState(() => _lastChildBirthAttendant = value!);
+                }),
+                _buildTextInput('Penyakit/komplikasi pada kehamilan/persalinan lalu', _lastPregnancyComplicationsController),
+                const SizedBox(height: 24),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primaryPink,
+                    minimumSize: const Size(double.infinity, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  onPressed: _submitForm,
+                  child: const Text('Simpan', style: TextStyle(fontSize: 18)),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildDateInput() {
-    return TextFormField(
-      controller: _dateController,
-      decoration: InputDecoration(
-        labelText: 'Tanggal Pemeriksaan Terakhir',
-        suffixIcon: const Icon(Icons.calendar_today, color: AppColors.primaryPink),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-      readOnly: true,
-      onTap: () async {
-        final DateTime? pickedDate = await showDatePicker(
-          context: context,
-          initialDate: DateTime.now(),
-          firstDate: DateTime(2000),
-          lastDate: DateTime.now(),
-        );
-        if (pickedDate != null && mounted) {
-          setState(() {
-            _dateController.text = DateFormat('dd MMM yyyy').format(pickedDate);
-          });
-        }
-      },
-    );
-  }
-
-  Widget _buildNumberInput(String label, TextEditingController controller, String suffix) {
+  Widget _buildDateInput(String label, TextEditingController controller) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
+      padding: const EdgeInsets.only(bottom: 16),
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
-          suffixText: suffix,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          suffixIcon: const Icon(Icons.calendar_today),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
         ),
-        keyboardType: TextInputType.number,
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Harap isi field ini';
+        readOnly: true,
+        onTap: () async {
+          final DateTime? pickedDate = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2000),
+            lastDate: DateTime.now(),
+          );
+          if (pickedDate != null) {
+            setState(() {
+              controller.text = DateFormat('dd-MM-yyyy').format(pickedDate);
+            });
           }
-          return null;
         },
+        validator: (value) => value?.isEmpty ?? true ? 'Harap isi tanggal' : null,
       ),
     );
   }
 
-  Widget _buildDropdown(String label, List<String> items, String? value) {
+  Widget _buildNumberInput(String label, TextEditingController controller) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
-      child: DropdownButtonFormField<String>(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           labelText: label,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
         ),
-        value: value,
-        items: items.map((String value) {
-          return DropdownMenuItem<String>(
+        keyboardType: TextInputType.number,
+        validator: (value) => value?.isEmpty ?? true ? 'Harap isi field ini' : null,
+      ),
+    );
+  }
+
+  Widget _buildSlider(String label, int value, int min, int max, Function(int) onChanged) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          Slider(
+            value: value.toDouble(),
+            min: min.toDouble(),
+            max: max.toDouble(),
+            divisions: max - min,
+            label: value.toString(),
+            onChanged: (double newValue) {
+              onChanged(newValue.round());
+            },
+          ),
+          Text('Nilai: $value', style: const TextStyle(fontSize: 14)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildYearPicker(String label, int value, Function(int) onChanged) {
+    final currentYear = DateTime.now().year;
+    final years = List.generate(currentYear - 2009, (index) => currentYear - index);
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          DropdownButtonFormField<int>(
             value: value,
-            child: Text(value),
-          );
-        }).toList(),
-        onChanged: (String? newValue) {
-          setState(() {
-            switch (label) {
-              case 'Kehamilan Ke':
-                _pregnancyNumber = newValue;
-                break;
-              case 'Jumlah Anak':
-                _childrenCount = newValue;
-                break;
-              case 'Riwayat Keguguran':
-                _miscarriageHistory = newValue;
-                break;
-              case 'Riwayat Kelahiran':
-                _childbirthHistory = newValue;
-                break;
-              case 'Anak Ke':
-                _childNumber = newValue;
-                break;
-              case 'Tahun Lahir':
-                _birthYear = newValue;
-                break;
-            }
-          });
-        },
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Harap pilih salah satu opsi';
-          }
-          return null;
-        },
+            items: years.map((int year) {
+              return DropdownMenuItem<int>(
+                value: year,
+                child: Text(year.toString()),
+              );
+            }).toList(),
+            onChanged: (int? newValue) {
+              if (newValue != null) onChanged(newValue);
+            },
+            decoration: InputDecoration(
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  // Function to create grid layout for inputs
-  Widget _buildGridInputs() {
-    return GridView(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, // Set the number of columns
-        crossAxisSpacing: 16.0, // Space between columns
-        mainAxisSpacing: 16.0, // Space between rows
-        childAspectRatio: 2.5, // Adjust ratio to control input size
+  Widget _buildDropdown(String label, List<String> items, String? value, Function(String?) onChanged) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          DropdownButtonFormField<String>(
+            value: value,
+            items: items.map((String item) {
+              return DropdownMenuItem<String>(
+                value: item,
+                child: Text(item),
+              );
+            }).toList(),
+            onChanged: onChanged,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+            ),
+            validator: (value) => value == null ? 'Harap pilih salah satu opsi' : null,
+          ),
+        ],
       ),
-      children: [
-        _buildDropdown('Kehamilan Ke', ['1', '2', '3', '4', '5+'], _pregnancyNumber),
-        _buildDropdown('Jumlah Anak', ['0', '1', '2', '3', '4', '5+'], _childrenCount),
-        _buildDropdown('Riwayat Keguguran', ['Ya', 'Tidak'], _miscarriageHistory),
-        _buildDropdown('Riwayat Kelahiran', ['Ya', 'Tidak'], _childbirthHistory),
-        _buildDropdown('Anak Ke', ['1', '2', '3', '4', '5+'], _childNumber),
-        _buildDropdown(
-            'Tahun Lahir',
-            List.generate(30, (index) => (DateTime.now().year - index).toString()),
-            _birthYear),
-      ],
     );
   }
 
-  Widget _buildSaveButton() {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primaryPink,
-        minimumSize: const Size(double.infinity, 50),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-      onPressed: _submitForm,
-      child: const Text('Simpan', style: TextStyle(
-        fontSize: 18,
-        fontFamily: 'Roboto',
+  Widget _buildTextInput(String label, TextEditingController controller) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: label,
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
         ),
+        maxLines: 3,
+        validator: (value) => value?.isEmpty ?? true ? 'Harap isi field ini' : null,
       ),
     );
   }
@@ -201,26 +256,24 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   void _submitForm() async {
     if (_formKey.currentState!.validate()) {
       final pregnancyHistory = {
-        'tanggal_pemeriksaan': _dateController.text,
-        'berat_badan': int.parse(_weightController.text),
-        'tinggi_badan': int.parse(_heightController.text),
-        'kehamilan_ke': _pregnancyNumber ?? '',
-        'jumlah_anak': _childrenCount ?? '',
+        'tanggal_haid_terakhir': _lastPeriodDateController.text,
+        'usia_kehamilan': _pregnancyAge,
+        'berat_badan_sebelum_hamil': int.tryParse(_preBBController.text) ?? 0,
+        'tinggi_badan': int.tryParse(_heightController.text) ?? 0,
+        'kehamilan_ke': _pregnancyNumber.toString(),
+        'jumlah_anak': _childrenCount.toString(),
         'riwayat_keguguran': _miscarriageHistory ?? '',
-        'riwayat_kelahiran': _childbirthHistory ?? '',
-        'anak_ke': _childNumber ?? '',
-        'tahun_lahir': _birthYear ?? '',
-        'berat_badan_lahir': int.parse(_weightAtBirthController.text),
-        'cara_persalinan': _typeOfDeliveryController.text,
-        'penolong_persalinan': _birthAttendantController.text,
-        'komplikasi': _complicationsController.text,
+        'anak_ke_terakhir': _lastChildInfo.toString(),
+        'tahun_lahir_terakhir': _lastChildBirthYear.toString(),
+        'berat_badan_lahir_terakhir': _lastChildBirthWeight,
+        'cara_persalinan_terakhir': _lastChildDeliveryMethod,
+        'penolong_persalinan_terakhir': _lastChildBirthAttendant,
+        'komplikasi_kehamilan_terakhir': _lastPregnancyComplicationsController.text,
       };
 
       try {
         final id = await DatabaseHelper.instance.insertPregnancyHistory(pregnancyHistory);
-        
         if (!mounted) return;
-
         if (id > 0) {
           _showSnackBar('Data riwayat kehamilan berhasil disimpan');
           Navigator.pop(context);
@@ -236,19 +289,22 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
 
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
+      SnackBar(
+        content: Text(message),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
     );
   }
 
   @override
   void dispose() {
-    _dateController.dispose();
-    _weightController.dispose();
+    _lastPeriodDateController.dispose();
+    _preBBController.dispose();
     _heightController.dispose();
-    _weightAtBirthController.dispose();
-    _typeOfDeliveryController.dispose();
-    _birthAttendantController.dispose();
-    _complicationsController.dispose();
+    _lastPregnancyComplicationsController.dispose();
     super.dispose();
   }
 }
