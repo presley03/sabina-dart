@@ -1,0 +1,47 @@
+{
+    "@@locale": "id",
+    "age": "Usia",
+    "@age": {
+      "description": "Label untuk usia"
+    },
+    "bloodType": "Golongan Darah",
+    "@bloodType": {
+      "description": "Label untuk golongan darah"
+    },
+    "religion": "Agama",
+    "@religion": {
+      "description": "Label untuk agama"
+    },
+    "years": "tahun",
+    "@years": {
+      "description": "Bentuk jamak untuk tahun"
+    },
+    "notAvailable": "Tidak tersedia",
+    "@notAvailable": {
+      "description": "Ditampilkan ketika data tidak tersedia"
+    },
+    "privacyPolicy": "Kebijakan Privasi",
+    "@privacyPolicy": {
+      "description": "Judul untuk bagian kebijakan privasi"
+    },
+    "privacyPolicyText": "Sabina menghormati dan melindungi privasi Anda. Kami mengumpulkan dan menggunakan informasi pribadi Anda hanya untuk tujuan memberikan layanan kesehatan ibu yang terbaik. Data Anda disimpan dengan aman dan tidak dibagikan kepada pihak ketiga tanpa persetujuan eksplisit Anda. Anda memiliki hak untuk mengakses, mengubah, atau menghapus informasi pribadi Anda kapan saja.",
+    "@privacyPolicyText": {
+      "description": "Teks lengkap kebijakan privasi"
+    },
+    "language": "Bahasa",
+    "@language": {
+      "description": "Label untuk pemilihan bahasa"
+    },
+    "noData": "Data tidak tersedia",
+    "@noData": {
+      "description": "Ditampilkan ketika tidak ada data tersedia"
+    },
+    "profile": "Profil",
+    "@profile": {
+      "description": "Judul untuk layar profil"
+    },
+    "address": "Alamat",
+    "@address": {
+      "description": "Label untuk alamat"
+    }
+  }

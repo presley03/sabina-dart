@@ -16,50 +16,47 @@ class DatabaseHelper {
   Future<Database> _initDB(String filePath) async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
-    return await openDatabase(path, version: 4, onCreate: _createDB, onUpgrade: _onUpgrade);
+    return await openDatabase(path, version: 5, onCreate: _createDB, onUpgrade: _onUpgrade);
   }
 
   Future _createDB(Database db, int version) async {
-    const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    const textType = 'TEXT';
-    const integerType = 'INTEGER';
-
     await db.execute('''
     CREATE TABLE user_identity (
-      id $idType,
-      nama $textType,
-      agama $textType,
-      tanggal_lahir $textType,
-      alamat $textType,
-      golongan_darah $textType
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      nama TEXT,
+      agama TEXT,
+      tanggal_lahir TEXT,
+      alamat TEXT,
+      golongan_darah TEXT
     )
     ''');
 
     await db.execute('''
     CREATE TABLE pregnancy_history (
-      id $idType,
-      tanggal_haid_terakhir $textType,
-      usia_kehamilan $textType,
-      berat_badan_sebelum_hamil $integerType,
-      tinggi_badan $integerType,
-      kehamilan_ke $textType,
-      jumlah_anak $textType,
-      riwayat_keguguran $textType,
-      anak_ke_terakhir $textType,
-      tahun_lahir_terakhir $textType,
-      berat_badan_lahir_terakhir $textType,
-      cara_persalinan_terakhir $textType,
-      penolong_persalinan_terakhir $textType,
-      komplikasi_kehamilan_terakhir $textType
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      tanggal_haid_terakhir TEXT,
+      usia_kehamilan TEXT,
+      berat_badan_sebelum_hamil INTEGER,
+      tinggi_badan INTEGER,
+      kehamilan_ke TEXT,
+      jumlah_anak TEXT,
+      riwayat_keguguran TEXT,
+      anak_ke_terakhir TEXT,
+      tahun_lahir_terakhir TEXT,
+      berat_badan_lahir_terakhir TEXT,
+      cara_persalinan_terakhir TEXT,
+      penolong_persalinan_terakhir TEXT,
+      komplikasi_kehamilan_terakhir TEXT
     )
     ''');
   }
 
   Future _onUpgrade(Database db, int oldVersion, int newVersion) async {
-    if (oldVersion < 2) {
-      await db.execute('ALTER TABLE user_identity ADD COLUMN agama TEXT');
-    }
-    if (oldVersion < 3) {
+    if (oldVersion < 5) {
+      // Drop the existing table if it exists
+      await db.execute("DROP TABLE IF EXISTS pregnancy_history");
+      
+      // Recreate the table with the correct structure
       await db.execute('''
       CREATE TABLE pregnancy_history (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -79,12 +76,9 @@ class DatabaseHelper {
       )
       ''');
     }
-    if (oldVersion < 4) {
-      // Jika ada perubahan struktur di masa depan, tambahkan di sini
-    }
   }
 
-  // Metode untuk user_identity
+  // Methods for user_identity
   Future<int> insertIdentity(Map<String, dynamic> row) async {
     final db = await instance.database;
     return await db.insert('user_identity', row);
@@ -106,7 +100,7 @@ class DatabaseHelper {
     return await db.delete('user_identity', where: 'id = ?', whereArgs: [id]);
   }
 
-  // Metode untuk pregnancy_history
+  // Methods for pregnancy_history
   Future<int> insertPregnancyHistory(Map<String, dynamic> row) async {
     final db = await instance.database;
     return await db.insert('pregnancy_history', row);

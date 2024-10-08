@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
-import '../screens/user_identity_screen.dart';
+import '../screens/user_profile_screen.dart';
 
 class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SabinaAppBar({super.key});
@@ -74,7 +74,7 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
   void _showUserIdentity(BuildContext context) {
     Navigator.of(context).push(
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => const UserIdentityScreen(),
+        pageBuilder: (context, animation, secondaryAnimation) => const UserProfileScreen(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;

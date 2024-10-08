@@ -1,0 +1,47 @@
+{
+    "@@locale": "en",
+    "age": "Age",
+    "@age": {
+      "description": "Label for age"
+    },
+    "bloodType": "Blood Type",
+    "@bloodType": {
+      "description": "Label for blood type"
+    },
+    "religion": "Religion",
+    "@religion": {
+      "description": "Label for religion"
+    },
+    "years": "years",
+    "@years": {
+      "description": "Plural form for years"
+    },
+    "notAvailable": "N/A",
+    "@notAvailable": {
+      "description": "Displayed when data is not available"
+    },
+    "privacyPolicy": "Privacy Policy",
+    "@privacyPolicy": {
+      "description": "Title for privacy policy section"
+    },
+    "privacyPolicyText": "Sabina respects and protects your privacy. We collect and use your personal information only for the purpose of providing you with the best possible maternal health care services. Your data is securely stored and is not shared with third parties without your explicit consent. You have the right to access, modify, or delete your personal information at any time.",
+    "@privacyPolicyText": {
+      "description": "Full text of the privacy policy"
+    },
+    "language": "Language",
+    "@language": {
+      "description": "Label for language selection"
+    },
+    "noData": "No data available",
+    "@noData": {
+      "description": "Displayed when no data is available"
+    },
+    "profile": "Profile",
+    "@profile": {
+      "description": "Title for profile screen"
+    },
+    "address": "Address",
+    "@address": {
+      "description": "Label for address"
+    }
+  }
