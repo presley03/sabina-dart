@@ -3,8 +3,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:sabina_app/models/keluar_darah_model.dart';
 import 'package:sabina_app/models/mual_muntah_model.dart';
-import 'package:sabina_app/screens/identity_screen.dart';
-//import 'package:sabina_app/screens/splash_screen.dart';
+//import 'package:sabina_app/screens/identity_screen.dart';
+import 'package:sabina_app/screens/splash_screen.dart';
 import 'models/preeclampsia_model.dart';
 import 'models/penapisan_model.dart';
 import 'models/sakit_kepala_model.dart';
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: AppLocalizations.supportedLocales,
-          home: const IdentityScreen(),
+          home: const SplashScreen(),
         );
       },
     );
