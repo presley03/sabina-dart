@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/care_menu_screen.dart';
 
 class CareSection extends StatelessWidget {
   const CareSection({super.key});
@@ -23,12 +24,12 @@ class CareSection extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  // Navigasi ke halaman perawatan lengkap
+                  Navigator.of(context).push(_createRoute());
                 },
                 child: const Text(
                   'Lihat Selengkapnya',
                   style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 12,
                     color: Colors.blue,
                     decoration: TextDecoration.underline,
                   ),
@@ -70,12 +71,12 @@ class CareSection extends StatelessWidget {
     required Color color,
   }) {
     return SizedBox(
-      height: 140, // Tinggi tetap untuk kedua box
+      height: 140,
       child: Card(
         color: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        elevation: 4, // Tambahkan efek shadow
-        shadowColor: Colors.grey, // Warna shadow abu-abu
+        elevation: 4,
+        shadowColor: Colors.grey,
         child: InkWell(
           onTap: () {
             // Navigasi ke halaman detail perawatan
@@ -85,14 +86,12 @@ class CareSection extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Ganti warna ikon menjadi hitam
                 Icon(icon, color: Colors.black, size: 40),
                 const SizedBox(height: 8),
                 Flexible(
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
-                    // Ganti warna teks menjadi hitam
                     style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -106,6 +105,20 @@ class CareSection extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => const CareMenuScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.easeInOut;
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+        return SlideTransition(position: offsetAnimation, child: child);
+      },
     );
   }
 }
