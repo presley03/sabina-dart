@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/care_menu_screen.dart';
+import '../screens/care/care_menu_screen.dart';
 
 class CareSection extends StatelessWidget {
   const CareSection({super.key});

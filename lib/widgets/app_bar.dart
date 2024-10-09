@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 import '../screens/user_profile_screen.dart';
+import '../screens/search_result_screen.dart';
 
 class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SabinaAppBar({super.key});
@@ -30,7 +31,7 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: SizedBox(
-                    height: 40, // Tinggi yang tetap
+                    height: 40,
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: "Cari...",
@@ -54,6 +55,16 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
                         fillColor: Colors.white,
                         contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                       ),
+                      onSubmitted: (value) {
+                        if (value.isNotEmpty) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SearchResultScreen(searchQuery: value),
+                            ),
+                          );
+                        }
+                      },
                     ),
                   ),
                 ),
