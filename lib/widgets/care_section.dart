@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/care/care_menu_screen.dart';
+import '../screens/imt_calculator_screen.dart'; // Pastikan untuk membuat file ini
 
 class CareSection extends StatelessWidget {
   const CareSection({super.key});
@@ -24,7 +25,7 @@ class CareSection extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).push(_createRoute());
+                  Navigator.of(context).push(_createRoute(const CareMenuScreen()));
                 },
                 child: const Text(
                   'Lihat Selengkapnya',
@@ -39,24 +40,40 @@ class CareSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(
+        SizedBox(
+          height: 140,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             children: [
-              Expanded(
-                child: _buildCareCard(
-                  title: 'Makanan',
-                  icon: Icons.restaurant,
-                  color: Colors.blue[100]!,
-                ),
+              _buildCareCard(
+                context: context,
+                title: 'Makanan',
+                icon: Icons.restaurant,
+                color: Colors.blue[100]!,
+                onTap: () {
+                  // Navigasi ke halaman makanan
+                },
               ),
               const SizedBox(width: 10),
-              Expanded(
-                child: _buildCareCard(
-                  title: 'Perawatan\nSehari-hari',
-                  icon: Icons.spa,
-                  color: Colors.red[100]!,
-                ),
+              _buildCareCard(
+                context: context,
+                title: 'Perawatan\nSehari-hari',
+                icon: Icons.spa,
+                color: Colors.red[100]!,
+                onTap: () {
+                  // Navigasi ke halaman perawatan sehari-hari
+                },
+              ),
+              const SizedBox(width: 10),
+              _buildCareCard(
+                context: context,
+                title: 'Hitung IMT',
+                icon: Icons.calculate,
+                color: Colors.green[100]!,
+                onTap: () {
+                  Navigator.of(context).push(_createRoute(const IMTCalculatorScreen()));
+                },
               ),
             ],
           ),
@@ -66,21 +83,21 @@ class CareSection extends StatelessWidget {
   }
 
   Widget _buildCareCard({
+    required BuildContext context,
     required String title,
     required IconData icon,
     required Color color,
+    required VoidCallback onTap,
   }) {
     return SizedBox(
-      height: 140,
+      width: 120,
       child: Card(
         color: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 4,
         shadowColor: Colors.grey,
         child: InkWell(
-          onTap: () {
-            // Navigasi ke halaman detail perawatan
-          },
+          onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
@@ -108,9 +125,9 @@ class CareSection extends StatelessWidget {
     );
   }
 
-  Route _createRoute() {
+  Route _createRoute(Widget page) {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => const CareMenuScreen(),
+      pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
