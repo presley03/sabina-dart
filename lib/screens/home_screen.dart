@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Menggunakan AppLocalizations
 import '../utils/constants.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/pregnancy_history_card.dart';
@@ -59,17 +60,19 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!; // Mendapatkan instance AppLocalizations
+
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.all(16),
-        children: const [
-          PregnancyHistoryCard(),
-          SizedBox(height: 16),
+        children: [
+          const PregnancyHistoryCard(),
+          const SizedBox(height: 16),
           Padding(
-            padding: EdgeInsets.only(left: 8),
+            padding: const EdgeInsets.only(left: 8),
             child: Text(
-              'Informasi Untuk Ibu',
-              style: TextStyle(
+              localizations.informationForMother, // Menggunakan lokal untuk 'Informasi Untuk Ibu'
+              style: const TextStyle(
                 color: Color.fromARGB(255, 8, 8, 8),
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -77,10 +80,10 @@ class HomeContent extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          SizedBox(height: 8),
-          InformationSection(),
-          SizedBox(height: 16),
-          CareSection(),
+          const SizedBox(height: 8),
+          const InformationSection(),
+          const SizedBox(height: 16),
+          const CareSection(),
         ],
       ),
     );

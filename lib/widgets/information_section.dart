@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Untuk menggunakan AppLocalizations
 import '../utils/constants.dart';
 
 class InformationSection extends StatelessWidget {
@@ -6,6 +7,8 @@ class InformationSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!; // Mengambil instance AppLocalizations
+
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: AppColors.secondaryPink,
@@ -21,11 +24,11 @@ class InformationSection extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Informasi Kehamilan',
-                    style: TextStyle(
-                      color: Colors.white, 
-                      fontSize: 16, 
+                  Text(
+                    localizations.pregnancyInformation, // Menggunakan lokal untuk 'Informasi Kehamilan'
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold
                     ),
                   ),
@@ -38,7 +41,7 @@ class InformationSection extends StatelessWidget {
                       backgroundColor: Colors.white,
                       foregroundColor: AppColors.secondaryPink,
                     ),
-                    child: const Text('Cek Sekarang'),
+                    child: Text(localizations.checkNow), // Menggunakan lokal untuk 'Cek Sekarang'
                   ),
                 ],
               ),

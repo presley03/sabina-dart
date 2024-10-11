@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../utils/constants.dart';
 import 'dart:ui';
+import 'user_profile_screen.dart'; // Import User Profile Screen
 
 class IMTCalculatorScreen extends StatefulWidget {
   const IMTCalculatorScreen({super.key});
@@ -89,14 +90,29 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
             child: Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.asset(
-                      AppAssets.imtBackground,
-                      height: 150,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
+                  // Container with shadow effect
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.25),
+                          spreadRadius: 4,
+                          blurRadius: 8,
+                          offset: const Offset(0, 4), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(
+                        AppAssets.imtBackgroundVegetables,
+                        height: 150,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -140,6 +156,8 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
                         ),
                         const SizedBox(height: 24),
                         if (_imt != null) _buildResultCard(),
+                        const SizedBox(height: 24),
+                        _buildTipsCard(), // Tambahan Tips Kesehatan
                       ],
                     ),
                   ),
@@ -149,6 +167,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
           ),
         ),
       ),
+      bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
@@ -248,7 +267,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
   Widget _buildIMTExplanation() {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children:  [
+      children: [
         Text('• < 18.5: Berat badan kurang', style: TextStyle(color: Colors.white)),
         Text('• 18.5 - 24.9: Berat badan normal', style: TextStyle(color: Colors.white)),
         Text('• 25.0 - 29.9: Pra-obesitas', style: TextStyle(color: Colors.white)),
@@ -256,6 +275,92 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
         Text('• 35.0 - 39.9: Obesitas kelas II', style: TextStyle(color: Colors.white)),
         Text('• ≥ 40.0: Obesitas kelas III', style: TextStyle(color: Colors.white)),
       ],
+    );
+  }
+
+  Widget _buildTipsCard() {
+    return _buildGlassmorphicContainer(
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Tips Kesehatan',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          SizedBox(height: 8),
+          Text(
+            '• Jaga pola makan sehat dengan makanan bergizi seimbang.',
+            style: TextStyle(fontSize: 16, color: Colors.white),
+          ),
+          SizedBox(height: 4),
+          Text(
+            '• Tetap aktif dengan olahraga ringan selama kehamilan.',
+            style: TextStyle(fontSize: 16, color: Colors.white),
+          ),
+          SizedBox(height: 4),
+          Text(
+            '• Jangan lupa istirahat yang cukup dan kelola stres.',
+            style: TextStyle(fontSize: 16, color: Colors.white),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBottomNavigationBar() {
+    return BottomAppBar(
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.home, color: AppColors.primaryPink),
+              onPressed: () {
+                Navigator.of(context).pop(); // Navigasi kembali ke halaman utama
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.info, color: AppColors.primaryPink),
+              onPressed: () {
+                // Tampilkan informasi IMT WHO
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('Apa itu IMT WHO?'),
+                      content: const Text(
+                        'Indeks Massa Tubuh (IMT) adalah perbandingan antara berat badan dan tinggi badan. '
+                        'Menurut WHO, IMT digunakan untuk mengetahui apakah seseorang memiliki berat badan sehat. '
+                        'Nilainya dibagi menjadi beberapa kategori: kurang, normal, pra-obesitas, dan obesitas.',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          child: const Text('Tutup'),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.person, color: AppColors.primaryPink),
+              onPressed: () {
+                // Navigasi ke halaman user profile
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const UserProfileScreen()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

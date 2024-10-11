@@ -36,7 +36,8 @@ class AppAssets {
   static const String bgSakitKepala = 'assets/images/bg_sakit_kepala.png';
   static const String bgPergerakanJanin = 'assets/images/bg_pergerakan_janin.png';
   static const String perawatanIbuHamilImage = 'assets/images/artikel_perawatan_ibu hamil.png';
-  static const String imtBackground = 'assets/images/imt_avocado.png';
+  static const String imtBackgroundAvocado = 'assets/images/imt_avocado.png';
+  static const String imtBackgroundVegetables = 'assets/images/imt_vegetables.png';
 }
 
 class AppPadding {

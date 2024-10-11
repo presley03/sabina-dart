@@ -11,7 +11,7 @@ import '../models/user_identity.dart';
 import '../services/database_helper.dart';
 import '../utils/constants.dart';
 import '../providers/locale_provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Untuk menggunakan AppLocalizations
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -59,6 +59,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!; // Mengambil instance AppLocalizations
+
     return Scaffold(
       body: FutureBuilder<Map<String, dynamic>>(
         future: _loadUserData(),
@@ -66,9 +68,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator(color: AppColors.primaryPink));
           } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}', style: const TextStyle(color: Colors.red)));
+            return Center(child: Text('${localizations.error}: ${snapshot.error}', style: const TextStyle(color: Colors.red)));
           } else if (!snapshot.hasData) {
-            return const Center(child: Text('Tidak ada data.', style: TextStyle(color: Colors.grey)));
+            return Center(child: Text(localizations.noData, style: const TextStyle(color: Colors.grey)));
           }
 
           final userIdentity = snapshot.data!['userIdentity'] as UserIdentity;
@@ -80,10 +82,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               SliverToBoxAdapter(child: _buildProfileSummary(userIdentity)),
               SliverList(
                 delegate: SliverChildListDelegate([
-                  _buildIdentitySection(userIdentity),
-                  _buildPregnancyHistorySection(pregnancyHistory),
-                  _buildPrivacyPolicySection(),
-                  _buildLanguageSelector(),
+                  _buildIdentitySection(userIdentity, localizations),
+                  _buildPregnancyHistorySection(pregnancyHistory, localizations),
+                  _buildPrivacyPolicySection(localizations),
+                  _buildLanguageSelector(localizations),
                 ]),
               ),
             ],
@@ -147,9 +149,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildInfoColumn('Usia', _calculateAge(userIdentity.tanggalLahir)),
-          _buildInfoColumn('Gol. Darah', userIdentity.golonganDarah),
-          _buildInfoColumn('Agama', userIdentity.agama),
+          _buildInfoColumn(AppLocalizations.of(context)!.age, _calculateAge(userIdentity.tanggalLahir)), // Usia
+          _buildInfoColumn(AppLocalizations.of(context)!.bloodType, userIdentity.golonganDarah), // Gol. Darah
+          _buildInfoColumn(AppLocalizations.of(context)!.religion, userIdentity.agama), // Agama
         ],
       ),
     );
@@ -165,47 +167,47 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     );
   }
 
-  Widget _buildIdentitySection(UserIdentity userIdentity) {
+  Widget _buildIdentitySection(UserIdentity userIdentity, AppLocalizations localizations) {
     return _buildExpandableSection(
-      'Identitas',
+      localizations.identity, // Identitas
       Icons.person,
       [
-        _buildInfoTile('Nama Lengkap', userIdentity.nama),
-        _buildInfoTile('Tanggal Lahir', userIdentity.tanggalLahir),
-        _buildInfoTile('Alamat', userIdentity.alamat),
+        _buildInfoTile(localizations.fullName, userIdentity.nama), // Nama Lengkap
+        _buildInfoTile(localizations.birthDate, userIdentity.tanggalLahir), // Tanggal Lahir
+        _buildInfoTile(localizations.address, userIdentity.alamat), // Alamat
       ],
       Colors.blue[50]!,
     );
   }
 
-  Widget _buildPregnancyHistorySection(PregnancyHistory? pregnancyHistory) {
+  Widget _buildPregnancyHistorySection(PregnancyHistory? pregnancyHistory, AppLocalizations localizations) {
     if (pregnancyHistory == null) {
       return _buildExpandableSection(
-        'Riwayat Kehamilan',
+        localizations.pregnancyHistory, // Riwayat Kehamilan
         Icons.pregnant_woman,
-        [const ListTile(title: Text('Belum ada data riwayat kehamilan'))],
+        [ListTile(title: Text(localizations.noPregnancyHistory))], // Belum ada data riwayat kehamilan
         Colors.green[50]!,
       );
     }
 
     return _buildExpandableSection(
-      'Riwayat Kehamilan',
+      localizations.pregnancyHistory, // Riwayat Kehamilan
       Icons.pregnant_woman,
       [
-        _buildInfoTile('Usia Kehamilan', pregnancyHistory.usiaKehamilan),
-        _buildInfoTile('Kehamilan Ke', pregnancyHistory.kehamilanKe),
-        _buildInfoTile('Jumlah Anak', pregnancyHistory.jumlahAnak),
-        _buildInfoTile('Riwayat Keguguran', pregnancyHistory.riwayatKeguguran),
+        _buildInfoTile(localizations.gestationalAge, pregnancyHistory.usiaKehamilan), // Usia Kehamilan
+        _buildInfoTile(localizations.pregnancyOrder, pregnancyHistory.kehamilanKe), // Kehamilan Ke
+        _buildInfoTile(localizations.numberOfChildren, pregnancyHistory.jumlahAnak), // Jumlah Anak
+        _buildInfoTile(localizations.miscarriageHistory, pregnancyHistory.riwayatKeguguran), // Riwayat Keguguran
         _buildExpandableSection(
-          'Detail Kehamilan Terakhir',
+          localizations.lastPregnancyDetails, // Detail Kehamilan Terakhir
           Icons.child_care,
           [
-            _buildInfoTile('Anak Ke', pregnancyHistory.anakKeTerakhir),
-            _buildInfoTile('Tahun Lahir', pregnancyHistory.tahunLahirTerakhir),
-            _buildInfoTile('BB Lahir', pregnancyHistory.beratBadanLahirTerakhir),
-            _buildInfoTile('Cara Persalinan', pregnancyHistory.caraPersalinanTerakhir),
-            _buildInfoTile('Penolong Persalinan', pregnancyHistory.penolongPersalinanTerakhir),
-            _buildInfoTile('Komplikasi', pregnancyHistory.komplikasiKehamilanTerakhir),
+            _buildInfoTile(localizations.childOrder, pregnancyHistory.anakKeTerakhir), // Anak Ke
+            _buildInfoTile(localizations.birthYear, pregnancyHistory.tahunLahirTerakhir), // Tahun Lahir
+            _buildInfoTile(localizations.birthWeight, pregnancyHistory.beratBadanLahirTerakhir), // BB Lahir
+            _buildInfoTile(localizations.deliveryMethod, pregnancyHistory.caraPersalinanTerakhir), // Cara Persalinan
+            _buildInfoTile(localizations.deliveryHelper, pregnancyHistory.penolongPersalinanTerakhir), // Penolong Persalinan
+            _buildInfoTile(localizations.complications, pregnancyHistory.komplikasiKehamilanTerakhir), // Komplikasi
           ],
           Colors.yellow[50]!,
         ),
@@ -214,34 +216,34 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     );
   }
 
-  Widget _buildPrivacyPolicySection() {
+  Widget _buildPrivacyPolicySection(AppLocalizations localizations) {
     return _buildExpandableSection(
-      'Kebijakan Privasi',
+      localizations.privacyPolicy, // Kebijakan Privasi
       Icons.security,
       [
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Text(AppLocalizations.of(context)!.privacyPolicyText),
+          child: Text(localizations.privacyPolicyText), // Isi kebijakan privasi dari file .arb
         ),
       ],
       Colors.red[50]!,
     );
   }
 
-  Widget _buildLanguageSelector() {
+  Widget _buildLanguageSelector(AppLocalizations localizations) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       color: Colors.purple[50],
       child: ListTile(
         leading: const Icon(Icons.language, color: AppColors.primaryPink),
-        title: const Text('Bahasa', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(localizations.language, style: const TextStyle(fontWeight: FontWeight.bold)), // Teks 'Bahasa'
         trailing: Consumer<LocaleProvider>(
           builder: (context, localeProvider, child) {
             return DropdownButton<Locale>(
               value: localeProvider.locale,
-              items: const [
-                DropdownMenuItem(value: Locale('id'), child: Text('Bahasa Indonesia')),
-                DropdownMenuItem(value: Locale('en'), child: Text('English')),
+              items: [
+                DropdownMenuItem(value: const Locale('id'), child: Text(localizations.indonesian)), // Bahasa Indonesia
+                DropdownMenuItem(value: const Locale('en'), child: Text(localizations.english)), // English
               ],
               onChanged: (Locale? newLocale) {
                 if (newLocale != null) {

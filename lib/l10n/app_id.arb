@@ -1,47 +1,299 @@
 {
-    "@@locale": "id",
-    "age": "Usia",
-    "@age": {
-      "description": "Label untuk usia"
+  "@@locale": "id",
+  "age": "Usia",
+  "@age": {
+    "description": "Label untuk usia"
+  },
+  "bloodType": "Golongan Darah",
+  "@bloodType": {
+    "description": "Label untuk golongan darah"
+  },
+  "religion": "Agama",
+  "@religion": {
+    "description": "Label untuk agama"
+  },
+  "years": "tahun",
+  "@years": {
+    "description": "Bentuk jamak untuk tahun"
+  },
+  "notAvailable": "Tidak tersedia",
+  "@notAvailable": {
+    "description": "Ditampilkan ketika data tidak tersedia"
+  },
+  "privacyPolicy": "Kebijakan Privasi",
+  "@privacyPolicy": {
+    "description": "Judul untuk bagian kebijakan privasi"
+  },
+  "privacyPolicyText": "Sabina menghormati dan melindungi privasi Anda. Kami mengumpulkan dan menggunakan informasi pribadi Anda hanya untuk tujuan memberikan layanan kesehatan ibu yang terbaik. Data Anda disimpan dengan aman dan tidak dibagikan kepada pihak ketiga tanpa persetujuan eksplisit Anda. Anda memiliki hak untuk mengakses, mengubah, atau menghapus informasi pribadi Anda kapan saja.",
+  "@privacyPolicyText": {
+    "description": "Teks lengkap kebijakan privasi"
+  },
+  "language": "Bahasa",
+  "@language": {
+    "description": "Label untuk pemilihan bahasa"
+  },
+  "noData": "Data tidak tersedia",
+  "@noData": {
+    "description": "Ditampilkan ketika tidak ada data tersedia"
+  },
+  "profile": "Profil",
+  "@profile": {
+    "description": "Judul untuk layar profil"
+  },
+  "address": "Alamat",
+  "@address": {
+    "description": "Label untuk alamat"
+  },
+  "pregnancyHistory": "Riwayat Kehamilan",
+  "@pregnancyHistory": {
+    "description": "Judul untuk layar riwayat kehamilan"
+  },
+  "currentPregnancyInfo": "Informasi Kehamilan Saat Ini",
+  "@currentPregnancyInfo": {
+    "description": "Judul bagian untuk informasi kehamilan saat ini"
+  },
+  "lastPeriodDate": "Tanggal Haid Terakhir",
+  "@lastPeriodDate": {
+    "description": "Label untuk tanggal haid terakhir"
+  },
+  "pregnancyAge": "Usia Kehamilan",
+  "@pregnancyAge": {
+    "description": "Label untuk usia kehamilan"
+  },
+  "prePregnancyWeight": "Berat Badan Sebelum Hamil (Kg)",
+  "@prePregnancyWeight": {
+    "description": "Label untuk berat badan sebelum hamil"
+  },
+  "height": "Tinggi Badan (cm)",
+  "@height": {
+    "description": "Label untuk tinggi badan"
+  },
+  "pregnancyNumber": "Kehamilan Ke",
+  "@pregnancyNumber": {
+    "description": "Label untuk nomor kehamilan"
+  },
+  "childrenCount": "Jumlah Anak",
+  "@childrenCount": {
+    "description": "Label untuk jumlah anak"
+  },
+  "miscarriageHistory": "Riwayat Keguguran",
+  "@miscarriageHistory": {
+    "description": "Label untuk riwayat keguguran"
+  },
+  "lastPregnancyHistory": "Riwayat Kehamilan Terakhir",
+  "@lastPregnancyHistory": {
+    "description": "Judul bagian untuk riwayat kehamilan terakhir"
+  },
+  "childNumber": "Anak Ke",
+  "@childNumber": {
+    "description": "Label untuk nomor anak"
+  },
+  "birthYear": "Tahun Lahir",
+  "@birthYear": {
+    "description": "Label untuk tahun lahir"
+  },
+  "birthWeight": "Berat Badan Lahir",
+  "@birthWeight": {
+    "description": "Label untuk berat badan lahir"
+  },
+  "deliveryMethod": "Cara Persalinan",
+  "@deliveryMethod": {
+    "description": "Label untuk cara persalinan"
+  },
+  "birthAttendant": "Penolong Persalinan",
+  "@birthAttendant": {
+    "description": "Label untuk penolong persalinan"
+  },
+  "previousPregnancyComplications": "Komplikasi Kehamilan Sebelumnya",
+  "@previousPregnancyComplications": {
+    "description": "Label untuk komplikasi kehamilan sebelumnya"
+  },
+  "save": "Simpan",
+  "@save": {
+    "description": "Label untuk tombol simpan"
+  },
+  "home": "Beranda",
+  "@home": {
+    "description": "Label untuk item navigasi beranda"
+  },
+  "screening": "Skrining",
+  "@screening": {
+    "description": "Label untuk item navigasi skrining"
+  },
+  "filtering": "Penapisan",
+  "@filtering": {
+    "description": "Label untuk item navigasi penapisan"
+  },
+  "complaints": "Keluhan",
+  "@complaints": {
+    "description": "Label untuk item navigasi keluhan"
+  },
+  "consultation": "Konsultasi",
+  "@consultation": {
+    "description": "Label untuk item navigasi konsultasi"
+  },
+  "maternalCare": "Perawatan Ibu Hamil",
+  "@maternalCare": {
+    "description": "Judul untuk bagian perawatan ibu"
+  },
+  "seeMore": "Lihat Selengkapnya",
+  "@seeMore": {
+    "description": "Label untuk tombol lihat selengkapnya"
+  },
+  "food": "Makanan",
+  "@food": {
+    "description": "Label untuk kartu makanan di bagian perawatan"
+  },
+  "dailyCare": "Perawatan Sehari-hari",
+  "@dailyCare": {
+    "description": "Label untuk kartu perawatan sehari-hari di bagian perawatan"
+  },
+  "calculateBMI": "Hitung IMT",
+  "@calculateBMI": {
+    "description": "Label untuk kartu kalkulator IMT di bagian perawatan"
+  },
+  "identity": "Identitas",
+  "@identity": {
+    "description": "Label untuk bagian identitas di profil"
+  },
+  "fullName": "Nama Lengkap",
+  "@fullName": {
+    "description": "Label untuk kolom nama lengkap"
+  },
+  "dateOfBirth": "Tanggal Lahir",
+  "@dateOfBirth": {
+    "description": "Label untuk kolom tanggal lahir"
+  },
+  "pregnancyHistoryQuestion": "Apakah Ibu pernah melahirkan sebelumnya?\nYuk isi Riwayat Kehamilan!",
+  "@pregnancyHistoryQuestion": {
+    "description": "Pertanyaan prompt untuk kartu riwayat kehamilan"
+  },
+  "fillPregnancyHistory": "Isi Riwayat Kehamilan",
+  "@fillPregnancyHistory": {
+    "description": "Teks tombol untuk mengisi riwayat kehamilan"
+  },
+  "error": "Kesalahan",
+  "@error": {
+    "description": "Label untuk pesan kesalahan"
+  },
+  "yes": "Ya",
+  "@yes": {
+    "description": "Respon afirmatif"
+  },
+  "no": "Tidak",
+  "@no": {
+    "description": "Respon negatif"
+  },
+  "cancel": "Batal",
+  "@cancel": {
+    "description": "Label untuk aksi batal"
+  },
+  "edit": "Ubah",
+  "@edit": {
+    "description": "Label untuk aksi ubah"
+  },
+  "delete": "Hapus",
+  "@delete": {
+    "description": "Label untuk aksi hapus"
+  },
+  "confirm": "Konfirmasi",
+  "@confirm": {
+    "description": "Label untuk aksi konfirmasi"
+  },
+  "gramUnit": "gram",
+  "@gramUnit": {
+    "description": "Satuan berat dalam gram"
+  },
+  "kilogramUnit": "kg",
+  "@kilogramUnit": {
+    "description": "Satuan berat dalam kilogram"
+  },
+  "centimeterUnit": "cm",
+  "@centimeterUnit": {
+    "description": "Satuan tinggi dalam sentimeter"
+  },
+  "weekUnit": "minggu",
+  "@weekUnit": {
+    "description": "Satuan waktu dalam minggu"
+  },
+  "dayUnit": "hari",
+  "@dayUnit": {
+    "description": "Satuan waktu dalam hari"
+  },
+    "pregnancyInformation": "Informasi Kehamilan",
+    "@pregnancyInformation": {
+      "description": "Label untuk bagian informasi kehamilan"
     },
-    "bloodType": "Golongan Darah",
-    "@bloodType": {
-      "description": "Label untuk golongan darah"
+    "checkNow": "Cek Sekarang",
+    "@checkNow": {
+      "description": "Teks tombol untuk memeriksa informasi kehamilan"
     },
-    "religion": "Agama",
-    "@religion": {
-      "description": "Label untuk agama"
+  "informationForMother": "Informasi Untuk Ibu",
+  "@informationForMother": {
+    "description": "Judul untuk bagian yang memberikan informasi untuk ibu"
+  },
+    "homeTooltip": "Halaman Beranda",
+    "@homeTooltip": {
+      "description": "Tooltip untuk item navigasi beranda"
     },
-    "years": "tahun",
-    "@years": {
-      "description": "Bentuk jamak untuk tahun"
+    "screeningTooltip": "Halaman Skrining",
+    "@screeningTooltip": {
+      "description": "Tooltip untuk item navigasi skrining"
     },
-    "notAvailable": "Tidak tersedia",
-    "@notAvailable": {
-      "description": "Ditampilkan ketika data tidak tersedia"
+    "filteringTooltip": "Halaman Penapisan",
+    "@filteringTooltip": {
+      "description": "Tooltip untuk item navigasi penapisan"
     },
-    "privacyPolicy": "Kebijakan Privasi",
-    "@privacyPolicy": {
-      "description": "Judul untuk bagian kebijakan privasi"
+    "complaintsTooltip": "Halaman Keluhan",
+    "@complaintsTooltip": {
+      "description": "Tooltip untuk item navigasi keluhan"
     },
-    "privacyPolicyText": "Sabina menghormati dan melindungi privasi Anda. Kami mengumpulkan dan menggunakan informasi pribadi Anda hanya untuk tujuan memberikan layanan kesehatan ibu yang terbaik. Data Anda disimpan dengan aman dan tidak dibagikan kepada pihak ketiga tanpa persetujuan eksplisit Anda. Anda memiliki hak untuk mengakses, mengubah, atau menghapus informasi pribadi Anda kapan saja.",
-    "@privacyPolicyText": {
-      "description": "Teks lengkap kebijakan privasi"
+    "consultationTooltip": "Konsultasi via WhatsApp",
+    "@consultationTooltip": {
+      "description": "Tooltip untuk item navigasi konsultasi"
     },
-    "language": "Bahasa",
-    "@language": {
-      "description": "Label untuk pemilihan bahasa"
-    },
-    "noData": "Data tidak tersedia",
-    "@noData": {
-      "description": "Ditampilkan ketika tidak ada data tersedia"
-    },
-    "profile": "Profil",
-    "@profile": {
-      "description": "Judul untuk layar profil"
-    },
-    "address": "Alamat",
-    "@address": {
-      "description": "Label untuk alamat"
-    }
-  }
+      "birthDate": "Tanggal Lahir",
+      "@birthDate": {
+        "description": "Label untuk tanggal lahir"
+      },
+      "noPregnancyHistory": "Tidak ada riwayat kehamilan",
+      "@noPregnancyHistory": {
+        "description": "Pesan ketika tidak ada data riwayat kehamilan"
+      },
+      "gestationalAge": "Usia Kehamilan",
+      "@gestationalAge": {
+        "description": "Label untuk usia kehamilan"
+      },
+      "pregnancyOrder": "Kehamilan Ke",
+      "@pregnancyOrder": {
+        "description": "Label untuk kehamilan ke"
+      },
+      "numberOfChildren": "Jumlah Anak",
+      "@numberOfChildren": {
+        "description": "Label untuk jumlah anak"
+      },
+      "lastPregnancyDetails": "Detail Kehamilan Terakhir",
+      "@lastPregnancyDetails": {
+        "description": "Label untuk detail kehamilan terakhir"
+      },
+      "childOrder": "Anak Ke",
+      "@childOrder": {
+        "description": "Label untuk anak ke"
+      },
+      "deliveryHelper": "Penolong Persalinan",
+      "@deliveryHelper": {
+        "description": "Label untuk penolong persalinan"
+      },
+      "complications": "Komplikasi",
+      "@complications": {
+        "description": "Label untuk komplikasi selama kehamilan"
+      },
+      "indonesian": "Bahasa Indonesia",
+      "@indonesian": {
+        "description": "Label untuk memilih bahasa Indonesia"
+      },
+      "english": "Bahasa Inggris",
+      "@english": {
+        "description": "Label untuk memilih bahasa Inggris"
+      }    
+}

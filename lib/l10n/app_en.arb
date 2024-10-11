@@ -1,47 +1,299 @@
 {
-    "@@locale": "en",
-    "age": "Age",
-    "@age": {
-      "description": "Label for age"
+  "@@locale": "en",
+  "age": "Age",
+  "@age": {
+    "description": "Label for age"
+  },
+  "bloodType": "Blood Type",
+  "@bloodType": {
+    "description": "Label for blood type"
+  },
+  "religion": "Religion",
+  "@religion": {
+    "description": "Label for religion"
+  },
+  "years": "years",
+  "@years": {
+    "description": "Plural form for years"
+  },
+  "notAvailable": "N/A",
+  "@notAvailable": {
+    "description": "Displayed when data is not available"
+  },
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": {
+    "description": "Title for privacy policy section"
+  },
+  "privacyPolicyText": "Sabina respects and safeguards your privacy. We collect and use your personal information solely to provide the highest quality maternal health care services. Your data is securely stored and is not shared with third parties without your explicit consent. You have the right to access, modify, or delete your personal information at any time.",
+  "@privacyPolicyText": {
+    "description": "Full text of the privacy policy"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Label for language selection"
+  },
+  "noData": "No data available",
+  "@noData": {
+    "description": "Displayed when no data is available"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Title for profile screen"
+  },
+  "address": "Address",
+  "@address": {
+    "description": "Label for address"
+  },
+  "pregnancyHistory": "Pregnancy History",
+  "@pregnancyHistory": {
+    "description": "Title for pregnancy history screen"
+  },
+  "currentPregnancyInfo": "Current Pregnancy Information",
+  "@currentPregnancyInfo": {
+    "description": "Section title for current pregnancy information"
+  },
+  "lastPeriodDate": "Last Period Date",
+  "@lastPeriodDate": {
+    "description": "Label for last period date"
+  },
+  "pregnancyAge": "Pregnancy Age",
+  "@pregnancyAge": {
+    "description": "Label for pregnancy age"
+  },
+  "prePregnancyWeight": "Pre-pregnancy Weight (Kg)",
+  "@prePregnancyWeight": {
+    "description": "Label for pre-pregnancy weight"
+  },
+  "height": "Height (cm)",
+  "@height": {
+    "description": "Label for height"
+  },
+  "pregnancyNumber": "Pregnancy Number",
+  "@pregnancyNumber": {
+    "description": "Label for pregnancy number"
+  },
+  "childrenCount": "Number of Children",
+  "@childrenCount": {
+    "description": "Label for number of children"
+  },
+  "miscarriageHistory": "History of Miscarriages",
+  "@miscarriageHistory": {
+    "description": "Label for miscarriage history"
+  },
+  "lastPregnancyHistory": "Last Pregnancy History",
+  "@lastPregnancyHistory": {
+    "description": "Section title for last pregnancy history"
+  },
+  "childNumber": "Child Number",
+  "@childNumber": {
+    "description": "Label for child number"
+  },
+  "birthYear": "Birth Year",
+  "@birthYear": {
+    "description": "Label for birth year"
+  },
+  "birthWeight": "Birth Weight",
+  "@birthWeight": {
+    "description": "Label for birth weight"
+  },
+  "deliveryMethod": "Delivery Method",
+  "@deliveryMethod": {
+    "description": "Label for delivery method"
+  },
+  "birthAttendant": "Birth Attendant",
+  "@birthAttendant": {
+    "description": "Label for birth attendant"
+  },
+  "previousPregnancyComplications": "Previous Pregnancy Complications",
+  "@previousPregnancyComplications": {
+    "description": "Label for previous pregnancy complications"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Label for save button"
+  },
+  "home": "Home",
+  "@home": {
+    "description": "Label for home navigation item"
+  },
+  "screening": "Screening",
+  "@screening": {
+    "description": "Label for screening navigation item"
+  },
+  "filtering": "Assesst",
+  "@filtering": {
+    "description": "Label for filtering navigation item"
+  },
+  "complaints": "Complaints",
+  "@complaints": {
+    "description": "Label for complaints navigation item"
+  },
+  "consultation": "Chat",
+  "@consultation": {
+    "description": "Label for consultation navigation item"
+  },
+  "maternalCare": "Maternal Care",
+  "@maternalCare": {
+    "description": "Title for maternal care section"
+  },
+  "seeMore": "See More",
+  "@seeMore": {
+    "description": "Label for see more button"
+  },
+  "food": "Food",
+  "@food": {
+    "description": "Label for food card in care section"
+  },
+  "dailyCare": "Daily Care",
+  "@dailyCare": {
+    "description": "Label for daily care card in care section"
+  },
+  "calculateBMI": "Calculate BMI",
+  "@calculateBMI": {
+    "description": "Label for BMI calculator card in care section"
+  },
+  "identity": "Identity",
+  "@identity": {
+    "description": "Label for identity section in profile"
+  },
+  "fullName": "Full Name",
+  "@fullName": {
+    "description": "Label for full name field"
+  },
+  "dateOfBirth": "Date of Birth",
+  "@dateOfBirth": {
+    "description": "Label for date of birth field"
+  },
+  "pregnancyHistoryQuestion": "Have you given birth before? Let''s fill in your Pregnancy History!",
+  "@pregnancyHistoryQuestion": {
+    "description": "Question prompt for pregnancy history card"
+  },
+  "fillPregnancyHistory": "Fill Pregnancy History",
+  "@fillPregnancyHistory": {
+    "description": "Button text to fill pregnancy history"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Label for error messages"
+  },
+  "yes": "Yes",
+  "@yes": {
+    "description": "Affirmative response"
+  },
+  "no": "No",
+  "@no": {
+    "description": "Negative response"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Label for cancel action"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Label for edit action"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Label for delete action"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Label for confirm action"
+  },
+  "gramUnit": "grams",
+  "@gramUnit": {
+    "description": "Unit for weight in grams"
+  },
+  "kilogramUnit": "kg",
+  "@kilogramUnit": {
+    "description": "Unit for weight in kilograms"
+  },
+  "centimeterUnit": "cm",
+  "@centimeterUnit": {
+    "description": "Unit for height in centimeters"
+  },
+  "weekUnit": "weeks",
+  "@weekUnit": {
+    "description": "Unit for time in weeks"
+  },
+  "dayUnit": "days",
+  "@dayUnit": {
+    "description": "Unit for time in days"
+  },
+    "pregnancyInformation": "Pregnancy Information",
+    "@pregnancyInformation": {
+      "description": "Label for pregnancy information section"
     },
-    "bloodType": "Blood Type",
-    "@bloodType": {
-      "description": "Label for blood type"
+    "checkNow": "Check Now",
+    "@checkNow": {
+      "description": "Button text for checking pregnancy information"
     },
-    "religion": "Religion",
-    "@religion": {
-      "description": "Label for religion"
+  "informationForMother": "Information for Mothers",
+  "@informationForMother": {
+    "description": "Title for the section providing information for mothers"
+  },
+    "homeTooltip": "Home Page",
+    "@homeTooltip": {
+      "description": "Tooltip for the home navigation item"
     },
-    "years": "years",
-    "@years": {
-      "description": "Plural form for years"
+    "screeningTooltip": "Screening Page",
+    "@screeningTooltip": {
+      "description": "Tooltip for the screening navigation item"
     },
-    "notAvailable": "N/A",
-    "@notAvailable": {
-      "description": "Displayed when data is not available"
+    "filteringTooltip": "Filtering Page",
+    "@filteringTooltip": {
+      "description": "Tooltip for the filtering navigation item"
     },
-    "privacyPolicy": "Privacy Policy",
-    "@privacyPolicy": {
-      "description": "Title for privacy policy section"
+    "complaintsTooltip": "Complaints Page",
+    "@complaintsTooltip": {
+      "description": "Tooltip for the complaints navigation item"
     },
-    "privacyPolicyText": "Sabina respects and protects your privacy. We collect and use your personal information only for the purpose of providing you with the best possible maternal health care services. Your data is securely stored and is not shared with third parties without your explicit consent. You have the right to access, modify, or delete your personal information at any time.",
-    "@privacyPolicyText": {
-      "description": "Full text of the privacy policy"
+    "consultationTooltip": "Consultation via WhatsApp",
+    "@consultationTooltip": {
+      "description": "Tooltip for the consultation navigation item"
     },
-    "language": "Language",
-    "@language": {
-      "description": "Label for language selection"
-    },
-    "noData": "No data available",
-    "@noData": {
-      "description": "Displayed when no data is available"
-    },
-    "profile": "Profile",
-    "@profile": {
-      "description": "Title for profile screen"
-    },
-    "address": "Address",
-    "@address": {
-      "description": "Label for address"
-    }
-  }
+      "birthDate": "Birth Date",
+      "@birthDate": {
+        "description": "Label for birth date"
+      },
+      "noPregnancyHistory": "No pregnancy history available",
+      "@noPregnancyHistory": {
+        "description": "Message when there is no pregnancy history data"
+      },
+      "gestationalAge": "Gestational Age",
+      "@gestationalAge": {
+        "description": "Label for gestational age"
+      },
+      "pregnancyOrder": "Pregnancy Order",
+      "@pregnancyOrder": {
+        "description": "Label for pregnancy order"
+      },
+      "numberOfChildren": "Number of Children",
+      "@numberOfChildren": {
+        "description": "Label for number of children"
+      },
+      "lastPregnancyDetails": "Last Pregnancy Details",
+      "@lastPregnancyDetails": {
+        "description": "Label for last pregnancy details"
+      },
+      "childOrder": "Child Order",
+      "@childOrder": {
+        "description": "Label for child order"
+      },
+      "deliveryHelper": "Delivery Helper",
+      "@deliveryHelper": {
+        "description": "Label for delivery helper"
+      },
+      "complications": "Complications",
+      "@complications": {
+        "description": "Label for complications during pregnancy"
+      },
+      "indonesian": "Indonesian",
+      "@indonesian": {
+        "description": "Label for selecting the Indonesian language"
+      },
+      "english": "English",
+      "@english": {
+        "description": "Label for selecting the English language"
+      }    
+}

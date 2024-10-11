@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Untuk menggunakan AppLocalizations
+import '../screens/imt_calculator_screen.dart'; // Untuk halaman Hitung IMT
+import '../screens/care/perawatan_sehari_hari_screen.dart';
 import '../screens/care/care_menu_screen.dart';
-import '../screens/imt_calculator_screen.dart'; // Pastikan untuk membuat file ini
 
 class CareSection extends StatelessWidget {
   const CareSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -15,9 +19,9 @@ class CareSection extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Perawatan Ibu Hamil',
-                style: TextStyle(
+              Text(
+                localizations.maternalCare, // Menggunakan lokal untuk 'Perawatan Ibu Hamil'
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -27,9 +31,9 @@ class CareSection extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).push(_createRoute(const CareMenuScreen()));
                 },
-                child: const Text(
-                  'Lihat Selengkapnya',
-                  style: TextStyle(
+                child: Text(
+                  localizations.seeMore, // Menggunakan lokal untuk 'Lihat Selengkapnya'
+                  style: const TextStyle(
                     fontSize: 12,
                     color: Colors.blue,
                     decoration: TextDecoration.underline,
@@ -41,34 +45,35 @@ class CareSection extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         SizedBox(
-          height: 140,
+          height: 120,
           child: ListView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             children: [
               _buildCareCard(
                 context: context,
-                title: 'Makanan',
+                title: localizations.food, // Menggunakan lokal untuk 'Makanan'
                 icon: Icons.restaurant,
                 color: Colors.blue[100]!,
                 onTap: () {
-                  // Navigasi ke halaman makanan
+                  // Aksi untuk navigasi ke halaman makanan
                 },
               ),
               const SizedBox(width: 10),
               _buildCareCard(
                 context: context,
-                title: 'Perawatan\nSehari-hari',
+                title: localizations.dailyCare, // Menggunakan lokal untuk 'Perawatan Sehari-hari'
                 icon: Icons.spa,
                 color: Colors.red[100]!,
                 onTap: () {
                   // Navigasi ke halaman perawatan sehari-hari
+                  Navigator.of(context).push(_createRoute(const PerawatanSehariHariScreen()));
                 },
               ),
               const SizedBox(width: 10),
               _buildCareCard(
                 context: context,
-                title: 'Hitung IMT',
+                title: localizations.calculateBMI, // Menggunakan lokal untuk 'Hitung IMT'
                 icon: Icons.calculate,
                 color: Colors.green[100]!,
                 onTap: () {
@@ -91,6 +96,7 @@ class CareSection extends StatelessWidget {
   }) {
     return SizedBox(
       width: 120,
+      height: 120,  // Membuat ukuran lebar dan tinggi proporsional
       child: Card(
         color: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -103,7 +109,7 @@ class CareSection extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, color: Colors.black, size: 40),
+                Icon(icon, color: Colors.black, size: 40), // Icon tetap dalam ukuran nyaman
                 const SizedBox(height: 8),
                 Flexible(
                   child: Text(
@@ -113,7 +119,6 @@ class CareSection extends StatelessWidget {
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
-                      fontFamily: 'Roboto'
                     ),
                   ),
                 ),
@@ -129,7 +134,7 @@ class CareSection extends StatelessWidget {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(1.0, 0.0);
+        const begin = Offset(1.0, 0.0);  // Animasi dari kanan
         const end = Offset.zero;
         const curve = Curves.easeInOut;
         var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));

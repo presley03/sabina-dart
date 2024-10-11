@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Menggunakan AppLocalizations
 import '../utils/constants.dart';
 
 class SabinaBottomNavigation extends StatelessWidget {
@@ -20,7 +21,7 @@ class SabinaBottomNavigation extends StatelessWidget {
     const phoneNumber = '6283141499437'; // Ganti dengan nomor WhatsApp admin Sabina yang valid
     const message = 'Halo, saya ingin berkonsultasi.';
     final encodedMessage = Uri.encodeComponent(message);
-    
+
     final whatsappUrl = Uri.parse('https://wa.me/$phoneNumber/?text=$encodedMessage');
 
     try {
@@ -45,9 +46,10 @@ class SabinaBottomNavigation extends StatelessWidget {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!; // Mendapatkan instance AppLocalizations
+
     return BottomNavigationBar(
       currentIndex: currentIndex,
       onTap: (index) {
@@ -63,31 +65,31 @@ class SabinaBottomNavigation extends StatelessWidget {
       backgroundColor: Colors.white,
       selectedItemColor: AppColors.primaryBlack,
       unselectedItemColor: Colors.grey,
-      items: const [
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home, size: 30),
-          label: 'Beranda',
-          tooltip: 'Halaman Beranda',
+          icon: const Icon(Icons.home, size: 30),
+          label: localizations.home, // Menggunakan lokal untuk 'Beranda'
+          tooltip: localizations.homeTooltip, // Tooltip terjemahan
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.safety_check, size: 30),
-          label: 'Skrining',
-          tooltip: 'Halaman Skrining',
+          icon: const Icon(Icons.safety_check, size: 30),
+          label: localizations.screening, // Menggunakan lokal untuk 'Skrining'
+          tooltip: localizations.screeningTooltip, // Tooltip terjemahan
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.pregnant_woman, size: 30),
-          label: 'Penapisan',
-          tooltip: 'Halaman Penapisan',
+          icon: const Icon(Icons.pregnant_woman, size: 30),
+          label: localizations.filtering, // Menggunakan lokal untuk 'Penapisan'
+          tooltip: localizations.filteringTooltip, // Tooltip terjemahan
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.feedback, size: 30),
-          label: 'Keluhan',
-          tooltip: 'Halaman Keluhan',
+          icon: const Icon(Icons.feedback, size: 30),
+          label: localizations.complaints, // Menggunakan lokal untuk 'Keluhan'
+          tooltip: localizations.complaintsTooltip, // Tooltip terjemahan
         ),
         BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.whatsapp, size: 30),
-          label: 'Konsultasi',
-          tooltip: 'Konsultasi via WhatsApp',
+          icon: const FaIcon(FontAwesomeIcons.whatsapp, size: 30),
+          label: localizations.consultation, // Menggunakan lokal untuk 'Konsultasi'
+          tooltip: localizations.consultationTooltip, // Tooltip terjemahan
         ),
       ],
       selectedLabelStyle: const TextStyle(
