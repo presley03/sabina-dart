@@ -3,6 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Untuk menggunak
 import '../screens/imt_calculator_screen.dart'; // Untuk halaman Hitung IMT
 import '../screens/care/perawatan_sehari_hari_screen.dart';
 import '../screens/care/care_menu_screen.dart';
+import '../screens/care/makanan_screen.dart';
+import '../screens/persiapan_persalinan_screen.dart';
 
 class CareSection extends StatelessWidget {
   const CareSection({super.key});
@@ -57,6 +59,7 @@ class CareSection extends StatelessWidget {
                 color: Colors.blue[100]!,
                 onTap: () {
                   // Aksi untuk navigasi ke halaman makanan
+                  Navigator.of(context).push(_createRoute(const MakananScreen()));
                 },
               ),
               const SizedBox(width: 10),
@@ -78,6 +81,16 @@ class CareSection extends StatelessWidget {
                 color: Colors.green[100]!,
                 onTap: () {
                   Navigator.of(context).push(_createRoute(const IMTCalculatorScreen()));
+                },
+              ),
+              const SizedBox(width: 10),
+              _buildCareCard(
+                context: context,
+                title: localizations.pregnancyAge, // persiapan persalinan'
+                icon: Icons.pregnant_woman,
+                color: Colors.yellow[100]!,
+                onTap: () {
+                  Navigator.of(context).push(_createRoute(const PersiapanPersalinanScreen()));
                 },
               ),
             ],

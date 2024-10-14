@@ -14,13 +14,13 @@ class TrimesterMenuScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.deepPurple),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
           'Informasi Kehamilan',
           style: TextStyle(
-            color: Colors.deepPurple,
+            color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
