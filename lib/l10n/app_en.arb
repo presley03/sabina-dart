@@ -295,5 +295,189 @@
       "english": "English",
       "@english": {
         "description": "Label for selecting the English language"
-      }    
+      },
+        "trimesterMenuTitle": "Trimester Menu",
+        "@trimesterMenuTitle": {
+          "description": "Title for the trimester menu screen"
+        },
+        "firstTrimesterTitle": "First Trimester",
+        "@firstTrimesterTitle": {
+          "description": "Title for the first trimester section"
+        },
+        "secondTrimesterTitle": "Second Trimester",
+        "@secondTrimesterTitle": {
+          "description": "Title for the second trimester section"
+        },
+        "thirdTrimesterTitle": "Third Trimester",
+        "@thirdTrimesterTitle": {
+          "description": "Title for the third trimester section"
+        },
+        "firstTrimesterTip": "Focus on early prenatal care.",
+        "@firstTrimesterTip": {
+          "description": "Tip for the first trimester"
+        },
+        "secondTrimesterTip": "Your baby is growing fast now.",
+        "@secondTrimesterTip": {
+          "description": "Tip for the second trimester"
+        },
+        "thirdTrimesterTip": "Get ready for delivery.",
+        "@thirdTrimesterTip": {
+          "description": "Tip for the third trimester"
+        },
+          "trimesterFirstTitle": "First Trimester",
+          "@trimesterFirstTitle": {
+            "description": "Title for the first trimester section"
+          },
+          "week1_2": "Week 1-2",
+          "@week1_2": {
+            "description": "Week 1-2 label"
+          },
+          "week1_2Title": "Preparation for Ovulation and Fertilization",
+          "@week1_2Title": {
+            "description": "Title for week 1-2 of the pregnancy"
+          },
+          "week1_2Description": "During the first two weeks, the body is preparing for ovulation and fertilization. The embryo has not yet formed, but the egg is maturing in the ovary.",
+          "@week1_2Description": {
+            "description": "Description of the process happening during week 1-2"
+          },
+          "week3": "Week 3",
+          "@week3": {
+            "description": "Week 3 label"
+          },
+          "week3Title": "Fertilization Occurs",
+          "@week3Title": {
+            "description": "Title for week 3 of pregnancy"
+          },
+          "week3Description": "The fertilized egg (zygote) travels to the uterus, and the blastocyst begins to implant in the uterine lining.",
+          "@week3Description": {
+            "description": "Description of the process happening during week 3"
+          },
+          "week4": "Week 4",
+          "@week4": {
+            "description": "Week 4 label"
+          },
+          "week4Title": "Early Pregnancy",
+          "@week4Title": {
+            "description": "Title for week 4 of pregnancy"
+          },
+          "week4Description": "The embryo starts developing, and the placenta begins to form.",
+          "@week4Description": {
+            "description": "Description of the process happening during week 4"
+          },
+            "trimesterFirstIntro": "This is the introduction for the first trimester.",
+            "@trimesterFirstIntro": {
+              "description": "Introduction text displayed in the first trimester screen.",
+              "type": "text"
+            },
+            "week5": "Week 5",
+            "@week5": {
+              "description": "Title for the week 5 section.",
+              "type": "text"
+            },
+            "week5Title": "Development in Week 5",
+            "@week5Title": {
+              "description": "Title explaining what happens during week 5.",
+              "type": "text"
+            },
+            "week5Description": "The embryo starts developing major organs.",
+            "@week5Description": {
+              "description": "Description of the development happening during week 5.",
+              "type": "text"
+            },
+            "week6": "Week 6",
+            "@week6": {
+              "description": "Title for the week 6 section.",
+              "type": "text"
+            },
+            "week6Title": "Development in Week 6",
+            "@week6Title": {
+              "description": "Title explaining what happens during week 6.",
+              "type": "text"
+            },
+            "week6Description": "The heart starts beating.",
+            "@week6Description": {
+              "description": "Description of the development happening during week 6.",
+              "type": "text"
+            },
+            "developmentSummaryTitle": "Development Summary",
+            "@developmentSummaryTitle": {
+              "description": "Title for the development summary section.",
+              "type": "text"
+            },
+            "developmentSummaryContent": "Here is the summary of the first trimester development.",
+            "@developmentSummaryContent": {
+              "description": "Content summarizing the development during the first trimester.",
+              "type": "text"
+            },
+            "referencesTitle": "References",
+            "@referencesTitle": {
+              "description": "Title for the references section.",
+              "type": "text"
+            },
+            "referencesContent": "These are the references for the trimester development.",
+            "@referencesContent": {
+              "description": "Content showing the references used.",
+              "type": "text"
+            },
+              "week7": "Week 7",
+              "@week7": {
+                "description": "The label for week 7 in the pregnancy progress screen.",
+                "type": "text"
+              },
+              "week7Title": "Development in Week 7",
+              "@week7Title": {
+                "description": "The title that describes the development in week 7.",
+                "type": "text"
+              },
+              "week7Description": "The brain and other organs start to develop.",
+              "@week7Description": {
+                "description": "Detailed description of what happens during week 7 of pregnancy.",
+                "type": "text"
+              },
+              "week8": "Week 8",
+              "@week8": {
+                "description": "The label for week 8 in the pregnancy progress screen.",
+                "type": "text"
+              },
+              "week8Title": "Development in Week 8",
+              "@week8Title": {
+                "description": "The title that describes the development in week 8.",
+                "type": "text"
+              },
+              "week8Description": "The embryo''s facial features become more distinct.",  
+              "@week8Description": {
+              "description": "Detailed description of week 8 development.",
+              "type": "text"
+              },
+              "week9_10": "Week 9-10",
+              "@week9_10": {
+                "description": "The label for week 9-10 in the pregnancy progress screen.",
+                "type": "text"
+              },
+              "week9_10Title": "Development in Weeks 9-10",
+              "@week9_10Title": {
+                "description": "The title that describes the development in weeks 9-10.",
+                "type": "text"
+              },
+              "week9_10Description": "Fingers and toes start to form.",
+              "@week9_10Description": {
+                "description": "Detailed description of what happens during weeks 9-10 of pregnancy.",
+                "type": "text"
+              },
+              "week11_13": "Week 11-13",
+              "@week11_13": {
+                "description": "The label for week 11-13 in the pregnancy progress screen.",
+                "type": "text"
+              },
+              "week11_13Title": "Development in Weeks 11-13",
+              "@week11_13Title": {
+                "description": "The title that describes the development in weeks 11-13.",
+                "type": "text"
+              },
+              "week11_13Description": "All major organs are formed by the end of this period.",
+              "@week11_13Description": {
+                "description": "Detailed description of what happens during weeks 11-13 of pregnancy.",
+                "type": "text"
+              }
+                                                       
 }

@@ -295,5 +295,188 @@
       "english": "Bahasa Inggris",
       "@english": {
         "description": "Label untuk memilih bahasa Inggris"
-      }    
+      },
+        "trimesterMenuTitle": "Menu Trimester",
+        "@trimesterMenuTitle": {
+          "description": "Judul untuk halaman menu trimester"
+        },
+        "firstTrimesterTitle": "Trimester Pertama",
+        "@firstTrimesterTitle": {
+          "description": "Judul untuk bagian trimester pertama"
+        },
+        "secondTrimesterTitle": "Trimester Kedua",
+        "@secondTrimesterTitle": {
+          "description": "Judul untuk bagian trimester kedua"
+        },
+        "thirdTrimesterTitle": "Trimester Ketiga",
+        "@thirdTrimesterTitle": {
+          "description": "Judul untuk bagian trimester ketiga"
+        },
+        "firstTrimesterTip": "Fokus pada perawatan prenatal awal.",
+        "@firstTrimesterTip": {
+          "description": "Tip untuk trimester pertama"
+        },
+        "secondTrimesterTip": "Bayi Anda tumbuh dengan cepat sekarang.",
+        "@secondTrimesterTip": {
+          "description": "Tip untuk trimester kedua"
+        },
+        "thirdTrimesterTip": "Bersiaplah untuk persalinan.",
+        "@thirdTrimesterTip": {
+          "description": "Tip untuk trimester ketiga"
+        },
+          "trimesterFirstTitle": "Trimester Pertama",
+          "@trimesterFirstTitle": {
+            "description": "Judul untuk bagian trimester pertama"
+          },
+          "week1_2": "Minggu 1-2",
+          "@week1_2": {
+            "description": "Label Minggu 1-2"
+          },
+          "week1_2Title": "Persiapan Ovulasi dan Pembuahan",
+          "@week1_2Title": {
+            "description": "Judul untuk minggu 1-2 kehamilan"
+          },
+          "week1_2Description": "Pada dua minggu pertama, tubuh sedang mempersiapkan ovulasi dan pembuahan. Embrio belum terbentuk, tetapi sel telur sedang matang di ovarium.",
+          "@week1_2Description": {
+            "description": "Deskripsi proses yang terjadi selama minggu 1-2"
+          },
+          "week3": "Minggu 3",
+          "@week3": {
+            "description": "Label Minggu 3"
+          },
+          "week3Title": "Pembuahan Terjadi",
+          "@week3Title": {
+            "description": "Judul untuk minggu 3 kehamilan"
+          },
+          "week3Description": "Sel telur yang telah dibuahi (zigot) bergerak ke rahim, dan blastokista mulai menempel di lapisan rahim.",
+          "@week3Description": {
+            "description": "Deskripsi proses yang terjadi selama minggu 3"
+          },
+          "week4": "Minggu 4",
+          "@week4": {
+            "description": "Label Minggu 4"
+          },
+          "week4Title": "Awal Kehamilan",
+          "@week4Title": {
+            "description": "Judul untuk minggu 4 kehamilan"
+          },
+          "week4Description": "Embrio mulai berkembang, dan plasenta mulai terbentuk.",
+          "@week4Description": {
+            "description": "Deskripsi proses yang terjadi selama minggu 4"
+          },
+            "trimesterFirstIntro": "Ini adalah pengenalan untuk trimester pertama.",
+            "@trimesterFirstIntro": {
+              "description": "Teks pengenalan yang ditampilkan di layar trimester pertama.",
+              "type": "text"
+            },
+            "week5": "Minggu 5",
+            "@week5": {
+              "description": "Judul untuk bagian minggu ke-5.",
+              "type": "text"
+            },
+            "week5Title": "Perkembangan di Minggu 5",
+            "@week5Title": {
+              "description": "Judul yang menjelaskan perkembangan selama minggu ke-5.",
+              "type": "text"
+            },
+            "week5Description": "Embrio mulai mengembangkan organ-organ utama.",
+            "@week5Description": {
+              "description": "Deskripsi perkembangan yang terjadi selama minggu ke-5.",
+              "type": "text"
+            },
+            "week6": "Minggu 6",
+            "@week6": {
+              "description": "Judul untuk bagian minggu ke-6.",
+              "type": "text"
+            },
+            "week6Title": "Perkembangan di Minggu 6",
+            "@week6Title": {
+              "description": "Judul yang menjelaskan perkembangan selama minggu ke-6.",
+              "type": "text"
+            },
+            "week6Description": "Jantung mulai berdetak.",
+            "@week6Description": {
+              "description": "Deskripsi perkembangan yang terjadi selama minggu ke-6.",
+              "type": "text"
+            },
+            "developmentSummaryTitle": "Ringkasan Perkembangan",
+            "@developmentSummaryTitle": {
+              "description": "Judul untuk bagian ringkasan perkembangan.",
+              "type": "text"
+            },
+            "developmentSummaryContent": "Berikut adalah ringkasan perkembangan trimester pertama.",
+            "@developmentSummaryContent": {
+              "description": "Konten yang meringkas perkembangan selama trimester pertama.",
+              "type": "text"
+            },
+            "referencesTitle": "Referensi",
+            "@referencesTitle": {
+              "description": "Judul untuk bagian referensi.",
+              "type": "text"
+            },
+            "referencesContent": "Berikut adalah referensi untuk perkembangan trimester.",
+            "@referencesContent": {
+              "description": "Konten yang menunjukkan referensi yang digunakan.",
+              "type": "text"
+            },
+              "week7": "Minggu 7",
+              "@week7": {
+                "description": "Label untuk minggu ke-7 pada layar perkembangan kehamilan.",
+                "type": "text"
+              },
+              "week7Title": "Perkembangan pada Minggu 7",
+              "@week7Title": {
+                "description": "Judul yang menjelaskan perkembangan pada minggu ke-7.",
+                "type": "text"
+              },
+              "week7Description": "Otak dan organ-organ lainnya mulai berkembang.",
+              "@week7Description": {
+                "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-7 kehamilan.",
+                "type": "text"
+              },
+              "week8": "Minggu 8",
+              "@week8": {
+                "description": "Label untuk minggu ke-8 pada layar perkembangan kehamilan.",
+                "type": "text"
+              },
+              "week8Title": "Perkembangan pada Minggu 8",
+              "@week8Title": {
+                "description": "Judul yang menjelaskan perkembangan pada minggu ke-8.",
+                "type": "text"
+              },
+              "week8Description": "Fitur wajah embrio mulai terlihat lebih jelas.",
+              "@week8Description": {
+                "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-8 kehamilan.",
+                "type": "text"
+              },
+              "week9_10": "Minggu 9-10",
+              "@week9_10": {
+                "description": "Label untuk minggu ke-9-10 pada layar perkembangan kehamilan.",
+                "type": "text"
+              },
+              "week9_10Title": "Perkembangan pada Minggu 9-10",
+              "@week9_10Title": {
+                "description": "Judul yang menjelaskan perkembangan pada minggu ke-9-10.",
+                "type": "text"
+              },
+              "week9_10Description": "Jari tangan dan kaki mulai terbentuk.",
+              "@week9_10Description": {
+                "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-9-10 kehamilan.",
+                "type": "text"
+              },
+              "week11_13": "Minggu 11-13",
+              "@week11_13": {
+                "description": "Label untuk minggu ke-11-13 pada layar perkembangan kehamilan.",
+                "type": "text"
+              },
+              "week11_13Title": "Perkembangan pada Minggu 11-13",
+              "@week11_13Title": {
+                "description": "Judul yang menjelaskan perkembangan pada minggu ke-11-13.",
+                "type": "text"
+              },
+              "week11_13Description": "Semua organ utama terbentuk pada akhir periode ini.",
+              "@week11_13Description": {
+                "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-11-13 kehamilan.",
+                "type": "text"
+              }                                                 
 }
