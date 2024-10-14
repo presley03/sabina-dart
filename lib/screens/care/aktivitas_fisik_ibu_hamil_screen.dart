@@ -1,74 +1,72 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-class PerawatanSehariHariScreen extends StatefulWidget {
-  const PerawatanSehariHariScreen({super.key});
+class AktivitasFisikIbuHamilScreen extends StatefulWidget {
+  const AktivitasFisikIbuHamilScreen({super.key});
 
   @override
-  State<PerawatanSehariHariScreen> createState() => _PerawatanSehariHariScreenState();
+  State<AktivitasFisikIbuHamilScreen> createState() => _AktivitasFisikIbuHamilScreenState();
 }
 
-class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
+class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScreen> {
   int _currentIndex = 0;
   final PageController _pageController = PageController(viewportFraction: 0.85);
 
-  final List<Map<String, dynamic>> _careItems = [
+  final List<Map<String, dynamic>> _activityItems = [
     {
-      'title': 'Makan Beragam Makanan',
-      'icon': Icons.restaurant,
+      'title': 'Jalan Kaki',
+      'icon': Icons.directions_walk,
       'content': [
-        'Konsumsi makanan lengkap: Karbohidrat, Protein, Sayuran, Buah-buahan.',
-        'Minum Tablet Tambah Darah (TTD) setiap hari.',
-        'Batasi gula dan garam.',
-        'Minum 8-12 gelas air putih per hari.',
+        'Aktivitas fisik yang paling mudah dan aman.',
+        'Jalan kaki selama 30 menit setiap hari dapat membantu melancarkan peredaran darah dan menjaga kebugaran.',
+        'Cobalah untuk berjalan di pagi atau sore hari dengan kecepatan sedang.',
+      ],
+      'imageCaption': 'Ibu hamil berjalan kaki di taman',
+    },
+    {
+      'title': 'Peregangan (Stretching)',
+      'icon': Icons.accessibility_new,
+      'content': [
+        'Membantu mengurangi ketegangan otot dan meningkatkan fleksibilitas.',
+        'Lakukan gerakan peregangan ringan pada leher, lengan, dan kaki.',
+        'Peregangan sederhana ini dapat dilakukan setiap hari untuk mencegah nyeri dan ketegangan otot.',
+      ],
+      'imageCaption': 'Ibu hamil melakukan peregangan ringan',
+    },
+    {
+      'title': 'Senam Hamil',
+      'icon': Icons.pregnant_woman,
+      'content': [
+        'Dirancang khusus untuk ibu hamil.',
+        'Melibatkan gerakan yang membantu memperkuat otot panggul, punggung, dan perut.',
+        'Dapat membantu ibu lebih rileks dan mempersiapkan diri untuk proses persalinan.',
       ],
     },
     {
-      'title': 'Jaga Kebersihan Diri',
-      'icon': Icons.clean_hands,
+      'title': 'Yoga Prenatal',
+      'icon': Icons.self_improvement,
       'content': [
-        'Cuci tangan dengan sabun dan air mengalir.',
-        'Mandi dan gosok gigi 2 kali sehari.',
-        'Keramas setiap 2 hari sekali.',
-        'Jaga kebersihan payudara dan area intim.',
-        'Ganti pakaian dan pakaian dalam secara teratur.',
+        'Aman untuk ibu hamil karena fokus pada pernapasan, keseimbangan, dan peregangan.',
+        'Membantu ibu untuk lebih rileks dan mengelola stres.',
+        'Dapat dilakukan di kelas atau di rumah dengan bimbingan instruktur yang berpengalaman.',
       ],
+      'imageCaption': 'Ibu hamil melakukan pose yoga prenatal',
     },
     {
-      'title': 'Istirahat Cukup',
-      'icon': Icons.hotel,
+      'title': 'Berenang',
+      'icon': Icons.pool,
       'content': [
-        'Tidur malam 6-7 jam.',
-        'Istirahat siang 1-2 jam.',
+        'Sangat baik untuk ibu hamil karena air mendukung berat tubuh, mengurangi tekanan pada sendi.',
+        'Membantu meningkatkan sirkulasi dan mengurangi bengkak pada kaki.',
+        'Pastikan kolam renang yang digunakan bersih dan aman.',
       ],
     },
-    {
-      'title': 'Stimulasi Janin',
-      'icon': Icons.child_friendly,
-      'content': [
-        'Sentuh perut ibu.',
-        'Ajak janin berbicara.',
-        'Bacakan buku untuk janin.',
-        'Lakukan bersama suami.',
-      ],
-    },
-    {
-      'title': 'Aktivitas dan Latihan Fisik',
-      'icon': Icons.fitness_center,
-      'content': [
-        'Sesuaikan aktivitas dengan kondisi kehamilan.',
-        'Lakukan senam hamil sesuai anjuran.',
-        'Jenis latihan disesuaikan dengan usia kehamilan.',
-      ],
-    },
-    {
-      'title': 'Hubungan Suami Istri',
-      'icon': Icons.favorite,
-      'content': [
-        'Dapat dilakukan jika kehamilan sehat.',
-        'Konsultasikan dengan petugas kesehatan jika ada kekhawatiran.',
-      ],
-    },
+  ];
+
+  final List<String> _references = [
+    'American College of Obstetricians and Gynecologists (ACOG). (2020). Exercise During Pregnancy.',
+    'Mayo Clinic. (2021). Pregnancy Exercise: Safe Workouts.',
+    'National Health Service (NHS). (2020). Exercise in Pregnancy.',
   ];
 
   @override
@@ -82,7 +80,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Perawatan Sehari-hari', style: TextStyle(color: Colors.white)),
+        title: const Text('Aktivitas Fisik Ibu Hamil', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
@@ -93,9 +91,9 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Colors.blue[100]!,
+              Colors.green[100]!,
+              Colors.green[200]!,
               Colors.blue[200]!,
-              Colors.purple[100]!,
             ],
           ),
         ),
@@ -104,6 +102,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
             child: Column(
               children: [
                 _buildIntroduction(),
+                _buildImageSlider(),
                 _buildPageView(),
                 _buildPageIndicator(),
                 _buildTipsSection(),
@@ -134,16 +133,18 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    'assets/images/artikel_perawatan_ibu hamil.png',
-                    height: 150,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
+                  child: AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Image.asset(
+                      'assets/images/aktifitas_fisik_ibu_hamil.png',
+                      height: 200,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
                 const Text(
-                  'Perawatan sehari-hari sangat penting bagi ibu hamil untuk menjaga kesehatan diri dan janin. Berikut adalah panduan perawatan sehari-hari untuk ibu hamil:',
+                  'Aktivitas fisik sangat penting selama kehamilan karena membantu menjaga kesehatan ibu dan perkembangan janin. Dengan melakukan latihan yang tepat, ibu hamil dapat mengurangi risiko komplikasi, seperti tekanan darah tinggi, memperkuat otot untuk persalinan, dan mengurangi rasa tidak nyaman seperti sakit punggung.',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ],
@@ -154,19 +155,54 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
     );
   }
 
+  Widget _buildImageSlider() {
+    return SizedBox(
+      height: 250,
+      child: PageView.builder(
+        itemCount: _activityItems.where((item) => item.containsKey('imageCaption')).length,
+        itemBuilder: (context, index) {
+          final item = _activityItems.where((item) => item.containsKey('imageCaption')).elementAt(index);
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Image.asset(
+                      'assets/images/${item['title'].toLowerCase().replaceAll(' ', '_')}.jpg',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  item['imageCaption'],
+                  style: const TextStyle(color: Colors.white, fontSize: 14),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   Widget _buildPageView() {
     return SizedBox(
       height: 400,
       child: PageView.builder(
         controller: _pageController,
-        itemCount: _careItems.length,
+        itemCount: _activityItems.length,
         onPageChanged: (index) {
           setState(() {
             _currentIndex = index;
           });
         },
         itemBuilder: (context, index) {
-          final item = _careItems[index];
+          final item = _activityItems[index];
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             child: ClipRRect(
@@ -236,7 +272,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
   Widget _buildPageIndicator() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: _careItems.asMap().entries.map((entry) {
+      children: _activityItems.asMap().entries.map((entry) {
         return Container(
           width: 8.0,
           height: 8.0,
@@ -268,23 +304,14 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Tips Tambahan',
+                  'Hal yang Perlu Diperhatikan:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Selalu konsultasikan dengan dokter atau bidan Anda tentang perawatan yang tepat selama kehamilan. Setiap kehamilan bersifat unik dan mungkin memerlukan perhatian khusus.',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white.withOpacity(0.3),
-                    foregroundColor: Colors.white,
-                  ),
-                  onPressed: _showMoreTips,
-                  child: const Text('Lihat Tips Lainnya'),
-                ),
+                _buildTipItem('Konsultasikan dengan dokter sebelum memulai aktivitas fisik baru.'),
+                _buildTipItem('Hindari latihan yang dapat membuat jatuh atau memengaruhi keseimbangan.'),
+                _buildTipItem('Jangan terlalu memaksakan diri, dan berhenti jika merasa pusing, lelah, atau kesulitan bernapas.'),
+                _buildTipItem('Minumlah air yang cukup sebelum dan setelah berolahraga untuk mencegah dehidrasi.'),
               ],
             ),
           ),
@@ -293,65 +320,9 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
     );
   }
 
-  void _showMoreTips() {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (BuildContext context) {
-        return Container(
-          height: MediaQuery.of(context).size.height * 0.7,
-          decoration: BoxDecoration(
-            color: Colors.blue[100]!.withOpacity(0.9),
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
-          ),
-          child: Column(
-            children: [
-              Container(
-                height: 5,
-                width: 40,
-                margin: const EdgeInsets.symmetric(vertical: 10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(2.5),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text(
-                  'Tips Tambahan untuk Perawatan Sehari-hari',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-              ),
-              Expanded(
-                child: ListView(
-                  children: [
-                    _buildTipItem('Gunakan pelembab untuk mencegah stretch marks pada perut dan payudara.'),
-                    _buildTipItem('Lakukan pijat ringan pada kaki untuk mengurangi pembengkakan.'),
-                    _buildTipItem('Pilih pakaian yang nyaman dan tidak terlalu ketat.'),
-                    _buildTipItem('Hindari penggunaan sepatu hak tinggi untuk mencegah nyeri punggung.'),
-                    _buildTipItem('Konsumsi makanan kaya serat untuk mencegah sembelit.'),
-                    _buildTipItem('Lakukan teknik pernapasan dalam untuk relaksasi.'),
-                    _buildTipItem('Jaga postur tubuh yang baik saat duduk dan berdiri.'),
-                    _buildTipItem('Hindari mengangkat benda berat selama kehamilan.'),
-                    _buildTipItem('Lakukan peregangan ringan setiap pagi untuk meningkatkan fleksibilitas.'),
-                    _buildTipItem('Dengarkan musik yang menenangkan untuk mengurangi stres.'),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
   Widget _buildTipItem(String tip) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -382,18 +353,21 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
               borderRadius: BorderRadius.circular(15),
               border: Border.all(color: Colors.white.withOpacity(0.2)),
             ),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Referensi',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                 ),
-                SizedBox(height: 8),
-                Text(
-                  'Kementerian Kesehatan RI. (2023). Buku Kesehatan Ibu dan Anak. Jakarta: Indonesia',
-                  style: TextStyle(fontSize: 12, color: Colors.white),
-                ),
+                const SizedBox(height: 8),
+                ..._references.map((ref) => Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    ref,
+                    style: const TextStyle(fontSize: 12, color: Colors.white),
+                  ),
+                )),
               ],
             ),
           ),

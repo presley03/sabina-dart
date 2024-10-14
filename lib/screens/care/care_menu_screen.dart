@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
 import 'perawatan_sehari_hari_screen.dart';
+import 'yang_perlu_dihindari_screen.dart';
+import 'makanan_screen.dart';
+import 'aktivitas_fisik_ibu_hamil_screen.dart';
 
 // Placeholder screens - Anda perlu membuat file-file ini nanti
 //import 'makanan_screen.dart';
@@ -30,7 +33,7 @@ class CareMenuScreen extends StatelessWidget {
                 color: Colors.blue[100]!,
                 imagePath: 'assets/images/bg_kuesioner_blue.png',
                 onTap: () {
-                 // _navigateToScreen(context, const MakananScreen(), 'makanan');
+                _navigateToScreen(context, const MakananScreen(), 'makanan');
                 },
               ),
               const SizedBox(height: 16),
@@ -42,7 +45,7 @@ class CareMenuScreen extends StatelessWidget {
                 color: Colors.red[100]!,
                 imagePath: 'assets/images/bg_kuesioner_orange.png',
                 onTap: () {
-                 // _navigateToScreen(context, const YangPerluDihindariScreen(), 'yangPerluDihindari');
+                 _navigateToScreen(context, const YangPerluDihindariScreen(), 'yangPerluDihindari');
                 },
               ),
               const SizedBox(height: 16),
@@ -55,6 +58,18 @@ class CareMenuScreen extends StatelessWidget {
                 imagePath: 'assets/images/bg_kuesioner_purple.png',
                 onTap: () {
                   _navigateToScreen(context, const PerawatanSehariHariScreen(), 'perawatanSehariHari');
+                },
+              ),
+              const SizedBox(height: 16),
+              _buildCareMenuItem(
+                context: context,
+                title: 'Aktivitas Fisik Ibu Hamil',
+                description: 'Tips kegiatan fisik yang aman untuk ibu hamil',
+                icon: Icons.accessibility_new,
+                color: Colors.purple[100]!,
+                imagePath: 'assets/images/bg_kuesioner_green.png',
+                onTap: () {
+                  _navigateToScreen(context, const AktivitasFisikIbuHamilScreen(), 'perawatanSehariHari');
                 },
               ),
             ],

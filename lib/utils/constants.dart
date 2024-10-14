@@ -23,6 +23,7 @@ class AppAssets {
   static const String backgroundPatternOrange = 'assets/images/bg_kuesioner_orange.png';
   static const String backgroundPatternPurple = 'assets/images/bg_kuesioner_purple.png';
   static const String backgroundPatternBlue = 'assets/images/bg_kuesioner_blue.png';
+  static const String backgroundPatternGreen = 'assets/images/bg_kuesioner_green.png';
   static const String bengkakIcon = 'assets/images/bengkak_bagian_tubuh.png';
   static const String keluarCairanIcon = 'assets/images/keluar_cairan.png';
   static const String keluarDarahIcon = 'assets/images/keluar_darah.png';
