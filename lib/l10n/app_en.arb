@@ -296,10 +296,6 @@
       "@english": {
         "description": "Label for selecting the English language"
       },
-        "trimesterMenuTitle": "Trimester Menu",
-        "@trimesterMenuTitle": {
-          "description": "Title for the trimester menu screen"
-        },
         "firstTrimesterTitle": "First Trimester",
         "@firstTrimesterTitle": {
           "description": "Title for the first trimester section"
@@ -478,6 +474,73 @@
               "@week11_13Description": {
                 "description": "Detailed description of what happens during weeks 11-13 of pregnancy.",
                 "type": "text"
-              }
-                                                       
+              },
+                "estimatedDueDate": "Estimated Due Date",
+                "@estimatedDueDate": {
+                  "description": "Label for displaying the estimated due date of pregnancy"
+                },
+                "about": "About",
+                "@about": {
+                  "description": "Label for the 'About' section in the app"
+                },
+                "aboutSabina": "SABINA is an application designed to assist pregnant women in monitoring their pregnancy and accessing important information about maternal and child health.",
+                "@aboutSabina": {
+                  "description": "Description of the SABINA app for the 'About' section"
+                },
+                "initiatedBy": "Initiated by:",
+                "@initiatedBy": {
+                  "description": "Label to indicate the initiators of the SABINA app"
+                },
+                "initiatorNames": "Wahidah Sukriani, SST, M.Keb (www.sapabidan.com)",
+                "@initiatorNames": {
+                  "description": "Names of the initiators of the SABINA app"
+                },
+                "illustrationCredits": "Illustrations in this application are created using DALL·E AI.",
+                "@illustrationCredits": {
+                  "description": "Acknowledgment for DALL·E AI in creating illustrations"
+                },
+                  "persiapanPersalinan": "Birth Preparation",
+                  "@persiapanPersalinan": {
+                    "description": "Title for Birth Preparation box"
+                  },
+                    "trimesterMenuTitle": "Pregnancy Information",
+                    "@trimesterMenuTitle": {
+                      "description": "Title for trimester menu screen"
+                    },
+                    "trimesterOneTitle": "First Trimester",
+                    "@trimesterOneTitle": {
+                      "description": "Title for first trimester"
+                    },
+                    "trimesterOneSubtitle": "Weeks 1-13",
+                    "@trimesterOneSubtitle": {
+                      "description": "Subtitle for first trimester"
+                    },
+                    "trimesterOneTip": "Main organs of the baby start forming",
+                    "@trimesterOneTip": {
+                      "description": "Brief tip about the first trimester"
+                    },
+                    "trimesterTwoTitle": "Second Trimester",
+                    "@trimesterTwoTitle": {
+                      "description": "Title for second trimester"
+                    },
+                    "trimesterTwoSubtitle": "Weeks 14-27",
+                    "@trimesterTwoSubtitle": {
+                      "description": "Subtitle for second trimester"
+                    },
+                    "trimesterTwoTip": "Rapid growth and baby movements can be felt",
+                    "@trimesterTwoTip": {
+                      "description": "Brief tip about the second trimester"
+                    },
+                    "trimesterThreeTitle": "Third Trimester",
+                    "@trimesterThreeTitle": {
+                      "description": "Title for third trimester"
+                    },
+                    "trimesterThreeSubtitle": "Weeks 28-40",
+                    "@trimesterThreeSubtitle": {
+                      "description": "Subtitle for third trimester"
+                    },
+                    "trimesterThreeTip": "Preparation for childbirth",
+                    "@trimesterThreeTip": {
+                      "description": "Brief tip about the third trimester"
+                    }                  
 }

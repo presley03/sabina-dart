@@ -121,7 +121,7 @@ class _MakananScreenState extends State<MakananScreen> {
                 const SizedBox(height: 16),
                 const Text(
                   'Selama kehamilan, penting bagi ibu hamil untuk mengonsumsi makanan dengan gizi seimbang agar kesehatan ibu dan janin tetap optimal. Gizi seimbang adalah pola makan yang mengandung semua zat gizi penting dalam jumlah yang tepat sesuai kebutuhan tubuh.',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
                 ),
               ],
             ),

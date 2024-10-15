@@ -5,6 +5,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sabina_app/models/keluar_darah_model.dart';
 import 'package:sabina_app/models/mual_muntah_model.dart';
 import 'package:sabina_app/screens/splash_screen.dart';
+import 'package:sabina_app/screens/care/aktivitas_fisik_ibu_hamil_screen.dart'; // Tambahkan rute baru
+import 'package:sabina_app/screens/care/makanan_screen.dart'; // Tambahkan rute baru
+import 'package:sabina_app/screens/care/perawatan_sehari_hari_screen.dart'; // Tambahkan rute baru
+import 'package:sabina_app/screens/trimester/trimester_satu.dart'; // Tambahkan rute baru
+import 'package:sabina_app/screens/trimester/trimester_dua.dart'; // Tambahkan rute baru
+import 'package:sabina_app/screens/trimester/trimester_tiga.dart'; // Tambahkan rute baru
 import 'models/preeclampsia_model.dart';
 import 'models/penapisan_model.dart';
 import 'models/sakit_kepala_model.dart';
@@ -56,6 +62,14 @@ class MyApp extends StatelessWidget {
           ],
           locale: localeProvider.locale,
           home: const SplashScreen(),
+          routes: {
+            '/aktivitasFisik': (context) => const AktivitasFisikIbuHamilScreen(), // Tambahkan rute
+            '/makanan': (context) => const MakananScreen(), // Tambahkan rute
+            '/perawatanSehariHari': (context) => const PerawatanSehariHariScreen(), // Tambahkan rute
+            '/trimesterSatu': (context) => const TrimesterSatuScreen(), // Tambahkan rute
+            '/trimesterDua': (context) => const TrimesterDuaScreen(), // Tambahkan rute
+            '/trimesterTiga': (context) => const TrimesterTigaScreen(), // Tambahkan rute
+          },
         );
       },
     );

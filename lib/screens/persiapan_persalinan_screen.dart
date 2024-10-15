@@ -1,7 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
 
-class PersiapanPersalinanScreen extends StatelessWidget {
+class PersiapanPersalinanScreen extends StatefulWidget {
   const PersiapanPersalinanScreen({super.key});
+
+  @override
+  State<PersiapanPersalinanScreen> createState() => _PersiapanPersalinanScreenState();
+}
+
+class _PersiapanPersalinanScreenState extends State<PersiapanPersalinanScreen> {
+  final ScrollController _scrollController = ScrollController();
+  bool _showBackToTopButton = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      setState(() {
+        if (_scrollController.offset >= 400) {
+          _showBackToTopButton = true;
+        } else {
+          _showBackToTopButton = false;
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +47,36 @@ class PersiapanPersalinanScreen extends StatelessWidget {
         foregroundColor: Colors.black,
         title: const Text('Persiapan Persalinan'),
       ),
-      body: ListView(
+      body: Stack(
         children: [
-          _buildHeader(),
-          _buildIntroduction(),
-          _buildPersiapanIbu(),
-          _buildPersiapanBayi(),
-          _buildPersiapanKeluarga(),
-          _buildReferences(),
+          ListView(
+            controller: _scrollController,
+            children: [
+              _buildHeader(),
+              _buildIntroduction(),
+              _buildPersiapanIbu(),
+              _buildPersiapanBayi(),
+              _buildImageWithCaption(
+                'assets/images/persiapan_bayi.jpg',
+                'Perlengkapan yang perlu disiapkan untuk bayi',
+              ),
+              _buildPersiapanKeluarga(),
+              _buildImageWithCaption(
+                'assets/images/persiapan_keluarga.jpg',
+                'Persiapan keluarga menghadapi persalinan',
+              ),
+              _buildReferences(),
+            ],
+          ),
+          if (_showBackToTopButton)
+            Positioned(
+              bottom: 20,
+              right: 20,
+              child: FloatingActionButton(
+                onPressed: _scrollToTop,
+                child: const Icon(Icons.arrow_upward),
+              ),
+            ),
         ],
       ),
     );
@@ -46,6 +102,39 @@ class PersiapanPersalinanScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildImageWithCaption(String imagePath, String caption) {
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Scaffold(
+                  body: PhotoView(
+                    imageProvider: AssetImage(imagePath),
+                    backgroundDecoration: const BoxDecoration(color: Colors.black),
+                    minScale: PhotoViewComputedScale.contained,
+                    maxScale: PhotoViewComputedScale.covered * 2,
+                  ),
+                ),
+              ),
+            );
+          },
+          child: Image.asset(imagePath),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            caption,
+            style: const TextStyle(fontStyle: FontStyle.italic),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
     );
   }
 
@@ -86,54 +175,44 @@ class PersiapanPersalinanScreen extends StatelessWidget {
   }
 
   Widget _buildPersiapanBayi() {
-    return Column(
+    return _buildSection(
+      title: 'Persiapan untuk Bayi yang Akan Lahir',
       children: [
-        _buildSection(
-          title: 'Persiapan untuk Bayi yang Akan Lahir',
-          children: [
-            _buildSubSection('Perlengkapan Bayi', [
-              _buildBulletPoint('Pakaian bayi: Siapkan beberapa set pakaian untuk bayi yang nyaman dan mudah dipakai, termasuk baju hangat, sarung tangan, kaus kaki, dan topi.'),
-              _buildBulletPoint('Popok dan perlengkapan bayi: Siapkan popok untuk bayi yang baru lahir, tisu basah, minyak telon, dan krim ruam popok.'),
-              _buildBulletPoint('Selimut bayi: Selimut bayi digunakan untuk membungkus dan menghangatkan bayi.'),
-              _buildBulletPoint('Perlengkapan menyusui: Jika ibu berencana menyusui, siapkan bra menyusui dan bantal menyusui untuk kenyamanan.'),
-            ]),
-            _buildSubSection('Tempat Tidur dan Peralatan Bayi', [
-              _buildBulletPoint('Tempat tidur bayi: Pastikan bayi memiliki tempat tidur yang aman, seperti boks bayi atau keranjang tidur.'),
-              _buildBulletPoint('Car seat bayi: Jika menggunakan mobil untuk pulang dari rumah sakit, upayakan memiliki car seat yang aman dan sesuai untuk bayi baru lahir.'),
-            ]),
-            _buildSubSection('Kebersihan dan Keamanan Bayi', [
-              _buildBulletPoint('Perawatan tali pusat: Siapkan peralatan untuk membersihkan tali pusat bayi yang baru lahir.'),
-              _buildBulletPoint('Perlengkapan mandi bayi: Siapkan sabun bayi, shampoo bayi, handuk lembut, dan bak mandi bayi.'),
-            ]),
-          ],
-        ),
-        Image.asset('assets/images/persiapan_bayi.jpg'),
+        _buildSubSection('Perlengkapan Bayi', [
+          _buildBulletPoint('Pakaian bayi: Siapkan beberapa set pakaian untuk bayi yang nyaman dan mudah dipakai, termasuk baju hangat, sarung tangan, kaus kaki, dan topi.'),
+          _buildBulletPoint('Popok dan perlengkapan bayi: Siapkan popok untuk bayi yang baru lahir, tisu basah, minyak telon, dan krim ruam popok.'),
+          _buildBulletPoint('Selimut bayi: Selimut bayi digunakan untuk membungkus dan menghangatkan bayi.'),
+          _buildBulletPoint('Perlengkapan menyusui: Jika ibu berencana menyusui, siapkan bra menyusui dan bantal menyusui untuk kenyamanan.'),
+        ]),
+        _buildSubSection('Tempat Tidur dan Peralatan Bayi', [
+          _buildBulletPoint('Tempat tidur bayi: Pastikan bayi memiliki tempat tidur yang aman, seperti boks bayi atau keranjang tidur.'),
+          _buildBulletPoint('Car seat bayi: Jika menggunakan mobil untuk pulang dari rumah sakit, upayakan memiliki car seat yang aman dan sesuai untuk bayi baru lahir.'),
+        ]),
+        _buildSubSection('Kebersihan dan Keamanan Bayi', [
+          _buildBulletPoint('Perawatan tali pusat: Siapkan peralatan untuk membersihkan tali pusat bayi yang baru lahir.'),
+          _buildBulletPoint('Perlengkapan mandi bayi: Siapkan sabun bayi, shampoo bayi, handuk lembut, dan bak mandi bayi.'),
+        ]),
       ],
     );
   }
 
   Widget _buildPersiapanKeluarga() {
-    return Column(
+    return _buildSection(
+      title: 'Persiapan Keluarga',
       children: [
-        _buildSection(
-          title: 'Persiapan Keluarga',
-          children: [
-            _buildSubSection('Diskusi Keluarga tentang Persalinan', [
-              _buildBulletPoint('Kesiapan peran ayah: Peran ayah sangat penting selama proses persalinan. Ayah perlu mempersiapkan mental untuk mendukung ibu secara emosional dan fisik saat melahirkan.'),
-              _buildBulletPoint('Rencana penjemputan: Keluarga perlu menyiapkan siapa yang akan menjemput ibu dan bayi dari rumah sakit.'),
-              _buildBulletPoint('Persiapan untuk anak lain (jika ada): Jika ibu sudah memiliki anak, persiapkan siapa yang akan menjaga anak-anak di rumah selama ibu berada di rumah sakit.'),
-            ]),
-            _buildSubSection('Persiapan Rumah untuk Bayi', [
-              _buildBulletPoint('Kondisi rumah yang aman: Pastikan rumah dalam kondisi bersih dan aman sebelum bayi tiba.'),
-              _buildBulletPoint('Perencanaan dukungan setelah melahirkan: Rencanakan siapa yang akan membantu tugas rumah tangga, menjaga bayi saat ibu beristirahat, atau menyiapkan makanan.'),
-            ]),
-            _buildSubSection('Dukungan Emosional', [
-              _buildBulletPoint('Keterlibatan pasangan: Penting bagi pasangan untuk terlibat dalam mendukung secara emosional.'),
-              _buildBulletPoint('Komunikasi terbuka dengan keluarga: Komunikasi yang terbuka dengan keluarga penting untuk meminimalkan konflik dan stres setelah bayi lahir.'),
-            ]),
-          ],
-        ),
-        Image.asset('assets/images/persiapan_keluarga.jpg'),
+        _buildSubSection('Diskusi Keluarga tentang Persalinan', [
+          _buildBulletPoint('Kesiapan peran ayah: Peran ayah sangat penting selama proses persalinan. Ayah perlu mempersiapkan mental untuk mendukung ibu secara emosional dan fisik saat melahirkan.'),
+          _buildBulletPoint('Rencana penjemputan: Keluarga perlu menyiapkan siapa yang akan menjemput ibu dan bayi dari rumah sakit.'),
+          _buildBulletPoint('Persiapan untuk anak lain (jika ada): Jika ibu sudah memiliki anak, persiapkan siapa yang akan menjaga anak-anak di rumah selama ibu berada di rumah sakit.'),
+        ]),
+        _buildSubSection('Persiapan Rumah untuk Bayi', [
+          _buildBulletPoint('Kondisi rumah yang aman: Pastikan rumah dalam kondisi bersih dan aman sebelum bayi tiba.'),
+          _buildBulletPoint('Perencanaan dukungan setelah melahirkan: Rencanakan siapa yang akan membantu tugas rumah tangga, menjaga bayi saat ibu beristirahat, atau menyiapkan makanan.'),
+        ]),
+        _buildSubSection('Dukungan Emosional', [
+          _buildBulletPoint('Keterlibatan pasangan: Penting bagi pasangan untuk terlibat dalam mendukung secara emosional.'),
+          _buildBulletPoint('Komunikasi terbuka dengan keluarga: Komunikasi yang terbuka dengan keluarga penting untuk meminimalkan konflik dan stres setelah bayi lahir.'),
+        ]),
       ],
     );
   }

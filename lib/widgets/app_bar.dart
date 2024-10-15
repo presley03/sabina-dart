@@ -8,6 +8,8 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController searchController = TextEditingController();
+
     return Stack(
       children: [
         // Background image
@@ -31,8 +33,9 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: SizedBox(
-                    height: 40,
+                    height: 40, // Tinggi yang tetap
                     child: TextField(
+                      controller: searchController, // Tambahkan controller
                       decoration: InputDecoration(
                         hintText: "Cari...",
                         hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
@@ -55,15 +58,9 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
                         fillColor: Colors.white,
                         contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                       ),
-                      onSubmitted: (value) {
-                        if (value.isNotEmpty) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SearchResultScreen(searchQuery: value),
-                            ),
-                          );
-                        }
+                      onSubmitted: (query) {
+                        // Implementasi pencarian
+                        _handleSearch(context, query);
                       },
                     ),
                   ),
@@ -86,6 +83,23 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
     Navigator.of(context).push(
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => const UserProfileScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      ),
+    );
+  }
+
+  void _handleSearch(BuildContext context, String query) {
+    // Navigasi ke halaman hasil pencarian
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => SearchResultScreen(searchQuery: query),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;

@@ -11,7 +11,7 @@ import '../models/user_identity.dart';
 import '../services/database_helper.dart';
 import '../utils/constants.dart';
 import '../providers/locale_provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Untuk menggunakan AppLocalizations
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -59,7 +59,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = AppLocalizations.of(context)!; // Mengambil instance AppLocalizations
+    final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: FutureBuilder<Map<String, dynamic>>(
@@ -86,6 +86,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   _buildPregnancyHistorySection(pregnancyHistory, localizations),
                   _buildPrivacyPolicySection(localizations),
                   _buildLanguageSelector(localizations),
+                  _buildAboutSection(localizations),
                 ]),
               ),
             ],
@@ -149,9 +150,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildInfoColumn(AppLocalizations.of(context)!.age, _calculateAge(userIdentity.tanggalLahir)), // Usia
-          _buildInfoColumn(AppLocalizations.of(context)!.bloodType, userIdentity.golonganDarah), // Gol. Darah
-          _buildInfoColumn(AppLocalizations.of(context)!.religion, userIdentity.agama), // Agama
+          _buildInfoColumn(AppLocalizations.of(context)!.age, _calculateAge(userIdentity.tanggalLahir)),
+          _buildInfoColumn(AppLocalizations.of(context)!.bloodType, userIdentity.golonganDarah),
+          _buildInfoColumn(AppLocalizations.of(context)!.religion, userIdentity.agama),
         ],
       ),
     );
@@ -169,12 +170,12 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   Widget _buildIdentitySection(UserIdentity userIdentity, AppLocalizations localizations) {
     return _buildExpandableSection(
-      localizations.identity, // Identitas
+      localizations.identity,
       Icons.person,
       [
-        _buildInfoTile(localizations.fullName, userIdentity.nama), // Nama Lengkap
-        _buildInfoTile(localizations.birthDate, userIdentity.tanggalLahir), // Tanggal Lahir
-        _buildInfoTile(localizations.address, userIdentity.alamat), // Alamat
+        _buildInfoTile(localizations.fullName, userIdentity.nama),
+        _buildInfoTile(localizations.birthDate, userIdentity.tanggalLahir),
+        _buildInfoTile(localizations.address, userIdentity.alamat),
       ],
       Colors.blue[50]!,
     );
@@ -183,31 +184,32 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   Widget _buildPregnancyHistorySection(PregnancyHistory? pregnancyHistory, AppLocalizations localizations) {
     if (pregnancyHistory == null) {
       return _buildExpandableSection(
-        localizations.pregnancyHistory, // Riwayat Kehamilan
+        localizations.pregnancyHistory,
         Icons.pregnant_woman,
-        [ListTile(title: Text(localizations.noPregnancyHistory))], // Belum ada data riwayat kehamilan
+        [ListTile(title: Text(localizations.noPregnancyHistory))],
         Colors.green[50]!,
       );
     }
 
     return _buildExpandableSection(
-      localizations.pregnancyHistory, // Riwayat Kehamilan
+      localizations.pregnancyHistory,
       Icons.pregnant_woman,
       [
-        _buildInfoTile(localizations.gestationalAge, pregnancyHistory.usiaKehamilan), // Usia Kehamilan
-        _buildInfoTile(localizations.pregnancyOrder, pregnancyHistory.kehamilanKe), // Kehamilan Ke
-        _buildInfoTile(localizations.numberOfChildren, pregnancyHistory.jumlahAnak), // Jumlah Anak
-        _buildInfoTile(localizations.miscarriageHistory, pregnancyHistory.riwayatKeguguran), // Riwayat Keguguran
+        _buildInfoTile(localizations.gestationalAge, pregnancyHistory.usiaKehamilan),
+        _buildInfoTile(localizations.estimatedDueDate, pregnancyHistory.perkiraanTanggalKelahiran ?? 'N/A'),
+        _buildInfoTile(localizations.pregnancyOrder, pregnancyHistory.kehamilanKe),
+        _buildInfoTile(localizations.numberOfChildren, pregnancyHistory.jumlahAnak),
+        _buildInfoTile(localizations.miscarriageHistory, pregnancyHistory.riwayatKeguguran),
         _buildExpandableSection(
-          localizations.lastPregnancyDetails, // Detail Kehamilan Terakhir
+          localizations.lastPregnancyDetails,
           Icons.child_care,
           [
-            _buildInfoTile(localizations.childOrder, pregnancyHistory.anakKeTerakhir), // Anak Ke
-            _buildInfoTile(localizations.birthYear, pregnancyHistory.tahunLahirTerakhir), // Tahun Lahir
-            _buildInfoTile(localizations.birthWeight, pregnancyHistory.beratBadanLahirTerakhir), // BB Lahir
-            _buildInfoTile(localizations.deliveryMethod, pregnancyHistory.caraPersalinanTerakhir), // Cara Persalinan
-            _buildInfoTile(localizations.deliveryHelper, pregnancyHistory.penolongPersalinanTerakhir), // Penolong Persalinan
-            _buildInfoTile(localizations.complications, pregnancyHistory.komplikasiKehamilanTerakhir), // Komplikasi
+            _buildInfoTile(localizations.childOrder, pregnancyHistory.anakKeTerakhir),
+            _buildInfoTile(localizations.birthYear, pregnancyHistory.tahunLahirTerakhir),
+            _buildInfoTile(localizations.birthWeight, pregnancyHistory.beratBadanLahirTerakhir),
+            _buildInfoTile(localizations.deliveryMethod, pregnancyHistory.caraPersalinanTerakhir),
+            _buildInfoTile(localizations.deliveryHelper, pregnancyHistory.penolongPersalinanTerakhir),
+            _buildInfoTile(localizations.complications, pregnancyHistory.komplikasiKehamilanTerakhir),
           ],
           Colors.yellow[50]!,
         ),
@@ -218,12 +220,12 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   Widget _buildPrivacyPolicySection(AppLocalizations localizations) {
     return _buildExpandableSection(
-      localizations.privacyPolicy, // Kebijakan Privasi
+      localizations.privacyPolicy,
       Icons.security,
       [
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Text(localizations.privacyPolicyText), // Isi kebijakan privasi dari file .arb
+          child: Text(localizations.privacyPolicyText),
         ),
       ],
       Colors.red[50]!,
@@ -236,14 +238,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       color: Colors.purple[50],
       child: ListTile(
         leading: const Icon(Icons.language, color: AppColors.primaryPink),
-        title: Text(localizations.language, style: const TextStyle(fontWeight: FontWeight.bold)), // Teks 'Bahasa'
+        title: Text(localizations.language, style: const TextStyle(fontWeight: FontWeight.bold)),
         trailing: Consumer<LocaleProvider>(
           builder: (context, localeProvider, child) {
             return DropdownButton<Locale>(
               value: localeProvider.locale,
               items: [
-                DropdownMenuItem(value: const Locale('id'), child: Text(localizations.indonesian)), // Bahasa Indonesia
-                DropdownMenuItem(value: const Locale('en'), child: Text(localizations.english)), // English
+                DropdownMenuItem(value: const Locale('id'), child: Text(localizations.indonesian)),
+                DropdownMenuItem(value: const Locale('en'), child: Text(localizations.english)),
               ],
               onChanged: (Locale? newLocale) {
                 if (newLocale != null) {
@@ -254,6 +256,43 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           },
         ),
       ),
+    );
+  }
+
+  Widget _buildAboutSection(AppLocalizations localizations) {
+    return _buildExpandableSection(
+      localizations.about,
+      Icons.info_outline,
+      [
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                localizations.aboutSabina,
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                localizations.initiatedBy,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                localizations.initiatorNames,
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                localizations.illustrationCredits,
+                style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
+              ),
+            ],
+          ),
+        ),
+      ],
+      Colors.orange[50]!,
     );
   }
 

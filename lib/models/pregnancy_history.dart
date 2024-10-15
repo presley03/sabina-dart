@@ -4,6 +4,7 @@ class PregnancyHistory {
   final int? id;
   final String tanggalHaidTerakhir;
   final String usiaKehamilan;
+  final String? perkiraanTanggalKelahiran; // Tambahkan field ini
   final int beratBadanSebelumHamil;
   final int tinggiBadan;
   final String kehamilanKe;
@@ -20,6 +21,7 @@ class PregnancyHistory {
     this.id,
     required this.tanggalHaidTerakhir,
     required this.usiaKehamilan,
+    this.perkiraanTanggalKelahiran, // Tambahkan parameter ini
     required this.beratBadanSebelumHamil,
     required this.tinggiBadan,
     required this.kehamilanKe,
@@ -38,6 +40,7 @@ class PregnancyHistory {
       id: map['id'],
       tanggalHaidTerakhir: map['tanggal_haid_terakhir'] ?? '',
       usiaKehamilan: map['usia_kehamilan'] ?? '',
+      perkiraanTanggalKelahiran: map['perkiraan_tanggal_kelahiran'], // Tambahkan ini
       beratBadanSebelumHamil: map['berat_badan_sebelum_hamil'] ?? 0,
       tinggiBadan: map['tinggi_badan'] ?? 0,
       kehamilanKe: map['kehamilan_ke'] ?? '',
@@ -57,6 +60,7 @@ class PregnancyHistory {
       'id': id,
       'tanggal_haid_terakhir': tanggalHaidTerakhir,
       'usia_kehamilan': usiaKehamilan,
+      'perkiraan_tanggal_kelahiran': perkiraanTanggalKelahiran, // Tambahkan ini
       'berat_badan_sebelum_hamil': beratBadanSebelumHamil,
       'tinggi_badan': tinggiBadan,
       'kehamilan_ke': kehamilanKe,

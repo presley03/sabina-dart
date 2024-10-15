@@ -26,22 +26,28 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   String _lastChildBirthAttendant = 'Dokter';
   final _lastPregnancyComplicationsController = TextEditingController();
   String _pregnancyAge = '';
+  String _estimatedDueDate = '';
 
   @override
   void initState() {
     super.initState();
-    _lastPeriodDateController.addListener(_calculatePregnancyAge);
+    _lastPeriodDateController.addListener(_calculatePregnancyInfo);
   }
 
-  void _calculatePregnancyAge() {
+  void _calculatePregnancyInfo() {
     if (_lastPeriodDateController.text.isNotEmpty) {
       final lastPeriod = DateFormat('dd-MM-yyyy').parse(_lastPeriodDateController.text);
       final today = DateTime.now();
       final difference = today.difference(lastPeriod);
       final weeks = difference.inDays ~/ 7;
       final days = difference.inDays % 7;
+      
+      // Perhitungan perkiraan tanggal kelahiran menggunakan rumus Naegele
+      final estimatedDueDate = lastPeriod.add(const Duration(days: 280));
+      
       setState(() {
         _pregnancyAge = '$weeks minggu $days hari';
+        _estimatedDueDate = DateFormat('dd-MM-yyyy').format(estimatedDueDate);
       });
     }
   }
@@ -50,7 +56,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Riwayat Kehamilan'),
+        title: const Text('Riwayat Kehamilan', style: TextStyle(color: Colors.black)),
         backgroundColor: AppColors.primaryPink,
         elevation: 0,
       ),
@@ -68,6 +74,8 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                     _buildDateInput('Hari pertama haid terakhir', _lastPeriodDateController),
                     const SizedBox(height: 8),
                     Text('Usia Kehamilan: $_pregnancyAge', style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+                    const SizedBox(height: 8),
+                    Text('Perkiraan Tanggal Kelahiran: $_estimatedDueDate', style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
                     const SizedBox(height: 16),
                     _buildNumberInput('BB sebelum hamil (Kg)', _preBBController),
                     _buildNumberInput('TB (cm)', _heightController),
@@ -86,19 +94,19 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _buildSection(
                   'Riwayat Kehamilan Terakhir',
                   [
-                    _buildNumberPicker('Anak Ke', _lastChildInfo, 0, 10, (value) {
+                    _buildNumberPicker('Anak Ke', _lastChildInfo, 1, 10, (value) {
                       setState(() => _lastChildInfo = value);
                     }),
                     _buildNumberPicker('Tahun Lahir', _lastChildBirthYear, 2010, DateTime.now().year, (value) {
                       setState(() => _lastChildBirthYear = value);
                     }),
-                    _buildDropdown('BB Lahir', ['Tidak ada','< 2500 gram', '2500-4000 gram', '> 4000 gram'], _lastChildBirthWeight, (value) {
+                    _buildDropdown('BB Lahir', ['< 2500 gram', '2500-4000 gram', '> 4000 gram'], _lastChildBirthWeight, (value) {
                       setState(() => _lastChildBirthWeight = value!);
                     }),
-                    _buildDropdown('Cara persalinan', ['Tidak ada','Normal per vagina', 'Operasi Caesar'], _lastChildDeliveryMethod, (value) {
+                    _buildDropdown('Cara persalinan', ['Normal per vagina', 'Operasi Caesar'], _lastChildDeliveryMethod, (value) {
                       setState(() => _lastChildDeliveryMethod = value!);
                     }),
-                    _buildDropdown('Penolong persalinan', ['Tidak ada','Dokter', 'Bidan', 'Dukun bersalin'], _lastChildBirthAttendant, (value) {
+                    _buildDropdown('Penolong persalinan', ['Dokter', 'Bidan', 'Dukun bersalin'], _lastChildBirthAttendant, (value) {
                       setState(() => _lastChildBirthAttendant = value!);
                     }),
                     _buildTextInput('Keluhan pada kehamilan yang lalu', _lastPregnancyComplicationsController),
@@ -114,7 +122,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                     ),
                   ),
                   onPressed: _submitForm,
-                  child: const Text('Simpan', style: TextStyle(fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.bold)),
+                  child: const Text('Simpan', style: TextStyle(fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black)),
                 ),
               ],
             ),
@@ -135,7 +143,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
           children: [
             Text(
               title,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black), // Warna hitam
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
             ),
             const SizedBox(height: 16),
             ...children,
@@ -152,6 +160,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
+          labelStyle: const TextStyle(color: Colors.black),
           suffixIcon: const Icon(Icons.calendar_today, color: AppColors.primaryPink),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           focusedBorder: OutlineInputBorder(
@@ -159,6 +168,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
             borderSide: const BorderSide(color: AppColors.primaryPink),
           ),
         ),
+        style: const TextStyle(color: Colors.black),
         readOnly: true,
         onTap: () async {
           final DateTime? pickedDate = await showDatePicker(
@@ -195,12 +205,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
+          labelStyle: const TextStyle(color: Colors.black),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: AppColors.primaryPink),
           ),
         ),
+        style: const TextStyle(color: Colors.black),
         keyboardType: TextInputType.number,
         validator: (value) => value?.isEmpty ?? true ? 'Harap isi field ini' : null,
       ),
@@ -213,7 +225,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)), // Warna hitam
+          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
           const SizedBox(height: 8),
           Container(
             decoration: BoxDecoration(
@@ -228,13 +240,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               axis: Axis.horizontal,
               itemWidth: 60,
               selectedTextStyle: const TextStyle(color: AppColors.primaryPink, fontWeight: FontWeight.bold),
+              textStyle: const TextStyle(color: Colors.black),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: AppColors.primaryPink),
               ),
             ),
           ),
-          Text('Nilai: $value', style: const TextStyle(fontSize: 14, color: Colors.black)), // Warna hitam
+          Text('Nilai: $value', style: const TextStyle(fontSize: 14, color: Colors.black)),
         ],
       ),
     );
@@ -246,14 +259,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)), // Warna hitam
+          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
           const SizedBox(height: 8),
           DropdownButtonFormField<String>(
             value: value,
             items: items.map((String item) {
               return DropdownMenuItem<String>(
                 value: item,
-                child: Text(item),
+                child: Text(item, style: const TextStyle(color: Colors.black)),
               );
             }).toList(),
             onChanged: onChanged,
@@ -264,6 +277,8 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 borderSide: const BorderSide(color: AppColors.primaryPink),
               ),
             ),
+            style: const TextStyle(color: Colors.black),
+            dropdownColor: Colors.white,
             validator: (value) => value == null ? 'Harap pilih salah satu opsi' : null,
           ),
         ],
@@ -278,12 +293,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
+          labelStyle: const TextStyle(color: Colors.black),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: AppColors.primaryPink),
           ),
         ),
+        style: const TextStyle(color: Colors.black),
         maxLines: 3,
         validator: (value) => value?.isEmpty ?? true ? 'Harap isi field ini' : null,
       ),
@@ -295,6 +312,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       final pregnancyHistory = {
         'tanggal_haid_terakhir': _lastPeriodDateController.text,
         'usia_kehamilan': _pregnancyAge,
+        'perkiraan_tanggal_kelahiran': _estimatedDueDate,
         'berat_badan_sebelum_hamil': int.tryParse(_preBBController.text) ?? 0,
         'tinggi_badan': int.tryParse(_heightController.text) ?? 0,
         'kehamilan_ke': _pregnancyNumber.toString(),
@@ -327,7 +345,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(message),
+        content: Text(message, style: const TextStyle(color: Colors.white)),
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),

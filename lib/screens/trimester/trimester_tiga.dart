@@ -1,7 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
 
-class TrimesterTigaScreen extends StatelessWidget {
+class TrimesterTigaScreen extends StatefulWidget {
   const TrimesterTigaScreen({super.key});
+
+  @override
+  State<TrimesterTigaScreen> createState() => _TrimesterTigaScreenState();
+}
+
+class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
+  final ScrollController _scrollController = ScrollController();
+  bool _showBackToTopButton = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      setState(() {
+        if (_scrollController.offset >= 400) {
+          _showBackToTopButton = true;
+        } else {
+          _showBackToTopButton = false;
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +47,37 @@ class TrimesterTigaScreen extends StatelessWidget {
         foregroundColor: Colors.black,
         title: const Text('Trimester III'),
       ),
-      body: ListView(
+      body: Stack(
         children: [
-          _buildHeader(),
-          _buildIntroduction(),
-          _buildWeeklyDevelopment(),
-          _buildMaternalChanges(),
-          _buildCommonComplaints(),
-          _buildDosAndDonts(),
-          _buildReferences(),
+          ListView(
+            controller: _scrollController,
+            children: [
+              _buildHeader(),
+              _buildIntroduction(),
+              _buildWeeklyDevelopment(),
+              _buildImageWithCaption(
+                'assets/images/gambar_bayi_trimester_3_40minggu.png',
+                'Perkembangan janin selama trimester ketiga',
+              ),
+              _buildMaternalChanges(),
+              _buildCommonComplaints(),
+              _buildImageWithCaption(
+                'assets/images/trimester_3_keluhan_pada_ibu.png',
+                'Keluhan umum yang mungkin dirasakan pada trimester ketiga',
+              ),
+              _buildDosAndDonts(),
+              _buildReferences(),
+            ],
+          ),
+          if (_showBackToTopButton)
+            Positioned(
+              bottom: 20,
+              right: 20,
+              child: FloatingActionButton(
+                onPressed: _scrollToTop,
+                child: const Icon(Icons.arrow_upward),
+              ),
+            ),
         ],
       ),
     );
@@ -47,6 +103,39 @@ class TrimesterTigaScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildImageWithCaption(String imagePath, String caption) {
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Scaffold(
+                  body: PhotoView(
+                    imageProvider: AssetImage(imagePath),
+                    backgroundDecoration: const BoxDecoration(color: Colors.black),
+                    minScale: PhotoViewComputedScale.contained,
+                    maxScale: PhotoViewComputedScale.covered * 2,
+                  ),
+                ),
+              ),
+            );
+          },
+          child: Image.asset(imagePath),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            caption,
+            style: const TextStyle(fontStyle: FontStyle.italic),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
     );
   }
 

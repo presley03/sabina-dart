@@ -16,49 +16,53 @@ class DatabaseHelper {
   Future<Database> _initDB(String filePath) async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
-    return await openDatabase(path, version: 5, onCreate: _createDB, onUpgrade: _onUpgrade);
+    return await openDatabase(path, version: 6, onCreate: _createDB, onUpgrade: _onUpgrade);
   }
 
   Future _createDB(Database db, int version) async {
+    const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    const textType = 'TEXT';
+    const integerType = 'INTEGER';
+
     await db.execute('''
     CREATE TABLE user_identity (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      nama TEXT,
-      agama TEXT,
-      tanggal_lahir TEXT,
-      alamat TEXT,
-      golongan_darah TEXT
+      id $idType,
+      nama $textType,
+      agama $textType,
+      tanggal_lahir $textType,
+      alamat $textType,
+      golongan_darah $textType
     )
     ''');
 
     await db.execute('''
     CREATE TABLE pregnancy_history (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      tanggal_haid_terakhir TEXT,
-      usia_kehamilan TEXT,
-      berat_badan_sebelum_hamil INTEGER,
-      tinggi_badan INTEGER,
-      kehamilan_ke TEXT,
-      jumlah_anak TEXT,
-      riwayat_keguguran TEXT,
-      anak_ke_terakhir TEXT,
-      tahun_lahir_terakhir TEXT,
-      berat_badan_lahir_terakhir TEXT,
-      cara_persalinan_terakhir TEXT,
-      penolong_persalinan_terakhir TEXT,
-      komplikasi_kehamilan_terakhir TEXT
+      id $idType,
+      tanggal_haid_terakhir $textType,
+      usia_kehamilan $textType,
+      perkiraan_tanggal_kelahiran $textType,
+      berat_badan_sebelum_hamil $integerType,
+      tinggi_badan $integerType,
+      kehamilan_ke $textType,
+      jumlah_anak $textType,
+      riwayat_keguguran $textType,
+      anak_ke_terakhir $textType,
+      tahun_lahir_terakhir $textType,
+      berat_badan_lahir_terakhir $textType,
+      cara_persalinan_terakhir $textType,
+      penolong_persalinan_terakhir $textType,
+      komplikasi_kehamilan_terakhir $textType
     )
     ''');
   }
 
   Future _onUpgrade(Database db, int oldVersion, int newVersion) async {
-    if (oldVersion < 5) {
-      // Drop the existing table if it exists
-      await db.execute("DROP TABLE IF EXISTS pregnancy_history");
-      
-      // Recreate the table with the correct structure
+    if (oldVersion < 2) {
+      await db.execute('ALTER TABLE user_identity ADD COLUMN agama TEXT');
+    }
+    if (oldVersion < 3) {
       await db.execute('''
-      CREATE TABLE pregnancy_history (
+      CREATE TABLE IF NOT EXISTS pregnancy_history (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         tanggal_haid_terakhir TEXT,
         usia_kehamilan TEXT,
@@ -76,9 +80,27 @@ class DatabaseHelper {
       )
       ''');
     }
+    if (oldVersion < 5) {
+      await _addColumnIfNotExists(db, 'pregnancy_history', 'perkiraan_tanggal_kelahiran', 'TEXT');
+    }
+    if (oldVersion < 6) {
+      // Pastikan semua kolom yang diperlukan ada
+      await _addColumnIfNotExists(db, 'pregnancy_history', 'perkiraan_tanggal_kelahiran', 'TEXT');
+      await _addColumnIfNotExists(db, 'pregnancy_history', 'usia_kehamilan', 'TEXT');
+      await _addColumnIfNotExists(db, 'pregnancy_history', 'berat_badan_sebelum_hamil', 'INTEGER');
+      await _addColumnIfNotExists(db, 'pregnancy_history', 'tinggi_badan', 'INTEGER');
+    }
   }
 
-  // Methods for user_identity
+  Future<void> _addColumnIfNotExists(Database db, String table, String column, String type) async {
+    var columns = await db.rawQuery('PRAGMA table_info($table)');
+    bool columnExists = columns.any((col) => col['name'] == column);
+    if (!columnExists) {
+      await db.execute('ALTER TABLE $table ADD COLUMN $column $type');
+    }
+  }
+
+  // Metode untuk user_identity
   Future<int> insertIdentity(Map<String, dynamic> row) async {
     final db = await instance.database;
     return await db.insert('user_identity', row);
@@ -100,7 +122,7 @@ class DatabaseHelper {
     return await db.delete('user_identity', where: 'id = ?', whereArgs: [id]);
   }
 
-  // Methods for pregnancy_history
+  // Metode untuk pregnancy_history
   Future<int> insertPregnancyHistory(Map<String, dynamic> row) async {
     final db = await instance.database;
     return await db.insert('pregnancy_history', row);

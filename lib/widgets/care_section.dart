@@ -86,7 +86,7 @@ class CareSection extends StatelessWidget {
               const SizedBox(width: 10),
               _buildCareCard(
                 context: context,
-                title: localizations.pregnancyAge, // persiapan persalinan'
+                title: localizations.persiapanPersalinan, // persiapan persalinan'
                 icon: Icons.pregnant_woman,
                 color: Colors.yellow[100]!,
                 onTap: () {

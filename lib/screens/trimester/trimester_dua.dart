@@ -1,7 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
 
-class TrimesterDuaScreen extends StatelessWidget {
+class TrimesterDuaScreen extends StatefulWidget {
   const TrimesterDuaScreen({super.key});
+
+  @override
+  State<TrimesterDuaScreen> createState() => _TrimesterDuaScreenState();
+}
+
+class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
+  final ScrollController _scrollController = ScrollController();
+  bool _showBackToTopButton = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      setState(() {
+        if (_scrollController.offset >= 400) {
+          _showBackToTopButton = true;
+        } else {
+          _showBackToTopButton = false;
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +47,37 @@ class TrimesterDuaScreen extends StatelessWidget {
         foregroundColor: Colors.black,
         title: const Text('Trimester II'),
       ),
-      body: ListView(
+      body: Stack(
         children: [
-          _buildHeader(),
-          _buildIntroduction(),
-          _buildWeeklyDevelopment(),
-          _buildMaternalChanges(),
-          _buildCommonComplaints(),
-          _buildDosAndDonts(),
-          _buildReferences(),
+          ListView(
+            controller: _scrollController,
+            children: [
+              _buildHeader(),
+              _buildIntroduction(),
+              _buildWeeklyDevelopment(),
+              _buildMaternalChanges(),
+              _buildImageWithCaption(
+                'assets/images/trimester_2_perubahan pada ibu.png',
+                'Perubahan fisik pada ibu hamil selama trimester kedua',
+              ),
+              _buildCommonComplaints(),
+              _buildDosAndDonts(),
+              _buildImageWithCaption(
+                'assets/images/pregnancy_caution.png',
+                'Hal-hal yang harus dihindari selama trimester kedua kehamilan',
+              ),
+              _buildReferences(),
+            ],
+          ),
+          if (_showBackToTopButton)
+            Positioned(
+              bottom: 20,
+              right: 20,
+              child: FloatingActionButton(
+                onPressed: _scrollToTop,
+                child: const Icon(Icons.arrow_upward),
+              ),
+            ),
         ],
       ),
     );
@@ -47,6 +103,39 @@ class TrimesterDuaScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildImageWithCaption(String imagePath, String caption) {
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Scaffold(
+                  body: PhotoView(
+                    imageProvider: AssetImage(imagePath),
+                    backgroundDecoration: const BoxDecoration(color: Colors.black),
+                    minScale: PhotoViewComputedScale.contained,
+                    maxScale: PhotoViewComputedScale.covered * 2,
+                  ),
+                ),
+              ),
+            );
+          },
+          child: Image.asset(imagePath),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            caption,
+            style: const TextStyle(fontStyle: FontStyle.italic),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
     );
   }
 

@@ -296,10 +296,6 @@
       "@english": {
         "description": "Label untuk memilih bahasa Inggris"
       },
-        "trimesterMenuTitle": "Menu Trimester",
-        "@trimesterMenuTitle": {
-          "description": "Judul untuk halaman menu trimester"
-        },
         "firstTrimesterTitle": "Trimester Pertama",
         "@firstTrimesterTitle": {
           "description": "Judul untuk bagian trimester pertama"
@@ -478,5 +474,73 @@
               "@week11_13Description": {
                 "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-11-13 kehamilan.",
                 "type": "text"
-              }                                                 
+              },
+                "estimatedDueDate": "Perkiraan Tanggal Kelahiran",
+                "@estimatedDueDate": {
+                  "description": "Label untuk menampilkan perkiraan tanggal kelahiran"
+                },
+                "about": "Tentang",
+                "@about": {
+                  "description": "Label untuk bagian 'Tentang' di aplikasi"
+                },
+                "aboutSabina": "SABINA adalah aplikasi yang dirancang untuk membantu ibu hamil memantau kehamilan dan mengakses informasi penting tentang kesehatan ibu dan anak.",
+                "@aboutSabina": {
+                  "description": "Deskripsi aplikasi SABINA untuk bagian 'Tentang'"
+                },
+                "initiatedBy": "Diprakarsai oleh:",
+                "@initiatedBy": {
+                  "description": "Label untuk menunjukkan siapa yang memprakarsai aplikasi SABINA"
+                },
+                "initiatorNames": "Wahidah Sukriani, SST, M.Keb (www.sapabidan.com)",
+                "@initiatorNames": {
+                  "description": "Nama-nama inisiator aplikasi SABINA"
+                },
+                "illustrationCredits": "Ilustrasi dalam aplikasi ini dibuat menggunakan DALL·E AI.",
+                "@illustrationCredits": {
+                  "description": "Pengakuan untuk DALL·E AI dalam pembuatan ilustrasi"
+                },
+                  "persiapanPersalinan": "Persiapan Persalinan",
+                  "@persiapanPersalinan": {
+                    "description": "Judul untuk box Persiapan Persalinan"
+                  },
+                    "trimesterMenuTitle": "Informasi Kehamilan",
+                    "@trimesterMenuTitle": {
+                      "description": "Judul untuk halaman menu trimester"
+                    },
+                    "trimesterOneTitle": "Trimester I",
+                    "@trimesterOneTitle": {
+                      "description": "Judul untuk trimester pertama"
+                    },
+                    "trimesterOneSubtitle": "Minggu 1-13",
+                    "@trimesterOneSubtitle": {
+                      "description": "Subtitle untuk trimester pertama"
+                    },
+                    "trimesterOneTip": "Pembentukan organ utama janin dimulai",
+                    "@trimesterOneTip": {
+                      "description": "Tip singkat tentang trimester pertama"
+                    },
+                    "trimesterTwoTitle": "Trimester II",
+                    "@trimesterTwoTitle": {
+                      "description": "Judul untuk trimester kedua"
+                    },
+                    "trimesterTwoSubtitle": "Minggu 14-27",
+                    "@trimesterTwoSubtitle": {
+                      "description": "Subtitle untuk trimester kedua"
+                    },
+                    "trimesterTwoTip": "Pertumbuhan pesat dan gerakan janin terasa",
+                    "@trimesterTwoTip": {
+                      "description": "Tip singkat tentang trimester kedua"
+                    },
+                    "trimesterThreeTitle": "Trimester III",
+                    "@trimesterThreeTitle": {
+                      "description": "Judul untuk trimester ketiga"
+                    },
+                    "trimesterThreeSubtitle": "Minggu 28-40",
+                    "@trimesterThreeSubtitle": {
+                      "description": "Subtitle untuk trimester ketiga"
+                    },
+                    "trimesterThreeTip": "Persiapan menjelang kelahiran",
+                    "@trimesterThreeTip": {
+                      "description": "Tip singkat tentang trimester ketiga"
+                    }                                                                                                 
 }
