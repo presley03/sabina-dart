@@ -87,10 +87,10 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Yang Perlu Dihindari', style: TextStyle(color: Colors.white)),
+        title: const Text('Yang Perlu Dihindari', style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -149,7 +149,7 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
                 const SizedBox(height: 16),
                 const Text(
                   'Selama kehamilan, ada beberapa hal yang perlu dihindari untuk menjaga kesehatan ibu dan janin. Berikut adalah panduan tentang hal-hal yang sebaiknya dihindari selama kehamilan:',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
                 ),
               ],
             ),
@@ -196,11 +196,11 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(item['icon'], size: 60, color: Colors.white),
+                        Icon(item['icon'], size: 60, color: Colors.black),
                         const SizedBox(height: 20),
                         Text(
                           item['title'],
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 20),
@@ -208,7 +208,7 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
                           child: SingleChildScrollView(
                             child: Text(
                               item['content'],
-                              style: const TextStyle(fontSize: 16, color: Colors.white),
+                              style: const TextStyle(fontSize: 16, color: Colors.black),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -261,12 +261,12 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
               children: [
                 const Text(
                   'Tips Kehamilan Sehat',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 const Text(
                   'Untuk menjaga kehamilan yang sehat, selalu konsultasikan dengan dokter atau bidan Anda tentang gaya hidup dan pola makan yang tepat. Jika Anda memiliki kekhawatiran atau pertanyaan, jangan ragu untuk menghubungi profesional kesehatan.',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
@@ -383,14 +383,14 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
               children: [
                 const Text(
                   'Referensi',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 8),
                 ..._references.map((ref) => Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
                     ref,
-                    style: const TextStyle(fontSize: 12, color: Colors.white),
+                    style: const TextStyle(fontSize: 12, color: Colors.black),
                   ),
                 )),
               ],

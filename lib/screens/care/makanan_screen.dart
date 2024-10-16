@@ -59,10 +59,10 @@ class _MakananScreenState extends State<MakananScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Makanan Gizi Seimbang', style: TextStyle(color: Colors.white)),
+        title: const Text('Makanan Gizi Seimbang', style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -168,11 +168,11 @@ class _MakananScreenState extends State<MakananScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(item['icon'], size: 60, color: Colors.white),
+                        Icon(item['icon'], size: 60, color: Colors.black),
                         const SizedBox(height: 20),
                         Text(
                           item['title'],
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 20),
@@ -180,7 +180,7 @@ class _MakananScreenState extends State<MakananScreen> {
                           child: SingleChildScrollView(
                             child: Text(
                               item['content'],
-                              style: const TextStyle(fontSize: 16, color: Colors.white),
+                              style: const TextStyle(fontSize: 16, color: Colors.black),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -233,7 +233,7 @@ class _MakananScreenState extends State<MakananScreen> {
               children: [
                 const Text(
                   'Contoh Menu Sehari-hari',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 ClipRRect(
@@ -291,12 +291,12 @@ class _MakananScreenState extends State<MakananScreen> {
       children: [
         Text(
           title,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
         ),
         const SizedBox(height: 8),
         ...items.map((item) => Padding(
           padding: const EdgeInsets.only(left: 16, bottom: 4),
-          child: Text('• $item', style: const TextStyle(fontSize: 14, color: Colors.white)),
+          child: Text('• $item', style: const TextStyle(fontSize: 14, color: Colors.black)),
         )),
         const SizedBox(height: 16),
       ],
@@ -322,14 +322,14 @@ class _MakananScreenState extends State<MakananScreen> {
               children: [
                 const Text(
                   'Referensi',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 8),
                 ..._references.map((ref) => Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
                     ref,
-                    style: const TextStyle(fontSize: 12, color: Colors.white),
+                    style: const TextStyle(fontSize: 12, color: Colors.black),
                   ),
                 )),
               ],

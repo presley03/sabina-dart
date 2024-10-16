@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TrimesterSatuScreen extends StatefulWidget {
   const TrimesterSatuScreen({super.key});
@@ -39,34 +40,35 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Trimester I'),
+        title: Text(l10n.trimesterOne_title),
       ),
       body: Stack(
         children: [
           ListView(
             controller: _scrollController,
             children: [
-              _buildHeader(),
-              _buildIntroduction(),
-              _buildWeeklyDevelopment(),
+              _buildHeader(l10n),
+              _buildIntroduction(l10n),
+              _buildWeeklyDevelopment(l10n),
               _buildImageWithCaption(
                 'assets/images/gambar_bayi_trimester_1_13minggu.png',
-                'Perkembangan janin selama trimester pertama',
+                l10n.trimesterOne_fetalDevelopmentImage_caption,
               ),
-              _buildMaternalChanges(),
-              _buildCommonComplaints(),
-              _buildDosAndDonts(),
+              _buildMaternalChanges(l10n),
+              _buildCommonComplaints(l10n),
+              _buildDosAndDonts(l10n),
               _buildImageWithCaption(
                 'assets/images/trimester_1_persiapan_yang_dilakukan.png',
-                'Hal-hal yang harus dilakukan selama trimester pertama',
+                l10n.trimesterOne_preparationImage_caption,
               ),
-              _buildReferences(),
+              _buildReferences(l10n),
             ],
           ),
           if (_showBackToTopButton)
@@ -83,7 +85,7 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(AppLocalizations l10n) {
     return Container(
       height: 200,
       decoration: const BoxDecoration(
@@ -92,10 +94,10 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
           fit: BoxFit.cover,
         ),
       ),
-      child: const Center(
+      child: Center(
         child: Text(
-          'Trimester Pertama Kehamilan',
-          style: TextStyle(
+          l10n.trimesterOne_header,
+          style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -139,96 +141,94 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
     );
   }
 
-  Widget _buildIntroduction() {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
+  Widget _buildIntroduction(AppLocalizations l10n) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
       child: Text(
-        'Trimester pertama kehamilan berlangsung dari minggu pertama hingga minggu ke-13. '
-        'Ini adalah periode penting karena banyak perubahan fisik dan emosional terjadi pada ibu, '
-        'dan perkembangan awal janin dimulai.',
-        style: TextStyle(fontSize: 16, height: 1.5),
+        l10n.trimesterOne_intro,
+        style: const TextStyle(fontSize: 16, height: 1.5),
       ),
     );
   }
 
-  Widget _buildWeeklyDevelopment() {
+  Widget _buildWeeklyDevelopment(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Perkembangan Janin per Minggu',
+      title: l10n.trimesterOne_weeklyDevelopment_title,
       children: [
-        _buildWeekItem('Minggu 1-2', 'Tubuh ibu mempersiapkan ovulasi dan pembuahan.'),
-        _buildWeekItem('Minggu 3', 'Pembuahan terjadi. Zigot bergerak menuju rahim.'),
-        _buildWeekItem('Minggu 4', 'Embrio terbentuk. Plasenta mulai berkembang.'),
-        _buildWeekItem('Minggu 5', 'Sistem saraf pusat mulai berkembang. Jantung embrio mulai berdetak.'),
-        _buildWeekItem('Minggu 6', 'Jantung embrio berdetak secara teratur. Wajah mulai terbentuk.'),
-        _buildWeekItem('Minggu 7', 'Lengan dan kaki mulai terbentuk.'),
-        _buildWeekItem('Minggu 8', 'Organ-organ utama mulai terbentuk.'),
-        _buildWeekItem('Minggu 9-10', 'Jari tangan dan kaki mulai terlihat. Tulang mulai berkembang.'),
-        _buildWeekItem('Minggu 11-12', 'Organ utama mulai berfungsi. Janin dapat menelan.'),
-        _buildWeekItem('Minggu 13', 'Janin menyerupai manusia kecil dengan semua organ utama terbentuk.'),
+        _buildWeekItem(l10n.trimesterOne_week1_2, l10n.trimesterOne_week1_2_desc),
+        _buildWeekItem(l10n.trimesterOne_week3, l10n.trimesterOne_week3_desc),
+        _buildWeekItem(l10n.trimesterOne_week4, l10n.trimesterOne_week4_desc),
+        _buildWeekItem(l10n.trimesterOne_week5, l10n.trimesterOne_week5_desc),
+        _buildWeekItem(l10n.trimesterOne_week6, l10n.trimesterOne_week6_desc),
+        _buildWeekItem(l10n.trimesterOne_week7, l10n.trimesterOne_week7_desc),
+        _buildWeekItem(l10n.trimesterOne_week8, l10n.trimesterOne_week8_desc),
+        _buildWeekItem(l10n.trimesterOne_week9_10, l10n.trimesterOne_week9_10_desc),
+        _buildWeekItem(l10n.trimesterOne_week11_12, l10n.trimesterOne_week11_12_desc),
+        _buildWeekItem(l10n.trimesterOne_week13, l10n.trimesterOne_week13_desc),
       ],
     );
   }
 
-  Widget _buildMaternalChanges() {
+  Widget _buildMaternalChanges(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Perubahan Pada Ibu',
+      title: l10n.trimesterOne_motherChanges_title,
       children: [
-        _buildBulletPoint('Minggu 1-4: Beberapa ibu mungkin mengalami mual pagi dan kelelahan.'),
-        _buildBulletPoint('Minggu 5-8: Perubahan hormon meningkat, menyebabkan mual dan muntah.'),
-        _buildBulletPoint('Minggu 9-13: Mual mungkin berkurang, tetapi perubahan kulit bisa terjadi.'),
+        _buildBulletPoint(l10n.trimesterOne_motherChanges_1_4),
+        _buildBulletPoint(l10n.trimesterOne_motherChanges_5_8),
+        _buildBulletPoint(l10n.trimesterOne_motherChanges_9_13),
       ],
     );
   }
 
-  Widget _buildCommonComplaints() {
+  Widget _buildCommonComplaints(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Keluhan yang Mungkin Dirasakan',
+      title: l10n.trimesterOne_commonComplaints_title,
       children: [
-        _buildBulletPoint('Mual dan Muntah'),
-        _buildBulletPoint('Kelelahan'),
-        _buildBulletPoint('Sering Buang Air Kecil'),
-        _buildBulletPoint('Sakit Kepala'),
-        _buildBulletPoint('Sembelit'),
-        _buildBulletPoint('Nyeri Payudara'),
+        _buildBulletPoint(l10n.trimesterOne_commonComplaints_nausea),
+        _buildBulletPoint(l10n.trimesterOne_commonComplaints_fatigue),
+        _buildBulletPoint(l10n.trimesterOne_commonComplaints_frequentUrination),
+        _buildBulletPoint(l10n.trimesterOne_commonComplaints_headache),
+        _buildBulletPoint(l10n.trimesterOne_commonComplaints_constipation),
+        _buildBulletPoint(l10n.trimesterOne_commonComplaints_breastTenderness),
       ],
     );
   }
 
-  Widget _buildDosAndDonts() {
+  Widget _buildDosAndDonts(AppLocalizations l10n) {
     return Column(
       children: [
         _buildSection(
-          title: 'Yang Harus Dilakukan (DO)',
+          title: l10n.trimesterOne_dos_title,
           children: [
-            _buildBulletPoint('Konsultasi dengan Dokter'),
-            _buildBulletPoint('Makan dengan Gizi Seimbang'),
-            _buildBulletPoint('Istirahat Cukup'),
-            _buildBulletPoint('Minum Air yang Cukup'),
-            _buildBulletPoint('Olahraga Ringan'),
+            _buildBulletPoint(l10n.trimesterOne_dos_consultDoctor),
+            _buildBulletPoint(l10n.trimesterOne_dos_nutrition),
+            _buildBulletPoint(l10n.trimesterOne_dos_rest),
+            _buildBulletPoint(l10n.trimesterOne_dos_hydration),
+            _buildBulletPoint(l10n.trimesterOne_dos_exercise),
           ],
         ),
         _buildSection(
-          title: 'Yang Harus Dihindari (DON\'T)',
+          title: l10n.trimesterOne_donts_title,
           children: [
-            _buildBulletPoint('Mengonsumsi Alkohol'),
-            _buildBulletPoint('Merokok'),
-            _buildBulletPoint('Mengkonsumsi Kafein Berlebihan'),
-            _buildBulletPoint('Menggunakan Obat-obatan Tanpa Konsultasi Dokter'),
-            _buildBulletPoint('Mengonsumsi Makanan Mentah atau Setengah Matang'),
+            _buildBulletPoint(l10n.trimesterOne_donts_alcohol),
+            _buildBulletPoint(l10n.trimesterOne_donts_smoking),
+            _buildBulletPoint(l10n.trimesterOne_donts_excessiveCaffeine),
+            _buildBulletPoint(l10n.trimesterOne_donts_unsafeMedication),
+            _buildBulletPoint(l10n.trimesterOne_donts_rawFood),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildReferences() {
+  Widget _buildReferences(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Referensi',
+      title: l10n.trimesterOne_reference_title,
       children: [
-        _buildReferenceItem('American College of Obstetricians and Gynecologists (ACOG)', 'https://www.acog.org'),
-        _buildReferenceItem('Mayo Clinic', 'https://www.mayoclinic.org'),
-        _buildReferenceItem('NHS', 'https://www.nhs.uk'),
-        _buildReferenceItem('World Health Organization (WHO)', 'https://www.who.int'),
+        _buildReferenceItem(l10n.trimesterOne_reference_acog, 'https://www.acog.org'),
+        _buildReferenceItem(l10n.trimesterOne_reference_mayoClinic, 'https://www.mayoclinic.org'),
+        _buildReferenceItem(l10n.trimesterOne_reference_nhs, 'https://www.nhs.uk'),
+        _buildReferenceItem(l10n.trimesterOne_reference_who, 'https://www.who.int'),
       ],
     );
   }

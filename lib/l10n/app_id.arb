@@ -220,327 +220,1280 @@
   "@dayUnit": {
     "description": "Satuan waktu dalam hari"
   },
-    "pregnancyInformation": "Informasi Kehamilan",
-    "@pregnancyInformation": {
-      "description": "Label untuk bagian informasi kehamilan"
-    },
-    "checkNow": "Cek Sekarang",
-    "@checkNow": {
-      "description": "Teks tombol untuk memeriksa informasi kehamilan"
-    },
+  "pregnancyInformation": "Informasi Kehamilan",
+  "@pregnancyInformation": {
+    "description": "Label untuk bagian informasi kehamilan"
+  },
+  "checkNow": "Cek Sekarang",
+  "@checkNow": {
+    "description": "Teks tombol untuk memeriksa informasi kehamilan"
+  },
   "informationForMother": "Informasi Untuk Ibu",
   "@informationForMother": {
     "description": "Judul untuk bagian yang memberikan informasi untuk ibu"
   },
-    "homeTooltip": "Halaman Beranda",
-    "@homeTooltip": {
-      "description": "Tooltip untuk item navigasi beranda"
+  "homeTooltip": "Halaman Beranda",
+  "@homeTooltip": {
+    "description": "Tooltip untuk item navigasi beranda"
+  },
+  "screeningTooltip": "Halaman Skrining",
+  "@screeningTooltip": {
+    "description": "Tooltip untuk item navigasi skrining"
+  },
+  "filteringTooltip": "Halaman Penapisan",
+  "@filteringTooltip": {
+    "description": "Tooltip untuk item navigasi penapisan"
+  },
+  "complaintsTooltip": "Halaman Keluhan",
+  "@complaintsTooltip": {
+    "description": "Tooltip untuk item navigasi keluhan"
+  },
+  "consultationTooltip": "Konsultasi via WhatsApp",
+  "@consultationTooltip": {
+    "description": "Tooltip untuk item navigasi konsultasi"
+  },
+  "birthDate": "Tanggal Lahir",
+  "@birthDate": {
+    "description": "Label untuk tanggal lahir"
+  },
+  "noPregnancyHistory": "Tidak ada riwayat kehamilan",
+  "@noPregnancyHistory": {
+    "description": "Pesan ketika tidak ada data riwayat kehamilan"
+  },
+  "gestationalAge": "Usia Kehamilan",
+  "@gestationalAge": {
+    "description": "Label untuk usia kehamilan"
+  },
+  "pregnancyOrder": "Kehamilan Ke",
+  "@pregnancyOrder": {
+    "description": "Label untuk kehamilan ke"
+  },
+  "numberOfChildren": "Jumlah Anak",
+  "@numberOfChildren": {
+    "description": "Label untuk jumlah anak"
+  },
+  "lastPregnancyDetails": "Detail Kehamilan Terakhir",
+  "@lastPregnancyDetails": {
+    "description": "Label untuk detail kehamilan terakhir"
+  },
+  "childOrder": "Anak Ke",
+  "@childOrder": {
+    "description": "Label untuk anak ke"
+  },
+  "deliveryHelper": "Penolong Persalinan",
+  "@deliveryHelper": {
+    "description": "Label untuk penolong persalinan"
+  },
+  "complications": "Komplikasi",
+  "@complications": {
+    "description": "Label untuk komplikasi selama kehamilan"
+  },
+  "indonesian": "Bahasa Indonesia",
+  "@indonesian": {
+    "description": "Label untuk memilih bahasa Indonesia"
+  },
+  "english": "Bahasa Inggris",
+  "@english": {
+    "description": "Label untuk memilih bahasa Inggris"
+  },
+  "firstTrimesterTitle": "Trimester Pertama",
+  "@firstTrimesterTitle": {
+    "description": "Judul untuk bagian trimester pertama"
+  },
+  "secondTrimesterTitle": "Trimester Kedua",
+  "@secondTrimesterTitle": {
+    "description": "Judul untuk bagian trimester kedua"
+  },
+  "thirdTrimesterTitle": "Trimester Ketiga",
+  "@thirdTrimesterTitle": {
+    "description": "Judul untuk bagian trimester ketiga"
+  },
+  "firstTrimesterTip": "Fokus pada perawatan prenatal awal.",
+  "@firstTrimesterTip": {
+    "description": "Tip untuk trimester pertama"
+  },
+  "secondTrimesterTip": "Bayi Anda tumbuh dengan cepat sekarang.",
+  "@secondTrimesterTip": {
+    "description": "Tip untuk trimester kedua"
+  },
+  "thirdTrimesterTip": "Bersiaplah untuk persalinan.",
+  "@thirdTrimesterTip": {
+    "description": "Tip untuk trimester ketiga"
+  },
+  "trimesterFirstTitle": "Trimester Pertama",
+  "@trimesterFirstTitle": {
+    "description": "Judul untuk bagian trimester pertama"
+  },
+  "week1_2": "Minggu 1-2",
+  "@week1_2": {
+    "description": "Label Minggu 1-2"
+  },
+  "week1_2Title": "Persiapan Ovulasi dan Pembuahan",
+  "@week1_2Title": {
+    "description": "Judul untuk minggu 1-2 kehamilan"
+  },
+  "week1_2Description": "Pada dua minggu pertama, tubuh sedang mempersiapkan ovulasi dan pembuahan. Embrio belum terbentuk, tetapi sel telur sedang matang di ovarium.",
+  "@week1_2Description": {
+    "description": "Deskripsi proses yang terjadi selama minggu 1-2"
+  },
+  "week3": "Minggu 3",
+  "@week3": {
+    "description": "Label Minggu 3"
+  },
+  "week3Title": "Pembuahan Terjadi",
+  "@week3Title": {
+    "description": "Judul untuk minggu 3 kehamilan"
+  },
+  "week3Description": "Sel telur yang telah dibuahi (zigot) bergerak ke rahim, dan blastokista mulai menempel di lapisan rahim.",
+  "@week3Description": {
+    "description": "Deskripsi proses yang terjadi selama minggu 3"
+  },
+  "week4": "Minggu 4",
+  "@week4": {
+    "description": "Label Minggu 4"
+  },
+  "week4Title": "Awal Kehamilan",
+  "@week4Title": {
+    "description": "Judul untuk minggu 4 kehamilan"
+  },
+  "week4Description": "Embrio mulai berkembang, dan plasenta mulai terbentuk.",
+  "@week4Description": {
+    "description": "Deskripsi proses yang terjadi selama minggu 4"
+  },
+  "trimesterFirstIntro": "Ini adalah pengenalan untuk trimester pertama.",
+  "@trimesterFirstIntro": {
+    "description": "Teks pengenalan yang ditampilkan di layar trimester pertama."
+  },
+  "week5": "Minggu 5",
+  "@week5": {
+    "description": "Judul untuk bagian minggu ke-5."
+  },
+  "week5Title": "Perkembangan di Minggu 5",
+  "@week5Title": {
+    "description": "Judul yang menjelaskan perkembangan selama minggu ke-5."
+  },
+  "week5Description": "Embrio mulai mengembangkan organ-organ utama.",
+  "@week5Description": {
+    "description": "Deskripsi perkembangan yang terjadi selama minggu ke-5."
+  },
+  "week6": "Minggu 6",
+  "@week6": {
+    "description": "Judul untuk bagian minggu ke-6."
+  },
+  "week6Title": "Perkembangan di Minggu 6",
+  "@week6Title": {
+    "description": "Judul yang menjelaskan perkembangan selama minggu ke-6."
+  },
+  "week6Description": "Jantung mulai berdetak.",
+  "@week6Description": {
+    "description": "Deskripsi perkembangan yang terjadi selama minggu ke-6."
+  },
+  "developmentSummaryTitle": "Ringkasan Perkembangan",
+  "@developmentSummaryTitle": {
+    "description": "Judul untuk bagian ringkasan perkembangan."
+  },
+  "developmentSummaryContent": "Berikut adalah ringkasan perkembangan trimester pertama.",
+  "@developmentSummaryContent": {
+    "description": "Konten yang meringkas perkembangan selama trimester pertama."
+  },
+  "referencesTitle": "Referensi",
+  "@referencesTitle": {
+    "description": "Judul untuk bagian referensi."
+  },
+  "referencesContent": "Berikut adalah referensi untuk perkembangan trimester.",
+  "@referencesContent": {
+    "description": "Konten yang menunjukkan referensi yang digunakan."
+  },
+  "week7": "Minggu 7",
+  "@week7": {
+    "description": "Label untuk minggu ke-7 pada layar perkembangan kehamilan."
+  },
+  "week7Title": "Perkembangan pada Minggu 7",
+  "@week7Title": {
+    "description": "Judul yang menjelaskan perkembangan pada minggu ke-7."
+  },
+  "week7Description": "Otak dan organ-organ lainnya mulai berkembang.",
+  "@week7Description": {
+    "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-7 kehamilan."
+  },
+  "week8": "Minggu 8",
+  "@week8": {
+    "description": "Label untuk minggu ke-8 pada layar perkembangan kehamilan."
+  },
+  "week8Title": "Perkembangan pada Minggu 8",
+  "@week8Title": {
+    "description": "Judul yang menjelaskan perkembangan pada minggu ke-8."
+  },
+  "week8Description": "Fitur wajah embrio mulai terlihat lebih jelas.",
+  "@week8Description": {
+    "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-8 kehamilan."
+  },
+  "week9_10": "Minggu 9-10",
+  "@week9_10": {
+    "description": "Label untuk minggu ke-9-10 pada layar perkembangan kehamilan."
+  },
+  "week9_10Title": "Perkembangan pada Minggu 9-10",
+  "@week9_10Title": {
+    "description": "Judul yang menjelaskan perkembangan pada minggu ke-9-10."
+  },
+  "week9_10Description": "Jari tangan dan kaki mulai terbentuk.",
+  "@week9_10Description": {
+    "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-9-10 kehamilan."
+  },
+  "week11_13": "Minggu 11-13",
+  "@week11_13": {
+    "description": "Label untuk minggu ke-11-13 pada layar perkembangan kehamilan."
+  },
+  "week11_13Title": "Perkembangan pada Minggu 11-13",
+  "@week11_13Title": {
+    "description": "Judul yang menjelaskan perkembangan pada minggu ke-11-13."
+  },
+  "week11_13Description": "Semua organ utama terbentuk pada akhir periode ini.",
+  "@week11_13Description": {
+    "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-11-13 kehamilan."
+  },
+  "estimatedDueDate": "Perkiraan Tanggal Kelahiran",
+  "@estimatedDueDate": {
+    "description": "Label untuk menampilkan perkiraan tanggal kelahiran"
+  },
+  "about": "Tentang",
+  "@about": {
+    "description": "Label untuk bagian 'Tentang' di aplikasi"
+  },
+  "aboutSabina": "SABINA adalah aplikasi yang dirancang untuk membantu ibu hamil memantau kehamilan dan mengakses informasi penting tentang kesehatan ibu dan anak.",
+  "@aboutSabina": {
+    "description": "Deskripsi aplikasi SABINA untuk bagian 'Tentang'"
+  },
+  "initiatedBy": "Diprakarsai oleh:",
+  "@initiatedBy": {
+    "description": "Label untuk menunjukkan siapa yang memprakarsai aplikasi SABINA"
+  },
+  "initiatorNames": "Wahidah Sukriani, SST, M.Keb (www.sapabidan.com)",
+  "@initiatorNames": {
+    "description": "Nama-nama inisiator aplikasi SABINA"
+  },
+  "illustrationCredits": "Ilustrasi dalam aplikasi ini dibuat menggunakan DALL·E AI.",
+  "@illustrationCredits": {
+    "description": "Pengakuan untuk DALL·E AI dalam pembuatan ilustrasi"
+  },
+  "persiapanPersalinan": "Persiapan Persalinan",
+  "@persiapanPersalinan": {
+    "description": "Judul untuk box Persiapan Persalinan"
+  },
+  "trimesterMenuTitle": "Informasi Kehamilan",
+  "@trimesterMenuTitle": {
+    "description": "Judul untuk halaman menu trimester"
+  },
+  "trimesterOneTitle": "Trimester I",
+  "@trimesterOneTitle": {
+    "description": "Judul untuk trimester pertama"
+  },
+  "trimesterOneSubtitle": "Minggu 1-13",
+  "@trimesterOneSubtitle": {
+    "description": "Subtitle untuk trimester pertama"
+  },
+  "trimesterOneTip": "Pembentukan organ utama janin dimulai",
+  "@trimesterOneTip": {
+    "description": "Tip singkat tentang trimester pertama"
+  },
+  "trimesterTwoTitle": "Trimester II",
+  "@trimesterTwoTitle": {
+    "description": "Judul untuk trimester kedua"
+  },
+  "trimesterTwoSubtitle": "Minggu 14-27",
+  "@trimesterTwoSubtitle": {
+    "description": "Subtitle untuk trimester kedua"
+  },
+  "trimesterTwoTip": "Pertumbuhan pesat dan gerakan janin terasa",
+  "@trimesterTwoTip": {
+    "description": "Tip singkat tentang trimester kedua"
+  },
+  "trimesterThreeTitle": "Trimester III",
+  "@trimesterThreeTitle": {
+    "description": "Judul untuk trimester ketiga"
+  },
+  "trimesterThreeSubtitle": "Minggu 28-40",
+  "@trimesterThreeSubtitle": {
+    "description": "Subtitle untuk trimester ketiga"
+  },
+  "trimesterThreeTip": "Persiapan menjelang kelahiran",
+  "@trimesterThreeTip": {
+    "description": "Tip singkat tentang trimester ketiga"
+  },
+    "trimesterOne_title": "Trimester I",
+    "@trimesterOne_title": {
+      "description": "Judul untuk halaman trimester pertama"
     },
-    "screeningTooltip": "Halaman Skrining",
-    "@screeningTooltip": {
-      "description": "Tooltip untuk item navigasi skrining"
+  
+    "trimesterOne_header": "Trimester Pertama Kehamilan",
+    "@trimesterOne_header": {
+      "description": "Judul header untuk halaman trimester pertama"
     },
-    "filteringTooltip": "Halaman Penapisan",
-    "@filteringTooltip": {
-      "description": "Tooltip untuk item navigasi penapisan"
+  
+    "trimesterOne_intro": "Trimester pertama kehamilan berlangsung dari minggu pertama hingga minggu ke-13. Ini adalah periode penting karena banyak perubahan fisik dan emosional terjadi pada ibu, dan perkembangan awal janin dimulai.",
+    "@trimesterOne_intro": {
+      "description": "Paragraf pengantar yang menjelaskan trimester pertama"
     },
-    "complaintsTooltip": "Halaman Keluhan",
-    "@complaintsTooltip": {
-      "description": "Tooltip untuk item navigasi keluhan"
+  
+    "trimesterOne_weeklyDevelopment_title": "Perkembangan Janin per Minggu",
+    "@trimesterOne_weeklyDevelopment_title": {
+      "description": "Judul untuk bagian perkembangan janin mingguan"
     },
-    "consultationTooltip": "Konsultasi via WhatsApp",
-    "@consultationTooltip": {
-      "description": "Tooltip untuk item navigasi konsultasi"
+  
+    "trimesterOne_week1_2": "Minggu 1-2",
+    "@trimesterOne_week1_2": {
+      "description": "Label untuk minggu 1-2"
     },
-      "birthDate": "Tanggal Lahir",
-      "@birthDate": {
-        "description": "Label untuk tanggal lahir"
+  
+    "trimesterOne_week1_2_desc": "Tubuh ibu mempersiapkan ovulasi dan pembuahan.",
+    "@trimesterOne_week1_2_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 1-2"
+    },
+  
+    "trimesterOne_week3": "Minggu 3",
+    "@trimesterOne_week3": {
+      "description": "Label untuk minggu 3"
+    },
+  
+    "trimesterOne_week3_desc": "Pembuahan terjadi. Zigot bergerak menuju rahim.",
+    "@trimesterOne_week3_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 3"
+    },
+  
+    "trimesterOne_week4": "Minggu 4",
+    "@trimesterOne_week4": {
+      "description": "Label untuk minggu 4"
+    },
+  
+    "trimesterOne_week4_desc": "Embrio terbentuk. Plasenta mulai berkembang.",
+    "@trimesterOne_week4_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 4"
+    },
+  
+    "trimesterOne_week5": "Minggu 5",
+    "@trimesterOne_week5": {
+      "description": "Label untuk minggu 5"
+    },
+  
+    "trimesterOne_week5_desc": "Sistem saraf pusat mulai berkembang. Jantung embrio mulai berdetak.",
+    "@trimesterOne_week5_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 5"
+    },
+  
+    "trimesterOne_week6": "Minggu 6",
+    "@trimesterOne_week6": {
+      "description": "Label untuk minggu 6"
+    },
+  
+    "trimesterOne_week6_desc": "Jantung embrio berdetak secara teratur. Wajah mulai terbentuk.",
+    "@trimesterOne_week6_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 6"
+    },
+  
+    "trimesterOne_week7": "Minggu 7",
+    "@trimesterOne_week7": {
+      "description": "Label untuk minggu 7"
+    },
+  
+    "trimesterOne_week7_desc": "Lengan dan kaki mulai terbentuk.",
+    "@trimesterOne_week7_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 7"
+    },
+  
+    "trimesterOne_week8": "Minggu 8",
+    "@trimesterOne_week8": {
+      "description": "Label untuk minggu 8"
+    },
+  
+    "trimesterOne_week8_desc": "Organ-organ utama mulai terbentuk.",
+    "@trimesterOne_week8_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 8"
+    },
+  
+    "trimesterOne_week9_10": "Minggu 9-10",
+    "@trimesterOne_week9_10": {
+      "description": "Label untuk minggu 9-10"
+    },
+  
+    "trimesterOne_week9_10_desc": "Jari tangan dan kaki mulai terlihat. Tulang mulai berkembang.",
+    "@trimesterOne_week9_10_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 9-10"
+    },
+  
+    "trimesterOne_week11_12": "Minggu 11-12",
+    "@trimesterOne_week11_12": {
+      "description": "Label untuk minggu 11-12"
+    },
+  
+    "trimesterOne_week11_12_desc": "Organ utama mulai berfungsi. Janin dapat menelan.",
+    "@trimesterOne_week11_12_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 11-12"
+    },
+  
+    "trimesterOne_week13": "Minggu 13",
+    "@trimesterOne_week13": {
+      "description": "Label untuk minggu 13"
+    },
+  
+    "trimesterOne_week13_desc": "Janin menyerupai manusia kecil dengan semua organ utama terbentuk.",
+    "@trimesterOne_week13_desc": {
+      "description": "Deskripsi perkembangan janin pada minggu 13"
+    },
+  
+    "trimesterOne_motherChanges_title": "Perubahan Pada Ibu",
+    "@trimesterOne_motherChanges_title": {
+      "description": "Judul untuk bagian perubahan pada ibu"
+    },
+  
+    "trimesterOne_motherChanges_1_4": "Minggu 1-4: Beberapa ibu mungkin mengalami mual pagi dan kelelahan.",
+    "@trimesterOne_motherChanges_1_4": {
+      "description": "Perubahan pada ibu selama minggu 1-4"
+    },
+  
+    "trimesterOne_motherChanges_5_8": "Minggu 5-8: Perubahan hormon meningkat, menyebabkan mual dan muntah.",
+    "@trimesterOne_motherChanges_5_8": {
+      "description": "Perubahan pada ibu selama minggu 5-8"
+    },
+  
+    "trimesterOne_motherChanges_9_13": "Minggu 9-13: Mual mungkin berkurang, tetapi perubahan kulit bisa terjadi.",
+    "@trimesterOne_motherChanges_9_13": {
+      "description": "Perubahan pada ibu selama minggu 9-13"
+    },
+  
+    "trimesterOne_commonComplaints_title": "Keluhan yang Mungkin Dirasakan",
+    "@trimesterOne_commonComplaints_title": {
+      "description": "Judul untuk bagian keluhan umum"
+    },
+  
+    "trimesterOne_commonComplaints_nausea": "Mual dan Muntah",
+    "@trimesterOne_commonComplaints_nausea": {
+      "description": "Keluhan umum terkait mual dan muntah"
+    },
+  
+    "trimesterOne_commonComplaints_fatigue": "Kelelahan",
+    "@trimesterOne_commonComplaints_fatigue": {
+      "description": "Keluhan umum terkait kelelahan"
+    },
+  
+    "trimesterOne_commonComplaints_frequentUrination": "Sering Buang Air Kecil",
+    "@trimesterOne_commonComplaints_frequentUrination": {
+      "description": "Keluhan umum terkait sering buang air kecil"
+    },
+  
+    "trimesterOne_commonComplaints_headache": "Sakit Kepala",
+    "@trimesterOne_commonComplaints_headache": {
+      "description": "Keluhan umum terkait sakit kepala"
+    },
+  
+    "trimesterOne_commonComplaints_constipation": "Sembelit",
+    "@trimesterOne_commonComplaints_constipation": {
+      "description": "Keluhan umum terkait sembelit"
+    },
+  
+    "trimesterOne_commonComplaints_breastTenderness": "Nyeri Payudara",
+    "@trimesterOne_commonComplaints_breastTenderness": {
+      "description": "Keluhan umum terkait nyeri payudara"
+    },
+  
+    "trimesterOne_dos_title": "Yang Harus Dilakukan (DO)",
+    "@trimesterOne_dos_title": {
+      "description": "Judul untuk bagian yang harus dilakukan"
+    },
+  
+    "trimesterOne_dos_consultDoctor": "Konsultasi dengan Dokter",
+    "@trimesterOne_dos_consultDoctor": {
+      "description": "Saran untuk konsultasi dengan dokter"
+    },
+  
+    "trimesterOne_dos_nutrition": "Makan dengan Gizi Seimbang",
+    "@trimesterOne_dos_nutrition": {
+      "description": "Saran untuk makan dengan gizi seimbang"
+    },
+  
+    "trimesterOne_dos_rest": "Istirahat Cukup",
+    "@trimesterOne_dos_rest": {
+      "description": "Saran untuk istirahat yang cukup"
+    },
+  
+    "trimesterOne_dos_hydration": "Minum Air yang Cukup",
+    "@trimesterOne_dos_hydration": {
+      "description": "Saran untuk minum air yang cukup"
+    },
+  
+    "trimesterOne_dos_exercise": "Olahraga Ringan",
+    "@trimesterOne_dos_exercise": {
+      "description": "Saran untuk melakukan olahraga ringan"
+    },
+  
+    "trimesterOne_donts_title": "Yang Harus Dihindari (DON''T)",
+    "@trimesterOne_donts_title": {
+      "description": "Judul untuk bagian yang harus dihindari"
+    },
+  
+    "trimesterOne_donts_alcohol": "Mengonsumsi Alkohol",
+    "@trimesterOne_donts_alcohol": {
+      "description": "Peringatan untuk menghindari konsumsi alkohol"
+    },
+  
+    "trimesterOne_donts_smoking": "Merokok",
+    "@trimesterOne_donts_smoking": {
+      "description": "Peringatan untuk menghindari merokok"
+    },
+  
+    "trimesterOne_donts_excessiveCaffeine": "Mengkonsumsi Kafein Berlebihan",
+    "@trimesterOne_donts_excessiveCaffeine": {
+      "description": "Peringatan untuk menghindari konsumsi kafein berlebihan"
+    },
+  
+    "trimesterOne_donts_unsafeMedication": "Menggunakan Obat-obatan Tanpa Konsultasi Dokter",
+    "@trimesterOne_donts_unsafeMedication": {
+      "description": "Peringatan untuk menghindari penggunaan obat tanpa konsultasi dokter"
+    },
+  
+    "trimesterOne_donts_rawFood": "Mengonsumsi Makanan Mentah atau Setengah Matang",
+    "@trimesterOne_donts_rawFood": {
+      "description": "Peringatan untuk menghindari makanan mentah atau setengah matang"
+    },
+  
+    "trimesterOne_fetalDevelopmentImage_caption": "Perkembangan janin selama trimester pertama",
+    "@trimesterOne_fetalDevelopmentImage_caption": {
+      "description": "Keterangan untuk gambar perkembangan janin"
+    },
+  
+    "trimesterOne_preparationImage_caption": "Hal-hal yang harus dilakukan selama trimester pertama",
+    "@trimesterOne_preparationImage_caption": {
+      "description": "Keterangan untuk gambar persiapan trimester pertama"
+    },
+  
+    "trimesterOne_reference_title": "Referensi",
+    "@trimesterOne_reference_title": {
+      "description": "Judul untuk bagian referensi"
+    },
+  
+    "trimesterOne_reference_acog": "American College of Obstetricians and Gynecologists (ACOG)",
+    "@trimesterOne_reference_acog": {
+      "description": "Referensi ACOG"
+    },
+  
+    "trimesterOne_reference_mayoClinic": "Mayo Clinic",
+    "@trimesterOne_reference_mayoClinic": {
+      "description": "Referensi Mayo Clinic"
+    },
+  
+    "trimesterOne_reference_nhs": "NHS",
+    "@trimesterOne_reference_nhs": {
+      "description": "Referensi NHS"
+    },
+  
+    "trimesterOne_reference_who": "World Health Organization (WHO)",
+    "@trimesterOne_reference_who": {
+      "description": "Referensi WHO"
+    },
+      "trimesterTwo_title": "Trimester II",
+      "@trimesterTwo_title": {
+        "description": "Judul untuk halaman trimester kedua"
       },
-      "noPregnancyHistory": "Tidak ada riwayat kehamilan",
-      "@noPregnancyHistory": {
-        "description": "Pesan ketika tidak ada data riwayat kehamilan"
+    
+      "trimesterTwo_header": "Trimester Kedua Kehamilan",
+      "@trimesterTwo_header": {
+        "description": "Judul header untuk halaman trimester kedua"
       },
-      "gestationalAge": "Usia Kehamilan",
-      "@gestationalAge": {
-        "description": "Label untuk usia kehamilan"
+    
+      "trimesterTwo_intro": "Trimester kedua kehamilan berlangsung dari minggu ke-14 hingga minggu ke-27. Pada periode ini, janin mengalami pertumbuhan pesat, dan gejala-gejala yang dirasakan oleh ibu biasanya lebih ringan dibandingkan trimester pertama. Ini juga saat di mana banyak ibu hamil mulai merasakan gerakan janin untuk pertama kalinya.",
+      "@trimesterTwo_intro": {
+        "description": "Paragraf pengantar yang menjelaskan trimester kedua"
       },
-      "pregnancyOrder": "Kehamilan Ke",
-      "@pregnancyOrder": {
-        "description": "Label untuk kehamilan ke"
+    
+      "trimesterTwo_weeklyDevelopment_title": "Perkembangan Janin per Minggu",
+      "@trimesterTwo_weeklyDevelopment_title": {
+        "description": "Judul untuk bagian perkembangan janin mingguan"
       },
-      "numberOfChildren": "Jumlah Anak",
-      "@numberOfChildren": {
-        "description": "Label untuk jumlah anak"
+    
+      "trimesterTwo_week14_15": "Minggu 14-15",
+      "@trimesterTwo_week14_15": {
+        "description": "Label untuk minggu 14-15"
       },
-      "lastPregnancyDetails": "Detail Kehamilan Terakhir",
-      "@lastPregnancyDetails": {
-        "description": "Label untuk detail kehamilan terakhir"
+    
+      "trimesterTwo_week14_15_desc": "Ukuran janin: Sekitar 9-10 cm dan berat sekitar 70-85 gram. Wajah janin semakin berkembang, dengan mata dan telinga mulai berpindah ke posisi yang lebih tepat. Bayi mulai menggerakkan tangan dan kaki, meskipun ibu mungkin belum merasakan gerakan tersebut.",
+      "@trimesterTwo_week14_15_desc": {
+        "description": "Deskripsi perkembangan janin pada minggu 14-15"
       },
-      "childOrder": "Anak Ke",
-      "@childOrder": {
-        "description": "Label untuk anak ke"
+    
+      "trimesterTwo_week16_17": "Minggu 16-17",
+      "@trimesterTwo_week16_17": {
+        "description": "Label untuk minggu 16-17"
       },
-      "deliveryHelper": "Penolong Persalinan",
-      "@deliveryHelper": {
-        "description": "Label untuk penolong persalinan"
+    
+      "trimesterTwo_week16_17_desc": "Ukuran janin: Sekitar 12-14 cm dan berat sekitar 100-150 gram. Jantung janin mulai memompa sekitar 25 liter darah setiap hari. Sidik jari mulai terbentuk, dan lapisan lemak mulai berkembang di bawah kulit. Pada akhir minggu 16, beberapa ibu mulai merasakan gerakan janin pertama yang disebut \"quickening\".",
+      "@trimesterTwo_week16_17_desc": {
+        "description": "Deskripsi perkembangan janin pada minggu 16-17"
       },
-      "complications": "Komplikasi",
-      "@complications": {
-        "description": "Label untuk komplikasi selama kehamilan"
+    
+      "trimesterTwo_week18_19": "Minggu 18-19",
+      "@trimesterTwo_week18_19": {
+        "description": "Label untuk minggu 18-19"
       },
-      "indonesian": "Bahasa Indonesia",
-      "@indonesian": {
-        "description": "Label untuk memilih bahasa Indonesia"
+    
+      "trimesterTwo_week18_19_desc": "Ukuran janin: Sekitar 15-18 cm dan berat sekitar 200-250 gram. Telinga janin sudah bisa mendengar suara dari luar, termasuk suara ibu. Vernix, lapisan pelindung lilin, mulai menutupi kulit janin untuk melindunginya dari cairan ketuban.",
+      "@trimesterTwo_week18_19_desc": {
+        "description": "Deskripsi perkembangan janin pada minggu 18-19"
       },
-      "english": "Bahasa Inggris",
-      "@english": {
-        "description": "Label untuk memilih bahasa Inggris"
+    
+      "trimesterTwo_week20_21": "Minggu 20-21",
+      "@trimesterTwo_week20_21": {
+        "description": "Label untuk minggu 20-21"
       },
-        "firstTrimesterTitle": "Trimester Pertama",
-        "@firstTrimesterTitle": {
-          "description": "Judul untuk bagian trimester pertama"
+    
+      "trimesterTwo_week20_21_desc": "Ukuran janin: Sekitar 20-25 cm dan berat sekitar 300-400 gram. Semua organ penting sudah terbentuk dan berkembang lebih lanjut. Alis dan rambut kepala mulai tumbuh, dan gigi pertama janin mulai berkembang di bawah gusi. Ibu biasanya mulai merasakan gerakan janin secara lebih teratur.",
+      "@trimesterTwo_week20_21_desc": {
+        "description": "Deskripsi perkembangan janin pada minggu 20-21"
+      },
+    
+      "trimesterTwo_week22_23": "Minggu 22-23",
+      "@trimesterTwo_week22_23": {
+        "description": "Label untuk minggu 22-23"
+      },
+    
+      "trimesterTwo_week22_23_desc": "Ukuran janin: Sekitar 25-28 cm dan berat sekitar 450-500 gram. Mata janin sudah terbentuk sempurna meskipun belum bisa terbuka. Indera perasa janin mulai berkembang, dan janin bisa mendengar detak jantung ibu serta suara-suara dari luar rahim.",
+      "@trimesterTwo_week22_23_desc": {
+        "description": "Deskripsi perkembangan janin pada minggu 22-23"
+      },
+    
+      "trimesterTwo_week24_25": "Minggu 24-25",
+      "@trimesterTwo_week24_25": {
+        "description": "Label untuk minggu 24-25"
+      },
+    
+      "trimesterTwo_week24_25_desc": "Ukuran janin: Sekitar 28-30 cm dan berat sekitar 600-700 gram. Paru-paru janin mulai menghasilkan surfaktan, zat yang akan membantu pernapasan setelah lahir. Sistem saraf pusat semakin berkembang, dan janin mulai mengatur pola tidur.",
+      "@trimesterTwo_week24_25_desc": {
+        "description": "Deskripsi perkembangan janin pada minggu 24-25"
+      },
+    
+      "trimesterTwo_week26_27": "Minggu 26-27",
+      "@trimesterTwo_week26_27": {
+        "description": "Label untuk minggu 26-27"
+      },
+    
+      "trimesterTwo_week26_27_desc": "Ukuran janin: Sekitar 30-35 cm dan berat sekitar 800-1000 gram. Janin mulai membuka mata dan merespon cahaya yang masuk melalui dinding rahim. Gerakan janin menjadi lebih teratur dan kuat, dan ibu mungkin merasakan cegukan janin.",
+      "@trimesterTwo_week26_27_desc": {
+        "description": "Deskripsi perkembangan janin pada minggu 26-27"
+      },
+    
+      "trimesterTwo_motherChanges_title": "Perubahan Pada Ibu",
+      "@trimesterTwo_motherChanges_title": {
+        "description": "Judul untuk bagian perubahan pada ibu"
+      },
+    
+      "trimesterTwo_motherChanges_14_16": "Minggu 14-16: Ibu mungkin mulai merasa lebih energik dan gejala mual pagi (morning sickness) mulai berkurang. Perut mulai membesar, dan beberapa ibu hamil mungkin mulai memakai pakaian khusus kehamilan. Ibu juga mungkin mengalami peningkatan nafsu makan.",
+      "@trimesterTwo_motherChanges_14_16": {
+        "description": "Perubahan pada ibu selama minggu 14-16"
+      },
+    
+      "trimesterTwo_motherChanges_17_20": "Minggu 17-20: Rahim yang terus membesar mulai menekan organ-organ lain di perut, menyebabkan ibu sering buang air kecil dan terkadang mengalami sesak napas. Kulit ibu mungkin berubah, seperti munculnya \"linea nigra\", garis gelap di perut yang akan memudar setelah melahirkan.",
+      "@trimesterTwo_motherChanges_17_20": {
+        "description": "Perubahan pada ibu selama minggu 17-20"
+      },
+    
+      "trimesterTwo_motherChanges_21_24": "Minggu 21-24: Pada periode ini, beberapa ibu mulai merasakan nyeri punggung atau kram kaki akibat bertambahnya berat badan dan perubahan postur tubuh. Payudara juga mulai menghasilkan kolostrum, cairan yang akan menjadi ASI pertama bagi bayi.",
+      "@trimesterTwo_motherChanges_21_24": {
+        "description": "Perubahan pada ibu selama minggu 21-24"
+      },
+    
+      "trimesterTwo_motherChanges_25_27": "Minggu 25-27: Ibu mungkin mengalami bengkak ringan di pergelangan kaki dan tangan karena penumpukan cairan. Beberapa ibu juga mengalami \"sciatica\", nyeri pada saraf skiatik akibat tekanan dari rahim yang membesar.",
+      "@trimesterTwo_motherChanges_25_27": {
+        "description": "Perubahan pada ibu selama minggu 25-27"
+      },
+    
+      "trimesterTwo_commonComplaints_title": "Keluhan yang Mungkin Dirasakan",
+      "@trimesterTwo_commonComplaints_title": {
+        "description": "Judul untuk bagian keluhan umum"
+      },
+    
+      "trimesterTwo_commonComplaints_backPain": "Nyeri Punggung: Perubahan postur tubuh dan pertambahan berat badan sering menyebabkan nyeri punggung.",
+      "@trimesterTwo_commonComplaints_backPain": {
+        "description": "Keluhan umum terkait nyeri punggung"
+      },
+    
+      "trimesterTwo_commonComplaints_legCramps": "Kram Kaki: Kram kaki, terutama pada malam hari, umum terjadi akibat perubahan sirkulasi dan tekanan rahim pada saraf-saraf di kaki.",
+      "@trimesterTwo_commonComplaints_legCramps": {
+        "description": "Keluhan umum terkait kram kaki"
+      },
+    
+      "trimesterTwo_commonComplaints_swelling": "Bengkak Ringan: Ibu mungkin mengalami pembengkakan ringan pada tangan dan kaki akibat penumpukan cairan. Ini biasanya memburuk pada malam hari atau setelah berdiri terlalu lama.",
+      "@trimesterTwo_commonComplaints_swelling": {
+        "description": "Keluhan umum terkait bengkak ringan"
+      },
+    
+      "trimesterTwo_commonComplaints_constipation": "Sembelit dan Wasir: Peningkatan hormon progesteron memperlambat pencernaan, menyebabkan sembelit, yang bisa berkembang menjadi wasir.",
+      "@trimesterTwo_commonComplaints_constipation": {
+        "description": "Keluhan umum terkait sembelit dan wasir"
+      },
+    
+      "trimesterTwo_commonComplaints_breathlessness": "Sesak Napas: Rahim yang membesar dapat menekan diafragma, menyebabkan kesulitan bernapas ringan.",
+      "@trimesterTwo_commonComplaints_breathlessness": {
+        "description": "Keluhan umum terkait sesak napas"
+      },
+    
+      "trimesterTwo_dos_title": "Yang Harus Dilakukan (DO)",
+      "@trimesterTwo_dos_title": {
+        "description": "Judul untuk bagian yang harus dilakukan"
+      },
+    
+      "trimesterTwo_dos_nutrition": "Konsumsi Makanan Bergizi: Pastikan ibu hamil mengonsumsi makanan yang kaya akan protein, kalsium, dan zat besi untuk mendukung pertumbuhan janin. Konsumsi makanan yang kaya akan serat untuk mencegah sembelit.",
+      "@trimesterTwo_dos_nutrition": {
+        "description": "Saran untuk nutrisi yang baik"
+      },
+    
+      "trimesterTwo_dos_hydration": "Minum Banyak Air: Tetap terhidrasi penting untuk menghindari sembelit dan mencegah pembengkakan berlebih.",
+      "@trimesterTwo_dos_hydration": {
+        "description": "Saran untuk tetap terhidrasi"
+      },
+    
+      "trimesterTwo_dos_exercise": "Olahraga Ringan: Lakukan olahraga yang aman seperti jalan kaki, berenang, atau yoga prenatal untuk menjaga kebugaran tubuh dan mengurangi risiko nyeri punggung.",
+      "@trimesterTwo_dos_exercise": {
+        "description": "Saran untuk melakukan olahraga ringan"
+      },
+    
+      "trimesterTwo_dos_clothing": "Pakai Pakaian Nyaman: Pilih pakaian yang longgar dan nyaman, termasuk pakaian dalam yang mendukung pertumbuhan payudara.",
+      "@trimesterTwo_dos_clothing": {
+        "description": "Saran untuk memilih pakaian yang nyaman"
+      },
+    
+      "trimesterTwo_dos_rest": "Istirahat yang Cukup: Pastikan ibu cukup tidur, terutama saat bayi semakin aktif di malam hari.",
+      "@trimesterTwo_dos_rest": {
+        "description": "Saran untuk mendapatkan istirahat yang cukup"
+      },
+    
+      "trimesterTwo_donts_title": "Yang Harus Dihindari (DON''T)",
+      "@trimesterTwo_donts_title": {
+        "description": "Judul untuk bagian yang harus dihindari"
+      },
+    
+      "trimesterTwo_donts_heavyLifting": "Mengangkat Benda Berat: Hindari mengangkat benda berat yang bisa menyebabkan cedera punggung atau meningkatkan risiko persalinan prematur.",
+      "@trimesterTwo_donts_heavyLifting": {
+        "description": "Peringatan untuk menghindari mengangkat benda berat"
+      },
+    
+      "trimesterTwo_donts_prolongedStanding": "Duduk atau Berdiri Terlalu Lama: Hindari duduk atau berdiri terlalu lama untuk mencegah pembengkakan di kaki dan rasa tidak nyaman.",
+      "@trimesterTwo_donts_prolongedStanding": {
+        "description": "Peringatan untuk menghindari duduk atau berdiri terlalu lama"
+      },
+    
+      "trimesterTwo_donts_medication": "Mengkonsumsi Obat Tanpa Resep Dokter: Jangan mengonsumsi obat apa pun tanpa berkonsultasi dengan dokter, termasuk obat bebas seperti aspirin.",
+      "@trimesterTwo_donts_medication": {
+        "description": "Peringatan untuk tidak mengkonsumsi obat tanpa resep dokter"
+      },
+    
+      "trimesterTwo_donts_lyingOnBack": "Tidur Terlentang: Hindari tidur terlentang, karena bisa menghambat aliran darah ke janin. Posisi tidur terbaik adalah miring ke kiri.",
+      "@trimesterTwo_donts_lyingOnBack": {
+        "description": "Peringatan untuk menghindari tidur terlentang"
+      },
+    
+      "trimesterTwo_donts_ignoringMovement": "Mengabaikan Gerakan Janin: Jika ibu merasa gerakan janin berkurang atau tidak terasa dalam waktu lama, segera hubungi dokter untuk pemeriksaan lebih lanjut.",
+      "@trimesterTwo_donts_ignoringMovement": {
+        "description": "Peringatan untuk tidak mengabaikan perubahan gerakan janin"
+      },
+    
+      "trimesterTwo_maternalChangesImage_caption": "Perubahan fisik pada ibu hamil selama trimester kedua",
+      "@trimesterTwo_maternalChangesImage_caption": {
+        "description": "Keterangan untuk gambar perubahan fisik ibu hamil"
+      },
+    
+      "trimesterTwo_cautionImage_caption": "Hal-hal yang harus dihindari selama trimester kedua kehamilan",
+      "@trimesterTwo_cautionImage_caption": {
+        "description": "Keterangan untuk gambar hal-hal yang harus dihindari"
+      },
+    
+      "trimesterTwo_reference_title": "Referensi",
+      "@trimesterTwo_reference_title": {
+        "description": "Judul untuk bagian referensi"
+      },
+    
+      "trimesterTwo_reference_acog": "American College of Obstetricians and Gynecologists (ACOG)",
+      "@trimesterTwo_reference_acog": {
+        "description": "Referensi ACOG"
+      },
+    
+      "trimesterTwo_reference_mayoClinic": "Mayo Clinic",
+      "@trimesterTwo_reference_mayoClinic": {
+        "description": "Referensi Mayo Clinic"
+      },
+    
+      "trimesterTwo_reference_nhs": "National Health Service (NHS)",
+      "@trimesterTwo_reference_nhs": {
+        "description": "Referensi NHS"
+      },
+        "trimesterThree_title": "Trimester III",
+        "@trimesterThree_title": {
+          "description": "Judul untuk halaman trimester ketiga"
         },
-        "secondTrimesterTitle": "Trimester Kedua",
-        "@secondTrimesterTitle": {
-          "description": "Judul untuk bagian trimester kedua"
+      
+        "trimesterThree_header": "Trimester Ketiga Kehamilan",
+        "@trimesterThree_header": {
+          "description": "Judul header untuk halaman trimester ketiga"
         },
-        "thirdTrimesterTitle": "Trimester Ketiga",
-        "@thirdTrimesterTitle": {
-          "description": "Judul untuk bagian trimester ketiga"
+      
+        "trimesterThree_intro": "Trimester ketiga kehamilan berlangsung dari minggu ke-28 hingga minggu ke-40. Ini adalah tahap akhir kehamilan di mana janin akan terus tumbuh dan berkembang, mempersiapkan diri untuk kelahiran. Pada periode ini, perubahan fisik dan emosional ibu hamil juga menjadi lebih jelas, dan ibu akan merasakan lebih banyak keluhan fisik akibat pertumbuhan janin yang semakin besar.",
+        "@trimesterThree_intro": {
+          "description": "Paragraf pengantar yang menjelaskan trimester ketiga"
         },
-        "firstTrimesterTip": "Fokus pada perawatan prenatal awal.",
-        "@firstTrimesterTip": {
-          "description": "Tip untuk trimester pertama"
+      
+        "trimesterThree_weeklyDevelopment_title": "Perkembangan Janin per Minggu",
+        "@trimesterThree_weeklyDevelopment_title": {
+          "description": "Judul untuk bagian perkembangan janin mingguan"
         },
-        "secondTrimesterTip": "Bayi Anda tumbuh dengan cepat sekarang.",
-        "@secondTrimesterTip": {
-          "description": "Tip untuk trimester kedua"
+      
+        "trimesterThree_week28_29": "Minggu 28-29",
+        "@trimesterThree_week28_29": {
+          "description": "Label untuk minggu 28-29"
         },
-        "thirdTrimesterTip": "Bersiaplah untuk persalinan.",
-        "@thirdTrimesterTip": {
-          "description": "Tip untuk trimester ketiga"
+      
+        "trimesterThree_week28_29_desc": "Ukuran janin: Sekitar 38-40 cm, berat sekitar 1-1,3 kg. Janin terus bertambah berat, dan paru-paru serta otak berkembang pesat. Mata janin sudah bisa berkedip dan merespons cahaya. Lemak mulai menumpuk di bawah kulit, memberikan janin tampilan lebih gemuk.",
+        "@trimesterThree_week28_29_desc": {
+          "description": "Deskripsi perkembangan janin pada minggu 28-29"
         },
-          "trimesterFirstTitle": "Trimester Pertama",
-          "@trimesterFirstTitle": {
-            "description": "Judul untuk bagian trimester pertama"
+      
+        "trimesterThree_week30_31": "Minggu 30-31",
+        "@trimesterThree_week30_31": {
+          "description": "Label untuk minggu 30-31"
+        },
+      
+        "trimesterThree_week30_31_desc": "Ukuran janin: Sekitar 40-42 cm, berat sekitar 1,4-1,6 kg. Janin mulai lebih aktif dan ibu mungkin merasakan tendangan yang lebih kuat. Pendengaran janin sudah sangat berkembang, sehingga dapat merespons suara, baik dari dalam maupun luar rahim.",
+        "@trimesterThree_week30_31_desc": {
+          "description": "Deskripsi perkembangan janin pada minggu 30-31"
+        },
+      
+        "trimesterThree_week32_33": "Minggu 32-33",
+        "@trimesterThree_week32_33": {
+          "description": "Label untuk minggu 32-33"
+        },
+      
+        "trimesterThree_week32_33_desc": "Ukuran janin: Sekitar 42-44 cm, berat sekitar 1,8-2 kg. Janin semakin matang. Sistem imun mulai berkembang, dan janin bisa mengisap ibu jarinya. Janin akan mulai berada di posisi yang lebih stabil, biasanya dengan kepala di bawah untuk persiapan persalinan.",
+        "@trimesterThree_week32_33_desc": {
+          "description": "Deskripsi perkembangan janin pada minggu 32-33"
+        },
+      
+        "trimesterThree_week34_35": "Minggu 34-35",
+        "@trimesterThree_week34_35": {
+          "description": "Label untuk minggu 34-35"
+        },
+      
+        "trimesterThree_week34_35_desc": "Ukuran janin: Sekitar 45-47 cm, berat sekitar 2,2-2,5 kg. Janin terus menambah berat badannya dengan cepat. Paru-paru hampir matang, tetapi jika janin lahir prematur pada minggu ini, ia masih memerlukan bantuan untuk bernapas.",
+        "@trimesterThree_week34_35_desc": {
+          "description": "Deskripsi perkembangan janin pada minggu 34-35"
+        },
+      
+        "trimesterThree_week36_37": "Minggu 36-37",
+        "@trimesterThree_week36_37": {
+          "description": "Label untuk minggu 36-37"
+        },
+      
+        "trimesterThree_week36_37_desc": "Ukuran janin: Sekitar 48-50 cm, berat sekitar 2,7-3 kg. Janin biasanya sudah berada dalam posisi kepala di bawah, dan ruang gerak di dalam rahim semakin sempit. Ibu mungkin merasakan gerakan yang lebih lambat dan lebih halus.",
+        "@trimesterThree_week36_37_desc": {
+          "description": "Deskripsi perkembangan janin pada minggu 36-37"
+        },
+      
+        "trimesterThree_week38_39": "Minggu 38-39",
+        "@trimesterThree_week38_39": {
+          "description": "Label untuk minggu 38-39"
+        },
+      
+        "trimesterThree_week38_39_desc": "Ukuran janin: Sekitar 50-52 cm, berat sekitar 3-3,3 kg. Janin sudah hampir sepenuhnya matang dan siap untuk dilahirkan. Organ-organ vital seperti paru-paru dan otak sudah sempurna, dan janin akan terus menambah berat badannya.",
+        "@trimesterThree_week38_39_desc": {
+          "description": "Deskripsi perkembangan janin pada minggu 38-39"
+        },
+      
+        "trimesterThree_week40": "Minggu 40",
+        "@trimesterThree_week40": {
+          "description": "Label untuk minggu 40"
+        },
+      
+        "trimesterThree_week40_desc": "Ukuran janin: Sekitar 50-55 cm, berat sekitar 3,5-4 kg. Janin sudah sepenuhnya berkembang dan siap dilahirkan. Gerakan janin mungkin berkurang karena ruang di dalam rahim semakin sempit. Ibu mungkin mulai merasakan tanda-tanda persalinan, seperti kontraksi atau keluarnya lendir.",
+        "@trimesterThree_week40_desc": {
+          "description": "Deskripsi perkembangan janin pada minggu 40"
+        },
+      
+        "trimesterThree_maternalChanges_title": "Perubahan Pada Ibu",
+        "@trimesterThree_maternalChanges_title": {
+          "description": "Judul untuk bagian perubahan pada ibu"
+        },
+      
+        "trimesterThree_maternalChanges_28_30": "Minggu 28-30: Ibu mungkin mulai merasa lebih sering buang air kecil karena janin yang semakin besar menekan kandung kemih. Kelelahan mulai kembali, dan ibu mungkin mengalami sulit tidur akibat rasa tidak nyaman.",
+        "@trimesterThree_maternalChanges_28_30": {
+          "description": "Perubahan pada ibu selama minggu 28-30"
+        },
+      
+        "trimesterThree_maternalChanges_31_34": "Minggu 31-34: Banyak ibu hamil mengalami sesak napas ringan karena rahim yang membesar menekan diafragma. Pembengkakan di kaki dan pergelangan kaki juga umum terjadi, terutama setelah berdiri terlalu lama.",
+        "@trimesterThree_maternalChanges_31_34": {
+          "description": "Perubahan pada ibu selama minggu 31-34"
+        },
+      
+        "trimesterThree_maternalChanges_35_37": "Minggu 35-37: Ibu mungkin mulai merasakan kontraksi Braxton Hicks (kontraksi palsu), yang terasa seperti kencangnya perut, tetapi tidak teratur. Nyeri punggung juga mungkin semakin parah, terutama saat janin mulai turun ke panggul.",
+        "@trimesterThree_maternalChanges_35_37": {
+          "description": "Perubahan pada ibu selama minggu 35-37"
+        },
+      
+        "trimesterThree_maternalChanges_38_40": "Minggu 38-40: Ibu mungkin merasakan lebih banyak tekanan di area panggul, yang dapat menyebabkan ketidaknyamanan. Pada periode ini, ibu mungkin mulai mengalami tanda-tanda persalinan seperti keluarnya cairan atau kontraksi yang lebih teratur.",
+        "@trimesterThree_maternalChanges_38_40": {
+          "description": "Perubahan pada ibu selama minggu 38-40"
+        },
+      
+        "trimesterThree_commonComplaints_title": "Keluhan yang Mungkin Dirasakan",
+        "@trimesterThree_commonComplaints_title": {
+          "description": "Judul untuk bagian keluhan umum"
+        },
+      
+        "trimesterThree_commonComplaints_backPain": "Nyeri Punggung Bawah: Karena berat badan janin yang semakin besar, banyak ibu mengalami nyeri di punggung bawah dan panggul.",
+        "@trimesterThree_commonComplaints_backPain": {
+          "description": "Keluhan umum terkait nyeri punggung bawah"
+        },
+      
+        "trimesterThree_commonComplaints_sleepProblems": "Susah Tidur: Posisi tidur yang nyaman menjadi lebih sulit ditemukan karena perut yang membesar. Banyak ibu juga mengalami kram kaki pada malam hari.",
+        "@trimesterThree_commonComplaints_sleepProblems": {
+          "description": "Keluhan umum terkait masalah tidur"
+        },
+      
+        "trimesterThree_commonComplaints_frequentUrination": "Sering Buang Air Kecil: Janin yang semakin besar menekan kandung kemih, membuat ibu harus lebih sering buang air kecil.",
+        "@trimesterThree_commonComplaints_frequentUrination": {
+          "description": "Keluhan umum terkait sering buang air kecil"
+        },
+      
+        "trimesterThree_commonComplaints_shortnessOfBreath": "Sesak Napas: Janin yang menekan diafragma menyebabkan sesak napas ringan pada beberapa ibu, terutama saat berbaring.",
+        "@trimesterThree_commonComplaints_shortnessOfBreath": {
+          "description": "Keluhan umum terkait sesak napas"
+        },
+      
+        "trimesterThree_commonComplaints_swelling": "Pembengkakan: Pembengkakan di kaki, tangan, dan wajah umum terjadi akibat peningkatan volume darah dan cairan selama kehamilan.",
+        "@trimesterThree_commonComplaints_swelling": {
+          "description": "Keluhan umum terkait pembengkakan"
+        },
+      
+        "trimesterThree_commonComplaints_braxtonHicks": "Kontraksi Braxton Hicks: Ibu mungkin mulai merasakan kontraksi Braxton Hicks, yang terasa seperti kram atau pengencangan perut tetapi tidak menyebabkan rasa sakit yang signifikan.",
+        "@trimesterThree_commonComplaints_braxtonHicks": {
+          "description": "Keluhan umum terkait kontraksi Braxton Hicks"
+        },
+      
+        "trimesterThree_dos_title": "Yang Harus Dilakukan (DO)",
+        "@trimesterThree_dos_title": {
+          "description": "Judul untuk bagian yang harus dilakukan"
+        },
+      
+        "trimesterThree_dos_nutrition": "Perhatikan Asupan Nutrisi: Ibu tetap harus mengonsumsi makanan kaya zat besi, kalsium, protein, dan asam folat untuk mendukung perkembangan janin di tahap akhir ini. Perbanyak serat untuk mencegah sembelit.",
+        "@trimesterThree_dos_nutrition": {
+          "description": "Saran untuk nutrisi yang baik"
+        },
+      
+        "trimesterThree_dos_rest": "Istirahat yang Cukup: Usahakan tidur dengan posisi miring ke kiri untuk meningkatkan sirkulasi darah ke janin. Gunakan bantal di antara kaki atau di bawah perut untuk kenyamanan.",
+        "@trimesterThree_dos_rest": {
+          "description": "Saran untuk istirahat yang cukup"
+        },
+      
+        "trimesterThree_dos_monitorMovement": "Periksa Gerakan Janin: Pantau gerakan janin setiap hari. Jika terjadi penurunan signifikan dalam gerakan janin, segera konsultasikan dengan dokter.",
+        "@trimesterThree_dos_monitorMovement": {
+          "description": "Saran untuk memantau gerakan janin"
+        },
+      
+        "trimesterThree_dos_exercise": "Olahraga Ringan: Tetap aktif dengan olahraga ringan seperti berjalan kaki atau berenang, tetapi hindari aktivitas yang terlalu berat atau berisiko jatuh.",
+        "@trimesterThree_dos_exercise": {
+          "description": "Saran untuk melakukan olahraga ringan"
+        },
+      
+        "trimesterThree_dos_preparation": "Persiapkan Persalinan: Mulai persiapan untuk persalinan dengan mengikuti kelas persiapan melahirkan dan diskusikan rencana kelahiran dengan dokter.",
+        "@trimesterThree_dos_preparation": {
+          "description": "Saran untuk mempersiapkan persalinan"
+        },
+      
+        "trimesterThree_donts_title": "Yang Harus Dihindari (DON''T)",
+        "@trimesterThree_donts_title": {
+          "description": "Judul untuk bagian yang harus dihindari"
+        },
+      
+       "trimesterThree_donts_ignoreMovement": "Mengabaikan Gerakan Janin: Jika gerakan janin terasa berkurang, segera hubungi dokter.",
+        "@trimesterThree_donts_ignoreMovement": {
+          "description": "Peringatan untuk tidak mengabaikan perubahan gerakan janin"
+        },
+      
+        "trimesterThree_donts_rawFood": "Makan Makanan Mentah atau Setengah Matang: Hindari makanan seperti sushi, daging setengah matang, dan telur mentah yang berisiko membawa bakteri berbahaya.",
+        "@trimesterThree_donts_rawFood": {
+          "description": "Peringatan untuk menghindari makanan mentah atau setengah matang"
+        },
+      
+        "trimesterThree_donts_heavyLifting": "Mengangkat Benda Berat: Hindari mengangkat benda berat karena bisa menyebabkan cedera punggung dan meningkatkan risiko persalinan prematur.",
+        "@trimesterThree_donts_heavyLifting": {
+          "description": "Peringatan untuk menghindari mengangkat benda berat"
+        },
+      
+        "trimesterThree_donts_prolongedStanding": "Terlalu Banyak Berdiri atau Duduk: Jangan terlalu lama duduk atau berdiri dalam posisi yang sama. Istirahatkan tubuh dan gerakkan kaki untuk mencegah pembengkakan.",
+        "@trimesterThree_donts_prolongedStanding": {
+          "description": "Peringatan untuk menghindari berdiri atau duduk terlalu lama"
+        },
+      
+        "trimesterThree_donts_ignoreLabor": "Mengabaikan Tanda Persalinan: Jika ibu mulai merasakan kontraksi yang teratur, pecahnya air ketuban, atau keluarnya lendir bercampur darah, segera pergi ke rumah sakit.",
+        "@trimesterThree_donts_ignoreLabor": {
+          "description": "Peringatan untuk tidak mengabaikan tanda-tanda persalinan"
+        },
+      
+        "trimesterThree_fetalDevelopmentImage_caption": "Perkembangan janin selama trimester ketiga",
+        "@trimesterThree_fetalDevelopmentImage_caption": {
+          "description": "Keterangan untuk gambar perkembangan janin"
+        },
+      
+        "trimesterThree_maternalComplaintsImage_caption": "Keluhan umum yang mungkin dirasakan pada trimester ketiga",
+        "@trimesterThree_maternalComplaintsImage_caption": {
+          "description": "Keterangan untuk gambar keluhan umum ibu hamil"
+        },
+      
+        "trimesterThree_reference_title": "Referensi",
+        "@trimesterThree_reference_title": {
+          "description": "Judul untuk bagian referensi"
+        },
+      
+        "trimesterThree_reference_acog": "American College of Obstetricians and Gynecologists (ACOG)",
+        "@trimesterThree_reference_acog": {
+          "description": "Referensi ACOG"
+        },
+      
+        "trimesterThree_reference_mayoClinic": "Mayo Clinic",
+        "@trimesterThree_reference_mayoClinic": {
+          "description": "Referensi Mayo Clinic"
+        },
+      
+        "trimesterThree_reference_nhs": "National Health Service (NHS)",
+        "@trimesterThree_reference_nhs": {
+          "description": "Referensi NHS"
+        },
+          "preparingForLabor_title": "Persiapan Persalinan",
+          "@preparingForLabor_title": {
+            "description": "Judul untuk halaman persiapan persalinan"
           },
-          "week1_2": "Minggu 1-2",
-          "@week1_2": {
-            "description": "Label Minggu 1-2"
+        
+          "preparingForLabor_header": "Persiapan Persalinan",
+          "@preparingForLabor_header": {
+            "description": "Judul header untuk halaman persiapan persalinan"
           },
-          "week1_2Title": "Persiapan Ovulasi dan Pembuahan",
-          "@week1_2Title": {
-            "description": "Judul untuk minggu 1-2 kehamilan"
+        
+          "preparingForLabor_intro": "Persiapan persalinan adalah hal penting yang harus dilakukan oleh ibu hamil, keluarganya, dan lingkungan terdekat. Persiapan ini mencakup tiga aspek utama: persiapan ibu, persiapan untuk bayi yang akan lahir, dan persiapan keluarga. Dengan persiapan yang matang, proses persalinan diharapkan berjalan lebih lancar dan nyaman bagi semua pihak.",
+          "@preparingForLabor_intro": {
+            "description": "Paragraf pengantar yang menjelaskan pentingnya persiapan persalinan"
           },
-          "week1_2Description": "Pada dua minggu pertama, tubuh sedang mempersiapkan ovulasi dan pembuahan. Embrio belum terbentuk, tetapi sel telur sedang matang di ovarium.",
-          "@week1_2Description": {
-            "description": "Deskripsi proses yang terjadi selama minggu 1-2"
+        
+          "preparingForLabor_motherPreparation_title": "Persiapan Ibu",
+          "@preparingForLabor_motherPreparation_title": {
+            "description": "Judul untuk bagian persiapan ibu"
           },
-          "week3": "Minggu 3",
-          "@week3": {
-            "description": "Label Minggu 3"
+        
+          "preparingForLabor_physicalPreparation_title": "Persiapan Fisik",
+          "@preparingForLabor_physicalPreparation_title": {
+            "description": "Judul untuk sub-bagian persiapan fisik ibu"
           },
-          "week3Title": "Pembuahan Terjadi",
-          "@week3Title": {
-            "description": "Judul untuk minggu 3 kehamilan"
+        
+          "preparingForLabor_physicalPreparation_exercise": "Olahraga ringan: Melakukan olahraga ringan seperti jalan kaki, senam hamil, atau yoga prenatal sangat dianjurkan untuk memperkuat otot panggul dan membantu tubuh lebih siap untuk persalinan.",
+          "@preparingForLabor_physicalPreparation_exercise": {
+            "description": "Penjelasan tentang pentingnya olahraga ringan sebagai persiapan fisik"
           },
-          "week3Description": "Sel telur yang telah dibuahi (zigot) bergerak ke rahim, dan blastokista mulai menempel di lapisan rahim.",
-          "@week3Description": {
-            "description": "Deskripsi proses yang terjadi selama minggu 3"
+        
+          "preparingForLabor_physicalPreparation_nutrition": "Pola makan bergizi: Pastikan asupan nutrisi mencukupi, dengan makanan yang kaya protein, zat besi, kalsium, dan serat.",
+          "@preparingForLabor_physicalPreparation_nutrition": {
+            "description": "Penjelasan tentang pentingnya pola makan bergizi sebagai persiapan fisik"
           },
-          "week4": "Minggu 4",
-          "@week4": {
-            "description": "Label Minggu 4"
+        
+          "preparingForLabor_physicalPreparation_rest": "Istirahat yang cukup: Menjelang persalinan, penting bagi ibu untuk mendapatkan cukup tidur dan istirahat agar tubuh siap secara fisik.",
+          "@preparingForLabor_physicalPreparation_rest": {
+            "description": "Penjelasan tentang pentingnya istirahat yang cukup sebagai persiapan fisik"
           },
-          "week4Title": "Awal Kehamilan",
-          "@week4Title": {
-            "description": "Judul untuk minggu 4 kehamilan"
+        
+          "preparingForLabor_mentalPreparation_title": "Persiapan Mental",
+          "@preparingForLabor_mentalPreparation_title": {
+            "description": "Judul untuk sub-bagian persiapan mental ibu"
           },
-          "week4Description": "Embrio mulai berkembang, dan plasenta mulai terbentuk.",
-          "@week4Description": {
-            "description": "Deskripsi proses yang terjadi selama minggu 4"
+        
+          "preparingForLabor_mentalPreparation_classes": "Ikuti kelas persiapan persalinan: Kelas ini membantu ibu memahami proses persalinan, apa yang diharapkan, serta cara mengatasi rasa sakit dan ketakutan.",
+          "@preparingForLabor_mentalPreparation_classes": {
+            "description": "Penjelasan tentang pentingnya mengikuti kelas persiapan persalinan"
           },
-            "trimesterFirstIntro": "Ini adalah pengenalan untuk trimester pertama.",
-            "@trimesterFirstIntro": {
-              "description": "Teks pengenalan yang ditampilkan di layar trimester pertama.",
-              "type": "text"
-            },
-            "week5": "Minggu 5",
-            "@week5": {
-              "description": "Judul untuk bagian minggu ke-5.",
-              "type": "text"
-            },
-            "week5Title": "Perkembangan di Minggu 5",
-            "@week5Title": {
-              "description": "Judul yang menjelaskan perkembangan selama minggu ke-5.",
-              "type": "text"
-            },
-            "week5Description": "Embrio mulai mengembangkan organ-organ utama.",
-            "@week5Description": {
-              "description": "Deskripsi perkembangan yang terjadi selama minggu ke-5.",
-              "type": "text"
-            },
-            "week6": "Minggu 6",
-            "@week6": {
-              "description": "Judul untuk bagian minggu ke-6.",
-              "type": "text"
-            },
-            "week6Title": "Perkembangan di Minggu 6",
-            "@week6Title": {
-              "description": "Judul yang menjelaskan perkembangan selama minggu ke-6.",
-              "type": "text"
-            },
-            "week6Description": "Jantung mulai berdetak.",
-            "@week6Description": {
-              "description": "Deskripsi perkembangan yang terjadi selama minggu ke-6.",
-              "type": "text"
-            },
-            "developmentSummaryTitle": "Ringkasan Perkembangan",
-            "@developmentSummaryTitle": {
-              "description": "Judul untuk bagian ringkasan perkembangan.",
-              "type": "text"
-            },
-            "developmentSummaryContent": "Berikut adalah ringkasan perkembangan trimester pertama.",
-            "@developmentSummaryContent": {
-              "description": "Konten yang meringkas perkembangan selama trimester pertama.",
-              "type": "text"
-            },
-            "referencesTitle": "Referensi",
-            "@referencesTitle": {
-              "description": "Judul untuk bagian referensi.",
-              "type": "text"
-            },
-            "referencesContent": "Berikut adalah referensi untuk perkembangan trimester.",
-            "@referencesContent": {
-              "description": "Konten yang menunjukkan referensi yang digunakan.",
-              "type": "text"
-            },
-              "week7": "Minggu 7",
-              "@week7": {
-                "description": "Label untuk minggu ke-7 pada layar perkembangan kehamilan.",
-                "type": "text"
-              },
-              "week7Title": "Perkembangan pada Minggu 7",
-              "@week7Title": {
-                "description": "Judul yang menjelaskan perkembangan pada minggu ke-7.",
-                "type": "text"
-              },
-              "week7Description": "Otak dan organ-organ lainnya mulai berkembang.",
-              "@week7Description": {
-                "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-7 kehamilan.",
-                "type": "text"
-              },
-              "week8": "Minggu 8",
-              "@week8": {
-                "description": "Label untuk minggu ke-8 pada layar perkembangan kehamilan.",
-                "type": "text"
-              },
-              "week8Title": "Perkembangan pada Minggu 8",
-              "@week8Title": {
-                "description": "Judul yang menjelaskan perkembangan pada minggu ke-8.",
-                "type": "text"
-              },
-              "week8Description": "Fitur wajah embrio mulai terlihat lebih jelas.",
-              "@week8Description": {
-                "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-8 kehamilan.",
-                "type": "text"
-              },
-              "week9_10": "Minggu 9-10",
-              "@week9_10": {
-                "description": "Label untuk minggu ke-9-10 pada layar perkembangan kehamilan.",
-                "type": "text"
-              },
-              "week9_10Title": "Perkembangan pada Minggu 9-10",
-              "@week9_10Title": {
-                "description": "Judul yang menjelaskan perkembangan pada minggu ke-9-10.",
-                "type": "text"
-              },
-              "week9_10Description": "Jari tangan dan kaki mulai terbentuk.",
-              "@week9_10Description": {
-                "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-9-10 kehamilan.",
-                "type": "text"
-              },
-              "week11_13": "Minggu 11-13",
-              "@week11_13": {
-                "description": "Label untuk minggu ke-11-13 pada layar perkembangan kehamilan.",
-                "type": "text"
-              },
-              "week11_13Title": "Perkembangan pada Minggu 11-13",
-              "@week11_13Title": {
-                "description": "Judul yang menjelaskan perkembangan pada minggu ke-11-13.",
-                "type": "text"
-              },
-              "week11_13Description": "Semua organ utama terbentuk pada akhir periode ini.",
-              "@week11_13Description": {
-                "description": "Deskripsi rinci tentang apa yang terjadi pada minggu ke-11-13 kehamilan.",
-                "type": "text"
-              },
-                "estimatedDueDate": "Perkiraan Tanggal Kelahiran",
-                "@estimatedDueDate": {
-                  "description": "Label untuk menampilkan perkiraan tanggal kelahiran"
-                },
-                "about": "Tentang",
-                "@about": {
-                  "description": "Label untuk bagian 'Tentang' di aplikasi"
-                },
-                "aboutSabina": "SABINA adalah aplikasi yang dirancang untuk membantu ibu hamil memantau kehamilan dan mengakses informasi penting tentang kesehatan ibu dan anak.",
-                "@aboutSabina": {
-                  "description": "Deskripsi aplikasi SABINA untuk bagian 'Tentang'"
-                },
-                "initiatedBy": "Diprakarsai oleh:",
-                "@initiatedBy": {
-                  "description": "Label untuk menunjukkan siapa yang memprakarsai aplikasi SABINA"
-                },
-                "initiatorNames": "Wahidah Sukriani, SST, M.Keb (www.sapabidan.com)",
-                "@initiatorNames": {
-                  "description": "Nama-nama inisiator aplikasi SABINA"
-                },
-                "illustrationCredits": "Ilustrasi dalam aplikasi ini dibuat menggunakan DALL·E AI.",
-                "@illustrationCredits": {
-                  "description": "Pengakuan untuk DALL·E AI dalam pembuatan ilustrasi"
-                },
-                  "persiapanPersalinan": "Persiapan Persalinan",
-                  "@persiapanPersalinan": {
-                    "description": "Judul untuk box Persiapan Persalinan"
-                  },
-                    "trimesterMenuTitle": "Informasi Kehamilan",
-                    "@trimesterMenuTitle": {
-                      "description": "Judul untuk halaman menu trimester"
-                    },
-                    "trimesterOneTitle": "Trimester I",
-                    "@trimesterOneTitle": {
-                      "description": "Judul untuk trimester pertama"
-                    },
-                    "trimesterOneSubtitle": "Minggu 1-13",
-                    "@trimesterOneSubtitle": {
-                      "description": "Subtitle untuk trimester pertama"
-                    },
-                    "trimesterOneTip": "Pembentukan organ utama janin dimulai",
-                    "@trimesterOneTip": {
-                      "description": "Tip singkat tentang trimester pertama"
-                    },
-                    "trimesterTwoTitle": "Trimester II",
-                    "@trimesterTwoTitle": {
-                      "description": "Judul untuk trimester kedua"
-                    },
-                    "trimesterTwoSubtitle": "Minggu 14-27",
-                    "@trimesterTwoSubtitle": {
-                      "description": "Subtitle untuk trimester kedua"
-                    },
-                    "trimesterTwoTip": "Pertumbuhan pesat dan gerakan janin terasa",
-                    "@trimesterTwoTip": {
-                      "description": "Tip singkat tentang trimester kedua"
-                    },
-                    "trimesterThreeTitle": "Trimester III",
-                    "@trimesterThreeTitle": {
-                      "description": "Judul untuk trimester ketiga"
-                    },
-                    "trimesterThreeSubtitle": "Minggu 28-40",
-                    "@trimesterThreeSubtitle": {
-                      "description": "Subtitle untuk trimester ketiga"
-                    },
-                    "trimesterThreeTip": "Persiapan menjelang kelahiran",
-                    "@trimesterThreeTip": {
-                      "description": "Tip singkat tentang trimester ketiga"
-                    }                                                                                                 
+        
+          "preparingForLabor_mentalPreparation_discussPlan": "Diskusikan rencana persalinan: Ibu dapat mendiskusikan rencana persalinan dengan dokter atau bidan.",
+          "@preparingForLabor_mentalPreparation_discussPlan": {
+            "description": "Penjelasan tentang pentingnya mendiskusikan rencana persalinan"
+          },
+        
+          "preparingForLabor_mentalPreparation_flexibility": "Siapkan mental untuk situasi tak terduga: Terkadang rencana persalinan bisa berubah karena alasan medis. Siapkan mental untuk menghadapi perubahan tersebut dengan fleksibel.",
+          "@preparingForLabor_mentalPreparation_flexibility": {
+            "description": "Penjelasan tentang pentingnya persiapan mental untuk situasi tak terduga"
+          },
+        
+          "preparingForLabor_hospitalItems_title": "Barang yang Harus Dibawa ke Rumah Sakit",
+          "@preparingForLabor_hospitalItems_title": {
+            "description": "Judul untuk sub-bagian barang yang harus dibawa ke rumah sakit"
+          },
+        
+          "preparingForLabor_hospitalItems_documents": "Dokumen penting: Siapkan dokumen seperti kartu identitas, kartu jaminan kesehatan, dan catatan medis kehamilan.",
+          "@preparingForLabor_hospitalItems_documents": {
+            "description": "Penjelasan tentang dokumen penting yang harus dibawa ke rumah sakit"
+          },
+        
+          "preparingForLabor_hospitalItems_clothes": "Pakaian nyaman: Bawa pakaian yang longgar dan nyaman untuk digunakan setelah melahirkan.",
+          "@preparingForLabor_hospitalItems_clothes": {
+            "description": "Penjelasan tentang pakaian yang harus dibawa ke rumah sakit"
+          },
+        
+          "preparingForLabor_hospitalItems_toiletries": "Perlengkapan kebersihan pribadi: Jangan lupa membawa peralatan mandi, pembalut khusus ibu melahirkan, dan peralatan dasar lainnya.",
+          "@preparingForLabor_hospitalItems_toiletries": {
+            "description": "Penjelasan tentang perlengkapan kebersihan pribadi yang harus dibawa ke rumah sakit"
+          },
+        
+          "preparingForLabor_hospitalItems_comfort": "Barang untuk kenyamanan: Beberapa ibu membawa bantal atau selimut favorit ibu agar lebih nyaman di rumah sakit.",
+          "@preparingForLabor_hospitalItems_comfort": {
+            "description": "Penjelasan tentang barang untuk kenyamanan yang bisa dibawa ke rumah sakit"
+          },
+        
+          "preparingForLabor_babyPreparation_title": "Persiapan untuk Bayi yang Akan Lahir",
+          "@preparingForLabor_babyPreparation_title": {
+            "description": "Judul untuk bagian persiapan untuk bayi yang akan lahir"
+          },
+        
+          "preparingForLabor_babyItems_title": "Perlengkapan Bayi",
+          "@preparingForLabor_babyItems_title": {
+            "description": "Judul untuk sub-bagian perlengkapan bayi"
+          },
+        
+          "preparingForLabor_babyItems_clothes": "Pakaian bayi: Siapkan beberapa set pakaian untuk bayi yang nyaman dan mudah dipakai, termasuk baju hangat, sarung tangan, kaus kaki, dan topi.",
+          "@preparingForLabor_babyItems_clothes": {
+            "description": "Penjelasan tentang pakaian bayi yang perlu disiapkan"
+          },
+        
+          "preparingForLabor_babyItems_diapers": "Popok dan perlengkapan bayi: Siapkan popok untuk bayi yang baru lahir, tisu basah, minyak telon, dan krim ruam popok.",
+          "@preparingForLabor_babyItems_diapers": {
+            "description": "Penjelasan tentang popok dan perlengkapan bayi yang perlu disiapkan"
+          },
+        
+          "preparingForLabor_babyItems_blanket": "Selimut bayi: Selimut bayi digunakan untuk membungkus dan menghangatkan bayi.",
+          "@preparingForLabor_babyItems_blanket": {
+            "description": "Penjelasan tentang selimut bayi yang perlu disiapkan"
+          },
+        
+          "preparingForLabor_babyItems_nursing": "Perlengkapan menyusui: Jika ibu berencana menyusui, siapkan bra menyusui dan bantal menyusui untuk kenyamanan.",
+          "@preparingForLabor_babyItems_nursing": {
+            "description": "Penjelasan tentang perlengkapan menyusui yang perlu disiapkan"
+          },
+        
+          "preparingForLabor_babyEquipment_title": "Tempat Tidur dan Peralatan Bayi",
+          "@preparingForLabor_babyEquipment_title": {
+            "description": "Judul untuk sub-bagian tempat tidur dan peralatan bayi"
+          },
+        
+          "preparingForLabor_babyEquipment_crib": "Tempat tidur bayi: Pastikan bayi memiliki tempat tidur yang aman, seperti boks bayi atau keranjang tidur.",
+          "@preparingForLabor_babyEquipment_crib": {
+            "description": "Penjelasan tentang tempat tidur bayi yang perlu disiapkan"
+          },
+        
+          "preparingForLabor_babyEquipment_carSeat": "Car seat bayi: Jika menggunakan mobil untuk pulang dari rumah sakit, upayakan memiliki car seat yang aman dan sesuai untuk bayi baru lahir.",
+          "@preparingForLabor_babyEquipment_carSeat": {
+            "description": "Penjelasan tentang car seat bayi yang perlu disiapkan"
+          },
+        
+          "preparingForLabor_babyHygiene_title": "Kebersihan dan Keamanan Bayi",
+          "@preparingForLabor_babyHygiene_title": {
+            "description": "Judul untuk sub-bagian kebersihan dan keamanan bayi"
+          },
+        
+          "preparingForLabor_babyHygiene_umbilicalCord": "Perawatan tali pusat: Siapkan peralatan untuk membersihkan tali pusat bayi yang baru lahir.",
+          "@preparingForLabor_babyHygiene_umbilicalCord": {
+            "description": "Penjelasan tentang perawatan tali pusat bayi"
+          },
+        
+          "preparingForLabor_babyHygiene_bathing": "Perlengkapan mandi bayi: Siapkan sabun bayi, shampoo bayi, handuk lembut, dan bak mandi bayi.",
+          "@preparingForLabor_babyHygiene_bathing": {
+            "description": "Penjelasan tentang perlengkapan mandi bayi yang perlu disiapkan"
+          },
+        
+          "preparingForLabor_familyPreparation_title": "Persiapan Keluarga",
+          "@preparingForLabor_familyPreparation_title": {
+            "description": "Judul untuk bagian persiapan keluarga"
+          },
+        
+          "preparingForLabor_familyDiscussion_title": "Diskusi Keluarga tentang Persalinan",
+          "@preparingForLabor_familyDiscussion_title": {
+            "description": "Judul untuk sub-bagian diskusi keluarga tentang persalinan"
+          },
+        
+          "preparingForLabor_familyDiscussion_fatherRole": "Kesiapan peran ayah: Peran ayah sangat penting selama proses persalinan. Ayah perlu mempersiapkan mental untuk mendukung ibu secara emosional dan fisik saat melahirkan.",
+          "@preparingForLabor_familyDiscussion_fatherRole": {
+            "description": "Penjelasan tentang kesiapan peran ayah dalam persalinan"
+          },
+        
+          "preparingForLabor_familyDiscussion_pickupPlan": "Rencana penjemputan: Keluarga perlu menyiapkan siapa yang akan menjemput ibu dan bayi dari rumah sakit.",
+          "@preparingForLabor_familyDiscussion_pickupPlan": {
+            "description": "Penjelasan tentang rencana penjemputan setelah persalinan"
+          },
+        
+          "preparingForLabor_familyDiscussion_otherChildren": "Persiapan untuk anak lain (jika ada): Jika ibu sudah memiliki anak, persiapkan siapa yang akan menjaga anak-anak di rumah selama ibu berada di rumah sakit.",
+          "@preparingForLabor_familyDiscussion_otherChildren": {
+            "description": "Penjelasan tentang persiapan untuk anak lain jika ada"
+          },
+        
+          "preparingForLabor_homePreparation_title": "Persiapan Rumah untuk Bayi",
+          "@preparingForLabor_homePreparation_title": {
+            "description": "Judul untuk sub-bagian persiapan rumah untuk bayi"
+          },
+        
+          "preparingForLabor_homePreparation_safety": "Kondisi rumah yang aman: Pastikan rumah dalam kondisi bersih dan aman sebelum bayi tiba.",
+          "@preparingForLabor_homePreparation_safety": {
+            "description": "Penjelasan tentang pentingnya kondisi rumah yang aman untuk bayi"
+          },
+        
+          "preparingForLabor_homePreparation_support": "Perencanaan dukungan setelah melahirkan: Rencanakan siapa yang akan membantu tugas rumah tangga, menjaga bayi saat ibu beristirahat, atau menyiapkan makanan.",
+          "@preparingForLabor_homePreparation_support": {
+            "description": "Penjelasan tentang perencanaan dukungan setelah melahirkan"
+          },
+        
+          "preparingForLabor_emotionalSupport_title": "Dukungan Emosional",
+          "@preparingForLabor_emotionalSupport_title": {
+            "description": "Judul untuk sub-bagian dukungan emosional"
+          },
+        
+          "preparingForLabor_emotionalSupport_partnerInvolvement": "Keterlibatan pasangan: Penting bagi pasangan untuk terlibat dalam mendukung secara emosional.",
+          "@preparingForLabor_emotionalSupport_partnerInvolvement": {
+            "description": "Penjelasan tentang pentingnya keterlibatan pasangan dalam dukungan emosional"
+          },
+        
+         "preparingForLabor_emotionalSupport_familyCommunication": "Komunikasi terbuka dengan keluarga: Komunikasi yang terbuka dengan keluarga penting untuk meminimalkan konflik dan stres setelah bayi lahir.",
+          "@preparingForLabor_emotionalSupport_familyCommunication": {
+            "description": "Penjelasan tentang pentingnya komunikasi terbuka dengan keluarga"
+          },
+        
+          "preparingForLabor_babyItemsImage_caption": "Perlengkapan yang perlu disiapkan untuk bayi",
+          "@preparingForLabor_babyItemsImage_caption": {
+            "description": "Keterangan untuk gambar perlengkapan bayi"
+          },
+        
+          "preparingForLabor_familyPreparationImage_caption": "Persiapan keluarga menghadapi persalinan",
+          "@preparingForLabor_familyPreparationImage_caption": {
+            "description": "Keterangan untuk gambar persiapan keluarga"
+          },
+        
+          "preparingForLabor_reference_title": "Referensi",
+          "@preparingForLabor_reference_title": {
+            "description": "Judul untuk bagian referensi"
+          },
+        
+          "preparingForLabor_reference_acog": "American College of Obstetricians and Gynecologists (ACOG)",
+          "@preparingForLabor_reference_acog": {
+            "description": "Referensi ACOG"
+          },
+        
+          "preparingForLabor_reference_mayoClinic": "Mayo Clinic",
+          "@preparingForLabor_reference_mayoClinic": {
+            "description": "Referensi Mayo Clinic"
+          },
+        
+          "preparingForLabor_reference_nhs": "National Health Service (NHS)",
+          "@preparingForLabor_reference_nhs": {
+            "description": "Referensi NHS"
+          },
+        
+          "preparingForLabor_backToTop": "Kembali ke Atas",
+          "@preparingForLabor_backToTop": {
+            "description": "Teks untuk tombol kembali ke atas"
+          }             
 }

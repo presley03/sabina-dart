@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TrimesterDuaScreen extends StatefulWidget {
   const TrimesterDuaScreen({super.key});
@@ -39,34 +40,35 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Trimester II'),
+        title: Text(l10n.trimesterTwo_title),
       ),
       body: Stack(
         children: [
           ListView(
             controller: _scrollController,
             children: [
-              _buildHeader(),
-              _buildIntroduction(),
-              _buildWeeklyDevelopment(),
-              _buildMaternalChanges(),
+              _buildHeader(l10n),
+              _buildIntroduction(l10n),
+              _buildWeeklyDevelopment(l10n),
+              _buildMaternalChanges(l10n),
               _buildImageWithCaption(
                 'assets/images/trimester_2_perubahan pada ibu.png',
-                'Perubahan fisik pada ibu hamil selama trimester kedua',
+                l10n.trimesterTwo_maternalChangesImage_caption,
               ),
-              _buildCommonComplaints(),
-              _buildDosAndDonts(),
+              _buildCommonComplaints(l10n),
+              _buildDosAndDonts(l10n),
               _buildImageWithCaption(
                 'assets/images/pregnancy_caution.png',
-                'Hal-hal yang harus dihindari selama trimester kedua kehamilan',
+                l10n.trimesterTwo_cautionImage_caption,
               ),
-              _buildReferences(),
+              _buildReferences(l10n),
             ],
           ),
           if (_showBackToTopButton)
@@ -83,7 +85,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(AppLocalizations l10n) {
     return Container(
       height: 200,
       decoration: const BoxDecoration(
@@ -92,10 +94,10 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
           fit: BoxFit.cover,
         ),
       ),
-      child: const Center(
+      child: Center(
         child: Text(
-          'Trimester Kedua Kehamilan',
-          style: TextStyle(
+          l10n.trimesterTwo_header,
+          style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -139,92 +141,90 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
     );
   }
 
-  Widget _buildIntroduction() {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
+  Widget _buildIntroduction(AppLocalizations l10n) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
       child: Text(
-        'Trimester kedua kehamilan berlangsung dari minggu ke-14 hingga minggu ke-27. '
-        'Pada periode ini, janin mengalami pertumbuhan pesat, dan gejala-gejala yang dirasakan oleh ibu biasanya lebih ringan dibandingkan trimester pertama. '
-        'Ini juga saat di mana banyak ibu hamil mulai merasakan gerakan janin untuk pertama kalinya.',
-        style: TextStyle(fontSize: 16, height: 1.5),
+        l10n.trimesterTwo_intro,
+        style: const TextStyle(fontSize: 16, height: 1.5),
       ),
     );
   }
 
-  Widget _buildWeeklyDevelopment() {
+  Widget _buildWeeklyDevelopment(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Perkembangan Janin per Minggu',
+      title: l10n.trimesterTwo_weeklyDevelopment_title,
       children: [
-        _buildWeekItem('Minggu 14-15', 'Ukuran janin: Sekitar 9-10 cm dan berat sekitar 70-85 gram. Wajah janin semakin berkembang, dengan mata dan telinga mulai berpindah ke posisi yang lebih tepat. Bayi mulai menggerakkan tangan dan kaki, meskipun ibu mungkin belum merasakan gerakan tersebut.'),
-        _buildWeekItem('Minggu 16-17', 'Ukuran janin: Sekitar 12-14 cm dan berat sekitar 100-150 gram. Jantung janin mulai memompa sekitar 25 liter darah setiap hari. Sidik jari mulai terbentuk, dan lapisan lemak mulai berkembang di bawah kulit. Pada akhir minggu 16, beberapa ibu mulai merasakan gerakan janin pertama yang disebut "quickening".'),
-        _buildWeekItem('Minggu 18-19', 'Ukuran janin: Sekitar 15-18 cm dan berat sekitar 200-250 gram. Telinga janin sudah bisa mendengar suara dari luar, termasuk suara ibu. Vernix, lapisan pelindung lilin, mulai menutupi kulit janin untuk melindunginya dari cairan ketuban.'),
-        _buildWeekItem('Minggu 20-21', 'Ukuran janin: Sekitar 20-25 cm dan berat sekitar 300-400 gram. Semua organ penting sudah terbentuk dan berkembang lebih lanjut. Alis dan rambut kepala mulai tumbuh, dan gigi pertama janin mulai berkembang di bawah gusi. Ibu biasanya mulai merasakan gerakan janin secara lebih teratur.'),
-        _buildWeekItem('Minggu 22-23', 'Ukuran janin: Sekitar 25-28 cm dan berat sekitar 450-500 gram. Mata janin sudah terbentuk sempurna meskipun belum bisa terbuka. Indera perasa janin mulai berkembang, dan janin bisa mendengar detak jantung ibu serta suara-suara dari luar rahim.'),
-        _buildWeekItem('Minggu 24-25', 'Ukuran janin: Sekitar 28-30 cm dan berat sekitar 600-700 gram. Paru-paru janin mulai menghasilkan surfaktan, zat yang akan membantu pernapasan setelah lahir. Sistem saraf pusat semakin berkembang, dan janin mulai mengatur pola tidur.'),
-        _buildWeekItem('Minggu 26-27', 'Ukuran janin: Sekitar 30-35 cm dan berat sekitar 800-1000 gram. Janin mulai membuka mata dan merespon cahaya yang masuk melalui dinding rahim. Gerakan janin menjadi lebih teratur dan kuat, dan ibu mungkin merasakan cegukan janin.'),
+        _buildWeekItem(l10n.trimesterTwo_week14_15, l10n.trimesterTwo_week14_15_desc),
+        _buildWeekItem(l10n.trimesterTwo_week16_17, l10n.trimesterTwo_week16_17_desc),
+        _buildWeekItem(l10n.trimesterTwo_week18_19, l10n.trimesterTwo_week18_19_desc),
+        _buildWeekItem(l10n.trimesterTwo_week20_21, l10n.trimesterTwo_week20_21_desc),
+        _buildWeekItem(l10n.trimesterTwo_week22_23, l10n.trimesterTwo_week22_23_desc),
+        _buildWeekItem(l10n.trimesterTwo_week24_25, l10n.trimesterTwo_week24_25_desc),
+        _buildWeekItem(l10n.trimesterTwo_week26_27, l10n.trimesterTwo_week26_27_desc),
       ],
     );
   }
 
-  Widget _buildMaternalChanges() {
+  Widget _buildMaternalChanges(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Perubahan Pada Ibu',
+      title: l10n.trimesterTwo_motherChanges_title,
       children: [
-        _buildBulletPoint('Minggu 14-16: Ibu mungkin mulai merasa lebih energik dan gejala mual pagi (morning sickness) mulai berkurang. Perut mulai membesar, dan beberapa ibu hamil mungkin mulai memakai pakaian khusus kehamilan. Ibu juga mungkin mengalami peningkatan nafsu makan.'),
-        _buildBulletPoint('Minggu 17-20: Rahim yang terus membesar mulai menekan organ-organ lain di perut, menyebabkan ibu sering buang air kecil dan terkadang mengalami sesak napas. Kulit ibu mungkin berubah, seperti munculnya "linea nigra", garis gelap di perut yang akan memudar setelah melahirkan.'),
-        _buildBulletPoint('Minggu 21-24: Pada periode ini, beberapa ibu mulai merasakan nyeri punggung atau kram kaki akibat bertambahnya berat badan dan perubahan postur tubuh. Payudara juga mulai menghasilkan kolostrum, cairan yang akan menjadi ASI pertama bagi bayi.'),
-        _buildBulletPoint('Minggu 25-27: Ibu mungkin mengalami bengkak ringan di pergelangan kaki dan tangan karena penumpukan cairan. Beberapa ibu juga mengalami "sciatica", nyeri pada saraf skiatik akibat tekanan dari rahim yang membesar.'),
+        _buildBulletPoint(l10n.trimesterTwo_motherChanges_14_16),
+        _buildBulletPoint(l10n.trimesterTwo_motherChanges_17_20),
+        _buildBulletPoint(l10n.trimesterTwo_motherChanges_21_24),
+        _buildBulletPoint(l10n.trimesterTwo_motherChanges_25_27),
       ],
     );
   }
 
-  Widget _buildCommonComplaints() {
+  Widget _buildCommonComplaints(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Keluhan yang Mungkin Dirasakan',
+      title: l10n.trimesterTwo_commonComplaints_title,
       children: [
-        _buildBulletPoint('Nyeri Punggung: Perubahan postur tubuh dan pertambahan berat badan sering menyebabkan nyeri punggung.'),
-        _buildBulletPoint('Kram Kaki: Kram kaki, terutama pada malam hari, umum terjadi akibat perubahan sirkulasi dan tekanan rahim pada saraf-saraf di kaki.'),
-        _buildBulletPoint('Bengkak Ringan: Ibu mungkin mengalami pembengkakan ringan pada tangan dan kaki akibat penumpukan cairan. Ini biasanya memburuk pada malam hari atau setelah berdiri terlalu lama.'),
-        _buildBulletPoint('Sembelit dan Wasir: Peningkatan hormon progesteron memperlambat pencernaan, menyebabkan sembelit, yang bisa berkembang menjadi wasir.'),
-        _buildBulletPoint('Sesak Napas: Rahim yang membesar dapat menekan diafragma, menyebabkan kesulitan bernapas ringan.'),
+        _buildBulletPoint(l10n.trimesterTwo_commonComplaints_backPain),
+        _buildBulletPoint(l10n.trimesterTwo_commonComplaints_legCramps),
+        _buildBulletPoint(l10n.trimesterTwo_commonComplaints_swelling),
+        _buildBulletPoint(l10n.trimesterTwo_commonComplaints_constipation),
+        _buildBulletPoint(l10n.trimesterTwo_commonComplaints_breathlessness),
       ],
     );
   }
 
-  Widget _buildDosAndDonts() {
+  Widget _buildDosAndDonts(AppLocalizations l10n) {
     return Column(
       children: [
         _buildSection(
-          title: 'Yang Harus Dilakukan (DO)',
+          title: l10n.trimesterTwo_dos_title,
           children: [
-            _buildBulletPoint('Konsumsi Makanan Bergizi: Pastikan ibu hamil mengonsumsi makanan yang kaya akan protein, kalsium, dan zat besi untuk mendukung pertumbuhan janin. Konsumsi makanan yang kaya akan serat untuk mencegah sembelit.'),
-            _buildBulletPoint('Minum Banyak Air: Tetap terhidrasi penting untuk menghindari sembelit dan mencegah pembengkakan berlebih.'),
-            _buildBulletPoint('Olahraga Ringan: Lakukan olahraga yang aman seperti jalan kaki, berenang, atau yoga prenatal untuk menjaga kebugaran tubuh dan mengurangi risiko nyeri punggung.'),
-            _buildBulletPoint('Pakai Pakaian Nyaman: Pilih pakaian yang longgar dan nyaman, termasuk pakaian dalam yang mendukung pertumbuhan payudara.'),
-            _buildBulletPoint('Istirahat yang Cukup: Pastikan ibu cukup tidur, terutama saat bayi semakin aktif di malam hari.'),
+            _buildBulletPoint(l10n.trimesterTwo_dos_nutrition),
+            _buildBulletPoint(l10n.trimesterTwo_dos_hydration),
+            _buildBulletPoint(l10n.trimesterTwo_dos_exercise),
+            _buildBulletPoint(l10n.trimesterTwo_dos_clothing),
+            _buildBulletPoint(l10n.trimesterTwo_dos_rest),
           ],
         ),
         _buildSection(
-          title: 'Yang Harus Dihindari (DON\'T)',
+          title: l10n.trimesterTwo_donts_title,
           children: [
-            _buildBulletPoint('Mengangkat Benda Berat: Hindari mengangkat benda berat yang bisa menyebabkan cedera punggung atau meningkatkan risiko persalinan prematur.'),
-            _buildBulletPoint('Duduk atau Berdiri Terlalu Lama: Hindari duduk atau berdiri terlalu lama untuk mencegah pembengkakan di kaki dan rasa tidak nyaman.'),
-            _buildBulletPoint('Mengkonsumsi Obat Tanpa Resep Dokter: Jangan mengonsumsi obat apa pun tanpa berkonsultasi dengan dokter, termasuk obat bebas seperti aspirin.'),
-            _buildBulletPoint('Tidur Terlentang: Hindari tidur terlentang, karena bisa menghambat aliran darah ke janin. Posisi tidur terbaik adalah miring ke kiri.'),
-            _buildBulletPoint('Mengabaikan Gerakan Janin: Jika ibu merasa gerakan janin berkurang atau tidak terasa dalam waktu lama, segera hubungi dokter untuk pemeriksaan lebih lanjut.'),
+            _buildBulletPoint(l10n.trimesterTwo_donts_heavyLifting),
+            _buildBulletPoint(l10n.trimesterTwo_donts_prolongedStanding),
+            _buildBulletPoint(l10n.trimesterTwo_donts_medication),
+            _buildBulletPoint(l10n.trimesterTwo_donts_lyingOnBack),
+            _buildBulletPoint(l10n.trimesterTwo_donts_ignoringMovement),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildReferences() {
+  Widget _buildReferences(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Referensi',
+      title: l10n.trimesterTwo_reference_title,
       children: [
-        _buildReferenceItem('American College of Obstetricians and Gynecologists (ACOG)', 'https://www.acog.org'),
-        _buildReferenceItem('Mayo Clinic', 'https://www.mayoclinic.org'),
-        _buildReferenceItem('National Health Service (NHS)', 'https://www.nhs.uk'),
+        _buildReferenceItem(l10n.trimesterTwo_reference_acog, 'https://www.acog.org'),
+        _buildReferenceItem(l10n.trimesterTwo_reference_mayoClinic, 'https://www.mayoclinic.org'),
+        _buildReferenceItem(l10n.trimesterTwo_reference_nhs, 'https://www.nhs.uk'),
       ],
     );
   }

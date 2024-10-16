@@ -82,10 +82,10 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Perawatan Sehari-hari', style: TextStyle(color: Colors.white)),
+        title: const Text('Perawatan Sehari-hari', style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -144,7 +144,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                 const SizedBox(height: 16),
                 const Text(
                   'Perawatan sehari-hari sangat penting bagi ibu hamil untuk menjaga kesehatan diri dan janin. Berikut adalah panduan perawatan sehari-hari untuk ibu hamil:',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
                 ),
               ],
             ),
@@ -190,11 +190,11 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                     padding: const EdgeInsets.all(16),
                     child: Column(
                       children: [
-                        Icon(item['icon'], size: 60, color: Colors.white),
+                        Icon(item['icon'], size: 60, color: Colors.black),
                         const SizedBox(height: 20),
                         Text(
                           item['title'],
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 20),
@@ -207,12 +207,12 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Icon(Icons.check_circle, color: Colors.white, size: 20),
+                                    const Icon(Icons.check_circle, color: Colors.black, size: 20),
                                     const SizedBox(width: 10),
                                     Expanded(
                                       child: Text(
                                         item['content'][contentIndex],
-                                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                                        style: const TextStyle(fontSize: 16, color: Colors.black),
                                       ),
                                     ),
                                   ],
@@ -269,12 +269,12 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
               children: [
                 const Text(
                   'Tips Tambahan',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 const Text(
                   'Selalu konsultasikan dengan dokter atau bidan Anda tentang perawatan yang tepat selama kehamilan. Setiap kehamilan bersifat unik dan mungkin memerlukan perhatian khusus.',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
@@ -387,12 +387,12 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
               children: [
                 Text(
                   'Referensi',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 SizedBox(height: 8),
                 Text(
                   'Kementerian Kesehatan RI. (2023). Buku Kesehatan Ibu dan Anak. Jakarta: Indonesia',
-                  style: TextStyle(fontSize: 12, color: Colors.white),
+                  style: TextStyle(fontSize: 12, color: Colors.black),
                 ),
               ],
             ),

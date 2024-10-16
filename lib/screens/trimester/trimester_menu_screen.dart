@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'trimester_satu.dart';
-import 'trimester_dua.dart';
-import 'trimester_tiga.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Import localization
+
+import 'trimester_satu.dart'; // Pastikan file ini sudah ada
+import 'trimester_dua.dart'; // Pastikan file ini sudah ada
+import 'trimester_tiga.dart'; // Pastikan file ini sudah ada
 
 class TrimesterMenuScreen extends StatelessWidget {
   const TrimesterMenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context); // Ambil string lokal
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -17,9 +21,9 @@ class TrimesterMenuScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text(
-          'Informasi Kehamilan',
-          style: TextStyle(
+        title: Text(
+          localizations!.trimesterMenuTitle, // Ganti teks statis dengan string terjemahan
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -41,31 +45,31 @@ class TrimesterMenuScreen extends StatelessWidget {
             children: [
               _buildTrimesterCard(
                 context,
-                'Trimester I',
-                'Minggu 1-13',
+                localizations.trimesterOneTitle, // Ganti teks statis
+                localizations.trimesterOneSubtitle,
                 Colors.pink[100]!,
                 Icons.pregnant_woman,
-                'Pembentukan organ utama janin dimulai',
+                localizations.trimesterOneTip, // Ganti teks statis
                 () => _navigateToTrimester(context, const TrimesterSatuScreen()),
               ),
               const SizedBox(height: 20),
               _buildTrimesterCard(
                 context,
-                'Trimester II',
-                'Minggu 14-27',
+                localizations.trimesterTwoTitle, // Ganti teks statis
+                localizations.trimesterTwoSubtitle,
                 Colors.green[100]!,
                 Icons.child_friendly,
-                'Pertumbuhan pesat dan gerakan janin terasa',
+                localizations.trimesterTwoTip, // Ganti teks statis
                 () => _navigateToTrimester(context, const TrimesterDuaScreen()),
               ),
               const SizedBox(height: 20),
               _buildTrimesterCard(
                 context,
-                'Trimester III',
-                'Minggu 28-40',
+                localizations.trimesterThreeTitle, // Ganti teks statis
+                localizations.trimesterThreeSubtitle,
                 Colors.orange[100]!,
                 Icons.family_restroom,
-                'Persiapan menjelang kelahiran',
+                localizations.trimesterThreeTip, // Ganti teks statis
                 () => _navigateToTrimester(context, const TrimesterTigaScreen()),
               ),
             ],
@@ -75,7 +79,15 @@ class TrimesterMenuScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildTrimesterCard(BuildContext context, String title, String subtitle, Color color, IconData icon, String tip, VoidCallback onTap) {
+  Widget _buildTrimesterCard(
+    BuildContext context,
+    String title,
+    String subtitle,
+    Color color,
+    IconData icon,
+    String tip,
+    VoidCallback onTap,
+  ) {
     return GestureDetector(
       onTap: onTap,
       child: TweenAnimationBuilder<double>(

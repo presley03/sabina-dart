@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TrimesterTigaScreen extends StatefulWidget {
   const TrimesterTigaScreen({super.key});
@@ -39,34 +40,35 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Trimester III'),
+        title: Text(l10n.trimesterThree_title),
       ),
       body: Stack(
         children: [
           ListView(
             controller: _scrollController,
             children: [
-              _buildHeader(),
-              _buildIntroduction(),
-              _buildWeeklyDevelopment(),
+              _buildHeader(l10n),
+              _buildIntroduction(l10n),
+              _buildWeeklyDevelopment(l10n),
               _buildImageWithCaption(
                 'assets/images/gambar_bayi_trimester_3_40minggu.png',
-                'Perkembangan janin selama trimester ketiga',
+                l10n.trimesterThree_fetalDevelopmentImage_caption,
               ),
-              _buildMaternalChanges(),
-              _buildCommonComplaints(),
+              _buildMaternalChanges(l10n),
+              _buildCommonComplaints(l10n),
               _buildImageWithCaption(
                 'assets/images/trimester_3_keluhan_pada_ibu.png',
-                'Keluhan umum yang mungkin dirasakan pada trimester ketiga',
+                l10n.trimesterThree_maternalComplaintsImage_caption,
               ),
-              _buildDosAndDonts(),
-              _buildReferences(),
+              _buildDosAndDonts(l10n),
+              _buildReferences(l10n),
             ],
           ),
           if (_showBackToTopButton)
@@ -83,7 +85,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(AppLocalizations l10n) {
     return Container(
       height: 200,
       decoration: const BoxDecoration(
@@ -92,10 +94,10 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
           fit: BoxFit.cover,
         ),
       ),
-      child: const Center(
+      child: Center(
         child: Text(
-          'Trimester Ketiga Kehamilan',
-          style: TextStyle(
+          l10n.trimesterThree_header,
+          style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -139,93 +141,91 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
     );
   }
 
-  Widget _buildIntroduction() {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
+  Widget _buildIntroduction(AppLocalizations l10n) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
       child: Text(
-        'Trimester ketiga kehamilan berlangsung dari minggu ke-28 hingga minggu ke-40. '
-        'Ini adalah tahap akhir kehamilan di mana janin akan terus tumbuh dan berkembang, mempersiapkan diri untuk kelahiran. '
-        'Pada periode ini, perubahan fisik dan emosional ibu hamil juga menjadi lebih jelas, dan ibu akan merasakan lebih banyak keluhan fisik akibat pertumbuhan janin yang semakin besar.',
-        style: TextStyle(fontSize: 16, height: 1.5),
+        l10n.trimesterThree_intro,
+        style: const TextStyle(fontSize: 16, height: 1.5),
       ),
     );
   }
 
-  Widget _buildWeeklyDevelopment() {
+  Widget _buildWeeklyDevelopment(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Perkembangan Janin per Minggu',
+      title: l10n.trimesterThree_weeklyDevelopment_title,
       children: [
-        _buildWeekItem('Minggu 28-29', 'Ukuran janin: Sekitar 38-40 cm, berat sekitar 1-1,3 kg. Janin terus bertambah berat, dan paru-paru serta otak berkembang pesat. Mata janin sudah bisa berkedip dan merespons cahaya. Lemak mulai menumpuk di bawah kulit, memberikan janin tampilan lebih gemuk.'),
-        _buildWeekItem('Minggu 30-31', 'Ukuran janin: Sekitar 40-42 cm, berat sekitar 1,4-1,6 kg. Janin mulai lebih aktif dan ibu mungkin merasakan tendangan yang lebih kuat. Pendengaran janin sudah sangat berkembang, sehingga dapat merespons suara, baik dari dalam maupun luar rahim.'),
-        _buildWeekItem('Minggu 32-33', 'Ukuran janin: Sekitar 42-44 cm, berat sekitar 1,8-2 kg. Janin semakin matang. Sistem imun mulai berkembang, dan janin bisa mengisap ibu jarinya. Janin akan mulai berada di posisi yang lebih stabil, biasanya dengan kepala di bawah untuk persiapan persalinan.'),
-        _buildWeekItem('Minggu 34-35', 'Ukuran janin: Sekitar 45-47 cm, berat sekitar 2,2-2,5 kg. Janin terus menambah berat badannya dengan cepat. Paru-paru hampir matang, tetapi jika janin lahir prematur pada minggu ini, ia masih memerlukan bantuan untuk bernapas.'),
-        _buildWeekItem('Minggu 36-37', 'Ukuran janin: Sekitar 48-50 cm, berat sekitar 2,7-3 kg. Janin biasanya sudah berada dalam posisi kepala di bawah, dan ruang gerak di dalam rahim semakin sempit. Ibu mungkin merasakan gerakan yang lebih lambat dan lebih halus.'),
-        _buildWeekItem('Minggu 38-39', 'Ukuran janin: Sekitar 50-52 cm, berat sekitar 3-3,3 kg. Janin sudah hampir sepenuhnya matang dan siap untuk dilahirkan. Organ-organ vital seperti paru-paru dan otak sudah sempurna, dan janin akan terus menambah berat badannya.'),
-        _buildWeekItem('Minggu 40', 'Ukuran janin: Sekitar 50-55 cm, berat sekitar 3,5-4 kg. Janin sudah sepenuhnya berkembang dan siap dilahirkan. Gerakan janin mungkin berkurang karena ruang di dalam rahim semakin sempit. Ibu mungkin mulai merasakan tanda-tanda persalinan, seperti kontraksi atau keluarnya lendir.'),
+        _buildWeekItem(l10n.trimesterThree_week28_29, l10n.trimesterThree_week28_29_desc),
+        _buildWeekItem(l10n.trimesterThree_week30_31, l10n.trimesterThree_week30_31_desc),
+        _buildWeekItem(l10n.trimesterThree_week32_33, l10n.trimesterThree_week32_33_desc),
+        _buildWeekItem(l10n.trimesterThree_week34_35, l10n.trimesterThree_week34_35_desc),
+        _buildWeekItem(l10n.trimesterThree_week36_37, l10n.trimesterThree_week36_37_desc),
+        _buildWeekItem(l10n.trimesterThree_week38_39, l10n.trimesterThree_week38_39_desc),
+        _buildWeekItem(l10n.trimesterThree_week40, l10n.trimesterThree_week40_desc),
       ],
     );
   }
 
-  Widget _buildMaternalChanges() {
+  Widget _buildMaternalChanges(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Perubahan Pada Ibu',
+      title: l10n.trimesterThree_maternalChanges_title,
       children: [
-        _buildBulletPoint('Minggu 28-30: Ibu mungkin mulai merasa lebih sering buang air kecil karena janin yang semakin besar menekan kandung kemih. Kelelahan mulai kembali, dan ibu mungkin mengalami sulit tidur akibat rasa tidak nyaman.'),
-        _buildBulletPoint('Minggu 31-34: Banyak ibu hamil mengalami sesak napas ringan karena rahim yang membesar menekan diafragma. Pembengkakan di kaki dan pergelangan kaki juga umum terjadi, terutama setelah berdiri terlalu lama.'),
-        _buildBulletPoint('Minggu 35-37: Ibu mungkin mulai merasakan kontraksi Braxton Hicks (kontraksi palsu), yang terasa seperti kencangnya perut, tetapi tidak teratur. Nyeri punggung juga mungkin semakin parah, terutama saat janin mulai turun ke panggul.'),
-        _buildBulletPoint('Minggu 38-40: Ibu mungkin merasakan lebih banyak tekanan di area panggul, yang dapat menyebabkan ketidaknyamanan. Pada periode ini, ibu mungkin mulai mengalami tanda-tanda persalinan seperti keluarnya cairan atau kontraksi yang lebih teratur.'),
+        _buildBulletPoint(l10n.trimesterThree_maternalChanges_28_30),
+        _buildBulletPoint(l10n.trimesterThree_maternalChanges_31_34),
+        _buildBulletPoint(l10n.trimesterThree_maternalChanges_35_37),
+        _buildBulletPoint(l10n.trimesterThree_maternalChanges_38_40),
       ],
     );
   }
 
-  Widget _buildCommonComplaints() {
+  Widget _buildCommonComplaints(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Keluhan yang Mungkin Dirasakan',
+      title: l10n.trimesterThree_commonComplaints_title,
       children: [
-        _buildBulletPoint('Nyeri Punggung Bawah: Karena berat badan janin yang semakin besar, banyak ibu mengalami nyeri di punggung bawah dan panggul.'),
-        _buildBulletPoint('Susah Tidur: Posisi tidur yang nyaman menjadi lebih sulit ditemukan karena perut yang membesar. Banyak ibu juga mengalami kram kaki pada malam hari.'),
-        _buildBulletPoint('Sering Buang Air Kecil: Janin yang semakin besar menekan kandung kemih, membuat ibu harus lebih sering buang air kecil.'),
-        _buildBulletPoint('Sesak Napas: Janin yang menekan diafragma menyebabkan sesak napas ringan pada beberapa ibu, terutama saat berbaring.'),
-        _buildBulletPoint('Pembengkakan: Pembengkakan di kaki, tangan, dan wajah umum terjadi akibat peningkatan volume darah dan cairan selama kehamilan.'),
-        _buildBulletPoint('Kontraksi Braxton Hicks: Ibu mungkin mulai merasakan kontraksi Braxton Hicks, yang terasa seperti kram atau pengencangan perut tetapi tidak menyebabkan rasa sakit yang signifikan.'),
+        _buildBulletPoint(l10n.trimesterThree_commonComplaints_backPain),
+        _buildBulletPoint(l10n.trimesterThree_commonComplaints_sleepProblems),
+        _buildBulletPoint(l10n.trimesterThree_commonComplaints_frequentUrination),
+        _buildBulletPoint(l10n.trimesterThree_commonComplaints_shortnessOfBreath),
+        _buildBulletPoint(l10n.trimesterThree_commonComplaints_swelling),
+        _buildBulletPoint(l10n.trimesterThree_commonComplaints_braxtonHicks),
       ],
     );
   }
 
-  Widget _buildDosAndDonts() {
+  Widget _buildDosAndDonts(AppLocalizations l10n) {
     return Column(
       children: [
         _buildSection(
-          title: 'Yang Harus Dilakukan (DO)',
+          title: l10n.trimesterThree_dos_title,
           children: [
-            _buildBulletPoint('Perhatikan Asupan Nutrisi: Ibu tetap harus mengonsumsi makanan kaya zat besi, kalsium, protein, dan asam folat untuk mendukung perkembangan janin di tahap akhir ini. Perbanyak serat untuk mencegah sembelit.'),
-            _buildBulletPoint('Istirahat yang Cukup: Usahakan tidur dengan posisi miring ke kiri untuk meningkatkan sirkulasi darah ke janin. Gunakan bantal di antara kaki atau di bawah perut untuk kenyamanan.'),
-            _buildBulletPoint('Periksa Gerakan Janin: Pantau gerakan janin setiap hari. Jika terjadi penurunan signifikan dalam gerakan janin, segera konsultasikan dengan dokter.'),
-            _buildBulletPoint('Olahraga Ringan: Tetap aktif dengan olahraga ringan seperti berjalan kaki atau berenang, tetapi hindari aktivitas yang terlalu berat atau berisiko jatuh.'),
-            _buildBulletPoint('Persiapkan Persalinan: Mulai persiapan untuk persalinan dengan mengikuti kelas persiapan melahirkan dan diskusikan rencana kelahiran dengan dokter.'),
+            _buildBulletPoint(l10n.trimesterThree_dos_nutrition),
+            _buildBulletPoint(l10n.trimesterThree_dos_rest),
+            _buildBulletPoint(l10n.trimesterThree_dos_monitorMovement),
+            _buildBulletPoint(l10n.trimesterThree_dos_exercise),
+            _buildBulletPoint(l10n.trimesterThree_dos_preparation),
           ],
         ),
         _buildSection(
-          title: 'Yang Harus Dihindari (DON\'T)',
+          title: l10n.trimesterThree_donts_title,
           children: [
-            _buildBulletPoint('Mengabaikan Gerakan Janin: Jika gerakan janin terasa berkurang, segera hubungi dokter.'),
-            _buildBulletPoint('Makan Makanan Mentah atau Setengah Matang: Hindari makanan seperti sushi, daging setengah matang, dan telur mentah yang berisiko membawa bakteri berbahaya.'),
-            _buildBulletPoint('Mengangkat Benda Berat: Hindari mengangkat benda berat karena bisa menyebabkan cedera punggung dan meningkatkan risiko persalinan prematur.'),
-            _buildBulletPoint('Terlalu Banyak Berdiri atau Duduk: Jangan terlalu lama duduk atau berdiri dalam posisi yang sama. Istirahatkan tubuh dan gerakkan kaki untuk mencegah pembengkakan.'),
-            _buildBulletPoint('Mengabaikan Tanda Persalinan: Jika ibu mulai merasakan kontraksi yang teratur, pecahnya air ketuban, atau keluarnya lendir bercampur darah, segera pergi ke rumah sakit.'),
+            _buildBulletPoint(l10n.trimesterThree_donts_ignoreMovement),
+            _buildBulletPoint(l10n.trimesterThree_donts_rawFood),
+            _buildBulletPoint(l10n.trimesterThree_donts_heavyLifting),
+            _buildBulletPoint(l10n.trimesterThree_donts_prolongedStanding),
+            _buildBulletPoint(l10n.trimesterThree_donts_ignoreLabor),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildReferences() {
+  Widget _buildReferences(AppLocalizations l10n) {
     return _buildSection(
-      title: 'Referensi',
+      title: l10n.trimesterThree_reference_title,
       children: [
-        _buildReferenceItem('American College of Obstetricians and Gynecologists (ACOG)', 'https://www.acog.org'),
-        _buildReferenceItem('Mayo Clinic', 'https://www.mayoclinic.org'),
-        _buildReferenceItem('National Health Service (NHS)', 'https://www.nhs.uk'),
+        _buildReferenceItem(l10n.trimesterThree_reference_acog, 'https://www.acog.org'),
+        _buildReferenceItem(l10n.trimesterThree_reference_mayoClinic, 'https://www.mayoclinic.org'),
+        _buildReferenceItem(l10n.trimesterThree_reference_nhs, 'https://www.nhs.uk'),
       ],
     );
   }

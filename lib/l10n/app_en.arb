@@ -16,7 +16,7 @@
   "@years": {
     "description": "Plural form for years"
   },
-  "notAvailable": "N/A",
+  "notAvailable": "Not available",
   "@notAvailable": {
     "description": "Displayed when data is not available"
   },
@@ -24,9 +24,9 @@
   "@privacyPolicy": {
     "description": "Title for privacy policy section"
   },
-  "privacyPolicyText": "Sabina respects and safeguards your privacy. We collect and use your personal information solely to provide the highest quality maternal health care services. Your data is securely stored and is not shared with third parties without your explicit consent. You have the right to access, modify, or delete your personal information at any time.",
+  "privacyPolicyText": "Sabina respects and protects your privacy. We collect and use your personal information solely for the purpose of providing the best maternal health services. Your data is securely stored and not shared with third parties without your explicit consent. You have the right to access, modify, or delete your personal information at any time.",
   "@privacyPolicyText": {
-    "description": "Full text of the privacy policy"
+    "description": "Full text of privacy policy"
   },
   "language": "Language",
   "@language": {
@@ -50,15 +50,15 @@
   },
   "currentPregnancyInfo": "Current Pregnancy Information",
   "@currentPregnancyInfo": {
-    "description": "Section title for current pregnancy information"
+    "description": "Title for current pregnancy information section"
   },
-  "lastPeriodDate": "Last Period Date",
+  "lastPeriodDate": "Last Menstrual Period Date",
   "@lastPeriodDate": {
-    "description": "Label for last period date"
+    "description": "Label for last menstrual period date"
   },
-  "pregnancyAge": "Pregnancy Age",
+  "pregnancyAge": "Gestational Age",
   "@pregnancyAge": {
-    "description": "Label for pregnancy age"
+    "description": "Label for gestational age"
   },
   "prePregnancyWeight": "Pre-pregnancy Weight (Kg)",
   "@prePregnancyWeight": {
@@ -76,13 +76,13 @@
   "@childrenCount": {
     "description": "Label for number of children"
   },
-  "miscarriageHistory": "History of Miscarriages",
+  "miscarriageHistory": "Miscarriage History",
   "@miscarriageHistory": {
     "description": "Label for miscarriage history"
   },
   "lastPregnancyHistory": "Last Pregnancy History",
   "@lastPregnancyHistory": {
-    "description": "Section title for last pregnancy history"
+    "description": "Title for last pregnancy history section"
   },
   "childNumber": "Child Number",
   "@childNumber": {
@@ -120,7 +120,7 @@
   "@screening": {
     "description": "Label for screening navigation item"
   },
-  "filtering": "Assesst",
+  "filtering": "Filtering",
   "@filtering": {
     "description": "Label for filtering navigation item"
   },
@@ -128,7 +128,7 @@
   "@complaints": {
     "description": "Label for complaints navigation item"
   },
-  "consultation": "Chat",
+  "consultation": "Consultation",
   "@consultation": {
     "description": "Label for consultation navigation item"
   },
@@ -164,9 +164,9 @@
   "@dateOfBirth": {
     "description": "Label for date of birth field"
   },
-  "pregnancyHistoryQuestion": "Have you given birth before? Let''s fill in your Pregnancy History!",
+ "pregnancyHistoryQuestion": "Have you given birth before? Let''s fill in your Pregnancy History!",
   "@pregnancyHistoryQuestion": {
-    "description": "Question prompt for pregnancy history card"
+    "description": "Prompt question for pregnancy history card"
   },
   "fillPregnancyHistory": "Fill Pregnancy History",
   "@fillPregnancyHistory": {
@@ -202,345 +202,1299 @@
   },
   "gramUnit": "grams",
   "@gramUnit": {
-    "description": "Unit for weight in grams"
+    "description": "Weight unit in grams"
   },
   "kilogramUnit": "kg",
   "@kilogramUnit": {
-    "description": "Unit for weight in kilograms"
+    "description": "Weight unit in kilograms"
   },
   "centimeterUnit": "cm",
   "@centimeterUnit": {
-    "description": "Unit for height in centimeters"
+    "description": "Height unit in centimeters"
   },
   "weekUnit": "weeks",
   "@weekUnit": {
-    "description": "Unit for time in weeks"
+    "description": "Time unit in weeks"
   },
   "dayUnit": "days",
   "@dayUnit": {
-    "description": "Unit for time in days"
+    "description": "Time unit in days"
   },
-    "pregnancyInformation": "Pregnancy Information",
-    "@pregnancyInformation": {
-      "description": "Label for pregnancy information section"
-    },
-    "checkNow": "Check Now",
-    "@checkNow": {
-      "description": "Button text for checking pregnancy information"
-    },
-  "informationForMother": "Information for Mothers",
+  "pregnancyInformation": "Pregnancy Information",
+  "@pregnancyInformation": {
+    "description": "Label for pregnancy information section"
+  },
+  "checkNow": "Check Now",
+  "@checkNow": {
+    "description": "Button text to check pregnancy information"
+  },
+  "informationForMother": "Information for Mother",
   "@informationForMother": {
-    "description": "Title for the section providing information for mothers"
+    "description": "Title for section providing information for mothers"
   },
-    "homeTooltip": "Home Page",
-    "@homeTooltip": {
-      "description": "Tooltip for the home navigation item"
+  "homeTooltip": "Home Page",
+  "@homeTooltip": {
+    "description": "Tooltip for home navigation item"
+  },
+  "screeningTooltip": "Screening Page",
+  "@screeningTooltip": {
+    "description": "Tooltip for screening navigation item"
+  },
+  "filteringTooltip": "Filtering Page",
+  "@filteringTooltip": {
+    "description": "Tooltip for filtering navigation item"
+  },
+  "complaintsTooltip": "Complaints Page",
+  "@complaintsTooltip": {
+    "description": "Tooltip for complaints navigation item"
+  },
+  "consultationTooltip": "Consultation via WhatsApp",
+  "@consultationTooltip": {
+    "description": "Tooltip for consultation navigation item"
+  },
+  "birthDate": "Date of Birth",
+  "@birthDate": {
+    "description": "Label for date of birth"
+  },
+  "noPregnancyHistory": "No pregnancy history",
+  "@noPregnancyHistory": {
+    "description": "Message when no pregnancy history data is available"
+  },
+  "gestationalAge": "Gestational Age",
+  "@gestationalAge": {
+    "description": "Label for gestational age"
+  },
+  "pregnancyOrder": "Pregnancy Number",
+  "@pregnancyOrder": {
+    "description": "Label for pregnancy number"
+  },
+  "numberOfChildren": "Number of Children",
+  "@numberOfChildren": {
+    "description": "Label for number of children"
+  },
+  "lastPregnancyDetails": "Last Pregnancy Details",
+  "@lastPregnancyDetails": {
+    "description": "Label for last pregnancy details"
+  },
+  "childOrder": "Child Number",
+  "@childOrder": {
+    "description": "Label for child number"
+  },
+  "deliveryHelper": "Delivery Assistant",
+  "@deliveryHelper": {
+    "description": "Label for delivery assistant"
+  },
+  "complications": "Complications",
+  "@complications": {
+    "description": "Label for complications during pregnancy"
+  },
+  "indonesian": "Indonesian",
+  "@indonesian": {
+    "description": "Label for selecting Indonesian language"
+  },
+  "english": "English",
+  "@english": {
+    "description": "Label for selecting English language"
+  },
+  "firstTrimesterTitle": "First Trimester",
+  "@firstTrimesterTitle": {
+    "description": "Title for first trimester section"
+  },
+  "secondTrimesterTitle": "Second Trimester",
+  "@secondTrimesterTitle": {
+    "description": "Title for second trimester section"
+  },
+  "thirdTrimesterTitle": "Third Trimester",
+  "@thirdTrimesterTitle": {
+    "description": "Title for third trimester section"
+  },
+  "firstTrimesterTip": "Focus on early prenatal care.",
+  "@firstTrimesterTip": {
+    "description": "Tip for first trimester"
+  },
+  "secondTrimesterTip": "Your baby is growing rapidly now.",
+  "@secondTrimesterTip": {
+    "description": "Tip for second trimester"
+  },
+  "thirdTrimesterTip": "Prepare for delivery.",
+  "@thirdTrimesterTip": {
+    "description": "Tip for third trimester"
+  },
+  "trimesterFirstTitle": "First Trimester",
+  "@trimesterFirstTitle": {
+    "description": "Title for first trimester section"
+  },
+  "week1_2": "Weeks 1-2",
+  "@week1_2": {
+    "description": "Label for Weeks 1-2"
+  },
+  "week1_2Title": "Ovulation and Fertilization Preparation",
+  "@week1_2Title": {
+    "description": "Title for weeks 1-2 of pregnancy"
+  },
+  "week1_2Description": "In the first two weeks, the body is preparing for ovulation and fertilization. The embryo has not yet formed, but the egg is maturing in the ovary.",
+  "@week1_2Description": {
+    "description": "Description of processes occurring during weeks 1-2"
+  },
+  "week3": "Week 3",
+  "@week3": {
+    "description": "Label for Week 3"
+  },
+  "week3Title": "Fertilization Occurs",
+  "@week3Title": {
+    "description": "Title for week 3 of pregnancy"
+  },
+  "week3Description": "The fertilized egg (zygote) moves to the uterus, and the blastocyst begins to implant in the uterine lining.",
+  "@week3Description": {
+    "description": "Description of processes occurring during week 3"
+  },
+  "week4": "Week 4",
+  "@week4": {
+    "description": "Label for Week 4"
+  },
+  "week4Title": "Early Pregnancy",
+  "@week4Title": {
+    "description": "Title for week 4 of pregnancy"
+  },
+  "week4Description": "The embryo begins to develop, and the placenta starts to form.",
+  "@week4Description": {
+    "description": "Description of processes occurring during week 4"
+  },
+  "trimesterFirstIntro": "This is an introduction to the first trimester.",
+  "@trimesterFirstIntro": {
+    "description": "Introductory text displayed on the first trimester screen."
+  },
+  "week5": "Week 5",
+  "@week5": {
+    "description": "Title for week 5 section."
+  },
+  "week5Title": "Development in Week 5",
+  "@week5Title": {
+    "description": "Title explaining development during week 5."
+  },
+  "week5Description": "The embryo begins to develop major organs.",
+  "@week5Description": {
+    "description": "Description of development occurring during week 5."
+  },
+  "week6": "Week 6",
+  "@week6": {
+    "description": "Title for week 6 section."
+  },
+  "week6Title": "Development in Week 6",
+  "@week6Title": {
+    "description": "Title explaining development during week 6."
+  },
+  "week6Description": "The heart begins to beat.",
+  "@week6Description": {
+    "description": "Description of development occurring during week 6."
+  },
+  "developmentSummaryTitle": "Development Summary",
+  "@developmentSummaryTitle": {
+    "description": "Title for development summary section."
+  },
+  "developmentSummaryContent": "Here is a summary of first trimester development.",
+  "@developmentSummaryContent": {
+    "description": "Content summarizing development during the first trimester."
+  },
+  "referencesTitle": "References",
+  "@referencesTitle": {
+    "description": "Title for references section."
+  },
+  "referencesContent": "Here are references for trimester development.",
+  "@referencesContent": {
+    "description": "Content showing references used."
+  },
+  "week7": "Week 7",
+  "@week7": {
+    "description": "Label for week 7 on pregnancy development screen."
+  },
+  "week7Title": "Development in Week 7",
+  "@week7Title": {
+    "description": "Title explaining development during week 7."
+  },
+  "week7Description": "The brain and other organs begin to develop.",
+  "@week7Description": {
+    "description": "Detailed description of what happens in week 7 of pregnancy."
+  },
+  "week8": "Week 8",
+  "@week8": {
+    "description": "Label for week 8 on pregnancy development screen."
+  },
+  "week8Title": "Development in Week 8",
+  "@week8Title": {
+    "description": "Title explaining development during week 8."
+  },
+  "week8Description": "The embryo''s facial features become more distinct.",
+  "@week8Description": {
+    "description": "Detailed description of what happens in week 8 of pregnancy."
+  },
+  "week9_10": "Weeks 9-10",
+  "@week9_10": {
+    "description": "Label for weeks 9-10 on pregnancy development screen."
+  },
+  "week9_10Title": "Development in Weeks 9-10",
+  "@week9_10Title": {
+    "description": "Title explaining development during weeks 9-10."
+  },
+  "week9_10Description": "Fingers and toes begin to form.",
+  "@week9_10Description": {
+    "description": "Detailed description of what happens in weeks 9-10 of pregnancy."
+  },
+  "week11_13": "Weeks 11-13",
+  "@week11_13": {
+    "description": "Label for weeks 11-13 on pregnancy development screen."
+  },
+  "week11_13Title": "Development in Weeks 11-13",
+  "@week11_13Title": {
+    "description": "Title explaining development during weeks 11-13."
+  },
+  "week11_13Description": "All major organs are formed by the end of this period.",
+  "@week11_13Description": {
+    "description": "Detailed description of what happens in weeks 11-13 of pregnancy."
+  },
+  "estimatedDueDate": "Estimated Due Date",
+  "@estimatedDueDate": {
+    "description": "Label for displaying estimated due date"
+  },
+  "about": "About",
+  "@about": {
+    "description": "Label for 'About' section in the app"
+  },
+  "aboutSabina": "SABINA is an application designed to help pregnant women monitor their pregnancy and access important information about maternal and child health.",
+  "@aboutSabina": {
+    "description": "Description of SABINA app for 'About' section"
+  },
+  "initiatedBy": "Initiated by:",
+  "@initiatedBy": {
+    "description": "Label to show who initiated the SABINA app"
+  },
+  "initiatorNames": "Wahidah Sukriani, SST, M.Keb (www.sapabidan.com)",
+  "@initiatorNames": {
+    "description": "Names of SABINA app initiators"
+  },
+  "illustrationCredits": "Illustrations in this app were created using DALL·E AI.",
+  "@illustrationCredits": {
+    "description": "Acknowledgment for DALL·E AI in creating illustrations"
+  },
+  "persiapanPersalinan": "Delivery Preparation",
+  "@persiapanPersalinan": {
+    "description": "Title for Delivery Preparation box"
+  },
+  "trimesterMenuTitle": "Pregnancy Information",
+  "@trimesterMenuTitle": {
+    "description": "Title for trimester menu page"
+  },
+  "trimesterOneTitle": "First Trimester",
+  "@trimesterOneTitle": {
+    "description": "Title for first trimester"
+  },
+  "trimesterOneSubtitle": "Weeks 1-13",
+  "@trimesterOneSubtitle": {
+    "description": "Subtitle for first trimester"
+  },
+  "trimesterOneTip": "Major fetal organ formation begins",
+  "@trimesterOneTip": {
+    "description": "Brief tip about first trimester"
+  },
+  "trimesterTwoTitle": "Second Trimester",
+  "@trimesterTwoTitle": {
+    "description": "Title for second trimester"
+  },
+  "trimesterTwoSubtitle": "Weeks 14-27",
+  "@trimesterTwoSubtitle": {
+    "description": "Subtitle for second trimester"
+  },
+  "trimesterTwoTip": "Rapid growth and fetal movement felt",
+  "@trimesterTwoTip": {
+    "description": "Brief tip about second trimester"
+  },
+  "trimesterThreeTitle": "Third Trimester",
+  "@trimesterThreeTitle": {
+    "description": "Title for third trimester"
+  },
+  "trimesterThreeSubtitle": "Weeks 28-40",
+  "@trimesterThreeSubtitle": {
+    "description": "Subtitle for third trimester"
+  },
+  "trimesterThreeTip": "Preparation for birth",
+  "@trimesterThreeTip": {
+    "description": "Brief tip about third trimester"
+  },
+    "trimesterOne_title": "First Trimester",
+    "@trimesterOne_title": {
+      "description": "Title for the first trimester page"
     },
-    "screeningTooltip": "Screening Page",
-    "@screeningTooltip": {
-      "description": "Tooltip for the screening navigation item"
+  
+    "trimesterOne_header": "First Trimester of Pregnancy",
+    "@trimesterOne_header": {
+      "description": "Header title for the first trimester page"
     },
-    "filteringTooltip": "Filtering Page",
-    "@filteringTooltip": {
-      "description": "Tooltip for the filtering navigation item"
+  
+    "trimesterOne_intro": "The first trimester of pregnancy lasts from the first week to the 13th week. This is a crucial period as many physical and emotional changes occur in the mother, and the early development of the fetus begins.",
+    "@trimesterOne_intro": {
+      "description": "Introduction paragraph explaining the first trimester"
     },
-    "complaintsTooltip": "Complaints Page",
-    "@complaintsTooltip": {
-      "description": "Tooltip for the complaints navigation item"
+  
+    "trimesterOne_weeklyDevelopment_title": "Weekly Fetal Development",
+    "@trimesterOne_weeklyDevelopment_title": {
+      "description": "Title for the weekly fetal development section"
     },
-    "consultationTooltip": "Consultation via WhatsApp",
-    "@consultationTooltip": {
-      "description": "Tooltip for the consultation navigation item"
+  
+    "trimesterOne_week1_2": "Weeks 1-2",
+    "@trimesterOne_week1_2": {
+      "description": "Label for weeks 1-2"
     },
-      "birthDate": "Birth Date",
-      "@birthDate": {
-        "description": "Label for birth date"
+  
+    "trimesterOne_week1_2_desc": "The mother’s body prepares for ovulation and fertilization.",
+    "@trimesterOne_week1_2_desc": {
+      "description": "Description of fetal development during weeks 1-2"
+    },
+  
+    "trimesterOne_week3": "Week 3",
+    "@trimesterOne_week3": {
+      "description": "Label for week 3"
+    },
+  
+    "trimesterOne_week3_desc": "Fertilization occurs. The zygote moves towards the uterus.",
+    "@trimesterOne_week3_desc": {
+      "description": "Description of fetal development during week 3"
+    },
+  
+    "trimesterOne_week4": "Week 4",
+    "@trimesterOne_week4": {
+      "description": "Label for week 4"
+    },
+  
+    "trimesterOne_week4_desc": "The embryo forms. The placenta begins to develop.",
+    "@trimesterOne_week4_desc": {
+      "description": "Description of fetal development during week 4"
+    },
+  
+    "trimesterOne_week5": "Week 5",
+    "@trimesterOne_week5": {
+      "description": "Label for week 5"
+    },
+  
+    "trimesterOne_week5_desc": "The central nervous system starts developing. The embryo''s heart begins to beat.",
+    "@trimesterOne_week5_desc": {
+      "description": "Description of fetal development during week 5"
+    },
+  
+    "trimesterOne_week6": "Week 6",
+    "@trimesterOne_week6": {
+      "description": "Label for week 6"
+    },
+  
+    "trimesterOne_week6_desc": "The embryo''s heart beats regularly. The face starts forming.",
+    "@trimesterOne_week6_desc": {
+      "description": "Description of fetal development during week 6"
+    },
+  
+    "trimesterOne_week7": "Week 7",
+    "@trimesterOne_week7": {
+      "description": "Label for week 7"
+    },
+  
+    "trimesterOne_week7_desc": "Arms and legs begin to form.",
+    "@trimesterOne_week7_desc": {
+      "description": "Description of fetal development during week 7"
+    },
+  
+    "trimesterOne_week8": "Week 8",
+    "@trimesterOne_week8": {
+      "description": "Label for week 8"
+    },
+  
+    "trimesterOne_week8_desc": "Major organs begin to form.",
+    "@trimesterOne_week8_desc": {
+      "description": "Description of fetal development during week 8"
+    },
+  
+    "trimesterOne_week9_10": "Weeks 9-10",
+    "@trimesterOne_week9_10": {
+      "description": "Label for weeks 9-10"
+    },
+  
+    "trimesterOne_week9_10_desc": "Fingers and toes become visible. Bones begin developing.",
+    "@trimesterOne_week9_10_desc": {
+      "description": "Description of fetal development during weeks 9-10"
+    },
+  
+    "trimesterOne_week11_12": "Weeks 11-12",
+    "@trimesterOne_week11_12": {
+      "description": "Label for weeks 11-12"
+    },
+  
+    "trimesterOne_week11_12_desc": "Major organs start functioning. The fetus can swallow.",
+    "@trimesterOne_week11_12_desc": {
+      "description": "Description of fetal development during weeks 11-12"
+    },
+  
+    "trimesterOne_week13": "Week 13",
+    "@trimesterOne_week13": {
+      "description": "Label for week 13"
+    },
+  
+    "trimesterOne_week13_desc": "The fetus resembles a small human with all major organs formed.",
+    "@trimesterOne_week13_desc": {
+      "description": "Description of fetal development during week 13"
+    },
+  
+    "trimesterOne_motherChanges_title": "Changes in the Mother",
+    "@trimesterOne_motherChanges_title": {
+      "description": "Title for the changes in the mother section"
+    },
+  
+    "trimesterOne_motherChanges_1_4": "Weeks 1-4: Some mothers may experience morning sickness and fatigue.",
+    "@trimesterOne_motherChanges_1_4": {
+      "description": "Changes in the mother during weeks 1-4"
+    },
+  
+    "trimesterOne_motherChanges_5_8": "Weeks 5-8: Hormonal changes increase, causing nausea and vomiting.",
+    "@trimesterOne_motherChanges_5_8": {
+      "description": "Changes in the mother during weeks 5-8"
+    },
+  
+    "trimesterOne_motherChanges_9_13": "Weeks 9-13: Nausea may decrease, but skin changes can occur.",
+    "@trimesterOne_motherChanges_9_13": {
+      "description": "Changes in the mother during weeks 9-13"
+    },
+  
+    "trimesterOne_commonComplaints_title": "Common Complaints",
+    "@trimesterOne_commonComplaints_title": {
+      "description": "Title for the common complaints section"
+    },
+  
+    "trimesterOne_commonComplaints_nausea": "Nausea and Vomiting",
+    "@trimesterOne_commonComplaints_nausea": {
+      "description": "Common complaint related to nausea and vomiting"
+    },
+  
+    "trimesterOne_commonComplaints_fatigue": "Fatigue",
+    "@trimesterOne_commonComplaints_fatigue": {
+      "description": "Common complaint related to fatigue"
+    },
+  
+    "trimesterOne_commonComplaints_frequentUrination": "Frequent Urination",
+    "@trimesterOne_commonComplaints_frequentUrination": {
+      "description": "Common complaint related to frequent urination"
+    },
+  
+    "trimesterOne_commonComplaints_headache": "Headaches",
+    "@trimesterOne_commonComplaints_headache": {
+      "description": "Common complaint related to headaches"
+    },
+  
+    "trimesterOne_commonComplaints_constipation": "Constipation",
+    "@trimesterOne_commonComplaints_constipation": {
+      "description": "Common complaint related to constipation"
+    },
+  
+    "trimesterOne_commonComplaints_breastTenderness": "Breast Tenderness",
+    "@trimesterOne_commonComplaints_breastTenderness": {
+      "description": "Common complaint related to breast tenderness"
+    },
+  
+    "trimesterOne_dos_title": "What to Do (DOs)",
+    "@trimesterOne_dos_title": {
+      "description": "Title for the dos section"
+    },
+  
+    "trimesterOne_dos_consultDoctor": "Consult a Doctor",
+    "@trimesterOne_dos_consultDoctor": {
+      "description": "Advice to consult a doctor"
+    },
+  
+    "trimesterOne_dos_nutrition": "Eat a Balanced Diet",
+    "@trimesterOne_dos_nutrition": {
+      "description": "Advice to eat a balanced diet"
+    },
+  
+    "trimesterOne_dos_rest": "Get Plenty of Rest",
+    "@trimesterOne_dos_rest": {
+      "description": "Advice to get enough rest"
+    },
+  
+    "trimesterOne_dos_hydration": "Stay Hydrated",
+    "@trimesterOne_dos_hydration": {
+      "description": "Advice to drink enough water"
+    },
+  
+    "trimesterOne_dos_exercise": "Do Light Exercise",
+    "@trimesterOne_dos_exercise": {
+      "description": "Advice to do light exercise"
+    },
+  
+    "trimesterOne_donts_title": "What to Avoid (DON''Ts)",
+    "@trimesterOne_donts_title": {
+      "description": "Title for the don'ts section"
+    },
+  
+    "trimesterOne_donts_alcohol": "Avoid Alcohol",
+    "@trimesterOne_donts_alcohol": {
+      "description": "Warning to avoid alcohol consumption"
+    },
+  
+    "trimesterOne_donts_smoking": "Avoid Smoking",
+    "@trimesterOne_donts_smoking": {
+      "description": "Warning to avoid smoking"
+    },
+  
+    "trimesterOne_donts_excessiveCaffeine": "Avoid Excessive Caffeine",
+    "@trimesterOne_donts_excessiveCaffeine": {
+      "description": "Warning to avoid excessive caffeine"
+    },
+  
+    "trimesterOne_donts_unsafeMedication": "Avoid Using Medications Without Consulting a Doctor",
+    "@trimesterOne_donts_unsafeMedication": {
+      "description": "Warning to avoid using medications without consultation"
+    },
+  
+    "trimesterOne_donts_rawFood": "Avoid Eating Raw or Undercooked Food",
+    "@trimesterOne_donts_rawFood": {
+      "description": "Warning to avoid raw or undercooked food"
+    },
+  
+    "trimesterOne_fetalDevelopmentImage_caption": "Fetal development during the first trimester",
+    "@trimesterOne_fetalDevelopmentImage_caption": {
+      "description": "Caption for the fetal development image"
+    },
+  
+    "trimesterOne_preparationImage_caption": "Things to do during the first trimester",
+    "@trimesterOne_preparationImage_caption": {
+      "description": "Caption for the preparation image"
+    },
+  
+    "trimesterOne_reference_title": "References",
+    "@trimesterOne_reference_title": {
+      "description": "Title for the reference section"
+    },
+  
+    "trimesterOne_reference_acog": "American College of Obstetricians and Gynecologists (ACOG)",
+    "@trimesterOne_reference_acog": {
+      "description": "ACOG reference"
+    },
+  
+    "trimesterOne_reference_mayoClinic": "Mayo Clinic",
+    "@trimesterOne_reference_mayoClinic": {
+      "description": "Mayo Clinic reference"
+    },
+  
+    "trimesterOne_reference_nhs": "NHS",
+    "@trimesterOne_reference_nhs": {
+      "description": "NHS reference"
+    },
+  
+    "trimesterOne_reference_who": "World Health Organization (WHO)",
+    "@trimesterOne_reference_who": {
+      "description": "WHO reference"
+  
+    },
+      "trimesterTwo_title": "Second Trimester",
+      "@trimesterTwo_title": {
+        "description": "Title for the second trimester page"
       },
-      "noPregnancyHistory": "No pregnancy history available",
-      "@noPregnancyHistory": {
-        "description": "Message when there is no pregnancy history data"
+    
+      "trimesterTwo_header": "Second Trimester of Pregnancy",
+      "@trimesterTwo_header": {
+        "description": "Header title for the second trimester page"
       },
-      "gestationalAge": "Gestational Age",
-      "@gestationalAge": {
-        "description": "Label for gestational age"
+    
+      "trimesterTwo_intro": "The second trimester lasts from the 14th week to the 27th week. During this period, the fetus experiences rapid growth, and the symptoms felt by the mother are usually lighter compared to the first trimester. This is also the time when many pregnant mothers start feeling fetal movement for the first time.",
+      "@trimesterTwo_intro": {
+        "description": "Intro paragraph explaining the second trimester"
       },
-      "pregnancyOrder": "Pregnancy Order",
-      "@pregnancyOrder": {
-        "description": "Label for pregnancy order"
+    
+      "trimesterTwo_weeklyDevelopment_title": "Weekly Fetal Development",
+      "@trimesterTwo_weeklyDevelopment_title": {
+        "description": "Title for the weekly fetal development section"
       },
-      "numberOfChildren": "Number of Children",
-      "@numberOfChildren": {
-        "description": "Label for number of children"
+    
+      "trimesterTwo_week14_15": "Weeks 14-15",
+      "@trimesterTwo_week14_15": {
+        "description": "Label for weeks 14-15"
       },
-      "lastPregnancyDetails": "Last Pregnancy Details",
-      "@lastPregnancyDetails": {
-        "description": "Label for last pregnancy details"
+    
+      "trimesterTwo_week14_15_desc": "Fetal size: About 9-10 cm and weighing around 70-85 grams. The fetus''s face is becoming more developed, with eyes and ears starting to move to more proper positions. The baby starts moving hands and feet, though the mother may not feel these movements yet.",
+      "@trimesterTwo_week14_15_desc": {
+        "description": "Description of fetal development in weeks 14-15"
       },
-      "childOrder": "Child Order",
-      "@childOrder": {
-        "description": "Label for child order"
+    
+      "trimesterTwo_week16_17": "Weeks 16-17",
+      "@trimesterTwo_week16_17": {
+        "description": "Label for weeks 16-17"
       },
-      "deliveryHelper": "Delivery Helper",
-      "@deliveryHelper": {
-        "description": "Label for delivery helper"
+    
+      "trimesterTwo_week16_17_desc": "Fetal size: About 12-14 cm and weighing around 100-150 grams. The fetal heart begins to pump about 25 liters of blood daily. Fingerprints begin to form, and a layer of fat starts developing under the skin. By the end of week 16, some mothers may feel the first fetal movements known as 'quickening'.",
+      "@trimesterTwo_week16_17_desc": {
+        "description": "Description of fetal development in weeks 16-17"
       },
-      "complications": "Complications",
-      "@complications": {
-        "description": "Label for complications during pregnancy"
+    
+      "trimesterTwo_week18_19": "Weeks 18-19",
+      "@trimesterTwo_week18_19": {
+        "description": "Label for weeks 18-19"
       },
-      "indonesian": "Indonesian",
-      "@indonesian": {
-        "description": "Label for selecting the Indonesian language"
+    
+      "trimesterTwo_week18_19_desc": "Fetal size: About 15-18 cm and weighing around 200-250 grams. The fetus's ears can hear sounds from outside, including the mother's voice. Vernix, a protective waxy layer, begins to cover the fetal skin to protect it from amniotic fluid.",
+      "@trimesterTwo_week18_19_desc": {
+        "description": "Description of fetal development in weeks 18-19"
       },
-      "english": "English",
-      "@english": {
-        "description": "Label for selecting the English language"
+    
+      "trimesterTwo_week20_21": "Weeks 20-21",
+      "@trimesterTwo_week20_21": {
+        "description": "Label for weeks 20-21"
       },
-        "firstTrimesterTitle": "First Trimester",
-        "@firstTrimesterTitle": {
-          "description": "Title for the first trimester section"
+    
+      "trimesterTwo_week20_21_desc": "Fetal size: About 20-25 cm and weighing around 300-400 grams. All major organs are formed and continue to develop. Eyebrows and scalp hair begin to grow, and the fetus''s first teeth start developing beneath the gums. Mothers usually begin to feel more regular fetal movements.",
+      "@trimesterTwo_week20_21_desc": {
+        "description": "Description of fetal development in weeks 20-21"
+      },
+    
+      "trimesterTwo_week22_23": "Weeks 22-23",
+      "@trimesterTwo_week22_23": {
+        "description": "Label for weeks 22-23"
+      },
+    
+      "trimesterTwo_week22_23_desc": "Fetal size: About 25-28 cm and weighing around 450-500 grams. The fetus's eyes are fully formed but still closed. The sense of taste starts to develop, and the fetus can hear the mother's heartbeat and external sounds.",
+      "@trimesterTwo_week22_23_desc": {
+        "description": "Description of fetal development in weeks 22-23"
+      },
+    
+      "trimesterTwo_week24_25": "Weeks 24-25",
+      "@trimesterTwo_week24_25": {
+        "description": "Label for weeks 24-25"
+      },
+    
+      "trimesterTwo_week24_25_desc": "Fetal size: About 28-30 cm and weighing around 600-700 grams. The fetal lungs start producing surfactant, a substance that will aid in breathing after birth. The central nervous system is further developing, and the fetus begins to regulate sleep patterns.",
+      "@trimesterTwo_week24_25_desc": {
+        "description": "Description of fetal development in weeks 24-25"
+      },
+    
+      "trimesterTwo_week26_27": "Weeks 26-27",
+      "@trimesterTwo_week26_27": {
+        "description": "Label for weeks 26-27"
+      },
+    
+      "trimesterTwo_week26_27_desc": "Fetal size: About 30-35 cm and weighing around 800-1000 grams. The fetus begins to open its eyes and respond to light entering through the uterus. Fetal movements become more regular and strong, and the mother may feel fetal hiccups.",
+      "@trimesterTwo_week26_27_desc": {
+        "description": "Description of fetal development in weeks 26-27"
+      },
+    
+      "trimesterTwo_motherChanges_title": "Changes in the Mother",
+      "@trimesterTwo_motherChanges_title": {
+        "description": "Title for the section on changes in the mother"
+      },
+    
+      "trimesterTwo_motherChanges_14_16": "Weeks 14-16: Mothers may begin feeling more energetic, and morning sickness symptoms (nausea) may lessen. The belly starts to expand, and some mothers may start wearing maternity clothes. Increased appetite may also occur.",
+      "@trimesterTwo_motherChanges_14_16": {
+        "description": "Changes in the mother during weeks 14-16"
+      },
+    
+      "trimesterTwo_motherChanges_17_20": "Weeks 17-20: The growing uterus begins pressing on other organs in the abdomen, causing the mother to urinate more frequently and sometimes experience shortness of breath. Skin changes may occur, such as the appearance of the 'linea nigra', a dark line down the middle of the belly that will fade after childbirth.",
+      "@trimesterTwo_motherChanges_17_20": {
+        "description": "Changes in the mother during weeks 17-20"
+      },
+    
+      "trimesterTwo_motherChanges_21_24": "Weeks 21-24: At this stage, some mothers may start experiencing back pain or leg cramps due to weight gain and changes in posture. The breasts also begin to produce colostrum, the first milk that will nourish the baby.",
+      "@trimesterTwo_motherChanges_21_24": {
+        "description": "Changes in the mother during weeks 21-24"
+      },
+    
+      "trimesterTwo_motherChanges_25_27": "Weeks 25-27: Mothers may experience mild swelling in the ankles and hands due to fluid retention. Some may also experience 'sciatica', pain in the sciatic nerve caused by pressure from the growing uterus.",
+      "@trimesterTwo_motherChanges_25_27": {
+        "description": "Changes in the mother during weeks 25-27"
+      },
+    
+      "trimesterTwo_commonComplaints_title": "Common Complaints",
+      "@trimesterTwo_commonComplaints_title": {
+        "description": "Title for the section on common complaints"
+      },
+    
+      "trimesterTwo_commonComplaints_backPain": "Back Pain: Postural changes and weight gain often cause back pain.",
+      "@trimesterTwo_commonComplaints_backPain": {
+        "description": "Common complaint related to back pain"
+      },
+    
+      "trimesterTwo_commonComplaints_legCramps": "Leg Cramps: Leg cramps, especially at night, are common due to changes in circulation and pressure on the leg nerves.",
+      "@trimesterTwo_commonComplaints_legCramps": {
+        "description": "Common complaint related to leg cramps"
+      },
+    
+      "trimesterTwo_commonComplaints_swelling": "Mild Swelling: Mothers may experience mild swelling in the hands and feet due to fluid retention, which worsens at night or after prolonged standing.",
+      "@trimesterTwo_commonComplaints_swelling": {
+        "description": "Common complaint related to mild swelling"
+      },
+    
+      "trimesterTwo_commonComplaints_constipation": "Constipation and Hemorrhoids: Increased progesterone slows digestion, leading to constipation, which can develop into hemorrhoids.",
+      "@trimesterTwo_commonComplaints_constipation": {
+        "description": "Common complaint related to constipation and hemorrhoids"
+      },
+    
+      "trimesterTwo_commonComplaints_breathlessness": "Shortness of Breath: The growing uterus can press on the diaphragm, causing mild breathing difficulties.",
+      "@trimesterTwo_commonComplaints_breathlessness": {
+        "description": "Common complaint related to shortness of breath"
+      },
+    
+      "trimesterTwo_dos_title": "What to Do",
+      "@trimesterTwo_dos_title": {
+        "description": "Title for the 'What to Do' section"
+      },
+    
+      "trimesterTwo_dos_nutrition": "Eat Nutritious Food: Ensure a diet rich in protein, calcium, and iron to support fetal growth. Eating fiber-rich foods helps prevent constipation.",
+      "@trimesterTwo_dos_nutrition": {
+        "description": "Advice on proper nutrition"
+      },
+    
+      "trimesterTwo_dos_hydration": "Drink Plenty of Water: Staying hydrated is important to avoid constipation and prevent excessive swelling.",
+      "@trimesterTwo_dos_hydration": {
+        "description": "Advice on staying hydrated"
+      },
+    
+      "trimesterTwo_dos_exercise": "Light Exercise: Engage in safe exercises such as walking, swimming, or prenatal yoga to stay fit and reduce back pain.",
+      "@trimesterTwo_dos_exercise": {
+        "description": "Advice on light exercise"
+      },
+    
+      "trimesterTwo_dos_clothing": "Wear Comfortable Clothing: Choose loose, comfortable clothing, including supportive underwear for growing breasts.",
+      "@trimesterTwo_dos_clothing": {
+        "description": "Advice on wearing comfortable clothing"
+      },
+    
+      "trimesterTwo_dos_rest": "Get Plenty of Rest: Ensure enough sleep, especially as the baby becomes more active at night.",
+      "@trimesterTwo_dos_rest": {
+        "description": "Advice on getting sufficient rest"
+      },
+    
+      "trimesterTwo_donts_title": "What to Avoid",
+      "@trimesterTwo_donts_title": {
+        "description": "Title for the 'What to Avoid' section"
+      },
+    
+      "trimesterTwo_donts_heavyLifting": "Avoid Lifting Heavy Objects: Lifting heavy objects can cause back injuries or increase the risk of premature labor.",
+      "@trimesterTwo_donts_heavyLifting": {
+        "description": "Warning to avoid heavy lifting"
+      },
+    
+      "trimesterTwo_donts_prolongedStanding": "Avoid Prolonged Standing: Avoid standing or sitting for too long to prevent swelling in the legs and discomfort.",
+      "@trimesterTwo_donts_prolongedStanding": {
+        "description": "Warning to avoid prolonged standing or sitting"
+      },
+    
+      "trimesterTwo_donts_medication": "Avoid Taking Medication Without a Prescription: Do not take any medication without consulting a doctor, including over-the-counter drugs such as aspirin.",
+      "@trimesterTwo_donts_medication": {
+        "description": "Warning against taking medication without a doctor's prescription"
+      },
+    
+      "trimesterTwo_donts_lyingOnBack": "Avoid Sleeping on Your Back: Avoid sleeping on your back as it may restrict blood flow to the fetus. The best position is to sleep on your left side.",
+      "@trimesterTwo_donts_lyingOnBack": {
+        "description": "Warning to avoid sleeping on the back"
+      },
+    
+      "trimesterTwo_donts_ignoringMovement": "Don''t Ignore Fetal Movement: If the mother feels reduced or no fetal movement for a prolonged period, she should contact a doctor immediately for further examination.",
+      "@trimesterTwo_donts_ignoringMovement": {
+        "description": "Warning not to ignore changes in fetal movement"
+      },
+    
+      "trimesterTwo_maternalChangesImage_caption": "Physical changes in pregnant mothers during the second trimester",
+      "@trimesterTwo_maternalChangesImage_caption": {
+        "description": "Caption for the image on physical changes in the mother"
+      },
+    
+      "trimesterTwo_cautionImage_caption": "Things to avoid during the second trimester of pregnancy",
+      "@trimesterTwo_cautionImage_caption": {
+        "description": "Caption for the image on things to avoid"
+      },
+    
+      "trimesterTwo_reference_title": "References",
+      "@trimesterTwo_reference_title": {
+        "description": "Title for the reference section"
+      },
+    
+      "trimesterTwo_reference_acog": "American College of Obstetricians and Gynecologists (ACOG)",
+      "@trimesterTwo_reference_acog": {
+        "description": "Reference to ACOG"
+      },
+    
+      "trimesterTwo_reference_mayoClinic": "Mayo Clinic",
+      "@trimesterTwo_reference_mayoClinic": {
+        "description": "Reference to Mayo Clinic"
+      },
+    
+      "trimesterTwo_reference_nhs": "National Health Service (NHS)",
+      "@trimesterTwo_reference_nhs": {
+        "description": "Reference to NHS"
+      },
+        "trimesterThree_title": "Third Trimester",
+        "@trimesterThree_title": {
+          "description": "Title for the third trimester page"
         },
-        "secondTrimesterTitle": "Second Trimester",
-        "@secondTrimesterTitle": {
-          "description": "Title for the second trimester section"
+        
+        "trimesterThree_header": "Third Trimester of Pregnancy",
+        "@trimesterThree_header": {
+          "description": "Header title for the third trimester page"
         },
-        "thirdTrimesterTitle": "Third Trimester",
-        "@thirdTrimesterTitle": {
-          "description": "Title for the third trimester section"
+      
+        "trimesterThree_intro": "The third trimester lasts from week 28 to week 40. This is the final phase of pregnancy where the baby continues to grow and develop, preparing for birth. During this period, the physical and emotional changes in the mother become more prominent, and she may experience more physical discomfort due to the growing baby.",
+        "@trimesterThree_intro": {
+          "description": "Intro paragraph explaining the third trimester"
         },
-        "firstTrimesterTip": "Focus on early prenatal care.",
-        "@firstTrimesterTip": {
-          "description": "Tip for the first trimester"
+      
+        "trimesterThree_weeklyDevelopment_title": "Weekly Fetal Development",
+        "@trimesterThree_weeklyDevelopment_title": {
+          "description": "Title for the weekly fetal development section"
         },
-        "secondTrimesterTip": "Your baby is growing fast now.",
-        "@secondTrimesterTip": {
-          "description": "Tip for the second trimester"
+      
+        "trimesterThree_week28_29": "Week 28-29",
+        "@trimesterThree_week28_29": {
+          "description": "Label for week 28-29"
         },
-        "thirdTrimesterTip": "Get ready for delivery.",
-        "@thirdTrimesterTip": {
-          "description": "Tip for the third trimester"
+      
+        "trimesterThree_week28_29_desc": "Fetal size: Around 38-40 cm, weighing about 1-1.3 kg. The baby continues gaining weight, and rapid development occurs in the lungs and brain. The eyes can blink and respond to light. Fat begins to accumulate under the skin, giving the baby a fuller appearance.",
+        "@trimesterThree_week28_29_desc": {
+          "description": "Description of fetal development during week 28-29"
         },
-          "trimesterFirstTitle": "First Trimester",
-          "@trimesterFirstTitle": {
-            "description": "Title for the first trimester section"
+      
+        "trimesterThree_week30_31": "Week 30-31",
+        "@trimesterThree_week30_31": {
+          "description": "Label for week 30-31"
+        },
+      
+        "trimesterThree_week30_31_desc": "Fetal size: Around 40-42 cm, weighing about 1.4-1.6 kg. The baby becomes more active, and the mother may feel stronger kicks. Hearing is well developed, allowing the baby to respond to sounds both inside and outside the womb.",
+        "@trimesterThree_week30_31_desc": {
+          "description": "Description of fetal development during week 30-31"
+        },
+      
+        "trimesterThree_week32_33": "Week 32-33",
+        "@trimesterThree_week32_33": {
+          "description": "Label for week 32-33"
+        },
+      
+        "trimesterThree_week32_33_desc": "Fetal size: Around 42-44 cm, weighing about 1.8-2 kg. The baby''s immune system begins to develop, and it may suck its thumb. The baby is likely to settle into a more stable position, often head-down in preparation for birth.",
+        "@trimesterThree_week32_33_desc": {
+          "description": "Description of fetal development during week 32-33"
+        },
+      
+        "trimesterThree_week34_35": "Week 34-35",
+        "@trimesterThree_week34_35": {
+          "description": "Label for week 34-35"
+        },
+      
+        "trimesterThree_week34_35_desc": "Fetal size: Around 45-47 cm, weighing about 2.2-2.5 kg. The baby gains weight rapidly, and the lungs are almost fully mature. If born prematurely at this stage, the baby might still need help breathing.",
+        "@trimesterThree_week34_35_desc": {
+          "description": "Description of fetal development during week 34-35"
+        },
+      
+        "trimesterThree_week36_37": "Week 36-37",
+        "@trimesterThree_week36_37": {
+          "description": "Label for week 36-37"
+        },
+      
+        "trimesterThree_week36_37_desc": "Fetal size: Around 48-50 cm, weighing about 2.7-3 kg. The baby is usually in a head-down position, and space inside the womb becomes more limited, resulting in slower, gentler movements.",
+        "@trimesterThree_week36_37_desc": {
+          "description": "Description of fetal development during week 36-37"
+        },
+      
+        "trimesterThree_week38_39": "Week 38-39",
+        "@trimesterThree_week38_39": {
+          "description": "Label for week 38-39"
+        },
+      
+        "trimesterThree_week38_39_desc": "Fetal size: Around 50-52 cm, weighing about 3-3.3 kg. The baby is nearly fully developed and ready for birth. Vital organs such as the lungs and brain are fully formed, and the baby continues to gain weight.",
+        "@trimesterThree_week38_39_desc": {
+          "description": "Description of fetal development during week 38-39"
+        },
+      
+        "trimesterThree_week40": "Week 40",
+        "@trimesterThree_week40": {
+          "description": "Label for week 40"
+        },
+      
+        "trimesterThree_week40_desc": "Fetal size: Around 50-55 cm, weighing about 3.5-4 kg. The baby is fully developed and ready for birth. Movements may slow down due to limited space in the womb, and the mother may experience labor signs such as contractions or mucus discharge.",
+        "@trimesterThree_week40_desc": {
+          "description": "Description of fetal development during week 40"
+        },
+      
+        "trimesterThree_maternalChanges_title": "Changes in the Mother",
+        "@trimesterThree_maternalChanges_title": {
+          "description": "Title for changes in the mother during the third trimester"
+        },
+      
+        "trimesterThree_maternalChanges_28_30": "Weeks 28-30: The mother may feel the need to urinate more frequently due to the baby''s size pressing on the bladder. Fatigue may return, and sleep may be disrupted due to discomfort.",
+        "@trimesterThree_maternalChanges_28_30": {
+          "description": "Changes in the mother during weeks 28-30"
+        },
+      
+        "trimesterThree_maternalChanges_31_34": "Weeks 31-34: Many pregnant women experience mild shortness of breath as the expanding uterus presses on the diaphragm. Swelling in the legs and ankles is also common, especially after standing for long periods.",
+        "@trimesterThree_maternalChanges_31_34": {
+          "description": "Changes in the mother during weeks 31-34"
+        },
+      
+        "trimesterThree_maternalChanges_35_37": "Weeks 35-37: The mother may start feeling Braxton Hicks contractions, which are irregular contractions that prepare the body for labor. Back pain may worsen as the baby moves lower into the pelvis.",
+        "@trimesterThree_maternalChanges_35_37": {
+          "description": "Changes in the mother during weeks 35-37"
+        },
+      
+        "trimesterThree_maternalChanges_38_40": "Weeks 38-40: The mother may feel increased pressure in the pelvic area, causing discomfort. Labor signs such as regular contractions or water breaking may occur.",
+        "@trimesterThree_maternalChanges_38_40": {
+          "description": "Changes in the mother during weeks 38-40"
+        },
+      
+        "trimesterThree_commonComplaints_title": "Common Complaints",
+        "@trimesterThree_commonComplaints_title": {
+          "description": "Title for common complaints experienced by the mother"
+        },
+      
+        "trimesterThree_commonComplaints_backPain": "Lower Back Pain: As the baby grows larger, many mothers experience pain in the lower back and pelvis.",
+        "@trimesterThree_commonComplaints_backPain": {
+          "description": "Common complaint related to lower back pain"
+        },
+      
+        "trimesterThree_commonComplaints_sleepProblems": "Difficulty Sleeping: Finding a comfortable sleeping position becomes harder as the belly grows. Many mothers also experience leg cramps at night.",
+        "@trimesterThree_commonComplaints_sleepProblems": {
+          "description": "Common complaint related to sleep problems"
+        },
+      
+        "trimesterThree_commonComplaints_frequentUrination": "Frequent Urination: The growing baby presses on the bladder, making the mother urinate more frequently.",
+        "@trimesterThree_commonComplaints_frequentUrination": {
+          "description": "Common complaint related to frequent urination"
+        },
+      
+        "trimesterThree_commonComplaints_shortnessOfBreath": "Shortness of Breath: The baby pressing on the diaphragm can cause mild shortness of breath, especially when lying down.",
+        "@trimesterThree_commonComplaints_shortnessOfBreath": {
+          "description": "Common complaint related to shortness of breath"
+        },
+      
+        "trimesterThree_commonComplaints_swelling": "Swelling: Swelling in the feet, hands, and face is common due to increased blood and fluid volume during pregnancy.",
+        "@trimesterThree_commonComplaints_swelling": {
+          "description": "Common complaint related to swelling"
+        },
+      
+        "trimesterThree_commonComplaints_braxtonHicks": "Braxton Hicks Contractions: The mother may start feeling Braxton Hicks contractions, which are irregular and mild tightening of the uterus.",
+        "@trimesterThree_commonComplaints_braxtonHicks": {
+          "description": "Common complaint related to Braxton Hicks contractions"
+        },
+      
+        "trimesterThree_dos_title": "What to Do",
+        "@trimesterThree_dos_title": {
+          "description": "Title for the section on what the mother should do"
+        },
+      
+        "trimesterThree_dos_nutrition": "Maintain a Nutritious Diet: Continue consuming foods rich in iron, calcium, protein, and folic acid to support the baby''s development in this final stage. Increase fiber intake to prevent constipation.",
+        "@trimesterThree_dos_nutrition": {
+          "description": "Advice on maintaining proper nutrition"
+        },
+      
+        "trimesterThree_dos_rest": "Get Enough Rest: Try to sleep on your left side to improve blood circulation to the baby. Use pillows between your legs or under your belly for comfort.",
+        "@trimesterThree_dos_rest": {
+          "description": "Advice on getting enough rest"
+        },
+      
+        "trimesterThree_dos_monitorMovement": "Monitor Fetal Movements: Keep track of the baby''s movements daily. If there is a significant decrease in movement, consult a doctor immediately.",
+        "@trimesterThree_dos_monitorMovement": {
+          "description": "Advice on monitoring fetal movements"
+        },
+      
+        "trimesterThree_dos_exercise": "Do Light Exercise: Stay active with light exercises like walking or swimming, but avoid strenuous activities or anything that could lead to a fall.",
+        "@trimesterThree_dos_exercise": {
+          "description": "Advice on engaging in light exercise"
+        },
+      
+        "trimesterThree_dos_preparation": "Prepare for Labor: Start preparing for labor by attending childbirth classes and discussing your birth plan with your doctor.",
+        "@trimesterThree_dos_preparation": {
+          "description": "Advice on preparing for labor"
+        },
+      
+        "trimesterThree_donts_title": "What to Avoid",
+        "@trimesterThree_donts_title": {
+          "description": "Title for the section on what the mother should avoid"
+        },
+      
+        "trimesterThree_donts_ignoreMovement": "Ignoring Reduced Fetal Movement: If fetal movement decreases, contact your doctor immediately.",
+        "@trimesterThree_donts_ignoreMovement": {
+          "description": "Warning not to ignore reduced fetal movement"
+        },
+      
+        "trimesterThree_donts_rawFood": "Eating Raw or Undercooked Foods: Avoid foods like sushi, undercooked meat, and raw eggs that could carry harmful bacteria.",
+        "@trimesterThree_donts_rawFood": {
+          "description": "Warning to avoid raw or undercooked food"
+        },
+      
+        "trimesterThree_donts_heavyLifting": "Lifting Heavy Objects: Avoid lifting heavy objects as it can strain your back and increase the risk of preterm labor.",
+        "@trimesterThree_donts_heavyLifting": {
+          "description": "Warning to avoid lifting heavy objects"
+        },
+      
+        "trimesterThree_donts_prolongedStanding": "Prolonged Standing or Sitting: Avoid standing or sitting in the same position for too long. Move around and stretch your legs to prevent swelling.",
+        "@trimesterThree_donts_prolongedStanding": {
+          "description": "Warning to avoid standing or sitting for too long"
+        },
+      
+        "trimesterThree_donts_ignoreLabor": "Ignoring Signs of Labor: If you experience regular contractions, water breaking, or mucus discharge, go to the hospital immediately.",
+        "@trimesterThree_donts_ignoreLabor": {
+          "description": "Warning not to ignore signs of labor"
+        },
+      
+        "trimesterThree_fetalDevelopmentImage_caption": "Fetal development during the third trimester",
+        "@trimesterThree_fetalDevelopmentImage_caption": {
+          "description": "Caption for the fetal development image"
+        },
+      
+        "trimesterThree_maternalComplaintsImage_caption": "Common complaints experienced in the third trimester",
+        "@trimesterThree_maternalComplaintsImage_caption": {
+          "description": "Caption for the maternal complaints image"
+        },
+      
+        "trimesterThree_reference_title": "References",
+        "@trimesterThree_reference_title": {
+          "description": "Title for the reference section"
+        },
+      
+        "trimesterThree_reference_acog": "American College of Obstetricians and Gynecologists (ACOG)",
+        "@trimesterThree_reference_acog": {
+          "description": "Reference to ACOG"
+        },
+      
+        "trimesterThree_reference_mayoClinic": "Mayo Clinic",
+        "@trimesterThree_reference_mayoClinic": {
+          "description": "Reference to Mayo Clinic"
+        },
+      
+        "trimesterThree_reference_nhs": "National Health Service (NHS)",
+        "@trimesterThree_reference_nhs": {
+          "description": "Reference to NHS"
+        },
+          "preparingForLabor_title": "Preparing for Labor",
+          "@preparingForLabor_title": {
+            "description": "Title for the preparing for labor page"
           },
-          "week1_2": "Week 1-2",
-          "@week1_2": {
-            "description": "Week 1-2 label"
+        
+          "preparingForLabor_header": "Preparing for Labor",
+          "@preparingForLabor_header": {
+            "description": "Header title for the preparing for labor page"
           },
-          "week1_2Title": "Preparation for Ovulation and Fertilization",
-          "@week1_2Title": {
-            "description": "Title for week 1-2 of the pregnancy"
+        
+          "preparingForLabor_intro": "Preparing for labor is essential for pregnant women, their families, and close communities. This preparation includes three main aspects: preparing the mother, preparing for the baby’s arrival, and preparing the family. With proper preparation, the labor process is expected to be smoother and more comfortable for everyone involved.",
+          "@preparingForLabor_intro": {
+            "description": "Introductory paragraph explaining the importance of labor preparation"
           },
-          "week1_2Description": "During the first two weeks, the body is preparing for ovulation and fertilization. The embryo has not yet formed, but the egg is maturing in the ovary.",
-          "@week1_2Description": {
-            "description": "Description of the process happening during week 1-2"
+        
+          "preparingForLabor_motherPreparation_title": "Mother''s Preparation",
+          "@preparingForLabor_motherPreparation_title": {
+            "description": "Title for the mother's preparation section"
           },
-          "week3": "Week 3",
-          "@week3": {
-            "description": "Week 3 label"
+        
+          "preparingForLabor_physicalPreparation_title": "Physical Preparation",
+          "@preparingForLabor_physicalPreparation_title": {
+            "description": "Title for the mother's physical preparation subsection"
           },
-          "week3Title": "Fertilization Occurs",
-          "@week3Title": {
-            "description": "Title for week 3 of pregnancy"
+        
+          "preparingForLabor_physicalPreparation_exercise": "Light exercise: Engaging in light exercise such as walking, prenatal exercises, or prenatal yoga is highly recommended to strengthen pelvic muscles and help the body prepare for labor.",
+          "@preparingForLabor_physicalPreparation_exercise": {
+            "description": "Explanation of the importance of light exercise for physical preparation"
           },
-          "week3Description": "The fertilized egg (zygote) travels to the uterus, and the blastocyst begins to implant in the uterine lining.",
-          "@week3Description": {
-            "description": "Description of the process happening during week 3"
+        
+          "preparingForLabor_physicalPreparation_nutrition": "Balanced nutrition: Ensure adequate nutrition intake, with foods rich in protein, iron, calcium, and fiber.",
+          "@preparingForLabor_physicalPreparation_nutrition": {
+            "description": "Explanation of the importance of balanced nutrition for physical preparation"
           },
-          "week4": "Week 4",
-          "@week4": {
-            "description": "Week 4 label"
+        
+          "preparingForLabor_physicalPreparation_rest": "Adequate rest: It is essential for mothers to get enough sleep and rest before labor to be physically prepared.",
+          "@preparingForLabor_physicalPreparation_rest": {
+            "description": "Explanation of the importance of sufficient rest for physical preparation"
           },
-          "week4Title": "Early Pregnancy",
-          "@week4Title": {
-            "description": "Title for week 4 of pregnancy"
+        
+          "preparingForLabor_mentalPreparation_title": "Mental Preparation",
+          "@preparingForLabor_mentalPreparation_title": {
+            "description": "Title for the mother's mental preparation subsection"
           },
-          "week4Description": "The embryo starts developing, and the placenta begins to form.",
-          "@week4Description": {
-            "description": "Description of the process happening during week 4"
+        
+          "preparingForLabor_mentalPreparation_classes": "Attend childbirth classes: These classes help mothers understand the labor process, what to expect, and how to manage pain and fear.",
+          "@preparingForLabor_mentalPreparation_classes": {
+            "description": "Explanation of the importance of attending childbirth classes"
           },
-            "trimesterFirstIntro": "This is the introduction for the first trimester.",
-            "@trimesterFirstIntro": {
-              "description": "Introduction text displayed in the first trimester screen.",
-              "type": "text"
-            },
-            "week5": "Week 5",
-            "@week5": {
-              "description": "Title for the week 5 section.",
-              "type": "text"
-            },
-            "week5Title": "Development in Week 5",
-            "@week5Title": {
-              "description": "Title explaining what happens during week 5.",
-              "type": "text"
-            },
-            "week5Description": "The embryo starts developing major organs.",
-            "@week5Description": {
-              "description": "Description of the development happening during week 5.",
-              "type": "text"
-            },
-            "week6": "Week 6",
-            "@week6": {
-              "description": "Title for the week 6 section.",
-              "type": "text"
-            },
-            "week6Title": "Development in Week 6",
-            "@week6Title": {
-              "description": "Title explaining what happens during week 6.",
-              "type": "text"
-            },
-            "week6Description": "The heart starts beating.",
-            "@week6Description": {
-              "description": "Description of the development happening during week 6.",
-              "type": "text"
-            },
-            "developmentSummaryTitle": "Development Summary",
-            "@developmentSummaryTitle": {
-              "description": "Title for the development summary section.",
-              "type": "text"
-            },
-            "developmentSummaryContent": "Here is the summary of the first trimester development.",
-            "@developmentSummaryContent": {
-              "description": "Content summarizing the development during the first trimester.",
-              "type": "text"
-            },
-            "referencesTitle": "References",
-            "@referencesTitle": {
-              "description": "Title for the references section.",
-              "type": "text"
-            },
-            "referencesContent": "These are the references for the trimester development.",
-            "@referencesContent": {
-              "description": "Content showing the references used.",
-              "type": "text"
-            },
-              "week7": "Week 7",
-              "@week7": {
-                "description": "The label for week 7 in the pregnancy progress screen.",
-                "type": "text"
-              },
-              "week7Title": "Development in Week 7",
-              "@week7Title": {
-                "description": "The title that describes the development in week 7.",
-                "type": "text"
-              },
-              "week7Description": "The brain and other organs start to develop.",
-              "@week7Description": {
-                "description": "Detailed description of what happens during week 7 of pregnancy.",
-                "type": "text"
-              },
-              "week8": "Week 8",
-              "@week8": {
-                "description": "The label for week 8 in the pregnancy progress screen.",
-                "type": "text"
-              },
-              "week8Title": "Development in Week 8",
-              "@week8Title": {
-                "description": "The title that describes the development in week 8.",
-                "type": "text"
-              },
-              "week8Description": "The embryo''s facial features become more distinct.",  
-              "@week8Description": {
-              "description": "Detailed description of week 8 development.",
-              "type": "text"
-              },
-              "week9_10": "Week 9-10",
-              "@week9_10": {
-                "description": "The label for week 9-10 in the pregnancy progress screen.",
-                "type": "text"
-              },
-              "week9_10Title": "Development in Weeks 9-10",
-              "@week9_10Title": {
-                "description": "The title that describes the development in weeks 9-10.",
-                "type": "text"
-              },
-              "week9_10Description": "Fingers and toes start to form.",
-              "@week9_10Description": {
-                "description": "Detailed description of what happens during weeks 9-10 of pregnancy.",
-                "type": "text"
-              },
-              "week11_13": "Week 11-13",
-              "@week11_13": {
-                "description": "The label for week 11-13 in the pregnancy progress screen.",
-                "type": "text"
-              },
-              "week11_13Title": "Development in Weeks 11-13",
-              "@week11_13Title": {
-                "description": "The title that describes the development in weeks 11-13.",
-                "type": "text"
-              },
-              "week11_13Description": "All major organs are formed by the end of this period.",
-              "@week11_13Description": {
-                "description": "Detailed description of what happens during weeks 11-13 of pregnancy.",
-                "type": "text"
-              },
-                "estimatedDueDate": "Estimated Due Date",
-                "@estimatedDueDate": {
-                  "description": "Label for displaying the estimated due date of pregnancy"
-                },
-                "about": "About",
-                "@about": {
-                  "description": "Label for the 'About' section in the app"
-                },
-                "aboutSabina": "SABINA is an application designed to assist pregnant women in monitoring their pregnancy and accessing important information about maternal and child health.",
-                "@aboutSabina": {
-                  "description": "Description of the SABINA app for the 'About' section"
-                },
-                "initiatedBy": "Initiated by:",
-                "@initiatedBy": {
-                  "description": "Label to indicate the initiators of the SABINA app"
-                },
-                "initiatorNames": "Wahidah Sukriani, SST, M.Keb (www.sapabidan.com)",
-                "@initiatorNames": {
-                  "description": "Names of the initiators of the SABINA app"
-                },
-                "illustrationCredits": "Illustrations in this application are created using DALL·E AI.",
-                "@illustrationCredits": {
-                  "description": "Acknowledgment for DALL·E AI in creating illustrations"
-                },
-                  "persiapanPersalinan": "Birth Preparation",
-                  "@persiapanPersalinan": {
-                    "description": "Title for Birth Preparation box"
-                  },
-                    "trimesterMenuTitle": "Pregnancy Information",
-                    "@trimesterMenuTitle": {
-                      "description": "Title for trimester menu screen"
-                    },
-                    "trimesterOneTitle": "First Trimester",
-                    "@trimesterOneTitle": {
-                      "description": "Title for first trimester"
-                    },
-                    "trimesterOneSubtitle": "Weeks 1-13",
-                    "@trimesterOneSubtitle": {
-                      "description": "Subtitle for first trimester"
-                    },
-                    "trimesterOneTip": "Main organs of the baby start forming",
-                    "@trimesterOneTip": {
-                      "description": "Brief tip about the first trimester"
-                    },
-                    "trimesterTwoTitle": "Second Trimester",
-                    "@trimesterTwoTitle": {
-                      "description": "Title for second trimester"
-                    },
-                    "trimesterTwoSubtitle": "Weeks 14-27",
-                    "@trimesterTwoSubtitle": {
-                      "description": "Subtitle for second trimester"
-                    },
-                    "trimesterTwoTip": "Rapid growth and baby movements can be felt",
-                    "@trimesterTwoTip": {
-                      "description": "Brief tip about the second trimester"
-                    },
-                    "trimesterThreeTitle": "Third Trimester",
-                    "@trimesterThreeTitle": {
-                      "description": "Title for third trimester"
-                    },
-                    "trimesterThreeSubtitle": "Weeks 28-40",
-                    "@trimesterThreeSubtitle": {
-                      "description": "Subtitle for third trimester"
-                    },
-                    "trimesterThreeTip": "Preparation for childbirth",
-                    "@trimesterThreeTip": {
-                      "description": "Brief tip about the third trimester"
-                    }                  
+        
+          "preparingForLabor_mentalPreparation_discussPlan": "Discuss the birth plan: Mothers can discuss their birth plan with their doctor or midwife.",
+          "@preparingForLabor_mentalPreparation_discussPlan": {
+            "description": "Explanation of the importance of discussing the birth plan"
+          },
+        
+          "preparingForLabor_mentalPreparation_flexibility": "Mentally prepare for unexpected situations: Sometimes, the birth plan may change for medical reasons. Be mentally prepared to face those changes with flexibility.",
+          "@preparingForLabor_mentalPreparation_flexibility": {
+            "description": "Explanation of the importance of mental preparation for unexpected situations"
+          },
+        
+          "preparingForLabor_hospitalItems_title": "Items to Bring to the Hospital",
+          "@preparingForLabor_hospitalItems_title": {
+            "description": "Title for the items to bring to the hospital section"
+          },
+        
+          "preparingForLabor_hospitalItems_documents": "Important documents: Prepare documents like identification, health insurance card, and pregnancy medical records.",
+          "@preparingForLabor_hospitalItems_documents": {
+            "description": "Explanation of the important documents to bring to the hospital"
+          },
+        
+          "preparingForLabor_hospitalItems_clothes": "Comfortable clothes: Bring loose and comfortable clothes to wear after childbirth.",
+          "@preparingForLabor_hospitalItems_clothes": {
+            "description": "Explanation of the comfortable clothes to bring to the hospital"
+          },
+        
+          "preparingForLabor_hospitalItems_toiletries": "Personal hygiene items: Don’t forget to bring toiletries, maternity pads, and other basic essentials.",
+          "@preparingForLabor_hospitalItems_toiletries": {
+            "description": "Explanation of the personal hygiene items to bring to the hospital"
+          },
+        
+          "preparingForLabor_hospitalItems_comfort": "Comfort items: Some mothers bring their favorite pillow or blanket for added comfort in the hospital.",
+          "@preparingForLabor_hospitalItems_comfort": {
+            "description": "Explanation of comfort items that can be brought to the hospital"
+          },
+        
+          "preparingForLabor_babyPreparation_title": "Preparation for the Baby''s Arrival",
+          "@preparingForLabor_babyPreparation_title": {
+            "description": "Title for the preparation for the baby's arrival section"
+          },
+        
+          "preparingForLabor_babyItems_title": "Baby''s Essentials",
+          "@preparingForLabor_babyItems_title": {
+            "description": "Title for the baby's essentials subsection"
+          },
+        
+          "preparingForLabor_babyItems_clothes": "Baby clothes: Prepare several sets of comfortable and easy-to-wear clothes for the baby, including warm clothes, mittens, socks, and hats.",
+          "@preparingForLabor_babyItems_clothes": {
+            "description": "Explanation of baby clothes to be prepared"
+          },
+        
+          "preparingForLabor_babyItems_diapers": "Diapers and baby essentials: Prepare newborn diapers, wet wipes, baby oil, and diaper rash cream.",
+          "@preparingForLabor_babyItems_diapers": {
+            "description": "Explanation of baby diapers and essentials to be prepared"
+          },
+        
+          "preparingForLabor_babyItems_blanket": "Baby blanket: Baby blankets are used to wrap and keep the baby warm.",
+          "@preparingForLabor_babyItems_blanket": {
+            "description": "Explanation of baby blankets to be prepared"
+          },
+        
+          "preparingForLabor_babyItems_nursing": "Breastfeeding supplies: If the mother plans to breastfeed, prepare a nursing bra and nursing pillow for comfort.",
+          "@preparingForLabor_babyItems_nursing": {
+            "description": "Explanation of breastfeeding supplies to be prepared"
+          },
+        
+          "preparingForLabor_babyEquipment_title": "Baby’s Bed and Equipment",
+          "@preparingForLabor_babyEquipment_title": {
+            "description": "Title for the baby's bed and equipment subsection"
+          },
+        
+          "preparingForLabor_babyEquipment_crib": "Baby''s crib: Ensure the baby has a safe sleeping place, such as a crib or bassinet.",
+          "@preparingForLabor_babyEquipment_crib": {
+            "description": "Explanation of baby's bed that needs to be prepared"
+          },
+        
+          "preparingForLabor_babyEquipment_carSeat": "Baby car seat: If traveling home by car, make sure to have a safe and appropriate car seat for the newborn.",
+          "@preparingForLabor_babyEquipment_carSeat": {
+            "description": "Explanation of baby car seat to be prepared"
+          },
+        
+          "preparingForLabor_babyHygiene_title": "Baby Hygiene and Safety",
+          "@preparingForLabor_babyHygiene_title": {
+            "description": "Title for the baby hygiene and safety section"
+          },
+        
+          "preparingForLabor_babyHygiene_umbilicalCord": "Umbilical cord care: Prepare equipment to clean the newborn''s umbilical cord.",
+          "@preparingForLabor_babyHygiene_umbilicalCord": {
+            "description": "Explanation of umbilical cord care"
+          },
+        
+          "preparingForLabor_babyHygiene_bathing": "Baby bathing supplies: Prepare baby soap, baby shampoo, soft towels, and a baby bath tub.",
+          "@preparingForLabor_babyHygiene_bathing": {
+            "description": "Explanation of baby bathing supplies to be prepared"
+          },
+        
+          "preparingForLabor_familyPreparation_title": "Family Preparation",
+          "@preparingForLabor_familyPreparation_title": {
+            "description": "Title for the family preparation section"
+          },
+        
+          "preparingForLabor_familyDiscussion_title": "Family Discussion about Labor",
+          "@preparingForLabor_familyDiscussion_title": {
+            "description": "Title for the family discussion about labor subsection"
+          },
+        
+          "preparingForLabor_familyDiscussion_fatherRole": "Father's role readiness: The father's role is crucial during the labor process. He needs to be mentally prepared to support the mother emotionally and physically during delivery.",
+          "@preparingForLabor_familyDiscussion_fatherRole": {
+            "description": "Explanation of the father's role readiness during labor"
+          },
+        
+          "preparingForLabor_familyDiscussion_pickupPlan": "Pickup plan: The family should plan who will pick up the mother and baby from the hospital.",
+          "@preparingForLabor_familyDiscussion_pickupPlan": {
+            "description": "Explanation of the pickup plan after labor"
+          },
+        
+          "preparingForLabor_familyDiscussion_otherChildren": "Preparation for other children (if any): If the mother has other children, arrange for someone to take care of them at home while the mother is in the hospital.",
+          "@preparingForLabor_familyDiscussion_otherChildren": {
+            "description": "Explanation of preparation for other children, if applicable"
+          },
+        
+          "preparingForLabor_homePreparation_title": "Home Preparation for the Baby",
+          "@preparingForLabor_homePreparation_title": {
+            "description": "Title for the home preparation for the baby subsection"
+          },
+        
+          "preparingForLabor_homePreparation_safety": "Safe home environment: Ensure the home is clean and safe before the baby arrives.",
+          "@preparingForLabor_homePreparation_safety": {
+            "description": "Explanation of the importance of a safe home environment for the baby"
+          },
+        
+          "preparingForLabor_homePreparation_support": "Postpartum support planning: Plan who will help with household chores, baby care while the mother rests, or meal preparation.",
+          "@preparingForLabor_homePreparation_support": {
+            "description": "Explanation of postpartum support planning"
+          },
+        
+          "preparingForLabor_emotionalSupport_title": "Emotional Support",
+          "@preparingForLabor_emotionalSupport_title": {
+            "description": "Title for the emotional support section"
+          },
+        
+          "preparingForLabor_emotionalSupport_partnerInvolvement": "Partner involvement: It is important for the partner to be emotionally supportive.",
+          "@preparingForLabor_emotionalSupport_partnerInvolvement": {
+            "description": "Explanation of the importance of partner involvement in emotional support"
+          },
+        
+          "preparingForLabor_emotionalSupport_familyCommunication": "Open communication with family: Open communication with family is essential to minimize conflicts and stress after the baby is born.",
+          "@preparingForLabor_emotionalSupport_familyCommunication": {
+            "description": "Explanation of the importance of open communication with family"
+          },
+        
+          "preparingForLabor_babyItemsImage_caption": "Baby items to be prepared",
+          "@preparingForLabor_babyItemsImage_caption": {
+            "description": "Caption for the baby items image"
+          },
+        
+          "preparingForLabor_familyPreparationImage_caption": "Family preparing for labor",
+          "@preparingForLabor_familyPreparationImage_caption": {
+            "description": "Caption for the family preparation image"
+          },
+        
+          "preparingForLabor_reference_title": "References",
+          "@preparingForLabor_reference_title": {
+            "description": "Title for the references section"
+          },
+        
+          "preparingForLabor_reference_acog": "American College of Obstetricians and Gynecologists (ACOG)",
+          "@preparingForLabor_reference_acog": {
+            "description": "ACOG reference"
+          },
+        
+          "preparingForLabor_reference_mayoClinic": "Mayo Clinic",
+          "@preparingForLabor_reference_mayoClinic": {
+            "description": "Mayo Clinic reference"
+          },
+        
+          "preparingForLabor_reference_nhs": "National Health Service (NHS)",
+          "@preparingForLabor_reference_nhs": {
+            "description": "NHS reference"
+          },
+        
+          "preparingForLabor_backToTop": "Back to Top",
+          "@preparingForLabor_backToTop": {
+            "description": "Text for back to top button"
+          }                
 }

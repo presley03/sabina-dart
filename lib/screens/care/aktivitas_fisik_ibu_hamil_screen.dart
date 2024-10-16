@@ -80,10 +80,10 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Aktivitas Fisik Ibu Hamil', style: TextStyle(color: Colors.white)),
+        title: const Text('Aktivitas Fisik Ibu Hamil', style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -145,7 +145,7 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
                 const SizedBox(height: 16),
                 const Text(
                   'Aktivitas fisik sangat penting selama kehamilan karena membantu menjaga kesehatan ibu dan perkembangan janin. Dengan melakukan latihan yang tepat, ibu hamil dapat mengurangi risiko komplikasi, seperti tekanan darah tinggi, memperkuat otot untuk persalinan, dan mengurangi rasa tidak nyaman seperti sakit punggung.',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
                 ),
               ],
             ),
@@ -179,7 +179,7 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
                 const SizedBox(height: 8),
                 Text(
                   item['imageCaption'],
-                  style: const TextStyle(color: Colors.white, fontSize: 14),
+                  style: const TextStyle(color: Colors.black, fontSize: 14),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -226,11 +226,11 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
                     padding: const EdgeInsets.all(16),
                     child: Column(
                       children: [
-                        Icon(item['icon'], size: 60, color: Colors.white),
+                        Icon(item['icon'], size: 60, color: Colors.black),
                         const SizedBox(height: 20),
                         Text(
                           item['title'],
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 20),
@@ -243,12 +243,12 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Icon(Icons.check_circle, color: Colors.white, size: 20),
+                                    const Icon(Icons.check_circle, color: Colors.black, size: 20),
                                     const SizedBox(width: 10),
                                     Expanded(
                                       child: Text(
                                         item['content'][contentIndex],
-                                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                                        style: const TextStyle(fontSize: 16, color: Colors.black),
                                       ),
                                     ),
                                   ],
@@ -305,7 +305,7 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
               children: [
                 const Text(
                   'Hal yang Perlu Diperhatikan:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 _buildTipItem('Konsultasikan dengan dokter sebelum memulai aktivitas fisik baru.'),
@@ -326,12 +326,12 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.check_circle, color: Colors.white, size: 20),
+          const Icon(Icons.check_circle, color: Colors.black, size: 20),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
               tip,
-              style: const TextStyle(fontSize: 16, color: Colors.white),
+              style: const TextStyle(fontSize: 16, color: Colors.black),
             ),
           ),
         ],
@@ -358,14 +358,14 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
               children: [
                 const Text(
                   'Referensi',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 8),
                 ..._references.map((ref) => Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
                     ref,
-                    style: const TextStyle(fontSize: 12, color: Colors.white),
+                    style: const TextStyle(fontSize: 12, color: Colors.black),
                   ),
                 )),
               ],
