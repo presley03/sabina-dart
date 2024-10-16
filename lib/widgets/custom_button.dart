@@ -4,11 +4,15 @@ import '../utils/constants.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  final Color? backgroundColor; // Parameter opsional untuk warna latar belakang
+  final Color? textColor; // Parameter opsional untuk warna teks
 
   const CustomButton({
     super.key,
     required this.text,
     required this.onPressed,
+    this.backgroundColor, // Tambahkan parameter opsional
+    this.textColor, // Tambahkan parameter opsional
   });
 
   @override
@@ -16,8 +20,8 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primaryPink,
-        foregroundColor: Colors.white,
+        backgroundColor: backgroundColor ?? AppColors.primaryPink, // Gunakan warna latar belakang jika ada, atau default
+        foregroundColor: textColor ?? Colors.white, // Gunakan warna teks jika ada, atau default putih
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),

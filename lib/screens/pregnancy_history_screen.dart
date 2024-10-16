@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/constants.dart';
 import '../services/database_helper.dart';
 
@@ -16,15 +17,16 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   final _lastPeriodDateController = TextEditingController();
   final _preBBController = TextEditingController();
   final _heightController = TextEditingController();
+  final _lastPregnancyComplicationsController = TextEditingController();
+
   int _pregnancyNumber = 1;
   int _childrenCount = 0;
   String? _miscarriageHistory;
   int _lastChildInfo = 1;
   int _lastChildBirthYear = DateTime.now().year;
-  String _lastChildBirthWeight = '2500-4000 gram';
-  String _lastChildDeliveryMethod = 'Normal per vagina';
-  String _lastChildBirthAttendant = 'Dokter';
-  final _lastPregnancyComplicationsController = TextEditingController();
+  String? _lastChildBirthWeight;
+  String? _lastChildDeliveryMethod;
+  String? _lastChildBirthAttendant;
   String _pregnancyAge = '';
   String _estimatedDueDate = '';
 
@@ -42,7 +44,6 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       final weeks = difference.inDays ~/ 7;
       final days = difference.inDays % 7;
       
-      // Perhitungan perkiraan tanggal kelahiran menggunakan rumus Naegele
       final estimatedDueDate = lastPeriod.add(const Duration(days: 280));
       
       setState(() {
@@ -54,9 +55,10 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Riwayat Kehamilan', style: TextStyle(color: Colors.black)),
+        title: Text(l10n.pregnancyHistory_title, style: const TextStyle(color: Colors.black)),
         backgroundColor: AppColors.primaryPink,
         elevation: 0,
       ),
@@ -69,47 +71,61 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildSection(
-                  'Informasi Kehamilan Saat Ini',
+                  l10n.pregnancyHistory_currentPregnancyInfo,
                   [
-                    _buildDateInput('Hari pertama haid terakhir', _lastPeriodDateController),
+                    _buildDateInput(l10n.pregnancyHistory_lastPeriodDate, _lastPeriodDateController, l10n),
                     const SizedBox(height: 8),
-                    Text('Usia Kehamilan: $_pregnancyAge', style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+                    Text(l10n.pregnancyHistory_gestationalAge(_pregnancyAge), style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
                     const SizedBox(height: 8),
-                    Text('Perkiraan Tanggal Kelahiran: $_estimatedDueDate', style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+                    Text(l10n.pregnancyHistory_estimatedDueDate(_estimatedDueDate), style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
                     const SizedBox(height: 16),
-                    _buildNumberInput('BB sebelum hamil (Kg)', _preBBController),
-                    _buildNumberInput('TB (cm)', _heightController),
-                    _buildNumberPicker('Kehamilan ke', _pregnancyNumber, 1, 10, (value) {
+                    _buildNumberInput(l10n.pregnancyHistory_prePregnancyWeight, _preBBController, l10n),
+                    _buildNumberInput(l10n.pregnancyHistory_height, _heightController, l10n),
+                    _buildNumberPicker(l10n.pregnancyHistory_pregnancyNumber, _pregnancyNumber, 1, 10, (value) {
                       setState(() => _pregnancyNumber = value);
-                    }),
-                    _buildNumberPicker('Jumlah Anak yang ada', _childrenCount, 0, 10, (value) {
+                    }, l10n),
+                    _buildNumberPicker(l10n.pregnancyHistory_childrenCount, _childrenCount, 0, 10, (value) {
                       setState(() => _childrenCount = value);
-                    }),
-                    _buildDropdown('Riwayat keguguran', ['Ya', 'Tidak Ada'], _miscarriageHistory, (value) {
+                    }, l10n),
+                    _buildDropdown(l10n.pregnancyHistory_miscarriageHistory, [l10n.pregnancyHistory_yes, l10n.pregnancyHistory_no], _miscarriageHistory, (value) {
                       setState(() => _miscarriageHistory = value);
-                    }),
+                    }, l10n),
                   ],
                 ),
                 const SizedBox(height: 24),
                 _buildSection(
-                  'Riwayat Kehamilan Terakhir',
+                  l10n.pregnancyHistory_lastPregnancyInfo,
                   [
-                    _buildNumberPicker('Anak Ke', _lastChildInfo, 1, 10, (value) {
+                    _buildNumberPicker(l10n.pregnancyHistory_lastChildNumber, _lastChildInfo, 0, 10, (value) {
                       setState(() => _lastChildInfo = value);
-                    }),
-                    _buildNumberPicker('Tahun Lahir', _lastChildBirthYear, 2010, DateTime.now().year, (value) {
+                    }, l10n),
+                    _buildNumberPicker(l10n.pregnancyHistory_lastChildBirthYear, _lastChildBirthYear, 2010, DateTime.now().year, (value) {
                       setState(() => _lastChildBirthYear = value);
-                    }),
-                    _buildDropdown('BB Lahir', ['< 2500 gram', '2500-4000 gram', '> 4000 gram'], _lastChildBirthWeight, (value) {
-                      setState(() => _lastChildBirthWeight = value!);
-                    }),
-                    _buildDropdown('Cara persalinan', ['Normal per vagina', 'Operasi Caesar'], _lastChildDeliveryMethod, (value) {
-                      setState(() => _lastChildDeliveryMethod = value!);
-                    }),
-                    _buildDropdown('Penolong persalinan', ['Dokter', 'Bidan', 'Dukun bersalin'], _lastChildBirthAttendant, (value) {
-                      setState(() => _lastChildBirthAttendant = value!);
-                    }),
-                    _buildTextInput('Keluhan pada kehamilan yang lalu', _lastPregnancyComplicationsController),
+                    }, l10n),
+                    _buildDropdown(l10n.pregnancyHistory_lastChildBirthWeight, [
+                      l10n.pregnancyHistory_birthWeight_0,
+                      l10n.pregnancyHistory_birthWeight_under2500,
+                      l10n.pregnancyHistory_birthWeight_2500to4000,
+                      l10n.pregnancyHistory_birthWeight_over4000
+                    ], _lastChildBirthWeight, (value) {
+                      setState(() => _lastChildBirthWeight = value);
+                    }, l10n),
+                    _buildDropdown(l10n.pregnancyHistory_deliveryMethod, [
+                      l10n.pregnancyHistory_deliveryMethod_noPrior,
+                      l10n.pregnancyHistory_deliveryMethod_normal,
+                      l10n.pregnancyHistory_deliveryMethod_caesarean
+                    ], _lastChildDeliveryMethod, (value) {
+                      setState(() => _lastChildDeliveryMethod = value);
+                    }, l10n),
+                    _buildDropdown(l10n.pregnancyHistory_birthAttendant, [
+                      l10n.pregnancyHistory_birthAttendant_none,
+                      l10n.pregnancyHistory_birthAttendant_doctor,
+                      l10n.pregnancyHistory_birthAttendant_midwife,
+                      l10n.pregnancyHistory_birthAttendant_traditionalMidwife
+                    ], _lastChildBirthAttendant, (value) {
+                      setState(() => _lastChildBirthAttendant = value);
+                    }, l10n),
+                    _buildTextInput(l10n.pregnancyHistory_lastPregnancyComplications, _lastPregnancyComplicationsController, l10n),
                   ],
                 ),
                 const SizedBox(height: 24),
@@ -121,8 +137,8 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onPressed: _submitForm,
-                  child: const Text('Simpan', style: TextStyle(fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black)),
+                  onPressed: () => _submitForm(l10n),
+                  child: Text(l10n.pregnancyHistory_save, style: const TextStyle(fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black)),
                 ),
               ],
             ),
@@ -153,7 +169,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     );
   }
 
-  Widget _buildDateInput(String label, TextEditingController controller) {
+  Widget _buildDateInput(String label, TextEditingController controller, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: TextFormField(
@@ -193,12 +209,12 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
             });
           }
         },
-        validator: (value) => value?.isEmpty ?? true ? 'Harap isi tanggal' : null,
+        validator: (value) => value?.isEmpty ?? true ? l10n.pregnancyHistory_fillDateError : null,
       ),
     );
   }
 
-  Widget _buildNumberInput(String label, TextEditingController controller) {
+  Widget _buildNumberInput(String label, TextEditingController controller, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: TextFormField(
@@ -214,12 +230,12 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         ),
         style: const TextStyle(color: Colors.black),
         keyboardType: TextInputType.number,
-        validator: (value) => value?.isEmpty ?? true ? 'Harap isi field ini' : null,
+        validator: (value) => value?.isEmpty ?? true ? l10n.pregnancyHistory_fillFieldError : null,
       ),
     );
   }
 
-  Widget _buildNumberPicker(String label, int value, int minValue, int maxValue, Function(int) onChanged) {
+  Widget _buildNumberPicker(String label, int value, int minValue, int maxValue, Function(int) onChanged, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
@@ -247,13 +263,13 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               ),
             ),
           ),
-          Text('Nilai: $value', style: const TextStyle(fontSize: 14, color: Colors.black)),
+          Text(l10n.pregnancyHistory_value(value), style: const TextStyle(fontSize: 14, color: Colors.black)),
         ],
       ),
     );
   }
 
-  Widget _buildDropdown(String label, List<String> items, String? value, Function(String?) onChanged) {
+  Widget _buildDropdown(String label, List<String> items, String? value, Function(String?) onChanged, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
@@ -279,14 +295,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
             ),
             style: const TextStyle(color: Colors.black),
             dropdownColor: Colors.white,
-            validator: (value) => value == null ? 'Harap pilih salah satu opsi' : null,
+            validator: (value) => value == null ? l10n.pregnancyHistory_selectOptionError : null,
           ),
         ],
       ),
     );
   }
 
-  Widget _buildTextInput(String label, TextEditingController controller) {
+  Widget _buildTextInput(String label, TextEditingController controller, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: TextFormField(
@@ -302,12 +318,12 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         ),
         style: const TextStyle(color: Colors.black),
         maxLines: 3,
-        validator: (value) => value?.isEmpty ?? true ? 'Harap isi field ini' : null,
+        validator: (value) => value?.isEmpty ?? true ? l10n.pregnancyHistory_fillFieldError : null,
       ),
     );
   }
 
-  void _submitForm() async {
+  void _submitForm(AppLocalizations l10n) async {
     if (_formKey.currentState!.validate()) {
       final pregnancyHistory = {
         'tanggal_haid_terakhir': _lastPeriodDateController.text,
@@ -320,9 +336,9 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         'riwayat_keguguran': _miscarriageHistory ?? '',
         'anak_ke_terakhir': _lastChildInfo.toString(),
         'tahun_lahir_terakhir': _lastChildBirthYear.toString(),
-        'berat_badan_lahir_terakhir': _lastChildBirthWeight,
-        'cara_persalinan_terakhir': _lastChildDeliveryMethod,
-        'penolong_persalinan_terakhir': _lastChildBirthAttendant,
+        'berat_badan_lahir_terakhir': _lastChildBirthWeight ?? '',
+        'cara_persalinan_terakhir': _lastChildDeliveryMethod ?? '',
+        'penolong_persalinan_terakhir': _lastChildBirthAttendant ?? '',
         'komplikasi_kehamilan_terakhir': _lastPregnancyComplicationsController.text,
       };
 
@@ -330,14 +346,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         final id = await DatabaseHelper.instance.insertPregnancyHistory(pregnancyHistory);
         if (!mounted) return;
         if (id > 0) {
-          _showSnackBar('Data riwayat kehamilan berhasil disimpan');
+          _showSnackBar(l10n.pregnancyHistory_saveSuccess);
           Navigator.pop(context);
         } else {
-          _showSnackBar('Gagal menyimpan data riwayat kehamilan');
+          _showSnackBar(l10n.pregnancyHistory_saveFailed);
         }
       } catch (e) {
         if (!mounted) return;
-        _showSnackBar('Terjadi kesalahan: $e');
+        _showSnackBar(l10n.pregnancyHistory_errorOccurred(e.toString()));
       }
     }
   }

@@ -88,7 +88,7 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const QuestionnaireScreen()),
+                          MaterialPageRoute(builder: (context) => const QuestionnaireScreenModern()),
                         );
                       },
                       style: ElevatedButton.styleFrom(

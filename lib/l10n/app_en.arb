@@ -120,7 +120,7 @@
   "@screening": {
     "description": "Label for screening navigation item"
   },
-  "filtering": "Filtering",
+  "filtering": "Assest",
   "@filtering": {
     "description": "Label for filtering navigation item"
   },
@@ -128,7 +128,7 @@
   "@complaints": {
     "description": "Label for complaints navigation item"
   },
-  "consultation": "Consultation",
+  "consultation": "Chat",
   "@consultation": {
     "description": "Label for consultation navigation item"
   },
@@ -1496,5 +1496,218 @@
           "preparingForLabor_backToTop": "Back to Top",
           "@preparingForLabor_backToTop": {
             "description": "Text for back to top button"
-          }                
+          },
+            "pregnancyHistory_title": "Pregnancy History",
+            "@pregnancyHistory_title": {
+              "description": "Title for the pregnancy history page"
+            },
+          
+            "pregnancyHistory_currentPregnancyInfo": "Current Pregnancy Information",
+            "@pregnancyHistory_currentPregnancyInfo": {
+              "description": "Title for the current pregnancy information section"
+            },
+          
+            "pregnancyHistory_lastPeriodDate": "First day off last period",
+            "@pregnancyHistory_lastPeriodDate": {
+              "description": "Label for the input of the last menstrual period date"
+            },
+          
+            "pregnancyHistory_gestationalAge": "Gestational Age: {age}",
+            "@pregnancyHistory_gestationalAge": {
+              "description": "Text to display the gestational age",
+              "placeholders": {
+                "age": {
+                  "type": "String",
+                  "example": "12 weeks 3 days"
+                }
+              }
+            },
+          
+            "pregnancyHistory_estimatedDueDate": "Estimated Due Date: {date}",
+            "@pregnancyHistory_estimatedDueDate": {
+              "description": "Text to display the estimated due date",
+              "placeholders": {
+                "date": {
+                  "type": "String",
+                  "example": "01-01-2024"
+                }
+              }
+            },
+          
+            "pregnancyHistory_prePregnancyWeight": "Pre-pregnancy weight (Kg)",
+            "@pregnancyHistory_prePregnancyWeight": {
+              "description": "Label for the input of pre-pregnancy weight"
+            },
+          
+            "pregnancyHistory_height": "Height (cm)",
+            "@pregnancyHistory_height": {
+              "description": "Label for the input of height"
+            },
+          
+            "pregnancyHistory_pregnancyNumber": "Pregnancy number",
+            "@pregnancyHistory_pregnancyNumber": {
+              "description": "Label for the input of pregnancy number"
+            },
+          
+            "pregnancyHistory_childrenCount": "Number of children",
+            "@pregnancyHistory_childrenCount": {
+              "description": "Label for the input of the number of children"
+            },
+          
+            "pregnancyHistory_miscarriageHistory": "History of miscarriage",
+            "@pregnancyHistory_miscarriageHistory": {
+              "description": "Label for the miscarriage history dropdown"
+            },
+          
+            "pregnancyHistory_yes": "Yes",
+            "@pregnancyHistory_yes": {
+              "description": "'Yes' option for the dropdown"
+            },
+          
+            "pregnancyHistory_no": "No",
+            "@pregnancyHistory_no": {
+              "description": "'No' option for the dropdown"
+            },
+          
+            "pregnancyHistory_lastPregnancyInfo": "Last Pregnancy History",
+            "@pregnancyHistory_lastPregnancyInfo": {
+              "description": "Title for the last pregnancy history section"
+            },
+          
+            "pregnancyHistory_lastChildNumber": "Child Number",
+            "@pregnancyHistory_lastChildNumber": {
+              "description": "Label for the input of the last child's number"
+            },
+          
+            "pregnancyHistory_lastChildBirthYear": "Year of Birth",
+            "@pregnancyHistory_lastChildBirthYear": {
+              "description": "Label for the input of the last child's birth year"
+            },
+          
+            "pregnancyHistory_lastChildBirthWeight": "Birth Weight",
+            "@pregnancyHistory_lastChildBirthWeight": {
+              "description": "Label for the dropdown of the last child's birth weight"
+            },
+          
+            "pregnancyHistory_birthWeight_0": "0",
+            "@pregnancyHistory_birthWeight_0": {
+              "description": "Option for birth weight 0"
+            },
+          
+            "pregnancyHistory_birthWeight_under2500": "< 2500 grams",
+            "@pregnancyHistory_birthWeight_under2500": {
+              "description": "Option for birth weight less than 2500 grams"
+            },
+          
+            "pregnancyHistory_birthWeight_2500to4000": "2500-4000 grams",
+            "@pregnancyHistory_birthWeight_2500to4000": {
+              "description": "Option for birth weight between 2500 and 4000 grams"
+            },
+          
+            "pregnancyHistory_birthWeight_over4000": "> 4000 grams",
+            "@pregnancyHistory_birthWeight_over4000": {
+              "description": "Option for birth weight more than 4000 grams"
+            },
+          
+            "pregnancyHistory_deliveryMethod": "Delivery Method",
+            "@pregnancyHistory_deliveryMethod": {
+              "description": "Label for the delivery method dropdown"
+            },
+          
+            "pregnancyHistory_deliveryMethod_noPrior": "No prior births",
+            "@pregnancyHistory_deliveryMethod_noPrior": {
+              "description": "Option for no prior births"
+            },
+          
+            "pregnancyHistory_deliveryMethod_normal": "Normal vaginal delivery",
+            "@pregnancyHistory_deliveryMethod_normal": {
+              "description": "Option for normal vaginal delivery"
+            },
+          
+            "pregnancyHistory_deliveryMethod_caesarean": "Caesarean section",
+            "@pregnancyHistory_deliveryMethod_caesarean": {
+              "description": "Option for caesarean section"
+            },
+          
+            "pregnancyHistory_birthAttendant": "Birth Attendant",
+            "@pregnancyHistory_birthAttendant": {
+              "description": "Label for the birth attendant dropdown"
+            },
+          
+            "pregnancyHistory_birthAttendant_none": "None",
+            "@pregnancyHistory_birthAttendant_none": {
+              "description": "Option for no birth attendant"
+            },
+          
+            "pregnancyHistory_birthAttendant_doctor": "Doctor",
+            "@pregnancyHistory_birthAttendant_doctor": {
+              "description": "Option for a doctor as the birth attendant"
+            },
+          
+            "pregnancyHistory_birthAttendant_midwife": "Midwife",
+            "@pregnancyHistory_birthAttendant_midwife": {
+              "description": "Option for a midwife as the birth attendant"
+            },
+          
+            "pregnancyHistory_birthAttendant_traditionalMidwife": "Traditional birth attendant",
+            "@pregnancyHistory_birthAttendant_traditionalMidwife": {
+              "description": "Option for a traditional birth attendant"
+            },
+          
+            "pregnancyHistory_lastPregnancyComplications": "Complications in the last pregnancy",
+            "@pregnancyHistory_lastPregnancyComplications": {
+              "description": "Label for input of complications during the last pregnancy"
+            },
+          
+            "pregnancyHistory_save": "Save",
+            "@pregnancyHistory_save": {
+              "description": "Text for the save button"
+            },
+          
+            "pregnancyHistory_fillDateError": "Please fill in the date",
+            "@pregnancyHistory_fillDateError": {
+              "description": "Error message for missing date input"
+            },
+          
+            "pregnancyHistory_fillFieldError": "Please fill in this field",
+            "@pregnancyHistory_fillFieldError": {
+              "description": "Error message for missing field input"
+            },
+          
+            "pregnancyHistory_selectOptionError": "Please select an option",
+            "@pregnancyHistory_selectOptionError": {
+              "description": "Error message for unselected options"
+            },
+          
+            "pregnancyHistory_value": "Value: {value}",
+            "@pregnancyHistory_value": {
+              "description": "Text to display the selected value",
+              "placeholders": {
+                "value": {
+                  "type": "int",
+                  "example": "5"
+                }
+              }
+            },
+          
+            "pregnancyHistory_saveSuccess": "Pregnancy history data successfully saved",
+            "@pregnancyHistory_saveSuccess": {
+              "description": "Success message when data is successfully saved"
+            },
+          
+            "pregnancyHistory_saveFailed": "Failed to save pregnancy history data",
+            "@pregnancyHistory_saveFailed": {
+              "description": "Error message when data saving fails"
+            },
+          
+            "pregnancyHistory_errorOccurred": "An error occurred: {error}",
+            "@pregnancyHistory_errorOccurred": {
+              "description": "General error message",
+              "placeholders": {
+                "error": {
+                  "type": "String",
+                  "example": "Connection lost"
+                }
+              }
+            }                      
 }

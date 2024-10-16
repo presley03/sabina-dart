@@ -1495,5 +1495,218 @@
           "preparingForLabor_backToTop": "Kembali ke Atas",
           "@preparingForLabor_backToTop": {
             "description": "Teks untuk tombol kembali ke atas"
-          }             
+          },
+            "pregnancyHistory_title": "Riwayat Kehamilan",
+            "@pregnancyHistory_title": {
+              "description": "Judul untuk halaman riwayat kehamilan"
+            },
+          
+            "pregnancyHistory_currentPregnancyInfo": "Informasi Kehamilan Saat Ini",
+            "@pregnancyHistory_currentPregnancyInfo": {
+              "description": "Judul untuk bagian informasi kehamilan saat ini"
+            },
+          
+            "pregnancyHistory_lastPeriodDate": "Hari pertama haid terakhir",
+            "@pregnancyHistory_lastPeriodDate": {
+              "description": "Label untuk input tanggal haid terakhir"
+            },
+          
+            "pregnancyHistory_gestationalAge": "Usia Kehamilan: {age}",
+            "@pregnancyHistory_gestationalAge": {
+              "description": "Teks untuk menampilkan usia kehamilan",
+              "placeholders": {
+                "age": {
+                  "type": "String",
+                  "example": "12 minggu 3 hari"
+                }
+              }
+            },
+          
+            "pregnancyHistory_estimatedDueDate": "Perkiraan Tanggal Kelahiran: {date}",
+            "@pregnancyHistory_estimatedDueDate": {
+              "description": "Teks untuk menampilkan perkiraan tanggal kelahiran",
+              "placeholders": {
+                "date": {
+                  "type": "String",
+                  "example": "01-01-2024"
+                }
+              }
+            },
+          
+            "pregnancyHistory_prePregnancyWeight": "BB sebelum hamil (Kg)",
+            "@pregnancyHistory_prePregnancyWeight": {
+              "description": "Label untuk input berat badan sebelum hamil"
+            },
+          
+            "pregnancyHistory_height": "TB (cm)",
+            "@pregnancyHistory_height": {
+              "description": "Label untuk input tinggi badan"
+            },
+          
+            "pregnancyHistory_pregnancyNumber": "Kehamilan ke",
+            "@pregnancyHistory_pregnancyNumber": {
+              "description": "Label untuk input nomor kehamilan"
+            },
+          
+            "pregnancyHistory_childrenCount": "Jumlah Anak yang ada",
+            "@pregnancyHistory_childrenCount": {
+              "description": "Label untuk input jumlah anak"
+            },
+          
+            "pregnancyHistory_miscarriageHistory": "Riwayat keguguran",
+            "@pregnancyHistory_miscarriageHistory": {
+              "description": "Label untuk dropdown riwayat keguguran"
+            },
+          
+            "pregnancyHistory_yes": "Ya",
+            "@pregnancyHistory_yes": {
+              "description": "Opsi 'Ya' untuk dropdown"
+            },
+          
+            "pregnancyHistory_no": "Tidak Ada",
+            "@pregnancyHistory_no": {
+              "description": "Opsi 'Tidak Ada' untuk dropdown"
+            },
+          
+            "pregnancyHistory_lastPregnancyInfo": "Riwayat Kehamilan Terakhir",
+            "@pregnancyHistory_lastPregnancyInfo": {
+              "description": "Judul untuk bagian riwayat kehamilan terakhir"
+            },
+          
+            "pregnancyHistory_lastChildNumber": "Anak Ke",
+            "@pregnancyHistory_lastChildNumber": {
+              "description": "Label untuk input nomor anak terakhir"
+            },
+          
+            "pregnancyHistory_lastChildBirthYear": "Tahun Lahir",
+            "@pregnancyHistory_lastChildBirthYear": {
+              "description": "Label untuk input tahun lahir anak terakhir"
+            },
+          
+            "pregnancyHistory_lastChildBirthWeight": "BB Lahir",
+            "@pregnancyHistory_lastChildBirthWeight": {
+              "description": "Label untuk dropdown berat badan lahir anak terakhir"
+            },
+          
+            "pregnancyHistory_birthWeight_0": "0",
+            "@pregnancyHistory_birthWeight_0": {
+              "description": "Opsi berat badan lahir 0"
+            },
+          
+            "pregnancyHistory_birthWeight_under2500": "< 2500 gram",
+            "@pregnancyHistory_birthWeight_under2500": {
+              "description": "Opsi berat badan lahir kurang dari 2500 gram"
+            },
+          
+            "pregnancyHistory_birthWeight_2500to4000": "2500-4000 gram",
+            "@pregnancyHistory_birthWeight_2500to4000": {
+              "description": "Opsi berat badan lahir antara 2500 sampai 4000 gram"
+            },
+          
+            "pregnancyHistory_birthWeight_over4000": "> 4000 gram",
+            "@pregnancyHistory_birthWeight_over4000": {
+              "description": "Opsi berat badan lahir lebih dari 4000 gram"
+            },
+          
+            "pregnancyHistory_deliveryMethod": "Cara persalinan",
+            "@pregnancyHistory_deliveryMethod": {
+              "description": "Label untuk dropdown cara persalinan"
+            },
+          
+            "pregnancyHistory_deliveryMethod_noPrior": "Belum pernah",
+            "@pregnancyHistory_deliveryMethod_noPrior": {
+              "description": "Opsi cara persalinan belum pernah"
+            },
+          
+            "pregnancyHistory_deliveryMethod_normal": "Normal per vagina",
+            "@pregnancyHistory_deliveryMethod_normal": {
+              "description": "Opsi cara persalinan normal"
+            },
+          
+            "pregnancyHistory_deliveryMethod_caesarean": "Operasi Caesar",
+            "@pregnancyHistory_deliveryMethod_caesarean": {
+              "description": "Opsi cara persalinan caesar"
+            },
+          
+            "pregnancyHistory_birthAttendant": "Penolong persalinan",
+            "@pregnancyHistory_birthAttendant": {
+              "description": "Label untuk dropdown penolong persalinan"
+            },
+          
+            "pregnancyHistory_birthAttendant_none": "Tidak ada",
+            "@pregnancyHistory_birthAttendant_none": {
+              "description": "Opsi penolong persalinan tidak ada"
+            },
+          
+            "pregnancyHistory_birthAttendant_doctor": "Dokter",
+            "@pregnancyHistory_birthAttendant_doctor": {
+              "description": "Opsi penolong persalinan dokter"
+            },
+          
+            "pregnancyHistory_birthAttendant_midwife": "Bidan",
+            "@pregnancyHistory_birthAttendant_midwife": {
+              "description": "Opsi penolong persalinan bidan"
+            },
+          
+            "pregnancyHistory_birthAttendant_traditionalMidwife": "Dukun bersalin",
+            "@pregnancyHistory_birthAttendant_traditionalMidwife": {
+              "description": "Opsi penolong persalinan dukun bersalin"
+            },
+          
+            "pregnancyHistory_lastPregnancyComplications": "Keluhan pada kehamilan yang lalu",
+            "@pregnancyHistory_lastPregnancyComplications": {
+              "description": "Label untuk input keluhan pada kehamilan yang lalu"
+            },
+          
+            "pregnancyHistory_save": "Simpan",
+            "@pregnancyHistory_save": {
+              "description": "Teks untuk tombol simpan"
+            },
+          
+            "pregnancyHistory_fillDateError": "Harap isi tanggal",
+            "@pregnancyHistory_fillDateError": {
+              "description": "Pesan error untuk tanggal yang belum diisi"
+            },
+          
+            "pregnancyHistory_fillFieldError": "Harap isi field ini",
+            "@pregnancyHistory_fillFieldError": {
+              "description": "Pesan error untuk field yang belum diisi"
+            },
+          
+            "pregnancyHistory_selectOptionError": "Harap pilih salah satu opsi",
+            "@pregnancyHistory_selectOptionError": {
+              "description": "Pesan error untuk pilihan yang belum dipilih"
+            },
+          
+            "pregnancyHistory_value": "Nilai: {value}",
+            "@pregnancyHistory_value": {
+              "description": "Teks untuk menampilkan nilai yang dipilih",
+              "placeholders": {
+                "value": {
+                  "type": "int",
+                  "example": "5"
+                }
+              }
+            },
+          
+            "pregnancyHistory_saveSuccess": "Data riwayat kehamilan berhasil disimpan",
+            "@pregnancyHistory_saveSuccess": {
+              "description": "Pesan sukses saat data berhasil disimpan"
+            },
+          
+            "pregnancyHistory_saveFailed": "Gagal menyimpan data riwayat kehamilan",
+            "@pregnancyHistory_saveFailed": {
+              "description": "Pesan error saat gagal menyimpan data"
+            },
+          
+            "pregnancyHistory_errorOccurred": "Terjadi kesalahan: {error}",
+            "@pregnancyHistory_errorOccurred": {
+              "description": "Pesan error umum",
+              "placeholders": {
+                "error": {
+                  "type": "String",
+                  "example": "Koneksi terputus"
+                }
+              }
+            }            
 }
