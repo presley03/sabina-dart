@@ -1708,5 +1708,512 @@
                   "example": "Koneksi terputus"
                 }
               }
-            }            
+            },
+              "careMenu_title": "Perawatan Ibu Hamil",
+              "@careMenu_title": {
+                "description": "Judul untuk halaman menu perawatan ibu hamil"
+              },
+            
+              "careMenu_nutrition_title": "Makanan",
+              "@careMenu_nutrition_title": {
+                "description": "Judul untuk menu makanan"
+              },
+            
+              "careMenu_nutrition_description": "Panduan nutrisi untuk ibu hamil",
+              "@careMenu_nutrition_description": {
+                "description": "Deskripsi singkat untuk menu makanan"
+              },
+            
+              "careMenu_avoidance_title": "Yang perlu Dihindari",
+              "@careMenu_avoidance_title": {
+                "description": "Judul untuk menu hal-hal yang perlu dihindari"
+              },
+            
+              "careMenu_avoidance_description": "Hal-hal yang harus dihindari selama kehamilan",
+              "@careMenu_avoidance_description": {
+                "description": "Deskripsi singkat untuk menu hal-hal yang perlu dihindari"
+              },
+            
+              "careMenu_dailyCare_title": "Perawatan Sehari-hari",
+              "@careMenu_dailyCare_title": {
+                "description": "Judul untuk menu perawatan sehari-hari"
+              },
+            
+              "careMenu_dailyCare_description": "Tips perawatan diri untuk ibu hamil",
+              "@careMenu_dailyCare_description": {
+                "description": "Deskripsi singkat untuk menu perawatan sehari-hari"
+              },
+            
+              "careMenu_physicalActivity_title": "Aktivitas Fisik Ibu Hamil",
+              "@careMenu_physicalActivity_title": {
+                "description": "Judul untuk menu aktivitas fisik ibu hamil"
+              },
+            
+              "careMenu_physicalActivity_description": "Tips kegiatan fisik yang aman untuk ibu hamil",
+              "@careMenu_physicalActivity_description": {
+                "description": "Deskripsi singkat untuk menu aktivitas fisik ibu hamil"
+              },
+                "nutritionScreen_title": "Makanan Gizi Seimbang",
+                "@nutritionScreen_title": {
+                  "description": "Judul untuk halaman makanan gizi seimbang"
+                },
+              
+                "nutritionScreen_introduction": "Selama kehamilan, penting bagi ibu hamil untuk mengonsumsi makanan dengan gizi seimbang agar kesehatan ibu dan janin tetap optimal. Gizi seimbang adalah pola makan yang mengandung semua zat gizi penting dalam jumlah yang tepat sesuai kebutuhan tubuh.",
+                "@nutritionScreen_introduction": {
+                  "description": "Teks pengantar tentang pentingnya gizi seimbang selama kehamilan"
+                },
+              
+                "nutritionScreen_carbohydrates_title": "Karbohidrat",
+                "@nutritionScreen_carbohydrates_title": {
+                  "description": "Judul untuk bagian karbohidrat"
+                },
+              
+                "nutritionScreen_carbohydrates_content": "Sumber energi utama, bisa diperoleh dari nasi, roti, kentang, atau sereal.",
+                "@nutritionScreen_carbohydrates_content": {
+                  "description": "Penjelasan tentang karbohidrat dan sumbernya"
+                },
+              
+                "nutritionScreen_protein_title": "Protein",
+                "@nutritionScreen_protein_title": {
+                  "description": "Judul untuk bagian protein"
+                },
+              
+                "nutritionScreen_protein_content": "Penting untuk pertumbuhan dan perkembangan janin. Sumber protein bisa dari daging tanpa lemak, ikan, telur, kacang-kacangan, dan produk susu.",
+                "@nutritionScreen_protein_content": {
+                  "description": "Penjelasan tentang protein dan sumbernya"
+                },
+              
+                "nutritionScreen_healthyFats_title": "Lemak Sehat",
+                "@nutritionScreen_healthyFats_title": {
+                  "description": "Judul untuk bagian lemak sehat"
+                },
+              
+                "nutritionScreen_healthyFats_content": "Lemak membantu perkembangan otak janin dan dapat ditemukan dalam minyak zaitun, alpukat, kacang-kacangan, dan ikan berlemak.",
+                "@nutritionScreen_healthyFats_content": {
+                  "description": "Penjelasan tentang lemak sehat dan sumbernya"
+                },
+              
+                "nutritionScreen_vitaminsAndMinerals_title": "Vitamin dan Mineral",
+                "@nutritionScreen_vitaminsAndMinerals_title": {
+                  "description": "Judul untuk bagian vitamin dan mineral"
+                },
+              
+                "nutritionScreen_vitaminsAndMinerals_content": "Ibu hamil membutuhkan vitamin dan mineral lebih banyak, terutama zat besi, kalsium, dan asam folat yang berperan penting dalam pembentukan sel darah dan tulang. Ini bisa didapat dari sayuran hijau, buah-buahan, susu, dan suplemen jika diperlukan.",
+                "@nutritionScreen_vitaminsAndMinerals_content": {
+                  "description": "Penjelasan tentang vitamin dan mineral serta sumbernya"
+                },
+              
+                "nutritionScreen_fiber_title": "Serat",
+                "@nutritionScreen_fiber_title": {
+                  "description": "Judul untuk bagian serat"
+                },
+              
+                "nutritionScreen_fiber_content": "Penting untuk pencernaan dan mencegah sembelit selama kehamilan. Serat bisa didapat dari sayuran, buah-buahan, dan biji-bijian.",
+                "@nutritionScreen_fiber_content": {
+                  "description": "Penjelasan tentang serat dan sumbernya"
+                },
+              
+                "nutritionScreen_mealPlan_title": "Contoh Menu Sehari-hari",
+                "@nutritionScreen_mealPlan_title": {
+                  "description": "Judul untuk bagian contoh menu sehari-hari"
+                },
+              
+                "nutritionScreen_breakfast_title": "Sarapan",
+                "@nutritionScreen_breakfast_title": {
+                  "description": "Judul untuk bagian sarapan"
+                },
+              
+                "nutritionScreen_breakfast_item1": "Nasi putih atau singkong rebus (1 porsi kecil)",
+                "@nutritionScreen_breakfast_item1": {
+                  "description": "Item sarapan 1"
+                },
+              
+                "nutritionScreen_breakfast_item2": "Telur dadar (1 butir)",
+                "@nutritionScreen_breakfast_item2": {
+                  "description": "Item sarapan 2"
+                },
+              
+                "nutritionScreen_breakfast_item3": "Sayur bayam bening (1 mangkuk kecil)",
+                "@nutritionScreen_breakfast_item3": {
+                  "description": "Item sarapan 3"
+                },
+              
+                "nutritionScreen_breakfast_item4": "Buah pisang (1 buah)",
+                "@nutritionScreen_breakfast_item4": {
+                  "description": "Item sarapan 4"
+                },
+              
+                "nutritionScreen_breakfast_item5": "Air putih atau teh tanpa gula",
+                "@nutritionScreen_breakfast_item5": {
+                  "description": "Item sarapan 5"
+                },
+              
+                "nutritionScreen_lunch_title": "Makan Siang",
+                "@nutritionScreen_lunch_title": {
+                  "description": "Judul untuk bagian makan siang"
+                },
+              
+                "nutritionScreen_lunch_item1": "Nasi putih (1 porsi sedang)",
+                "@nutritionScreen_lunch_item1": {
+                  "description": "Item makan siang 1"
+                },
+              
+                "nutritionScreen_lunch_item2": "Ikan lele goreng atau ikan nila bakar (1 ekor)",
+                "@nutritionScreen_lunch_item2": {
+                  "description": "Item makan siang 2"
+                },
+              
+                "nutritionScreen_lunch_item3": "Sayur daun kelor tumis (1 porsi)",
+                "@nutritionScreen_lunch_item3": {
+                  "description": "Item makan siang 3"
+                },
+              
+                "nutritionScreen_lunch_item4": "Labu kuning rebus sebagai lauk tambahan (1 porsi kecil)",
+                "@nutritionScreen_lunch_item4": {
+                  "description": "Item makan siang 4"
+                },
+              
+                "nutritionScreen_lunch_item5": "Buah pepaya (1 potong besar)",
+                "@nutritionScreen_lunch_item5": {
+                  "description": "Item makan siang 5"
+                },
+              
+                "nutritionScreen_lunch_item6": "Air putih",
+                "@nutritionScreen_lunch_item6": {
+                  "description": "Item makan siang 6"
+                },
+              
+                "nutritionScreen_afternoonSnack_title": "Camilan Sore",
+                "@nutritionScreen_afternoonSnack_title": {
+                  "description": "Judul untuk bagian camilan sore"
+                },
+              
+                "nutritionScreen_afternoonSnack_item1": "Kacang tanah rebus atau singkong goreng (segelintir)",
+                "@nutritionScreen_afternoonSnack_item1": {
+                  "description": "Item camilan sore 1"
+                },
+              
+                "nutritionScreen_afternoonSnack_item2": "Kelapa muda (air dan daging kelapanya)",
+                "@nutritionScreen_afternoonSnack_item2": {
+                  "description": "Item camilan sore 2"
+                },
+              
+                "nutritionScreen_dinner_title": "Makan Malam",
+                "@nutritionScreen_dinner_title": {
+                  "description": "Judul untuk bagian makan malam"
+                },
+              
+                "nutritionScreen_dinner_item1": "Nasi putih atau kentang kukus (1 porsi sedang)",
+                "@nutritionScreen_dinner_item1": {
+                  "description": "Item makan malam 1"
+                },
+              
+                "nutritionScreen_dinner_item2": "Tahu goreng atau tempe bakar (2 potong)",
+                "@nutritionScreen_dinner_item2": {
+                  "description": "Item makan malam 2"
+                },
+              
+                "nutritionScreen_dinner_item3": "Ikan Patin Goreng/Bakar (1 ekor)",
+                "@nutritionScreen_dinner_item3": {
+                  "description": "Item makan malam 3"
+                },
+              
+                "nutritionScreen_dinner_item4": "Sayur sop sayuran (dari wortel, kentang, dan sawi) (1 mangkuk)",
+                "@nutritionScreen_dinner_item4": {
+                  "description": "Item makan malam 4"
+                },
+              
+                "nutritionScreen_dinner_item5": "Buah semangka atau jeruk lokal (1 porsi)",
+                "@nutritionScreen_dinner_item5": {
+                  "description": "Item makan malam 5"
+                },
+              
+                "nutritionScreen_dinner_item6": "Air putih",
+                "@nutritionScreen_dinner_item6": {
+                  "description": "Item makan malam 6"
+                },
+              
+                "nutritionScreen_eveningSnack_title": "Camilan Malam",
+                "@nutritionScreen_eveningSnack_title": {
+                  "description": "Judul untuk bagian camilan malam"
+                },
+              
+                "nutritionScreen_eveningSnack_item1": "Segelas susu hangat atau susu kedelai",
+                "@nutritionScreen_eveningSnack_item1": {
+                  "description": "Item camilan malam 1"
+                },
+              
+                "nutritionScreen_eveningSnack_item2": "Keripik pisang tanpa gula (1 genggam kecil)",
+                "@nutritionScreen_eveningSnack_item2": {
+                  "description": "Item camilan malam 2"
+                },
+              
+                "nutritionScreen_references_title": "Referensi",
+                "@nutritionScreen_references_title": {
+                  "description": "Judul untuk bagian referensi"
+                },
+              
+                "nutritionScreen_reference1": "Kementerian Kesehatan Republik Indonesia. (2014). Pedoman Gizi Seimbang. Jakarta: Kementerian Kesehatan RI.",
+                "@nutritionScreen_reference1": {
+                  "description": "Referensi 1"
+                },
+              
+                "nutritionScreen_reference2": "World Health Organization (WHO). (2021). Nutrition in Pregnancy.",
+                "@nutritionScreen_reference2": {
+                  "description": "Referensi 2"
+                },
+              
+                "nutritionScreen_reference3": "American College of Obstetricians and Gynecologists (ACOG). (2020). Nutrition During Pregnancy.",
+                "@nutritionScreen_reference3": {
+                  "description": "Referensi 3"
+                },
+              
+                "nutritionScreen_reference4": "Nutrisia. (2019). Menu Sederhana untuk Ibu Hamil.",
+                "@nutritionScreen_reference4": {
+                  "description": "Referensi 4"
+                },
+                  "avoidScreen_title": "Yang Perlu Dihindari",
+                  "@avoidScreen_title": {
+                    "description": "Judul untuk halaman yang perlu dihindari"
+                  },
+                
+                  "avoidScreen_introduction": "Selama kehamilan, ada beberapa hal yang perlu dihindari untuk menjaga kesehatan ibu dan janin. Berikut adalah panduan tentang hal-hal yang sebaiknya dihindari selama kehamilan:",
+                  "@avoidScreen_introduction": {
+                    "description": "Teks pengantar tentang hal-hal yang perlu dihindari selama kehamilan"
+                  },
+                
+                  "avoidScreen_alcohol_title": "Mengonsumsi Alkohol",
+                  "@avoidScreen_alcohol_title": {
+                    "description": "Judul untuk item alkohol"
+                  },
+                
+                  "avoidScreen_alcohol_content": "Mengonsumsi alkohol selama kehamilan dapat menyebabkan cacat lahir, masalah pertumbuhan, dan gangguan perkembangan otak pada bayi.",
+                  "@avoidScreen_alcohol_content": {
+                    "description": "Penjelasan tentang bahaya mengonsumsi alkohol selama kehamilan"
+                  },
+                
+                  "avoidScreen_smoking_title": "Merokok",
+                  "@avoidScreen_smoking_title": {
+                    "description": "Judul untuk item merokok"
+                  },
+                
+                  "avoidScreen_smoking_content": "Merokok selama kehamilan meningkatkan risiko kelahiran prematur, berat badan lahir rendah, dan masalah pernapasan pada bayi. Juga meningkatkan risiko kematian mendadak pada bayi (SIDS).",
+                  "@avoidScreen_smoking_content": {
+                    "description": "Penjelasan tentang bahaya merokok selama kehamilan"
+                  },
+                
+                  "avoidScreen_caffeine_title": "Mengkonsumsi Kafein Berlebihan",
+                  "@avoidScreen_caffeine_title": {
+                    "description": "Judul untuk item kafein berlebihan"
+                  },
+                
+                  "avoidScreen_caffeine_content": "Asupan kafein yang berlebihan selama kehamilan dapat meningkatkan risiko keguguran dan berat badan lahir rendah. Sebaiknya, batasi konsumsi kafein maksimal 200 mg per hari (sekitar satu cangkir kopi).",
+                  "@avoidScreen_caffeine_content": {
+                    "description": "Penjelasan tentang bahaya mengonsumsi kafein berlebihan selama kehamilan"
+                  },
+                
+                  "avoidScreen_drugs_title": "Paparan Obat-obatan Terlarang",
+                  "@avoidScreen_drugs_title": {
+                    "description": "Judul untuk item obat-obatan terlarang"
+                  },
+                
+                  "avoidScreen_drugs_content": "Penggunaan obat-obatan terlarang seperti kokain, amfetamin, dan heroin selama kehamilan dapat menyebabkan kelahiran prematur, cacat lahir, dan masalah perilaku serta perkembangan pada bayi.",
+                  "@avoidScreen_drugs_content": {
+                    "description": "Penjelasan tentang bahaya paparan obat-obatan terlarang selama kehamilan"
+                  },
+                
+                  "avoidScreen_rawFood_title": "Makanan Mentah atau Setengah Matang",
+                  "@avoidScreen_rawFood_title": {
+                    "description": "Judul untuk item makanan mentah atau setengah matang"
+                  },
+                
+                  "avoidScreen_rawFood_content": "Ibu hamil harus menghindari konsumsi makanan mentah atau setengah matang seperti sushi, telur mentah, daging setengah matang, dan susu yang tidak dipasteurisasi karena berisiko menyebabkan infeksi bakteri seperti listeria.",
+                  "@avoidScreen_rawFood_content": {
+                    "description": "Penjelasan tentang bahaya mengonsumsi makanan mentah atau setengah matang selama kehamilan"
+                  },
+                
+                  "avoidScreen_highMercuryFish_title": "Mengonsumsi Ikan Tinggi Merkuri",
+                  "@avoidScreen_highMercuryFish_title": {
+                    "description": "Judul untuk item ikan tinggi merkuri"
+                  },
+                
+                  "avoidScreen_highMercuryFish_content": "Ikan yang mengandung kadar merkuri tinggi, seperti hiu, ikan pedang, dan tuna sirip biru, dapat memengaruhi perkembangan sistem saraf bayi. Sebaiknya ibu hamil memilih ikan yang rendah merkuri.",
+                  "@avoidScreen_highMercuryFish_content": {
+                    "description": "Penjelasan tentang bahaya mengonsumsi ikan tinggi merkuri selama kehamilan"
+                  },
+                
+                  "avoidScreen_chemicals_title": "Penggunaan Produk Kimia Berbahaya",
+                  "@avoidScreen_chemicals_title": {
+                    "description": "Judul untuk item produk kimia berbahaya"
+                  },
+                
+                  "avoidScreen_chemicals_content": "Hindari penggunaan produk kimia rumah tangga yang keras seperti pembersih berbahan dasar amonia, pemutih, dan insektisida. Paparan terhadap bahan kimia ini dapat berisiko terhadap kesehatan ibu dan janin.",
+                  "@avoidScreen_chemicals_content": {
+                    "description": "Penjelasan tentang bahaya penggunaan produk kimia berbahaya selama kehamilan"
+                  },
+                
+                  "avoidScreen_heavyLifting_title": "Mengangkat Benda Berat",
+                  "@avoidScreen_heavyLifting_title": {
+                    "description": "Judul untuk item mengangkat benda berat"
+                  },
+                
+                  "avoidScreen_heavyLifting_content": "Ibu hamil sebaiknya tidak mengangkat benda yang terlalu berat karena bisa menyebabkan cedera punggung, ketegangan otot, dan meningkatkan risiko keguguran, terutama pada awal kehamilan.",
+                  "@avoidScreen_heavyLifting_content": {
+                    "description": "Penjelasan tentang bahaya mengangkat benda berat selama kehamilan"
+                  },
+                
+                  "avoidScreen_lackOfRest_title": "Mengabaikan Istirahat yang Cukup",
+                  "@avoidScreen_lackOfRest_title": {
+                    "description": "Judul untuk item kurang istirahat"
+                  },
+                
+                  "avoidScreen_lackOfRest_content": "Kehamilan menyebabkan perubahan besar pada tubuh, sehingga ibu hamil perlu banyak istirahat. Kurang tidur dapat menyebabkan stres, kelelahan, dan berpotensi menimbulkan komplikasi seperti tekanan darah tinggi atau preeklampsia.",
+                  "@avoidScreen_lackOfRest_content": {
+                    "description": "Penjelasan tentang bahaya kurang istirahat selama kehamilan"
+                  },
+                
+                  "avoidScreen_stress_title": "Stres Berlebihan",
+                  "@avoidScreen_stress_title": {
+                    "description": "Judul untuk item stres berlebihan"
+                  },
+                
+                  "avoidScreen_stress_content": "Stres berlebihan dapat memengaruhi kesehatan ibu hamil dan janin. Tingkat stres yang tinggi selama kehamilan dapat meningkatkan risiko kelahiran prematur, berat badan lahir rendah, dan masalah perilaku pada bayi di kemudian hari.",
+                  "@avoidScreen_stress_content": {
+                    "description": "Penjelasan tentang bahaya stres berlebihan selama kehamilan"
+                  },
+                
+                  "avoidScreen_tips_title": "Tips Kehamilan Sehat",
+                  "@avoidScreen_tips_title": {
+                    "description": "Judul untuk bagian tips kehamilan sehat"
+                  },
+                
+                  "avoidScreen_tips_content": "Untuk menjaga kehamilan yang sehat, selalu konsultasikan dengan dokter atau bidan Anda tentang gaya hidup dan pola makan yang tepat. Jika Anda memiliki kekhawatiran atau pertanyaan, jangan ragu untuk menghubungi profesional kesehatan.",
+                  "@avoidScreen_tips_content": {
+                    "description": "Konten untuk tips kehamilan sehat"
+                  },
+                
+                  "avoidScreen_moreTips": "Lihat Tips Lainnya",
+                  "@avoidScreen_moreTips": {
+                    "description": "Teks untuk tombol lihat tips lainnya"
+                  },
+                
+                  "avoidScreen_additionalTips_title": "Tips Tambahan untuk Kehamilan Sehat",
+                  "@avoidScreen_additionalTips_title": {
+                    "description": "Judul untuk bagian tips tambahan"
+                  },
+                
+                  "avoidScreen_additionalTip1": "Makan makanan kaya asam folat seperti sayuran hijau dan kacang-kacangan.",
+                  "@avoidScreen_additionalTip1": {
+                    "description": "Tip tambahan 1"
+                  },
+                
+                  "avoidScreen_additionalTip2": "Lakukan olahraga ringan seperti berjalan kaki atau yoga prenatal.",
+                  "@avoidScreen_additionalTip2": {
+                    "description": "Tip tambahan 2"
+                  },
+                
+                  "avoidScreen_additionalTip3": "Hindari paparan asap rokok dan polusi udara.",
+                  "@avoidScreen_additionalTip3": {
+                    "description": "Tip tambahan 3"
+                  },
+                
+                  "avoidScreen_additionalTip4": "Rutin periksa kehamilan sesuai jadwal yang ditentukan oleh dokter atau bidan.",
+                  "@avoidScreen_additionalTip4": {
+                    "description": "Tip tambahan 4"
+                  },
+                
+                  "avoidScreen_additionalTip5": "Jaga kebersihan dengan rajin mencuci tangan dan mandi.",
+                  "@avoidScreen_additionalTip5": {
+                    "description": "Tip tambahan 5"
+                  },
+                
+                  "avoidScreen_additionalTip6": "Gunakan pelembab untuk mencegah stretch marks.",
+                  "@avoidScreen_additionalTip6": {
+                    "description": "Tip tambahan 6"
+                  },
+                
+                  "avoidScreen_additionalTip7": "Konsumsi suplemen prenatal sesuai anjuran dokter.",
+                  "@avoidScreen_additionalTip7": {
+                    "description": "Tip tambahan 7"
+                  },
+                
+                  "avoidScreen_additionalTip8": "Lakukan teknik relaksasi untuk mengurangi stres.",
+                  "@avoidScreen_additionalTip8": {
+                    "description": "Tip tambahan 8"
+                  },
+                
+                  "avoidScreen_additionalTip9": "Tidur miring ke kiri untuk meningkatkan sirkulasi darah ke janin.",
+                  "@avoidScreen_additionalTip9": {
+                    "description": "Tip tambahan 9"
+                  },
+                
+                  "avoidScreen_additionalTip10": "Hindari penggunaan jacuzzi atau sauna yang dapat meningkatkan suhu tubuh.",
+                  "@avoidScreen_additionalTip10": {
+                    "description": "Tip tambahan 10"
+                  },
+                
+                  "avoidScreen_additionalTip11": "Pastikan vaksinasi Anda lengkap sesuai rekomendasi dokter.",
+                  "@avoidScreen_additionalTip11": {
+                    "description": "Tip tambahan 11"
+                  },
+                
+                  "avoidScreen_additionalTip12": "Konsumsi air putih yang cukup, minimal 8 gelas per hari.",
+                  "@avoidScreen_additionalTip12": {
+                    "description": "Tip tambahan 12"
+                  },
+                
+                  "avoidScreen_additionalTip13": "Pilih pakaian yang nyaman dan tidak terlalu ketat.",
+                  "@avoidScreen_additionalTip13": {
+                    "description": "Tip tambahan 13"
+                  },
+                
+                  "avoidScreen_additionalTip14": "Lakukan perawatan gigi rutin untuk mencegah masalah gusi.",
+                  "@avoidScreen_additionalTip14": {
+                    "description": "Tip tambahan 14"
+                  },
+                
+                  "avoidScreen_references_title": "Referensi",
+                  "@avoidScreen_references_title": {
+                    "description": "Judul untuk bagian referensi"
+                  },
+                
+                  "avoidScreen_reference1": "American College of Obstetricians and Gynecologists (ACOG). (2020). Alcohol and Pregnancy.",
+                  "@avoidScreen_reference1": {
+                    "description": "Referensi 1"
+                  },
+                
+                  "avoidScreen_reference2": "Mayo Clinic. (2021). Pregnancy Nutrition: Foods to Avoid During Pregnancy.",
+                  "@avoidScreen_reference2": {
+                    "description": "Referensi 2"
+                  },
+                
+                  "avoidScreen_reference3": "March of Dimes. (2020). Smoking During Pregnancy.",
+                  "@avoidScreen_reference3": {
+                    "description": "Referensi 3"
+                  },
+                
+                  "avoidScreen_reference4": "World Health Organization (WHO). (2016). Prevention of Alcohol-related Harm in Pregnancy.",
+                  "@avoidScreen_reference4": {
+                    "description": "Referensi 4"
+                  },
+                
+                  "avoidScreen_reference5": "Centers for Disease Control and Prevention (CDC). (2021). Listeria During Pregnancy.",
+                  "@avoidScreen_reference5": {
+                    "description": "Referensi 5"
+                  },
+                
+                  "avoidScreen_reference6": "United States Food and Drug Administration (FDA). (2020). Mercury Levels in Fish: Advice About Eating Fish.",
+                  "@avoidScreen_reference6": {
+                    "description": "Referensi 6"
+                  },
+                
+                  "avoidScreen_reference7": "Royal College of Obstetricians and Gynaecologists (RCOG). (2021). Caffeine Intake During Pregnancy.",
+                  "@avoidScreen_reference7": {
+                    "description": "Referensi 7"
+                  },
+                
+                  "avoidScreen_reference8": "National Institute on Drug Abuse (NIDA). (2019). Substance Use During Pregnancy.",
+                  "@avoidScreen_reference8": {
+                    "description": "Referensi 8"
+                  }  
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //import '../../utils/constants.dart';
 
 class MakananScreen extends StatefulWidget {
@@ -13,40 +14,48 @@ class _MakananScreenState extends State<MakananScreen> {
   int _currentIndex = 0;
   final PageController _pageController = PageController(viewportFraction: 0.85);
 
-  final List<Map<String, dynamic>> _nutritionItems = [
-    {
-      'title': 'Karbohidrat',
-      'icon': Icons.grain,
-      'content': 'Sumber energi utama, bisa diperoleh dari nasi, roti, kentang, atau sereal.',
-    },
-    {
-      'title': 'Protein',
-      'icon': Icons.egg_alt,
-      'content': 'Penting untuk pertumbuhan dan perkembangan janin. Sumber protein bisa dari daging tanpa lemak, ikan, telur, kacang-kacangan, dan produk susu.',
-    },
-    {
-      'title': 'Lemak Sehat',
-      'icon': Icons.health_and_safety,
-      'content': 'Lemak membantu perkembangan otak janin dan dapat ditemukan dalam minyak zaitun, alpukat, kacang-kacangan, dan ikan berlemak.',
-    },
-    {
-      'title': 'Vitamin dan Mineral',
-      'icon': Icons.local_florist,
-      'content': 'Ibu hamil membutuhkan vitamin dan mineral lebih banyak, terutama zat besi, kalsium, dan asam folat yang berperan penting dalam pembentukan sel darah dan tulang. Ini bisa didapat dari sayuran hijau, buah-buahan, susu, dan suplemen jika diperlukan.',
-    },
-    {
-      'title': 'Serat',
-      'icon': Icons.eco,
-      'content': 'Penting untuk pencernaan dan mencegah sembelit selama kehamilan. Serat bisa didapat dari sayuran, buah-buahan, dan biji-bijian.',
-    },
-  ];
+  late List<Map<String, dynamic>> _nutritionItems;
+  late List<String> _references;
 
-  final List<String> _references = [
-    'Kementerian Kesehatan Republik Indonesia. (2014). Pedoman Gizi Seimbang. Jakarta: Kementerian Kesehatan RI.',
-    'World Health Organization (WHO). (2021). Nutrition in Pregnancy.',
-    'American College of Obstetricians and Gynecologists (ACOG). (2020). Nutrition During Pregnancy.',
-    'Nutrisia. (2019). Menu Sederhana untuk Ibu Hamil.',
-  ];
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final l10n = AppLocalizations.of(context)!;
+    _nutritionItems = [
+      {
+        'title': l10n.nutritionScreen_carbohydrates_title,
+        'icon': Icons.grain,
+        'content': l10n.nutritionScreen_carbohydrates_content,
+      },
+      {
+        'title': l10n.nutritionScreen_protein_title,
+        'icon': Icons.egg_alt,
+        'content': l10n.nutritionScreen_protein_content,
+      },
+      {
+        'title': l10n.nutritionScreen_healthyFats_title,
+        'icon': Icons.health_and_safety,
+        'content': l10n.nutritionScreen_healthyFats_content,
+      },
+      {
+        'title': l10n.nutritionScreen_vitaminsAndMinerals_title,
+        'icon': Icons.local_florist,
+        'content': l10n.nutritionScreen_vitaminsAndMinerals_content,
+      },
+      {
+        'title': l10n.nutritionScreen_fiber_title,
+        'icon': Icons.eco,
+        'content': l10n.nutritionScreen_fiber_content,
+      },
+    ];
+
+    _references = [
+      l10n.nutritionScreen_reference1,
+      l10n.nutritionScreen_reference2,
+      l10n.nutritionScreen_reference3,
+      l10n.nutritionScreen_reference4,
+    ];
+  }
 
   @override
   void dispose() {
@@ -56,10 +65,11 @@ class _MakananScreenState extends State<MakananScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Makanan Gizi Seimbang', style: TextStyle(color: Colors.black)),
+        title: Text(l10n.nutritionScreen_title, style: const TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -80,11 +90,11 @@ class _MakananScreenState extends State<MakananScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                _buildIntroduction(),
+                _buildIntroduction(l10n),
                 _buildPageView(),
                 _buildPageIndicator(),
-                _buildMealPlan(),
-                _buildReferences(),
+                _buildMealPlan(l10n),
+                _buildReferences(l10n),
               ],
             ),
           ),
@@ -93,7 +103,7 @@ class _MakananScreenState extends State<MakananScreen> {
     );
   }
 
-  Widget _buildIntroduction() {
+  Widget _buildIntroduction(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -112,16 +122,16 @@ class _MakananScreenState extends State<MakananScreen> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    'assets/images/healthy_pregnancy_diet.png', // Ganti dengan nama file gambar Anda
+                    'assets/images/healthy_pregnancy_diet.png',
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Selama kehamilan, penting bagi ibu hamil untuk mengonsumsi makanan dengan gizi seimbang agar kesehatan ibu dan janin tetap optimal. Gizi seimbang adalah pola makan yang mengandung semua zat gizi penting dalam jumlah yang tepat sesuai kebutuhan tubuh.',
-                  style: TextStyle(fontSize: 16, color: Colors.black),
+                Text(
+                  l10n.nutritionScreen_introduction,
+                  style: const TextStyle(fontSize: 16, color: Colors.black),
                 ),
               ],
             ),
@@ -214,7 +224,7 @@ class _MakananScreenState extends State<MakananScreen> {
     );
   }
 
-  Widget _buildMealPlan() {
+  Widget _buildMealPlan(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -231,9 +241,9 @@ class _MakananScreenState extends State<MakananScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Contoh Menu Sehari-hari',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                Text(
+                  l10n.nutritionScreen_mealPlan_title,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 ClipRRect(
@@ -246,36 +256,36 @@ class _MakananScreenState extends State<MakananScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                _buildMealSection('Sarapan', [
-                  'Nasi putih atau singkong rebus (1 porsi kecil)',
-                  'Telur dadar (1 butir)',
-                  'Sayur bayam bening (1 mangkuk kecil)',
-                  'Buah pisang (1 buah)',
-                  'Air putih atau teh tanpa gula',
+                _buildMealSection(l10n.nutritionScreen_breakfast_title, [
+                  l10n.nutritionScreen_breakfast_item1,
+                  l10n.nutritionScreen_breakfast_item2,
+                  l10n.nutritionScreen_breakfast_item3,
+                  l10n.nutritionScreen_breakfast_item4,
+                  l10n.nutritionScreen_breakfast_item5,
                 ]),
-                _buildMealSection('Makan Siang', [
-                  'Nasi putih (1 porsi sedang)',
-                  'Ikan lele goreng atau ikan nila bakar (1 ekor)',
-                  'Sayur daun kelor tumis (1 porsi)',
-                  'Labu kuning rebus sebagai lauk tambahan (1 porsi kecil)',
-                  'Buah pepaya (1 potong besar)',
-                  'Air putih',
+                _buildMealSection(l10n.nutritionScreen_lunch_title, [
+                  l10n.nutritionScreen_lunch_item1,
+                  l10n.nutritionScreen_lunch_item2,
+                  l10n.nutritionScreen_lunch_item3,
+                  l10n.nutritionScreen_lunch_item4,
+                  l10n.nutritionScreen_lunch_item5,
+                  l10n.nutritionScreen_lunch_item6,
                 ]),
-                _buildMealSection('Camilan Sore', [
-                  'Kacang tanah rebus atau singkong goreng (segelintir)',
-                  'Kelapa muda (air dan daging kelapanya)',
+                _buildMealSection(l10n.nutritionScreen_afternoonSnack_title, [
+                  l10n.nutritionScreen_afternoonSnack_item1,
+                  l10n.nutritionScreen_afternoonSnack_item2,
                 ]),
-                _buildMealSection('Makan Malam', [
-                  'Nasi putih atau kentang kukus (1 porsi sedang)',
-                  'Tahu goreng atau tempe bakar (2 potong)',
-                  'Ikan Patin Goreng/Bakar (1 ekor)',
-                  'Sayur sop sayuran (dari wortel, kentang, dan sawi) (1 mangkuk)',
-                  'Buah semangka atau jeruk lokal (1 porsi)',
-                  'Air putih',
+                _buildMealSection(l10n.nutritionScreen_dinner_title, [
+                  l10n.nutritionScreen_dinner_item1,
+                  l10n.nutritionScreen_dinner_item2,
+                  l10n.nutritionScreen_dinner_item3,
+                  l10n.nutritionScreen_dinner_item4,
+                  l10n.nutritionScreen_dinner_item5,
+                  l10n.nutritionScreen_dinner_item6,
                 ]),
-                _buildMealSection('Camilan Malam', [
-                  'Segelas susu hangat atau susu kedelai',
-                  'Keripik pisang tanpa gula (1 genggam kecil)',
+                _buildMealSection(l10n.nutritionScreen_eveningSnack_title, [
+                  l10n.nutritionScreen_eveningSnack_item1,
+                  l10n.nutritionScreen_eveningSnack_item2,
                 ]),
               ],
             ),
@@ -303,7 +313,7 @@ class _MakananScreenState extends State<MakananScreen> {
     );
   }
 
-  Widget _buildReferences() {
+  Widget _buildReferences(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -320,9 +330,9 @@ class _MakananScreenState extends State<MakananScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Referensi',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                Text(
+                  l10n.nutritionScreen_references_title,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 8),
                 ..._references.map((ref) => Padding(

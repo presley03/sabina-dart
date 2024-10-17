@@ -93,8 +93,8 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Colors.blue[100]!,
-              Colors.blue[200]!,
+              Colors.red[100]!,
+              Colors.orange[200]!,
               Colors.purple[100]!,
             ],
           ),

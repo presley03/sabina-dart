@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../utils/constants.dart';
 import 'perawatan_sehari_hari_screen.dart';
 import 'yang_perlu_dihindari_screen.dart';
 import 'makanan_screen.dart';
 import 'aktivitas_fisik_ibu_hamil_screen.dart';
 
-// Placeholder screens - Anda perlu membuat file-file ini nanti
-//import 'makanan_screen.dart';
-//import 'yang_perlu_dihindari_screen.dart';
-
 class CareMenuScreen extends StatelessWidget {
   const CareMenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Perawatan Ibu Hamil'),
-        backgroundColor: AppColors.primaryPink,
+        title: Text(l10n.careMenu_title),
+        backgroundColor: AppColors.primaryWhite,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -27,32 +25,32 @@ class CareMenuScreen extends StatelessWidget {
             children: [
               _buildCareMenuItem(
                 context: context,
-                title: 'Makanan',
-                description: 'Panduan nutrisi untuk ibu hamil',
+                title: l10n.careMenu_nutrition_title,
+                description: l10n.careMenu_nutrition_description,
                 icon: Icons.restaurant,
                 color: Colors.blue[100]!,
                 imagePath: 'assets/images/bg_kuesioner_blue.png',
                 onTap: () {
-                _navigateToScreen(context, const MakananScreen(), 'makanan');
+                  _navigateToScreen(context, const MakananScreen(), 'makanan');
                 },
               ),
               const SizedBox(height: 16),
               _buildCareMenuItem(
                 context: context,
-                title: 'Yang perlu Dihindari',
-                description: 'Hal-hal yang harus dihindari selama kehamilan',
+                title: l10n.careMenu_avoidance_title,
+                description: l10n.careMenu_avoidance_description,
                 icon: Icons.not_interested,
                 color: Colors.red[100]!,
                 imagePath: 'assets/images/bg_kuesioner_orange.png',
                 onTap: () {
-                 _navigateToScreen(context, const YangPerluDihindariScreen(), 'yangPerluDihindari');
+                  _navigateToScreen(context, const YangPerluDihindariScreen(), 'yangPerluDihindari');
                 },
               ),
               const SizedBox(height: 16),
               _buildCareMenuItem(
                 context: context,
-                title: 'Perawatan Sehari-hari',
-                description: 'Tips perawatan diri untuk ibu hamil',
+                title: l10n.careMenu_dailyCare_title,
+                description: l10n.careMenu_dailyCare_description,
                 icon: Icons.spa,
                 color: Colors.purple[100]!,
                 imagePath: 'assets/images/bg_kuesioner_purple.png',
@@ -63,13 +61,13 @@ class CareMenuScreen extends StatelessWidget {
               const SizedBox(height: 16),
               _buildCareMenuItem(
                 context: context,
-                title: 'Aktivitas Fisik Ibu Hamil',
-                description: 'Tips kegiatan fisik yang aman untuk ibu hamil',
+                title: l10n.careMenu_physicalActivity_title,
+                description: l10n.careMenu_physicalActivity_description,
                 icon: Icons.accessibility_new,
                 color: Colors.purple[100]!,
                 imagePath: 'assets/images/bg_kuesioner_green.png',
                 onTap: () {
-                  _navigateToScreen(context, const AktivitasFisikIbuHamilScreen(), 'perawatanSehariHari');
+                  _navigateToScreen(context, const AktivitasFisikIbuHamilScreen(), 'aktivitasFisik');
                 },
               ),
             ],

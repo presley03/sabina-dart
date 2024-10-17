@@ -1,92 +1,128 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../models/sakit_kepala_model.dart';
-import '../../../utils/constants.dart';
-//import '../../../widgets/app_bar.dart';
+import '../../../widgets/custom_button.dart';
+import 'dart:ui'; // Untuk efek blur
 
 class SakitKepalaResultScreen extends StatelessWidget {
   const SakitKepalaResultScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<SakitKepalaModel>(context, listen: false);
-    final result = model.getResult();
-    final score = model.calculateScore();
+    return Consumer<SakitKepalaModel>(
+      builder: (context, model, child) {
+        String recommendation = model.getResult();
+        int score = model.calculateScore();
+        IconData resultIcon = _getResultIcon(score);
 
-    return Scaffold(
-      backgroundColor: AppColors.lightPink,
-      appBar: AppBar(
-        title: const Text('Hasil', style: TextStyle(color: Colors.black)),
-        backgroundColor: AppColors.primaryPink,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Expanded(
-                child: Center(
-                  child: Card(
-                    elevation: 4,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Text(
-                            'Rekomendasi :',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Hasil', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            iconTheme: const IconThemeData(color: Colors.black),
+          ),
+          extendBodyBehindAppBar: true,
+          body: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFFFFA07A), Color(0xFFFFC0CB)], 
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Spacer(flex: 2),
+                    Expanded(
+                      flex: 6,
+                      child: Center(
+                        child: Stack(
+                          children: [
+                            BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                              child: Container(
+                                padding: const EdgeInsets.all(24),
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                    color: Colors.white.withOpacity(0.3),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.1),
+                                      spreadRadius: 2,
+                                      blurRadius: 15,
+                                      offset: const Offset(0, 6),
+                                    ),
+                                  ],
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      resultIcon,
+                                      size: 64,
+                                      color: Colors.orange,
+                                    ),
+                                    const SizedBox(height: 12),
+                                    const Text(
+                                      'Rekomendasi :',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black87,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 12),
+                                    Text(
+                                      recommendation,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'Roboto',
+                                        color: Colors.black87,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Skor: $score',
-                            style: const TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            result,
-                            style: const TextStyle(fontSize: 16),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
+                    const Spacer(flex: 2),
+                    CustomButton(
+                      text: 'Kembali ke Beranda',
+                      onPressed: () {
+                        model.resetQuestionnaire();
+                        Navigator.of(context).popUntil((route) => route.isFirst);
+                      },
+                      backgroundColor: Colors.pinkAccent,
+                      textColor: Colors.white,
+                    ),
+                    const SizedBox(height: 40),
+                  ],
                 ),
               ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  model.resetQuestionnaire();
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  minimumSize: const Size(double.infinity, 50),
-                ),
-                child: const Text('Kembali ke Beranda', style: TextStyle(fontSize: 18)),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
+  }
+
+  IconData _getResultIcon(int score) {
+    if (score >= 4) {
+      return Icons.warning_amber_rounded;
+    } else {
+      return Icons.emoji_events_outlined;
+    }
   }
 }

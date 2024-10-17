@@ -1709,5 +1709,512 @@
                   "example": "Connection lost"
                 }
               }
-            }                      
+            },
+              "careMenu_title": "Pregnancy Care",
+              "@careMenu_title": {
+                "description": "Title for the pregnancy care menu page"
+              },
+            
+              "careMenu_nutrition_title": "Nutrition",
+              "@careMenu_nutrition_title": {
+                "description": "Title for the nutrition menu"
+              },
+            
+              "careMenu_nutrition_description": "Nutritional guide for pregnant women",
+              "@careMenu_nutrition_description": {
+                "description": "Brief description for the nutrition menu"
+              },
+            
+              "careMenu_avoidance_title": "What to Avoid",
+              "@careMenu_avoidance_title": {
+                "description": "Title for the avoidance menu"
+              },
+            
+              "careMenu_avoidance_description": "Things to avoid during pregnancy",
+              "@careMenu_avoidance_description": {
+                "description": "Brief description for the avoidance menu"
+              },
+            
+              "careMenu_dailyCare_title": "Daily Care",
+              "@careMenu_dailyCare_title": {
+                "description": "Title for the daily care menu"
+              },
+            
+              "careMenu_dailyCare_description": "Self-care tips for pregnant women",
+              "@careMenu_dailyCare_description": {
+                "description": "Brief description for the daily care menu"
+              },
+            
+              "careMenu_physicalActivity_title": "Physical Activity for Pregnant Women",
+              "@careMenu_physicalActivity_title": {
+                "description": "Title for the physical activity menu"
+              },
+            
+              "careMenu_physicalActivity_description": "Safe activities for pregnancy",
+              "@careMenu_physicalActivity_description": {
+                "description": "Brief description for the physical activity menu"
+              },
+                "nutritionScreen_title": "Balanced Nutrition",
+                "@nutritionScreen_title": {
+                  "description": "Title for the balanced nutrition page"
+                },
+              
+                "nutritionScreen_introduction": "During pregnancy, it is important for pregnant women to consume a balanced diet to ensure the health of both the mother and the baby. Balanced nutrition consists of a diet that includes all the essential nutrients in the right amounts according to the body''s needs.",
+                "@nutritionScreen_introduction": {
+                  "description": "Introduction text on the importance of balanced nutrition during pregnancy"
+                },
+              
+                "nutritionScreen_carbohydrates_title": "Carbohydrates",
+                "@nutritionScreen_carbohydrates_title": {
+                  "description": "Title for the carbohydrates section"
+                },
+              
+                "nutritionScreen_carbohydrates_content": "The main source of energy, obtained from rice, bread, potatoes, or cereals.",
+                "@nutritionScreen_carbohydrates_content": {
+                  "description": "Explanation of carbohydrates and their sources"
+                },
+              
+                "nutritionScreen_protein_title": "Protein",
+                "@nutritionScreen_protein_title": {
+                  "description": "Title for the protein section"
+                },
+              
+                "nutritionScreen_protein_content": "Important for the growth and development of the baby. Protein sources include lean meat, fish, eggs, legumes, and dairy products.",
+                "@nutritionScreen_protein_content": {
+                  "description": "Explanation of protein and its sources"
+                },
+              
+                "nutritionScreen_healthyFats_title": "Healthy Fats",
+                "@nutritionScreen_healthyFats_title": {
+                  "description": "Title for the healthy fats section"
+                },
+              
+                "nutritionScreen_healthyFats_content": "Fats support the baby''s brain development and can be found in olive oil, avocados, nuts, and fatty fish.",
+                "@nutritionScreen_healthyFats_content": {
+                  "description": "Explanation of healthy fats and their sources"
+                },
+              
+                "nutritionScreen_vitaminsAndMinerals_title": "Vitamins and Minerals",
+                "@nutritionScreen_vitaminsAndMinerals_title": {
+                  "description": "Title for the vitamins and minerals section"
+                },
+              
+                "nutritionScreen_vitaminsAndMinerals_content": "Pregnant women need increased amounts of vitamins and minerals, especially iron, calcium, and folic acid, which are essential for blood cell and bone formation. These can be obtained from green vegetables, fruits, dairy products, and supplements if necessary.",
+                "@nutritionScreen_vitaminsAndMinerals_content": {
+                  "description": "Explanation of vitamins and minerals and their sources"
+                },
+              
+                "nutritionScreen_fiber_title": "Fiber",
+                "@nutritionScreen_fiber_title": {
+                  "description": "Title for the fiber section"
+                },
+              
+                "nutritionScreen_fiber_content": "Important for digestion and preventing constipation during pregnancy. Fiber can be obtained from vegetables, fruits, and whole grains.",
+                "@nutritionScreen_fiber_content": {
+                  "description": "Explanation of fiber and its sources"
+                },
+              
+                "nutritionScreen_mealPlan_title": "Daily Meal Plan",
+                "@nutritionScreen_mealPlan_title": {
+                  "description": "Title for the daily meal plan section"
+                },
+              
+                "nutritionScreen_breakfast_title": "Breakfast",
+                "@nutritionScreen_breakfast_title": {
+                  "description": "Title for the breakfast section"
+                },
+              
+                "nutritionScreen_breakfast_item1": "White rice or boiled cassava (small portion)",
+                "@nutritionScreen_breakfast_item1": {
+                  "description": "Breakfast item 1"
+                },
+              
+                "nutritionScreen_breakfast_item2": "Omelette (1 egg)",
+                "@nutritionScreen_breakfast_item2": {
+                  "description": "Breakfast item 2"
+                },
+              
+                "nutritionScreen_breakfast_item3": "Clear spinach soup (small bowl)",
+                "@nutritionScreen_breakfast_item3": {
+                  "description": "Breakfast item 3"
+                },
+              
+                "nutritionScreen_breakfast_item4": "Banana (1 piece)",
+                "@nutritionScreen_breakfast_item4": {
+                  "description": "Breakfast item 4"
+                },
+              
+                "nutritionScreen_breakfast_item5": "Water or unsweetened tea",
+                "@nutritionScreen_breakfast_item5": {
+                  "description": "Breakfast item 5"
+                },
+              
+                "nutritionScreen_lunch_title": "Lunch",
+                "@nutritionScreen_lunch_title": {
+                  "description": "Title for the lunch section"
+                },
+              
+                "nutritionScreen_lunch_item1": "White rice (medium portion)",
+                "@nutritionScreen_lunch_item1": {
+                  "description": "Lunch item 1"
+                },
+              
+                "nutritionScreen_lunch_item2": "Fried catfish or grilled tilapia (1 fish)",
+                "@nutritionScreen_lunch_item2": {
+                  "description": "Lunch item 2"
+                },
+              
+                "nutritionScreen_lunch_item3": "Stir-fried moringa leaves (1 portion)",
+                "@nutritionScreen_lunch_item3": {
+                  "description": "Lunch item 3"
+                },
+              
+                "nutritionScreen_lunch_item4": "Boiled pumpkin as a side dish (small portion)",
+                "@nutritionScreen_lunch_item4": {
+                  "description": "Lunch item 4"
+                },
+              
+                "nutritionScreen_lunch_item5": "Papaya (large slice)",
+                "@nutritionScreen_lunch_item5": {
+                  "description": "Lunch item 5"
+                },
+              
+                "nutritionScreen_lunch_item6": "Water",
+                "@nutritionScreen_lunch_item6": {
+                  "description": "Lunch item 6"
+                },
+              
+                "nutritionScreen_afternoonSnack_title": "Afternoon Snack",
+                "@nutritionScreen_afternoonSnack_title": {
+                  "description": "Title for the afternoon snack section"
+                },
+              
+                "nutritionScreen_afternoonSnack_item1": "Boiled peanuts or fried cassava (handful)",
+                "@nutritionScreen_afternoonSnack_item1": {
+                  "description": "Afternoon snack item 1"
+                },
+              
+                "nutritionScreen_afternoonSnack_item2": "Young coconut (water and flesh)",
+                "@nutritionScreen_afternoonSnack_item2": {
+                  "description": "Afternoon snack item 2"
+                },
+              
+                "nutritionScreen_dinner_title": "Dinner",
+                "@nutritionScreen_dinner_title": {
+                  "description": "Title for the dinner section"
+                },
+              
+                "nutritionScreen_dinner_item1": "White rice or steamed potatoes (medium portion)",
+                "@nutritionScreen_dinner_item1": {
+                  "description": "Dinner item 1"
+                },
+              
+                "nutritionScreen_dinner_item2": "Fried tofu or grilled tempeh (2 pieces)",
+                "@nutritionScreen_dinner_item2": {
+                  "description": "Dinner item 2"
+                },
+              
+                "nutritionScreen_dinner_item3": "Fried/grilled patin fish (1 fish)",
+                "@nutritionScreen_dinner_item3": {
+                  "description": "Dinner item 3"
+                },
+              
+                "nutritionScreen_dinner_item4": "Vegetable soup (carrots, potatoes, mustard greens) (1 bowl)",
+                "@nutritionScreen_dinner_item4": {
+                  "description": "Dinner item 4"
+                },
+              
+                "nutritionScreen_dinner_item5": "Watermelon or local oranges (1 portion)",
+                "@nutritionScreen_dinner_item5": {
+                  "description": "Dinner item 5"
+                },
+              
+                "nutritionScreen_dinner_item6": "Water",
+                "@nutritionScreen_dinner_item6": {
+                  "description": "Dinner item 6"
+                },
+              
+                "nutritionScreen_eveningSnack_title": "Evening Snack",
+                "@nutritionScreen_eveningSnack_title": {
+                  "description": "Title for the evening snack section"
+                },
+              
+                "nutritionScreen_eveningSnack_item1": "A glass of warm milk or soy milk",
+                "@nutritionScreen_eveningSnack_item1": {
+                  "description": "Evening snack item 1"
+                },
+              
+                "nutritionScreen_eveningSnack_item2": "Unsweetened banana chips (small handful)",
+                "@nutritionScreen_eveningSnack_item2": {
+                  "description": "Evening snack item 2"
+                },
+              
+                "nutritionScreen_references_title": "References",
+                "@nutritionScreen_references_title": {
+                  "description": "Title for the references section"
+                },
+              
+                "nutritionScreen_reference1": "Ministry of Health of the Republic of Indonesia. (2014). Balanced Nutrition Guidelines. Jakarta: Ministry of Health RI.",
+                "@nutritionScreen_reference1": {
+                  "description": "Reference 1"
+                },
+              
+                "nutritionScreen_reference2": "World Health Organization (WHO). (2021). Nutrition in Pregnancy.",
+                "@nutritionScreen_reference2": {
+                  "description": "Reference 2"
+                },
+              
+                "nutritionScreen_reference3": "American College of Obstetricians and Gynecologists (ACOG). (2020). Nutrition During Pregnancy.",
+                "@nutritionScreen_reference3": {
+                  "description": "Reference 3"
+                },
+              
+                "nutritionScreen_reference4": "Nutrisia. (2019). Simple Menu for Pregnant Women.",
+                "@nutritionScreen_reference4": {
+                  "description": "Reference 4"
+                },
+                  "avoidScreen_title": "What to Avoid",
+                  "@avoidScreen_title": {
+                    "description": "Title for the what to avoid page"
+                  },
+                
+                  "avoidScreen_introduction": "During pregnancy, there are several things to avoid to ensure the health of both the mother and the baby. Here is a guide on what to avoid during pregnancy:",
+                  "@avoidScreen_introduction": {
+                    "description": "Introduction text about what to avoid during pregnancy"
+                  },
+                
+                  "avoidScreen_alcohol_title": "Consuming Alcohol",
+                  "@avoidScreen_alcohol_title": {
+                    "description": "Title for the alcohol item"
+                  },
+                
+                  "avoidScreen_alcohol_content": "Drinking alcohol during pregnancy can lead to birth defects, growth issues, and brain development problems in the baby.",
+                  "@avoidScreen_alcohol_content": {
+                    "description": "Explanation of the dangers of consuming alcohol during pregnancy"
+                  },
+                
+                  "avoidScreen_smoking_title": "Smoking",
+                  "@avoidScreen_smoking_title": {
+                    "description": "Title for the smoking item"
+                  },
+                
+                  "avoidScreen_smoking_content": "Smoking during pregnancy increases the risk of premature birth, low birth weight, and respiratory problems in the baby. It also raises the risk of Sudden Infant Death Syndrome (SIDS).",
+                  "@avoidScreen_smoking_content": {
+                    "description": "Explanation of the dangers of smoking during pregnancy"
+                  },
+                
+                  "avoidScreen_caffeine_title": "Excessive Caffeine Intake",
+                  "@avoidScreen_caffeine_title": {
+                    "description": "Title for the excessive caffeine item"
+                  },
+                
+                  "avoidScreen_caffeine_content": "Excessive caffeine intake during pregnancy can increase the risk of miscarriage and low birth weight. It is recommended to limit caffeine intake to a maximum of 200 mg per day (about one cup of coffee).",
+                  "@avoidScreen_caffeine_content": {
+                    "description": "Explanation of the dangers of excessive caffeine intake during pregnancy"
+                  },
+                
+                  "avoidScreen_drugs_title": "Exposure to Illegal Drugs",
+                  "@avoidScreen_drugs_title": {
+                    "description": "Title for the illegal drugs item"
+                  },
+                
+                  "avoidScreen_drugs_content": "The use of illegal drugs like cocaine, amphetamines, and heroin during pregnancy can cause premature birth, birth defects, and behavioral and developmental problems in the baby.",
+                  "@avoidScreen_drugs_content": {
+                    "description": "Explanation of the dangers of illegal drug exposure during pregnancy"
+                  },
+                
+                  "avoidScreen_rawFood_title": "Raw or Undercooked Food",
+                  "@avoidScreen_rawFood_title": {
+                    "description": "Title for the raw or undercooked food item"
+                  },
+                
+                  "avoidScreen_rawFood_content": "Pregnant women should avoid consuming raw or undercooked food like sushi, raw eggs, undercooked meat, and unpasteurized milk as they can lead to bacterial infections such as listeria.",
+                  "@avoidScreen_rawFood_content": {
+                    "description": "Explanation of the dangers of consuming raw or undercooked food during pregnancy"
+                  },
+                
+                  "avoidScreen_highMercuryFish_title": "High-Mercury Fish Consumption",
+                  "@avoidScreen_highMercuryFish_title": {
+                    "description": "Title for the high-mercury fish item"
+                  },
+                
+                  "avoidScreen_highMercuryFish_content": "Fish that contain high levels of mercury, such as shark, swordfish, and bluefin tuna, can affect the baby''s nervous system development. Pregnant women should opt for low-mercury fish.",
+                  "@avoidScreen_highMercuryFish_content": {
+                    "description": "Explanation of the dangers of consuming high-mercury fish during pregnancy"
+                  },
+                
+                  "avoidScreen_chemicals_title": "Use of Harmful Chemicals",
+                  "@avoidScreen_chemicals_title": {
+                    "description": "Title for the harmful chemicals item"
+                  },
+                
+                  "avoidScreen_chemicals_content": "Avoid using harsh household chemicals like ammonia-based cleaners, bleach, and insecticides. Exposure to these chemicals can pose risks to the health of the mother and baby.",
+                  "@avoidScreen_chemicals_content": {
+                    "description": "Explanation of the dangers of using harmful chemicals during pregnancy"
+                  },
+                
+                  "avoidScreen_heavyLifting_title": "Lifting Heavy Objects",
+                  "@avoidScreen_heavyLifting_title": {
+                    "description": "Title for the heavy lifting item"
+                  },
+                
+                  "avoidScreen_heavyLifting_content": "Pregnant women should avoid lifting heavy objects as it can cause back injuries, muscle strain, and increase the risk of miscarriage, especially in early pregnancy.",
+                  "@avoidScreen_heavyLifting_content": {
+                    "description": "Explanation of the dangers of lifting heavy objects during pregnancy"
+                  },
+                
+                  "avoidScreen_lackOfRest_title": "Ignoring Adequate Rest",
+                  "@avoidScreen_lackOfRest_title": {
+                    "description": "Title for the lack of rest item"
+                  },
+                
+                  "avoidScreen_lackOfRest_content": "Pregnancy causes significant changes in the body, and adequate rest is essential. Lack of sleep can lead to stress, fatigue, and potential complications such as high blood pressure or preeclampsia.",
+                  "@avoidScreen_lackOfRest_content": {
+                    "description": "Explanation of the dangers of lack of rest during pregnancy"
+                  },
+                
+                  "avoidScreen_stress_title": "Excessive Stress",
+                  "@avoidScreen_stress_title": {
+                    "description": "Title for the excessive stress item"
+                  },
+                
+                  "avoidScreen_stress_content": "Excessive stress can affect the health of both the pregnant woman and the baby. High levels of stress during pregnancy can increase the risk of premature birth, low birth weight, and behavioral issues in the child later in life.",
+                  "@avoidScreen_stress_content": {
+                    "description": "Explanation of the dangers of excessive stress during pregnancy"
+                  },
+                
+                  "avoidScreen_tips_title": "Healthy Pregnancy Tips",
+                  "@avoidScreen_tips_title": {
+                    "description": "Title for the healthy pregnancy tips section"
+                  },
+                
+                  "avoidScreen_tips_content": "To maintain a healthy pregnancy, always consult with your doctor or midwife about the right lifestyle and diet. If you have any concerns or questions, don’t hesitate to contact a healthcare professional.",
+                  "@avoidScreen_tips_content": {
+                    "description": "Content for healthy pregnancy tips"
+                  },
+                
+                  "avoidScreen_moreTips": "See More Tips",
+                  "@avoidScreen_moreTips": {
+                    "description": "Text for the see more tips button"
+                  },
+                
+                  "avoidScreen_additionalTips_title": "Additional Tips for a Healthy Pregnancy",
+                  "@avoidScreen_additionalTips_title": {
+                    "description": "Title for the additional tips section"
+                  },
+                
+                  "avoidScreen_additionalTip1": "Eat foods rich in folic acid, such as leafy greens and legumes.",
+                  "@avoidScreen_additionalTip1": {
+                    "description": "Additional tip 1"
+                  },
+                
+                  "avoidScreen_additionalTip2": "Engage in light exercise like walking or prenatal yoga.",
+                  "@avoidScreen_additionalTip2": {
+                    "description": "Additional tip 2"
+                  },
+                
+                  "avoidScreen_additionalTip3": "Avoid exposure to cigarette smoke and air pollution.",
+                  "@avoidScreen_additionalTip3": {
+                    "description": "Additional tip 3"
+                  },
+                
+                  "avoidScreen_additionalTip4": "Have regular prenatal check-ups as recommended by your doctor or midwife.",
+                  "@avoidScreen_additionalTip4": {
+                    "description": "Additional tip 4"
+                  },
+                
+                  "avoidScreen_additionalTip5": "Maintain hygiene by washing your hands and bathing regularly.",
+                  "@avoidScreen_additionalTip5": {
+                    "description": "Additional tip 5"
+                  },
+                
+                  "avoidScreen_additionalTip6": "Use moisturizers to prevent stretch marks.",
+                  "@avoidScreen_additionalTip6": {
+                    "description": "Additional tip 6"
+                  },
+                
+                  "avoidScreen_additionalTip7": "Take prenatal supplements as advised by your doctor.",
+                  "@avoidScreen_additionalTip7": {
+                    "description": "Additional tip 7"
+                  },
+                
+                  "avoidScreen_additionalTip8": "Practice relaxation techniques to reduce stress.",
+                  "@avoidScreen_additionalTip8": {
+                    "description": "Additional tip 8"
+                  },
+                
+                  "avoidScreen_additionalTip9": "Sleep on your left side to improve blood circulation to the baby.",
+                  "@avoidScreen_additionalTip9": {
+                    "description": "Additional tip 9"
+                  },
+                
+                  "avoidScreen_additionalTip10": "Avoid using jacuzzis or saunas as they can raise body temperature.",
+                  "@avoidScreen_additionalTip10": {
+                    "description": "Additional tip 10"
+                  },
+                
+                  "avoidScreen_additionalTip11": "Ensure your vaccinations are up to date as recommended by your doctor.",
+                  "@avoidScreen_additionalTip11": {
+                    "description": "Additional tip 11"
+                  },
+                
+                  "avoidScreen_additionalTip12": "Drink enough water, at least 8 glasses per day.",
+                  "@avoidScreen_additionalTip12": {
+                    "description": "Additional tip 12"
+                  },
+                
+                  "avoidScreen_additionalTip13": "Wear comfortable, non-restrictive clothing.",
+                  "@avoidScreen_additionalTip13": {
+                    "description": "Additional tip 13"
+                  },
+                
+                  "avoidScreen_additionalTip14": "Have regular dental check-ups to prevent gum problems.",
+                  "@avoidScreen_additionalTip14": {
+                    "description": "Additional tip 14"
+                  },
+                
+                  "avoidScreen_references_title": "References",
+                  "@avoidScreen_references_title": {
+                    "description": "Title for the references section"
+                  },
+                
+                  "avoidScreen_reference1": "American College of Obstetricians and Gynecologists (ACOG). (2020). Alcohol and Pregnancy.",
+                  "@avoidScreen_reference1": {
+                    "description": "Reference 1"
+                  },
+                
+                  "avoidScreen_reference2": "Mayo Clinic. (2021). Pregnancy Nutrition: Foods to Avoid During Pregnancy.",
+                  "@avoidScreen_reference2": {
+                    "description": "Reference 2"
+                  },
+                
+                  "avoidScreen_reference3": "March of Dimes. (2020). Smoking During Pregnancy.",
+                  "@avoidScreen_reference3": {
+                    "description": "Reference 3"
+                  },
+                
+                  "avoidScreen_reference4": "World Health Organization (WHO). (2016). Prevention of Alcohol-related Harm in Pregnancy.",
+                  "@avoidScreen_reference4": {
+                    "description": "Reference 4"
+                  },
+                
+                  "avoidScreen_reference5": "Centers for Disease Control and Prevention (CDC). (2021). Listeria During Pregnancy.",
+                  "@avoidScreen_reference5": {
+                    "description": "Reference 5"
+                  },
+                
+                  "avoidScreen_reference6": "United States Food and Drug Administration (FDA). (2020). Mercury Levels in Fish: Advice About Eating Fish.",
+                  "@avoidScreen_reference6": {
+                    "description": "Reference 6"
+                  },
+                
+                  "avoidScreen_reference7": "Royal College of Obstetricians and Gynaecologists (RCOG). (2021). Caffeine Intake During Pregnancy.",
+                  "@avoidScreen_reference7": {
+                    "description": "Reference 7"
+                  },
+                
+                  "avoidScreen_reference8": "National Institute on Drug Abuse (NIDA). (2019). Substance Use During Pregnancy.",
+                  "@avoidScreen_reference8": {
+                    "description": "Reference 8"
+                  }                                                                
 }

@@ -108,7 +108,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: Image.asset(
-                        AppAssets.imtBackgroundVegetables,
+                        AppAssets.imtBackgroundHumanFit,
                         height: 150,
                         width: double.infinity,
                         fit: BoxFit.cover,

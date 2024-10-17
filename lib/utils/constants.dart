@@ -39,6 +39,7 @@ class AppAssets {
   static const String perawatanIbuHamilImage = 'assets/images/artikel_perawatan_ibu hamil.png';
   static const String imtBackgroundAvocado = 'assets/images/imt_avocado.png';
   static const String imtBackgroundVegetables = 'assets/images/imt_vegetables.png';
+  static const String imtBackgroundHumanFit = 'assets/images/imt_background_health.png';
 }
 
 class AppPadding {

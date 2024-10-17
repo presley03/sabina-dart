@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Untuk menggunakan AppLocalizations
-import '../screens/imt_calculator_screen.dart'; // Untuk halaman Hitung IMT
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../screens/imt_calculator_screen.dart';
 import '../screens/care/perawatan_sehari_hari_screen.dart';
 import '../screens/care/care_menu_screen.dart';
 import '../screens/care/makanan_screen.dart';
 import '../screens/persiapan_persalinan_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CareSection extends StatelessWidget {
   const CareSection({super.key});
@@ -22,7 +23,7 @@ class CareSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                localizations.maternalCare, // Menggunakan lokal untuk 'Perawatan Ibu Hamil'
+                localizations.maternalCare,
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -34,7 +35,7 @@ class CareSection extends StatelessWidget {
                   Navigator.of(context).push(_createRoute(const CareMenuScreen()));
                 },
                 child: Text(
-                  localizations.seeMore, // Menggunakan lokal untuk 'Lihat Selengkapnya'
+                  localizations.seeMore,
                   style: const TextStyle(
                     fontSize: 12,
                     color: Colors.blue,
@@ -54,29 +55,27 @@ class CareSection extends StatelessWidget {
             children: [
               _buildCareCard(
                 context: context,
-                title: localizations.food, // Menggunakan lokal untuk 'Makanan'
+                title: localizations.food,
                 icon: Icons.restaurant,
                 color: Colors.blue[100]!,
                 onTap: () {
-                  // Aksi untuk navigasi ke halaman makanan
                   Navigator.of(context).push(_createRoute(const MakananScreen()));
                 },
               ),
               const SizedBox(width: 10),
               _buildCareCard(
                 context: context,
-                title: localizations.dailyCare, // Menggunakan lokal untuk 'Perawatan Sehari-hari'
+                title: localizations.dailyCare,
                 icon: Icons.spa,
                 color: Colors.red[100]!,
                 onTap: () {
-                  // Navigasi ke halaman perawatan sehari-hari
                   Navigator.of(context).push(_createRoute(const PerawatanSehariHariScreen()));
                 },
               ),
               const SizedBox(width: 10),
               _buildCareCard(
                 context: context,
-                title: localizations.calculateBMI, // Menggunakan lokal untuk 'Hitung IMT'
+                title: localizations.calculateBMI,
                 icon: Icons.calculate,
                 color: Colors.green[100]!,
                 onTap: () {
@@ -86,7 +85,7 @@ class CareSection extends StatelessWidget {
               const SizedBox(width: 10),
               _buildCareCard(
                 context: context,
-                title: localizations.persiapanPersalinan, // persiapan persalinan'
+                title: localizations.persiapanPersalinan,
                 icon: Icons.pregnant_woman,
                 color: Colors.yellow[100]!,
                 onTap: () {
@@ -95,6 +94,11 @@ class CareSection extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        const SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: _buildPromotionalBanner(context),
         ),
       ],
     );
@@ -109,7 +113,7 @@ class CareSection extends StatelessWidget {
   }) {
     return SizedBox(
       width: 120,
-      height: 120,  // Membuat ukuran lebar dan tinggi proporsional
+      height: 120,
       child: Card(
         color: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -122,7 +126,7 @@ class CareSection extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, color: Colors.black, size: 40), // Icon tetap dalam ukuran nyaman
+                Icon(icon, color: Colors.black, size: 40),
                 const SizedBox(height: 8),
                 Flexible(
                   child: Text(
@@ -143,11 +147,74 @@ class CareSection extends StatelessWidget {
     );
   }
 
+  Widget _buildPromotionalBanner(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.pinkAccent.withOpacity(0.9),
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: InkWell(
+        onTap: () => _launchUrl(context),
+        child: const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.web, color: Colors.white, size: 28),
+            SizedBox(width: 12),
+            Text(
+              "Our web sapabidan.com, Check it!",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _launchUrl(BuildContext context) async {
+  final Uri url = Uri.parse('https://sapabidan.com');
+  try {
+    final canLaunch = await canLaunchUrl(url);
+    if (canLaunch) {
+      final result = await launchUrl(
+        url,
+        mode: LaunchMode.platformDefault,
+      );
+      if (!result) {
+        throw 'Tidak dapat membuka URL';
+      }
+    } else {
+      throw 'Tidak dapat membuka URL';
+    }
+  } catch (e) {
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Gagal membuka website: $e'),
+          duration: const Duration(seconds: 5),
+        ),
+      );
+    }
+  }
+}
+
   Route _createRoute(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(1.0, 0.0);  // Animasi dari kanan
+        const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.easeInOut;
         var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
