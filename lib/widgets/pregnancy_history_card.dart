@@ -45,7 +45,7 @@ class PregnancyHistoryCard extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PregnancyHistoryScreen()),
+                    _createRoute(), // Panggil fungsi untuk membuat animasi geser
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -69,6 +69,26 @@ class PregnancyHistoryCard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  // Fungsi untuk membuat animasi transisi geser dari kanan
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => const PregnancyHistoryScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0); // Mulai dari kanan
+        const end = Offset.zero;
+        const curve = Curves.easeInOut;
+
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      },
     );
   }
 }

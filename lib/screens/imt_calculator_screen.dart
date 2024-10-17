@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../utils/constants.dart';
 import 'dart:ui';
-import 'user_profile_screen.dart'; // Import User Profile Screen
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'user_profile_screen.dart';
 
 class IMTCalculatorScreen extends StatefulWidget {
   const IMTCalculatorScreen({super.key});
@@ -52,14 +53,15 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
     }
   }
 
-  String _getIMTCategory(double imt) {
-    if (imt < 18.5) return 'Berat badan kurang';
-    if (imt < 25) return 'Berat badan normal';
-    if (imt < 30) return 'Pra-obesitas';
-    if (imt < 35) return 'Obesitas kelas I';
-    if (imt < 40) return 'Obesitas kelas II';
-    return 'Obesitas kelas III';
-  }
+ String _getIMTCategory(double imt) {
+  final l10n = AppLocalizations.of(context)!;
+  if (imt < 18.5) return l10n.imtCalc_categoryUnderweight;
+  if (imt < 25) return l10n.imtCalc_categoryNormal;
+  if (imt < 30) return l10n.imtCalc_categoryOverweight;
+  if (imt < 35) return l10n.imtCalc_categoryObesity1;
+  if (imt < 40) return l10n.imtCalc_categoryObesity2;
+  return l10n.imtCalc_categoryObesity3;
+}
 
   String _getWeightGainRecommendation(double imt) {
     if (imt < 18.5) return '12,5 - 18 kg';
@@ -70,10 +72,11 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Hitung IMT', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        title: Text(l10n.imtCalc_screenTitle, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -92,7 +95,6 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // Container with shadow effect
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
@@ -101,7 +103,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
                           color: Colors.black.withOpacity(0.25),
                           spreadRadius: 4,
                           blurRadius: 8,
-                          offset: const Offset(0, 4), // changes position of shadow
+                          offset: const Offset(0, 4),
                         ),
                       ],
                     ),
@@ -126,15 +128,15 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
                             children: [
                               _buildInputField(
                                 controller: _weightController,
-                                labelText: 'BB Sebelum Hamil (kg)',
-                                hintText: 'Contoh: 65',
+                                labelText: l10n.imtCalc_weightLabel,
+                                hintText: l10n.imtCalc_weightPlaceholder,
                                 icon: Icons.monitor_weight,
                               ),
                               const SizedBox(height: 16),
                               _buildInputField(
                                 controller: _heightController,
-                                labelText: 'Tinggi Badan (cm)',
-                                hintText: 'Contoh: 165',
+                                labelText: l10n.imtCalc_heightLabel,
+                                hintText: l10n.imtCalc_heightPlaceholder,
                                 icon: Icons.height,
                               ),
                             ],
@@ -152,12 +154,12 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
                             ),
                             elevation: 5,
                           ),
-                          child: const Text('Hitung IMT', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                          child: Text(l10n.imtCalc_calculateButton, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                         ),
                         const SizedBox(height: 24),
-                        if (_imt != null) _buildResultCard(),
+                        if (_imt != null) _buildResultCard(l10n),
                         const SizedBox(height: 24),
-                        _buildTipsCard(), // Tambahan Tips Kesehatan
+                        _buildTipsCard(l10n),
                       ],
                     ),
                   ),
@@ -167,7 +169,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
           ),
         ),
       ),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: _buildBottomNavigationBar(l10n),
     );
   }
 
@@ -195,6 +197,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
     required String hintText,
     required IconData icon,
   }) {
+    final l10n = AppLocalizations.of(context)!;
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
@@ -215,17 +218,17 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Field ini tidak boleh kosong';
+          return l10n.imtCalc_validationEmptyField;
         }
         if (double.tryParse(value) == null) {
-          return 'Mohon masukkan angka yang valid';
+          return l10n.imtCalc_validationInvalidNumber;
         }
         return null;
       },
     );
   }
 
-  Widget _buildResultCard() {
+  Widget _buildResultCard(AppLocalizations l10n) {
     return FadeTransition(
       opacity: _fadeInAnimation,
       child: _buildGlassmorphicContainer(
@@ -233,25 +236,25 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'IMT Anda: ${_imt!.toStringAsFixed(1)}',
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+            l10n.imtCalc_resultTitle(_imt!),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
             ),
             const SizedBox(height: 8),
             Text(
-              'Kategori: $_imtCategory',
+              l10n.imtCalc_categoryResult(_imtCategory),
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Klasifikasi IMT menurut WHO:',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            Text(
+              l10n.imtCalc_classificationTitle,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
             ),
             const SizedBox(height: 8),
-            _buildIMTExplanation(),
+            _buildIMTExplanation(l10n),
             const SizedBox(height: 16),
-            const Text(
-              'Rekomendasi penambahan berat badan selama kehamilan:',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            Text(
+              l10n.imtCalc_weightGainRecommendationTitle,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
             ),
             const SizedBox(height: 8),
             Text(
@@ -264,50 +267,50 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
     );
   }
 
-  Widget _buildIMTExplanation() {
-    return const Column(
+  Widget _buildIMTExplanation(AppLocalizations l10n) {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('• < 18.5: Berat badan kurang', style: TextStyle(color: Colors.white)),
-        Text('• 18.5 - 24.9: Berat badan normal', style: TextStyle(color: Colors.white)),
-        Text('• 25.0 - 29.9: Pra-obesitas', style: TextStyle(color: Colors.white)),
-        Text('• 30.0 - 34.9: Obesitas kelas I', style: TextStyle(color: Colors.white)),
-        Text('• 35.0 - 39.9: Obesitas kelas II', style: TextStyle(color: Colors.white)),
-        Text('• ≥ 40.0: Obesitas kelas III', style: TextStyle(color: Colors.white)),
+        Text(l10n.imtCalc_classificationUnderweight, style: const TextStyle(color: Colors.white)),
+        Text(l10n.imtCalc_classificationNormal, style: const TextStyle(color: Colors.white)),
+        Text(l10n.imtCalc_classificationOverweight, style: const TextStyle(color: Colors.white)),
+        Text(l10n.imtCalc_classificationObesity1, style: const TextStyle(color: Colors.white)),
+        Text(l10n.imtCalc_classificationObesity2, style: const TextStyle(color: Colors.white)),
+        Text(l10n.imtCalc_classificationObesity3, style: const TextStyle(color: Colors.white)),
       ],
     );
   }
 
-  Widget _buildTipsCard() {
+  Widget _buildTipsCard(AppLocalizations l10n) {
     return _buildGlassmorphicContainer(
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Tips Kesehatan',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+            l10n.imtCalc_healthTipsTitle,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
-            '• Jaga pola makan sehat dengan makanan bergizi seimbang.',
-            style: TextStyle(fontSize: 16, color: Colors.white),
+            l10n.imtCalc_healthTip1,
+            style: const TextStyle(fontSize: 16, color: Colors.white),
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Text(
-            '• Tetap aktif dengan olahraga ringan selama kehamilan.',
-            style: TextStyle(fontSize: 16, color: Colors.white),
+            l10n.imtCalc_healthTip2,
+            style: const TextStyle(fontSize: 16, color: Colors.white),
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Text(
-            '• Jangan lupa istirahat yang cukup dan kelola stres.',
-            style: TextStyle(fontSize: 16, color: Colors.white),
+            l10n.imtCalc_healthTip3,
+            style: const TextStyle(fontSize: 16, color: Colors.white),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildBottomNavigationBar() {
+  Widget _buildBottomNavigationBar(AppLocalizations l10n) {
     return BottomAppBar(
       color: Colors.white,
       child: Padding(
@@ -318,27 +321,24 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
             IconButton(
               icon: const Icon(Icons.home, color: AppColors.primaryPink),
               onPressed: () {
-                Navigator.of(context).pop(); // Navigasi kembali ke halaman utama
+                Navigator.of(context).pop();
               },
             ),
             IconButton(
               icon: const Icon(Icons.info, color: AppColors.primaryPink),
               onPressed: () {
-                // Tampilkan informasi IMT WHO
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      title: const Text('Apa itu IMT WHO?'),
-                      content: const Text(
-                        'Indeks Massa Tubuh (IMT) adalah perbandingan antara berat badan dan tinggi badan. '
-                        'Menurut WHO, IMT digunakan untuk mengetahui apakah seseorang memiliki berat badan sehat. '
-                        'Nilainya dibagi menjadi beberapa kategori: kurang, normal, pra-obesitas, dan obesitas.',
-                        style: TextStyle(fontSize: 16),
+                      title: Text(l10n.imtCalc_infoDialogTitle),
+                      content: Text(
+                        l10n.imtCalc_infoDialogContent,
+                        style: const TextStyle(fontSize: 16),
                       ),
                       actions: <Widget>[
                         TextButton(
-                          child: const Text('Tutup'),
+                          child: Text(l10n.imtCalc_infoDialogCloseButton),
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
@@ -352,7 +352,6 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
             IconButton(
               icon: const Icon(Icons.person, color: AppColors.primaryPink),
               onPressed: () {
-                // Navigasi ke halaman user profile
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const UserProfileScreen()),
                 );

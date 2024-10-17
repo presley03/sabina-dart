@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AktivitasFisikIbuHamilScreen extends StatefulWidget {
   const AktivitasFisikIbuHamilScreen({super.key});
@@ -12,62 +13,70 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
   int _currentIndex = 0;
   final PageController _pageController = PageController(viewportFraction: 0.85);
 
-  final List<Map<String, dynamic>> _activityItems = [
-    {
-      'title': 'Jalan Kaki',
-      'icon': Icons.directions_walk,
-      'content': [
-        'Aktivitas fisik yang paling mudah dan aman.',
-        'Jalan kaki selama 30 menit setiap hari dapat membantu melancarkan peredaran darah dan menjaga kebugaran.',
-        'Cobalah untuk berjalan di pagi atau sore hari dengan kecepatan sedang.',
-      ],
-      'imageCaption': 'Ibu hamil berjalan kaki di taman',
-    },
-    {
-      'title': 'Peregangan (Stretching)',
-      'icon': Icons.accessibility_new,
-      'content': [
-        'Membantu mengurangi ketegangan otot dan meningkatkan fleksibilitas.',
-        'Lakukan gerakan peregangan ringan pada leher, lengan, dan kaki.',
-        'Peregangan sederhana ini dapat dilakukan setiap hari untuk mencegah nyeri dan ketegangan otot.',
-      ],
-      'imageCaption': 'Ibu hamil melakukan peregangan ringan',
-    },
-    {
-      'title': 'Senam Hamil',
-      'icon': Icons.pregnant_woman,
-      'content': [
-        'Dirancang khusus untuk ibu hamil.',
-        'Melibatkan gerakan yang membantu memperkuat otot panggul, punggung, dan perut.',
-        'Dapat membantu ibu lebih rileks dan mempersiapkan diri untuk proses persalinan.',
-      ],
-    },
-    {
-      'title': 'Yoga Prenatal',
-      'icon': Icons.self_improvement,
-      'content': [
-        'Aman untuk ibu hamil karena fokus pada pernapasan, keseimbangan, dan peregangan.',
-        'Membantu ibu untuk lebih rileks dan mengelola stres.',
-        'Dapat dilakukan di kelas atau di rumah dengan bimbingan instruktur yang berpengalaman.',
-      ],
-      'imageCaption': 'Ibu hamil melakukan pose yoga prenatal',
-    },
-    {
-      'title': 'Berenang',
-      'icon': Icons.pool,
-      'content': [
-        'Sangat baik untuk ibu hamil karena air mendukung berat tubuh, mengurangi tekanan pada sendi.',
-        'Membantu meningkatkan sirkulasi dan mengurangi bengkak pada kaki.',
-        'Pastikan kolam renang yang digunakan bersih dan aman.',
-      ],
-    },
-  ];
+  late List<Map<String, dynamic>> _activityItems;
+  late List<String> _references;
 
-  final List<String> _references = [
-    'American College of Obstetricians and Gynecologists (ACOG). (2020). Exercise During Pregnancy.',
-    'Mayo Clinic. (2021). Pregnancy Exercise: Safe Workouts.',
-    'National Health Service (NHS). (2020). Exercise in Pregnancy.',
-  ];
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final l10n = AppLocalizations.of(context)!;
+    _activityItems = [
+      {
+        'title': l10n.physicalActivity_item1_title,
+        'icon': Icons.directions_walk,
+        'content': [
+          l10n.physicalActivity_item1_content1,
+          l10n.physicalActivity_item1_content2,
+          l10n.physicalActivity_item1_content3,
+        ],
+        'imageCaption': l10n.physicalActivity_item1_imageCaption,
+      },
+      {
+        'title': l10n.physicalActivity_item2_title,
+        'icon': Icons.accessibility_new,
+        'content': [
+          l10n.physicalActivity_item2_content1,
+          l10n.physicalActivity_item2_content2,
+          l10n.physicalActivity_item2_content3,
+        ],
+        'imageCaption': l10n.physicalActivity_item2_imageCaption,
+      },
+      {
+        'title': l10n.physicalActivity_item3_title,
+        'icon': Icons.pregnant_woman,
+        'content': [
+          l10n.physicalActivity_item3_content1,
+          l10n.physicalActivity_item3_content2,
+          l10n.physicalActivity_item3_content3,
+        ],
+      },
+      {
+        'title': l10n.physicalActivity_item4_title,
+        'icon': Icons.self_improvement,
+        'content': [
+          l10n.physicalActivity_item4_content1,
+          l10n.physicalActivity_item4_content2,
+          l10n.physicalActivity_item4_content3,
+        ],
+        'imageCaption': l10n.physicalActivity_item4_imageCaption,
+      },
+      {
+        'title': l10n.physicalActivity_item5_title,
+        'icon': Icons.pool,
+        'content': [
+          l10n.physicalActivity_item5_content1,
+          l10n.physicalActivity_item5_content2,
+          l10n.physicalActivity_item5_content3,
+        ],
+      },
+    ];
+
+    _references = [
+      l10n.physicalActivity_reference1,
+      l10n.physicalActivity_reference2,
+      l10n.physicalActivity_reference3,
+    ];
+  }
 
   @override
   void dispose() {
@@ -77,10 +86,11 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Aktivitas Fisik Ibu Hamil', style: TextStyle(color: Colors.black)),
+        title: Text(l10n.physicalActivity_screenTitle, style: const TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -101,12 +111,12 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
           child: SingleChildScrollView(
             child: Column(
               children: [
-                _buildIntroduction(),
+                _buildIntroduction(l10n),
                 _buildImageSlider(),
                 _buildPageView(),
                 _buildPageIndicator(),
-                _buildTipsSection(),
-                _buildReferences(),
+                _buildTipsSection(l10n),
+                _buildReferences(l10n),
               ],
             ),
           ),
@@ -115,7 +125,7 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
     );
   }
 
-  Widget _buildIntroduction() {
+  Widget _buildIntroduction(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -143,9 +153,9 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Aktivitas fisik sangat penting selama kehamilan karena membantu menjaga kesehatan ibu dan perkembangan janin. Dengan melakukan latihan yang tepat, ibu hamil dapat mengurangi risiko komplikasi, seperti tekanan darah tinggi, memperkuat otot untuk persalinan, dan mengurangi rasa tidak nyaman seperti sakit punggung.',
-                  style: TextStyle(fontSize: 16, color: Colors.black),
+                Text(
+                  l10n.physicalActivity_introduction,
+                  style: const TextStyle(fontSize: 16, color: Colors.black),
                 ),
               ],
             ),
@@ -286,7 +296,7 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
     );
   }
 
-  Widget _buildTipsSection() {
+  Widget _buildTipsSection(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -303,15 +313,15 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Hal yang Perlu Diperhatikan:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                Text(
+                  l10n.physicalActivity_tipsTitle,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
-                _buildTipItem('Konsultasikan dengan dokter sebelum memulai aktivitas fisik baru.'),
-                _buildTipItem('Hindari latihan yang dapat membuat jatuh atau memengaruhi keseimbangan.'),
-                _buildTipItem('Jangan terlalu memaksakan diri, dan berhenti jika merasa pusing, lelah, atau kesulitan bernapas.'),
-                _buildTipItem('Minumlah air yang cukup sebelum dan setelah berolahraga untuk mencegah dehidrasi.'),
+                _buildTipItem(l10n.physicalActivity_tip1),
+                _buildTipItem(l10n.physicalActivity_tip2),
+                _buildTipItem(l10n.physicalActivity_tip3),
+                _buildTipItem(l10n.physicalActivity_tip4),
               ],
             ),
           ),
@@ -339,7 +349,7 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
     );
   }
 
-  Widget _buildReferences() {
+  Widget _buildReferences(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -356,9 +366,9 @@ class _AktivitasFisikIbuHamilScreenState extends State<AktivitasFisikIbuHamilScr
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Referensi',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                Text(
+                  l10n.physicalActivity_referencesTitle,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 8),
                 ..._references.map((ref) => Padding(

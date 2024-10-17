@@ -2215,5 +2215,574 @@
                   "avoidScreen_reference8": "National Institute on Drug Abuse (NIDA). (2019). Substance Use During Pregnancy.",
                   "@avoidScreen_reference8": {
                     "description": "Referensi 8"
-                  }  
+                  },
+                    "dailyCare_screenTitle": "Perawatan Sehari-hari",
+                    "@dailyCare_screenTitle": {
+                      "description": "Judul untuk layar perawatan sehari-hari"
+                    },
+                  
+                    "dailyCare_introduction": "Perawatan sehari-hari sangat penting bagi ibu hamil untuk menjaga kesehatan diri dan janin. Berikut adalah panduan perawatan sehari-hari untuk ibu hamil:",
+                    "@dailyCare_introduction": {
+                      "description": "Teks pengantar tentang pentingnya perawatan sehari-hari untuk ibu hamil"
+                    },
+                  
+                    "dailyCare_item1_title": "Makan Beragam Makanan",
+                    "@dailyCare_item1_title": {
+                      "description": "Judul untuk item perawatan pertama"
+                    },
+                  
+                    "dailyCare_item1_content1": "Konsumsi makanan lengkap: Karbohidrat, Protein, Sayuran, Buah-buahan.",
+                    "@dailyCare_item1_content1": {
+                      "description": "Konten 1 untuk item perawatan pertama"
+                    },
+                  
+                    "dailyCare_item1_content2": "Minum Tablet Tambah Darah (TTD) setiap hari.",
+                    "@dailyCare_item1_content2": {
+                      "description": "Konten 2 untuk item perawatan pertama"
+                    },
+                  
+                    "dailyCare_item1_content3": "Batasi gula dan garam.",
+                    "@dailyCare_item1_content3": {
+                      "description": "Konten 3 untuk item perawatan pertama"
+                    },
+                  
+                    "dailyCare_item1_content4": "Minum 8-12 gelas air putih per hari.",
+                    "@dailyCare_item1_content4": {
+                      "description": "Konten 4 untuk item perawatan pertama"
+                    },
+                  
+                    "dailyCare_item2_title": "Jaga Kebersihan Diri",
+                    "@dailyCare_item2_title": {
+                      "description": "Judul untuk item perawatan kedua"
+                    },
+                  
+                    "dailyCare_item2_content1": "Cuci tangan dengan sabun dan air mengalir.",
+                    "@dailyCare_item2_content1": {
+                      "description": "Konten 1 untuk item perawatan kedua"
+                    },
+                  
+                    "dailyCare_item2_content2": "Mandi dan gosok gigi 2 kali sehari.",
+                    "@dailyCare_item2_content2": {
+                      "description": "Konten 2 untuk item perawatan kedua"
+                    },
+                  
+                    "dailyCare_item2_content3": "Keramas setiap 2 hari sekali.",
+                    "@dailyCare_item2_content3": {
+                      "description": "Konten 3 untuk item perawatan kedua"
+                    },
+                  
+                    "dailyCare_item2_content4": "Jaga kebersihan payudara dan area intim.",
+                    "@dailyCare_item2_content4": {
+                      "description": "Konten 4 untuk item perawatan kedua"
+                    },
+                  
+                    "dailyCare_item2_content5": "Ganti pakaian dan pakaian dalam secara teratur.",
+                    "@dailyCare_item2_content5": {
+                      "description": "Konten 5 untuk item perawatan kedua"
+                    },
+                  
+                    "dailyCare_item3_title": "Istirahat Cukup",
+                    "@dailyCare_item3_title": {
+                      "description": "Judul untuk item perawatan ketiga"
+                    },
+                  
+                    "dailyCare_item3_content1": "Tidur malam 6-7 jam.",
+                    "@dailyCare_item3_content1": {
+                      "description": "Konten 1 untuk item perawatan ketiga"
+                    },
+                  
+                    "dailyCare_item3_content2": "Istirahat siang 1-2 jam.",
+                    "@dailyCare_item3_content2": {
+                      "description": "Konten 2 untuk item perawatan ketiga"
+                    },
+                  
+                    "dailyCare_item4_title": "Stimulasi Janin",
+                    "@dailyCare_item4_title": {
+                      "description": "Judul untuk item perawatan keempat"
+                    },
+                  
+                    "dailyCare_item4_content1": "Sentuh perut ibu.",
+                    "@dailyCare_item4_content1": {
+                      "description": "Konten 1 untuk item perawatan keempat"
+                    },
+                  
+                    "dailyCare_item4_content2": "Ajak janin berbicara.",
+                    "@dailyCare_item4_content2": {
+                      "description": "Konten 2 untuk item perawatan keempat"
+                    },
+                  
+                    "dailyCare_item4_content3": "Bacakan buku untuk janin.",
+                    "@dailyCare_item4_content3": {
+                      "description": "Konten 3 untuk item perawatan keempat"
+                    },
+                  
+                    "dailyCare_item4_content4": "Lakukan bersama suami.",
+                    "@dailyCare_item4_content4": {
+                      "description": "Konten 4 untuk item perawatan keempat"
+                    },
+                  
+                    "dailyCare_item5_title": "Aktivitas dan Latihan Fisik",
+                    "@dailyCare_item5_title": {
+                      "description": "Judul untuk item perawatan kelima"
+                    },
+                  
+                    "dailyCare_item5_content1": "Sesuaikan aktivitas dengan kondisi kehamilan.",
+                    "@dailyCare_item5_content1": {
+                      "description": "Konten 1 untuk item perawatan kelima"
+                    },
+                  
+                    "dailyCare_item5_content2": "Lakukan senam hamil sesuai anjuran.",
+                    "@dailyCare_item5_content2": {
+                      "description": "Konten 2 untuk item perawatan kelima"
+                    },
+                  
+                    "dailyCare_item5_content3": "Jenis latihan disesuaikan dengan usia kehamilan.",
+                    "@dailyCare_item5_content3": {
+                      "description": "Konten 3 untuk item perawatan kelima"
+                    },
+                  
+                    "dailyCare_item6_title": "Hubungan Suami Istri",
+                    "@dailyCare_item6_title": {
+                      "description": "Judul untuk item perawatan keenam"
+                    },
+                  
+                    "dailyCare_item6_content1": "Dapat dilakukan jika kehamilan sehat.",
+                    "@dailyCare_item6_content1": {
+                      "description": "Konten 1 untuk item perawatan keenam"
+                    },
+                  
+                    "dailyCare_item6_content2": "Konsultasikan dengan petugas kesehatan jika ada kekhawatiran.",
+                    "@dailyCare_item6_content2": {
+                      "description": "Konten 2 untuk item perawatan keenam"
+                    },
+                  
+                    "dailyCare_tipsTitle": "Tips Tambahan",
+                    "@dailyCare_tipsTitle": {
+                      "description": "Judul untuk bagian tips tambahan"
+                    },
+                  
+                    "dailyCare_tipsContent": "Selalu konsultasikan dengan dokter atau bidan Anda tentang perawatan yang tepat selama kehamilan. Setiap kehamilan bersifat unik dan mungkin memerlukan perhatian khusus.",
+                    "@dailyCare_tipsContent": {
+                      "description": "Konten untuk tips tambahan"
+                    },
+                  
+                    "dailyCare_moreTipsButton": "Lihat Tips Lainnya",
+                    "@dailyCare_moreTipsButton": {
+                      "description": "Teks untuk tombol lihat tips lainnya"
+                    },
+                  
+                    "dailyCare_moreTipsTitle": "Tips Tambahan untuk Perawatan Sehari-hari",
+                    "@dailyCare_moreTipsTitle": {
+                      "description": "Judul untuk modal tips tambahan"
+                    },
+                  
+                    "dailyCare_moreTip1": "Gunakan pelembab untuk mencegah stretch marks pada perut dan payudara.",
+                    "@dailyCare_moreTip1": {
+                      "description": "Tip tambahan 1"
+                    },
+                  
+                    "dailyCare_moreTip2": "Lakukan pijat ringan pada kaki untuk mengurangi pembengkakan.",
+                    "@dailyCare_moreTip2": {
+                      "description": "Tip tambahan 2"
+                    },
+                  
+                    "dailyCare_moreTip3": "Pilih pakaian yang nyaman dan tidak terlalu ketat.",
+                    "@dailyCare_moreTip3": {
+                      "description": "Tip tambahan 3"
+                    },
+                  
+                    "dailyCare_moreTip4": "Hindari penggunaan sepatu hak tinggi untuk mencegah nyeri punggung.",
+                    "@dailyCare_moreTip4": {
+                      "description": "Tip tambahan 4"
+                    },
+                  
+                    "dailyCare_moreTip5": "Konsumsi makanan kaya serat untuk mencegah sembelit.",
+                    "@dailyCare_moreTip5": {
+                      "description": "Tip tambahan 5"
+                    },
+                  
+                    "dailyCare_moreTip6": "Lakukan teknik pernapasan dalam untuk relaksasi.",
+                    "@dailyCare_moreTip6": {
+                      "description": "Tip tambahan 6"
+                    },
+                  
+                    "dailyCare_moreTip7": "Jaga postur tubuh yang baik saat duduk dan berdiri.",
+                    "@dailyCare_moreTip7": {
+                      "description": "Tip tambahan 7"
+                    },
+                  
+                    "dailyCare_moreTip8": "Hindari mengangkat benda berat selama kehamilan.",
+                    "@dailyCare_moreTip8": {
+                      "description": "Tip tambahan 8"
+                    },
+                  
+                    "dailyCare_moreTip9": "Lakukan peregangan ringan setiap pagi untuk meningkatkan fleksibilitas.",
+                    "@dailyCare_moreTip9": {
+                      "description": "Tip tambahan 9"
+                    },
+                  
+                    "dailyCare_moreTip10": "Dengarkan musik yang menenangkan untuk mengurangi stres.",
+                    "@dailyCare_moreTip10": {
+                      "description": "Tip tambahan 10"
+                    },
+                  
+                    "dailyCare_referencesTitle": "Referensi",
+                    "@dailyCare_referencesTitle": {
+                      "description": "Judul untuk bagian referensi"
+                    },
+                  
+                    "dailyCare_reference1": "Kementerian Kesehatan RI. (2023). Buku Kesehatan Ibu dan Anak. Jakarta: Indonesia",
+                    "@dailyCare_reference1": {
+                      "description": "Referensi 1"
+                    },
+                      "physicalActivity_screenTitle": "Aktivitas Fisik Ibu Hamil",
+                      "@physicalActivity_screenTitle": {
+                        "description": "Judul untuk layar aktivitas fisik ibu hamil"
+                      },
+                    
+                      "physicalActivity_introduction": "Aktivitas fisik sangat penting selama kehamilan karena membantu menjaga kesehatan ibu dan perkembangan janin. Dengan melakukan latihan yang tepat, ibu hamil dapat mengurangi risiko komplikasi, seperti tekanan darah tinggi, memperkuat otot untuk persalinan, dan mengurangi rasa tidak nyaman seperti sakit punggung.",
+                      "@physicalActivity_introduction": {
+                        "description": "Teks pengantar tentang pentingnya aktivitas fisik untuk ibu hamil"
+                      },
+                    
+                      "physicalActivity_item1_title": "Jalan Kaki",
+                      "@physicalActivity_item1_title": {
+                        "description": "Judul untuk item aktivitas pertama"
+                      },
+                    
+                      "physicalActivity_item1_content1": "Aktivitas fisik yang paling mudah dan aman.",
+                      "@physicalActivity_item1_content1": {
+                        "description": "Konten 1 untuk item aktivitas pertama"
+                      },
+                    
+                      "physicalActivity_item1_content2": "Jalan kaki selama 30 menit setiap hari dapat membantu melancarkan peredaran darah dan menjaga kebugaran.",
+                      "@physicalActivity_item1_content2": {
+                        "description": "Konten 2 untuk item aktivitas pertama"
+                      },
+                    
+                      "physicalActivity_item1_content3": "Cobalah untuk berjalan di pagi atau sore hari dengan kecepatan sedang.",
+                      "@physicalActivity_item1_content3": {
+                        "description": "Konten 3 untuk item aktivitas pertama"
+                      },
+                    
+                      "physicalActivity_item1_imageCaption": "Ibu hamil berjalan kaki di taman",
+                      "@physicalActivity_item1_imageCaption": {
+                        "description": "Keterangan gambar untuk item aktivitas pertama"
+                      },
+                    
+                      "physicalActivity_item2_title": "Peregangan (Stretching)",
+                      "@physicalActivity_item2_title": {
+                        "description": "Judul untuk item aktivitas kedua"
+                      },
+                    
+                      "physicalActivity_item2_content1": "Membantu mengurangi ketegangan otot dan meningkatkan fleksibilitas.",
+                      "@physicalActivity_item2_content1": {
+                        "description": "Konten 1 untuk item aktivitas kedua"
+                      },
+                    
+                      "physicalActivity_item2_content2": "Lakukan gerakan peregangan ringan pada leher, lengan, dan kaki.",
+                      "@physicalActivity_item2_content2": {
+                        "description": "Konten 2 untuk item aktivitas kedua"
+                      },
+                    
+                      "physicalActivity_item2_content3": "Peregangan sederhana ini dapat dilakukan setiap hari untuk mencegah nyeri dan ketegangan otot.",
+                      "@physicalActivity_item2_content3": {
+                        "description": "Konten 3 untuk item aktivitas kedua"
+                      },
+                    
+                      "physicalActivity_item2_imageCaption": "Ibu hamil melakukan peregangan ringan",
+                      "@physicalActivity_item2_imageCaption": {
+                        "description": "Keterangan gambar untuk item aktivitas kedua"
+                      },
+                    
+                      "physicalActivity_item3_title": "Senam Hamil",
+                      "@physicalActivity_item3_title": {
+                        "description": "Judul untuk item aktivitas ketiga"
+                      },
+                    
+                      "physicalActivity_item3_content1": "Dirancang khusus untuk ibu hamil.",
+                      "@physicalActivity_item3_content1": {
+                        "description": "Konten 1 untuk item aktivitas ketiga"
+                      },
+                    
+                      "physicalActivity_item3_content2": "Melibatkan gerakan yang membantu memperkuat otot panggul, punggung, dan perut.",
+                      "@physicalActivity_item3_content2": {
+                        "description": "Konten 2 untuk item aktivitas ketiga"
+                      },
+                    
+                      "physicalActivity_item3_content3": "Dapat membantu ibu lebih rileks dan mempersiapkan diri untuk proses persalinan.",
+                      "@physicalActivity_item3_content3": {
+                        "description": "Konten 3 untuk item aktivitas ketiga"
+                      },
+                    
+                      "physicalActivity_item4_title": "Yoga Prenatal",
+                      "@physicalActivity_item4_title": {
+                        "description": "Judul untuk item aktivitas keempat"
+                      },
+                    
+                      "physicalActivity_item4_content1": "Aman untuk ibu hamil karena fokus pada pernapasan, keseimbangan, dan peregangan.",
+                      "@physicalActivity_item4_content1": {
+                        "description": "Konten 1 untuk item aktivitas keempat"
+                      },
+                    
+                      "physicalActivity_item4_content2": "Membantu ibu untuk lebih rileks dan mengelola stres.",
+                      "@physicalActivity_item4_content2": {
+                        "description": "Konten 2 untuk item aktivitas keempat"
+                      },
+                    
+                      "physicalActivity_item4_content3": "Dapat dilakukan di kelas atau di rumah dengan bimbingan instruktur yang berpengalaman.",
+                      "@physicalActivity_item4_content3": {
+                        "description": "Konten 3 untuk item aktivitas keempat"
+                      },
+                    
+                      "physicalActivity_item4_imageCaption": "Ibu hamil melakukan pose yoga prenatal",
+                      "@physicalActivity_item4_imageCaption": {
+                        "description": "Keterangan gambar untuk item aktivitas keempat"
+                      },
+                    
+                      "physicalActivity_item5_title": "Berenang",
+                      "@physicalActivity_item5_title": {
+                        "description": "Judul untuk item aktivitas kelima"
+                      },
+                    
+                      "physicalActivity_item5_content1": "Sangat baik untuk ibu hamil karena air mendukung berat tubuh, mengurangi tekanan pada sendi.",
+                      "@physicalActivity_item5_content1": {
+                        "description": "Konten 1 untuk item aktivitas kelima"
+                      },
+                    
+                      "physicalActivity_item5_content2": "Membantu meningkatkan sirkulasi dan mengurangi bengkak pada kaki.",
+                      "@physicalActivity_item5_content2": {
+                        "description": "Konten 2 untuk item aktivitas kelima"
+                      },
+                    
+                      "physicalActivity_item5_content3": "Pastikan kolam renang yang digunakan bersih dan aman.",
+                      "@physicalActivity_item5_content3": {
+                        "description": "Konten 3 untuk item aktivitas kelima"
+                      },
+                    
+                      "physicalActivity_tipsTitle": "Hal yang Perlu Diperhatikan:",
+                      "@physicalActivity_tipsTitle": {
+                        "description": "Judul untuk bagian tips"
+                      },
+                    
+                      "physicalActivity_tip1": "Konsultasikan dengan dokter sebelum memulai aktivitas fisik baru.",
+                      "@physicalActivity_tip1": {
+                        "description": "Tip 1"
+                      },
+                    
+                      "physicalActivity_tip2": "Hindari latihan yang dapat membuat jatuh atau memengaruhi keseimbangan.",
+                      "@physicalActivity_tip2": {
+                        "description": "Tip 2"
+                      },
+                    
+                      "physicalActivity_tip3": "Jangan terlalu memaksakan diri, dan berhenti jika merasa pusing, lelah, atau kesulitan bernapas.",
+                      "@physicalActivity_tip3": {
+                        "description": "Tip 3"
+                      },
+                    
+                      "physicalActivity_tip4": "Minumlah air yang cukup sebelum dan setelah berolahraga untuk mencegah dehidrasi.",
+                      "@physicalActivity_tip4": {
+                        "description": "Tip 4"
+                      },
+                    
+                      "physicalActivity_referencesTitle": "Referensi",
+                      "@physicalActivity_referencesTitle": {
+                        "description": "Judul untuk bagian referensi"
+                      },
+                    
+                      "physicalActivity_reference1": "American College of Obstetricians and Gynecologists (ACOG). (2020). Exercise During Pregnancy.",
+                      "@physicalActivity_reference1": {
+                        "description": "Referensi 1"
+                      },
+                    
+                      "physicalActivity_reference2": "Mayo Clinic. (2021). Pregnancy Exercise: Safe Workouts.",
+                      "@physicalActivity_reference2": {
+                        "description": "Referensi 2"
+                      },
+                    
+                      "physicalActivity_reference3": "National Health Service (NHS). (2020). Exercise in Pregnancy.",
+                      "@physicalActivity_reference3": {
+                        "description": "Referensi 3"
+                      },
+                        "imtCalc_screenTitle": "Hitung IMT",
+                        "@imtCalc_screenTitle": {
+                          "description": "Judul untuk layar kalkulator Indeks Massa Tubuh (IMT)"
+                        },
+                      
+                        "imtCalc_weightLabel": "BB Sebelum Hamil (kg)",
+                        "@imtCalc_weightLabel": {
+                          "description": "Label untuk input berat badan sebelum kehamilan"
+                        },
+                      
+                        "imtCalc_weightPlaceholder": "Contoh: 65",
+                        "@imtCalc_weightPlaceholder": {
+                          "description": "Placeholder untuk input berat badan"
+                        },
+                      
+                        "imtCalc_heightLabel": "Tinggi Badan (cm)",
+                        "@imtCalc_heightLabel": {
+                          "description": "Label untuk input tinggi badan"
+                        },
+                      
+                        "imtCalc_heightPlaceholder": "Contoh: 165",
+                        "@imtCalc_heightPlaceholder": {
+                          "description": "Placeholder untuk input tinggi badan"
+                        },
+                      
+                        "imtCalc_calculateButton": "Hitung IMT",
+                        "@imtCalc_calculateButton": {
+                          "description": "Label untuk tombol hitung IMT"
+                        },
+                      
+                        "imtCalc_resultTitle": "IMT Anda: {imtValue}",
+                        "@imtCalc_resultTitle": {
+                          "description": "Judul hasil perhitungan IMT",
+                          "placeholders": {
+                            "imtValue": {
+                              "type": "double",
+                              "format": "decimalPattern",
+                              "example": "22.5"
+                            }
+                          }
+                        },
+                      
+                        "imtCalc_categoryResult": "Kategori: {category}",
+                        "@imtCalc_categoryResult": {
+                          "description": "Hasil kategori IMT",
+                          "placeholders": {
+                            "category": {
+                              "type": "String",
+                              "example": "Berat badan normal"
+                            }
+                          }
+                        },
+                      
+                        "imtCalc_classificationTitle": "Klasifikasi IMT menurut WHO:",
+                        "@imtCalc_classificationTitle": {
+                          "description": "Judul untuk klasifikasi IMT menurut WHO"
+                        },
+                      
+                        "imtCalc_classificationUnderweight": "• < 18.5: Berat badan kurang",
+                        "@imtCalc_classificationUnderweight": {
+                          "description": "Klasifikasi IMT untuk berat badan kurang"
+                        },
+                      
+                        "imtCalc_classificationNormal": "• 18.5 - 24.9: Berat badan normal",
+                        "@imtCalc_classificationNormal": {
+                          "description": "Klasifikasi IMT untuk berat badan normal"
+                        },
+                      
+                        "imtCalc_classificationOverweight": "• 25.0 - 29.9: Pra-obesitas",
+                        "@imtCalc_classificationOverweight": {
+                          "description": "Klasifikasi IMT untuk pra-obesitas"
+                        },
+                      
+                        "imtCalc_classificationObesity1": "• 30.0 - 34.9: Obesitas kelas I",
+                        "@imtCalc_classificationObesity1": {
+                          "description": "Klasifikasi IMT untuk obesitas kelas I"
+                        },
+                      
+                        "imtCalc_classificationObesity2": "• 35.0 - 39.9: Obesitas kelas II",
+                        "@imtCalc_classificationObesity2": {
+                          "description": "Klasifikasi IMT untuk obesitas kelas II"
+                        },
+                      
+                        "imtCalc_classificationObesity3": "• ≥ 40.0: Obesitas kelas III",
+                        "@imtCalc_classificationObesity3": {
+                          "description": "Klasifikasi IMT untuk obesitas kelas III"
+                        },
+                      
+                        "imtCalc_weightGainRecommendationTitle": "Rekomendasi penambahan berat badan selama kehamilan:",
+                        "@imtCalc_weightGainRecommendationTitle": {
+                          "description": "Judul untuk rekomendasi penambahan berat badan selama kehamilan"
+                        },
+                      
+                        "imtCalc_weightGainUnderweight": "12,5 - 18 kg",
+                        "@imtCalc_weightGainUnderweight": {
+                          "description": "Rekomendasi penambahan berat badan untuk kategori berat badan kurang"
+                        },
+                      
+                        "imtCalc_weightGainNormal": "11,5 - 16 kg",
+                        "@imtCalc_weightGainNormal": {
+                          "description": "Rekomendasi penambahan berat badan untuk kategori berat badan normal"
+                        },
+                      
+                        "imtCalc_weightGainOverweight": "7 - 11,5 kg",
+                        "@imtCalc_weightGainOverweight": {
+                          "description": "Rekomendasi penambahan berat badan untuk kategori pra-obesitas"
+                        },
+                      
+                        "imtCalc_weightGainObese": "5 - 9 kg",
+                        "@imtCalc_weightGainObese": {
+                          "description": "Rekomendasi penambahan berat badan untuk kategori obesitas"
+                        },
+                      
+                        "imtCalc_healthTipsTitle": "Tips Kesehatan",
+                        "@imtCalc_healthTipsTitle": {
+                          "description": "Judul untuk bagian tips kesehatan"
+                        },
+                      
+                        "imtCalc_healthTip1": "• Jaga pola makan sehat dengan makanan bergizi seimbang.",
+                        "@imtCalc_healthTip1": {
+                          "description": "Tip kesehatan pertama"
+                        },
+                      
+                        "imtCalc_healthTip2": "• Tetap aktif dengan olahraga ringan selama kehamilan.",
+                        "@imtCalc_healthTip2": {
+                          "description": "Tip kesehatan kedua"
+                        },
+                      
+                        "imtCalc_healthTip3": "• Jangan lupa istirahat yang cukup dan kelola stres.",
+                        "@imtCalc_healthTip3": {
+                          "description": "Tip kesehatan ketiga"
+                        },
+                      
+                        "imtCalc_infoDialogTitle": "Apa itu IMT WHO?",
+                        "@imtCalc_infoDialogTitle": {
+                          "description": "Judul dialog informasi IMT WHO"
+                        },
+                      
+                        "imtCalc_infoDialogContent": "Indeks Massa Tubuh (IMT) adalah perbandingan antara berat badan dan tinggi badan. Menurut WHO, IMT digunakan untuk mengetahui apakah seseorang memiliki berat badan sehat. Nilainya dibagi menjadi beberapa kategori: kurang, normal, pra-obesitas, dan obesitas.",
+                        "@imtCalc_infoDialogContent": {
+                          "description": "Konten dialog informasi IMT WHO"
+                        },
+                      
+                        "imtCalc_infoDialogCloseButton": "Tutup",
+                        "@imtCalc_infoDialogCloseButton": {
+                          "description": "Label tombol untuk menutup dialog informasi"
+                        },
+                      
+                        "imtCalc_validationEmptyField": "Field ini tidak boleh kosong",
+                        "@imtCalc_validationEmptyField": {
+                          "description": "Pesan validasi untuk field yang kosong"
+                        },
+                      
+                        "imtCalc_validationInvalidNumber": "Mohon masukkan angka yang valid",
+                        "@imtCalc_validationInvalidNumber": {
+                          "description": "Pesan validasi untuk input yang bukan angka valid"
+                        },
+                          "imtCalc_categoryUnderweight": "Berat badan kurang",
+                          "@imtCalc_categoryUnderweight": {
+                            "description": "Kategori IMT untuk berat badan kurang"
+                          },
+                          "imtCalc_categoryNormal": "Berat badan normal",
+                          "@imtCalc_categoryNormal": {
+                            "description": "Kategori IMT untuk berat badan normal"
+                          },
+                          "imtCalc_categoryOverweight": "Pra-obesitas",
+                          "@imtCalc_categoryOverweight": {
+                            "description": "Kategori IMT untuk pra-obesitas"
+                          },
+                          "imtCalc_categoryObesity1": "Obesitas kelas I",
+                          "@imtCalc_categoryObesity1": {
+                            "description": "Kategori IMT untuk obesitas kelas I"
+                          },
+                          "imtCalc_categoryObesity2": "Obesitas kelas II",
+                          "@imtCalc_categoryObesity2": {
+                            "description": "Kategori IMT untuk obesitas kelas II"
+                          },
+                          "imtCalc_categoryObesity3": "Obesitas kelas III",
+                          "@imtCalc_categoryObesity3": {
+                            "description": "Kategori IMT untuk obesitas kelas III"
+                          }                                                     
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PerawatanSehariHariScreen extends StatefulWidget {
   const PerawatanSehariHariScreen({super.key});
@@ -12,64 +13,71 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
   int _currentIndex = 0;
   final PageController _pageController = PageController(viewportFraction: 0.85);
 
-  final List<Map<String, dynamic>> _careItems = [
-    {
-      'title': 'Makan Beragam Makanan',
-      'icon': Icons.restaurant,
-      'content': [
-        'Konsumsi makanan lengkap: Karbohidrat, Protein, Sayuran, Buah-buahan.',
-        'Minum Tablet Tambah Darah (TTD) setiap hari.',
-        'Batasi gula dan garam.',
-        'Minum 8-12 gelas air putih per hari.',
-      ],
-    },
-    {
-      'title': 'Jaga Kebersihan Diri',
-      'icon': Icons.clean_hands,
-      'content': [
-        'Cuci tangan dengan sabun dan air mengalir.',
-        'Mandi dan gosok gigi 2 kali sehari.',
-        'Keramas setiap 2 hari sekali.',
-        'Jaga kebersihan payudara dan area intim.',
-        'Ganti pakaian dan pakaian dalam secara teratur.',
-      ],
-    },
-    {
-      'title': 'Istirahat Cukup',
-      'icon': Icons.hotel,
-      'content': [
-        'Tidur malam 6-7 jam.',
-        'Istirahat siang 1-2 jam.',
-      ],
-    },
-    {
-      'title': 'Stimulasi Janin',
-      'icon': Icons.child_friendly,
-      'content': [
-        'Sentuh perut ibu.',
-        'Ajak janin berbicara.',
-        'Bacakan buku untuk janin.',
-        'Lakukan bersama suami.',
-      ],
-    },
-    {
-      'title': 'Aktivitas dan Latihan Fisik',
-      'icon': Icons.fitness_center,
-      'content': [
-        'Sesuaikan aktivitas dengan kondisi kehamilan.',
-        'Lakukan senam hamil sesuai anjuran.',
-        'Jenis latihan disesuaikan dengan usia kehamilan.',
-      ],
-    },
-    {
-      'title': 'Hubungan Suami Istri',
-      'icon': Icons.favorite,
-      'content': [
-        'Dapat dilakukan jika kehamilan sehat.',
-        'Konsultasikan dengan petugas kesehatan jika ada kekhawatiran.',
-      ],
-    },
-  ];
+  late List<Map<String, dynamic>> _careItems;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final l10n = AppLocalizations.of(context)!;
+    _careItems = [
+      {
+        'title': l10n.dailyCare_item1_title,
+        'icon': Icons.restaurant,
+        'content': [
+          l10n.dailyCare_item1_content1,
+          l10n.dailyCare_item1_content2,
+          l10n.dailyCare_item1_content3,
+          l10n.dailyCare_item1_content4,
+        ],
+      },
+      {
+        'title': l10n.dailyCare_item2_title,
+        'icon': Icons.clean_hands,
+        'content': [
+          l10n.dailyCare_item2_content1,
+          l10n.dailyCare_item2_content2,
+          l10n.dailyCare_item2_content3,
+          l10n.dailyCare_item2_content4,
+          l10n.dailyCare_item2_content5,
+        ],
+      },
+      {
+        'title': l10n.dailyCare_item3_title,
+        'icon': Icons.hotel,
+        'content': [
+          l10n.dailyCare_item3_content1,
+          l10n.dailyCare_item3_content2,
+        ],
+      },
+      {
+        'title': l10n.dailyCare_item4_title,
+        'icon': Icons.child_friendly,
+        'content': [
+          l10n.dailyCare_item4_content1,
+          l10n.dailyCare_item4_content2,
+          l10n.dailyCare_item4_content3,
+          l10n.dailyCare_item4_content4,
+        ],
+      },
+      {
+        'title': l10n.dailyCare_item5_title,
+        'icon': Icons.fitness_center,
+        'content': [
+          l10n.dailyCare_item5_content1,
+          l10n.dailyCare_item5_content2,
+          l10n.dailyCare_item5_content3,
+        ],
+      },
+      {
+        'title': l10n.dailyCare_item6_title,
+        'icon': Icons.favorite,
+        'content': [
+          l10n.dailyCare_item6_content1,
+          l10n.dailyCare_item6_content2,
+        ],
+      },
+    ];
+  }
 
   @override
   void dispose() {
@@ -79,10 +87,11 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Perawatan Sehari-hari', style: TextStyle(color: Colors.black)),
+        title: Text(l10n.dailyCare_screenTitle, style: const TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -103,11 +112,11 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                _buildIntroduction(),
+                _buildIntroduction(l10n),
                 _buildPageView(),
                 _buildPageIndicator(),
-                _buildTipsSection(),
-                _buildReferences(),
+                _buildTipsSection(l10n),
+                _buildReferences(l10n),
               ],
             ),
           ),
@@ -116,7 +125,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
     );
   }
 
-  Widget _buildIntroduction() {
+  Widget _buildIntroduction(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -142,9 +151,9 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Perawatan sehari-hari sangat penting bagi ibu hamil untuk menjaga kesehatan diri dan janin. Berikut adalah panduan perawatan sehari-hari untuk ibu hamil:',
-                  style: TextStyle(fontSize: 16, color: Colors.black),
+                Text(
+                  l10n.dailyCare_introduction,
+                  style: const TextStyle(fontSize: 16, color: Colors.black),
                 ),
               ],
             ),
@@ -250,7 +259,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
     );
   }
 
-  Widget _buildTipsSection() {
+  Widget _buildTipsSection(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -267,14 +276,14 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Tips Tambahan',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                Text(
+                  l10n.dailyCare_tipsTitle,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Selalu konsultasikan dengan dokter atau bidan Anda tentang perawatan yang tepat selama kehamilan. Setiap kehamilan bersifat unik dan mungkin memerlukan perhatian khusus.',
-                  style: TextStyle(fontSize: 16, color: Colors.black),
+                Text(
+                  l10n.dailyCare_tipsContent,
+                  style: const TextStyle(fontSize: 16, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
@@ -282,8 +291,8 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                     backgroundColor: Colors.white.withOpacity(0.3),
                     foregroundColor: Colors.white,
                   ),
-                  onPressed: _showMoreTips,
-                  child: const Text('Lihat Tips Lainnya'),
+                  onPressed: () => _showMoreTips(l10n),
+                  child: Text(l10n.dailyCare_moreTipsButton),
                 ),
               ],
             ),
@@ -293,7 +302,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
     );
   }
 
-  void _showMoreTips() {
+  void _showMoreTips(AppLocalizations l10n) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -319,26 +328,26 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                   borderRadius: BorderRadius.circular(2.5),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  'Tips Tambahan untuk Perawatan Sehari-hari',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                  l10n.dailyCare_moreTipsTitle,
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
               Expanded(
                 child: ListView(
                   children: [
-                    _buildTipItem('Gunakan pelembab untuk mencegah stretch marks pada perut dan payudara.'),
-                    _buildTipItem('Lakukan pijat ringan pada kaki untuk mengurangi pembengkakan.'),
-                    _buildTipItem('Pilih pakaian yang nyaman dan tidak terlalu ketat.'),
-                    _buildTipItem('Hindari penggunaan sepatu hak tinggi untuk mencegah nyeri punggung.'),
-                    _buildTipItem('Konsumsi makanan kaya serat untuk mencegah sembelit.'),
-                    _buildTipItem('Lakukan teknik pernapasan dalam untuk relaksasi.'),
-                    _buildTipItem('Jaga postur tubuh yang baik saat duduk dan berdiri.'),
-                    _buildTipItem('Hindari mengangkat benda berat selama kehamilan.'),
-                    _buildTipItem('Lakukan peregangan ringan setiap pagi untuk meningkatkan fleksibilitas.'),
-                    _buildTipItem('Dengarkan musik yang menenangkan untuk mengurangi stres.'),
+                    _buildTipItem(l10n.dailyCare_moreTip1),
+                    _buildTipItem(l10n.dailyCare_moreTip2),
+                    _buildTipItem(l10n.dailyCare_moreTip3),
+                    _buildTipItem(l10n.dailyCare_moreTip4),
+                    _buildTipItem(l10n.dailyCare_moreTip5),
+                    _buildTipItem(l10n.dailyCare_moreTip6),
+                    _buildTipItem(l10n.dailyCare_moreTip7),
+                    _buildTipItem(l10n.dailyCare_moreTip8),
+                    _buildTipItem(l10n.dailyCare_moreTip9),
+                    _buildTipItem(l10n.dailyCare_moreTip10),
                   ],
                 ),
               ),
@@ -368,7 +377,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
     );
   }
 
-  Widget _buildReferences() {
+  Widget _buildReferences(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -382,17 +391,17 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
               borderRadius: BorderRadius.circular(15),
               border: Border.all(color: Colors.white.withOpacity(0.2)),
             ),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Referensi',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                  l10n.dailyCare_referencesTitle,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
-                  'Kementerian Kesehatan RI. (2023). Buku Kesehatan Ibu dan Anak. Jakarta: Indonesia',
-                  style: TextStyle(fontSize: 12, color: Colors.black),
+                  l10n.dailyCare_reference1,
+                  style: const TextStyle(fontSize: 12, color: Colors.black),
                 ),
               ],
             ),

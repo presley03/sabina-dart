@@ -2216,5 +2216,574 @@
                   "avoidScreen_reference8": "National Institute on Drug Abuse (NIDA). (2019). Substance Use During Pregnancy.",
                   "@avoidScreen_reference8": {
                     "description": "Reference 8"
-                  }                                                                
+                  },
+                    "dailyCare_screenTitle": "Daily Care",
+                    "@dailyCare_screenTitle": {
+                      "description": "Title for the daily care screen"
+                    },
+                  
+                    "dailyCare_introduction": "Daily care is very important for pregnant women to maintain their health and the health of their baby. Here is a guide for daily care during pregnancy:",
+                    "@dailyCare_introduction": {
+                      "description": "Introduction text on the importance of daily care for pregnant women"
+                    },
+                  
+                    "dailyCare_item1_title": "Eat a Variety of Foods",
+                    "@dailyCare_item1_title": {
+                      "description": "Title for the first care item"
+                    },
+                  
+                    "dailyCare_item1_content1": "Consume a balanced diet: Carbohydrates, Protein, Vegetables, Fruits.",
+                    "@dailyCare_item1_content1": {
+                      "description": "Content 1 for the first care item"
+                    },
+                  
+                    "dailyCare_item1_content2": "Take Iron Supplements daily.",
+                    "@dailyCare_item1_content2": {
+                      "description": "Content 2 for the first care item"
+                    },
+                  
+                    "dailyCare_item1_content3": "Limit sugar and salt intake.",
+                    "@dailyCare_item1_content3": {
+                      "description": "Content 3 for the first care item"
+                    },
+                  
+                    "dailyCare_item1_content4": "Drink 8-12 glasses of water per day.",
+                    "@dailyCare_item1_content4": {
+                      "description": "Content 4 for the first care item"
+                    },
+                  
+                    "dailyCare_item2_title": "Maintain Personal Hygiene",
+                    "@dailyCare_item2_title": {
+                      "description": "Title for the second care item"
+                    },
+                  
+                    "dailyCare_item2_content1": "Wash hands with soap and running water.",
+                    "@dailyCare_item2_content1": {
+                      "description": "Content 1 for the second care item"
+                    },
+                  
+                    "dailyCare_item2_content2": "Bathe and brush your teeth twice a day.",
+                    "@dailyCare_item2_content2": {
+                      "description": "Content 2 for the second care item"
+                    },
+                  
+                    "dailyCare_item2_content3": "Shampoo your hair every 2 days.",
+                    "@dailyCare_item2_content3": {
+                      "description": "Content 3 for the second care item"
+                    },
+                  
+                    "dailyCare_item2_content4": "Keep your breasts and intimate areas clean.",
+                    "@dailyCare_item2_content4": {
+                      "description": "Content 4 for the second care item"
+                    },
+                  
+                    "dailyCare_item2_content5": "Change clothes and underwear regularly.",
+                    "@dailyCare_item2_content5": {
+                      "description": "Content 5 for the second care item"
+                    },
+                  
+                    "dailyCare_item3_title": "Get Enough Rest",
+                    "@dailyCare_item3_title": {
+                      "description": "Title for the third care item"
+                    },
+                  
+                    "dailyCare_item3_content1": "Sleep 6-7 hours at night.",
+                    "@dailyCare_item3_content1": {
+                      "description": "Content 1 for the third care item"
+                    },
+                  
+                    "dailyCare_item3_content2": "Rest for 1-2 hours during the day.",
+                    "@dailyCare_item3_content2": {
+                      "description": "Content 2 for the third care item"
+                    },
+                  
+                    "dailyCare_item4_title": "Fetal Stimulation",
+                    "@dailyCare_item4_title": {
+                      "description": "Title for the fourth care item"
+                    },
+                  
+                    "dailyCare_item4_content1": "Touch the mother''s belly.",
+                    "@dailyCare_item4_content1": {
+                      "description": "Content 1 for the fourth care item"
+                    },
+                  
+                    "dailyCare_item4_content2": "Talk to the baby.",
+                    "@dailyCare_item4_content2": {
+                      "description": "Content 2 for the fourth care item"
+                    },
+                  
+                    "dailyCare_item4_content3": "Read books to the baby.",
+                    "@dailyCare_item4_content3": {
+                      "description": "Content 3 for the fourth care item"
+                    },
+                  
+                    "dailyCare_item4_content4": "Do it together with your husband.",
+                    "@dailyCare_item4_content4": {
+                      "description": "Content 4 for the fourth care item"
+                    },
+                  
+                    "dailyCare_item5_title": "Physical Activity and Exercise",
+                    "@dailyCare_item5_title": {
+                      "description": "Title for the fifth care item"
+                    },
+                  
+                    "dailyCare_item5_content1": "Adjust activities to your pregnancy condition.",
+                    "@dailyCare_item5_content1": {
+                      "description": "Content 1 for the fifth care item"
+                    },
+                  
+                    "dailyCare_item5_content2": "Do pregnancy exercises as recommended.",
+                    "@dailyCare_item5_content2": {
+                      "description": "Content 2 for the fifth care item"
+                    },
+                  
+                    "dailyCare_item5_content3": "The type of exercise should match your pregnancy stage.",
+                    "@dailyCare_item5_content3": {
+                      "description": "Content 3 for the fifth care item"
+                    },
+                  
+                    "dailyCare_item6_title": "Intimacy with Your Partner",
+                    "@dailyCare_item6_title": {
+                      "description": "Title for the sixth care item"
+                    },
+                  
+                    "dailyCare_item6_content1": "It can be done if the pregnancy is healthy.",
+                    "@dailyCare_item6_content1": {
+                      "description": "Content 1 for the sixth care item"
+                    },
+                  
+                    "dailyCare_item6_content2": "Consult with a healthcare provider if there are any concerns.",
+                    "@dailyCare_item6_content2": {
+                      "description": "Content 2 for the sixth care item"
+                    },
+                  
+                    "dailyCare_tipsTitle": "Additional Tips",
+                    "@dailyCare_tipsTitle": {
+                      "description": "Title for the additional tips section"
+                    },
+                  
+                    "dailyCare_tipsContent": "Always consult your doctor or midwife about the appropriate care during pregnancy. Each pregnancy is unique and may require special attention.",
+                    "@dailyCare_tipsContent": {
+                      "description": "Content for the additional tips"
+                    },
+                  
+                    "dailyCare_moreTipsButton": "See More Tips",
+                    "@dailyCare_moreTipsButton": {
+                      "description": "Text for the see more tips button"
+                    },
+                  
+                    "dailyCare_moreTipsTitle": "Additional Tips for Daily Care",
+                    "@dailyCare_moreTipsTitle": {
+                      "description": "Title for the additional tips modal"
+                    },
+                  
+                    "dailyCare_moreTip1": "Use moisturizer to prevent stretch marks on your belly and breasts.",
+                    "@dailyCare_moreTip1": {
+                      "description": "Additional tip 1"
+                    },
+                  
+                    "dailyCare_moreTip2": "Do light foot massages to reduce swelling.",
+                    "@dailyCare_moreTip2": {
+                      "description": "Additional tip 2"
+                    },
+                  
+                    "dailyCare_moreTip3": "Choose comfortable, non-restrictive clothing.",
+                    "@dailyCare_moreTip3": {
+                      "description": "Additional tip 3"
+                    },
+                  
+                    "dailyCare_moreTip4": "Avoid wearing high heels to prevent back pain.",
+                    "@dailyCare_moreTip4": {
+                      "description": "Additional tip 4"
+                    },
+                  
+                    "dailyCare_moreTip5": "Eat fiber-rich foods to prevent constipation.",
+                    "@dailyCare_moreTip5": {
+                      "description": "Additional tip 5"
+                    },
+                  
+                    "dailyCare_moreTip6": "Practice deep breathing techniques for relaxation.",
+                    "@dailyCare_moreTip6": {
+                      "description": "Additional tip 6"
+                    },
+                  
+                    "dailyCare_moreTip7": "Maintain good posture while sitting and standing.",
+                    "@dailyCare_moreTip7": {
+                      "description": "Additional tip 7"
+                    },
+                  
+                    "dailyCare_moreTip8": "Avoid lifting heavy objects during pregnancy.",
+                    "@dailyCare_moreTip8": {
+                      "description": "Additional tip 8"
+                    },
+                  
+                    "dailyCare_moreTip9": "Do light stretches every morning to increase flexibility.",
+                    "@dailyCare_moreTip9": {
+                      "description": "Additional tip 9"
+                    },
+                  
+                    "dailyCare_moreTip10": "Listen to calming music to reduce stress.",
+                    "@dailyCare_moreTip10": {
+                      "description": "Additional tip 10"
+                    },
+                  
+                    "dailyCare_referencesTitle": "References",
+                    "@dailyCare_referencesTitle": {
+                      "description": "Title for the references section"
+                    },
+                  
+                    "dailyCare_reference1": "Ministry of Health, Republic of Indonesia. (2023). Maternal and Child Health Handbook. Jakarta: Indonesia",
+                    "@dailyCare_reference1": {
+                      "description": "Reference 1"
+                    },
+                      "physicalActivity_screenTitle": "Physical Activity",
+                      "@physicalActivity_screenTitle": {
+                        "description": "Title for the physical activity screen for pregnant women"
+                      },
+                    
+                      "physicalActivity_introduction": "Physical activity is very important during pregnancy as it helps maintain the health of the mother and the development of the baby. By performing the right exercises, pregnant women can reduce the risk of complications, such as high blood pressure, strengthen muscles for labor, and reduce discomfort like back pain.",
+                      "@physicalActivity_introduction": {
+                        "description": "Introduction text about the importance of physical activity for pregnant women"
+                      },
+                    
+                      "physicalActivity_item1_title": "Walking",
+                      "@physicalActivity_item1_title": {
+                        "description": "Title for the first physical activity item"
+                      },
+                    
+                      "physicalActivity_item1_content1": "The easiest and safest physical activity.",
+                      "@physicalActivity_item1_content1": {
+                        "description": "Content 1 for the first physical activity item"
+                      },
+                    
+                      "physicalActivity_item1_content2": "Walking for 30 minutes a day can help improve circulation and maintain fitness.",
+                      "@physicalActivity_item1_content2": {
+                        "description": "Content 2 for the first physical activity item"
+                      },
+                    
+                      "physicalActivity_item1_content3": "Try walking at a moderate pace in the morning or evening.",
+                      "@physicalActivity_item1_content3": {
+                        "description": "Content 3 for the first physical activity item"
+                      },
+                    
+                      "physicalActivity_item1_imageCaption": "Pregnant woman walking in the park",
+                      "@physicalActivity_item1_imageCaption": {
+                        "description": "Image caption for the first physical activity item"
+                      },
+                    
+                      "physicalActivity_item2_title": "Stretching",
+                      "@physicalActivity_item2_title": {
+                        "description": "Title for the second physical activity item"
+                      },
+                    
+                      "physicalActivity_item2_content1": "Helps reduce muscle tension and improve flexibility.",
+                      "@physicalActivity_item2_content1": {
+                        "description": "Content 1 for the second physical activity item"
+                      },
+                    
+                      "physicalActivity_item2_content2": "Perform light stretches for the neck, arms, and legs.",
+                      "@physicalActivity_item2_content2": {
+                        "description": "Content 2 for the second physical activity item"
+                      },
+                    
+                      "physicalActivity_item2_content3": "These simple stretches can be done daily to prevent muscle pain and tension.",
+                      "@physicalActivity_item2_content3": {
+                        "description": "Content 3 for the second physical activity item"
+                      },
+                    
+                      "physicalActivity_item2_imageCaption": "Pregnant woman doing light stretches",
+                      "@physicalActivity_item2_imageCaption": {
+                        "description": "Image caption for the second physical activity item"
+                      },
+                    
+                      "physicalActivity_item3_title": "Pregnancy Exercise",
+                      "@physicalActivity_item3_title": {
+                        "description": "Title for the third physical activity item"
+                      },
+                    
+                      "physicalActivity_item3_content1": "Specifically designed for pregnant women.",
+                      "@physicalActivity_item3_content1": {
+                        "description": "Content 1 for the third physical activity item"
+                      },
+                    
+                      "physicalActivity_item3_content2": "Includes movements that help strengthen pelvic, back, and abdominal muscles.",
+                      "@physicalActivity_item3_content2": {
+                        "description": "Content 2 for the third physical activity item"
+                      },
+                    
+                      "physicalActivity_item3_content3": "Can help the mother relax and prepare for labor.",
+                      "@physicalActivity_item3_content3": {
+                        "description": "Content 3 for the third physical activity item"
+                      },
+                    
+                      "physicalActivity_item4_title": "Prenatal Yoga",
+                      "@physicalActivity_item4_title": {
+                        "description": "Title for the fourth physical activity item"
+                      },
+                    
+                      "physicalActivity_item4_content1": "Safe for pregnant women as it focuses on breathing, balance, and stretching.",
+                      "@physicalActivity_item4_content1": {
+                        "description": "Content 1 for the fourth physical activity item"
+                      },
+                    
+                      "physicalActivity_item4_content2": "Helps the mother to relax and manage stress.",
+                      "@physicalActivity_item4_content2": {
+                        "description": "Content 2 for the fourth physical activity item"
+                      },
+                    
+                      "physicalActivity_item4_content3": "Can be done in classes or at home with the guidance of an experienced instructor.",
+                      "@physicalActivity_item4_content3": {
+                        "description": "Content 3 for the fourth physical activity item"
+                      },
+                    
+                      "physicalActivity_item4_imageCaption": "Pregnant woman doing a prenatal yoga pose",
+                      "@physicalActivity_item4_imageCaption": {
+                        "description": "Image caption for the fourth physical activity item"
+                      },
+                    
+                      "physicalActivity_item5_title": "Swimming",
+                      "@physicalActivity_item5_title": {
+                        "description": "Title for the fifth physical activity item"
+                      },
+                    
+                      "physicalActivity_item5_content1": "Excellent for pregnant women because water supports body weight, reducing pressure on the joints.",
+                      "@physicalActivity_item5_content1": {
+                        "description": "Content 1 for the fifth physical activity item"
+                      },
+                    
+                      "physicalActivity_item5_content2": "Helps improve circulation and reduce swelling in the legs.",
+                      "@physicalActivity_item5_content2": {
+                        "description": "Content 2 for the fifth physical activity item"
+                      },
+                    
+                      "physicalActivity_item5_content3": "Make sure the pool is clean and safe.",
+                      "@physicalActivity_item5_content3": {
+                        "description": "Content 3 for the fifth physical activity item"
+                      },
+                    
+                      "physicalActivity_tipsTitle": "Things to Keep in Mind:",
+                      "@physicalActivity_tipsTitle": {
+                        "description": "Title for the tips section"
+                      },
+                    
+                      "physicalActivity_tip1": "Consult your doctor before starting any new physical activity.",
+                      "@physicalActivity_tip1": {
+                        "description": "Tip 1"
+                      },
+                    
+                      "physicalActivity_tip2": "Avoid exercises that could cause falls or affect balance.",
+                      "@physicalActivity_tip2": {
+                        "description": "Tip 2"
+                      },
+                    
+                      "physicalActivity_tip3": "Do not overexert yourself, and stop if you feel dizzy, tired, or have difficulty breathing.",
+                      "@physicalActivity_tip3": {
+                        "description": "Tip 3"
+                      },
+                    
+                      "physicalActivity_tip4": "Drink enough water before and after exercising to prevent dehydration.",
+                      "@physicalActivity_tip4": {
+                        "description": "Tip 4"
+                      },
+                    
+                      "physicalActivity_referencesTitle": "References",
+                      "@physicalActivity_referencesTitle": {
+                        "description": "Title for the references section"
+                      },
+                    
+                      "physicalActivity_reference1": "American College of Obstetricians and Gynecologists (ACOG). (2020). Exercise During Pregnancy.",
+                      "@physicalActivity_reference1": {
+                        "description": "Reference 1"
+                      },
+                    
+                      "physicalActivity_reference2": "Mayo Clinic. (2021). Pregnancy Exercise: Safe Workouts.",
+                      "@physicalActivity_reference2": {
+                        "description": "Reference 2"
+                      },
+                    
+                      "physicalActivity_reference3": "National Health Service (NHS). (2020). Exercise in Pregnancy.",
+                      "@physicalActivity_reference3": {
+                        "description": "Reference 3"
+                      },
+                        "imtCalc_screenTitle": "BMI Calculator",
+                        "@imtCalc_screenTitle": {
+                          "description": "Title for the Body Mass Index (BMI) calculator screen"
+                        },
+                      
+                        "imtCalc_weightLabel": "Pre-Pregnancy Weight (kg)",
+                        "@imtCalc_weightLabel": {
+                          "description": "Label for inputting weight before pregnancy"
+                        },
+                      
+                        "imtCalc_weightPlaceholder": "Example: 65",
+                        "@imtCalc_weightPlaceholder": {
+                          "description": "Placeholder for the weight input"
+                        },
+                      
+                        "imtCalc_heightLabel": "Height (cm)",
+                        "@imtCalc_heightLabel": {
+                          "description": "Label for inputting height"
+                        },
+                      
+                        "imtCalc_heightPlaceholder": "Example: 165",
+                        "@imtCalc_heightPlaceholder": {
+                          "description": "Placeholder for the height input"
+                        },
+                      
+                        "imtCalc_calculateButton": "Calculate BMI",
+                        "@imtCalc_calculateButton": {
+                          "description": "Label for the button to calculate BMI"
+                        },
+                      
+                        "imtCalc_resultTitle": "Your BMI: {imtValue}",
+                        "@imtCalc_resultTitle": {
+                          "description": "Title displaying the result of the BMI calculation",
+                          "placeholders": {
+                            "imtValue": {
+                              "type": "double",
+                              "format": "decimalPattern",
+                              "example": "22.5"
+                            }
+                          }
+                        },
+                      
+                        "imtCalc_categoryResult": "Category: {category}",
+                        "@imtCalc_categoryResult": {
+                          "description": "BMI category based on the calculated result",
+                          "placeholders": {
+                            "category": {
+                              "type": "String",
+                              "example": "Normal weight"
+                            }
+                          }
+                        },
+                      
+                        "imtCalc_classificationTitle": "BMI Classification According to WHO:",
+                        "@imtCalc_classificationTitle": {
+                          "description": "Title for the BMI classification section according to WHO"
+                        },
+                      
+                        "imtCalc_classificationUnderweight": "• < 18.5: Underweight",
+                        "@imtCalc_classificationUnderweight": {
+                          "description": "BMI classification for underweight"
+                        },
+                      
+                        "imtCalc_classificationNormal": "• 18.5 - 24.9: Normal weight",
+                        "@imtCalc_classificationNormal": {
+                          "description": "BMI classification for normal weight"
+                        },
+                      
+                        "imtCalc_classificationOverweight": "• 25.0 - 29.9: Pre-obesity",
+                        "@imtCalc_classificationOverweight": {
+                          "description": "BMI classification for pre-obesity"
+                        },
+                      
+                        "imtCalc_classificationObesity1": "• 30.0 - 34.9: Obesity class I",
+                        "@imtCalc_classificationObesity1": {
+                          "description": "BMI classification for obesity class I"
+                        },
+                      
+                        "imtCalc_classificationObesity2": "• 35.0 - 39.9: Obesity class II",
+                        "@imtCalc_classificationObesity2": {
+                          "description": "BMI classification for obesity class II"
+                        },
+                      
+                        "imtCalc_classificationObesity3": "• ≥ 40.0: Obesity class III",
+                        "@imtCalc_classificationObesity3": {
+                          "description": "BMI classification for obesity class III"
+                        },
+                      
+                        "imtCalc_weightGainRecommendationTitle": "Recommended weight gain during pregnancy:",
+                        "@imtCalc_weightGainRecommendationTitle": {
+                          "description": "Title for the recommended weight gain section during pregnancy"
+                        },
+                      
+                        "imtCalc_weightGainUnderweight": "12.5 - 18 kg",
+                        "@imtCalc_weightGainUnderweight": {
+                          "description": "Recommended weight gain for the underweight category"
+                        },
+                      
+                        "imtCalc_weightGainNormal": "11.5 - 16 kg",
+                        "@imtCalc_weightGainNormal": {
+                          "description": "Recommended weight gain for the normal weight category"
+                        },
+                      
+                        "imtCalc_weightGainOverweight": "7 - 11.5 kg",
+                        "@imtCalc_weightGainOverweight": {
+                          "description": "Recommended weight gain for the pre-obesity category"
+                        },
+                      
+                        "imtCalc_weightGainObese": "5 - 9 kg",
+                        "@imtCalc_weightGainObese": {
+                          "description": "Recommended weight gain for the obesity category"
+                        },
+                      
+                        "imtCalc_healthTipsTitle": "Health Tips",
+                        "@imtCalc_healthTipsTitle": {
+                          "description": "Title for the health tips section"
+                        },
+                      
+                        "imtCalc_healthTip1": "• Maintain a healthy diet with balanced nutrition.",
+                        "@imtCalc_healthTip1": {
+                          "description": "First health tip"
+                        },
+                      
+                        "imtCalc_healthTip2": "• Stay active with light exercises during pregnancy.",
+                        "@imtCalc_healthTip2": {
+                          "description": "Second health tip"
+                        },
+                      
+                        "imtCalc_healthTip3": "• Ensure enough rest and manage stress effectively.",
+                        "@imtCalc_healthTip3": {
+                          "description": "Third health tip"
+                        },
+                      
+                        "imtCalc_infoDialogTitle": "What is WHO BMI?",
+                        "@imtCalc_infoDialogTitle": {
+                          "description": "Title for the BMI information dialog"
+                        },
+                      
+                        "imtCalc_infoDialogContent": "Body Mass Index (BMI) is the ratio of weight to height. According to WHO, BMI is used to determine whether a person has a healthy weight. It is categorized into underweight, normal, pre-obesity, and obesity.",
+                        "@imtCalc_infoDialogContent": {
+                          "description": "Content of the WHO BMI information dialog"
+                        },
+                      
+                        "imtCalc_infoDialogCloseButton": "Close",
+                        "@imtCalc_infoDialogCloseButton": {
+                          "description": "Label for the close button in the information dialog"
+                        },
+                      
+                        "imtCalc_validationEmptyField": "This field cannot be empty",
+                        "@imtCalc_validationEmptyField": {
+                          "description": "Validation message for an empty field"
+                        },
+                      
+                        "imtCalc_validationInvalidNumber": "Please enter a valid number",
+                        "@imtCalc_validationInvalidNumber": {
+                          "description": "Validation message for an invalid number input"
+                        },
+                          "imtCalc_categoryUnderweight": "Underweight",
+                          "@imtCalc_categoryUnderweight": {
+                            "description": "BMI category for underweight"
+                          },
+                          "imtCalc_categoryNormal": "Normal weight",
+                          "@imtCalc_categoryNormal": {
+                            "description": "BMI category for normal weight"
+                          },
+                          "imtCalc_categoryOverweight": "Overweight",
+                          "@imtCalc_categoryOverweight": {
+                            "description": "BMI category for overweight"
+                          },
+                          "imtCalc_categoryObesity1": "Obesity class I",
+                          "@imtCalc_categoryObesity1": {
+                            "description": "BMI category for obesity class I"
+                          },
+                          "imtCalc_categoryObesity2": "Obesity class II",
+                          "@imtCalc_categoryObesity2": {
+                            "description": "BMI category for obesity class II"
+                          },
+                          "imtCalc_categoryObesity3": "Obesity class III",
+                          "@imtCalc_categoryObesity3": {
+                            "description": "BMI category for obesity class III"
+                          }                                                                                                      
 }

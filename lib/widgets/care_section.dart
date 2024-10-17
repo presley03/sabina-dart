@@ -148,40 +148,46 @@ class CareSection extends StatelessWidget {
   }
 
   Widget _buildPromotionalBanner(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-      decoration: BoxDecoration(
-        color: Colors.pinkAccent.withOpacity(0.9),
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            spreadRadius: 2,
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: InkWell(
-        onTap: () => _launchUrl(context),
-        child: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.web, color: Colors.white, size: 28),
-            SizedBox(width: 12),
-            Text(
-              "Our web sapabidan.com, Check it!",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+  return Container(
+    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+    decoration: BoxDecoration(
+      color: Colors.pinkAccent.withOpacity(0.9),
+      borderRadius: BorderRadius.circular(15),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.2),
+          spreadRadius: 2,
+          blurRadius: 8,
+          offset: const Offset(0, 4),
+        ),
+      ],
+    ),
+    child: InkWell(
+      onTap: () => _launchUrl(context),
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.web, color: Colors.white, size: 28),
+          SizedBox(width: 12),
+          Flexible(
+            child: FittedBox(
+              fit: BoxFit.scaleDown, // Menyusutkan teks jika terlalu panjang
+              child: Text(
+                "More info? visit sapabidan.com!",
+                  style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  ),
+                ),
               ),
             ),
-          ],
+         ],
         ),
       ),
     );
   }
+
 
   void _launchUrl(BuildContext context) async {
   final Uri url = Uri.parse('https://sapabidan.com');

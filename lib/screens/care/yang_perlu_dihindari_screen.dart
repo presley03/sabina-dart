@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class YangPerluDihindariScreen extends StatefulWidget {
   const YangPerluDihindariScreen({super.key});
@@ -12,69 +13,77 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
   int _currentIndex = 0;
   final PageController _pageController = PageController(viewportFraction: 0.85);
 
-  final List<Map<String, dynamic>> _avoidItems = [
-    {
-      'title': 'Mengonsumsi Alkohol',
-      'icon': Icons.no_drinks,
-      'content': 'Mengonsumsi alkohol selama kehamilan dapat menyebabkan cacat lahir, masalah pertumbuhan, dan gangguan perkembangan otak pada bayi.',
-    },
-    {
-      'title': 'Merokok',
-      'icon': Icons.smoke_free,
-      'content': 'Merokok selama kehamilan meningkatkan risiko kelahiran prematur, berat badan lahir rendah, dan masalah pernapasan pada bayi. Juga meningkatkan risiko kematian mendadak pada bayi (SIDS).',
-    },
-    {
-      'title': 'Mengkonsumsi Kafein Berlebihan',
-      'icon': Icons.coffee,
-      'content': 'Asupan kafein yang berlebihan selama kehamilan dapat meningkatkan risiko keguguran dan berat badan lahir rendah. Sebaiknya, batasi konsumsi kafein maksimal 200 mg per hari (sekitar satu cangkir kopi).',
-    },
-    {
-      'title': 'Paparan Obat-obatan Terlarang',
-      'icon': Icons.medication,
-      'content': 'Penggunaan obat-obatan terlarang seperti kokain, amfetamin, dan heroin selama kehamilan dapat menyebabkan kelahiran prematur, cacat lahir, dan masalah perilaku serta perkembangan pada bayi.',
-    },
-    {
-      'title': 'Makanan Mentah atau Setengah Matang',
-      'icon': Icons.food_bank,
-      'content': 'Ibu hamil harus menghindari konsumsi makanan mentah atau setengah matang seperti sushi, telur mentah, daging setengah matang, dan susu yang tidak dipasteurisasi karena berisiko menyebabkan infeksi bakteri seperti listeria.',
-    },
-    {
-      'title': 'Mengonsumsi Ikan Tinggi Merkuri',
-      'icon': Icons.set_meal,
-      'content': 'Ikan yang mengandung kadar merkuri tinggi, seperti hiu, ikan pedang, dan tuna sirip biru, dapat memengaruhi perkembangan sistem saraf bayi. Sebaiknya ibu hamil memilih ikan yang rendah merkuri.',
-    },
-    {
-      'title': 'Penggunaan Produk Kimia Berbahaya',
-      'icon': Icons.cleaning_services,
-      'content': 'Hindari penggunaan produk kimia rumah tangga yang keras seperti pembersih berbahan dasar amonia, pemutih, dan insektisida. Paparan terhadap bahan kimia ini dapat berisiko terhadap kesehatan ibu dan janin.',
-    },
-    {
-      'title': 'Mengangkat Benda Berat',
-      'icon': Icons.fitness_center,
-      'content': 'Ibu hamil sebaiknya tidak mengangkat benda yang terlalu berat karena bisa menyebabkan cedera punggung, ketegangan otot, dan meningkatkan risiko keguguran, terutama pada awal kehamilan.',
-    },
-    {
-      'title': 'Mengabaikan Istirahat yang Cukup',
-      'icon': Icons.bedroom_parent,
-      'content': 'Kehamilan menyebabkan perubahan besar pada tubuh, sehingga ibu hamil perlu banyak istirahat. Kurang tidur dapat menyebabkan stres, kelelahan, dan berpotensi menimbulkan komplikasi seperti tekanan darah tinggi atau preeklampsia.',
-    },
-    {
-      'title': 'Stres Berlebihan',
-      'icon': Icons.psychology,
-      'content': 'Stres berlebihan dapat memengaruhi kesehatan ibu hamil dan janin. Tingkat stres yang tinggi selama kehamilan dapat meningkatkan risiko kelahiran prematur, berat badan lahir rendah, dan masalah perilaku pada bayi di kemudian hari.',
-    },
-  ];
+  late List<Map<String, dynamic>> _avoidItems;
+  late List<String> _references;
 
-  final List<String> _references = [
-    'American College of Obstetricians and Gynecologists (ACOG). (2020). Alcohol and Pregnancy.',
-    'Mayo Clinic. (2021). Pregnancy Nutrition: Foods to Avoid During Pregnancy.',
-    'March of Dimes. (2020). Smoking During Pregnancy.',
-    'World Health Organization (WHO). (2016). Prevention of Alcohol-related Harm in Pregnancy.',
-    'Centers for Disease Control and Prevention (CDC). (2021). Listeria During Pregnancy.',
-    'United States Food and Drug Administration (FDA). (2020). Mercury Levels in Fish: Advice About Eating Fish.',
-    'Royal College of Obstetricians and Gynaecologists (RCOG). (2021). Caffeine Intake During Pregnancy.',
-    'National Institute on Drug Abuse (NIDA). (2019). Substance Use During Pregnancy.',
-  ];
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final l10n = AppLocalizations.of(context)!;
+    _avoidItems = [
+      {
+        'title': l10n.avoidScreen_alcohol_title,
+        'icon': Icons.no_drinks,
+        'content': l10n.avoidScreen_alcohol_content,
+      },
+      {
+        'title': l10n.avoidScreen_smoking_title,
+        'icon': Icons.smoke_free,
+        'content': l10n.avoidScreen_smoking_content,
+      },
+      {
+        'title': l10n.avoidScreen_caffeine_title,
+        'icon': Icons.coffee,
+        'content': l10n.avoidScreen_caffeine_content,
+      },
+      {
+        'title': l10n.avoidScreen_drugs_title,
+        'icon': Icons.medication,
+        'content': l10n.avoidScreen_drugs_content,
+      },
+      {
+        'title': l10n.avoidScreen_rawFood_title,
+        'icon': Icons.food_bank,
+        'content': l10n.avoidScreen_rawFood_content,
+      },
+      {
+        'title': l10n.avoidScreen_highMercuryFish_title,
+        'icon': Icons.set_meal,
+        'content': l10n.avoidScreen_highMercuryFish_content,
+      },
+      {
+        'title': l10n.avoidScreen_chemicals_title,
+        'icon': Icons.cleaning_services,
+        'content': l10n.avoidScreen_chemicals_content,
+      },
+      {
+        'title': l10n.avoidScreen_heavyLifting_title,
+        'icon': Icons.fitness_center,
+        'content': l10n.avoidScreen_heavyLifting_content,
+      },
+      {
+        'title': l10n.avoidScreen_lackOfRest_title,
+        'icon': Icons.bedroom_parent,
+        'content': l10n.avoidScreen_lackOfRest_content,
+      },
+      {
+        'title': l10n.avoidScreen_stress_title,
+        'icon': Icons.psychology,
+        'content': l10n.avoidScreen_stress_content,
+      },
+    ];
+
+    _references = [
+      l10n.avoidScreen_reference1,
+      l10n.avoidScreen_reference2,
+      l10n.avoidScreen_reference3,
+      l10n.avoidScreen_reference4,
+      l10n.avoidScreen_reference5,
+      l10n.avoidScreen_reference6,
+      l10n.avoidScreen_reference7,
+      l10n.avoidScreen_reference8,
+    ];
+  }
 
   @override
   void dispose() {
@@ -84,10 +93,11 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Yang Perlu Dihindari', style: TextStyle(color: Colors.black)),
+        title: Text(l10n.avoidScreen_title, style: const TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -108,11 +118,11 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                _buildIntroduction(),
+                _buildIntroduction(l10n),
                 _buildPageView(),
                 _buildPageIndicator(),
-                _buildTipsSection(),
-                _buildReferences(),
+                _buildTipsSection(l10n),
+                _buildReferences(l10n),
               ],
             ),
           ),
@@ -121,7 +131,7 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
     );
   }
 
-  Widget _buildIntroduction() {
+  Widget _buildIntroduction(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -147,9 +157,9 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Selama kehamilan, ada beberapa hal yang perlu dihindari untuk menjaga kesehatan ibu dan janin. Berikut adalah panduan tentang hal-hal yang sebaiknya dihindari selama kehamilan:',
-                  style: TextStyle(fontSize: 16, color: Colors.black),
+                Text(
+                  l10n.avoidScreen_introduction,
+                  style: const TextStyle(fontSize: 16, color: Colors.black),
                 ),
               ],
             ),
@@ -242,7 +252,7 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
     );
   }
 
-  Widget _buildTipsSection() {
+  Widget _buildTipsSection(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -259,14 +269,14 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Tips Kehamilan Sehat',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                Text(
+                  l10n.avoidScreen_tips_title,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Untuk menjaga kehamilan yang sehat, selalu konsultasikan dengan dokter atau bidan Anda tentang gaya hidup dan pola makan yang tepat. Jika Anda memiliki kekhawatiran atau pertanyaan, jangan ragu untuk menghubungi profesional kesehatan.',
-                  style: TextStyle(fontSize: 16, color: Colors.black),
+                Text(
+                  l10n.avoidScreen_tips_content,
+                  style: const TextStyle(fontSize: 16, color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
@@ -274,8 +284,8 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
                     backgroundColor: Colors.white.withOpacity(0.3),
                     foregroundColor: Colors.white,
                   ),
-                  onPressed: _showMoreTips,
-                  child: const Text('Lihat Tips Lainnya'),
+                  onPressed: () => _showMoreTips(l10n),
+                  child: Text(l10n.avoidScreen_moreTips),
                 ),
               ],
             ),
@@ -285,7 +295,7 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
     );
   }
 
-  void _showMoreTips() {
+  void _showMoreTips(AppLocalizations l10n) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -311,30 +321,30 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
                   borderRadius: BorderRadius.circular(2.5),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  'Tips Tambahan untuk Kehamilan Sehat',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                  l10n.avoidScreen_additionalTips_title,
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
               Expanded(
                 child: ListView(
                   children: [
-                    _buildTipItem('Makan makanan kaya asam folat seperti sayuran hijau dan kacang-kacangan.'),
-                    _buildTipItem('Lakukan olahraga ringan seperti berjalan kaki atau yoga prenatal.'),
-                    _buildTipItem('Hindari paparan asap rokok dan polusi udara.'),
-                    _buildTipItem('Rutin periksa kehamilan sesuai jadwal yang ditentukan oleh dokter atau bidan.'),
-                    _buildTipItem('Jaga kebersihan dengan rajin mencuci tangan dan mandi.'),
-                    _buildTipItem('Gunakan pelembab untuk mencegah stretch marks.'),
-                    _buildTipItem('Konsumsi suplemen prenatal sesuai anjuran dokter.'),
-                    _buildTipItem('Lakukan teknik relaksasi untuk mengurangi stres.'),
-                    _buildTipItem('Tidur miring ke kiri untuk meningkatkan sirkulasi darah ke janin.'),
-                    _buildTipItem('Hindari penggunaan jacuzzi atau sauna yang dapat meningkatkan suhu tubuh.'),
-                    _buildTipItem('Pastikan vaksinasi Anda lengkap sesuai rekomendasi dokter.'),
-                    _buildTipItem('Konsumsi air putih yang cukup, minimal 8 gelas per hari.'),
-                    _buildTipItem('Pilih pakaian yang nyaman dan tidak terlalu ketat.'),
-                    _buildTipItem('Lakukan perawatan gigi rutin untuk mencegah masalah gusi.'),
+                    _buildTipItem(l10n.avoidScreen_additionalTip1),
+                    _buildTipItem(l10n.avoidScreen_additionalTip2),
+                    _buildTipItem(l10n.avoidScreen_additionalTip3),
+                    _buildTipItem(l10n.avoidScreen_additionalTip4),
+                    _buildTipItem(l10n.avoidScreen_additionalTip5),
+                    _buildTipItem(l10n.avoidScreen_additionalTip6),
+                    _buildTipItem(l10n.avoidScreen_additionalTip7),
+                    _buildTipItem(l10n.avoidScreen_additionalTip8),
+                    _buildTipItem(l10n.avoidScreen_additionalTip9),
+                    _buildTipItem(l10n.avoidScreen_additionalTip10),
+                    _buildTipItem(l10n.avoidScreen_additionalTip11),
+                    _buildTipItem(l10n.avoidScreen_additionalTip12),
+                    _buildTipItem(l10n.avoidScreen_additionalTip13),
+                    _buildTipItem(l10n.avoidScreen_additionalTip14),
                   ],
                 ),
               ),
@@ -364,7 +374,7 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
     );
   }
 
-  Widget _buildReferences() {
+  Widget _buildReferences(AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: ClipRRect(
@@ -381,9 +391,9 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Referensi',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                Text(
+                  l10n.avoidScreen_references_title,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 8),
                 ..._references.map((ref) => Padding(
