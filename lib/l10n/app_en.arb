@@ -2609,35 +2609,35 @@
                         "@imtCalc_screenTitle": {
                           "description": "Title for the Body Mass Index (BMI) calculator screen"
                         },
-                      
-                        "imtCalc_weightLabel": "Pre-Pregnancy Weight (kg)",
+                        
+                        "imtCalc_weightLabel": "Pre-pregnancy Weight (kg)",
                         "@imtCalc_weightLabel": {
-                          "description": "Label for inputting weight before pregnancy"
+                          "description": "Label for pre-pregnancy weight input"
                         },
-                      
+                        
                         "imtCalc_weightPlaceholder": "Example: 65",
                         "@imtCalc_weightPlaceholder": {
-                          "description": "Placeholder for the weight input"
+                          "description": "Placeholder for weight input"
                         },
-                      
+                        
                         "imtCalc_heightLabel": "Height (cm)",
                         "@imtCalc_heightLabel": {
-                          "description": "Label for inputting height"
+                          "description": "Label for height input"
                         },
-                      
+                        
                         "imtCalc_heightPlaceholder": "Example: 165",
                         "@imtCalc_heightPlaceholder": {
-                          "description": "Placeholder for the height input"
+                          "description": "Placeholder for height input"
                         },
-                      
+                        
                         "imtCalc_calculateButton": "Calculate BMI",
                         "@imtCalc_calculateButton": {
-                          "description": "Label for the button to calculate BMI"
+                          "description": "Label for calculate BMI button"
                         },
-                      
+                        
                         "imtCalc_resultTitle": "Your BMI: {imtValue}",
                         "@imtCalc_resultTitle": {
-                          "description": "Title displaying the result of the BMI calculation",
+                          "description": "Title for BMI calculation result",
                           "placeholders": {
                             "imtValue": {
                               "type": "double",
@@ -2646,10 +2646,10 @@
                             }
                           }
                         },
-                      
+                        
                         "imtCalc_categoryResult": "Category: {category}",
                         "@imtCalc_categoryResult": {
-                          "description": "BMI category based on the calculated result",
+                          "description": "BMI category result",
                           "placeholders": {
                             "category": {
                               "type": "String",
@@ -2657,133 +2657,144 @@
                             }
                           }
                         },
-                      
-                        "imtCalc_classificationTitle": "BMI Classification According to WHO:",
+                        
+                        "imtCalc_classificationTitle": "WHO BMI Classification:",
                         "@imtCalc_classificationTitle": {
-                          "description": "Title for the BMI classification section according to WHO"
+                          "description": "Title for WHO BMI classification"
                         },
-                      
+                        
                         "imtCalc_classificationUnderweight": "• < 18.5: Underweight",
                         "@imtCalc_classificationUnderweight": {
                           "description": "BMI classification for underweight"
                         },
-                      
+                        
                         "imtCalc_classificationNormal": "• 18.5 - 24.9: Normal weight",
                         "@imtCalc_classificationNormal": {
                           "description": "BMI classification for normal weight"
                         },
-                      
+                        
                         "imtCalc_classificationOverweight": "• 25.0 - 29.9: Pre-obesity",
                         "@imtCalc_classificationOverweight": {
                           "description": "BMI classification for pre-obesity"
                         },
-                      
+                        
                         "imtCalc_classificationObesity1": "• 30.0 - 34.9: Obesity class I",
                         "@imtCalc_classificationObesity1": {
                           "description": "BMI classification for obesity class I"
                         },
-                      
+                        
                         "imtCalc_classificationObesity2": "• 35.0 - 39.9: Obesity class II",
                         "@imtCalc_classificationObesity2": {
                           "description": "BMI classification for obesity class II"
                         },
-                      
+                        
                         "imtCalc_classificationObesity3": "• ≥ 40.0: Obesity class III",
                         "@imtCalc_classificationObesity3": {
                           "description": "BMI classification for obesity class III"
                         },
-                      
+                        
                         "imtCalc_weightGainRecommendationTitle": "Recommended weight gain during pregnancy:",
                         "@imtCalc_weightGainRecommendationTitle": {
-                          "description": "Title for the recommended weight gain section during pregnancy"
+                          "description": "Title for weight gain recommendation during pregnancy"
                         },
-                      
+                        
                         "imtCalc_weightGainUnderweight": "12.5 - 18 kg",
                         "@imtCalc_weightGainUnderweight": {
-                          "description": "Recommended weight gain for the underweight category"
+                          "description": "Weight gain recommendation for underweight category"
                         },
-                      
+                        
                         "imtCalc_weightGainNormal": "11.5 - 16 kg",
                         "@imtCalc_weightGainNormal": {
-                          "description": "Recommended weight gain for the normal weight category"
+                          "description": "Weight gain recommendation for normal weight category"
                         },
-                      
+                        
                         "imtCalc_weightGainOverweight": "7 - 11.5 kg",
                         "@imtCalc_weightGainOverweight": {
-                          "description": "Recommended weight gain for the pre-obesity category"
+                          "description": "Weight gain recommendation for overweight category"
                         },
-                      
+                        
                         "imtCalc_weightGainObese": "5 - 9 kg",
                         "@imtCalc_weightGainObese": {
-                          "description": "Recommended weight gain for the obesity category"
+                          "description": "Weight gain recommendation for obese category"
                         },
-                      
+                        
                         "imtCalc_healthTipsTitle": "Health Tips",
                         "@imtCalc_healthTipsTitle": {
-                          "description": "Title for the health tips section"
+                          "description": "Title for health tips section"
                         },
-                      
+                        
                         "imtCalc_healthTip1": "• Maintain a healthy diet with balanced nutrition.",
                         "@imtCalc_healthTip1": {
                           "description": "First health tip"
                         },
-                      
-                        "imtCalc_healthTip2": "• Stay active with light exercises during pregnancy.",
+                        
+                        "imtCalc_healthTip2": "• Stay active with light exercise during pregnancy.",
                         "@imtCalc_healthTip2": {
                           "description": "Second health tip"
                         },
-                      
-                        "imtCalc_healthTip3": "• Ensure enough rest and manage stress effectively.",
+                        
+                        "imtCalc_healthTip3": "• Don''t forget to get enough rest and manage stress.",
                         "@imtCalc_healthTip3": {
                           "description": "Third health tip"
                         },
-                      
+                        
                         "imtCalc_infoDialogTitle": "What is WHO BMI?",
                         "@imtCalc_infoDialogTitle": {
-                          "description": "Title for the BMI information dialog"
+                          "description": "Title for WHO BMI information dialog"
                         },
-                      
-                        "imtCalc_infoDialogContent": "Body Mass Index (BMI) is the ratio of weight to height. According to WHO, BMI is used to determine whether a person has a healthy weight. It is categorized into underweight, normal, pre-obesity, and obesity.",
+                        
+                        "imtCalc_infoDialogContent": "Body Mass Index (BMI) is a ratio of weight to height. According to WHO, BMI is used to determine if a person has a healthy body weight. Its values are divided into several categories: underweight, normal, pre-obesity, and obesity.",
                         "@imtCalc_infoDialogContent": {
-                          "description": "Content of the WHO BMI information dialog"
+                          "description": "Content for WHO BMI information dialog"
                         },
-                      
+                        
                         "imtCalc_infoDialogCloseButton": "Close",
                         "@imtCalc_infoDialogCloseButton": {
-                          "description": "Label for the close button in the information dialog"
+                          "description": "Label for button to close information dialog"
                         },
-                      
+                        
                         "imtCalc_validationEmptyField": "This field cannot be empty",
                         "@imtCalc_validationEmptyField": {
-                          "description": "Validation message for an empty field"
+                          "description": "Validation message for empty field"
                         },
-                      
+                        
                         "imtCalc_validationInvalidNumber": "Please enter a valid number",
                         "@imtCalc_validationInvalidNumber": {
-                          "description": "Validation message for an invalid number input"
+                          "description": "Validation message for invalid number input"
                         },
-                          "imtCalc_categoryUnderweight": "Underweight",
-                          "@imtCalc_categoryUnderweight": {
-                            "description": "BMI category for underweight"
-                          },
-                          "imtCalc_categoryNormal": "Normal weight",
-                          "@imtCalc_categoryNormal": {
-                            "description": "BMI category for normal weight"
-                          },
-                          "imtCalc_categoryOverweight": "Overweight",
-                          "@imtCalc_categoryOverweight": {
-                            "description": "BMI category for overweight"
-                          },
-                          "imtCalc_categoryObesity1": "Obesity class I",
-                          "@imtCalc_categoryObesity1": {
-                            "description": "BMI category for obesity class I"
-                          },
-                          "imtCalc_categoryObesity2": "Obesity class II",
-                          "@imtCalc_categoryObesity2": {
-                            "description": "BMI category for obesity class II"
-                          },
-                          "imtCalc_categoryObesity3": "Obesity class III",
-                          "@imtCalc_categoryObesity3": {
-                            "description": "BMI category for obesity class III"
-                          }                                                                                                      
+                        
+                        "imtCalc_motivationUnderweight": "You have the potential to achieve a healthier weight. Let''s focus on balanced nutrition and consult with a doctor!",
+                        "@imtCalc_motivationUnderweight": {
+                          "description": "Motivation message for underweight category"
+                        },
+                        
+                        "imtCalc_motivationNormalWeight": "Congratulations! You''re on the right track. Maintain your healthy lifestyle and keep monitoring your pregnancy progress!",
+                        "@imtCalc_motivationNormalWeight": {
+                          "description": "Motivation message for normal weight category"
+                        },
+                        
+                        "imtCalc_motivationPreObesity": "You have a good opportunity to improve your health. Start with small steps and consult with a nutritionist!",
+                        "@imtCalc_motivationPreObesity": {
+                          "description": "Motivation message for pre-obesity category"
+                        },
+                        
+                        "imtCalc_motivationObesity": "Every step towards a healthier lifestyle is an achievement. You can do it! Consult with a doctor for further guidance.",
+                        "@imtCalc_motivationObesity": {
+                          "description": "Motivation message for obesity category"
+                        },
+                        
+                        "imtCalc_bottomNavHome": "Home",
+                        "@imtCalc_bottomNavHome": {
+                          "description": "Label for home button in bottom navigation bar"
+                        },
+                        
+                        "imtCalc_bottomNavInfo": "BMI Info",
+                        "@imtCalc_bottomNavInfo": {
+                          "description": "Label for info button in bottom navigation bar"
+                        },
+                        
+                        "imtCalc_bottomNavProfile": "My Profile",
+                        "@imtCalc_bottomNavProfile": {
+                          "description": "Label for profile button in bottom navigation bar"
+                        }                                                                                                          
 }

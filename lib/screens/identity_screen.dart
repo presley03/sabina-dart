@@ -80,7 +80,7 @@ class IdentityScreenState extends State<IdentityScreen> {
                             children: [
                               const Text(
                                 'Lengkapi Data Diri Anda',
-                                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
                                 textAlign: TextAlign.center,
                               ),
                               const SizedBox(height: 30),
@@ -116,7 +116,7 @@ class IdentityScreenState extends State<IdentityScreen> {
                                 onPressed: _saveIdentity,
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white.withOpacity(0.3),
-                                  foregroundColor: Colors.white,
+                                  foregroundColor: Colors.black,
                                   padding: const EdgeInsets.symmetric(vertical: 16),
                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                                 ),
@@ -170,21 +170,21 @@ class IdentityScreenState extends State<IdentityScreen> {
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
-          prefixIcon: Icon(icon, color: Colors.white),
+          prefixIcon: Icon(icon, color: Colors.black),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
-            borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+            borderSide: BorderSide(color: Colors.black.withOpacity(0.5)),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
-            borderSide: const BorderSide(color: Colors.white),
+            borderSide: const BorderSide(color: Colors.black),
           ),
           filled: true,
-          fillColor: Colors.white.withOpacity(0.1),
-          labelStyle: const TextStyle(color: Colors.white),
+          fillColor: Colors.white.withOpacity(0.7),
+          labelStyle: const TextStyle(color: Colors.black),
         ),
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.black),
         readOnly: readOnly,
         validator: validator,
         onTap: onTap,
@@ -204,21 +204,21 @@ class IdentityScreenState extends State<IdentityScreen> {
         child: InputDecorator(
           decoration: InputDecoration(
             labelText: label,
-            prefixIcon: Icon(label == 'Agama' ? Icons.church : Icons.opacity, color: Colors.white),
+            prefixIcon: Icon(label == 'Agama' ? Icons.church : Icons.opacity, color: Colors.black),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+              borderSide: BorderSide(color: Colors.black.withOpacity(0.5)),
             ),
             filled: true,
-            fillColor: Colors.white.withOpacity(0.1),
-            labelStyle: const TextStyle(color: Colors.white),
+            fillColor: Colors.white.withOpacity(0.7),
+            labelStyle: const TextStyle(color: Colors.black),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(value, style: const TextStyle(color: Colors.white)),
-              const Icon(Icons.arrow_drop_down, color: Colors.white),
+              Text(value, style: const TextStyle(color: Colors.black)),
+              const Icon(Icons.arrow_drop_down, color: Colors.black),
             ],
           ),
         ),
@@ -271,7 +271,7 @@ class IdentityScreenState extends State<IdentityScreen> {
             scrollController: FixedExtentScrollController(
               initialItem: items.indexOf(currentValue),
             ),
-            children: items.map((item) => Text(item)).toList(),
+            children: items.map((item) => Text(item, style: const TextStyle(color: Colors.black))).toList(),
             onSelectedItemChanged: (index) {
               onSelectedItemChanged(items[index]);
             },
@@ -301,7 +301,7 @@ class IdentityScreenState extends State<IdentityScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Data identitas berhasil disimpan'),
+            content: Text('Data identitas berhasil disimpan', style: TextStyle(color: Colors.white)),
             backgroundColor: AppColors.primaryPink,
           ),
         );

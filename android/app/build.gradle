@@ -27,25 +27,31 @@ android {
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        // versionCode = flutter.versionCode
+        // versionName = flutter.versionName
+        versionCode 1
+        versionName "1.0.0"
     }
 
-    signingConfigs {
-        release {
-            keyAlias 'sabina_key'
-            keyPassword 'Ordinari123'
-            storeFile file('C:/Users/presl/sabina_keystore.jks')
-            storePassword 'Ordinari123'
-        }
-    }
+    //signingConfigs {
+    //    release {
+    //        keyAlias 'sabina_key'
+    //        keyPassword 'Ordinari123'
+    //        storeFile file('C:/Users/presl/sabina_keystore.jks')
+    //        storePassword 'Ordinari123'
+    //    }
+    //}
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            // signingConfig = signingConfigs.debug
-            signingConfig = signingConfigs.release
+             signingConfig = signingConfigs.debug
+
+           // signingConfig = signingConfigs.release
+           // minifyEnabled true
+           // shrinkResources true
+           // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }

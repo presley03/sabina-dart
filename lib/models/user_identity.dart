@@ -1,3 +1,5 @@
+// File: lib/models/user_identity.dart
+
 class UserIdentity {
   final int? id;
   final String nama;
@@ -14,6 +16,15 @@ class UserIdentity {
     required this.alamat,
     required this.golonganDarah,
   });
+
+  // Konstruktor kosong
+  UserIdentity.empty()
+      : id = null,
+        nama = '',
+        agama = '',
+        tanggalLahir = '',
+        alamat = '',
+        golonganDarah = '';
 
   Map<String, dynamic> toMap() {
     return {

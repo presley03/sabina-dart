@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sabina_app/models/keluar_darah_model.dart';
 import 'package:sabina_app/models/mual_muntah_model.dart';
+//import 'package:sabina_app/screens/identity_screen.dart';
 import 'package:sabina_app/screens/splash_screen.dart';
 import 'package:sabina_app/screens/care/aktivitas_fisik_ibu_hamil_screen.dart'; // Tambahkan rute baru
 import 'package:sabina_app/screens/care/makanan_screen.dart'; // Tambahkan rute baru

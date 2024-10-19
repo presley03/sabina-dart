@@ -12,6 +12,7 @@ import '../services/database_helper.dart';
 import '../utils/constants.dart';
 import '../providers/locale_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'identity_screen.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -24,6 +25,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   File? _image;
   final picker = ImagePicker();
   final logger = Logger();
+  int _tapCount = 0;
+  final _tapThreshold = 3;
 
   @override
   void initState() {
@@ -57,6 +60,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     }
   }
 
+  void _navigateToIdentityScreen(BuildContext context, UserIdentity userIdentity) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => IdentityScreen(userIdentity: userIdentity),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
@@ -82,7 +93,18 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               SliverToBoxAdapter(child: _buildProfileSummary(userIdentity)),
               SliverList(
                 delegate: SliverChildListDelegate([
-                  _buildIdentitySection(userIdentity, localizations),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _tapCount++;
+                        if (_tapCount >= _tapThreshold) {
+                          _navigateToIdentityScreen(context, userIdentity);
+                          _tapCount = 0;
+                        }
+                      });
+                    },
+                    child: _buildIdentitySection(userIdentity, localizations),
+                  ),
                   _buildPregnancyHistorySection(pregnancyHistory, localizations),
                   _buildPrivacyPolicySection(localizations),
                   _buildLanguageSelector(localizations),
@@ -116,15 +138,31 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               const SizedBox(height: 40),
               GestureDetector(
                 onTap: getImage,
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.white,
-                  backgroundImage: _image != null 
-                    ? FileImage(_image!) 
-                    : const AssetImage('assets/default_avatar.png') as ImageProvider,
-                  child: _image == null && userIdentity.nama.isEmpty
-                    ? const Text('?', style: TextStyle(fontSize: 40, color: AppColors.primaryPink, fontWeight: FontWeight.bold))
-                    : null,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.white,
+                      backgroundImage: _image != null 
+                        ? FileImage(_image!) 
+                        : const AssetImage('assets/default_avatar.png') as ImageProvider,
+                    ),
+                    if (_image == null)
+                      Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.3),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                      ),
+                  ],
                 ),
               ),
               const SizedBox(height: 10),
@@ -196,7 +234,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       Icons.pregnant_woman,
       [
         _buildInfoTile(localizations.gestationalAge, pregnancyHistory.usiaKehamilan),
-        _buildInfoTile(localizations.estimatedDueDate, pregnancyHistory.perkiraanTanggalKelahiran ?? 'N/A'),
         _buildInfoTile(localizations.pregnancyOrder, pregnancyHistory.kehamilanKe),
         _buildInfoTile(localizations.numberOfChildren, pregnancyHistory.jumlahAnak),
         _buildInfoTile(localizations.miscarriageHistory, pregnancyHistory.riwayatKeguguran),
@@ -269,30 +306,17 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                localizations.aboutSabina,
-                style: const TextStyle(fontSize: 16),
-              ),
+              Text(localizations.aboutSabina),
               const SizedBox(height: 16),
-              Text(
-                localizations.initiatedBy,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                localizations.initiatorNames,
-                style: const TextStyle(fontSize: 16),
-              ),
+              Text(localizations.initiatedBy),
+              Text(localizations.initiatorNames),
               const SizedBox(height: 16),
-              Text(
-                localizations.illustrationCredits,
-                style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
-              ),
+              Text(localizations.illustrationCredits),
             ],
           ),
         ),
       ],
-      Colors.orange[50]!,
+      Colors.yellow[50]!,
     );
   }
 
@@ -344,7 +368,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     final pregnancyHistories = await DatabaseHelper.instance.getPregnancyHistory();
 
     return {
-      'userIdentity': identities.isNotEmpty ? UserIdentity.fromMap(identities.first) : null,
+      'userIdentity': identities.isNotEmpty ? UserIdentity.fromMap(identities.first) : UserIdentity.empty(),
       'pregnancyHistory': pregnancyHistories.isNotEmpty ? PregnancyHistory.fromMap(pregnancyHistories.first) : null,
     };
   }

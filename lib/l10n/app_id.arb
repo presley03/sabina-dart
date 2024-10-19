@@ -2608,32 +2608,32 @@
                         "@imtCalc_screenTitle": {
                           "description": "Judul untuk layar kalkulator Indeks Massa Tubuh (IMT)"
                         },
-                      
+                        
                         "imtCalc_weightLabel": "BB Sebelum Hamil (kg)",
                         "@imtCalc_weightLabel": {
                           "description": "Label untuk input berat badan sebelum kehamilan"
                         },
-                      
+                        
                         "imtCalc_weightPlaceholder": "Contoh: 65",
                         "@imtCalc_weightPlaceholder": {
                           "description": "Placeholder untuk input berat badan"
                         },
-                      
+                        
                         "imtCalc_heightLabel": "Tinggi Badan (cm)",
                         "@imtCalc_heightLabel": {
                           "description": "Label untuk input tinggi badan"
                         },
-                      
+                        
                         "imtCalc_heightPlaceholder": "Contoh: 165",
                         "@imtCalc_heightPlaceholder": {
                           "description": "Placeholder untuk input tinggi badan"
                         },
-                      
+                        
                         "imtCalc_calculateButton": "Hitung IMT",
                         "@imtCalc_calculateButton": {
                           "description": "Label untuk tombol hitung IMT"
                         },
-                      
+                        
                         "imtCalc_resultTitle": "IMT Anda: {imtValue}",
                         "@imtCalc_resultTitle": {
                           "description": "Judul hasil perhitungan IMT",
@@ -2645,7 +2645,7 @@
                             }
                           }
                         },
-                      
+                        
                         "imtCalc_categoryResult": "Kategori: {category}",
                         "@imtCalc_categoryResult": {
                           "description": "Hasil kategori IMT",
@@ -2656,133 +2656,144 @@
                             }
                           }
                         },
-                      
+                        
                         "imtCalc_classificationTitle": "Klasifikasi IMT menurut WHO:",
                         "@imtCalc_classificationTitle": {
                           "description": "Judul untuk klasifikasi IMT menurut WHO"
                         },
-                      
+                        
                         "imtCalc_classificationUnderweight": "• < 18.5: Berat badan kurang",
                         "@imtCalc_classificationUnderweight": {
                           "description": "Klasifikasi IMT untuk berat badan kurang"
                         },
-                      
+                        
                         "imtCalc_classificationNormal": "• 18.5 - 24.9: Berat badan normal",
                         "@imtCalc_classificationNormal": {
                           "description": "Klasifikasi IMT untuk berat badan normal"
                         },
-                      
+                        
                         "imtCalc_classificationOverweight": "• 25.0 - 29.9: Pra-obesitas",
                         "@imtCalc_classificationOverweight": {
                           "description": "Klasifikasi IMT untuk pra-obesitas"
                         },
-                      
+                        
                         "imtCalc_classificationObesity1": "• 30.0 - 34.9: Obesitas kelas I",
                         "@imtCalc_classificationObesity1": {
                           "description": "Klasifikasi IMT untuk obesitas kelas I"
                         },
-                      
+                        
                         "imtCalc_classificationObesity2": "• 35.0 - 39.9: Obesitas kelas II",
                         "@imtCalc_classificationObesity2": {
                           "description": "Klasifikasi IMT untuk obesitas kelas II"
                         },
-                      
+                        
                         "imtCalc_classificationObesity3": "• ≥ 40.0: Obesitas kelas III",
                         "@imtCalc_classificationObesity3": {
                           "description": "Klasifikasi IMT untuk obesitas kelas III"
                         },
-                      
+                        
                         "imtCalc_weightGainRecommendationTitle": "Rekomendasi penambahan berat badan selama kehamilan:",
                         "@imtCalc_weightGainRecommendationTitle": {
                           "description": "Judul untuk rekomendasi penambahan berat badan selama kehamilan"
                         },
-                      
+                        
                         "imtCalc_weightGainUnderweight": "12,5 - 18 kg",
                         "@imtCalc_weightGainUnderweight": {
                           "description": "Rekomendasi penambahan berat badan untuk kategori berat badan kurang"
                         },
-                      
+                        
                         "imtCalc_weightGainNormal": "11,5 - 16 kg",
                         "@imtCalc_weightGainNormal": {
                           "description": "Rekomendasi penambahan berat badan untuk kategori berat badan normal"
                         },
-                      
+                        
                         "imtCalc_weightGainOverweight": "7 - 11,5 kg",
                         "@imtCalc_weightGainOverweight": {
                           "description": "Rekomendasi penambahan berat badan untuk kategori pra-obesitas"
                         },
-                      
+                        
                         "imtCalc_weightGainObese": "5 - 9 kg",
                         "@imtCalc_weightGainObese": {
                           "description": "Rekomendasi penambahan berat badan untuk kategori obesitas"
                         },
-                      
+                        
                         "imtCalc_healthTipsTitle": "Tips Kesehatan",
                         "@imtCalc_healthTipsTitle": {
                           "description": "Judul untuk bagian tips kesehatan"
                         },
-                      
+                        
                         "imtCalc_healthTip1": "• Jaga pola makan sehat dengan makanan bergizi seimbang.",
                         "@imtCalc_healthTip1": {
                           "description": "Tip kesehatan pertama"
                         },
-                      
+                        
                         "imtCalc_healthTip2": "• Tetap aktif dengan olahraga ringan selama kehamilan.",
                         "@imtCalc_healthTip2": {
                           "description": "Tip kesehatan kedua"
                         },
-                      
+                        
                         "imtCalc_healthTip3": "• Jangan lupa istirahat yang cukup dan kelola stres.",
                         "@imtCalc_healthTip3": {
                           "description": "Tip kesehatan ketiga"
                         },
-                      
+                        
                         "imtCalc_infoDialogTitle": "Apa itu IMT WHO?",
                         "@imtCalc_infoDialogTitle": {
                           "description": "Judul dialog informasi IMT WHO"
                         },
-                      
+                        
                         "imtCalc_infoDialogContent": "Indeks Massa Tubuh (IMT) adalah perbandingan antara berat badan dan tinggi badan. Menurut WHO, IMT digunakan untuk mengetahui apakah seseorang memiliki berat badan sehat. Nilainya dibagi menjadi beberapa kategori: kurang, normal, pra-obesitas, dan obesitas.",
                         "@imtCalc_infoDialogContent": {
                           "description": "Konten dialog informasi IMT WHO"
                         },
-                      
+                        
                         "imtCalc_infoDialogCloseButton": "Tutup",
                         "@imtCalc_infoDialogCloseButton": {
                           "description": "Label tombol untuk menutup dialog informasi"
                         },
-                      
+                        
                         "imtCalc_validationEmptyField": "Field ini tidak boleh kosong",
                         "@imtCalc_validationEmptyField": {
                           "description": "Pesan validasi untuk field yang kosong"
                         },
-                      
+                        
                         "imtCalc_validationInvalidNumber": "Mohon masukkan angka yang valid",
                         "@imtCalc_validationInvalidNumber": {
                           "description": "Pesan validasi untuk input yang bukan angka valid"
                         },
-                          "imtCalc_categoryUnderweight": "Berat badan kurang",
-                          "@imtCalc_categoryUnderweight": {
-                            "description": "Kategori IMT untuk berat badan kurang"
-                          },
-                          "imtCalc_categoryNormal": "Berat badan normal",
-                          "@imtCalc_categoryNormal": {
-                            "description": "Kategori IMT untuk berat badan normal"
-                          },
-                          "imtCalc_categoryOverweight": "Pra-obesitas",
-                          "@imtCalc_categoryOverweight": {
-                            "description": "Kategori IMT untuk pra-obesitas"
-                          },
-                          "imtCalc_categoryObesity1": "Obesitas kelas I",
-                          "@imtCalc_categoryObesity1": {
-                            "description": "Kategori IMT untuk obesitas kelas I"
-                          },
-                          "imtCalc_categoryObesity2": "Obesitas kelas II",
-                          "@imtCalc_categoryObesity2": {
-                            "description": "Kategori IMT untuk obesitas kelas II"
-                          },
-                          "imtCalc_categoryObesity3": "Obesitas kelas III",
-                          "@imtCalc_categoryObesity3": {
-                            "description": "Kategori IMT untuk obesitas kelas III"
-                          }                                                     
+                        
+                        "imtCalc_motivationUnderweight": "Anda memiliki potensi untuk mencapai berat badan yang lebih sehat. Mari fokus pada nutrisi yang seimbang dan konsultasikan dengan dokter!",
+                        "@imtCalc_motivationUnderweight": {
+                          "description": "Pesan motivasi untuk kategori berat badan kurang"
+                        },
+                        
+                        "imtCalc_motivationNormalWeight": "Selamat! Anda berada di jalur yang tepat. Pertahankan pola hidup sehat Anda dan tetap pantau perkembangan kehamilan!",
+                        "@imtCalc_motivationNormalWeight": {
+                          "description": "Pesan motivasi untuk kategori berat badan normal"
+                        },
+                        
+                        "imtCalc_motivationPreObesity": "Anda memiliki kesempatan baik untuk meningkatkan kesehatan. Mulailah dengan langkah kecil dan konsultasikan dengan ahli gizi!",
+                        "@imtCalc_motivationPreObesity": {
+                          "description": "Pesan motivasi untuk kategori pra-obesitas"
+                        },
+                        
+                        "imtCalc_motivationObesity": "Setiap langkah menuju gaya hidup lebih sehat adalah prestasi. Anda mampu melakukannya! Konsultasikan dengan dokter untuk panduan lebih lanjut.",
+                        "@imtCalc_motivationObesity": {
+                          "description": "Pesan motivasi untuk kategori obesitas"
+                        },
+                        
+                        "imtCalc_bottomNavHome": "Beranda",
+                        "@imtCalc_bottomNavHome": {
+                          "description": "Label untuk tombol beranda di navigation bar bawah"
+                        },
+                        
+                        "imtCalc_bottomNavInfo": "Info IMT",
+                        "@imtCalc_bottomNavInfo": {
+                          "description": "Label untuk tombol info di navigation bar bawah"
+                        },
+                        
+                        "imtCalc_bottomNavProfile": "Profil Saya",
+                        "@imtCalc_bottomNavProfile": {
+                          "description": "Label untuk tombol profil di navigation bar bawah"
+                        }                         
 }

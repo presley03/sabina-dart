@@ -40,6 +40,7 @@ class AppAssets {
   static const String imtBackgroundAvocado = 'assets/images/imt_avocado.png';
   static const String imtBackgroundVegetables = 'assets/images/imt_vegetables.png';
   static const String imtBackgroundHumanFit = 'assets/images/imt_background_health.png';
+  static const String imtBackground = 'assets/images/IMT_Background.png';
 }
 
 class AppPadding {

@@ -75,21 +75,21 @@ class CareSection extends StatelessWidget {
               const SizedBox(width: 10),
               _buildCareCard(
                 context: context,
-                title: localizations.calculateBMI,
-                icon: Icons.calculate,
-                color: Colors.green[100]!,
-                onTap: () {
-                  Navigator.of(context).push(_createRoute(const IMTCalculatorScreen()));
-                },
-              ),
-              const SizedBox(width: 10),
-              _buildCareCard(
-                context: context,
                 title: localizations.persiapanPersalinan,
                 icon: Icons.pregnant_woman,
                 color: Colors.yellow[100]!,
                 onTap: () {
                   Navigator.of(context).push(_createRoute(const PersiapanPersalinanScreen()));
+                },
+              ),
+               const SizedBox(width: 10),
+              _buildCareCard(
+                context: context,
+                title: localizations.calculateBMI,
+                icon: Icons.calculate,
+                color: Colors.green[100]!,
+                onTap: () {
+                  Navigator.of(context).push(_createRoute(const IMTCalculatorScreen()));
                 },
               ),
             ],
