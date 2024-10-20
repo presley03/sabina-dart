@@ -234,6 +234,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       Icons.pregnant_woman,
       [
         _buildInfoTile(localizations.gestationalAge, pregnancyHistory.usiaKehamilan),
+        _buildInfoTile(localizations.estimatedDueDate, _calculateEstimatedBirthDate(pregnancyHistory.usiaKehamilan)),
         _buildInfoTile(localizations.pregnancyOrder, pregnancyHistory.kehamilanKe),
         _buildInfoTile(localizations.numberOfChildren, pregnancyHistory.jumlahAnak),
         _buildInfoTile(localizations.miscarriageHistory, pregnancyHistory.riwayatKeguguran),
@@ -347,18 +348,42 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   String _calculateAge(String birthDateString) {
     if (birthDateString.isEmpty) return 'N/A';
-    
+
     try {
       final birthDate = DateFormat('dd-MM-yyyy').parse(birthDateString);
       final today = DateTime.now();
       int age = today.year - birthDate.year;
-      if (today.month < birthDate.month || 
+      if (today.month < birthDate.month ||
           (today.month == birthDate.month && today.day < birthDate.day)) {
         age--;
       }
-      return '$age tahun';
+      
+      // Use localization to get the correct string for 'years'
+      String yearsText = AppLocalizations.of(context)!.years;
+      
+      return '$age $yearsText';
     } catch (e) {
       logger.e('Error calculating age: $e');
+      return 'N/A';
+    }
+  }
+
+  String _calculateEstimatedBirthDate(String gestationalAge) {
+    try {
+      final now = DateTime.now();
+      final ageComponents = gestationalAge.split(' ');
+      if (ageComponents.length != 4) throw const FormatException('Invalid gestational age format');
+
+      final weeks = int.parse(ageComponents[0]);
+      final days = int.parse(ageComponents[2]);
+
+      final totalDaysPregnant = (weeks * 7) + days;
+      final daysUntilBirth = (280 - totalDaysPregnant).clamp(0, 280);
+
+      final estimatedBirthDate = now.add(Duration(days: daysUntilBirth));
+      return DateFormat('dd-MM-yyyy').format(estimatedBirthDate);
+    } catch (e) {
+      logger.e('Error calculating estimated birth date: $e');
       return 'N/A';
     }
   }

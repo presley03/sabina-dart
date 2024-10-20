@@ -2604,7 +2604,7 @@
                       "@physicalActivity_reference3": {
                         "description": "Referensi 3"
                       },
-                        "imtCalc_screenTitle": "Hitung IMT",
+                        "imtCalc_screenTitle": "Indeks Massa Tubuh",
                         "@imtCalc_screenTitle": {
                           "description": "Judul untuk layar kalkulator Indeks Massa Tubuh (IMT)"
                         },

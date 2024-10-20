@@ -28,6 +28,7 @@ class CareSection extends StatelessWidget {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
+                  //fontFamily: 'Roboto'
                 ),
               ),
               TextButton(
@@ -167,7 +168,7 @@ class CareSection extends StatelessWidget {
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.web, color: Colors.white, size: 28),
+          Icon(Icons.arrow_circle_right_outlined, color: Colors.white, size: 28),
           SizedBox(width: 12),
           Flexible(
             child: FittedBox(
