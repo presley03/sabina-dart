@@ -40,9 +40,7 @@ class SecureStorageHelper {
 
   // Validasi input untuk mencegah injection
   static String sanitizeInput(String input) {
-    return input
-        .replaceAll(RegExp(r'[<>"' + "'" + r';]'), '')
-        .trim();
+    return input.replaceAll(RegExp(r'[<>"' + "'" + r';]'), '').trim();
   }
 
   // Validasi format tanggal
@@ -70,7 +68,7 @@ class SecureStorageHelper {
     try {
       final recordsJson = await getSecureData('health_records');
       if (recordsJson == null) return [];
-      
+
       final List<dynamic> recordsList = json.decode(recordsJson);
       return recordsList.map((record) => HealthRecord.fromMap(record)).toList();
     } catch (e) {
@@ -83,8 +81,9 @@ class SecureStorageHelper {
     try {
       final existingRecords = await getHealthRecords();
       existingRecords.add(record);
-      
-      final recordsJson = json.encode(existingRecords.map((r) => r.toMap()).toList());
+
+      final recordsJson =
+          json.encode(existingRecords.map((r) => r.toMap()).toList());
       await storeSecureData('health_records', recordsJson);
     } catch (e) {
       print('Error saving health record: $e');
@@ -96,10 +95,11 @@ class SecureStorageHelper {
     try {
       final existingRecords = await getHealthRecords();
       final index = existingRecords.indexWhere((r) => r.id == record.id);
-      
+
       if (index != -1) {
         existingRecords[index] = record;
-        final recordsJson = json.encode(existingRecords.map((r) => r.toMap()).toList());
+        final recordsJson =
+            json.encode(existingRecords.map((r) => r.toMap()).toList());
         await storeSecureData('health_records', recordsJson);
       }
     } catch (e) {
@@ -112,8 +112,9 @@ class SecureStorageHelper {
     try {
       final existingRecords = await getHealthRecords();
       existingRecords.removeWhere((r) => r.id == recordId);
-      
-      final recordsJson = json.encode(existingRecords.map((r) => r.toMap()).toList());
+
+      final recordsJson =
+          json.encode(existingRecords.map((r) => r.toMap()).toList());
       await storeSecureData('health_records', recordsJson);
     } catch (e) {
       print('Error deleting health record: $e');
@@ -126,9 +127,11 @@ class SecureStorageHelper {
     try {
       final contactsJson = await getSecureData('emergency_contacts');
       if (contactsJson == null) return [];
-      
+
       final List<dynamic> contactsList = json.decode(contactsJson);
-      return contactsList.map((contact) => EmergencyContact.fromMap(contact)).toList();
+      return contactsList
+          .map((contact) => EmergencyContact.fromMap(contact))
+          .toList();
     } catch (e) {
       print('Error getting emergency contacts: $e');
       return [];
@@ -139,8 +142,9 @@ class SecureStorageHelper {
     try {
       final existingContacts = await getEmergencyContacts();
       existingContacts.add(contact);
-      
-      final contactsJson = json.encode(existingContacts.map((c) => c.toMap()).toList());
+
+      final contactsJson =
+          json.encode(existingContacts.map((c) => c.toMap()).toList());
       await storeSecureData('emergency_contacts', contactsJson);
     } catch (e) {
       print('Error saving emergency contact: $e');
@@ -152,10 +156,11 @@ class SecureStorageHelper {
     try {
       final existingContacts = await getEmergencyContacts();
       final index = existingContacts.indexWhere((c) => c.id == contact.id);
-      
+
       if (index != -1) {
         existingContacts[index] = contact;
-        final contactsJson = json.encode(existingContacts.map((c) => c.toMap()).toList());
+        final contactsJson =
+            json.encode(existingContacts.map((c) => c.toMap()).toList());
         await storeSecureData('emergency_contacts', contactsJson);
       }
     } catch (e) {
@@ -168,12 +173,13 @@ class SecureStorageHelper {
     try {
       final existingContacts = await getEmergencyContacts();
       existingContacts.removeWhere((c) => c.id == contactId);
-      
-      final contactsJson = json.encode(existingContacts.map((c) => c.toMap()).toList());
+
+      final contactsJson =
+          json.encode(existingContacts.map((c) => c.toMap()).toList());
       await storeSecureData('emergency_contacts', contactsJson);
     } catch (e) {
       print('Error deleting emergency contact: $e');
       throw Exception('Failed to delete emergency contact');
     }
   }
-} 
+}
