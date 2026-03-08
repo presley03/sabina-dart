@@ -41,7 +41,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     try {
       final records = await SecureStorageHelper.getHealthRecords();
       final contacts = await SecureStorageHelper.getEmergencyContacts();
-      final score = await HealthAnalyticsService.calculateHealthScore(records);
+      final score = HealthAnalyticsService.calculateHealthScore(records);
 
       if (mounted) {
         setState(() {
