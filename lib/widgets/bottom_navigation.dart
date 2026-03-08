@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Menggunakan AppLocalizations
+import 'package:sabina/generated/app_localizations.dart'; // Menggunakan AppLocalizations
 import '../utils/constants.dart';
 
 class SabinaBottomNavigation extends StatelessWidget {
@@ -18,11 +18,13 @@ class SabinaBottomNavigation extends StatelessWidget {
 
   // Fungsi untuk meluncurkan WhatsApp
   Future<void> _launchWhatsApp(BuildContext context) async {
-    const phoneNumber = '6283141499437'; // Ganti dengan nomor WhatsApp admin Sabina yang valid
+    const phoneNumber =
+        '6285249509299'; // Ganti dengan nomor WhatsApp admin Sabina yang valid
     const message = 'Halo, saya ingin berkonsultasi.';
     final encodedMessage = Uri.encodeComponent(message);
 
-    final whatsappUrl = Uri.parse('https://wa.me/$phoneNumber/?text=$encodedMessage');
+    final whatsappUrl =
+        Uri.parse('https://wa.me/$phoneNumber/?text=$encodedMessage');
 
     try {
       if (await canLaunchUrl(whatsappUrl)) {
@@ -34,7 +36,8 @@ class SabinaBottomNavigation extends StatelessWidget {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text('Gagal membuka WhatsApp: Pastikan WhatsApp terinstal dan nomor valid'),
+            content: const Text(
+                'Gagal membuka WhatsApp: Pastikan WhatsApp terinstal dan nomor valid'),
             duration: const Duration(seconds: 5),
             action: SnackBarAction(
               label: 'OK',
@@ -48,7 +51,8 @@ class SabinaBottomNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = AppLocalizations.of(context)!; // Mendapatkan instance AppLocalizations
+    final localizations =
+        AppLocalizations.of(context)!; // Mendapatkan instance AppLocalizations
 
     return BottomNavigationBar(
       currentIndex: currentIndex,
@@ -88,7 +92,8 @@ class SabinaBottomNavigation extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: const FaIcon(FontAwesomeIcons.whatsapp, size: 30),
-          label: localizations.consultation, // Menggunakan lokal untuk 'Konsultasi'
+          label: localizations
+              .consultation, // Menggunakan lokal untuk 'Konsultasi'
           tooltip: localizations.consultationTooltip, // Tooltip terjemahan
         ),
       ],

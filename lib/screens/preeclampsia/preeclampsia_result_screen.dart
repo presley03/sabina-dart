@@ -50,14 +50,14 @@ class ResultScreen extends StatelessWidget {
                               child: Container(
                                 padding: const EdgeInsets.all(24),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.2), // Transparan dengan opasitas rendah
+                                  color: Colors.white.withValues(alpha: 0.2), // Transparan dengan opasitas rendah
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all(
-                                    color: Colors.white.withOpacity(0.3), // Border semi-transparan
+                                    color: Colors.white.withValues(alpha: 0.3), // Border semi-transparan
                                   ),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.black.withOpacity(0.1),
+                                      color: Colors.black.withValues(alpha: 0.1),
                                       spreadRadius: 2,
                                       blurRadius: 15,
                                       offset: const Offset(0, 6), // Shadow lebih lembut dan lebar

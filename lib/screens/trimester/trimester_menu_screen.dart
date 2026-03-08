@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Import localization
+import 'package:sabina/generated/app_localizations.dart'; // Import localization
 
 import 'trimester_satu.dart'; // Pastikan file ini sudah ada
 import 'trimester_dua.dart'; // Pastikan file ini sudah ada
@@ -22,7 +22,8 @@ class TrimesterMenuScreen extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
-          localizations!.trimesterMenuTitle, // Ganti teks statis dengan string terjemahan
+          localizations!
+              .trimesterMenuTitle, // Ganti teks statis dengan string terjemahan
           style: const TextStyle(
             color: Colors.black,
             fontSize: 20,
@@ -50,7 +51,8 @@ class TrimesterMenuScreen extends StatelessWidget {
                 Colors.pink[100]!,
                 Icons.pregnant_woman,
                 localizations.trimesterOneTip, // Ganti teks statis
-                () => _navigateToTrimester(context, const TrimesterSatuScreen()),
+                () =>
+                    _navigateToTrimester(context, const TrimesterSatuScreen()),
               ),
               const SizedBox(height: 20),
               _buildTrimesterCard(
@@ -70,7 +72,8 @@ class TrimesterMenuScreen extends StatelessWidget {
                 Colors.orange[100]!,
                 Icons.family_restroom,
                 localizations.trimesterThreeTip, // Ganti teks statis
-                () => _navigateToTrimester(context, const TrimesterTigaScreen()),
+                () =>
+                    _navigateToTrimester(context, const TrimesterTigaScreen()),
               ),
             ],
           ),
@@ -106,7 +109,7 @@ class TrimesterMenuScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.3),
+                color: Colors.grey.withValues(alpha: 0.3),
                 spreadRadius: 2,
                 blurRadius: 5,
                 offset: const Offset(0, 3),
@@ -118,7 +121,8 @@ class TrimesterMenuScreen extends StatelessWidget {
               Positioned(
                 right: 10,
                 bottom: 10,
-                child: Icon(icon, size: 70, color: Colors.white.withOpacity(0.5)),
+                child:
+                    Icon(icon, size: 70, color: Colors.white.withValues(alpha: 0.5)),
               ),
               Padding(
                 padding: const EdgeInsets.all(15),
@@ -172,7 +176,8 @@ class TrimesterMenuScreen extends StatelessWidget {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
           const curve = Curves.easeInOut;
-          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
           return SlideTransition(
             position: animation.drive(tween),
             child: child,

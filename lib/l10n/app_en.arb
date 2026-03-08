@@ -460,7 +460,7 @@
   "@about": {
     "description": "Label for 'About' section in the app"
   },
-  "aboutSabina": "SABINA is an application designed to help pregnant women monitor their pregnancy and access important information about maternal and child health.",
+  "aboutSabina": "SABINA - Maternal Health Monitor is a monitoring application that helps pregnant women track and record their pregnancy progress, provides reliable pregnancy health information, and guidance for routine prenatal check-ups.",
   "@aboutSabina": {
     "description": "Description of SABINA app for 'About' section"
   },
@@ -545,7 +545,7 @@
       "description": "Label for weeks 1-2"
     },
   
-    "trimesterOne_week1_2_desc": "The mother’s body prepares for ovulation and fertilization.",
+    "trimesterOne_week1_2_desc": "The mother's body prepares for ovulation and fertilization.",
     "@trimesterOne_week1_2_desc": {
       "description": "Description of fetal development during weeks 1-2"
     },
@@ -1273,7 +1273,7 @@
             "description": "Header title for the preparing for labor page"
           },
         
-          "preparingForLabor_intro": "Preparing for labor is essential for pregnant women, their families, and close communities. This preparation includes three main aspects: preparing the mother, preparing for the baby’s arrival, and preparing the family. With proper preparation, the labor process is expected to be smoother and more comfortable for everyone involved.",
+          "preparingForLabor_intro": "Preparing for labor is essential for pregnant women, their families, and close communities. This preparation includes three main aspects: preparing the mother, preparing for the baby's arrival, and preparing the family. With proper preparation, the labor process is expected to be smoother and more comfortable for everyone involved.",
           "@preparingForLabor_intro": {
             "description": "Introductory paragraph explaining the importance of labor preparation"
           },
@@ -1338,7 +1338,7 @@
             "description": "Explanation of the comfortable clothes to bring to the hospital"
           },
         
-          "preparingForLabor_hospitalItems_toiletries": "Personal hygiene items: Don’t forget to bring toiletries, maternity pads, and other basic essentials.",
+          "preparingForLabor_hospitalItems_toiletries": "Personal hygiene items: Don't forget to bring toiletries, maternity pads, and other basic essentials.",
           "@preparingForLabor_hospitalItems_toiletries": {
             "description": "Explanation of the personal hygiene items to bring to the hospital"
           },
@@ -1378,12 +1378,12 @@
             "description": "Explanation of breastfeeding supplies to be prepared"
           },
         
-          "preparingForLabor_babyEquipment_title": "Baby’s Bed and Equipment",
+          "preparingForLabor_babyEquipment_title": "Baby's Bed and Equipment",
           "@preparingForLabor_babyEquipment_title": {
             "description": "Title for the baby's bed and equipment subsection"
           },
         
-          "preparingForLabor_babyEquipment_crib": "Baby''s crib: Ensure the baby has a safe sleeping place, such as a crib or bassinet.",
+          "preparingForLabor_babyEquipment_crib": "Baby's crib: Ensure the baby has a safe sleeping place, such as a crib or bassinet.",
           "@preparingForLabor_babyEquipment_crib": {
             "description": "Explanation of baby's bed that needs to be prepared"
           },
@@ -1398,7 +1398,7 @@
             "description": "Title for the baby hygiene and safety section"
           },
         
-          "preparingForLabor_babyHygiene_umbilicalCord": "Umbilical cord care: Prepare equipment to clean the newborn''s umbilical cord.",
+          "preparingForLabor_babyHygiene_umbilicalCord": "Umbilical cord care: Prepare equipment to clean the newborn's umbilical cord.",
           "@preparingForLabor_babyHygiene_umbilicalCord": {
             "description": "Explanation of umbilical cord care"
           },
@@ -2088,7 +2088,7 @@
                     "description": "Title for the healthy pregnancy tips section"
                   },
                 
-                  "avoidScreen_tips_content": "To maintain a healthy pregnancy, always consult with your doctor or midwife about the right lifestyle and diet. If you have any concerns or questions, don’t hesitate to contact a healthcare professional.",
+                  "avoidScreen_tips_content": "To maintain a healthy pregnancy, always consult with your doctor or midwife about the right lifestyle and diet. If you have any concerns or questions, don't hesitate to contact a healthcare professional.",
                   "@avoidScreen_tips_content": {
                     "description": "Content for healthy pregnancy tips"
                   },
@@ -2796,5 +2796,264 @@
                         "imtCalc_bottomNavProfile": "My Profile",
                         "@imtCalc_bottomNavProfile": {
                           "description": "Label for profile button in bottom navigation bar"
-                        }                                                                                                          
+                        },
+                        
+                        "preeclampsiaQuestionnaire": "Preeclampsia Questionnaire",
+                        "@preeclampsiaQuestionnaire": {
+                          "description": "Title for preeclampsia questionnaire screen"
+                        },
+                        "questionOf": "Question {current} of {total}",
+                        "@questionOf": {
+                          "description": "Question counter format",
+                          "placeholders": {
+                            "current": {
+                              "type": "int"
+                            },
+                            "total": {
+                              "type": "int"
+                            }
+                          }
+                        },
+                        "yes": "Yes",
+                        "@yes": {
+                          "description": "Affirmative answer"
+                        },
+                        "no": "No",
+                        "@no": {
+                          "description": "Negative answer"
+                        },
+                        
+                        "preeclampsiaQuestion1": "Do you have a history of high blood pressure (hypertension)?",
+                        "@preeclampsiaQuestion1": {
+                          "description": "First preeclampsia screening question"
+                        },
+                        "preeclampsiaQuestion2": "Do you have a family history of preeclampsia or high blood pressure during pregnancy?",
+                        "@preeclampsiaQuestion2": {
+                          "description": "Second preeclampsia screening question"
+                        },
+                        "preeclampsiaQuestion3": "Are you experiencing severe headaches that don't improve with rest?",
+                        "@preeclampsiaQuestion3": {
+                          "description": "Third preeclampsia screening question"
+                        },
+                        "preeclampsiaQuestion4": "Are you experiencing visual disturbances (blurred vision, seeing spots, light sensitivity)?",
+                        "@preeclampsiaQuestion4": {
+                          "description": "Fourth preeclampsia screening question"
+                        },
+                        "preeclampsiaQuestion5": "Are you experiencing severe upper abdominal pain or pain under the ribs?",
+                        "@preeclampsiaQuestion5": {
+                          "description": "Fifth preeclampsia screening question"
+                        },
+                        "preeclampsiaQuestion6": "Are you experiencing sudden weight gain (more than 2 kg per week)?",
+                        "@preeclampsiaQuestion6": {
+                          "description": "Sixth preeclampsia screening question"
+                        },
+                        "preeclampsiaQuestion7": "Are you experiencing severe swelling in hands, face, or around the eyes?",
+                        "@preeclampsiaQuestion7": {
+                          "description": "Seventh preeclampsia screening question"
+                        },
+                        "preeclampsiaQuestion8": "Are you experiencing nausea and vomiting in the second or third trimester?",
+                        "@preeclampsiaQuestion8": {
+                          "description": "Eighth preeclampsia screening question"
+                        },
+                        "preeclampsiaQuestion9": "Are you experiencing decreased urine output or changes in urine color?",
+                        "@preeclampsiaQuestion9": {
+                          "description": "Ninth preeclampsia screening question"
+                        },
+                        "preeclampsiaQuestion10": "Are you experiencing shortness of breath or chest pain?",
+                        "@preeclampsiaQuestion10": {
+                          "description": "Tenth preeclampsia screening question"
+                        },
+                        
+                        "preeclampsiaRiskLow": "Low Risk",
+                        "@preeclampsiaRiskLow": {
+                          "description": "Low risk assessment result"
+                        },
+                        "preeclampsiaRiskModerate": "Moderate Risk",
+                        "@preeclampsiaRiskModerate": {
+                          "description": "Moderate risk assessment result"
+                        },
+                        "preeclampsiaRiskHigh": "High Risk",
+                        "@preeclampsiaRiskHigh": {
+                          "description": "High risk assessment result"
+                        },
+                        
+                        "preeclampsiaResultTitle": "Preeclampsia Screening Result",
+                        "@preeclampsiaResultTitle": {
+                          "description": "Title for preeclampsia result screen"
+                        },
+                        "preeclampsiaLowRiskMessage": "Based on your answers, you have a low risk of developing preeclampsia. Continue regular prenatal care and monitor your health.",
+                        "@preeclampsiaLowRiskMessage": {
+                          "description": "Message for low risk preeclampsia result"
+                        },
+                        "preeclampsiaModerateRiskMessage": "Based on your answers, you have a moderate risk of developing preeclampsia. Please consult with your healthcare provider for closer monitoring.",
+                        "@preeclampsiaModerateRiskMessage": {
+                          "description": "Message for moderate risk preeclampsia result"
+                        },
+                        "preeclampsiaHighRiskMessage": "Based on your answers, you have a high risk of developing preeclampsia. Please seek immediate medical attention and consult with your healthcare provider.",
+                        "@preeclampsiaHighRiskMessage": {
+                          "description": "Message for high risk preeclampsia result"
+                        },
+                        
+                        "maternalComplaintsTitle": "Maternal Health Complaints Assessment",
+                        "@maternalComplaintsTitle": {
+                          "description": "Title for maternal complaints screen"
+                        },
+                        "nauseavomitingTitle": "Nausea and Vomiting Assessment",
+                        "@nauseavomitingTitle": {
+                          "description": "Title for nausea vomiting assessment"
+                        },
+                        "headacheTitle": "Headache Assessment",
+                        "@headacheTitle": {
+                          "description": "Title for headache assessment"
+                        },
+                        "bleedingTitle": "Vaginal Bleeding Assessment",
+                        "@bleedingTitle": {
+                          "description": "Title for bleeding assessment"
+                        },
+                        "fluidLeakageTitle": "Amniotic Fluid Leakage Assessment",
+                        "@fluidLeakageTitle": {
+                          "description": "Title for fluid leakage assessment"
+                        },
+                        "swellingTitle": "Swelling Assessment",
+                        "@swellingTitle": {
+                          "description": "Title for swelling assessment"
+                        },
+                        "fetalMovementTitle": "Fetal Movement Assessment",
+                        "@fetalMovementTitle": {
+                          "description": "Title for fetal movement assessment"
+                        },
+                        
+                        "completeIdentityData": "Complete Your Personal Information",
+                        "@completeIdentityData": {
+                          "description": "Title for identity form"
+                        },
+                        "motherIdentity": "Mother's Identity",
+                        "@motherIdentity": {
+                          "description": "Title for mother identity screen"
+                        },
+                        "saveChanges": "Save Changes",
+                        "@saveChanges": {
+                          "description": "Button text for saving changes"
+                        },
+                        "nameRequired": "Name is required",
+                        "@nameRequired": {
+                          "description": "Validation message for required name field"
+                        },
+                        "addressRequired": "Address is required",
+                        "@addressRequired": {
+                          "description": "Validation message for required address field"
+                        },
+                        
+                        "healthMonitoringComplete": "Complete Health Monitoring",
+                        "@healthMonitoringComplete": {
+                          "description": "Button text for complete health monitoring"
+                        },
+                        "healthMonitoring": "Health Monitoring",
+                        "@healthMonitoring": {
+                          "description": "Title for health monitoring screen"
+                        },
+                        "healthScore": "Health Score",
+                        "@healthScore": {
+                          "description": "Label for health score"
+                        },
+                        "quickActions": "Quick Actions",
+                        "@quickActions": {
+                          "description": "Title for quick actions section"
+                        },
+                        "recordHealth": "Record Health",
+                        "@recordHealth": {
+                          "description": "Button text for recording health data"
+                        },
+                        "scheduleCheckup": "Schedule Checkup",
+                        "@scheduleCheckup": {
+                          "description": "Button text for scheduling checkup"
+                        },
+                        "emergency": "Emergency",
+                        "@emergency": {
+                          "description": "Button text for emergency"
+                        },
+                        "dailyHealthInput": "Daily Health Input",
+                        "@dailyHealthInput": {
+                          "description": "Title for daily health input form"
+                        },
+                        "weight": "Weight (kg)",
+                        "@weight": {
+                          "description": "Label for weight input"
+                        },
+                        "systolic": "Systolic",
+                        "@systolic": {
+                          "description": "Label for systolic blood pressure"
+                        },
+                        "diastolic": "Diastolic",
+                        "@diastolic": {
+                          "description": "Label for diastolic blood pressure"
+                        },
+                        "saveHealthData": "Save Health Data",
+                        "@saveHealthData": {
+                          "description": "Button text for saving health data"
+                        },
+                        "recentHealthRecords": "Recent Health Records",
+                        "@recentHealthRecords": {
+                          "description": "Title for recent health records section"
+                        },
+                        "emergencyContacts": "Emergency Contacts",
+                        "@emergencyContacts": {
+                          "description": "Title for emergency contacts section"
+                        },
+                        "addContact": "Add Contact",
+                        "@addContact": {
+                          "description": "Button text for adding contact"
+                        },
+                        "addEmergencyContact": "Add Emergency Contact",
+                        "@addEmergencyContact": {
+                          "description": "Title for add emergency contact dialog"
+                        },
+                        "name": "Name",
+                        "@name": {
+                          "description": "Label for name field"
+                        },
+                        "phoneNumber": "Phone Number",
+                        "@phoneNumber": {
+                          "description": "Label for phone number field"
+                        },
+                        "relationship": "Relationship",
+                        "@relationship": {
+                          "description": "Label for relationship field"
+                        },
+                        "primary": "Primary",
+                        "@primary": {
+                          "description": "Label for primary contact"
+                        },
+                        "healthDataSaved": "Health data saved successfully!",
+                        "@healthDataSaved": {
+                          "description": "Success message for saving health data"
+                        },
+                        "emergencyContactAdded": "Emergency contact added successfully!",
+                        "@emergencyContactAdded": {
+                          "description": "Success message for adding emergency contact"
+                        },
+                        "noHealthRecords": "No health records yet.\\nStart recording your daily health!",
+                        "@noHealthRecords": {
+                          "description": "Message when no health records exist"
+                        },
+                        "noEmergencyContacts": "No emergency contacts yet.\\nAdd contacts for emergency situations!",
+                        "@noEmergencyContacts": {
+                          "description": "Message when no emergency contacts exist"
+                        },
+                        "bloodPressureNotRecorded": "Blood pressure not recorded",
+                        "@bloodPressureNotRecorded": {
+                          "description": "Message when blood pressure is not recorded"
+                        },
+                        "weightRequired": "Weight is required",
+                        "@weightRequired": {
+                          "description": "Validation message for weight field"
+                        },
+                        "invalidFormat": "Invalid format",
+                        "@invalidFormat": {
+                          "description": "Validation message for invalid format"
+                        },
+                        "invalidWeight": "Invalid weight (30-200kg)",
+                        "@invalidWeight": {
+                          "description": "Validation message for invalid weight range"
+                        }
 }

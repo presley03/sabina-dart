@@ -1,4 +1,4 @@
-package com.example.sabina_app
+package com.mobilehealth.sabina
 
 import io.flutter.embedding.android.FlutterActivity
 

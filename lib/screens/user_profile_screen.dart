@@ -11,7 +11,7 @@ import '../models/user_identity.dart';
 import '../services/database_helper.dart';
 import '../utils/constants.dart';
 import '../providers/locale_provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import 'identity_screen.dart';
 
 class UserProfileScreen extends StatefulWidget {
@@ -49,7 +49,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     if (pickedFile != null) {
       final appDir = await getApplicationDocumentsDirectory();
       const fileName = 'user_avatar.jpg';
-      final savedImage = await File(pickedFile.path).copy('${appDir.path}/$fileName');
+      final savedImage =
+          await File(pickedFile.path).copy('${appDir.path}/$fileName');
 
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('avatar_path', savedImage.path);
@@ -60,7 +61,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     }
   }
 
-  void _navigateToIdentityScreen(BuildContext context, UserIdentity userIdentity) {
+  void _navigateToIdentityScreen(
+      BuildContext context, UserIdentity userIdentity) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => IdentityScreen(userIdentity: userIdentity),
@@ -77,15 +79,21 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         future: _loadUserData(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator(color: AppColors.primaryPink));
+            return const Center(
+                child: CircularProgressIndicator(color: AppColors.primaryPink));
           } else if (snapshot.hasError) {
-            return Center(child: Text('${localizations.error}: ${snapshot.error}', style: const TextStyle(color: Colors.red)));
+            return Center(
+                child: Text('${localizations.error}: ${snapshot.error}',
+                    style: const TextStyle(color: Colors.red)));
           } else if (!snapshot.hasData) {
-            return Center(child: Text(localizations.noData, style: const TextStyle(color: Colors.grey)));
+            return Center(
+                child: Text(localizations.noData,
+                    style: const TextStyle(color: Colors.grey)));
           }
 
           final userIdentity = snapshot.data!['userIdentity'] as UserIdentity;
-          final pregnancyHistory = snapshot.data!['pregnancyHistory'] as PregnancyHistory?;
+          final pregnancyHistory =
+              snapshot.data!['pregnancyHistory'] as PregnancyHistory?;
 
           return CustomScrollView(
             slivers: [
@@ -105,7 +113,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     },
                     child: _buildIdentitySection(userIdentity, localizations),
                   ),
-                  _buildPregnancyHistorySection(pregnancyHistory, localizations),
+                  _buildPregnancyHistorySection(
+                      pregnancyHistory, localizations),
                   _buildPrivacyPolicySection(localizations),
                   _buildLanguageSelector(localizations),
                   _buildAboutSection(localizations),
@@ -144,16 +153,22 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.white,
-                      backgroundImage: _image != null 
-                        ? FileImage(_image!) 
-                        : const AssetImage('assets/default_avatar.png') as ImageProvider,
+                      backgroundImage: _image != null
+                          ? FileImage(_image!)
+                          : const AssetImage('assets/default_avatar.png')
+                              as ImageProvider,
                     ),
                     if (_image == null)
                       Container(
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.3),
+                          color: Colors.black.withValues(
+                            red: 0.0,
+                            green: 0.0,
+                            blue: 0.0,
+                            alpha: 77.0, // 0.3 * 255
+                          ),
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
@@ -188,9 +203,12 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildInfoColumn(AppLocalizations.of(context)!.age, _calculateAge(userIdentity.tanggalLahir)),
-          _buildInfoColumn(AppLocalizations.of(context)!.bloodType, userIdentity.golonganDarah),
-          _buildInfoColumn(AppLocalizations.of(context)!.religion, userIdentity.agama),
+          _buildInfoColumn(AppLocalizations.of(context)!.age,
+              _calculateAge(userIdentity.tanggalLahir)),
+          _buildInfoColumn(AppLocalizations.of(context)!.bloodType,
+              userIdentity.golonganDarah),
+          _buildInfoColumn(
+              AppLocalizations.of(context)!.religion, userIdentity.agama),
         ],
       ),
     );
@@ -201,12 +219,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       children: [
         Text(label, style: const TextStyle(fontSize: 14, color: Colors.grey)),
         const SizedBox(height: 4),
-        Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        Text(value,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
       ],
     );
   }
 
-  Widget _buildIdentitySection(UserIdentity userIdentity, AppLocalizations localizations) {
+  Widget _buildIdentitySection(
+      UserIdentity userIdentity, AppLocalizations localizations) {
     return _buildExpandableSection(
       localizations.identity,
       Icons.person,
@@ -219,7 +239,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     );
   }
 
-  Widget _buildPregnancyHistorySection(PregnancyHistory? pregnancyHistory, AppLocalizations localizations) {
+  Widget _buildPregnancyHistorySection(
+      PregnancyHistory? pregnancyHistory, AppLocalizations localizations) {
     if (pregnancyHistory == null) {
       return _buildExpandableSection(
         localizations.pregnancyHistory,
@@ -233,21 +254,32 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       localizations.pregnancyHistory,
       Icons.pregnant_woman,
       [
-        _buildInfoTile(localizations.gestationalAge, pregnancyHistory.usiaKehamilan),
-        _buildInfoTile(localizations.estimatedDueDate, _calculateEstimatedBirthDate(pregnancyHistory.usiaKehamilan)),
-        _buildInfoTile(localizations.pregnancyOrder, pregnancyHistory.kehamilanKe),
-        _buildInfoTile(localizations.numberOfChildren, pregnancyHistory.jumlahAnak),
-        _buildInfoTile(localizations.miscarriageHistory, pregnancyHistory.riwayatKeguguran),
+        _buildInfoTile(
+            localizations.gestationalAge, pregnancyHistory.usiaKehamilan),
+        _buildInfoTile(localizations.estimatedDueDate,
+            _calculateEstimatedBirthDate(pregnancyHistory.usiaKehamilan)),
+        _buildInfoTile(
+            localizations.pregnancyOrder, pregnancyHistory.kehamilanKe),
+        _buildInfoTile(
+            localizations.numberOfChildren, pregnancyHistory.jumlahAnak),
+        _buildInfoTile(localizations.miscarriageHistory,
+            pregnancyHistory.riwayatKeguguran),
         _buildExpandableSection(
           localizations.lastPregnancyDetails,
           Icons.child_care,
           [
-            _buildInfoTile(localizations.childOrder, pregnancyHistory.anakKeTerakhir),
-            _buildInfoTile(localizations.birthYear, pregnancyHistory.tahunLahirTerakhir),
-            _buildInfoTile(localizations.birthWeight, pregnancyHistory.beratBadanLahirTerakhir),
-            _buildInfoTile(localizations.deliveryMethod, pregnancyHistory.caraPersalinanTerakhir),
-            _buildInfoTile(localizations.deliveryHelper, pregnancyHistory.penolongPersalinanTerakhir),
-            _buildInfoTile(localizations.complications, pregnancyHistory.komplikasiKehamilanTerakhir),
+            _buildInfoTile(
+                localizations.childOrder, pregnancyHistory.anakKeTerakhir),
+            _buildInfoTile(
+                localizations.birthYear, pregnancyHistory.tahunLahirTerakhir),
+            _buildInfoTile(localizations.birthWeight,
+                pregnancyHistory.beratBadanLahirTerakhir),
+            _buildInfoTile(localizations.deliveryMethod,
+                pregnancyHistory.caraPersalinanTerakhir),
+            _buildInfoTile(localizations.deliveryHelper,
+                pregnancyHistory.penolongPersalinanTerakhir),
+            _buildInfoTile(localizations.complications,
+                pregnancyHistory.komplikasiKehamilanTerakhir),
           ],
           Colors.yellow[50]!,
         ),
@@ -276,14 +308,19 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       color: Colors.purple[50],
       child: ListTile(
         leading: const Icon(Icons.language, color: AppColors.primaryPink),
-        title: Text(localizations.language, style: const TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(localizations.language,
+            style: const TextStyle(fontWeight: FontWeight.bold)),
         trailing: Consumer<LocaleProvider>(
           builder: (context, localeProvider, child) {
             return DropdownButton<Locale>(
               value: localeProvider.locale,
               items: [
-                DropdownMenuItem(value: const Locale('id'), child: Text(localizations.indonesian)),
-                DropdownMenuItem(value: const Locale('en'), child: Text(localizations.english)),
+                DropdownMenuItem(
+                    value: const Locale('id'),
+                    child: Text(localizations.indonesian)),
+                DropdownMenuItem(
+                    value: const Locale('en'),
+                    child: Text(localizations.english)),
               ],
               onChanged: (Locale? newLocale) {
                 if (newLocale != null) {
@@ -321,7 +358,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     );
   }
 
-  Widget _buildExpandableSection(String title, IconData icon, List<Widget> children, Color backgroundColor) {
+  Widget _buildExpandableSection(String title, IconData icon,
+      List<Widget> children, Color backgroundColor) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       color: backgroundColor,
@@ -340,7 +378,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label, style: const TextStyle(fontSize: 14, color: Colors.grey)),
-          Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          Text(value,
+              style:
+                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
         ],
       ),
     );
@@ -357,10 +397,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           (today.month == birthDate.month && today.day < birthDate.day)) {
         age--;
       }
-      
+
       // Use localization to get the correct string for 'years'
       String yearsText = AppLocalizations.of(context)!.years;
-      
+
       return '$age $yearsText';
     } catch (e) {
       logger.e('Error calculating age: $e');
@@ -372,7 +412,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     try {
       final now = DateTime.now();
       final ageComponents = gestationalAge.split(' ');
-      if (ageComponents.length != 4) throw const FormatException('Invalid gestational age format');
+      if (ageComponents.length != 4)
+        throw const FormatException('Invalid gestational age format');
 
       final weeks = int.parse(ageComponents[0]);
       final days = int.parse(ageComponents[2]);
@@ -390,11 +431,16 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   Future<Map<String, dynamic>> _loadUserData() async {
     final identities = await DatabaseHelper.instance.getIdentity();
-    final pregnancyHistories = await DatabaseHelper.instance.getPregnancyHistory();
+    final pregnancyHistories =
+        await DatabaseHelper.instance.getPregnancyHistory();
 
     return {
-      'userIdentity': identities.isNotEmpty ? UserIdentity.fromMap(identities.first) : UserIdentity.empty(),
-      'pregnancyHistory': pregnancyHistories.isNotEmpty ? PregnancyHistory.fromMap(pregnancyHistories.first) : null,
+      'userIdentity': identities.isNotEmpty
+          ? UserIdentity.fromMap(identities.first)
+          : UserIdentity.empty(),
+      'pregnancyHistory': pregnancyHistories.isNotEmpty
+          ? PregnancyHistory.fromMap(pregnancyHistories.first)
+          : null,
     };
   }
 }

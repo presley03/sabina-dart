@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import '../../utils/constants.dart';
 import 'perawatan_sehari_hari_screen.dart';
 import 'yang_perlu_dihindari_screen.dart';
@@ -43,7 +43,8 @@ class CareMenuScreen extends StatelessWidget {
                 color: Colors.red[100]!,
                 imagePath: 'assets/images/bg_kuesioner_orange.png',
                 onTap: () {
-                  _navigateToScreen(context, const YangPerluDihindariScreen(), 'yangPerluDihindari');
+                  _navigateToScreen(context, const YangPerluDihindariScreen(),
+                      'yangPerluDihindari');
                 },
               ),
               const SizedBox(height: 16),
@@ -55,7 +56,8 @@ class CareMenuScreen extends StatelessWidget {
                 color: Colors.purple[100]!,
                 imagePath: 'assets/images/bg_kuesioner_purple.png',
                 onTap: () {
-                  _navigateToScreen(context, const PerawatanSehariHariScreen(), 'perawatanSehariHari');
+                  _navigateToScreen(context, const PerawatanSehariHariScreen(),
+                      'perawatanSehariHari');
                 },
               ),
               const SizedBox(height: 16),
@@ -67,7 +69,8 @@ class CareMenuScreen extends StatelessWidget {
                 color: Colors.purple[100]!,
                 imagePath: 'assets/images/bg_kuesioner_green.png',
                 onTap: () {
-                  _navigateToScreen(context, const AktivitasFisikIbuHamilScreen(), 'aktivitasFisik');
+                  _navigateToScreen(context,
+                      const AktivitasFisikIbuHamilScreen(), 'aktivitasFisik');
                 },
               ),
             ],
@@ -126,7 +129,7 @@ class CareMenuScreen extends StatelessWidget {
                           description,
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.white.withOpacity(0.8),
+                            color: Colors.white.withValues(alpha: 0.8),
                           ),
                         ),
                       ],
@@ -150,7 +153,8 @@ class CareMenuScreen extends StatelessWidget {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
           const curve = Curves.easeInOut;
-          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
           var offsetAnimation = animation.drive(tween);
           return SlideTransition(position: offsetAnimation, child: child);
         },

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 
 class PerawatanSehariHariScreen extends StatefulWidget {
   const PerawatanSehariHariScreen({super.key});
 
   @override
-  State<PerawatanSehariHariScreen> createState() => _PerawatanSehariHariScreenState();
+  State<PerawatanSehariHariScreen> createState() =>
+      _PerawatanSehariHariScreenState();
 }
 
 class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
@@ -91,7 +92,8 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text(l10n.dailyCare_screenTitle, style: const TextStyle(color: Colors.black)),
+        title: Text(l10n.dailyCare_screenTitle,
+            style: const TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -135,9 +137,9 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withOpacity(0.2)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
             ),
             child: Column(
               children: [
@@ -184,12 +186,12 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                 filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withOpacity(0.2)),
+                    border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 10,
                         spreadRadius: 5,
                       ),
@@ -203,7 +205,10 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                         const SizedBox(height: 20),
                         Text(
                           item['title'],
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 20),
@@ -216,12 +221,14 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Icon(Icons.check_circle, color: Colors.black, size: 20),
+                                    const Icon(Icons.check_circle,
+                                        color: Colors.black, size: 20),
                                     const SizedBox(width: 10),
                                     Expanded(
                                       child: Text(
                                         item['content'][contentIndex],
-                                        style: const TextStyle(fontSize: 16, color: Colors.black),
+                                        style: const TextStyle(
+                                            fontSize: 16, color: Colors.black),
                                       ),
                                     ),
                                   ],
@@ -252,7 +259,8 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
           margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.white.withOpacity(_currentIndex == entry.key ? 0.9 : 0.4),
+            color: Colors.white
+                .withValues(alpha: _currentIndex == entry.key ? 0.9 : 0.4),
           ),
         );
       }).toList(),
@@ -269,16 +277,19 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withOpacity(0.2)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   l10n.dailyCare_tipsTitle,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                  style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 Text(
@@ -288,7 +299,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                 const SizedBox(height: 16),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white.withOpacity(0.3),
+                    backgroundColor: Colors.white.withValues(alpha: 0.3),
                     foregroundColor: Colors.white,
                   ),
                   onPressed: () => _showMoreTips(l10n),
@@ -311,7 +322,7 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
         return Container(
           height: MediaQuery.of(context).size.height * 0.7,
           decoration: BoxDecoration(
-            color: Colors.blue[100]!.withOpacity(0.9),
+            color: Colors.blue[100]!.withValues(alpha: 0.9),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
@@ -332,7 +343,10 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
                   l10n.dailyCare_moreTipsTitle,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
               Expanded(
@@ -387,16 +401,19 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withOpacity(0.2)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   l10n.dailyCare_referencesTitle,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                  style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
                 const SizedBox(height: 8),
                 Text(

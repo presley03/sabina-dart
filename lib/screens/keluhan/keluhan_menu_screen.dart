@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sabina_app/screens/keluhan/pergerakan_janin/pergerakan_janin_screen.dart';
+import 'package:sabina/screens/keluhan/pergerakan_janin/pergerakan_janin_screen.dart';
 import '../../utils/constants.dart';
 import 'mual_muntah/mual_muntah_screen.dart';
 import 'sakit_kepala/sakit_kepala_screen.dart';
@@ -25,7 +25,7 @@ class KeluhanMenuScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
+                      color: Colors.grey.withValues(alpha: 0.5),
                       spreadRadius: 2,
                       blurRadius: 5,
                       offset: const Offset(0, 3),
@@ -224,7 +224,7 @@ class KeluhanMenuScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withValues(alpha: 0.5),
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 3),

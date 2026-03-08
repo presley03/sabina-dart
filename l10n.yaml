@@ -1,3 +1,13 @@
-arb-dir: lib/l10n
-template-arb-file: app_en.arb
-output-localization-file: app_localizations.dart
+# Konfigurasi untuk flutter gen-l10n
+arb-dir: lib/l10n                          # Folder tempat file .arb
+template-arb-file: app_id.arb              # Ganti ke file base kamu (yang punya SEMUA key pesan), misal app_id.arb kalau Indonesia default
+output-localization-file: app_localizations.dart  # Nama class yang digenerate
+output-dir: lib/generated                  # Sesuai flutter_intl config kamu
+
+# Tambahkan ini untuk lihat daftar pesan yang belum diterjemahkan (fix warning 59 messages)
+untranslated-messages-file: lib/l10n/untranslated_messages.json
+
+# Optional: kalau support multiple locales, tambahkan
+# supported-locales:
+#   - id
+#   - en

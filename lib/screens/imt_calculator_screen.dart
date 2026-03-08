@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import '../utils/constants.dart';
 import 'dart:ui';
 import 'user_profile_screen.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 
 class IMTCalculatorScreen extends StatefulWidget {
   const IMTCalculatorScreen({super.key});
@@ -12,7 +12,8 @@ class IMTCalculatorScreen extends StatefulWidget {
   State<IMTCalculatorScreen> createState() => _IMTCalculatorScreenState();
 }
 
-class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTickerProviderStateMixin {
+class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
+    with SingleTickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
   final _weightController = TextEditingController();
   final _heightController = TextEditingController();
@@ -31,8 +32,11 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
-    _colorAnimation = ColorTween(begin: AppColors.primaryPink, end: AppColors.primaryPink).animate(_animationController);
-    _fadeInAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
+    _colorAnimation =
+        ColorTween(begin: AppColors.primaryPink, end: AppColors.primaryPink)
+            .animate(_animationController);
+    _fadeInAnimation =
+        Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
   }
 
   @override
@@ -46,7 +50,8 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
   void _calculateIMT() {
     if (_formKey.currentState!.validate()) {
       double weight = double.parse(_weightController.text);
-      double height = double.parse(_heightController.text) / 100; // Convert cm to m
+      double height =
+          double.parse(_heightController.text) / 100; // Convert cm to m
       setState(() {
         _imt = weight / (height * height);
         _imtCategory = _getIMTCategory(_imt!);
@@ -60,11 +65,20 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
 
   String _getIMTCategory(double imt) {
     final localizations = AppLocalizations.of(context)!;
-    if (imt < 18.5) return localizations.imtCalc_classificationUnderweight.split(':')[1].trim();
-    if (imt < 25) return localizations.imtCalc_classificationNormal.split(':')[1].trim();
-    if (imt < 30) return localizations.imtCalc_classificationOverweight.split(':')[1].trim();
-    if (imt < 35) return localizations.imtCalc_classificationObesity1.split(':')[1].trim();
-    if (imt < 40) return localizations.imtCalc_classificationObesity2.split(':')[1].trim();
+    if (imt < 18.5)
+      return localizations.imtCalc_classificationUnderweight
+          .split(':')[1]
+          .trim();
+    if (imt < 25)
+      return localizations.imtCalc_classificationNormal.split(':')[1].trim();
+    if (imt < 30)
+      return localizations.imtCalc_classificationOverweight
+          .split(':')[1]
+          .trim();
+    if (imt < 35)
+      return localizations.imtCalc_classificationObesity1.split(':')[1].trim();
+    if (imt < 40)
+      return localizations.imtCalc_classificationObesity2.split(':')[1].trim();
     return localizations.imtCalc_classificationObesity3.split(':')[1].trim();
   }
 
@@ -78,11 +92,14 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
 
   String _getMotivationMessage(String category) {
     final localizations = AppLocalizations.of(context)!;
-    if (category == localizations.imtCalc_classificationUnderweight.split(':')[1].trim()) {
+    if (category ==
+        localizations.imtCalc_classificationUnderweight.split(':')[1].trim()) {
       return localizations.imtCalc_motivationUnderweight;
-    } else if (category == localizations.imtCalc_classificationNormal.split(':')[1].trim()) {
+    } else if (category ==
+        localizations.imtCalc_classificationNormal.split(':')[1].trim()) {
       return localizations.imtCalc_motivationNormalWeight;
-    } else if (category == localizations.imtCalc_classificationOverweight.split(':')[1].trim()) {
+    } else if (category ==
+        localizations.imtCalc_classificationOverweight.split(':')[1].trim()) {
       return localizations.imtCalc_motivationPreObesity;
     } else {
       return localizations.imtCalc_motivationObesity;
@@ -99,13 +116,15 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
       startColor = Colors.green[200]!;
       endColor = Colors.green[400]!;
     } else if (imt < 30) {
-      startColor = AppColors.primaryPink.withOpacity(0.8);
-      endColor = AppColors.secondaryPink.withOpacity(0.8);
+      startColor = AppColors.primaryPink.withValues(alpha: 0.8);
+      endColor = AppColors.secondaryPink.withValues(alpha: 0.8);
     } else {
       startColor = Colors.red[200]!;
       endColor = Colors.red[400]!;
     }
-    _colorAnimation = ColorTween(begin: _colorAnimation.value ?? startColor, end: endColor).animate(_animationController);
+    _colorAnimation =
+        ColorTween(begin: _colorAnimation.value ?? startColor, end: endColor)
+            .animate(_animationController);
   }
 
   @override
@@ -117,8 +136,9 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
         return Scaffold(
           extendBodyBehindAppBar: true,
           appBar: AppBar(
-            title: Text(localizations.imtCalc_screenTitle, 
-                        style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+            title: Text(localizations.imtCalc_screenTitle,
+                style: const TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.bold)),
             backgroundColor: Colors.transparent,
             elevation: 0,
             iconTheme: const IconThemeData(color: Colors.black),
@@ -129,8 +149,10 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  _colorAnimation.value ?? AppColors.primaryPink.withOpacity(0.8),
-                  _colorAnimation.value?.withOpacity(0.8) ?? AppColors.secondaryPink.withOpacity(0.8),
+                  _colorAnimation.value ??
+                      AppColors.primaryPink.withValues(alpha: 0.8),
+                  _colorAnimation.value?.withValues(alpha: 0.8) ??
+                      AppColors.secondaryPink.withValues(alpha: 0.8),
                 ],
               ),
             ),
@@ -146,7 +168,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
                           borderRadius: BorderRadius.circular(15),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.25),
+                              color: Colors.black.withValues(alpha: 0.25),
                               spreadRadius: 1,
                               blurRadius: 30,
                               offset: const Offset(0, 4),
@@ -218,8 +240,9 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
               ),
               elevation: 5,
             ),
-            child: Text(localizations.imtCalc_calculateButton, 
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            child: Text(localizations.imtCalc_calculateButton,
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           ),
         ],
       ),
@@ -234,9 +257,9 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.2),
+            color: Colors.white.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
           ),
           child: child,
         ),
@@ -262,9 +285,9 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
           borderSide: BorderSide.none,
         ),
         filled: true,
-        fillColor: Colors.white.withOpacity(0.5),
+        fillColor: Colors.white.withValues(alpha: 0.5),
         labelStyle: const TextStyle(color: Colors.black),
-        hintStyle: TextStyle(color: Colors.black.withOpacity(0.7)),
+        hintStyle: TextStyle(color: Colors.black.withValues(alpha: 0.7)),
       ),
       style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
       keyboardType: TextInputType.number,
@@ -290,14 +313,20 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
           children: [
             Text(
               localizations.imtCalc_resultTitle(_imt!),
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+              style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
             ),
             const SizedBox(height: 8),
             Row(
               children: [
                 Text(
                   localizations.imtCalc_categoryResult(_imtCategory),
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                  style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
                 const SizedBox(width: 8),
                 _getCategoryIcon(_imtCategory),
@@ -306,24 +335,36 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
             const SizedBox(height: 16),
             Text(
               localizations.imtCalc_classificationTitle,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
             ),
             const SizedBox(height: 8),
             _buildIMTExplanation(localizations),
             const SizedBox(height: 16),
             Text(
               localizations.imtCalc_weightGainRecommendationTitle,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
             ),
             const SizedBox(height: 8),
             Text(
               _weightGainRecommendation,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
             ),
             const SizedBox(height: 16),
             Text(
               _motivationMessage,
-              style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic, color: Colors.black),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.black),
             ),
           ],
         ),
@@ -335,12 +376,18 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(localizations.imtCalc_classificationUnderweight, style: const TextStyle(color: Colors.black)),
-        Text(localizations.imtCalc_classificationNormal, style: const TextStyle(color: Colors.black)),
-        Text(localizations.imtCalc_classificationOverweight, style: const TextStyle(color: Colors.black)),
-        Text(localizations.imtCalc_classificationObesity1, style: const TextStyle(color: Colors.black)),
-        Text(localizations.imtCalc_classificationObesity2, style: const TextStyle(color: Colors.black)),
-        Text(localizations.imtCalc_classificationObesity3, style: const TextStyle(color: Colors.black)),
+        Text(localizations.imtCalc_classificationUnderweight,
+            style: const TextStyle(color: Colors.black)),
+        Text(localizations.imtCalc_classificationNormal,
+            style: const TextStyle(color: Colors.black)),
+        Text(localizations.imtCalc_classificationOverweight,
+            style: const TextStyle(color: Colors.black)),
+        Text(localizations.imtCalc_classificationObesity1,
+            style: const TextStyle(color: Colors.black)),
+        Text(localizations.imtCalc_classificationObesity2,
+            style: const TextStyle(color: Colors.black)),
+        Text(localizations.imtCalc_classificationObesity3,
+            style: const TextStyle(color: Colors.black)),
       ],
     );
   }
@@ -378,7 +425,8 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
         children: [
           Text(
             localizations.imtCalc_healthTipsTitle,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+            style: const TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
           ),
           const SizedBox(height: 8),
           Text(
@@ -426,7 +474,8 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
                       content: Text(localizations.imtCalc_infoDialogContent),
                       actions: <Widget>[
                         TextButton(
-                          child: Text(localizations.imtCalc_infoDialogCloseButton),
+                          child:
+                              Text(localizations.imtCalc_infoDialogCloseButton),
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
@@ -443,12 +492,15 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen> with SingleTi
               onPressed: () {
                 Navigator.of(context).push(
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => const UserProfileScreen(),
-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const UserProfileScreen(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
                       const begin = Offset(1.0, 0.0);
                       const end = Offset.zero;
                       const curve = Curves.ease;
-                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                      var tween = Tween(begin: begin, end: end)
+                          .chain(CurveTween(curve: curve));
                       return SlideTransition(
                         position: animation.drive(tween),
                         child: child,

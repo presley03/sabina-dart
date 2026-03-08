@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 //import '../../utils/constants.dart';
 
 class MakananScreen extends StatefulWidget {
@@ -69,7 +69,8 @@ class _MakananScreenState extends State<MakananScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text(l10n.nutritionScreen_title, style: const TextStyle(color: Colors.black)),
+        title: Text(l10n.nutritionScreen_title,
+            style: const TextStyle(color: Colors.black)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -113,9 +114,9 @@ class _MakananScreenState extends State<MakananScreen> {
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withOpacity(0.2)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
             ),
             child: Column(
               children: [
@@ -162,12 +163,12 @@ class _MakananScreenState extends State<MakananScreen> {
                 filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withOpacity(0.2)),
+                    border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 10,
                         spreadRadius: 5,
                       ),
@@ -182,7 +183,10 @@ class _MakananScreenState extends State<MakananScreen> {
                         const SizedBox(height: 20),
                         Text(
                           item['title'],
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 20),
@@ -190,7 +194,8 @@ class _MakananScreenState extends State<MakananScreen> {
                           child: SingleChildScrollView(
                             child: Text(
                               item['content'],
-                              style: const TextStyle(fontSize: 16, color: Colors.black),
+                              style: const TextStyle(
+                                  fontSize: 16, color: Colors.black),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -217,7 +222,8 @@ class _MakananScreenState extends State<MakananScreen> {
           margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.white.withOpacity(_currentIndex == entry.key ? 0.9 : 0.4),
+            color: Colors.white
+                .withValues(alpha: _currentIndex == entry.key ? 0.9 : 0.4),
           ),
         );
       }).toList(),
@@ -234,16 +240,19 @@ class _MakananScreenState extends State<MakananScreen> {
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withOpacity(0.2)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   l10n.nutritionScreen_mealPlan_title,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                  style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
                 const SizedBox(height: 16),
                 ClipRRect(
@@ -301,13 +310,15 @@ class _MakananScreenState extends State<MakananScreen> {
       children: [
         Text(
           title,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+          style: const TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
         ),
         const SizedBox(height: 8),
         ...items.map((item) => Padding(
-          padding: const EdgeInsets.only(left: 16, bottom: 4),
-          child: Text('• $item', style: const TextStyle(fontSize: 14, color: Colors.black)),
-        )),
+              padding: const EdgeInsets.only(left: 16, bottom: 4),
+              child: Text('• $item',
+                  style: const TextStyle(fontSize: 14, color: Colors.black)),
+            )),
         const SizedBox(height: 16),
       ],
     );
@@ -323,25 +334,29 @@ class _MakananScreenState extends State<MakananScreen> {
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withOpacity(0.2)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   l10n.nutritionScreen_references_title,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                  style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
                 const SizedBox(height: 8),
                 ..._references.map((ref) => Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    ref,
-                    style: const TextStyle(fontSize: 12, color: Colors.black),
-                  ),
-                )),
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        ref,
+                        style:
+                            const TextStyle(fontSize: 12, color: Colors.black),
+                      ),
+                    )),
               ],
             ),
           ),

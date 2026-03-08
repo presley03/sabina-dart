@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:numberpicker/numberpicker.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import '../utils/constants.dart';
 import '../services/database_helper.dart';
 
@@ -38,14 +38,15 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
 
   void _calculatePregnancyInfo() {
     if (_lastPeriodDateController.text.isNotEmpty) {
-      final lastPeriod = DateFormat('dd-MM-yyyy').parse(_lastPeriodDateController.text);
+      final lastPeriod =
+          DateFormat('dd-MM-yyyy').parse(_lastPeriodDateController.text);
       final today = DateTime.now();
       final difference = today.difference(lastPeriod);
       final weeks = difference.inDays ~/ 7;
       final days = difference.inDays % 7;
-      
+
       final estimatedDueDate = lastPeriod.add(const Duration(days: 280));
-      
+
       setState(() {
         _pregnancyAge = '$weeks minggu $days hari';
         _estimatedDueDate = DateFormat('dd-MM-yyyy').format(estimatedDueDate);
@@ -58,7 +59,8 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.pregnancyHistory_title, style: const TextStyle(color: Colors.black)),
+        title: Text(l10n.pregnancyHistory_title,
+            style: const TextStyle(color: Colors.black)),
         backgroundColor: AppColors.primaryPink,
         elevation: 0,
       ),
@@ -73,21 +75,35 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _buildSection(
                   l10n.pregnancyHistory_currentPregnancyInfo,
                   [
-                    _buildDateInput(l10n.pregnancyHistory_lastPeriodDate, _lastPeriodDateController, l10n),
+                    _buildDateInput(l10n.pregnancyHistory_lastPeriodDate,
+                        _lastPeriodDateController, l10n),
                     const SizedBox(height: 8),
-                    Text(l10n.pregnancyHistory_gestationalAge(_pregnancyAge), style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+                    Text(l10n.pregnancyHistory_gestationalAge(_pregnancyAge),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.black)),
                     const SizedBox(height: 8),
-                    Text(l10n.pregnancyHistory_estimatedDueDate(_estimatedDueDate), style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+                    Text(
+                        l10n.pregnancyHistory_estimatedDueDate(
+                            _estimatedDueDate),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.black)),
                     const SizedBox(height: 16),
-                    _buildNumberInput(l10n.pregnancyHistory_prePregnancyWeight, _preBBController, l10n),
-                    _buildNumberInput(l10n.pregnancyHistory_height, _heightController, l10n),
-                    _buildNumberPicker(l10n.pregnancyHistory_pregnancyNumber, _pregnancyNumber, 1, 10, (value) {
+                    _buildNumberInput(l10n.pregnancyHistory_prePregnancyWeight,
+                        _preBBController, l10n),
+                    _buildNumberInput(
+                        l10n.pregnancyHistory_height, _heightController, l10n),
+                    _buildNumberPicker(l10n.pregnancyHistory_pregnancyNumber,
+                        _pregnancyNumber, 1, 10, (value) {
                       setState(() => _pregnancyNumber = value);
                     }, l10n),
-                    _buildNumberPicker(l10n.pregnancyHistory_childrenCount, _childrenCount, 0, 10, (value) {
+                    _buildNumberPicker(l10n.pregnancyHistory_childrenCount,
+                        _childrenCount, 0, 10, (value) {
                       setState(() => _childrenCount = value);
                     }, l10n),
-                    _buildDropdown(l10n.pregnancyHistory_miscarriageHistory, [l10n.pregnancyHistory_yes, l10n.pregnancyHistory_no], _miscarriageHistory, (value) {
+                    _buildDropdown(
+                        l10n.pregnancyHistory_miscarriageHistory,
+                        [l10n.pregnancyHistory_yes, l10n.pregnancyHistory_no],
+                        _miscarriageHistory, (value) {
                       setState(() => _miscarriageHistory = value);
                     }, l10n),
                   ],
@@ -96,36 +112,53 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _buildSection(
                   l10n.pregnancyHistory_lastPregnancyInfo,
                   [
-                    _buildNumberPicker(l10n.pregnancyHistory_lastChildNumber, _lastChildInfo, 0, 10, (value) {
+                    _buildNumberPicker(l10n.pregnancyHistory_lastChildNumber,
+                        _lastChildInfo, 0, 10, (value) {
                       setState(() => _lastChildInfo = value);
                     }, l10n),
-                    _buildNumberPicker(l10n.pregnancyHistory_lastChildBirthYear, _lastChildBirthYear, 2010, DateTime.now().year, (value) {
+                    _buildNumberPicker(
+                        l10n.pregnancyHistory_lastChildBirthYear,
+                        _lastChildBirthYear,
+                        2010,
+                        DateTime.now().year, (value) {
                       setState(() => _lastChildBirthYear = value);
                     }, l10n),
-                    _buildDropdown(l10n.pregnancyHistory_lastChildBirthWeight, [
-                      l10n.pregnancyHistory_birthWeight_0,
-                      l10n.pregnancyHistory_birthWeight_under2500,
-                      l10n.pregnancyHistory_birthWeight_2500to4000,
-                      l10n.pregnancyHistory_birthWeight_over4000
-                    ], _lastChildBirthWeight, (value) {
+                    _buildDropdown(
+                        l10n.pregnancyHistory_lastChildBirthWeight,
+                        [
+                          l10n.pregnancyHistory_birthWeight_0,
+                          l10n.pregnancyHistory_birthWeight_under2500,
+                          l10n.pregnancyHistory_birthWeight_2500to4000,
+                          l10n.pregnancyHistory_birthWeight_over4000
+                        ],
+                        _lastChildBirthWeight, (value) {
                       setState(() => _lastChildBirthWeight = value);
                     }, l10n),
-                    _buildDropdown(l10n.pregnancyHistory_deliveryMethod, [
-                      l10n.pregnancyHistory_deliveryMethod_noPrior,
-                      l10n.pregnancyHistory_deliveryMethod_normal,
-                      l10n.pregnancyHistory_deliveryMethod_caesarean
-                    ], _lastChildDeliveryMethod, (value) {
+                    _buildDropdown(
+                        l10n.pregnancyHistory_deliveryMethod,
+                        [
+                          l10n.pregnancyHistory_deliveryMethod_noPrior,
+                          l10n.pregnancyHistory_deliveryMethod_normal,
+                          l10n.pregnancyHistory_deliveryMethod_caesarean
+                        ],
+                        _lastChildDeliveryMethod, (value) {
                       setState(() => _lastChildDeliveryMethod = value);
                     }, l10n),
-                    _buildDropdown(l10n.pregnancyHistory_birthAttendant, [
-                      l10n.pregnancyHistory_birthAttendant_none,
-                      l10n.pregnancyHistory_birthAttendant_doctor,
-                      l10n.pregnancyHistory_birthAttendant_midwife,
-                      l10n.pregnancyHistory_birthAttendant_traditionalMidwife
-                    ], _lastChildBirthAttendant, (value) {
+                    _buildDropdown(
+                        l10n.pregnancyHistory_birthAttendant,
+                        [
+                          l10n.pregnancyHistory_birthAttendant_none,
+                          l10n.pregnancyHistory_birthAttendant_doctor,
+                          l10n.pregnancyHistory_birthAttendant_midwife,
+                          l10n.pregnancyHistory_birthAttendant_traditionalMidwife
+                        ],
+                        _lastChildBirthAttendant, (value) {
                       setState(() => _lastChildBirthAttendant = value);
                     }, l10n),
-                    _buildTextInput(l10n.pregnancyHistory_lastPregnancyComplications, _lastPregnancyComplicationsController, l10n),
+                    _buildTextInput(
+                        l10n.pregnancyHistory_lastPregnancyComplications,
+                        _lastPregnancyComplicationsController,
+                        l10n),
                   ],
                 ),
                 const SizedBox(height: 24),
@@ -138,7 +171,12 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                     ),
                   ),
                   onPressed: () => _submitForm(l10n),
-                  child: Text(l10n.pregnancyHistory_save, style: const TextStyle(fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black)),
+                  child: Text(l10n.pregnancyHistory_save,
+                      style: const TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black)),
                 ),
               ],
             ),
@@ -159,7 +197,10 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
           children: [
             Text(
               title,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+              style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
             ),
             const SizedBox(height: 16),
             ...children,
@@ -169,7 +210,8 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     );
   }
 
-  Widget _buildDateInput(String label, TextEditingController controller, AppLocalizations l10n) {
+  Widget _buildDateInput(
+      String label, TextEditingController controller, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: TextFormField(
@@ -177,7 +219,8 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         decoration: InputDecoration(
           labelText: label,
           labelStyle: const TextStyle(color: Colors.black),
-          suffixIcon: const Icon(Icons.calendar_today, color: AppColors.primaryPink),
+          suffixIcon:
+              const Icon(Icons.calendar_today, color: AppColors.primaryPink),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
@@ -196,8 +239,10 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               return Theme(
                 data: ThemeData.light().copyWith(
                   primaryColor: AppColors.primaryPink,
-                  colorScheme: const ColorScheme.light(primary: AppColors.primaryPink),
-                  buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+                  colorScheme:
+                      const ColorScheme.light(primary: AppColors.primaryPink),
+                  buttonTheme:
+                      const ButtonThemeData(textTheme: ButtonTextTheme.primary),
                 ),
                 child: child!,
               );
@@ -209,12 +254,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
             });
           }
         },
-        validator: (value) => value?.isEmpty ?? true ? l10n.pregnancyHistory_fillDateError : null,
+        validator: (value) =>
+            value?.isEmpty ?? true ? l10n.pregnancyHistory_fillDateError : null,
       ),
     );
   }
 
-  Widget _buildNumberInput(String label, TextEditingController controller, AppLocalizations l10n) {
+  Widget _buildNumberInput(
+      String label, TextEditingController controller, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: TextFormField(
@@ -230,18 +277,25 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         ),
         style: const TextStyle(color: Colors.black),
         keyboardType: TextInputType.number,
-        validator: (value) => value?.isEmpty ?? true ? l10n.pregnancyHistory_fillFieldError : null,
+        validator: (value) => value?.isEmpty ?? true
+            ? l10n.pregnancyHistory_fillFieldError
+            : null,
       ),
     );
   }
 
-  Widget _buildNumberPicker(String label, int value, int minValue, int maxValue, Function(int) onChanged, AppLocalizations l10n) {
+  Widget _buildNumberPicker(String label, int value, int minValue, int maxValue,
+      Function(int) onChanged, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+          Text(label,
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black)),
           const SizedBox(height: 8),
           Container(
             decoration: BoxDecoration(
@@ -255,7 +309,8 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               onChanged: onChanged,
               axis: Axis.horizontal,
               itemWidth: 60,
-              selectedTextStyle: const TextStyle(color: AppColors.primaryPink, fontWeight: FontWeight.bold),
+              selectedTextStyle: const TextStyle(
+                  color: AppColors.primaryPink, fontWeight: FontWeight.bold),
               textStyle: const TextStyle(color: Colors.black),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -263,19 +318,25 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               ),
             ),
           ),
-          Text(l10n.pregnancyHistory_value(value), style: const TextStyle(fontSize: 14, color: Colors.black)),
+          Text(l10n.pregnancyHistory_value(value),
+              style: const TextStyle(fontSize: 14, color: Colors.black)),
         ],
       ),
     );
   }
 
-  Widget _buildDropdown(String label, List<String> items, String? value, Function(String?) onChanged, AppLocalizations l10n) {
+  Widget _buildDropdown(String label, List<String> items, String? value,
+      Function(String?) onChanged, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+          Text(label,
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black)),
           const SizedBox(height: 8),
           DropdownButtonFormField<String>(
             value: value,
@@ -287,7 +348,8 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
             }).toList(),
             onChanged: onChanged,
             decoration: InputDecoration(
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(color: AppColors.primaryPink),
@@ -295,14 +357,16 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
             ),
             style: const TextStyle(color: Colors.black),
             dropdownColor: Colors.white,
-            validator: (value) => value == null ? l10n.pregnancyHistory_selectOptionError : null,
+            validator: (value) =>
+                value == null ? l10n.pregnancyHistory_selectOptionError : null,
           ),
         ],
       ),
     );
   }
 
-  Widget _buildTextInput(String label, TextEditingController controller, AppLocalizations l10n) {
+  Widget _buildTextInput(
+      String label, TextEditingController controller, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: TextFormField(
@@ -318,7 +382,9 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         ),
         style: const TextStyle(color: Colors.black),
         maxLines: 3,
-        validator: (value) => value?.isEmpty ?? true ? l10n.pregnancyHistory_fillFieldError : null,
+        validator: (value) => value?.isEmpty ?? true
+            ? l10n.pregnancyHistory_fillFieldError
+            : null,
       ),
     );
   }
@@ -339,11 +405,13 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         'berat_badan_lahir_terakhir': _lastChildBirthWeight ?? '',
         'cara_persalinan_terakhir': _lastChildDeliveryMethod ?? '',
         'penolong_persalinan_terakhir': _lastChildBirthAttendant ?? '',
-        'komplikasi_kehamilan_terakhir': _lastPregnancyComplicationsController.text,
+        'komplikasi_kehamilan_terakhir':
+            _lastPregnancyComplicationsController.text,
       };
 
       try {
-        final id = await DatabaseHelper.instance.insertPregnancyHistory(pregnancyHistory);
+        final id = await DatabaseHelper.instance
+            .insertPregnancyHistory(pregnancyHistory);
         if (!mounted) return;
         if (id > 0) {
           _showSnackBar(l10n.pregnancyHistory_saveSuccess);

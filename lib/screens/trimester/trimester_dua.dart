@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 
 class TrimesterDuaScreen extends StatefulWidget {
   const TrimesterDuaScreen({super.key});
@@ -119,7 +119,8 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
                 builder: (context) => Scaffold(
                   body: PhotoView(
                     imageProvider: AssetImage(imagePath),
-                    backgroundDecoration: const BoxDecoration(color: Colors.black),
+                    backgroundDecoration:
+                        const BoxDecoration(color: Colors.black),
                     minScale: PhotoViewComputedScale.contained,
                     maxScale: PhotoViewComputedScale.covered * 2,
                   ),
@@ -155,13 +156,20 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
     return _buildSection(
       title: l10n.trimesterTwo_weeklyDevelopment_title,
       children: [
-        _buildWeekItem(l10n.trimesterTwo_week14_15, l10n.trimesterTwo_week14_15_desc),
-        _buildWeekItem(l10n.trimesterTwo_week16_17, l10n.trimesterTwo_week16_17_desc),
-        _buildWeekItem(l10n.trimesterTwo_week18_19, l10n.trimesterTwo_week18_19_desc),
-        _buildWeekItem(l10n.trimesterTwo_week20_21, l10n.trimesterTwo_week20_21_desc),
-        _buildWeekItem(l10n.trimesterTwo_week22_23, l10n.trimesterTwo_week22_23_desc),
-        _buildWeekItem(l10n.trimesterTwo_week24_25, l10n.trimesterTwo_week24_25_desc),
-        _buildWeekItem(l10n.trimesterTwo_week26_27, l10n.trimesterTwo_week26_27_desc),
+        _buildWeekItem(
+            l10n.trimesterTwo_week14_15, l10n.trimesterTwo_week14_15_desc),
+        _buildWeekItem(
+            l10n.trimesterTwo_week16_17, l10n.trimesterTwo_week16_17_desc),
+        _buildWeekItem(
+            l10n.trimesterTwo_week18_19, l10n.trimesterTwo_week18_19_desc),
+        _buildWeekItem(
+            l10n.trimesterTwo_week20_21, l10n.trimesterTwo_week20_21_desc),
+        _buildWeekItem(
+            l10n.trimesterTwo_week22_23, l10n.trimesterTwo_week22_23_desc),
+        _buildWeekItem(
+            l10n.trimesterTwo_week24_25, l10n.trimesterTwo_week24_25_desc),
+        _buildWeekItem(
+            l10n.trimesterTwo_week26_27, l10n.trimesterTwo_week26_27_desc),
       ],
     );
   }
@@ -222,14 +230,18 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
     return _buildSection(
       title: l10n.trimesterTwo_reference_title,
       children: [
-        _buildReferenceItem(l10n.trimesterTwo_reference_acog, 'https://www.acog.org'),
-        _buildReferenceItem(l10n.trimesterTwo_reference_mayoClinic, 'https://www.mayoclinic.org'),
-        _buildReferenceItem(l10n.trimesterTwo_reference_nhs, 'https://www.nhs.uk'),
+        _buildReferenceItem(
+            l10n.trimesterTwo_reference_acog, 'https://www.acog.org'),
+        _buildReferenceItem(l10n.trimesterTwo_reference_mayoClinic,
+            'https://www.mayoclinic.org'),
+        _buildReferenceItem(
+            l10n.trimesterTwo_reference_nhs, 'https://www.nhs.uk'),
       ],
     );
   }
 
-  Widget _buildSection({required String title, required List<Widget> children}) {
+  Widget _buildSection(
+      {required String title, required List<Widget> children}) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -269,7 +281,8 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('• ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const Text('• ',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           Expanded(child: Text(text)),
         ],
       ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 
 class PersiapanPersalinanScreen extends StatefulWidget {
   const PersiapanPersalinanScreen({super.key});
 
   @override
-  State<PersiapanPersalinanScreen> createState() => _PersiapanPersalinanScreenState();
+  State<PersiapanPersalinanScreen> createState() =>
+      _PersiapanPersalinanScreenState();
 }
 
 class _PersiapanPersalinanScreenState extends State<PersiapanPersalinanScreen> {
@@ -118,7 +119,8 @@ class _PersiapanPersalinanScreenState extends State<PersiapanPersalinanScreen> {
                 builder: (context) => Scaffold(
                   body: PhotoView(
                     imageProvider: AssetImage(imagePath),
-                    backgroundDecoration: const BoxDecoration(color: Colors.black),
+                    backgroundDecoration:
+                        const BoxDecoration(color: Colors.black),
                     minScale: PhotoViewComputedScale.contained,
                     maxScale: PhotoViewComputedScale.covered * 2,
                   ),
@@ -155,14 +157,18 @@ class _PersiapanPersalinanScreenState extends State<PersiapanPersalinanScreen> {
       title: l10n.preparingForLabor_motherPreparation_title,
       children: [
         _buildSubSection(l10n.preparingForLabor_physicalPreparation_title, [
-          _buildBulletPoint(l10n.preparingForLabor_physicalPreparation_exercise),
-          _buildBulletPoint(l10n.preparingForLabor_physicalPreparation_nutrition),
+          _buildBulletPoint(
+              l10n.preparingForLabor_physicalPreparation_exercise),
+          _buildBulletPoint(
+              l10n.preparingForLabor_physicalPreparation_nutrition),
           _buildBulletPoint(l10n.preparingForLabor_physicalPreparation_rest),
         ]),
         _buildSubSection(l10n.preparingForLabor_mentalPreparation_title, [
           _buildBulletPoint(l10n.preparingForLabor_mentalPreparation_classes),
-          _buildBulletPoint(l10n.preparingForLabor_mentalPreparation_discussPlan),
-          _buildBulletPoint(l10n.preparingForLabor_mentalPreparation_flexibility),
+          _buildBulletPoint(
+              l10n.preparingForLabor_mentalPreparation_discussPlan),
+          _buildBulletPoint(
+              l10n.preparingForLabor_mentalPreparation_flexibility),
         ]),
         _buildSubSection(l10n.preparingForLabor_hospitalItems_title, [
           _buildBulletPoint(l10n.preparingForLabor_hospitalItems_documents),
@@ -203,15 +209,18 @@ class _PersiapanPersalinanScreenState extends State<PersiapanPersalinanScreen> {
         _buildSubSection(l10n.preparingForLabor_familyDiscussion_title, [
           _buildBulletPoint(l10n.preparingForLabor_familyDiscussion_fatherRole),
           _buildBulletPoint(l10n.preparingForLabor_familyDiscussion_pickupPlan),
-          _buildBulletPoint(l10n.preparingForLabor_familyDiscussion_otherChildren),
+          _buildBulletPoint(
+              l10n.preparingForLabor_familyDiscussion_otherChildren),
         ]),
         _buildSubSection(l10n.preparingForLabor_homePreparation_title, [
           _buildBulletPoint(l10n.preparingForLabor_homePreparation_safety),
           _buildBulletPoint(l10n.preparingForLabor_homePreparation_support),
         ]),
         _buildSubSection(l10n.preparingForLabor_emotionalSupport_title, [
-          _buildBulletPoint(l10n.preparingForLabor_emotionalSupport_partnerInvolvement),
-          _buildBulletPoint(l10n.preparingForLabor_emotionalSupport_familyCommunication),
+          _buildBulletPoint(
+              l10n.preparingForLabor_emotionalSupport_partnerInvolvement),
+          _buildBulletPoint(
+              l10n.preparingForLabor_emotionalSupport_familyCommunication),
         ]),
       ],
     );
@@ -221,14 +230,18 @@ class _PersiapanPersalinanScreenState extends State<PersiapanPersalinanScreen> {
     return _buildSection(
       title: l10n.preparingForLabor_reference_title,
       children: [
-        _buildReferenceItem(l10n.preparingForLabor_reference_acog, 'https://www.acog.org'),
-        _buildReferenceItem(l10n.preparingForLabor_reference_mayoClinic, 'https://www.mayoclinic.org'),
-        _buildReferenceItem(l10n.preparingForLabor_reference_nhs, 'https://www.nhs.uk'),
+        _buildReferenceItem(
+            l10n.preparingForLabor_reference_acog, 'https://www.acog.org'),
+        _buildReferenceItem(l10n.preparingForLabor_reference_mayoClinic,
+            'https://www.mayoclinic.org'),
+        _buildReferenceItem(
+            l10n.preparingForLabor_reference_nhs, 'https://www.nhs.uk'),
       ],
     );
   }
 
-  Widget _buildSection({required String title, required List<Widget> children}) {
+  Widget _buildSection(
+      {required String title, required List<Widget> children}) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -266,7 +279,8 @@ class _PersiapanPersalinanScreenState extends State<PersiapanPersalinanScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('• ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const Text('• ',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           Expanded(child: Text(text)),
         ],
       ),

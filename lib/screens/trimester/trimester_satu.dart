@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 
 class TrimesterSatuScreen extends StatefulWidget {
   const TrimesterSatuScreen({super.key});
@@ -119,7 +119,8 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
                 builder: (context) => Scaffold(
                   body: PhotoView(
                     imageProvider: AssetImage(imagePath),
-                    backgroundDecoration: const BoxDecoration(color: Colors.black),
+                    backgroundDecoration:
+                        const BoxDecoration(color: Colors.black),
                     minScale: PhotoViewComputedScale.contained,
                     maxScale: PhotoViewComputedScale.covered * 2,
                   ),
@@ -155,15 +156,18 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
     return _buildSection(
       title: l10n.trimesterOne_weeklyDevelopment_title,
       children: [
-        _buildWeekItem(l10n.trimesterOne_week1_2, l10n.trimesterOne_week1_2_desc),
+        _buildWeekItem(
+            l10n.trimesterOne_week1_2, l10n.trimesterOne_week1_2_desc),
         _buildWeekItem(l10n.trimesterOne_week3, l10n.trimesterOne_week3_desc),
         _buildWeekItem(l10n.trimesterOne_week4, l10n.trimesterOne_week4_desc),
         _buildWeekItem(l10n.trimesterOne_week5, l10n.trimesterOne_week5_desc),
         _buildWeekItem(l10n.trimesterOne_week6, l10n.trimesterOne_week6_desc),
         _buildWeekItem(l10n.trimesterOne_week7, l10n.trimesterOne_week7_desc),
         _buildWeekItem(l10n.trimesterOne_week8, l10n.trimesterOne_week8_desc),
-        _buildWeekItem(l10n.trimesterOne_week9_10, l10n.trimesterOne_week9_10_desc),
-        _buildWeekItem(l10n.trimesterOne_week11_12, l10n.trimesterOne_week11_12_desc),
+        _buildWeekItem(
+            l10n.trimesterOne_week9_10, l10n.trimesterOne_week9_10_desc),
+        _buildWeekItem(
+            l10n.trimesterOne_week11_12, l10n.trimesterOne_week11_12_desc),
         _buildWeekItem(l10n.trimesterOne_week13, l10n.trimesterOne_week13_desc),
       ],
     );
@@ -225,15 +229,20 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
     return _buildSection(
       title: l10n.trimesterOne_reference_title,
       children: [
-        _buildReferenceItem(l10n.trimesterOne_reference_acog, 'https://www.acog.org'),
-        _buildReferenceItem(l10n.trimesterOne_reference_mayoClinic, 'https://www.mayoclinic.org'),
-        _buildReferenceItem(l10n.trimesterOne_reference_nhs, 'https://www.nhs.uk'),
-        _buildReferenceItem(l10n.trimesterOne_reference_who, 'https://www.who.int'),
+        _buildReferenceItem(
+            l10n.trimesterOne_reference_acog, 'https://www.acog.org'),
+        _buildReferenceItem(l10n.trimesterOne_reference_mayoClinic,
+            'https://www.mayoclinic.org'),
+        _buildReferenceItem(
+            l10n.trimesterOne_reference_nhs, 'https://www.nhs.uk'),
+        _buildReferenceItem(
+            l10n.trimesterOne_reference_who, 'https://www.who.int'),
       ],
     );
   }
 
-  Widget _buildSection({required String title, required List<Widget> children}) {
+  Widget _buildSection(
+      {required String title, required List<Widget> children}) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -273,7 +282,8 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('• ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const Text('• ',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           Expanded(child: Text(text)),
         ],
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sabina/generated/app_localizations.dart';
 
 class TrimesterTigaScreen extends StatefulWidget {
   const TrimesterTigaScreen({super.key});
@@ -119,7 +119,8 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
                 builder: (context) => Scaffold(
                   body: PhotoView(
                     imageProvider: AssetImage(imagePath),
-                    backgroundDecoration: const BoxDecoration(color: Colors.black),
+                    backgroundDecoration:
+                        const BoxDecoration(color: Colors.black),
                     minScale: PhotoViewComputedScale.contained,
                     maxScale: PhotoViewComputedScale.covered * 2,
                   ),
@@ -155,13 +156,20 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
     return _buildSection(
       title: l10n.trimesterThree_weeklyDevelopment_title,
       children: [
-        _buildWeekItem(l10n.trimesterThree_week28_29, l10n.trimesterThree_week28_29_desc),
-        _buildWeekItem(l10n.trimesterThree_week30_31, l10n.trimesterThree_week30_31_desc),
-        _buildWeekItem(l10n.trimesterThree_week32_33, l10n.trimesterThree_week32_33_desc),
-        _buildWeekItem(l10n.trimesterThree_week34_35, l10n.trimesterThree_week34_35_desc),
-        _buildWeekItem(l10n.trimesterThree_week36_37, l10n.trimesterThree_week36_37_desc),
-        _buildWeekItem(l10n.trimesterThree_week38_39, l10n.trimesterThree_week38_39_desc),
-        _buildWeekItem(l10n.trimesterThree_week40, l10n.trimesterThree_week40_desc),
+        _buildWeekItem(
+            l10n.trimesterThree_week28_29, l10n.trimesterThree_week28_29_desc),
+        _buildWeekItem(
+            l10n.trimesterThree_week30_31, l10n.trimesterThree_week30_31_desc),
+        _buildWeekItem(
+            l10n.trimesterThree_week32_33, l10n.trimesterThree_week32_33_desc),
+        _buildWeekItem(
+            l10n.trimesterThree_week34_35, l10n.trimesterThree_week34_35_desc),
+        _buildWeekItem(
+            l10n.trimesterThree_week36_37, l10n.trimesterThree_week36_37_desc),
+        _buildWeekItem(
+            l10n.trimesterThree_week38_39, l10n.trimesterThree_week38_39_desc),
+        _buildWeekItem(
+            l10n.trimesterThree_week40, l10n.trimesterThree_week40_desc),
       ],
     );
   }
@@ -184,8 +192,10 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
       children: [
         _buildBulletPoint(l10n.trimesterThree_commonComplaints_backPain),
         _buildBulletPoint(l10n.trimesterThree_commonComplaints_sleepProblems),
-        _buildBulletPoint(l10n.trimesterThree_commonComplaints_frequentUrination),
-        _buildBulletPoint(l10n.trimesterThree_commonComplaints_shortnessOfBreath),
+        _buildBulletPoint(
+            l10n.trimesterThree_commonComplaints_frequentUrination),
+        _buildBulletPoint(
+            l10n.trimesterThree_commonComplaints_shortnessOfBreath),
         _buildBulletPoint(l10n.trimesterThree_commonComplaints_swelling),
         _buildBulletPoint(l10n.trimesterThree_commonComplaints_braxtonHicks),
       ],
@@ -223,14 +233,18 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
     return _buildSection(
       title: l10n.trimesterThree_reference_title,
       children: [
-        _buildReferenceItem(l10n.trimesterThree_reference_acog, 'https://www.acog.org'),
-        _buildReferenceItem(l10n.trimesterThree_reference_mayoClinic, 'https://www.mayoclinic.org'),
-        _buildReferenceItem(l10n.trimesterThree_reference_nhs, 'https://www.nhs.uk'),
+        _buildReferenceItem(
+            l10n.trimesterThree_reference_acog, 'https://www.acog.org'),
+        _buildReferenceItem(l10n.trimesterThree_reference_mayoClinic,
+            'https://www.mayoclinic.org'),
+        _buildReferenceItem(
+            l10n.trimesterThree_reference_nhs, 'https://www.nhs.uk'),
       ],
     );
   }
 
-  Widget _buildSection({required String title, required List<Widget> children}) {
+  Widget _buildSection(
+      {required String title, required List<Widget> children}) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -270,7 +284,8 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('• ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const Text('• ',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           Expanded(child: Text(text)),
         ],
       ),

@@ -50,14 +50,14 @@ class BengkakResultScreen extends StatelessWidget {
                               child: Container(
                                 padding: const EdgeInsets.all(24),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.2), 
+                                  color: Colors.white.withValues(alpha: 0.2), 
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all(
-                                    color: Colors.white.withOpacity(0.3), 
+                                    color: Colors.white.withValues(alpha: 0.3), 
                                   ),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.black.withOpacity(0.1),
+                                      color: Colors.black.withValues(alpha: 0.1),
                                       spreadRadius: 2,
                                       blurRadius: 15,
                                       offset: const Offset(0, 6),
