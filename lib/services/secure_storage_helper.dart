@@ -1,6 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'dart:convert';
-import 'package:crypto/crypto.dart';
 import '../models/health_monitoring_model.dart';
 
 class SecureStorageHelper {
@@ -10,13 +9,6 @@ class SecureStorageHelper {
       accessibility: KeychainAccessibility.first_unlock_this_device,
     ),
   );
-
-  // Enkripsi data sensitif
-  static String _hashSensitiveData(String data) {
-    var bytes = utf8.encode(data);
-    var digest = sha256.convert(bytes);
-    return digest.toString();
-  }
 
   // Simpan data terenkripsi
   static Future<void> storeSecureData(String key, String value) async {

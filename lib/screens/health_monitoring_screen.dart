@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sabina/generated/app_localizations.dart';
 import '../models/health_monitoring_model.dart';
 import '../services/health_analytics_service.dart';
 import '../services/secure_storage_helper.dart';
-import '../services/notification_service.dart';
-import '../utils/validators.dart';
 
 class HealthMonitoringScreen extends StatefulWidget {
   const HealthMonitoringScreen({super.key});
@@ -68,21 +64,9 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     return weight != null && weight >= 30 && weight <= 200;
   }
 
-  bool _isValidBloodPressure(String systolic, String diastolic) {
-    final sys = int.tryParse(systolic);
-    final dia = int.tryParse(diastolic);
-    return sys != null &&
-        dia != null &&
-        sys >= 70 &&
-        sys <= 200 &&
-        dia >= 40 &&
-        dia <= 120;
-  }
-
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: Colors.grey[50],

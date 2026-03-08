@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sabina/generated/app_localizations.dart'; // Menggunakan AppLocalizations
-import '../utils/constants.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/pregnancy_history_card.dart';
 import '../widgets/information_section.dart';

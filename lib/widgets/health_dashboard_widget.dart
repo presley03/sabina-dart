@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
 import '../services/health_analytics_service.dart';
 import '../services/app_integration_service.dart';
 import '../screens/health_monitoring_screen.dart';
