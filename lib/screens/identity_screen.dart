@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import '../utils/constants.dart';
@@ -398,7 +397,7 @@ class IdentityScreenState extends State<IdentityScreen>
   }
 
   Widget _buildSaveButton(AppLocalizations localizations) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 56,
       child: ElevatedButton(

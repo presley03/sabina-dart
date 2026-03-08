@@ -71,7 +71,7 @@ class QuestionnaireScreenModern extends StatelessWidget {
     return Column(
       children: [
         // Progress indicator
-        Container(
+        SizedBox(
           width: 120,
           height: 120,
           child: Stack(
@@ -189,7 +189,7 @@ class QuestionnaireScreenModern extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Container(
+          child: SizedBox(
             height: 70,
             child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
@@ -214,7 +214,7 @@ class QuestionnaireScreenModern extends StatelessWidget {
         ),
         const SizedBox(width: 20),
         Expanded(
-          child: Container(
+          child: SizedBox(
             height: 70,
             child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(

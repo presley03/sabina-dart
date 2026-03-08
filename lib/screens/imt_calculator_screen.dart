@@ -65,20 +65,25 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
 
   String _getIMTCategory(double imt) {
     final localizations = AppLocalizations.of(context)!;
-    if (imt < 18.5)
+    if (imt < 18.5) {
       return localizations.imtCalc_classificationUnderweight
           .split(':')[1]
           .trim();
-    if (imt < 25)
+    }
+    if (imt < 25) {
       return localizations.imtCalc_classificationNormal.split(':')[1].trim();
-    if (imt < 30)
+    }
+    if (imt < 30) {
       return localizations.imtCalc_classificationOverweight
           .split(':')[1]
           .trim();
-    if (imt < 35)
+    }
+    if (imt < 35) {
       return localizations.imtCalc_classificationObesity1.split(':')[1].trim();
-    if (imt < 40)
+    }
+    if (imt < 40) {
       return localizations.imtCalc_classificationObesity2.split(':')[1].trim();
+    }
     return localizations.imtCalc_classificationObesity3.split(':')[1].trim();
   }
 

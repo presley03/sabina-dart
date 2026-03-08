@@ -18,9 +18,9 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
   final _diastolicController = TextEditingController();
   final _symptomsController = TextEditingController();
 
-  int _selectedMood = 3;
-  int _waterGlasses = 0;
-  int _sleepHours = 8;
+  final int _selectedMood = 3;
+  final int _waterGlasses = 0;
+  final int _sleepHours = 8;
 
   List<HealthRecord> _healthRecords = [];
   List<EmergencyContact> _emergencyContacts = [];

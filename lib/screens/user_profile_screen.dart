@@ -412,8 +412,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     try {
       final now = DateTime.now();
       final ageComponents = gestationalAge.split(' ');
-      if (ageComponents.length != 4)
+      if (ageComponents.length != 4) {
         throw const FormatException('Invalid gestational age format');
+      }
 
       final weeks = int.parse(ageComponents[0]);
       final days = int.parse(ageComponents[2]);

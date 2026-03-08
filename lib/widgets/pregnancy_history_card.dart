@@ -104,7 +104,7 @@ class PregnancyHistoryCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            Container(
+            SizedBox(
               width: double.infinity,
               height: 56,
               child: ElevatedButton(

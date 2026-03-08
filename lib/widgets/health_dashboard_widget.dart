@@ -224,7 +224,7 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
   }
 
   Widget _buildMainActionButton() {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 64,
       child: ElevatedButton(

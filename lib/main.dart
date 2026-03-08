@@ -151,7 +151,7 @@ class _AppInitializerState extends State<AppInitializer> {
       }
     } catch (e) {
       setState(() => _initializationStatus = 'Error: $e');
-      print('Initialization error: $e');
+      debugPrint('Initialization error: $e');
 
       // Still navigate to splash screen even if there's an error
       await Future.delayed(const Duration(seconds: 2));

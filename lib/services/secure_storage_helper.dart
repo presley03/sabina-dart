@@ -1,4 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'dart:convert';
 import '../models/health_monitoring_model.dart';
 
@@ -32,7 +33,7 @@ class SecureStorageHelper {
 
   // Validasi input untuk mencegah injection
   static String sanitizeInput(String input) {
-    return input.replaceAll(RegExp(r'[<>"' + "'" + r';]'), '').trim();
+    return input.replaceAll(RegExp(r'[<>"\'';]'), '').trim();
   }
 
   // Validasi format tanggal
@@ -64,7 +65,7 @@ class SecureStorageHelper {
       final List<dynamic> recordsList = json.decode(recordsJson);
       return recordsList.map((record) => HealthRecord.fromMap(record)).toList();
     } catch (e) {
-      print('Error getting health records: $e');
+      debugPrint('Error getting health records: $e');
       return [];
     }
   }
@@ -78,7 +79,7 @@ class SecureStorageHelper {
           json.encode(existingRecords.map((r) => r.toMap()).toList());
       await storeSecureData('health_records', recordsJson);
     } catch (e) {
-      print('Error saving health record: $e');
+      debugPrint('Error saving health record: $e');
       throw Exception('Failed to save health record');
     }
   }
@@ -95,7 +96,7 @@ class SecureStorageHelper {
         await storeSecureData('health_records', recordsJson);
       }
     } catch (e) {
-      print('Error updating health record: $e');
+      debugPrint('Error updating health record: $e');
       throw Exception('Failed to update health record');
     }
   }
@@ -109,7 +110,7 @@ class SecureStorageHelper {
           json.encode(existingRecords.map((r) => r.toMap()).toList());
       await storeSecureData('health_records', recordsJson);
     } catch (e) {
-      print('Error deleting health record: $e');
+      debugPrint('Error deleting health record: $e');
       throw Exception('Failed to delete health record');
     }
   }
@@ -125,7 +126,7 @@ class SecureStorageHelper {
           .map((contact) => EmergencyContact.fromMap(contact))
           .toList();
     } catch (e) {
-      print('Error getting emergency contacts: $e');
+      debugPrint('Error getting emergency contacts: $e');
       return [];
     }
   }
@@ -139,7 +140,7 @@ class SecureStorageHelper {
           json.encode(existingContacts.map((c) => c.toMap()).toList());
       await storeSecureData('emergency_contacts', contactsJson);
     } catch (e) {
-      print('Error saving emergency contact: $e');
+      debugPrint('Error saving emergency contact: $e');
       throw Exception('Failed to save emergency contact');
     }
   }
@@ -156,7 +157,7 @@ class SecureStorageHelper {
         await storeSecureData('emergency_contacts', contactsJson);
       }
     } catch (e) {
-      print('Error updating emergency contact: $e');
+      debugPrint('Error updating emergency contact: $e');
       throw Exception('Failed to update emergency contact');
     }
   }
@@ -170,7 +171,7 @@ class SecureStorageHelper {
           json.encode(existingContacts.map((c) => c.toMap()).toList());
       await storeSecureData('emergency_contacts', contactsJson);
     } catch (e) {
-      print('Error deleting emergency contact: $e');
+      debugPrint('Error deleting emergency contact: $e');
       throw Exception('Failed to delete emergency contact');
     }
   }

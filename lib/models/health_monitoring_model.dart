@@ -155,9 +155,9 @@ class EmergencyContact {
 }
 
 class HealthMonitoringModel extends ChangeNotifier {
-  List<HealthRecord> _healthRecords = [];
-  List<AppointmentReminder> _appointments = [];
-  List<EmergencyContact> _emergencyContacts = [];
+  final List<HealthRecord> _healthRecords = [];
+  final List<AppointmentReminder> _appointments = [];
+  final List<EmergencyContact> _emergencyContacts = [];
 
   List<HealthRecord> get healthRecords => _healthRecords;
   List<AppointmentReminder> get appointments => _appointments;
