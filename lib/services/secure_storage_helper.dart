@@ -101,7 +101,7 @@ class SecureStorageHelper {
     }
   }
 
-  static Future<void> deleteHealthRecord(String recordId) async {
+  static Future<void> deleteHealthRecord(int recordId) async {
     try {
       final existingRecords = await getHealthRecords();
       existingRecords.removeWhere((r) => r.id == recordId);
