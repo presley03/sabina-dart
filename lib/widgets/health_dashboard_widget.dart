@@ -10,13 +10,13 @@ class HealthDashboardWidget extends StatefulWidget {
   State<HealthDashboardWidget> createState() => _HealthDashboardWidgetState();
 }
 
-class _HealthDashboardWidgetState extends State<HealthDashboardWidget> 
+class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
     with AutomaticKeepAliveClientMixin {
   List<HealthInsight> insights = [];
   int healthScore = 75;
   bool isLoading = true;
   bool _isInitialized = false;
-  
+
   // Cache for expensive operations
   static final Map<String, dynamic> _cache = {};
   static DateTime? _lastCacheUpdate;
@@ -41,20 +41,20 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
     }
 
     setState(() => isLoading = true);
-    
+
     try {
       final results = await Future.wait([
         _loadInsightsWithCache(),
         _loadHealthScoreWithCache(),
       ]);
-      
+
       final loadedInsights = results[0] as List<HealthInsight>;
       final score = results[1] as int;
-      
+
       _cache['insights'] = loadedInsights;
       _cache['healthScore'] = score;
       _lastCacheUpdate = DateTime.now();
-      
+
       if (mounted) {
         setState(() {
           insights = loadedInsights;
@@ -98,7 +98,7 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    
+
     if (isLoading) {
       return _buildLoadingWidget();
     }
@@ -132,15 +132,15 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
         // Simple Health Score Card
         _buildSimpleHealthScore(),
         const SizedBox(height: 20),
-        
+
         // Main Action Button
         _buildMainActionButton(),
         const SizedBox(height: 20),
-        
+
         // Essential Quick Actions (Only 2)
         _buildEssentialActions(),
         const SizedBox(height: 20),
-        
+
         // Single Most Important Insight
         _buildSingleInsight(),
       ],
@@ -148,18 +148,27 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
   }
 
   Widget _buildSimpleHealthScore() {
-    Color scoreColor = healthScore >= 80 ? Colors.green : 
-                      healthScore >= 60 ? Colors.orange : Colors.red;
-    
-    String statusText = healthScore >= 80 ? 'Sehat' : 
-                       healthScore >= 60 ? 'Baik' : 'Perlu Perhatian';
+    Color scoreColor = healthScore >= 80
+        ? Colors.green
+        : healthScore >= 60
+            ? Colors.orange
+            : Colors.red;
+
+    String statusText = healthScore >= 80
+        ? 'Sehat'
+        : healthScore >= 60
+            ? 'Baik'
+            : 'Perlu Perhatian';
 
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [scoreColor.withValues(alpha: 0.8), scoreColor.withValues(alpha: 0.6)],
+          colors: [
+            scoreColor.withValues(alpha: 0.8),
+            scoreColor.withValues(alpha: 0.6)
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -380,7 +389,8 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
                 color: Colors.blue[100],
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.lightbulb_outline, color: Colors.blue[600], size: 24),
+              child: Icon(Icons.lightbulb_outline,
+                  color: Colors.blue[600], size: 24),
             ),
             const SizedBox(height: 12),
             Text(
@@ -407,9 +417,13 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
     }
 
     final insight = insights.first;
-    Color priorityColor = insight.priority == InsightPriority.critical ? Colors.red :
-                         insight.priority == InsightPriority.high ? Colors.orange :
-                         insight.priority == InsightPriority.medium ? Colors.blue : Colors.green;
+    Color priorityColor = insight.priority == InsightPriority.critical
+        ? Colors.red
+        : insight.priority == InsightPriority.high
+            ? Colors.orange
+            : insight.priority == InsightPriority.medium
+                ? Colors.blue
+                : Colors.green;
 
     return Container(
       width: double.infinity,
@@ -530,7 +544,8 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 12),
-            Text('• Pendarahan hebat\n• Kontraksi kuat sebelum waktunya\n• Sakit kepala parah\n• Pandangan kabur'),
+            Text(
+                '• Pendarahan hebat\n• Kontraksi kuat sebelum waktunya\n• Sakit kepala parah\n• Pandangan kabur'),
             SizedBox(height: 16),
             ListTile(
               leading: Icon(Icons.local_hospital, color: Colors.red),
@@ -556,4 +571,4 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
     _lastCacheUpdate = null;
     super.dispose();
   }
-} 
+}

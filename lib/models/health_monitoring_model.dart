@@ -111,8 +111,8 @@ class AppointmentReminder {
       type: map['type'],
       notes: map['notes'],
       isCompleted: map['is_completed'] == 1,
-      reminderTime: map['reminder_time'] != null 
-          ? DateTime.parse(map['reminder_time']) 
+      reminderTime: map['reminder_time'] != null
+          ? DateTime.parse(map['reminder_time'])
           : null,
     );
   }
@@ -197,7 +197,7 @@ class HealthMonitoringModel extends ChangeNotifier {
         .where((record) => record.weight != null)
         .map((record) => record.weight!)
         .toList();
-    
+
     if (weights.isEmpty) return null;
     return weights.reduce((a, b) => a + b) / weights.length;
   }
@@ -224,8 +224,8 @@ class HealthMonitoringModel extends ChangeNotifier {
   List<AppointmentReminder> getUpcomingAppointments() {
     final now = DateTime.now();
     return _appointments
-        .where((appointment) => 
-            appointment.appointmentDate.isAfter(now) && 
+        .where((appointment) =>
+            appointment.appointmentDate.isAfter(now) &&
             !appointment.isCompleted)
         .toList()
       ..sort((a, b) => a.appointmentDate.compareTo(b.appointmentDate));
@@ -257,4 +257,4 @@ class HealthMonitoringModel extends ChangeNotifier {
       return null;
     }
   }
-} 
+}

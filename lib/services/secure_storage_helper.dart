@@ -33,7 +33,7 @@ class SecureStorageHelper {
 
   // Validasi input untuk mencegah injection
   static String sanitizeInput(String input) {
-    return input.replaceAll(RegExp(r'[<>"\'';]'), '').trim();
+    return input.replaceAll(RegExp(r'[<>"\' ';]'), '').trim();
   }
 
   // Validasi format tanggal
