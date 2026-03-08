@@ -35,12 +35,12 @@ dependencies:
   photo_view: ^0.15.0
 
   # Security
-  flutter_secure_storage: ^9.2.2
+  flutter_secure_storage: ^10.0.0
   crypto: ^3.0.5
 
   # Charts
   fl_chart: ^1.1.1
-  syncfusion_flutter_charts: ^32.2.5  # Cek license Syncfusion jika app komersial
+  syncfusion_flutter_charts: ^32.2.8  # Upgraded from 32.2.5 (minor)
 
   # Network
   http: ^1.2.2
@@ -62,7 +62,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0  # Untuk linting lebih baik
+  flutter_lints: ^6.0.0  # Untuk linting lebih baik
 
 flutter:
   generate: true
