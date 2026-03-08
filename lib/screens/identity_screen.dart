@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:sabina/generated/app_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import '../utils/constants.dart';
 import '../services/database_helper.dart';
 import '../models/user_identity.dart';
@@ -23,6 +26,7 @@ class IdentityScreenState extends State<IdentityScreen>
   late TextEditingController _alamatController;
   String _selectedAgama = 'Islam';
   String _selectedGolonganDarah = 'A';
+  DateTime? _selectedDate;
 
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
@@ -81,19 +85,23 @@ class IdentityScreenState extends State<IdentityScreen>
     final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: SabinaColors.neutral100,
       appBar: AppBar(
         title: Text(
           localizations.motherIdentity,
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+          style: GoogleFonts.plusJakartaSans(
+            color: SabinaColors.neutral900,
+            fontWeight: FontWeight.w600,
+            fontSize: 18,
           ),
         ),
-        backgroundColor: Colors.pink[600],
+        backgroundColor: SabinaColors.white,
         elevation: 0,
         centerTitle: true,
-        iconTheme: const IconThemeData(color: Colors.white),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: SabinaColors.primary700),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -124,61 +132,42 @@ class IdentityScreenState extends State<IdentityScreen>
   }
 
   Widget _buildWelcomeHeader(AppLocalizations localizations) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.pink[600]!,
-            Colors.pink[400]!,
-          ],
+    return Column(
+      children: [
+        Container(
+          width: 64,
+          height: 64,
+          decoration: BoxDecoration(
+            color: SabinaColors.primary100,
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            Icons.person,
+            size: 32,
+            color: SabinaColors.primary700,
+          ),
         ),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.pink.withValues(alpha: 0.3),
-            blurRadius: 15,
-            offset: const Offset(0, 8),
+        const SizedBox(height: 16),
+        Text(
+          localizations.completeIdentityData,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+            color: SabinaColors.neutral900,
           ),
-        ],
-      ),
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              shape: BoxShape.circle,
-            ),
-            child: const Icon(
-              Icons.person_add,
-              size: 48,
-              color: Colors.white,
-            ),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          'Lengkapi data pribadi Anda untuk melanjutkan',
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            color: SabinaColors.neutral500,
           ),
-          const SizedBox(height: 16),
-          Text(
-            localizations.completeIdentityData,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            'Please fill in your personal information to continue',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.white.withValues(alpha: 0.9),
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 
@@ -186,15 +175,9 @@ class IdentityScreenState extends State<IdentityScreen>
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.1),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
+        color: SabinaColors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: SabinaColors.neutral300, width: 1),
       ),
       child: Form(
         key: _formKey,
@@ -216,7 +199,7 @@ class IdentityScreenState extends State<IdentityScreen>
               onTap: () => _showModernPicker(
                   context, _agamaList, _selectedAgama, (value) {
                 setState(() => _selectedAgama = value);
-              }),
+              }, 'Pilih Agama'),
             ),
             const SizedBox(height: 20),
             _buildModernDateField(localizations),
@@ -237,7 +220,7 @@ class IdentityScreenState extends State<IdentityScreen>
               onTap: () => _showModernPicker(
                   context, _golonganDarahList, _selectedGolonganDarah, (value) {
                 setState(() => _selectedGolonganDarah = value);
-              }),
+              }, 'Pilih Golongan Darah'),
             ),
           ],
         ),
@@ -259,36 +242,40 @@ class IdentityScreenState extends State<IdentityScreen>
       children: [
         Text(
           label,
-          style: TextStyle(
-            fontSize: 16,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: Colors.grey[700],
+            color: SabinaColors.neutral700,
           ),
         ),
         const SizedBox(height: 8),
         TextFormField(
           controller: controller,
           maxLines: maxLines,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 14,
+            color: SabinaColors.neutral900,
+          ),
           decoration: InputDecoration(
-            prefixIcon: Icon(icon, color: Colors.pink[600]),
+            prefixIcon: Icon(icon, color: SabinaColors.primary700),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.grey[300]!),
+              borderSide: BorderSide(color: SabinaColors.neutral300, width: 1),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.grey[300]!),
+              borderSide: BorderSide(color: SabinaColors.neutral300, width: 1),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.pink[600]!, width: 2),
+              borderSide: BorderSide(color: SabinaColors.primary700, width: 2),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(color: Colors.red, width: 2),
             ),
             filled: true,
-            fillColor: Colors.grey[50],
+            fillColor: SabinaColors.neutral100,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           ),
@@ -311,10 +298,10 @@ class IdentityScreenState extends State<IdentityScreen>
       children: [
         Text(
           label,
-          style: TextStyle(
-            fontSize: 16,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: Colors.grey[700],
+            color: SabinaColors.neutral700,
           ),
         ),
         const SizedBox(height: 8),
@@ -324,21 +311,24 @@ class IdentityScreenState extends State<IdentityScreen>
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey[300]!),
+              border: Border.all(color: SabinaColors.neutral300, width: 1),
               borderRadius: BorderRadius.circular(12),
-              color: Colors.grey[50],
+              color: SabinaColors.neutral100,
             ),
             child: Row(
               children: [
-                Icon(icon, color: Colors.pink[600]),
+                Icon(icon, color: SabinaColors.primary700),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     value,
-                    style: const TextStyle(fontSize: 16),
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 14,
+                      color: SabinaColors.neutral900,
+                    ),
                   ),
                 ),
-                Icon(Icons.arrow_drop_down, color: Colors.grey[600]),
+                Icon(Icons.arrow_drop_down, color: SabinaColors.neutral500),
               ],
             ),
           ),
@@ -353,10 +343,10 @@ class IdentityScreenState extends State<IdentityScreen>
       children: [
         Text(
           localizations.dateOfBirth,
-          style: TextStyle(
-            fontSize: 16,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: Colors.grey[700],
+            color: SabinaColors.neutral700,
           ),
         ),
         const SizedBox(height: 8),
@@ -366,28 +356,29 @@ class IdentityScreenState extends State<IdentityScreen>
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey[300]!),
+              border: Border.all(color: SabinaColors.neutral300, width: 1),
               borderRadius: BorderRadius.circular(12),
-              color: Colors.grey[50],
+              color: SabinaColors.neutral100,
             ),
             child: Row(
               children: [
-                Icon(Icons.calendar_today_outlined, color: Colors.pink[600]),
+                Icon(Icons.calendar_today_outlined,
+                    color: SabinaColors.primary700),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     _tanggalLahirController.text.isEmpty
-                        ? 'Select date of birth'
+                        ? 'Pilih tanggal lahir'
                         : _tanggalLahirController.text,
-                    style: TextStyle(
-                      fontSize: 16,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 14,
                       color: _tanggalLahirController.text.isEmpty
-                          ? Colors.grey[500]
-                          : Colors.black,
+                          ? SabinaColors.neutral500
+                          : SabinaColors.neutral900,
                     ),
                   ),
                 ),
-                Icon(Icons.arrow_drop_down, color: Colors.grey[600]),
+                Icon(Icons.arrow_drop_down, color: SabinaColors.neutral500),
               ],
             ),
           ),
@@ -403,13 +394,12 @@ class IdentityScreenState extends State<IdentityScreen>
       child: ElevatedButton(
         onPressed: _saveIdentity,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.pink[600],
-          foregroundColor: Colors.white,
+          backgroundColor: SabinaColors.primary700,
+          foregroundColor: SabinaColors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          elevation: 4,
-          shadowColor: Colors.pink.withValues(alpha: 0.3),
+          elevation: 2,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -420,9 +410,9 @@ class IdentityScreenState extends State<IdentityScreen>
               widget.userIdentity != null
                   ? localizations.saveChanges
                   : localizations.save,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ],
@@ -432,81 +422,213 @@ class IdentityScreenState extends State<IdentityScreen>
   }
 
   void _showModernPicker(BuildContext context, List<String> items,
-      String selectedValue, Function(String) onSelected) {
+      String selectedValue, Function(String) onSelected, String title) {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
       builder: (context) => Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        decoration: BoxDecoration(
+          color: SabinaColors.white,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 12),
-              width: 40,
-              height: 4,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(2),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                'Select Option',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey[800],
+        child: SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 12),
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: SabinaColors.neutral300,
+                  borderRadius: BorderRadius.circular(2),
                 ),
               ),
-            ),
-            ...items.map((item) => ListTile(
-                  title: Text(item),
-                  trailing: selectedValue == item
-                      ? Icon(Icons.check, color: Colors.pink[600])
-                      : null,
-                  onTap: () {
-                    onSelected(item);
-                    Navigator.pop(context);
-                  },
-                )),
-            const SizedBox(height: 20),
-          ],
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text(
+                        'Batal',
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 14,
+                          color: SabinaColors.neutral500,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      title,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: SabinaColors.neutral900,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text(
+                        'Selesai',
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 14,
+                          color: SabinaColors.primary700,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Divider(
+                height: 1,
+                color: SabinaColors.neutral300,
+                indent: 0,
+                endIndent: 0,
+              ),
+              ListView.separated(
+                shrinkWrap: true,
+                itemCount: items.length,
+                separatorBuilder: (_, __) => Divider(
+                  height: 1,
+                  color: SabinaColors.neutral300,
+                ),
+                itemBuilder: (context, index) {
+                  final item = items[index];
+                  final isSelected = selectedValue == item;
+                  return ListTile(
+                    title: Text(
+                      item,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 14,
+                        fontWeight:
+                            isSelected ? FontWeight.w600 : FontWeight.w400,
+                        color: isSelected
+                            ? SabinaColors.primary700
+                            : SabinaColors.neutral900,
+                      ),
+                    ),
+                    trailing: isSelected
+                        ? Icon(Icons.check,
+                            color: SabinaColors.primary700, size: 24)
+                        : null,
+                    onTap: () {
+                      onSelected(item);
+                      Navigator.pop(context);
+                    },
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
+  void _selectDate(BuildContext context) {
+    showModalBottomSheet(
       context: context,
-      initialDate: DateTime.now().subtract(const Duration(days: 365 * 25)),
-      firstDate: DateTime(1950),
-      lastDate: DateTime.now(),
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: Colors.pink[600]!,
-              onPrimary: Colors.white,
-              surface: Colors.white,
-              onSurface: Colors.black,
-            ),
+      backgroundColor: Colors.transparent,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (context) => Container(
+        decoration: BoxDecoration(
+          color: SabinaColors.white,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        ),
+        child: SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 12),
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: SabinaColors.neutral300,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text(
+                        'Batal',
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 14,
+                          color: SabinaColors.neutral500,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'Tanggal Lahir',
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: SabinaColors.neutral900,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        if (_selectedDate != null) {
+                          setState(() {
+                            _tanggalLahirController.text =
+                                DateFormat('dd/MM/yyyy').format(_selectedDate!);
+                          });
+                        }
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'Selesai',
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 14,
+                          color: SabinaColors.primary700,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Divider(
+                height: 1,
+                color: SabinaColors.neutral300,
+                indent: 0,
+                endIndent: 0,
+              ),
+              SizedBox(
+                height: 220,
+                child: CupertinoDatePicker(
+                  mode: CupertinoDatePickerMode.date,
+                  initialDateTime: _selectedDate ?? DateTime(1990),
+                  maximumDate: DateTime.now(),
+                  minimumDate: DateTime(1940),
+                  onDateTimeChanged: (date) {
+                    setState(() => _selectedDate = date);
+                  },
+                ),
+              ),
+              const SizedBox(height: 24),
+            ],
           ),
-          child: child!,
-        );
-      },
+        ),
+      ),
     );
-
-    if (picked != null) {
-      setState(() {
-        _tanggalLahirController.text = DateFormat('dd/MM/yyyy').format(picked);
-      });
-    }
   }
 
   void _saveIdentity() async {

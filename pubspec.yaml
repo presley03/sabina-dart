@@ -16,6 +16,9 @@ dependencies:
   # Intl: Pakai 'any' agar ikut versi yang dipin oleh flutter_localizations (0.20.2 di 2026)
   intl: any
 
+  # Fonts
+  google_fonts: ^6.1.0
+
   # Storage & Path
   shared_preferences: ^2.5.4
   path_provider: ^2.1.5

@@ -6,6 +6,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import '../models/pregnancy_history.dart';
 import '../models/user_identity.dart';
 import '../services/database_helper.dart';
@@ -152,11 +153,18 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   children: [
                     CircleAvatar(
                       radius: 50,
-                      backgroundColor: Colors.white,
-                      backgroundImage: _image != null
-                          ? FileImage(_image!)
-                          : const AssetImage('assets/default_avatar.png')
-                              as ImageProvider,
+                      backgroundColor: _image != null
+                          ? Colors.white
+                          : SabinaColors.primary100,
+                      backgroundImage:
+                          _image != null ? FileImage(_image!) : null,
+                      child: _image == null
+                          ? Icon(
+                              Icons.person,
+                              size: 40,
+                              color: SabinaColors.primary700,
+                            )
+                          : null,
                     ),
                     if (_image == null)
                       Container(
@@ -390,7 +398,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     if (birthDateString.isEmpty) return 'N/A';
 
     try {
-      final birthDate = DateFormat('dd-MM-yyyy').parse(birthDateString);
+      final birthDate = DateFormat('dd/MM/yyyy').parse(birthDateString);
       final today = DateTime.now();
       int age = today.year - birthDate.year;
       if (today.month < birthDate.month ||

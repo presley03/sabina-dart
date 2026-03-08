@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sabina/generated/app_localizations.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/models/keluar_darah_model.dart';
 import 'package:sabina/models/mual_muntah_model.dart';
 import 'package:sabina/screens/splash_screen.dart';
@@ -53,24 +54,7 @@ class MyApp extends StatelessWidget {
       builder: (context, localeProvider, child) {
         return MaterialApp(
           title: 'Sabina App',
-          theme: ThemeData(
-            primarySwatch: Colors.pink,
-            fontFamily: 'Poppins',
-            // Enhanced theme for better UI
-            cardTheme: CardThemeData(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-            ),
-          ),
+          theme: AppTheme.lightTheme,
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,

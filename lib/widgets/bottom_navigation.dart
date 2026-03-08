@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sabina/generated/app_localizations.dart'; // Menggunakan AppLocalizations
+import 'package:sabina/generated/app_localizations.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import '../utils/constants.dart';
 
 class SabinaBottomNavigation extends StatelessWidget {
@@ -66,9 +67,9 @@ class SabinaBottomNavigation extends StatelessWidget {
         }
       },
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
-      selectedItemColor: AppColors.primaryBlack,
-      unselectedItemColor: Colors.grey,
+      backgroundColor: SabinaColors.white,
+      selectedItemColor: SabinaColors.primary700,
+      unselectedItemColor: SabinaColors.neutral500,
       items: [
         BottomNavigationBarItem(
           icon: const Icon(Icons.home, size: 30),
@@ -97,14 +98,15 @@ class SabinaBottomNavigation extends StatelessWidget {
           tooltip: localizations.consultationTooltip, // Tooltip terjemahan
         ),
       ],
-      selectedLabelStyle: const TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
-        color: AppColors.primaryPink,
-      ),
-      unselectedLabelStyle: const TextStyle(
+      selectedLabelStyle: TextStyle(
         fontSize: 12,
-        color: Colors.grey,
+        fontWeight: FontWeight.w600,
+        color: SabinaColors.primary700,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: SabinaColors.neutral500,
       ),
     );
   }
