@@ -20,7 +20,6 @@ import 'models/bengkak_model.dart';
 import 'models/pergerakan_janin_model.dart';
 import 'models/health_monitoring_model.dart'; // New model
 import 'providers/locale_provider.dart';
-import 'services/app_integration_service.dart'; // New service
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,7 +65,7 @@ class MyApp extends StatelessWidget {
             Locale('id', ''),
           ],
           locale: localeProvider.locale,
-          home: const AppInitializer(),
+          home: const SplashScreen(),
           routes: {
             '/aktivitasFisik': (context) =>
                 const AktivitasFisikIbuHamilScreen(), // Tambahkan rute
@@ -82,163 +81,6 @@ class MyApp extends StatelessWidget {
           },
         );
       },
-    );
-  }
-}
-
-// New widget to initialize app services
-class AppInitializer extends StatefulWidget {
-  const AppInitializer({Key? key}) : super(key: key);
-
-  @override
-  State<AppInitializer> createState() => _AppInitializerState();
-}
-
-class _AppInitializerState extends State<AppInitializer> {
-  bool _isInitialized = false;
-  String _initializationStatus = 'Memulai aplikasi...';
-
-  @override
-  void initState() {
-    super.initState();
-    _initializeApp();
-  }
-
-  Future<void> _initializeApp() async {
-    try {
-      setState(
-          () => _initializationStatus = 'Menginisialisasi layanan keamanan...');
-      await Future.delayed(const Duration(milliseconds: 500));
-
-      setState(() => _initializationStatus = 'Menyiapkan notifikasi...');
-      await Future.delayed(const Duration(milliseconds: 500));
-
-      setState(() => _initializationStatus = 'Memuat data kesehatan...');
-      await AppIntegrationService.initializeApp(context);
-      await Future.delayed(const Duration(milliseconds: 500));
-
-      setState(() => _initializationStatus = 'Menyiapkan pengingat...');
-      await AppIntegrationService.setupTrimesterReminders();
-      await Future.delayed(const Duration(milliseconds: 500));
-
-      setState(() {
-        _isInitialized = true;
-        _initializationStatus = 'Siap digunakan!';
-      });
-
-      // Navigate to splash screen after initialization
-      await Future.delayed(const Duration(milliseconds: 1000));
-      if (mounted) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const SplashScreen()),
-        );
-      }
-    } catch (e) {
-      setState(() => _initializationStatus = 'Error: $e');
-      debugPrint('Initialization error: $e');
-
-      // Still navigate to splash screen even if there's an error
-      await Future.delayed(const Duration(seconds: 2));
-      if (mounted) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const SplashScreen()),
-        );
-      }
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.pink[50],
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // App logo or icon
-            Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                color: Colors.pink[100],
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.pregnant_woman,
-                size: 60,
-                color: Colors.pink[600],
-              ),
-            ),
-            const SizedBox(height: 32),
-
-            // App name
-            Text(
-              'SABINA',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.pink[800],
-                fontFamily: 'Poppins',
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Pemantau Kesehatan Ibu Hamil',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.pink[600],
-                fontFamily: 'Poppins',
-              ),
-            ),
-
-            const SizedBox(height: 48),
-
-            // Loading indicator
-            SizedBox(
-              width: 40,
-              height: 40,
-              child: CircularProgressIndicator(
-                strokeWidth: 3,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.pink[400]!),
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            // Status text
-            Text(
-              _initializationStatus,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.pink[700],
-                fontFamily: 'Poppins',
-              ),
-              textAlign: TextAlign.center,
-            ),
-
-            const SizedBox(height: 16),
-
-            // Version info
-            Text(
-              'Versi 1.0.6+9',
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey[600],
-                fontFamily: 'Poppins',
-              ),
-            ),
-
-            if (_isInitialized) ...[
-              const SizedBox(height: 16),
-              Icon(
-                Icons.check_circle,
-                color: Colors.green[600],
-                size: 24,
-              ),
-            ],
-          ],
-        ),
-      ),
     );
   }
 }

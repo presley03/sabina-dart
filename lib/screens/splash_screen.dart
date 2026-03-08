@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
-import 'dart:async';
 import 'identity_screen.dart';
 import 'home_screen.dart';
-import '../utils/constants.dart';
+import '../services/app_integration_service.dart';
 import '../services/database_helper.dart';
+import '../utils/constants.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,14 +14,15 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   late AnimationController _fadeAnimationController;
   late Animation<double> _fadeAnimation;
 
   @override
   void initState() {
     super.initState();
-    
+
     // Initialize fade animation (0.8 seconds)
     _fadeAnimationController = AnimationController(
       duration: const Duration(milliseconds: 800),
@@ -36,20 +37,46 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     );
 
     _fadeAnimationController.forward();
-    _checkUserIdentity();
+    _initializeAndCheck();
   }
 
-  void _checkUserIdentity() async {
-    await Future.delayed(const Duration(seconds: 3)); // Menampilkan splash screen selama 3 detik
-    final userIdentity = await DatabaseHelper.instance.getIdentity();
-    if (mounted) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => userIdentity.isNotEmpty
-              ? const SabinaHomeScreen()
-              : const IdentityScreen(),
-        ),
-      );
+  Future<void> _initializeAndCheck() async {
+    // Run app initialization services
+    try {
+      await AppIntegrationService.initializeApp(context);
+      await AppIntegrationService.setupTrimesterReminders();
+    } catch (e) {
+      debugPrint('Initialization error: $e');
+    }
+    // After initialization, check user identity
+    await _checkUserIdentity();
+  }
+
+  Future<void> _checkUserIdentity() async {
+    await Future.delayed(const Duration(seconds: 3));
+    
+    if (!mounted) return;
+    
+    try {
+      final identityList = await DatabaseHelper.instance.getIdentity();
+      if (mounted) {
+        if (identityList.isNotEmpty) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const SabinaHomeScreen()),
+          );
+        } else {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const IdentityScreen()),
+          );
+        }
+      }
+    } catch (e) {
+      debugPrint('Error checking identity: $e');
+      if (mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const IdentityScreen()),
+        );
+      }
     }
   }
 
@@ -76,7 +103,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                 width: 150,
               ),
               const SizedBox(height: 16),
-              
+
               // App Name
               Text(
                 'SABINA',
@@ -87,7 +114,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                 ),
               ),
               const SizedBox(height: 4),
-              
+
               // Tagline
               Text(
                 'Sahabat Ibu Hamil & Keluarga',
