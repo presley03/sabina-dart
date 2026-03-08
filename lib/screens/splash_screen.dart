@@ -54,9 +54,9 @@ class _SplashScreenState extends State<SplashScreen>
 
   Future<void> _checkUserIdentity() async {
     await Future.delayed(const Duration(seconds: 3));
-    
+
     if (!mounted) return;
-    
+
     try {
       final identityList = await DatabaseHelper.instance.getIdentity();
       if (mounted) {
@@ -101,28 +101,6 @@ class _SplashScreenState extends State<SplashScreen>
               Image.asset(
                 AppAssets.logoHorizontal,
                 width: 150,
-              ),
-              const SizedBox(height: 16),
-
-              // App Name
-              Text(
-                'SABINA',
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w700,
-                  color: SabinaColors.primary700,
-                ),
-              ),
-              const SizedBox(height: 4),
-
-              // Tagline
-              Text(
-                'Sahabat Ibu Hamil & Keluarga',
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400,
-                  color: SabinaColors.neutral500,
-                ),
               ),
             ],
           ),
