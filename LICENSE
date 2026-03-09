@@ -1,0 +1,69 @@
+# MIT License
+
+Copyright (c) 2026 SABINA Health
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Penjelasan Lisensi MIT
+
+This is one of the most permissive open source licenses. It allows:
+
+✅ **Commercial Use** - Gunakan untuk proyek komersial
+✅ **Modification** - Modifikasi kode sepuas hati
+✅ **Distribution** - Distribusikan untuk siapa pun
+✅ **Private Use** - Gunakan secara privat tanpa membagikan
+
+Dengan syarat:
+📋 Attribution - Cantumkan lisensi dan hakcipta asli
+⚠️ Disclaimer - Tidak ada garansi atau liability
+
+---
+
+## Penggunaan Lisensi Ini
+
+### Jika Anda Menggunakan SABINA dalam Proyek Anda
+
+1. Cantumkan pernyataan copyright dan lisensi
+2. Cantumkan link ke lisensi lengkap
+3. Jelaskan perubahan apa pun yang dilakukan
+4. Jangan ada liability dari original authors
+
+### Contoh Attribution
+
+```
+This project uses SABINA (https://github.com/your-org/sabina_app)
+which is licensed under the MIT License.
+Copyright (c) 2026 SABINA Health
+
+See LICENSE for full license terms.
+```
+
+### Proyek Turunan (Derivatives)
+
+Jika Anda membuat proyek turunan:
+- Anda dapat menggunakan lisensi apa pun (tidak harus MIT)
+- Tetapi harus tetap mencantumkan copyright asli
+- Dokumentasikan perubahan yang signifikan
+- Pertimbangkan kontribusi kembali ke upstream
+
+---
+
+Untuk informasi lebih lanjut tentang MIT License, kunjungi: https://opensource.org/licenses/MIT
