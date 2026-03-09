@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import '../models/health_monitoring_model.dart';
 import '../services/health_analytics_service.dart';
 import '../services/secure_storage_helper.dart';
@@ -69,17 +70,16 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     super.build(context);
 
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: SabinaColors.neutral100,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Catat Kesehatan',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+          style: SabinaTextStyles.h3().copyWith(
+            color: SabinaColors.primary700,
           ),
         ),
-        backgroundColor: Colors.pink[600],
-        foregroundColor: Colors.white,
+        backgroundColor: SabinaColors.white,
+        foregroundColor: SabinaColors.primary700,
         elevation: 0,
         centerTitle: true,
       ),
@@ -119,7 +119,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.blue[100]!, Colors.blue[50]!],
+          colors: [SabinaColors.secondary300, SabinaColors.primary100],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -131,21 +131,20 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                width: 36,
+                height: 36,
                 decoration: BoxDecoration(
-                  color: Colors.blue[200],
+                  color: SabinaColors.secondary300,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child:
-                    Icon(Icons.info_outline, color: Colors.blue[800], size: 20),
+                    Icon(Icons.info_outline, color: SabinaColors.secondary700, size: 18),
               ),
               const SizedBox(width: 12),
               Text(
                 'Mengapa Perlu Dicatat?',
-                style: TextStyle(
-                  color: Colors.blue[800],
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                style: SabinaTextStyles.bodyLarge().copyWith(
+                  color: SabinaColors.secondary700,
                 ),
               ),
             ],
@@ -153,9 +152,8 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
           const SizedBox(height: 12),
           Text(
             'Dengan mencatat berat badan dan tekanan darah secara rutin, dokter dapat memantau perkembangan kehamilan Anda dan mendeteksi masalah sejak dini.',
-            style: TextStyle(
-              color: Colors.blue[700],
-              fontSize: 14,
+            style: SabinaTextStyles.bodyRegular().copyWith(
+              color: SabinaColors.secondary700,
               height: 1.4,
             ),
           ),
@@ -168,13 +166,13 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        color: SabinaColors.white,
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.1),
-            blurRadius: 15,
-            offset: const Offset(0, 8),
+            color: SabinaColors.neutral300.withValues(alpha: 0.2),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
           ),
         ],
       ),
@@ -186,25 +184,24 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
             Row(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  width: 36,
+                  height: 36,
                   decoration: BoxDecoration(
-                    color: Colors.pink[100],
-                    borderRadius: BorderRadius.circular(10),
+                    color: SabinaColors.primary100,
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(
                     Icons.edit_note,
-                    color: Colors.pink[600],
-                    size: 24,
+                    color: SabinaColors.primary700,
+                    size: 18,
                   ),
                 ),
                 const SizedBox(width: 16),
-                const Expanded(
+                Expanded(
                   child: Text(
                     'Catat Hari Ini',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                    style: SabinaTextStyles.h2().copyWith(
+                      color: SabinaColors.neutral900,
                     ),
                   ),
                 ),
@@ -215,10 +212,8 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
             // Weight Input with better explanation
             Text(
               'Berat Badan (kg)',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Colors.grey[800],
+              style: SabinaTextStyles.bodyLarge().copyWith(
+                color: SabinaColors.neutral700,
               ),
             ),
             const SizedBox(height: 8),
@@ -236,21 +231,21 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
               },
               decoration: InputDecoration(
                 hintText: 'Contoh: 65',
-                prefixIcon: Icon(Icons.monitor_weight, color: Colors.pink[600]),
+                prefixIcon: Icon(Icons.monitor_weight, color: SabinaColors.primary700),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey[300]!),
+                  borderSide: BorderSide(color: SabinaColors.neutral300),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey[300]!),
+                  borderSide: BorderSide(color: SabinaColors.neutral300),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.pink[600]!, width: 2),
+                  borderSide: BorderSide(color: SabinaColors.primary700, width: 2),
                 ),
                 filled: true,
-                fillColor: Colors.grey[50],
+                fillColor: SabinaColors.neutral100,
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               ),
@@ -260,10 +255,8 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
             // Blood Pressure with better explanation
             Text(
               'Tekanan Darah',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Colors.grey[800],
+              style: SabinaTextStyles.bodyLarge().copyWith(
+                color: SabinaColors.neutral700,
               ),
             ),
             const SizedBox(height: 8),
@@ -282,23 +275,23 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                     decoration: InputDecoration(
                       hintText: '120',
                       labelText: 'Sistolik',
-                      prefixIcon: Icon(Icons.favorite, color: Colors.red[400]),
+                      prefixIcon: Icon(Icons.favorite, color: SabinaColors.error700),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[50],
+                      fillColor: SabinaColors.neutral100,
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Text(
                     '/',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Colors.grey,
+                      color: SabinaColors.neutral500,
                     ),
                   ),
                 ),
@@ -316,12 +309,12 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                       hintText: '80',
                       labelText: 'Diastolik',
                       prefixIcon:
-                          Icon(Icons.favorite_border, color: Colors.red[400]),
+                          Icon(Icons.favorite_border, color: SabinaColors.error700),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[50],
+                      fillColor: SabinaColors.neutral100,
                     ),
                   ),
                 ),
@@ -330,9 +323,8 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
             const SizedBox(height: 12),
             Text(
               'Normal: 120/80 mmHg. Jika >140/90, segera konsultasi dokter.',
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey[600],
+              style: SabinaTextStyles.caption().copyWith(
+                color: SabinaColors.neutral500,
                 fontStyle: FontStyle.italic,
               ),
             ),
@@ -345,25 +337,22 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
               child: ElevatedButton(
                 onPressed: _saveHealthRecord,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pink[600],
-                  foregroundColor: Colors.white,
+                  backgroundColor: SabinaColors.primary700,
+                  foregroundColor: SabinaColors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  elevation: 4,
-                  shadowColor: Colors.pink.withValues(alpha: 0.3),
+                  elevation: 2,
+                  shadowColor: SabinaColors.primary700.withValues(alpha: 0.3),
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.save, size: 20),
-                    SizedBox(width: 8),
+                    const Icon(Icons.save, size: 20),
+                    const SizedBox(width: 8),
                     Text(
                       'Simpan Data',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: SabinaTextStyles.button(),
                     ),
                   ],
                 ),
@@ -379,13 +368,13 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: SabinaColors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
+            color: SabinaColors.neutral300.withValues(alpha: 0.2),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
           ),
         ],
       ),
@@ -395,25 +384,24 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                width: 36,
+                height: 36,
                 decoration: BoxDecoration(
-                  color: Colors.green[100],
+                  color: SabinaColors.secondary300,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(
                   Icons.history,
-                  color: Colors.green[600],
-                  size: 20,
+                  color: SabinaColors.secondary700,
+                  size: 18,
                 ),
               ),
               const SizedBox(width: 12),
-              const Expanded(
+              Expanded(
                 child: Text(
                   'Catatan Terakhir',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                  style: SabinaTextStyles.h3().copyWith(
+                    color: SabinaColors.neutral900,
                   ),
                 ),
               ),
@@ -430,27 +418,23 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
               width: double.infinity,
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.grey[50],
+                color: SabinaColors.neutral100,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.grey[200]!),
               ),
               child: Column(
                 children: [
-                  Icon(Icons.note_add, size: 40, color: Colors.grey[400]),
+                  Icon(Icons.note_add, size: 40, color: SabinaColors.neutral500),
                   const SizedBox(height: 8),
                   Text(
                     'Belum ada catatan',
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+                    style: SabinaTextStyles.bodyLarge().copyWith(
+                      color: SabinaColors.neutral700,
                     ),
                   ),
                   Text(
                     'Mulai catat kesehatan Anda hari ini!',
-                    style: TextStyle(
-                      color: Colors.grey[500],
-                      fontSize: 12,
+                    style: SabinaTextStyles.caption().copyWith(
+                      color: SabinaColors.neutral500,
                     ),
                   ),
                 ],
@@ -470,19 +454,19 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.blue[50],
+        color: SabinaColors.secondary300.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.blue[100]!),
       ),
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(8),
+            width: 36,
+            height: 36,
             decoration: BoxDecoration(
-              color: Colors.blue[100],
+              color: SabinaColors.secondary300,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(Icons.favorite, color: Colors.blue[600], size: 20),
+            child: Icon(Icons.favorite, color: SabinaColors.secondary700, size: 18),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -491,17 +475,15 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
               children: [
                 Text(
                   '${record.weight} kg • ${record.bloodPressure} mmHg',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
+                  style: SabinaTextStyles.bodyLarge().copyWith(
+                    color: SabinaColors.neutral900,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   '${record.date.day}/${record.date.month}/${record.date.year}',
-                  style: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 12,
+                  style: SabinaTextStyles.caption().copyWith(
+                    color: SabinaColors.neutral700,
                   ),
                 ),
               ],
@@ -517,7 +499,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.red[100]!, Colors.red[50]!],
+          colors: [SabinaColors.error100, SabinaColors.primary100],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -529,20 +511,19 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                width: 36,
+                height: 36,
                 decoration: BoxDecoration(
-                  color: Colors.red[200],
+                  color: SabinaColors.error100,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Icon(Icons.emergency, color: Colors.red[800], size: 20),
+                child: Icon(Icons.emergency, color: SabinaColors.error700, size: 18),
               ),
               const SizedBox(width: 12),
               Text(
                 'Kontak Darurat',
-                style: TextStyle(
-                  color: Colors.red[800],
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                style: SabinaTextStyles.bodyLarge().copyWith(
+                  color: SabinaColors.error700,
                 ),
               ),
             ],
@@ -550,9 +531,8 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
           const SizedBox(height: 12),
           Text(
             'Hubungi segera jika mengalami: pendarahan hebat, kontraksi kuat, sakit kepala parah, atau pandangan kabur.',
-            style: TextStyle(
-              color: Colors.red[700],
-              fontSize: 14,
+            style: SabinaTextStyles.bodyRegular().copyWith(
+              color: SabinaColors.error700,
               height: 1.4,
             ),
           ),
@@ -565,8 +545,8 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                   icon: const Icon(Icons.phone, size: 18),
                   label: const Text('Ambulans 118'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red[600],
-                    foregroundColor: Colors.white,
+                    backgroundColor: SabinaColors.error700,
+                    foregroundColor: SabinaColors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -580,8 +560,8 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                   icon: const Icon(Icons.local_hospital, size: 18),
                   label: const Text('Dokter'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue[600],
-                    foregroundColor: Colors.white,
+                    backgroundColor: SabinaColors.secondary700,
+                    foregroundColor: SabinaColors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -622,9 +602,9 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Data kesehatan berhasil disimpan'),
-            backgroundColor: Colors.green,
+          SnackBar(
+            content: const Text('Data kesehatan berhasil disimpan'),
+            backgroundColor: SabinaColors.secondary700,
           ),
         );
       }
@@ -633,7 +613,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error: $e'),
-            backgroundColor: Colors.red,
+            backgroundColor: SabinaColors.error700,
           ),
         );
       }
