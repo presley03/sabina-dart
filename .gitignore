@@ -47,3 +47,29 @@ app.*.map.json
 *.jks
 release.keystore
 android/key.properties
+
+# Temporary & analysis files
+analyze_*.txt
+err*.txt
+full_*.txt
+*_copy.yaml
+*copy.yaml
+*.log
+
+# Screenshot & temporary media
+*_final.png
+*_redesigned.png
+*_updated.png
+screenshot*.png
+health_monitoring_redesigned.png
+splash_*.png
+
+# Temporary documentation
+IMPLEMENTATION_GUIDE.md
+DESIGN_SYSTEM_PROPOSAL.md
+clean.ps1
+
+# Build & development artifacts
+*.apk
+*.aab
+/release/
