@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import '../../models/preeclampsia_model.dart';
 import 'preeclampsia_result_screen.dart';
@@ -9,262 +12,240 @@ class QuestionnaireScreenModern extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = AppLocalizations.of(context)!;
-
     return Consumer<PreeclampsiaScreeningModel>(
       builder: (context, model, child) {
         if (model.isQuestionnaireCompleted) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const ResultScreen()),
+              MaterialPageRoute(builder: (_) => const ResultScreen()),
             );
           });
           return const Scaffold(
-              body: Center(child: CircularProgressIndicator()));
+            body: Center(child: CircularProgressIndicator()),
+          );
         }
 
+        final l10n = AppLocalizations.of(context)!;
+        final progress =
+            (model.currentQuestionIndex + 1) / model.questions.length;
+        final current = model.currentQuestionIndex + 1;
+        final total = model.questions.length;
+        final questionText = model.questions[model.currentQuestionIndex].text;
+
         return Scaffold(
-          backgroundColor: Colors.grey[50],
+          backgroundColor: SabinaColors.neutral100,
           appBar: AppBar(
+            backgroundColor: SabinaColors.white,
+            elevation: 0,
+            surfaceTintColor: Colors.transparent,
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.white),
+              icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+              color: SabinaColors.neutral900,
               onPressed: () => Navigator.of(context).pop(),
             ),
             title: Text(
-              localizations.preeclampsiaQuestionnaire,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+              l10n.preeklampsiaQuestTitle,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+                color: SabinaColors.neutral900,
               ),
             ),
-            backgroundColor: Colors.pink[600],
-            elevation: 0,
-            centerTitle: true,
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(1),
+              child: Divider(height: 1, color: SabinaColors.neutral300),
+            ),
           ),
           body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  _buildProgressSection(model, localizations),
-                  const SizedBox(height: 30),
-                  Expanded(
-                    child: _buildQuestionCard(context, model, localizations),
+            child: Column(
+              children: [
+                _ProgressBar(
+                    progress: progress, current: current, total: total),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          l10n.questionStepLabel(current, total),
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            color: SabinaColors.neutral500,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 24,
+                            vertical: 32,
+                          ),
+                          decoration: BoxDecoration(
+                            color: SabinaColors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: SabinaColors.neutral900
+                                    .withValues(alpha: 0.06),
+                                blurRadius: 16,
+                                offset: const Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: Text(
+                            questionText,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600,
+                              color: SabinaColors.neutral900,
+                              height: 1.55,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 30),
-                  _buildAnswerButtons(context, model, localizations),
-                  const SizedBox(height: 20),
-                ],
-              ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 32),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: _AnswerButton(
+                          label: l10n.answerNo,
+                          isYes: false,
+                          onTap: () {
+                            HapticFeedback.lightImpact();
+                            model.answerQuestion(false);
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _AnswerButton(
+                          label: l10n.answerYes,
+                          isYes: true,
+                          onTap: () {
+                            HapticFeedback.lightImpact();
+                            model.answerQuestion(true);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         );
       },
     );
   }
+}
 
-  Widget _buildProgressSection(
-      PreeclampsiaScreeningModel model, AppLocalizations localizations) {
-    final progress = (model.currentQuestionIndex + 1) / model.questions.length;
+// ── Progress bar ──────────────────────────────────────────────────────────────
 
-    return Column(
-      children: [
-        // Progress indicator
-        SizedBox(
-          width: 120,
-          height: 120,
-          child: Stack(
+class _ProgressBar extends StatelessWidget {
+  final double progress;
+  final int current;
+  final int total;
+
+  const _ProgressBar({
+    required this.progress,
+    required this.current,
+    required this.total,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: SabinaColors.white,
+      padding: const EdgeInsets.fromLTRB(24, 12, 24, 14),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Center(
-                child: SizedBox(
-                  width: 120,
-                  height: 120,
-                  child: CircularProgressIndicator(
-                    value: progress,
-                    backgroundColor: Colors.grey[300],
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(Colors.pink[600]!),
-                    strokeWidth: 8,
-                  ),
-                ),
-              ),
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '${model.currentQuestionIndex + 1}',
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.pink[600],
-                      ),
-                    ),
-                    Text(
-                      'of ${model.questions.length}',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 16),
-        LinearProgressIndicator(
-          value: progress,
-          backgroundColor: Colors.grey[300],
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.pink[600]!),
-          minHeight: 6,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildQuestionCard(BuildContext context,
-      PreeclampsiaScreeningModel model, AppLocalizations localizations) {
-    return Card(
-      elevation: 8,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(24.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.white,
-              Colors.pink[50]!,
-            ],
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.help_outline,
-              size: 48,
-              color: Colors.pink[600],
-            ),
-            const SizedBox(height: 20),
-            Text(
-              _getLocalizedQuestion(model.currentQuestionIndex, localizations),
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
-                height: 1.4,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              decoration: BoxDecoration(
-                color: Colors.pink[100],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Text(
-                'Question ${model.currentQuestionIndex + 1} of ${model.questions.length}',
-                style: TextStyle(
-                  fontSize: 14,
+              Text(
+                AppLocalizations.of(context)!.questionnaireProgress,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 11,
                   fontWeight: FontWeight.w500,
-                  color: Colors.pink[800],
+                  color: SabinaColors.neutral500,
                 ),
               ),
+              Text(
+                '$current / $total',
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w700,
+                  color: SabinaColors.primary700,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(99),
+            child: LinearProgressIndicator(
+              value: progress,
+              minHeight: 6,
+              backgroundColor: SabinaColors.neutral300,
+              valueColor:
+                  AlwaysStoppedAnimation<Color>(SabinaColors.primary700),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
+}
 
-  Widget _buildAnswerButtons(BuildContext context,
-      PreeclampsiaScreeningModel model, AppLocalizations localizations) {
-    return Row(
-      children: [
-        Expanded(
-          child: SizedBox(
-            height: 70,
-            child: ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green[500],
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                elevation: 4,
-              ),
-              onPressed: () => model.answerQuestion(true),
-              icon: const Icon(Icons.check_circle, size: 28),
-              label: Text(
-                localizations.yes,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+// ── Answer button ─────────────────────────────────────────────────────────────
+
+class _AnswerButton extends StatelessWidget {
+  final String label;
+  final bool isYes;
+  final VoidCallback onTap;
+
+  const _AnswerButton({
+    required this.label,
+    required this.isYes,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: isYes ? SabinaColors.primary700 : SabinaColors.white,
+      borderRadius: BorderRadius.circular(14),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(14),
+        child: Container(
+          height: 54,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            border: isYes
+                ? null
+                : Border.all(color: SabinaColors.neutral300, width: 1.5),
+          ),
+          child: Center(
+            child: Text(
+              label,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                color: isYes ? SabinaColors.white : SabinaColors.neutral700,
               ),
             ),
           ),
         ),
-        const SizedBox(width: 20),
-        Expanded(
-          child: SizedBox(
-            height: 70,
-            child: ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red[500],
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                elevation: 4,
-              ),
-              onPressed: () => model.answerQuestion(false),
-              icon: const Icon(Icons.cancel, size: 28),
-              label: Text(
-                localizations.no,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
+      ),
     );
-  }
-
-  String _getLocalizedQuestion(int index, AppLocalizations localizations) {
-    switch (index) {
-      case 0:
-        return localizations.preeclampsiaQuestion1;
-      case 1:
-        return localizations.preeclampsiaQuestion2;
-      case 2:
-        return localizations.preeclampsiaQuestion3;
-      case 3:
-        return localizations.preeclampsiaQuestion4;
-      case 4:
-        return localizations.preeclampsiaQuestion5;
-      case 5:
-        return localizations.preeclampsiaQuestion6;
-      case 6:
-        return localizations.preeclampsiaQuestion7;
-      case 7:
-        return localizations.preeclampsiaQuestion8;
-      case 8:
-        return localizations.preeclampsiaQuestion9;
-      case 9:
-        return localizations.preeclampsiaQuestion10;
-      default:
-        return 'Question not found';
-    }
   }
 }

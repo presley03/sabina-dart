@@ -165,7 +165,7 @@ class AppTheme {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
-        shadowColor: SabinaColors.neutral900.withOpacity(0.05),
+        shadowColor: SabinaColors.neutral900.withValues(alpha: 0.05),
       ),
 
       // Elevated Button Theme
@@ -365,9 +365,6 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
         ),
       ),
-
-      // Dialog Background Color
-      dialogBackgroundColor: SabinaColors.white,
 
       // Primary Text Color
       primaryTextTheme: TextTheme(

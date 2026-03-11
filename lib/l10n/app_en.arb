@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "en",
   "age": "Age",
   "@age": {
@@ -472,9 +472,9 @@
   "@initiatorNames": {
     "description": "Names of SABINA app initiators"
   },
-  "illustrationCredits": "Illustrations in this app were created using DALL·E AI.",
+  "illustrationCredits": "Illustrations in this app were created using DALLÂ·E AI.",
   "@illustrationCredits": {
-    "description": "Acknowledgment for DALL·E AI in creating illustrations"
+    "description": "Acknowledgment for DALLÂ·E AI in creating illustrations"
   },
   "persiapanPersalinan": "Delivery Preparation",
   "@persiapanPersalinan": {
@@ -2663,32 +2663,32 @@
                           "description": "Title for WHO BMI classification"
                         },
                         
-                        "imtCalc_classificationUnderweight": "• < 18.5: Underweight",
+                        "imtCalc_classificationUnderweight": "â€¢ < 18.5: Underweight",
                         "@imtCalc_classificationUnderweight": {
                           "description": "BMI classification for underweight"
                         },
                         
-                        "imtCalc_classificationNormal": "• 18.5 - 24.9: Normal weight",
+                        "imtCalc_classificationNormal": "â€¢ 18.5 - 24.9: Normal weight",
                         "@imtCalc_classificationNormal": {
                           "description": "BMI classification for normal weight"
                         },
                         
-                        "imtCalc_classificationOverweight": "• 25.0 - 29.9: Pre-obesity",
+                        "imtCalc_classificationOverweight": "â€¢ 25.0 - 29.9: Pre-obesity",
                         "@imtCalc_classificationOverweight": {
                           "description": "BMI classification for pre-obesity"
                         },
                         
-                        "imtCalc_classificationObesity1": "• 30.0 - 34.9: Obesity class I",
+                        "imtCalc_classificationObesity1": "â€¢ 30.0 - 34.9: Obesity class I",
                         "@imtCalc_classificationObesity1": {
                           "description": "BMI classification for obesity class I"
                         },
                         
-                        "imtCalc_classificationObesity2": "• 35.0 - 39.9: Obesity class II",
+                        "imtCalc_classificationObesity2": "â€¢ 35.0 - 39.9: Obesity class II",
                         "@imtCalc_classificationObesity2": {
                           "description": "BMI classification for obesity class II"
                         },
                         
-                        "imtCalc_classificationObesity3": "• ≥ 40.0: Obesity class III",
+                        "imtCalc_classificationObesity3": "â€¢ â‰¥ 40.0: Obesity class III",
                         "@imtCalc_classificationObesity3": {
                           "description": "BMI classification for obesity class III"
                         },
@@ -2723,17 +2723,17 @@
                           "description": "Title for health tips section"
                         },
                         
-                        "imtCalc_healthTip1": "• Maintain a healthy diet with balanced nutrition.",
+                        "imtCalc_healthTip1": "â€¢ Maintain a healthy diet with balanced nutrition.",
                         "@imtCalc_healthTip1": {
                           "description": "First health tip"
                         },
                         
-                        "imtCalc_healthTip2": "• Stay active with light exercise during pregnancy.",
+                        "imtCalc_healthTip2": "â€¢ Stay active with light exercise during pregnancy.",
                         "@imtCalc_healthTip2": {
                           "description": "Second health tip"
                         },
                         
-                        "imtCalc_healthTip3": "• Don''t forget to get enough rest and manage stress.",
+                        "imtCalc_healthTip3": "â€¢ Don''t forget to get enough rest and manage stress.",
                         "@imtCalc_healthTip3": {
                           "description": "Third health tip"
                         },
@@ -2943,6 +2943,162 @@
                         "@addressRequired": {
                           "description": "Validation message for required address field"
                         },
+                        "personalData": "PERSONAL DATA",
+                        "@personalData": {
+                          "description": "Section header for personal data in identity screen"
+                        },
+                        "fullNameHint": "Your full name",
+                        "@fullNameHint": {
+                          "description": "Hint text for full name input field"
+                        },
+                        "addressHint": "Your full address",
+                        "@addressHint": {
+                          "description": "Hint text for address input field"
+                        },
+                        "selectReligion": "Select Religion",
+                        "@selectReligion": {
+                          "description": "Title for religion picker bottom sheet"
+                        },
+                        "selectBloodType": "Select Blood Type",
+                        "@selectBloodType": {
+                          "description": "Title for blood type picker bottom sheet"
+                        },
+                        "selectDateOfBirth": "Select date of birth",
+                        "@selectDateOfBirth": {
+                          "description": "Placeholder for date of birth field when not yet selected"
+                        },
+                        "localDataNote": "Your data is stored locally on this device and not shared.",
+                        "@localDataNote": {
+                          "description": "Privacy note shown below identity form"
+                        },
+                        "done": "Done",
+                        "@done": {
+                          "description": "Label for done/finish button"
+                        },
+                        "identitySaved": "Identity data saved successfully",
+                        "@identitySaved": {
+                          "description": "Snackbar message after identity data is saved"
+                        },
+                        "currentPregnancy": "CURRENT PREGNANCY",
+                        "@currentPregnancy": {
+                          "description": "Section label for current pregnancy"
+                        },
+                        "information": "INFORMATION",
+                        "@information": {
+                          "description": "Section label for information"
+                        },
+                        "settings": "SETTINGS",
+                        "@settings": {
+                          "description": "Section label for settings"
+                        },
+                        "lastScreeningResults": "LAST SCREENING RESULTS",
+                        "@lastScreeningResults": {
+                          "description": "Section label for last screening results"
+                        },
+                        "nameNotSet": "Name not set",
+                        "@nameNotSet": {
+                          "description": "Placeholder when user name is not set"
+                        },
+                        "ageUnit": "yrs",
+                        "@ageUnit": {
+                          "description": "Short unit for age in years"
+                        },
+                        "gestationalAgeShort": "Gest. Age",
+                        "@gestationalAgeShort": {
+                          "description": "Short label for gestational age in stat row"
+                        },
+                        "bloodTypeShort": "Blood Type",
+                        "@bloodTypeShort": {
+                          "description": "Short label for blood type in stat row"
+                        },
+                        "weeksShort": "w",
+                        "@weeksShort": {
+                          "description": "Short label for weeks (e.g. 12w 6d)"
+                        },
+                        "daysShort": "d",
+                        "@daysShort": {
+                          "description": "Short label for days (e.g. 12w 6d)"
+                        },
+                        "estimatedLabel": "Est. Due",
+                        "@estimatedLabel": {
+                          "description": "Short label for estimated due date chip"
+                        },
+                        "pregnancyNumberLabel": "Pregnancy no.",
+                        "@pregnancyNumberLabel": {
+                          "description": "Short label for pregnancy number chip"
+                        },
+                        "hphtLabel": "LMP Date",
+                        "@hphtLabel": {
+                          "description": "Label for last menstrual period date row in expanded pregnancy card"
+                        },
+                        "prePregnancyWeightLabel": "Pre-pregnancy Weight",
+                        "@prePregnancyWeightLabel": {
+                          "description": "Label for pre-pregnancy weight row"
+                        },
+                        "heightLabel": "Height",
+                        "@heightLabel": {
+                          "description": "Label for height row"
+                        },
+                        "childrenCountLabel": "No. of Children",
+                        "@childrenCountLabel": {
+                          "description": "Label for number of children row"
+                        },
+                        "miscarriageLabel": "Miscarriage History",
+                        "@miscarriageLabel": {
+                          "description": "Label for miscarriage history row"
+                        },
+                        "lastChildNumberLabel": "Last Child Number",
+                        "@lastChildNumberLabel": {
+                          "description": "Label for last child number row"
+                        },
+                        "lastBirthYearLabel": "Last Birth Year",
+                        "@lastBirthYearLabel": {
+                          "description": "Label for last birth year row"
+                        },
+                        "lastBirthWeightLabel": "Last Birth Weight",
+                        "@lastBirthWeightLabel": {
+                          "description": "Label for last birth weight row"
+                        },
+                        "deliveryMethodLabel": "Delivery Method",
+                        "@deliveryMethodLabel": {
+                          "description": "Label for delivery method row"
+                        },
+                        "birthAttendantLabel": "Birth Attendant",
+                        "@birthAttendantLabel": {
+                          "description": "Label for birth attendant row"
+                        },
+                        "complicationsLabel": "Complications",
+                        "@complicationsLabel": {
+                          "description": "Label for complications row"
+                        },
+                        "aboutSabinaTitle": "About SABINA",
+                        "@aboutSabinaTitle": {
+                          "description": "Title for About SABINA bottom sheet"
+                        },
+                        "lastPregnancySection": "LAST PREGNANCY HISTORY",
+                        "@lastPregnancySection": {
+                          "description": "Section label for last pregnancy history form"
+                        },
+                        "selectDate": "Select date",
+                        "@selectDate": {
+                          "description": "Hint text for date picker fields"
+                        },
+                        "timesUnit": "times",
+                        "@timesUnit": {
+                          "description": "Unit suffix for occurrence count (e.g. 1 times)"
+                        },
+                        "childrenCountUnit": "children",
+                        "@childrenCountUnit": {
+                          "description": "Unit suffix for children count (e.g. 2 children)"
+                        },
+                        "complicationsHint": "Write if any...",
+                        "@complicationsHint": {
+                          "description": "Hint for complications text area"
+                        },
+                        "selectPlaceholder": "Select...",
+                        "@selectPlaceholder": {
+                          "description": "Placeholder text shown in dropdown rows before selection"
+                        },
                         
                         "healthMonitoringComplete": "Complete Health Monitoring",
                         "@healthMonitoringComplete": {
@@ -3055,5 +3211,1092 @@
                         "invalidWeight": "Invalid weight (30-200kg)",
                         "@invalidWeight": {
                           "description": "Validation message for invalid weight range"
-                        }
+                        },
+                        "chartTitle": "Development Chart",
+                        "@chartTitle": {
+                          "description": "Title of the health development chart widget"
+                        },
+                        "chartTabWeight": "Weight",
+                        "@chartTabWeight": {
+                          "description": "Tab label for weight chart"
+                        },
+                        "chartTabBloodPressure": "Blood Pressure",
+                        "@chartTabBloodPressure": {
+                          "description": "Tab label for blood pressure chart"
+                        },
+                        "chartBpLimit": "Limit 140",
+                        "@chartBpLimit": {
+                          "description": "Legend label for blood pressure danger threshold line at 140"
+                        },
+                        "chartEmptyState": "Chart will appear after\n2 or more data are saved",
+                        "@chartEmptyState": {
+                          "description": "Message shown when not enough data to display any chart"
+                        },
+                        "chartNotEnoughData": "Need at least 2 data to\ndisplay this chart",
+                        "@chartNotEnoughData": {
+                          "description": "Message when selected chart tab does not have enough data"
+                        },
+                        "dashboardYourHealth": "Your Health",
+                        "@dashboardYourHealth": {
+                          "description": "Title label on the health score card"
+                        },
+                        "dashboardStatusHealthy": "Healthy",
+                        "@dashboardStatusHealthy": {
+                          "description": "Health status label when score >= 80"
+                        },
+                        "dashboardStatusGood": "Good",
+                        "@dashboardStatusGood": {
+                          "description": "Health status label when score >= 60"
+                        },
+                        "dashboardStatusNeedsAttention": "Needs Attention",
+                        "@dashboardStatusNeedsAttention": {
+                          "description": "Health status label when score < 60"
+                        },
+                        "dashboardRecordDailyHealth": "Record Daily Health",
+                        "@dashboardRecordDailyHealth": {
+                          "description": "Title on the main action button in dashboard"
+                        },
+                        "dashboardMonitorSubtitle": "Monitor weight & blood pressure",
+                        "@dashboardMonitorSubtitle": {
+                          "description": "Subtitle on the main action button in dashboard"
+                        },
+                        "dashboardScheduleSubtitle": "Set doctor reminder",
+                        "@dashboardScheduleSubtitle": {
+                          "description": "Subtitle for schedule checkup action card"
+                        },
+                        "dashboardEmergencySubtitle": "Contact help",
+                        "@dashboardEmergencySubtitle": {
+                          "description": "Subtitle for emergency action card"
+                        },
+                        "dashboardHealthTipsTitle": "Health Tips",
+                        "@dashboardHealthTipsTitle": {
+                          "description": "Title for health tips card when no insights available"
+                        },
+                        "dashboardHealthTipsEmpty": "Start recording daily health to get personalized tips that match your condition.",
+                        "@dashboardHealthTipsEmpty": {
+                          "description": "Body text for health tips card when no insights available"
+                        },
+                        "dashboardRecommendation": "Recommendation for You",
+                        "@dashboardRecommendation": {
+                          "description": "Title shown on the insight recommendation card"
+                        },
+                        "dashboardScheduleDialogContent": "This feature helps you set reminders for regular check-ups to your obstetrician.\n\nComing soon!",
+                        "@dashboardScheduleDialogContent": {
+                          "description": "Body text of the schedule checkup dialog"
+                        },
+                        "dashboardUnderstood": "Understood",
+                        "@dashboardUnderstood": {
+                          "description": "Button label on informational dialogs"
+                        },
+                        "dashboardEmergencyCallPrompt": "Call immediately if experiencing:",
+                        "@dashboardEmergencyCallPrompt": {
+                          "description": "Prompt text in emergency dialog"
+                        },
+                        "dashboardEmergencySymptoms": "\u2022 Severe bleeding\n\u2022 Strong contractions before due time\n\u2022 Severe headache\n\u2022 Blurred vision",
+                        "@dashboardEmergencySymptoms": {
+                          "description": "Bullet list of emergency symptoms"
+                        },
+                        "ambulance": "Ambulance",
+                        "@ambulance": {
+                          "description": "Label for ambulance entry in emergency contacts"
+                        },
+                        "dashboardClose": "Close",
+                        "@dashboardClose": {
+                          "description": "Button to close a dialog"
+                        },
+                        "whyRecordTitle": "Why Track It?",
+                        "@whyRecordTitle": {
+                          "description": "Title of the explanation card on health monitoring screen"
+                        },
+                        "whyRecordBody": "By regularly recording your weight and blood pressure, your doctor can monitor your pregnancy and detect problems early.",
+                        "@whyRecordBody": {
+                          "description": "Body text of the explanation card on health monitoring screen"
+                        },
+                        "recordTodayTitle": "Record Today",
+                        "@recordTodayTitle": {
+                          "description": "Section title for the daily health input form"
+                        },
+                        "weightInputHint": "e.g. 65",
+                        "@weightInputHint": {
+                          "description": "Hint text for weight input field"
+                        },
+                        "weightInputError": "Enter your weight",
+                        "@weightInputError": {
+                          "description": "Validator error when weight field is empty"
+                        },
+                        "weightRangeError": "Weight must be between 30-200 kg",
+                        "@weightRangeError": {
+                          "description": "Validator error when weight is out of range"
+                        },
+                        "bloodPressureLabel": "Blood Pressure",
+                        "@bloodPressureLabel": {
+                          "description": "Label for blood pressure section in health form"
+                        },
+                        "fieldRequired": "Required",
+                        "@fieldRequired": {
+                          "description": "Short validator error when a field is empty"
+                        },
+                        "bpNormalNote": "Normal: 120/80 mmHg. If >140/90, consult your doctor immediately.",
+                        "@bpNormalNote": {
+                          "description": "Caption note about normal blood pressure range"
+                        },
+                        "saveData": "Save Data",
+                        "@saveData": {
+                          "description": "Label for save data button in health form"
+                        },
+                        "recentRecords": "Recent Records",
+                        "@recentRecords": {
+                          "description": "Section title for recent health records list"
+                        },
+                        "viewAll": "View All",
+                        "@viewAll": {
+                          "description": "Button to view all records"
+                        },
+                        "noRecordsYet": "No records yet",
+                        "@noRecordsYet": {
+                          "description": "Empty state text when no health records exist"
+                        },
+                        "startRecordingToday": "Start recording your health today!",
+                        "@startRecordingToday": {
+                          "description": "Call-to-action text in the empty records state"
+                        },
+                        "emergencyCardBody": "Call immediately if you experience: severe bleeding, strong contractions, severe headache, or blurred vision.",
+                        "@emergencyCardBody": {
+                          "description": "Body text on the emergency card in health monitoring"
+                        },
+                        "ambulance118": "Ambulance 118",
+                        "@ambulance118": {
+                          "description": "Ambulance button label with number"
+                        },
+                        "doctor": "Doctor",
+                        "@doctor": {
+                          "description": "Label for doctor button"
+                        },
+                        "emergencyDialogTitle": "\uD83D\uDEA8 Emergency Contacts",
+                        "@emergencyDialogTitle": {
+                          "description": "Title for emergency contacts dialog"
+                        },
+                        "obstetrician": "Obstetrician",
+                        "@obstetrician": {
+                          "description": "Label for obstetrician in emergency contacts"
+                        },
+                        "contactYourDoctor": "Contact your doctor",
+                        "@contactYourDoctor": {
+                          "description": "Subtitle under obstetrician in emergency contacts"
+                        },
+                        "allHealthRecords": "All Health Records",
+                        "@allHealthRecords": {
+                          "description": "Title for all health records dialog"
+                        },
+  "screeningPregnancy": "Pregnancy Screening",
+  "@screeningPregnancy": {
+    "description": "Title for the pregnancy screening screen"
+  },
+  "earlyDetectionDescription": "Early detection of risks for a safer pregnancy",
+  "@earlyDetectionDescription": {
+    "description": "Subtitle on the pregnancy screening screen"
+  },
+  "lastScreeningLabel": "Last screening: {days} days ago",
+  "@lastScreeningLabel": {
+    "description": "Label showing when the last screening was done",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "screeningRisks": "SCREENING RISKS",
+  "@screeningRisks": {
+    "description": "Section label for screening risks"
+  },
+  "preeclampsiaDetection": "Preeclampsia Detection",
+  "@preeclampsiaDetection": {
+    "description": "Title for the preeclampsia detection card"
+  },
+  "preeclampsiaDetectionDesc": "Early detection of high blood pressure risk & pregnancy complications",
+  "@preeclampsiaDetectionDesc": {
+    "description": "Description for the preeclampsia detection card"
+  },
+  "highRisk": "âš  High Risk",
+  "@highRisk": {
+    "description": "Tag label for high risk"
+  },
+  "questionsCount": "{count} questions",
+  "@questionsCount": {
+    "description": "Tag showing number of questions in a screening",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "advancedScreening": "Advanced Screening",
+  "@advancedScreening": {
+    "description": "Title for the advanced screening card"
+  },
+  "advancedScreeningDesc": "Comprehensive screening for delivery complication risks",
+  "@advancedScreeningDesc": {
+    "description": "Description for the advanced screening card"
+  },
+  "lowRisk": "âœ“ Low Risk",
+  "@lowRisk": {
+    "description": "Tag label for low risk"
+  },
+  "routineMonitoring": "ROUTINE MONITORING",
+  "@routineMonitoring": {
+    "description": "Section label for routine monitoring"
+  },
+  "reportComplaint": "Report Complaint",
+  "@reportComplaint": {
+    "description": "Title for the report complaint card"
+  },
+  "complaintDescription": "Nausea, headache, bleeding, abnormal fluid, swelling, and other symptoms",
+  "@complaintDescription": {
+    "description": "Description for the complaint card"
+  },
+  "complaintTypes": "6 types of complaints",
+  "@complaintTypes": {
+    "description": "Tag showing number of complaint types"
+  },
+  "healthRecords": "Health Records",
+  "@healthRecords": {
+    "description": "Title for the health records card"
+  },
+  "healthRecordsDesc": "Monitor blood pressure, weight, and pregnancy development",
+  "@healthRecordsDesc": {
+    "description": "Description for the health records card"
+  },
+  "dailyMonitoring": "Daily Monitoring",
+  "@dailyMonitoring": {
+    "description": "Tag label for daily monitoring"
+  },
+  "screeningRecommendation": "Routine screening is recommended every 4 weeks in the first trimester, and more frequently as you enter the third trimester.",
+  "@screeningRecommendation": {
+    "description": "Info tip about recommended screening frequency"
+  },
+  "greetingMorning": "Good Morning",
+  "@greetingMorning": {
+    "description": "Morning greeting"
+  },
+  "greetingAfternoon": "Good Afternoon",
+  "@greetingAfternoon": {
+    "description": "Afternoon greeting"
+  },
+  "greetingEvening": "Good Evening",
+  "@greetingEvening": {
+    "description": "Evening greeting"
+  },
+  "greetingNight": "Good Night",
+  "@greetingNight": {
+    "description": "Night greeting"
+  },
+  "healthScoreLabel": "HEALTH SCORE",
+  "@healthScoreLabel": {
+    "description": "Label for health score section"
+  },
+  "today": "Today",
+  "@today": {
+    "description": "Label for today"
+  },
+  "scoreVeryGood": "Very Good",
+  "@scoreVeryGood": {
+    "description": "Health score label: very good"
+  },
+  "conditionOptimal": "Your condition is optimal",
+  "@conditionOptimal": {
+    "description": "Health score subtitle"
+  },
+  "keepItUp": "Keep it up!",
+  "@keepItUp": {
+    "description": "Encouragement label on health score card"
+  },
+  "completePregnancyHistory": "Complete Pregnancy History",
+  "@completePregnancyHistory": {
+    "description": "Prompt card title on home screen"
+  },
+  "fillForAccurate": "Fill in data for more accurate recommendations",
+  "@fillForAccurate": {
+    "description": "Prompt card subtitle on home screen"
+  },
+  "fillNow": "Fill Now",
+  "@fillNow": {
+    "description": "CTA button on prompt card"
+  },
+  "quickAccess": "QUICK ACCESS",
+  "@quickAccess": {
+    "description": "Section label for quick access menu"
+  },
+  "featuredArticles": "FEATURED ARTICLES",
+  "@featuredArticles": {
+    "description": "Section label for article scroll"
+  },
+  "detectPreeclampsia": "Preeclampsia Detection",
+  "@detectPreeclampsia": {
+    "description": "Quick action label for preeclampsia detection"
+  },
+  "screeningRiskBP": "Blood pressure risk screening",
+  "@screeningRiskBP": {
+    "description": "Quick action subtitle for preeclampsia detection"
+  },
+  "screeningAndPenapisan": "Screening & Filtering",
+  "@screeningAndPenapisan": {
+    "description": "Quick action label for screening menu"
+  },
+  "deliveryRisk": "Delivery risk",
+  "@deliveryRisk": {
+    "description": "Quick action subtitle for screening menu"
+  },
+  "pregnancyHistoryLabel": "Pregnancy History",
+  "@pregnancyHistoryLabel": {
+    "description": "Quick action label for pregnancy history"
+  },
+  "pregnancyDataLabel": "Pregnancy & delivery data",
+  "@pregnancyDataLabel": {
+    "description": "Quick action subtitle for pregnancy history"
+  },
+  "calculateIMT": "Calculate BMI",
+  "@calculateIMT": {
+    "description": "Quick action label for BMI calculator"
+  },
+  "bmiFull": "Body mass index",
+  "@bmiFull": {
+    "description": "Quick action subtitle for BMI calculator"
+  },
+  "guideLabel": "GUIDE",
+  "@guideLabel": {
+    "description": "Label for guide banner"
+  },
+  "pregnancyInfoTitle": "Pregnancy Information",
+  "@pregnancyInfoTitle": {
+    "description": "Title of pregnancy info banner"
+  },
+  "trimesterRoman": "Trimester I, II & III",
+  "@trimesterRoman": {
+    "description": "Subtitle of pregnancy info banner"
+  },
+  "firstTrimester": "First Trimester",
+  "@firstTrimester": {
+    "description": "Label for first trimester"
+  },
+  "secondTrimester": "Second Trimester",
+  "@secondTrimester": {
+    "description": "Label for second trimester"
+  },
+  "thirdTrimester": "Third Trimester",
+  "@thirdTrimester": {
+    "description": "Label for third trimester"
+  },
+  "weekUnit": "weeks",
+  "@weekUnit": {
+    "description": "Week unit label on pregnancy banner"
+  },
+  "babySizeOf": "About the size of a {fruit} \uD83C\uDF3F",
+  "@babySizeOf": {
+    "description": "Baby size description with fruit comparison",
+    "placeholders": {
+      "fruit": {
+        "type": "String"
+      }
+    }
+  },
+  "weeksProgress": "{current} of {total} weeks",
+  "@weeksProgress": {
+    "description": "Pregnancy progress label",
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "viewDetails": "View details",
+  "@viewDetails": {
+    "description": "Link to view details on pregnancy banner"
+  },
+  "imtLastLabel": "LAST BMI",
+  "@imtLastLabel": {
+    "description": "Label on IMT mini card"
+  },
+  "updateArrow": "Update \u2192",
+  "@updateArrow": {
+    "description": "Update button on IMT mini card"
+  },
+  "imtUnderweight": "Under",
+  "@imtUnderweight": {
+    "description": "BMI category: underweight"
+  },
+  "imtNormal": "Normal",
+  "@imtNormal": {
+    "description": "BMI category: normal"
+  },
+  "imtOverweight": "Over",
+  "@imtOverweight": {
+    "description": "BMI category: overweight"
+  },
+  "imtObese": "Obese",
+  "@imtObese": {
+    "description": "BMI category: obese"
+  },
+  "articleTagNutrition": "Nutrition",
+  "@articleTagNutrition": {
+    "description": "Article tag: nutrition"
+  },
+  "articleTagActivity": "Activity",
+  "@articleTagActivity": {
+    "description": "Article tag: activity"
+  },
+  "articleTagCare": "Care",
+  "@articleTagCare": {
+    "description": "Article tag: care"
+  },
+  "articleTagMentalHealth": "Mental Health",
+  "@articleTagMentalHealth": {
+    "description": "Article tag: mental health"
+  },
+  "article1Title": "Healthy Foods in Trimester 2",
+  "@article1Title": {
+    "description": "Title of first article card"
+  },
+  "article2Title": "Safe Exercise During Pregnancy",
+  "@article2Title": {
+    "description": "Title of second article card"
+  },
+  "article3Title": "Comfortable Sleep Tips in Trimester 3",
+  "@article3Title": {
+    "description": "Title of third article card"
+  },
+  "article4Title": "Managing Stress During Pregnancy",
+  "@article4Title": {
+    "description": "Title of fourth article card"
+  },
+  "tipOfDayLabel": "TIP OF THE DAY",
+  "@tipOfDayLabel": {
+    "description": "Label on daily tip card"
+  },
+  "tipOfDayContent": "Drinking 8 glasses of water a day helps the fetus develop optimally and prevents dehydration.",
+  "@tipOfDayContent": {
+    "description": "Daily tip content text"
+  },
+  "sabidanLinkText": "More information at sapabidan.com",
+  "@sabidanLinkText": {
+    "description": "Sabidan link text on home screen"
+  },
+  "articleTab": "Articles",
+  "@articleTab": {
+    "description": "Bottom navigation label for articles tab"
+  },
+  "importantLabel": "Important",
+  "@importantLabel": {
+    "description": "Badge label on pregnancy history card"
+  },
+  "fillPregnancyHistorySub": "Fill in your Pregnancy History!",
+  "@fillPregnancyHistorySub": {
+    "description": "Subtitle on pregnancy history card"
+  },
+  "searchHint": "Search...",
+  "@searchHint": {
+    "description": "Hint text in search bar"
+  },
+  "yourHealth": "Your Health",
+  "@yourHealth": {
+    "description": "Health dashboard card title"
+  },
+  "emergencyContacts": "Emergency Contacts",
+  "@emergencyContacts": {
+    "description": "Emergency contacts dialog title"
+  },
+  "close": "Close",
+  "@close": {
+    "description": "Generic close button label"
+  },
+  "ambulance": "Ambulance",
+  "@ambulance": {
+    "description": "Ambulance label in emergency contacts"
+  },
+  "emergencyCallToAction": "Contact immediately if experiencing:",
+  "@emergencyCallToAction": {
+    "description": "Prompt in emergency dialog"
+  },
+  "emergencySymptoms": "â€¢ Heavy bleeding\nâ€¢ Strong contractions before due date\nâ€¢ Severe headache\nâ€¢ Blurred vision",
+  "@emergencySymptoms": {
+    "description": "List of emergency symptoms"
+  },
+  "startButton": "Start",
+  "@startButton": {
+    "description": "Start button on questionnaire intro card"
+  },
+  "reminderLabel": "REMINDER",
+  "@reminderLabel": {
+    "description": "Label for reminder card"
+  },
+  "penapisanSubtitle": "Delivery risk assessment",
+  "@penapisanSubtitle": {
+    "description": "Subtitle of delivery screening screen"
+  },
+  "penapisanCardTitle": "Delivery Screening",
+  "@penapisanCardTitle": {
+    "description": "Title of delivery screening card"
+  },
+  "penapisanCardDesc": "This questionnaire consists of various questions that may relate to your pregnancy experience. Please select \"Yes\" or \"No\" for each question.",
+  "@penapisanCardDesc": {
+    "description": "Description of delivery screening card"
+  },
+  "penapisanMeta": "18 questions \u00B7 ~5 min",
+  "@penapisanMeta": {
+    "description": "Metadata of delivery screening card"
+  },
+  "penapisanReminderText": "Perform delivery screening routinely every trimester for optimal monitoring.",
+  "@penapisanReminderText": {
+    "description": "Reminder text for delivery screening screen"
+  },
+  "preeclampsiaScreeningSubtitle": "Early detection of pregnancy risks",
+  "@preeclampsiaScreeningSubtitle": {
+    "description": "Subtitle of preeclampsia screening screen"
+  },
+  "preeclampsiaCardTitle": "Preeclampsia Screening",
+  "@preeclampsiaCardTitle": {
+    "description": "Title of preeclampsia screening card"
+  },
+  "preeclampsiaCardDesc": "This questionnaire consists of various statements that may relate to your pregnancy experience. Please select \"Yes\" or \"No\" for each statement.",
+  "@preeclampsiaCardDesc": {
+    "description": "Description of preeclampsia screening card"
+  },
+  "preeclampsiaMeta": "12 questions \u00B7 ~3 min",
+  "@preeclampsiaMeta": {
+    "description": "Metadata of preeclampsia screening card"
+  },
+  "preeclampsiaReminderText": "Perform screening routinely every trimester for optimal monitoring.",
+  "@preeclampsiaReminderText": {
+    "description": "Reminder text for preeclampsia screening screen"
+  },
+  "pregnancyArticlesTitle": "Pregnancy Articles",
+  "@pregnancyArticlesTitle": {
+    "description": "Title of pregnancy articles screen"
+  },
+  "articleContentPlaceholder": "Article content coming soon.",
+  "@articleContentPlaceholder": {
+    "description": "Placeholder article content"
+  },
+  "cautionLabel": "CAUTION",
+  "@cautionLabel": {
+    "description": "Warning card label on keluhan screens"
+  },
+  "keluhanWarningText": "If the complaint feels severe or sudden, immediately contact medical personnel.",
+  "@keluhanWarningText": {
+    "description": "Warning text on keluhan screens"
+  },
+  "questionnaireMetaText": "{count} questions Â· ~2 min",
+  "@questionnaireMetaText": {
+    "description": "Questionnaire metadata showing question count",
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "bengkakTitle": "Body Swelling",
+  "@bengkakTitle": {
+    "description": "Title for bengkak (swelling) screen"
+  },
+  "bengkakSubtitle": "Edema",
+  "@bengkakSubtitle": {
+    "description": "Subtitle for bengkak screen"
+  },
+  "bengkakDescription": "This questionnaire consists of questions related to complaints of body swelling during pregnancy.",
+  "@bengkakDescription": {
+    "description": "Intro card description for bengkak screen"
+  },
+  "keluarCairanTitle": "Fluid Discharge",
+  "@keluarCairanTitle": {
+    "description": "Title for keluar cairan (fluid discharge) screen"
+  },
+  "keluarCairanSubtitle": "Abnormal fluid",
+  "@keluarCairanSubtitle": {
+    "description": "Subtitle for keluar cairan screen"
+  },
+  "keluarCairanDescription": "This questionnaire consists of questions related to complaints of abnormal fluid discharge during pregnancy.",
+  "@keluarCairanDescription": {
+    "description": "Intro card description for keluar cairan screen"
+  },
+  "keluarDarahTitle": "Bleeding",
+  "@keluarDarahTitle": {
+    "description": "Title for keluar darah (bleeding) screen"
+  },
+  "keluarDarahSubtitle": "Hemorrhage",
+  "@keluarDarahSubtitle": {
+    "description": "Subtitle for keluar darah screen"
+  },
+  "keluarDarahDescription": "This questionnaire consists of various questions related to complaints of bleeding during pregnancy.",
+  "@keluarDarahDescription": {
+    "description": "Intro card description for keluar darah screen"
+  },
+  "mualMuntahTitle": "Nausea & Vomiting",
+  "@mualMuntahTitle": {
+    "description": "Title for mual muntah (nausea) screen"
+  },
+  "mualMuntahSubtitle": "Morning sickness",
+  "@mualMuntahSubtitle": {
+    "description": "Subtitle for mual muntah screen"
+  },
+  "mualMuntahDescription": "This questionnaire consists of various questions related to complaints of nausea and vomiting during pregnancy.",
+  "@mualMuntahDescription": {
+    "description": "Intro card description for mual muntah screen"
+  },
+  "pergerakanJaninTitle": "Fetal Movement",
+  "@pergerakanJaninTitle": {
+    "description": "Title for pergerakan janin (fetal movement) screen"
+  },
+  "pergerakanJaninSubtitle": "Baby kicks",
+  "@pergerakanJaninSubtitle": {
+    "description": "Subtitle for pergerakan janin screen"
+  },
+  "pergerakanJaninDescription": "This questionnaire consists of questions related to fetal movement during pregnancy.",
+  "@pergerakanJaninDescription": {
+    "description": "Intro card description for pergerakan janin screen"
+  },
+  "sakitKepalaTitle": "Headache",
+  "@sakitKepalaTitle": {
+    "description": "Title for sakit kepala (headache) screen"
+  },
+  "sakitKepalaSubtitle": "Migraine & dizziness",
+  "@sakitKepalaSubtitle": {
+    "description": "Subtitle for sakit kepala screen"
+  },
+  "sakitKepalaDescription": "This questionnaire consists of various questions related to complaints of headaches during pregnancy.",
+  "@sakitKepalaDescription": {
+    "description": "Intro card description for sakit kepala screen"
+  },
+  "preeklampsiaTitle": "Preeclampsia",
+  "@preeklampsiaTitle": {
+    "description": "Title for preeclampsia screen/complaint"
+  },
+  "yangPerluDihindariLabel": "Things to Avoid",
+  "@yangPerluDihindariLabel": {
+    "description": "Section label on yang perlu dihindari screen"
+  },
+  "jenisAktivitasLabel": "Types of Recommended Activities",
+  "@jenisAktivitasLabel": {
+    "description": "Section label on physical activity screen"
+  },
+  "panduanPerawatanHeader": "CARE GUIDE",
+  "@panduanPerawatanHeader": {
+    "description": "Header label on care menu screen"
+  },
+  "panduanPerawatanHarian": "Daily Care Guide",
+  "@panduanPerawatanHarian": {
+    "description": "Section label on daily care screen"
+  },
+  "zatGiziPentingLabel": "Important Nutrients",
+  "@zatGiziPentingLabel": {
+    "description": "Section label on nutrition screen"
+  },
+  "keluhanMenuTitle": "Complaints",
+  "@keluhanMenuTitle": {
+    "description": "Title on keluhan menu screen"
+  },
+  "keluhanMenuSubtitle": "Select the complaint you are experiencing",
+  "@keluhanMenuSubtitle": {
+    "description": "Subtitle on keluhan menu screen"
+  },
+  "skriningTitle": "Pregnancy Screening",
+  "@skriningTitle": {
+    "description": "Title on skrining screen"
+  },
+  "skriningSubtitle": "Early detection of risks for a safer pregnancy",
+  "@skriningSubtitle": {
+    "description": "Subtitle on skrining screen"
+  },
+  "skriningRisikoHeader": "RISK SCREENING",
+  "@skriningRisikoHeader": {
+    "description": "Section header on skrining screen"
+  },
+  "penapasanTingkatLanjut": "Advanced Screening",
+  "@penapasanTingkatLanjut": {
+    "description": "Advanced screening label on skrining screen"
+  },
+  "penapasanSubtitle": "Comprehensive screening for delivery complication risks",
+  "@penapasanSubtitle": {
+    "description": "Subtitle for advanced screening card on skrining screen"
+  },
+  "pemantauanRutinHeader": "ROUTINE MONITORING",
+  "@pemantauanRutinHeader": {
+    "description": "Section header for routine monitoring on skrining screen"
+  },
+  "rekamKesehatanTitle": "Health Record",
+  "@rekamKesehatanTitle": {
+    "description": "Health record card title on skrining screen"
+  },
+  "rekamKesehatanSubtitle": "Daily monitoring",
+  "@rekamKesehatanSubtitle": {
+    "description": "Health record card subtitle on skrining screen"
+  },
+  "screeningPregnancy": "Pregnancy Screening",
+  "@screeningPregnancy": {
+    "description": "Title for the skrining/screening screen"
+  },
+  "earlyDetectionDescription": "Early detection of risks for a safer pregnancy",
+  "@earlyDetectionDescription": {
+    "description": "Subtitle on skrining screen header"
+  },
+  "lastScreeningLabel": "Last screening: {days} days ago",
+  "@lastScreeningLabel": {
+    "description": "Badge showing when last screening was done",
+    "placeholders": {
+      "days": { "type": "int" }
+    }
+  },
+  "screeningRisks": "RISK SCREENING",
+  "@screeningRisks": {
+    "description": "Section header for risk screening"
+  },
+  "preeclampsiaDetection": "Preeclampsia Detection",
+  "@preeclampsiaDetection": {
+    "description": "Card title for preeclampsia screening"
+  },
+  "preeclampsiaDetectionDesc": "Early detection of high blood pressure risk & pregnancy complications",
+  "@preeclampsiaDetectionDesc": {
+    "description": "Card description for preeclampsia screening"
+  },
+  "highRisk": "\u26a0 High Risk",
+  "@highRisk": {
+    "description": "High risk tag label"
+  },
+  "questionsCount": "{count} questions",
+  "@questionsCount": {
+    "description": "Number of questions tag on screening card",
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "advancedScreening": "Advanced Screening",
+  "@advancedScreening": {
+    "description": "Card title for advanced screening (penapisan)"
+  },
+  "advancedScreeningDesc": "Comprehensive screening for delivery complication risks",
+  "@advancedScreeningDesc": {
+    "description": "Card description for advanced screening"
+  },
+  "lowRisk": "\u2713 Low Risk",
+  "@lowRisk": {
+    "description": "Low risk tag label"
+  },
+  "routineMonitoring": "ROUTINE MONITORING",
+  "@routineMonitoring": {
+    "description": "Section header for routine monitoring"
+  },
+  "reportComplaint": "Report Complaint",
+  "@reportComplaint": {
+    "description": "Card title for complaint reporting"
+  },
+  "complaintDescription": "Nausea, headache, bleeding, abnormal fluid, swelling, and other symptoms",
+  "@complaintDescription": {
+    "description": "Card description for complaint reporting"
+  },
+  "complaintTypes": "6 types of complaints",
+  "@complaintTypes": {
+    "description": "Tag showing number of complaint types"
+  },
+  "healthRecords": "Health Record",
+  "@healthRecords": {
+    "description": "Card title for health records"
+  },
+  "healthRecordsDesc": "Monitor blood pressure, weight, and pregnancy progress",
+  "@healthRecordsDesc": {
+    "description": "Card description for health records"
+  },
+  "dailyMonitoring": "Daily Monitoring",
+  "@dailyMonitoring": {
+    "description": "Tag for daily monitoring"
+  },
+  "screeningRecommendation": "Regular screening is recommended every 4 weeks in the first trimester, and more frequently entering the third trimester.",
+  "@screeningRecommendation": {
+    "description": "Info tip on skrining screen"
+  },
+  "imtFillDataPrompt": "Fill in the data below to calculate",
+  "@imtFillDataPrompt": {
+    "description": "Placeholder text on IMT gauge when no data entered"
+  },
+  "recommendationLabel": "RECOMMENDATION",
+  "@recommendationLabel": {
+    "description": "Section label for recommendation card"
+  },
+  "artikelPanduanTitle": "Articles & Guides",
+  "@artikelPanduanTitle": {
+    "description": "Title for articles screen"
+  },
+  "allCategory": "All",
+  "@allCategory": {
+    "description": "All categories filter"
+  },
+  "nutrisiCategory": "Nutrition",
+  "@nutrisiCategory": {
+    "description": "Nutrition category"
+  },
+  "aktivitasCategory": "Activity",
+  "@aktivitasCategory": {
+    "description": "Activity category"
+  },
+  "trimesterCategory": "Trimester",
+  "@trimesterCategory": {
+    "description": "Trimester category"
+  },
+  "perawatanCategory": "Care",
+  "@perawatanCategory": {
+    "description": "Care category"
+  },
+  "persalinanCategory": "Birth",
+  "@persalinanCategory": {
+    "description": "Birth category"
+  },
+  "pantanganCategory": "Restrictions",
+  "@pantanganCategory": {
+    "description": "Restrictions category"
+  },
+  "editorPickLabel": "Editor's Pick",
+  "@editorPickLabel": {
+    "description": "Editor's pick label on featured article"
+  },
+  "readTimeMinutes": "{count} min read",
+  "@readTimeMinutes": {
+    "description": "Estimated article reading time",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "artikelNutrisiTitle": "Complete Nutrition Guide for Pregnant Mothers",
+  "@artikelNutrisiTitle": {
+    "description": "Nutrition article title"
+  },
+  "artikelPantanganTitle": "What to Avoid During Pregnancy",
+  "@artikelPantanganTitle": {
+    "description": "Restrictions article title"
+  },
+  "artikelAktivitasTitle": "Safe Physical Activities During Pregnancy",
+  "@artikelAktivitasTitle": {
+    "description": "Activity article title"
+  },
+  "artikelPerawatanTitle": "Daily Care for Pregnant Mothers",
+  "@artikelPerawatanTitle": {
+    "description": "Care article title"
+  },
+  "artikelPersalinanTitle": "Preparing for Childbirth",
+  "@artikelPersalinanTitle": {
+    "description": "Birth preparation article title"
+  },
+  "artikelTrimesterSatuTitle": "Complete Guide to First Trimester",
+  "@artikelTrimesterSatuTitle": {
+    "description": "First trimester article title"
+  },
+  "artikelTrimesterDuaTitle": "Complete Guide to Second Trimester",
+  "@artikelTrimesterDuaTitle": {
+    "description": "Second trimester article title"
+  },
+  "artikelTrimesterTigaTitle": "Complete Guide to Third Trimester",
+  "@artikelTrimesterTigaTitle": {
+    "description": "Third trimester article title"
+  },
+  "additionalTipsLabel": "Additional Tips:",
+  "@additionalTipsLabel": {"description": "Header for additional tips section in article"},
+  "articleTip1": "Consult with your doctor regularly",
+  "@articleTip1": {"description": "Tip 1 in article screen"},
+  "articleTip2": "Maintain a balanced diet",
+  "@articleTip2": {"description": "Tip 2 in article screen"},
+  "articleTip3": "Do safe light exercise",
+  "@articleTip3": {"description": "Tip 3 in article screen"},
+  "searchResultsTitle": "Search Results",
+  "@searchResultsTitle": {"description": "Search results screen title"},
+  "aktivitasFisikIbuHamilTitle": "Physical Activity for Pregnant Mothers",
+  "@aktivitasFisikIbuHamilTitle": {"description": "Physical activities screen title for search"},
+  "perawatanSehariHariTitle": "Daily Care",
+  "@perawatanSehariHariTitle": {"description": "Daily care screen title for search"},
+  "chooseTrimesterLabel": "CHOOSE TRIMESTER",
+  "@chooseTrimesterLabel": {"description": "Choose trimester section label"},
+  "pregnancyGuideHeader": "PREGNANCY GUIDE",
+  "@pregnancyGuideHeader": {"description": "Pregnancy guide header"},
+  "introductionLabel": "Introduction",
+  "@introductionLabel": {"description": "Introduction section label"},
+  "recommendedAndAvoidLabel": "Recommended & Avoid",
+  "@recommendedAndAvoidLabel": {"description": "Recommended and avoid section label"},
+  "babyDevelopmentTitle": "Baby Development",
+  "@babyDevelopmentTitle": {"description": "Baby development screen title"},
+  "chooseWeekLabel": "CHOOSE WEEK",
+  "@chooseWeekLabel": {"description": "Choose week section label"},
+  "weeklyDevelopmentLabel": "This Week's Development",
+  "@weeklyDevelopmentLabel": {"description": "Weekly development section label"},
+  "tipsForMotherLabel": "Tips For Mom",
+  "@tipsForMotherLabel": {"description": "Tips for mother section label"},
+  "pregnancyJourneyLabel": "Pregnancy Journey",
+  "@pregnancyJourneyLabel": {"description": "Pregnancy journey section label"},
+  "bornLabel": "Born",
+  "@bornLabel": {"description": "Born label in pregnancy timeline"},
+  "questionnaireProgress": "Progress",
+  "@questionnaireProgress": {"description": "Progress label in questionnaire"},
+  "answerYes": "Yes",
+  "@answerYes": {"description": "Yes answer button"},
+  "answerNo": "No",
+  "@answerNo": {"description": "No answer button"},
+  "questionStepLabel": "Question {current} of {total}",
+  "@questionStepLabel": {"description": "Question step indicator", "placeholders": {"current": {"type": "int"}, "total": {"type": "int"}}},
+  "bengkakQuestTitle": "Bengkak Questionnaire",
+  "@bengkakQuestTitle": {"description": "Bengkak questionnaire title"},
+  "keluarCairanQuestTitle": "Keluar Cairan Questionnaire",
+  "@keluarCairanQuestTitle": {"description": "Keluar cairan questionnaire title"},
+  "keluarDarahQuestTitle": "Keluar Darah Questionnaire",
+  "@keluarDarahQuestTitle": {"description": "Keluar darah questionnaire title"},
+  "mualMuntahQuestTitle": "Nausea & Vomiting Questionnaire",
+  "@mualMuntahQuestTitle": {"description": "Mual muntah questionnaire title"},
+  "pergerakanJaninQuestTitle": "Fetal Movement Questionnaire",
+  "@pergerakanJaninQuestTitle": {"description": "Pergerakan janin questionnaire title"},
+  "sakitKepalaQuestTitle": "Headache Questionnaire",
+  "@sakitKepalaQuestTitle": {"description": "Sakit kepala questionnaire title"},
+  "penapisanQuestTitle": "Screening Questionnaire",
+  "@penapisanQuestTitle": {"description": "Penapisan questionnaire title"},
+  "preeklampsiaQuestTitle": "Preeclampsia Questionnaire",
+  "@preeklampsiaQuestTitle": {"description": "Preeklampsia questionnaire title"},
+  "examResultTitle": "Examination Result",
+  "@examResultTitle": {"description": "Examination result screen title"},
+  "yangBisaDilakukan": "WHAT CAN BE DONE",
+  "@yangBisaDilakukan": {"description": "What can be done section header"},
+  "returnToHome": "Return to Home",
+  "@returnToHome": {"description": "Return to home button"},
+  "retryExamination": "Repeat Examination",
+  "@retryExamination": {"description": "Retry examination button"},
+  "scoreLabel": "Score {score}",
+  "@scoreLabel": {"description": "Score label in result card", "placeholders": {"score": {"type": "int"}}},
+  "yesAnswerSummary": "{yes} of {total} \"Yes\" answers",
+  "@yesAnswerSummary": {"description": "Yes answer summary in result card", "placeholders": {"yes": {"type": "int"}, "total": {"type": "int"}}},
+  "medicalDisclaimerText": "These results are not a medical diagnosis. Always consult your condition with a healthcare professional.",
+  "@medicalDisclaimerText": {"description": "Medical disclaimer text"},
+  "sevImmediateCheck": "See Doctor Now",
+  "@sevImmediateCheck": {"description": "Severity: immediate check needed"},
+  "sevNeedRest": "Rest Required",
+  "@sevNeedRest": {"description": "Severity: need rest"},
+  "sevStayAlert": "Stay Alert",
+  "@sevStayAlert": {"description": "Severity: stay alert"},
+  "sevNeedMonitoring": "Monitor Closely",
+  "@sevNeedMonitoring": {"description": "Severity: needs monitoring"},
+  "sevGoodCondition": "Good Condition",
+  "@sevGoodCondition": {"description": "Severity: good condition"},
+  "sevNormal": "Normal",
+  "@sevNormal": {"description": "Severity: normal"},
+  "sevNoIssue": "No Issues Found",
+  "@sevNoIssue": {"description": "Severity: no issue"},
+  "sevNeedAttention": "Needs Attention",
+  "@sevNeedAttention": {"description": "Severity: needs attention"},
+  "sevFetalActive": "Fetus Active",
+  "@sevFetalActive": {"description": "Severity: fetal movement active"},
+  "sevHighRisk": "High Risk",
+  "@sevHighRisk": {"description": "Severity: high risk"},
+  "sevLowRisk": "Low Risk",
+  "@sevLowRisk": {"description": "Severity: low risk"},
+  "sevMediumRisk": "Medium Risk",
+  "@sevMediumRisk": {"description": "Severity: medium risk"},
+  "sevNoRisk": "No Risk",
+  "@sevNoRisk": {"description": "Severity: no risk"},
+  "bengkakSevHighDesc": "The swelling you are experiencing requires immediate evaluation by a healthcare professional.",
+  "@bengkakSevHighDesc": {"description": "Bengkak high severity description"},
+  "bengkakSevMedDesc": "Mild swelling that is common. Practice self-care and monitor its progress.",
+  "@bengkakSevMedDesc": {"description": "Bengkak medium severity description"},
+  "bengkakSevLowDesc": "Your current condition needs to be monitored.",
+  "@bengkakSevLowDesc": {"description": "Bengkak low severity description"},
+  "keluarCairanSevNeedMonDesc": "Observe for 1 day. If fluid continues to flow, go to a healthcare facility immediately.",
+  "@keluarCairanSevNeedMonDesc": {"description": "Keluar cairan need monitoring description"},
+  "keluarCairanSevAlertDesc": "The current fluid condition needs continued monitoring.",
+  "@keluarCairanSevAlertDesc": {"description": "Keluar cairan stay alert description"},
+  "keluarCairanSevImmDesc": "There are signs of abnormal fluid that require immediate attention.",
+  "@keluarCairanSevImmDesc": {"description": "Keluar cairan immediate check description"},
+  "keluarDarahSevGoodDesc": "No signs of dangerous bleeding found at this time.",
+  "@keluarDarahSevGoodDesc": {"description": "Keluar darah good condition description"},
+  "keluarDarahSevImmDesc": "There are signs of bleeding that require immediate attention.",
+  "@keluarDarahSevImmDesc": {"description": "Keluar darah immediate check description"},
+  "mualMuntahSevNormalDesc": "The nausea and vomiting you are experiencing is common in early pregnancy.",
+  "@mualMuntahSevNormalDesc": {"description": "Mual muntah normal description"},
+  "mualMuntahSevNoIssueDesc": "No significant nausea or vomiting complaints found.",
+  "@mualMuntahSevNoIssueDesc": {"description": "Mual muntah no issue description"},
+  "mualMuntahSevAttentionDesc": "Your nausea and vomiting complaints need to be handled by a healthcare professional.",
+  "@mualMuntahSevAttentionDesc": {"description": "Mual muntah needs attention description"},
+  "pergerakanJaninSevActiveDesc": "Your fetal movement is normal and active. Continue daily monitoring.",
+  "@pergerakanJaninSevActiveDesc": {"description": "Pergerakan janin active description"},
+  "pergerakanJaninSevAlertDesc": "Continue monitoring fetal movement and report immediately if there are changes.",
+  "@pergerakanJaninSevAlertDesc": {"description": "Pergerakan janin stay alert description"},
+  "pergerakanJaninSevImmDesc": "Fetal movement shows signs that need immediate examination.",
+  "@pergerakanJaninSevImmDesc": {"description": "Pergerakan janin immediate check description"},
+  "sakitKepalaSevRestDesc": "Headache is likely caused by fatigue. Try to get enough rest.",
+  "@sakitKepalaSevRestDesc": {"description": "Sakit kepala needs rest description"},
+  "sakitKepalaSevAttentionDesc": "Your headache complaints require further examination by a healthcare professional.",
+  "@sakitKepalaSevAttentionDesc": {"description": "Sakit kepala needs attention description"},
+  "penapisanSevLowDesc": "Based on the screening results, your pregnancy is low risk.",
+  "@penapisanSevLowDesc": {"description": "Penapisan low risk description"},
+  "penapisanSevHighDesc": "Based on the screening results, your pregnancy requires care at a comprehensive facility.",
+  "@penapisanSevHighDesc": {"description": "Penapisan high risk description"},
+  "preeklampsiaSevHighDesc": "You have several risk factors for preeclampsia that need immediate attention.",
+  "@preeklampsiaSevHighDesc": {"description": "Preeklampsia high risk description"},
+  "preeklampsiaSevMedDesc": "There are several risk factors that need to be routinely monitored.",
+  "@preeklampsiaSevMedDesc": {"description": "Preeklampsia medium risk description"},
+  "preeklampsiaSevLowDesc": "Your preeclampsia risk is low. Continue to maintain a healthy lifestyle.",
+  "@preeklampsiaSevLowDesc": {"description": "Preeklampsia low risk description"},
+  "preeklampsiaSevNoRiskDesc": "No preeclampsia risk factors found at this time.",
+  "@preeklampsiaSevNoRiskDesc": {"description": "Preeklampsia no risk description"},
+  "bengkakTip1": "Elevate your feet when lying down using a pillow",
+  "@bengkakTip1": {"description": "Bengkak tip 1"},
+  "bengkakTip2": "Avoid standing or sitting for too long",
+  "@bengkakTip2": {"description": "Bengkak tip 2"},
+  "bengkakTip3": "Reduce salt and processed food intake",
+  "@bengkakTip3": {"description": "Bengkak tip 3"},
+  "bengkakTip4": "Do light leg exercises to improve circulation",
+  "@bengkakTip4": {"description": "Bengkak tip 4"},
+  "keluarCairanTip1": "Record the color, smell, and amount of fluid coming out",
+  "@keluarCairanTip1": {"description": "Keluar cairan tip 1"},
+  "keluarCairanTip2": "Use a sanitary pad to monitor the amount of fluid",
+  "@keluarCairanTip2": {"description": "Keluar cairan tip 2"},
+  "keluarCairanTip3": "Maintain hygiene of the intimate area",
+  "@keluarCairanTip3": {"description": "Keluar cairan tip 3"},
+  "keluarCairanTip4": "Immediately go to a healthcare facility if the fluid smells or is abnormally colored",
+  "@keluarCairanTip4": {"description": "Keluar cairan tip 4"},
+  "keluarDarahTip1": "Lie down immediately and avoid strenuous physical activity",
+  "@keluarDarahTip1": {"description": "Keluar darah tip 1"},
+  "keluarDarahTip2": "Record the color, amount, and time of bleeding",
+  "@keluarDarahTip2": {"description": "Keluar darah tip 2"},
+  "keluarDarahTip3": "Do not use tampons \u2014 use regular pads",
+  "@keluarDarahTip3": {"description": "Keluar darah tip 3"},
+  "keluarDarahTip4": "Do not wait too long before going to a healthcare facility",
+  "@keluarDarahTip4": {"description": "Keluar darah tip 4"},
+  "mualMuntahTip1": "Eat small but frequent meals (5\u20136 times a day)",
+  "@mualMuntahTip1": {"description": "Mual muntah tip 1"},
+  "mualMuntahTip2": "Avoid strong-smelling, fatty, or spicy foods",
+  "@mualMuntahTip2": {"description": "Mual muntah tip 2"},
+  "mualMuntahTip3": "Drink warm ginger tea or peppermint tea to relieve nausea",
+  "@mualMuntahTip3": {"description": "Mual muntah tip 3"},
+  "mualMuntahTip4": "Get adequate rest and avoid excessive stress",
+  "@mualMuntahTip4": {"description": "Mual muntah tip 4"},
+  "pergerakanJaninTip1": "Monitor fetal movements daily, ideally after eating",
+  "@pergerakanJaninTip1": {"description": "Pergerakan janin tip 1"},
+  "pergerakanJaninTip2": "Record at least 10 movements in 2 hours as normal",
+  "@pergerakanJaninTip2": {"description": "Pergerakan janin tip 2"},
+  "pergerakanJaninTip3": "Lie on your left side to maximize blood flow to the fetus",
+  "@pergerakanJaninTip3": {"description": "Pergerakan janin tip 3"},
+  "pergerakanJaninTip4": "Contact your midwife if fetal movements decrease drastically",
+  "@pergerakanJaninTip4": {"description": "Pergerakan janin tip 4"},
+  "sakitKepalaTip1": "Rest in a quiet, dark room",
+  "@sakitKepalaTip1": {"description": "Sakit kepala tip 1"},
+  "sakitKepalaTip2": "Apply a cold or warm compress on your forehead and the back of your neck",
+  "@sakitKepalaTip2": {"description": "Sakit kepala tip 2"},
+  "sakitKepalaTip3": "Stay hydrated by drinking sufficient water",
+  "@sakitKepalaTip3": {"description": "Sakit kepala tip 3"},
+  "sakitKepalaTip4": "Avoid excessive screen time and bright light exposure",
+  "@sakitKepalaTip4": {"description": "Sakit kepala tip 4"},
+  "penapisanTip1": "Prepare funds and transportation to an appropriate healthcare facility",
+  "@penapisanTip1": {"description": "Penapisan tip 1"},
+  "penapisanTip2": "Create a birth plan with your family and healthcare provider",
+  "@penapisanTip2": {"description": "Penapisan tip 2"},
+  "penapisanTip3": "Monitor your pregnancy routinely according to your ANC schedule",
+  "@penapisanTip3": {"description": "Penapisan tip 3"},
+  "penapisanTip4": "Consult birth-related questions with your midwife or doctor",
+  "@penapisanTip4": {"description": "Penapisan tip 4"},
+  "preeklampsiaTip1": "Regularly check blood pressure at every ANC visit",
+  "@preeklampsiaTip1": {"description": "Preeklampsia tip 1"},
+  "preeklampsiaTip2": "Limit salt and processed food consumption",
+  "@preeklampsiaTip2": {"description": "Preeklampsia tip 2"},
+  "preeklampsiaTip3": "Go to a healthcare facility immediately if you have a heavy head or blurred vision",
+  "@preeklampsiaTip3": {"description": "Preeklampsia tip 3"},
+  "preeklampsiaTip4": "Get adequate rest and avoid strenuous activities",
+  "@preeklampsiaTip4": {"description": "Preeklampsia tip 4"}
 }

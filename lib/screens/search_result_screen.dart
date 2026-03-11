@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import 'care/aktivitas_fisik_ibu_hamil_screen.dart';
 import 'care/makanan_screen.dart';
 import 'care/perawatan_sehari_hari_screen.dart';
@@ -15,24 +16,33 @@ class SearchResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final List<_SearchResult> searchResults = [
-      const _SearchResult('Aktivitas Fisik Ibu Hamil', AktivitasFisikIbuHamilScreen(), Icons.directions_walk),
-      const _SearchResult('Makanan', MakananScreen(), Icons.fastfood),
-      const _SearchResult('Perawatan Sehari-hari', PerawatanSehariHariScreen(), Icons.spa),
-      const _SearchResult('Yang Perlu Dihindari', YangPerluDihindariScreen(), Icons.block),
-      const _SearchResult('Trimester Satu', TrimesterSatuScreen(), Icons.pregnant_woman),
-      const _SearchResult('Trimester Dua', TrimesterDuaScreen(), Icons.pregnant_woman),
-      const _SearchResult('Trimester Tiga', TrimesterTigaScreen(), Icons.pregnant_woman),
-      const _SearchResult('Persiapan Persalinan', PersiapanPersalinanScreen(), Icons.baby_changing_station),
+      _SearchResult(l10n.aktivitasFisikIbuHamilTitle,
+          const AktivitasFisikIbuHamilScreen(), Icons.directions_walk),
+      _SearchResult(l10n.food, const MakananScreen(), Icons.fastfood),
+      _SearchResult(l10n.perawatanSehariHariTitle,
+          const PerawatanSehariHariScreen(), Icons.spa),
+      _SearchResult(l10n.yangPerluDihindariLabel,
+          const YangPerluDihindariScreen(), Icons.block),
+      _SearchResult(l10n.firstTrimester, const TrimesterSatuScreen(),
+          Icons.pregnant_woman),
+      _SearchResult(l10n.secondTrimester, const TrimesterDuaScreen(),
+          Icons.pregnant_woman),
+      _SearchResult(l10n.thirdTrimester, const TrimesterTigaScreen(),
+          Icons.pregnant_woman),
+      _SearchResult(l10n.persiapanPersalinan, const PersiapanPersalinanScreen(),
+          Icons.baby_changing_station),
     ];
 
     final List<_SearchResult> filteredResults = searchResults
-        .where((result) => result.title.toLowerCase().contains(searchQuery.toLowerCase()))
+        .where((result) =>
+            result.title.toLowerCase().contains(searchQuery.toLowerCase()))
         .toList();
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hasil Pencarian'),
+        title: Text(AppLocalizations.of(context)!.searchResultsTitle),
         backgroundColor: Colors.pink,
       ),
       body: Padding(
@@ -43,25 +53,30 @@ class SearchResultScreen extends StatelessWidget {
             return Column(
               children: [
                 ListTile(
-                  leading: Icon(filteredResults[index].icon, color: Colors.pink),
+                  leading:
+                      Icon(filteredResults[index].icon, color: Colors.pink),
                   title: Text(
                     filteredResults[index].title,
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   onTap: () {
                     Navigator.of(context).push(
                       PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation) =>
                             filteredResults[index].screen,
-                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
                           const begin = Offset(1.0, 0.0);
                           const end = Offset.zero;
                           const curve = Curves.easeInOut;
 
-                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var tween = Tween(begin: begin, end: end)
+                              .chain(CurveTween(curve: curve));
                           var offsetAnimation = animation.drive(tween);
 
-                          return SlideTransition(position: offsetAnimation, child: child);
+                          return SlideTransition(
+                              position: offsetAnimation, child: child);
                         },
                       ),
                     );

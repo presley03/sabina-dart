@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
-import '../utils/constants.dart';
 import '../services/database_helper.dart';
 import '../models/user_identity.dart';
 import 'home_screen.dart';
@@ -39,7 +39,7 @@ class IdentityScreenState extends State<IdentityScreen>
     'Hindu',
     'Buddha',
     'Kong Hu Cu',
-    'Lainnya'
+    'Lainnya',
   ];
 
   final List<String> _golonganDarahList = const ['A', 'B', 'AB', 'O'];
@@ -57,72 +57,88 @@ class IdentityScreenState extends State<IdentityScreen>
     _selectedGolonganDarah = widget.userIdentity?.golonganDarah ?? 'A';
 
     _animationController = AnimationController(
-      duration: const Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 600),
       vsync: this,
     );
-
-    _fadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-    ));
-
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.3),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeOutCubic,
-    ));
-
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+    _slideAnimation =
+        Tween<Offset>(begin: const Offset(0, 0.06), end: Offset.zero).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeOutCubic),
+    );
     _animationController.forward();
   }
 
   @override
+  void dispose() {
+    _namaController.dispose();
+    _tanggalLahirController.dispose();
+    _alamatController.dispose();
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final localizations = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: SabinaColors.neutral100,
       appBar: AppBar(
-        title: Text(
-          localizations.motherIdentity,
-          style: GoogleFonts.plusJakartaSans(
-            color: SabinaColors.neutral900,
-            fontWeight: FontWeight.w600,
-            fontSize: 18,
-          ),
-        ),
         backgroundColor: SabinaColors.white,
         elevation: 0,
-        centerTitle: true,
+        surfaceTintColor: Colors.transparent,
+        centerTitle: false,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: SabinaColors.primary700),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+          color: SabinaColors.neutral900,
           onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          l10n.motherIdentity,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+            color: SabinaColors.neutral900,
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: _saveIdentity,
+            child: Text(
+              widget.userIdentity != null ? l10n.saveChanges : l10n.save,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
+                color: SabinaColors.primary700,
+              ),
+            ),
+          ),
+          const SizedBox(width: 4),
+        ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Divider(height: 1, color: SabinaColors.neutral300),
         ),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: FadeTransition(
-              opacity: _fadeAnimation,
-              child: SlideTransition(
-                position: _slideAnimation,
-                child: Column(
-                  children: [
-                    const SizedBox(height: 20),
-                    _buildWelcomeHeader(localizations),
-                    const SizedBox(height: 30),
-                    _buildModernForm(localizations),
-                    const SizedBox(height: 30),
-                    _buildSaveButton(localizations),
-                    const SizedBox(height: 20),
-                  ],
-                ),
+        child: FadeTransition(
+          opacity: _fadeAnimation,
+          child: SlideTransition(
+            position: _slideAnimation,
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _sectionLabel(l10n.personalData),
+                  const SizedBox(height: 10),
+                  _buildFormCard(l10n),
+                  const SizedBox(height: 16),
+                  _buildPrivacyNote(l10n),
+                ],
               ),
             ),
           ),
@@ -131,96 +147,74 @@ class IdentityScreenState extends State<IdentityScreen>
     );
   }
 
-  Widget _buildWelcomeHeader(AppLocalizations localizations) {
-    return Column(
-      children: [
-        Container(
-          width: 64,
-          height: 64,
-          decoration: BoxDecoration(
-            color: SabinaColors.primary100,
-            shape: BoxShape.circle,
-          ),
-          child: Icon(
-            Icons.person,
-            size: 32,
-            color: SabinaColors.primary700,
-          ),
-        ),
-        const SizedBox(height: 16),
-        Text(
-          localizations.completeIdentityData,
-          style: GoogleFonts.plusJakartaSans(
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-            color: SabinaColors.neutral900,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 8),
-        Text(
-          'Lengkapi data pribadi Anda untuk melanjutkan',
-          style: GoogleFonts.plusJakartaSans(
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: SabinaColors.neutral500,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // Form card — uniform list rows (no mixed input boxes)
+  // ---------------------------------------------------------------------------
 
-  Widget _buildModernForm(AppLocalizations localizations) {
+  Widget _buildFormCard(AppLocalizations l10n) {
     return Container(
-      padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: SabinaColors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: SabinaColors.neutral300, width: 1),
+        borderRadius: BorderRadius.circular(18),
+        boxShadow: [
+          BoxShadow(
+            color: SabinaColors.neutral900.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Form(
         key: _formKey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _buildModernInputField(
-              label: localizations.fullName,
+            _buildTextRow(
+              label: l10n.fullName,
               controller: _namaController,
-              icon: Icons.person_outline,
-              validator: (value) =>
-                  value?.isEmpty ?? true ? localizations.nameRequired : null,
+              hint: l10n.fullNameHint,
+              icon: FontAwesomeIcons.user,
+              validator: (v) => v?.isEmpty ?? true ? l10n.nameRequired : null,
+              isFirst: true,
             ),
-            const SizedBox(height: 20),
-            _buildModernPickerField(
-              label: localizations.religion,
+            _buildDivider(),
+            _buildPickerRow(
+              label: l10n.religion,
               value: _selectedAgama,
-              icon: Icons.church_outlined,
-              onTap: () => _showModernPicker(
-                  context, _agamaList, _selectedAgama, (value) {
-                setState(() => _selectedAgama = value);
-              }, 'Pilih Agama'),
+              icon: FontAwesomeIcons.placeOfWorship,
+              onTap: () => _showPicker(
+                context,
+                _agamaList,
+                _selectedAgama,
+                (v) => setState(() => _selectedAgama = v),
+                l10n.selectReligion,
+              ),
             ),
-            const SizedBox(height: 20),
-            _buildModernDateField(localizations),
-            const SizedBox(height: 20),
-            _buildModernInputField(
-              label: localizations.address,
+            _buildDivider(),
+            _buildDateRow(l10n),
+            _buildDivider(),
+            _buildTextRow(
+              label: l10n.address,
               controller: _alamatController,
-              icon: Icons.location_on_outlined,
-              maxLines: 3,
-              validator: (value) =>
-                  value?.isEmpty ?? true ? localizations.addressRequired : null,
+              hint: l10n.addressHint,
+              icon: FontAwesomeIcons.locationDot,
+              maxLines: 2,
+              validator: (v) =>
+                  v?.isEmpty ?? true ? l10n.addressRequired : null,
             ),
-            const SizedBox(height: 20),
-            _buildModernPickerField(
-              label: localizations.bloodType,
+            _buildDivider(),
+            _buildPickerRow(
+              label: l10n.bloodType,
               value: _selectedGolonganDarah,
-              icon: Icons.bloodtype_outlined,
-              onTap: () => _showModernPicker(
-                  context, _golonganDarahList, _selectedGolonganDarah, (value) {
-                setState(() => _selectedGolonganDarah = value);
-              }, 'Pilih Golongan Darah'),
+              icon: FontAwesomeIcons.droplet,
+              onTap: () => _showPicker(
+                context,
+                _golonganDarahList,
+                _selectedGolonganDarah,
+                (v) => setState(() => _selectedGolonganDarah = v),
+                l10n.selectBloodType,
+              ),
+              isLast: true,
             ),
           ],
         ),
@@ -228,192 +222,112 @@ class IdentityScreenState extends State<IdentityScreen>
     );
   }
 
-  Widget _buildModernInputField({
+  // Single-line or multiline text row
+  Widget _buildTextRow({
     required String label,
     required TextEditingController controller,
+    required String hint,
     required IconData icon,
     String? Function(String?)? validator,
-    bool readOnly = false,
-    VoidCallback? onTap,
     int maxLines = 1,
+    bool isFirst = false,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: GoogleFonts.plusJakartaSans(
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-            color: SabinaColors.neutral700,
-          ),
+    final radius = isFirst
+        ? const BorderRadius.vertical(top: Radius.circular(18))
+        : BorderRadius.zero;
+
+    return ClipRRect(
+      borderRadius: radius,
+      child: TextFormField(
+        controller: controller,
+        maxLines: maxLines,
+        validator: validator,
+        style: GoogleFonts.plusJakartaSans(
+          fontSize: 14,
+          color: SabinaColors.neutral900,
         ),
-        const SizedBox(height: 8),
-        TextFormField(
-          controller: controller,
-          maxLines: maxLines,
-          style: GoogleFonts.plusJakartaSans(
+        decoration: InputDecoration(
+          labelText: label,
+          labelStyle: GoogleFonts.plusJakartaSans(
+            fontSize: 13,
+            color: SabinaColors.neutral500,
+          ),
+          hintText: hint,
+          hintStyle: GoogleFonts.plusJakartaSans(
             fontSize: 14,
-            color: SabinaColors.neutral900,
+            color: SabinaColors.neutral300,
           ),
-          decoration: InputDecoration(
-            prefixIcon: Icon(icon, color: SabinaColors.primary700),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: SabinaColors.neutral300, width: 1),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: SabinaColors.neutral300, width: 1),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: SabinaColors.primary700, width: 2),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.red, width: 2),
-            ),
-            filled: true,
-            fillColor: SabinaColors.neutral100,
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: FaIcon(icon, size: 15, color: SabinaColors.primary700),
           ),
-          readOnly: readOnly,
-          validator: validator,
-          onTap: onTap,
+          prefixIconConstraints:
+              const BoxConstraints(minWidth: 48, minHeight: 48),
+          filled: true,
+          fillColor: SabinaColors.white,
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          border: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(0),
+            borderSide: BorderSide(color: SabinaColors.error700, width: 1.5),
+          ),
+          floatingLabelBehavior: FloatingLabelBehavior.always,
         ),
-      ],
+      ),
     );
   }
 
-  Widget _buildModernPickerField({
+  // Picker row (Agama, Golongan Darah)
+  Widget _buildPickerRow({
     required String label,
     required String value,
     required IconData icon,
     required VoidCallback onTap,
+    bool isLast = false,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: GoogleFonts.plusJakartaSans(
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-            color: SabinaColors.neutral700,
-          ),
-        ),
-        const SizedBox(height: 8),
-        InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(12),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            decoration: BoxDecoration(
-              border: Border.all(color: SabinaColors.neutral300, width: 1),
-              borderRadius: BorderRadius.circular(12),
-              color: SabinaColors.neutral100,
-            ),
-            child: Row(
-              children: [
-                Icon(icon, color: SabinaColors.primary700),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
+    final radius = isLast
+        ? const BorderRadius.vertical(bottom: Radius.circular(18))
+        : BorderRadius.zero;
+
+    return InkWell(
+      onTap: onTap,
+      borderRadius: radius,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        child: Row(
+          children: [
+            FaIcon(icon, size: 15, color: SabinaColors.primary700),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    label,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 12,
+                      color: SabinaColors.neutral500,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
                     value,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 14,
+                      fontWeight: FontWeight.w500,
                       color: SabinaColors.neutral900,
                     ),
                   ),
-                ),
-                Icon(Icons.arrow_drop_down, color: SabinaColors.neutral500),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildModernDateField(AppLocalizations localizations) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          localizations.dateOfBirth,
-          style: GoogleFonts.plusJakartaSans(
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-            color: SabinaColors.neutral700,
-          ),
-        ),
-        const SizedBox(height: 8),
-        InkWell(
-          onTap: () => _selectDate(context),
-          borderRadius: BorderRadius.circular(12),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            decoration: BoxDecoration(
-              border: Border.all(color: SabinaColors.neutral300, width: 1),
-              borderRadius: BorderRadius.circular(12),
-              color: SabinaColors.neutral100,
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.calendar_today_outlined,
-                    color: SabinaColors.primary700),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    _tanggalLahirController.text.isEmpty
-                        ? 'Pilih tanggal lahir'
-                        : _tanggalLahirController.text,
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 14,
-                      color: _tanggalLahirController.text.isEmpty
-                          ? SabinaColors.neutral500
-                          : SabinaColors.neutral900,
-                    ),
-                  ),
-                ),
-                Icon(Icons.arrow_drop_down, color: SabinaColors.neutral500),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSaveButton(AppLocalizations localizations) {
-    return SizedBox(
-      width: double.infinity,
-      height: 56,
-      child: ElevatedButton(
-        onPressed: _saveIdentity,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: SabinaColors.primary700,
-          foregroundColor: SabinaColors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          elevation: 2,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.save, size: 24),
-            const SizedBox(width: 8),
-            Text(
-              widget.userIdentity != null
-                  ? localizations.saveChanges
-                  : localizations.save,
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+                ],
               ),
+            ),
+            FaIcon(
+              FontAwesomeIcons.chevronRight,
+              size: 12,
+              color: SabinaColors.neutral300,
             ),
           ],
         ),
@@ -421,15 +335,127 @@ class IdentityScreenState extends State<IdentityScreen>
     );
   }
 
-  void _showModernPicker(BuildContext context, List<String> items,
-      String selectedValue, Function(String) onSelected, String title) {
+  // Date row
+  Widget _buildDateRow(AppLocalizations l10n) {
+    final hasDate = _tanggalLahirController.text.isNotEmpty;
+    return InkWell(
+      onTap: () => _selectDate(context),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        child: Row(
+          children: [
+            FaIcon(
+              FontAwesomeIcons.calendarDays,
+              size: 15,
+              color: SabinaColors.primary700,
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    l10n.dateOfBirth,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 12,
+                      color: SabinaColors.neutral500,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    hasDate
+                        ? _tanggalLahirController.text
+                        : l10n.selectDateOfBirth,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: hasDate
+                          ? SabinaColors.neutral900
+                          : SabinaColors.neutral300,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            FaIcon(
+              FontAwesomeIcons.chevronRight,
+              size: 12,
+              color: SabinaColors.neutral300,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDivider() =>
+      Divider(height: 1, color: SabinaColors.neutral300, indent: 18);
+
+  // ---------------------------------------------------------------------------
+  // Privacy note
+  // ---------------------------------------------------------------------------
+
+  Widget _buildPrivacyNote(AppLocalizations l10n) {
+    return Row(
+      children: [
+        FaIcon(
+          FontAwesomeIcons.lock,
+          size: 12,
+          color: SabinaColors.neutral500,
+        ),
+        const SizedBox(width: 6),
+        Expanded(
+          child: Text(
+            l10n.localDataNote,
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 11,
+              color: SabinaColors.neutral500,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  // ---------------------------------------------------------------------------
+  // Section label
+  // ---------------------------------------------------------------------------
+
+  Widget _sectionLabel(String label) {
+    return Text(
+      label,
+      style: GoogleFonts.plusJakartaSans(
+        fontSize: 10,
+        fontWeight: FontWeight.w700,
+        color: SabinaColors.neutral500,
+        letterSpacing: 1.0,
+      ),
+    );
+  }
+
+  // ---------------------------------------------------------------------------
+  // Bottom sheet picker
+  // ---------------------------------------------------------------------------
+
+  void _showPicker(
+    BuildContext context,
+    List<String> items,
+    String selectedValue,
+    Function(String) onSelected,
+    String title,
+  ) {
+    final l10n = AppLocalizations.of(context)!;
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.6,
+      ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
-      builder: (context) => Container(
+      builder: (_) => Container(
         decoration: BoxDecoration(
           color: SabinaColors.white,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
@@ -438,6 +464,7 @@ class IdentityScreenState extends State<IdentityScreen>
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              // Handle
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 12),
                 width: 40,
@@ -447,16 +474,17 @@ class IdentityScreenState extends State<IdentityScreen>
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
+              // Header
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
                       child: Text(
-                        'Batal',
+                        l10n.cancel,
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
                           color: SabinaColors.neutral500,
@@ -467,65 +495,53 @@ class IdentityScreenState extends State<IdentityScreen>
                     Text(
                       title,
                       style: GoogleFonts.plusJakartaSans(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
                         color: SabinaColors.neutral900,
                       ),
                     ),
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(
-                        'Selesai',
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 14,
-                          color: SabinaColors.primary700,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
+                    const SizedBox(width: 60),
                   ],
                 ),
               ),
-              Divider(
-                height: 1,
-                color: SabinaColors.neutral300,
-                indent: 0,
-                endIndent: 0,
-              ),
-              ListView.separated(
-                shrinkWrap: true,
-                itemCount: items.length,
-                separatorBuilder: (_, __) => Divider(
-                  height: 1,
-                  color: SabinaColors.neutral300,
-                ),
-                itemBuilder: (context, index) {
-                  final item = items[index];
-                  final isSelected = selectedValue == item;
-                  return ListTile(
-                    title: Text(
-                      item,
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 14,
-                        fontWeight:
-                            isSelected ? FontWeight.w600 : FontWeight.w400,
-                        color: isSelected
-                            ? SabinaColors.primary700
-                            : SabinaColors.neutral900,
+              Divider(height: 1, color: SabinaColors.neutral300),
+              Flexible(
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  itemCount: items.length,
+                  separatorBuilder: (_, __) =>
+                      Divider(height: 1, color: SabinaColors.neutral300),
+                  itemBuilder: (context, index) {
+                    final item = items[index];
+                    final isSelected = selectedValue == item;
+                    return ListTile(
+                      title: Text(
+                        item,
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 14,
+                          fontWeight:
+                              isSelected ? FontWeight.w600 : FontWeight.w400,
+                          color: isSelected
+                              ? SabinaColors.primary700
+                              : SabinaColors.neutral900,
+                        ),
                       ),
-                    ),
-                    trailing: isSelected
-                        ? Icon(Icons.check,
-                            color: SabinaColors.primary700, size: 24)
-                        : null,
-                    onTap: () {
-                      onSelected(item);
-                      Navigator.pop(context);
-                    },
-                  );
-                },
+                      trailing: isSelected
+                          ? FaIcon(
+                              FontAwesomeIcons.check,
+                              color: SabinaColors.primary700,
+                              size: 16,
+                            )
+                          : null,
+                      onTap: () {
+                        onSelected(item);
+                        Navigator.pop(context);
+                      },
+                    );
+                  },
+                ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 12),
             ],
           ),
         ),
@@ -533,14 +549,19 @@ class IdentityScreenState extends State<IdentityScreen>
     );
   }
 
+  // ---------------------------------------------------------------------------
+  // Date picker
+  // ---------------------------------------------------------------------------
+
   void _selectDate(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
-      builder: (context) => Container(
+      builder: (_) => Container(
         decoration: BoxDecoration(
           color: SabinaColors.white,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
@@ -560,14 +581,14 @@ class IdentityScreenState extends State<IdentityScreen>
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
                       child: Text(
-                        'Batal',
+                        l10n.cancel,
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
                           color: SabinaColors.neutral500,
@@ -576,10 +597,10 @@ class IdentityScreenState extends State<IdentityScreen>
                       ),
                     ),
                     Text(
-                      'Tanggal Lahir',
+                      l10n.dateOfBirth,
                       style: GoogleFonts.plusJakartaSans(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
                         color: SabinaColors.neutral900,
                       ),
                     ),
@@ -594,23 +615,18 @@ class IdentityScreenState extends State<IdentityScreen>
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Selesai',
+                        l10n.done,
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
                           color: SabinaColors.primary700,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              Divider(
-                height: 1,
-                color: SabinaColors.neutral300,
-                indent: 0,
-                endIndent: 0,
-              ),
+              Divider(height: 1, color: SabinaColors.neutral300),
               SizedBox(
                 height: 220,
                 child: CupertinoDatePicker(
@@ -631,6 +647,10 @@ class IdentityScreenState extends State<IdentityScreen>
     );
   }
 
+  // ---------------------------------------------------------------------------
+  // Save logic
+  // ---------------------------------------------------------------------------
+
   void _saveIdentity() async {
     if (_formKey.currentState?.validate() ?? false) {
       final identity = UserIdentity(
@@ -649,26 +669,27 @@ class IdentityScreenState extends State<IdentityScreen>
       }
 
       if (mounted) {
+        final l10n = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Data identitas berhasil disimpan',
-                style: TextStyle(color: Colors.white)),
-            backgroundColor: AppColors.primaryPink,
+          SnackBar(
+            content: Text(
+              l10n.identitySaved,
+              style: GoogleFonts.plusJakartaSans(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            backgroundColor: SabinaColors.primary700,
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
         );
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const SabinaHomeScreen()),
+          MaterialPageRoute(builder: (_) => const SabinaHomeScreen()),
         );
       }
     }
-  }
-
-  @override
-  void dispose() {
-    _namaController.dispose();
-    _tanggalLahirController.dispose();
-    _alamatController.dispose();
-    _animationController.dispose();
-    super.dispose();
   }
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
-import '../../utils/constants.dart';
+import 'aktivitas_fisik_ibu_hamil_screen.dart';
+import 'makanan_screen.dart';
 import 'perawatan_sehari_hari_screen.dart';
 import 'yang_perlu_dihindari_screen.dart';
-import 'makanan_screen.dart';
-import 'aktivitas_fisik_ibu_hamil_screen.dart';
 
 class CareMenuScreen extends StatelessWidget {
   const CareMenuScreen({super.key});
@@ -12,152 +14,193 @@ class CareMenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+
+    final items = [
+      {
+        'title': l10n.careMenu_nutrition_title,
+        'desc': l10n.careMenu_nutrition_description,
+        'icon': FontAwesomeIcons.utensils,
+        'color': const Color(0xFFD97706),
+        'bg': const Color(0xFFFFF3E0),
+        'screen': const MakananScreen(),
+      },
+      {
+        'title': l10n.careMenu_avoidance_title,
+        'desc': l10n.careMenu_avoidance_description,
+        'icon': FontAwesomeIcons.ban,
+        'color': SabinaColors.error700,
+        'bg': SabinaColors.error100,
+        'screen': const YangPerluDihindariScreen(),
+      },
+      {
+        'title': l10n.careMenu_dailyCare_title,
+        'desc': l10n.careMenu_dailyCare_description,
+        'icon': FontAwesomeIcons.spa,
+        'color': const Color(0xFF2A9474),
+        'bg': const Color(0xFFE5F5F0),
+        'screen': const PerawatanSehariHariScreen(),
+      },
+      {
+        'title': l10n.careMenu_physicalActivity_title,
+        'desc': l10n.careMenu_physicalActivity_description,
+        'icon': FontAwesomeIcons.personWalking,
+        'color': const Color(0xFF1D4ED8),
+        'bg': const Color(0xFFEFF6FF),
+        'screen': const AktivitasFisikIbuHamilScreen(),
+      },
+    ];
+
     return Scaffold(
+      backgroundColor: SabinaColors.neutral100,
       appBar: AppBar(
-        title: Text(l10n.careMenu_title),
-        backgroundColor: AppColors.primaryWhite,
+        backgroundColor: SabinaColors.white,
+        elevation: 0,
+        surfaceTintColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+          color: SabinaColors.neutral900,
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          l10n.careMenu_title,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+            color: SabinaColors.neutral900,
+          ),
+        ),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Divider(height: 1, color: SabinaColors.neutral300),
+        ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _buildCareMenuItem(
-                context: context,
-                title: l10n.careMenu_nutrition_title,
-                description: l10n.careMenu_nutrition_description,
-                icon: Icons.restaurant,
-                color: Colors.blue[100]!,
-                imagePath: 'assets/images/bg_kuesioner_blue.png',
-                onTap: () {
-                  _navigateToScreen(context, const MakananScreen(), 'makanan');
-                },
-              ),
-              const SizedBox(height: 16),
-              _buildCareMenuItem(
-                context: context,
-                title: l10n.careMenu_avoidance_title,
-                description: l10n.careMenu_avoidance_description,
-                icon: Icons.not_interested,
-                color: Colors.red[100]!,
-                imagePath: 'assets/images/bg_kuesioner_orange.png',
-                onTap: () {
-                  _navigateToScreen(context, const YangPerluDihindariScreen(),
-                      'yangPerluDihindari');
-                },
-              ),
-              const SizedBox(height: 16),
-              _buildCareMenuItem(
-                context: context,
-                title: l10n.careMenu_dailyCare_title,
-                description: l10n.careMenu_dailyCare_description,
-                icon: Icons.spa,
-                color: Colors.purple[100]!,
-                imagePath: 'assets/images/bg_kuesioner_purple.png',
-                onTap: () {
-                  _navigateToScreen(context, const PerawatanSehariHariScreen(),
-                      'perawatanSehariHari');
-                },
-              ),
-              const SizedBox(height: 16),
-              _buildCareMenuItem(
-                context: context,
-                title: l10n.careMenu_physicalActivity_title,
-                description: l10n.careMenu_physicalActivity_description,
-                icon: Icons.accessibility_new,
-                color: Colors.purple[100]!,
-                imagePath: 'assets/images/bg_kuesioner_green.png',
-                onTap: () {
-                  _navigateToScreen(context,
-                      const AktivitasFisikIbuHamilScreen(), 'aktivitasFisik');
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 4),
 
-  Widget _buildCareMenuItem({
-    required BuildContext context,
-    required String title,
-    required String description,
-    required IconData icon,
-    required Color color,
-    required String imagePath,
-    required VoidCallback onTap,
-  }) {
-    return Hero(
-      tag: title,
-      child: Card(
-        elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: InkWell(
-          onTap: onTap,
-          child: Container(
-            height: 120,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              image: DecorationImage(
-                image: AssetImage(imagePath),
-                fit: BoxFit.cover,
+            // Section label
+            Padding(
+              padding: const EdgeInsets.only(left: 4, bottom: 12),
+              child: Text(
+                l10n.panduanPerawatanHeader,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w700,
+                  color: SabinaColors.neutral500,
+                  letterSpacing: 1.2,
+                ),
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Icon(icon, size: 48, color: Colors.white),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          title,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          description,
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white.withValues(alpha: 0.8),
-                          ),
-                        ),
-                      ],
-                    ),
+
+            // Card list
+            Container(
+              decoration: BoxDecoration(
+                color: SabinaColors.white,
+                borderRadius: BorderRadius.circular(18),
+                boxShadow: [
+                  BoxShadow(
+                    color: SabinaColors.neutral900.withValues(alpha: 0.05),
+                    blurRadius: 12,
+                    offset: const Offset(0, 2),
                   ),
-                  const Icon(Icons.arrow_forward_ios, color: Colors.white),
                 ],
               ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+              child: Column(
+                children: items.asMap().entries.map((e) {
+                  final item = e.value;
+                  final isFirst = e.key == 0;
+                  final isLast = e.key == items.length - 1;
+                  final color = item['color'] as Color;
+                  final bg = item['bg'] as Color;
 
-  void _navigateToScreen(BuildContext context, Widget screen, String heroTag) {
-    Navigator.of(context).push(
-      PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => screen,
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          const begin = Offset(1.0, 0.0);
-          const end = Offset.zero;
-          const curve = Curves.easeInOut;
-          var tween =
-              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-          var offsetAnimation = animation.drive(tween);
-          return SlideTransition(position: offsetAnimation, child: child);
-        },
+                  return Column(
+                    children: [
+                      InkWell(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => item['screen'] as Widget),
+                        ),
+                        borderRadius: BorderRadius.vertical(
+                          top:
+                              isFirst ? const Radius.circular(18) : Radius.zero,
+                          bottom:
+                              isLast ? const Radius.circular(18) : Radius.zero,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 14),
+                          child: Row(
+                            children: [
+                              // Icon container
+                              Container(
+                                width: 44,
+                                height: 44,
+                                decoration: BoxDecoration(
+                                  color: bg,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Center(
+                                  child: FaIcon(
+                                    item['icon'] as IconData,
+                                    size: 18,
+                                    color: color,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 14),
+                              // Text
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      item['title'] as String,
+                                      style: GoogleFonts.plusJakartaSans(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        color: SabinaColors.neutral900,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      item['desc'] as String,
+                                      style: GoogleFonts.plusJakartaSans(
+                                        fontSize: 12,
+                                        color: SabinaColors.neutral500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Icon(
+                                Icons.chevron_right_rounded,
+                                color: SabinaColors.neutral300,
+                                size: 20,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      if (!isLast)
+                        Divider(
+                          height: 1,
+                          indent: 74,
+                          color: SabinaColors.neutral300,
+                        ),
+                    ],
+                  );
+                }).toList(),
+              ),
+            ),
+
+            const SizedBox(height: 32),
+          ],
+        ),
       ),
     );
   }

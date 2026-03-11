@@ -91,7 +91,6 @@ class HealthAnalyticsService {
     if (bpRecords.isEmpty) return insights;
 
     int highBPCount = 0;
-    int normalBPCount = 0;
 
     for (final record in bpRecords) {
       final bp = record.bloodPressure!.split('/');
@@ -101,8 +100,6 @@ class HealthAnalyticsService {
 
         if (systolic >= 140 || diastolic >= 90) {
           highBPCount++;
-        } else {
-          normalBPCount++;
         }
       }
     }

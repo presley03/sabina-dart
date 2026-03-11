@@ -70,9 +70,9 @@ class PregnancyHistoryCard extends StatelessWidget {
                           color: Colors.purple[600],
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const Text(
-                          'Penting',
-                          style: TextStyle(
+                        child: Text(
+                          localizations.importantLabel,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
@@ -91,7 +91,7 @@ class PregnancyHistoryCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Yuk isi Riwayat Kehamilan!',
+                        localizations.fillPregnancyHistorySub,
                         style: TextStyle(
                           color: Colors.purple[700],
                           fontSize: 16,

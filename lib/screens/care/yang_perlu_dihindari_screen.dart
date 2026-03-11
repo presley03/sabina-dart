@@ -1,80 +1,87 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 
-class YangPerluDihindariScreen extends StatefulWidget {
+class YangPerluDihindariScreen extends StatelessWidget {
   const YangPerluDihindariScreen({super.key});
 
   @override
-  State<YangPerluDihindariScreen> createState() =>
-      _YangPerluDihindariScreenState();
-}
-
-class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
-  int _currentIndex = 0;
-  final PageController _pageController = PageController(viewportFraction: 0.85);
-
-  late List<Map<String, dynamic>> _avoidItems;
-  late List<String> _references;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    _avoidItems = [
+
+    final List<Map<String, dynamic>> avoidItems = [
       {
         'title': l10n.avoidScreen_alcohol_title,
-        'icon': Icons.no_drinks,
-        'content': l10n.avoidScreen_alcohol_content,
+        'icon': FontAwesomeIcons.wineBottle,
+        'content': l10n.avoidScreen_alcohol_content
       },
       {
         'title': l10n.avoidScreen_smoking_title,
-        'icon': Icons.smoke_free,
-        'content': l10n.avoidScreen_smoking_content,
+        'icon': FontAwesomeIcons.ban,
+        'content': l10n.avoidScreen_smoking_content
       },
       {
         'title': l10n.avoidScreen_caffeine_title,
-        'icon': Icons.coffee,
-        'content': l10n.avoidScreen_caffeine_content,
+        'icon': FontAwesomeIcons.mugHot,
+        'content': l10n.avoidScreen_caffeine_content
       },
       {
         'title': l10n.avoidScreen_drugs_title,
-        'icon': Icons.medication,
-        'content': l10n.avoidScreen_drugs_content,
+        'icon': FontAwesomeIcons.pills,
+        'content': l10n.avoidScreen_drugs_content
       },
       {
         'title': l10n.avoidScreen_rawFood_title,
-        'icon': Icons.food_bank,
-        'content': l10n.avoidScreen_rawFood_content,
+        'icon': FontAwesomeIcons.utensils,
+        'content': l10n.avoidScreen_rawFood_content
       },
       {
         'title': l10n.avoidScreen_highMercuryFish_title,
-        'icon': Icons.set_meal,
-        'content': l10n.avoidScreen_highMercuryFish_content,
+        'icon': FontAwesomeIcons.fish,
+        'content': l10n.avoidScreen_highMercuryFish_content
       },
       {
         'title': l10n.avoidScreen_chemicals_title,
-        'icon': Icons.cleaning_services,
-        'content': l10n.avoidScreen_chemicals_content,
+        'icon': FontAwesomeIcons.flask,
+        'content': l10n.avoidScreen_chemicals_content
       },
       {
         'title': l10n.avoidScreen_heavyLifting_title,
-        'icon': Icons.fitness_center,
-        'content': l10n.avoidScreen_heavyLifting_content,
+        'icon': FontAwesomeIcons.dumbbell,
+        'content': l10n.avoidScreen_heavyLifting_content
       },
       {
         'title': l10n.avoidScreen_lackOfRest_title,
-        'icon': Icons.bedroom_parent,
-        'content': l10n.avoidScreen_lackOfRest_content,
+        'icon': FontAwesomeIcons.bed,
+        'content': l10n.avoidScreen_lackOfRest_content
       },
       {
         'title': l10n.avoidScreen_stress_title,
-        'icon': Icons.psychology,
-        'content': l10n.avoidScreen_stress_content,
+        'icon': FontAwesomeIcons.brain,
+        'content': l10n.avoidScreen_stress_content
       },
     ];
 
-    _references = [
+    final List<String> additionalTips = [
+      l10n.avoidScreen_additionalTip1,
+      l10n.avoidScreen_additionalTip2,
+      l10n.avoidScreen_additionalTip3,
+      l10n.avoidScreen_additionalTip4,
+      l10n.avoidScreen_additionalTip5,
+      l10n.avoidScreen_additionalTip6,
+      l10n.avoidScreen_additionalTip7,
+      l10n.avoidScreen_additionalTip8,
+      l10n.avoidScreen_additionalTip9,
+      l10n.avoidScreen_additionalTip10,
+      l10n.avoidScreen_additionalTip11,
+      l10n.avoidScreen_additionalTip12,
+      l10n.avoidScreen_additionalTip13,
+      l10n.avoidScreen_additionalTip14,
+    ];
+
+    final List<String> references = [
       l10n.avoidScreen_reference1,
       l10n.avoidScreen_reference2,
       l10n.avoidScreen_reference3,
@@ -84,345 +91,335 @@ class _YangPerluDihindariScreenState extends State<YangPerluDihindariScreen> {
       l10n.avoidScreen_reference7,
       l10n.avoidScreen_reference8,
     ];
-  }
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(l10n.avoidScreen_title,
-            style: const TextStyle(color: Colors.black)),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.purple[100]!,
-              Colors.purple[200]!,
-              Colors.blue[200]!,
-            ],
+        surfaceTintColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+          color: SabinaColors.neutral900,
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          l10n.avoidScreen_title,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+            color: SabinaColors.neutral900,
           ),
         ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildIntroduction(l10n),
-                _buildPageView(),
-                _buildPageIndicator(),
-                _buildTipsSection(l10n),
-                _buildReferences(l10n),
-              ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Divider(height: 1, color: SabinaColors.neutral300),
+        ),
+      ),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Hero image full bleed
+            Image.asset(
+              'assets/images/pregnancy_caution.png',
+              width: double.infinity,
+              height: 220,
+              fit: BoxFit.cover,
             ),
-          ),
-        ),
-      ),
-    );
-  }
 
-  Widget _buildIntroduction(AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    'assets/images/pregnancy_caution.png',
-                    height: 150,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  l10n.avoidScreen_introduction,
-                  style: const TextStyle(fontSize: 16, color: Colors.black),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 28),
 
-  Widget _buildPageView() {
-    return SizedBox(
-      height: 350,
-      child: PageView.builder(
-        controller: _pageController,
-        itemCount: _avoidItems.length,
-        onPageChanged: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        itemBuilder: (context, index) {
-          final item = _avoidItems[index];
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.2),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.1),
-                        blurRadius: 10,
-                        spreadRadius: 5,
-                      ),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(item['icon'], size: 60, color: Colors.black),
-                        const SizedBox(height: 20),
-                        Text(
-                          item['title'],
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 20),
-                        Expanded(
-                          child: SingleChildScrollView(
-                            child: Text(
-                              item['content'],
-                              style: const TextStyle(
-                                  fontSize: 16, color: Colors.black),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ],
+                  Text(
+                    l10n.avoidScreen_introduction,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 15,
+                      color: SabinaColors.neutral700,
+                      height: 1.8,
                     ),
+                  ),
+
+                  const SizedBox(height: 36),
+
+                  _label(l10n.yangPerluDihindariLabel),
+                  const SizedBox(height: 24),
+
+                  // Numbered avoid items
+                  ...avoidItems.asMap().entries.map((e) {
+                    final isLast = e.key == avoidItems.length - 1;
+                    return _avoidItem(
+                      number: e.key + 1,
+                      title: e.value['title'],
+                      content: e.value['content'],
+                      icon: e.value['icon'],
+                      isLast: isLast,
+                    );
+                  }),
+
+                  const SizedBox(height: 40),
+                  Divider(color: SabinaColors.neutral300),
+                  const SizedBox(height: 32),
+
+                  // Tips section
+                  _label(l10n.avoidScreen_tips_title),
+                  const SizedBox(height: 12),
+                  Text(
+                    l10n.avoidScreen_tips_content,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 14,
+                      color: SabinaColors.neutral700,
+                      height: 1.7,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+
+                  // Show more tips button
+                  OutlinedButton.icon(
+                    onPressed: () =>
+                        _showMoreTips(context, l10n, additionalTips),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: SabinaColors.primary700,
+                      side: BorderSide(color: SabinaColors.primary700),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 10),
+                    ),
+                    icon: FaIcon(FontAwesomeIcons.listOl,
+                        size: 13, color: SabinaColors.primary700),
+                    label: Text(
+                      l10n.avoidScreen_moreTips,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 40),
+                  Divider(color: SabinaColors.neutral300),
+                  const SizedBox(height: 28),
+
+                  // References
+                  _label(l10n.avoidScreen_references_title),
+                  const SizedBox(height: 16),
+                  ...references.asMap().entries.map((e) => Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('${e.key + 1}.',
+                                style: GoogleFonts.plusJakartaSans(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w700,
+                                    color: SabinaColors.neutral500)),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(e.value,
+                                  style: GoogleFonts.plusJakartaSans(
+                                      fontSize: 12,
+                                      color: SabinaColors.neutral500,
+                                      height: 1.5)),
+                            ),
+                          ],
+                        ),
+                      )),
+
+                  const SizedBox(height: 48),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _label(String text) {
+    return Text(
+      text.toUpperCase(),
+      style: GoogleFonts.plusJakartaSans(
+        fontSize: 10,
+        fontWeight: FontWeight.w700,
+        color: SabinaColors.neutral500,
+        letterSpacing: 1.2,
+      ),
+    );
+  }
+
+  Widget _avoidItem({
+    required int number,
+    required String title,
+    required String content,
+    required IconData icon,
+    bool isLast = false,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 28,
+              height: 28,
+              decoration: BoxDecoration(
+                color: SabinaColors.error100,
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Text(
+                  '$number',
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w800,
+                    color: SabinaColors.error700,
                   ),
                 ),
               ),
             ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildPageIndicator() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: _avoidItems.asMap().entries.map((entry) {
-        return Container(
-          width: 8.0,
-          height: 8.0,
-          margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white
-                .withValues(alpha: _currentIndex == entry.key ? 0.9 : 0.4),
-          ),
-        );
-      }).toList(),
-    );
-  }
-
-  Widget _buildTipsSection(AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+            const SizedBox(width: 12),
+            FaIcon(icon, size: 14, color: SabinaColors.error700),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                title,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: SabinaColors.neutral900,
+                ),
+              ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.avoidScreen_tips_title,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  l10n.avoidScreen_tips_content,
-                  style: const TextStyle(fontSize: 16, color: Colors.black),
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white.withValues(alpha: 0.3),
-                    foregroundColor: Colors.white,
-                  ),
-                  onPressed: () => _showMoreTips(l10n),
-                  child: Text(l10n.avoidScreen_moreTips),
-                ),
-              ],
+          ],
+        ),
+        const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.only(left: 40),
+          child: Text(
+            content,
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 14,
+              color: SabinaColors.neutral700,
+              height: 1.7,
             ),
           ),
         ),
-      ),
+        if (!isLast) ...[
+          const SizedBox(height: 24),
+          Padding(
+            padding: const EdgeInsets.only(left: 40),
+            child: Divider(color: SabinaColors.neutral300),
+          ),
+          const SizedBox(height: 24),
+        ] else
+          const SizedBox(height: 8),
+      ],
     );
   }
 
-  void _showMoreTips(AppLocalizations l10n) {
+  void _showMoreTips(
+      BuildContext context, AppLocalizations l10n, List<String> tips) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (BuildContext context) {
-        return Container(
-          height: MediaQuery.of(context).size.height * 0.7,
-          decoration: BoxDecoration(
-            color: Colors.purple[100]!.withValues(alpha: 0.9),
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
-          ),
-          child: Column(
-            children: [
-              Container(
-                height: 5,
-                width: 40,
-                margin: const EdgeInsets.symmetric(vertical: 10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(2.5),
-                ),
+      builder: (_) => Container(
+        height: MediaQuery.of(context).size.height * 0.75,
+        decoration: BoxDecoration(
+          color: SabinaColors.white,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        child: Column(
+          children: [
+            // Handle
+            Container(
+              width: 40,
+              height: 4,
+              margin: const EdgeInsets.only(top: 12, bottom: 16),
+              decoration: BoxDecoration(
+                color: SabinaColors.neutral300,
+                borderRadius: BorderRadius.circular(2),
               ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  l10n.avoidScreen_additionalTips_title,
-                  style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              Expanded(
-                child: ListView(
-                  children: [
-                    _buildTipItem(l10n.avoidScreen_additionalTip1),
-                    _buildTipItem(l10n.avoidScreen_additionalTip2),
-                    _buildTipItem(l10n.avoidScreen_additionalTip3),
-                    _buildTipItem(l10n.avoidScreen_additionalTip4),
-                    _buildTipItem(l10n.avoidScreen_additionalTip5),
-                    _buildTipItem(l10n.avoidScreen_additionalTip6),
-                    _buildTipItem(l10n.avoidScreen_additionalTip7),
-                    _buildTipItem(l10n.avoidScreen_additionalTip8),
-                    _buildTipItem(l10n.avoidScreen_additionalTip9),
-                    _buildTipItem(l10n.avoidScreen_additionalTip10),
-                    _buildTipItem(l10n.avoidScreen_additionalTip11),
-                    _buildTipItem(l10n.avoidScreen_additionalTip12),
-                    _buildTipItem(l10n.avoidScreen_additionalTip13),
-                    _buildTipItem(l10n.avoidScreen_additionalTip14),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildTipItem(String tip) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Icon(Icons.check_circle, color: Colors.white, size: 20),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              tip,
-              style: const TextStyle(fontSize: 16, color: Colors.white),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildReferences(AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    l10n.avoidScreen_additionalTips_title,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: SabinaColors.neutral900,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text(l10n.close,
+                        style: GoogleFonts.plusJakartaSans(
+                            fontSize: 13,
+                            color: SabinaColors.primary700,
+                            fontWeight: FontWeight.w600)),
+                  ),
+                ],
+              ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.avoidScreen_references_title,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                const SizedBox(height: 8),
-                ..._references.map((ref) => Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: Text(
-                        ref,
-                        style:
-                            const TextStyle(fontSize: 12, color: Colors.black),
+            Divider(color: SabinaColors.neutral300),
+            Flexible(
+              child: ListView.separated(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                itemCount: tips.length,
+                separatorBuilder: (_, __) =>
+                    Divider(color: SabinaColors.neutral300),
+                itemBuilder: (_, i) => Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 22,
+                        height: 22,
+                        decoration: BoxDecoration(
+                          color: SabinaColors.error100,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Text(
+                            '${i + 1}',
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w800,
+                              color: SabinaColors.error700,
+                            ),
+                          ),
+                        ),
                       ),
-                    )),
-              ],
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          tips[i],
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 14,
+                            color: SabinaColors.neutral700,
+                            height: 1.5,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

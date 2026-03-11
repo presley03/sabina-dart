@@ -1,29 +1,21 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 
-class PerawatanSehariHariScreen extends StatefulWidget {
+class PerawatanSehariHariScreen extends StatelessWidget {
   const PerawatanSehariHariScreen({super.key});
 
   @override
-  State<PerawatanSehariHariScreen> createState() =>
-      _PerawatanSehariHariScreenState();
-}
-
-class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
-  int _currentIndex = 0;
-  final PageController _pageController = PageController(viewportFraction: 0.85);
-
-  late List<Map<String, dynamic>> _careItems;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    _careItems = [
+
+    final List<Map<String, dynamic>> careItems = [
       {
         'title': l10n.dailyCare_item1_title,
-        'icon': Icons.restaurant,
+        'icon': FontAwesomeIcons.utensils,
+        'color': const Color(0xFFD97706),
         'content': [
           l10n.dailyCare_item1_content1,
           l10n.dailyCare_item1_content2,
@@ -33,7 +25,8 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
       },
       {
         'title': l10n.dailyCare_item2_title,
-        'icon': Icons.clean_hands,
+        'icon': FontAwesomeIcons.handSparkles,
+        'color': const Color(0xFF2A9474),
         'content': [
           l10n.dailyCare_item2_content1,
           l10n.dailyCare_item2_content2,
@@ -44,7 +37,8 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
       },
       {
         'title': l10n.dailyCare_item3_title,
-        'icon': Icons.hotel,
+        'icon': FontAwesomeIcons.bed,
+        'color': const Color(0xFF1D4ED8),
         'content': [
           l10n.dailyCare_item3_content1,
           l10n.dailyCare_item3_content2,
@@ -52,7 +46,8 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
       },
       {
         'title': l10n.dailyCare_item4_title,
-        'icon': Icons.child_friendly,
+        'icon': FontAwesomeIcons.baby,
+        'color': SabinaColors.primary700,
         'content': [
           l10n.dailyCare_item4_content1,
           l10n.dailyCare_item4_content2,
@@ -62,7 +57,8 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
       },
       {
         'title': l10n.dailyCare_item5_title,
-        'icon': Icons.fitness_center,
+        'icon': FontAwesomeIcons.personWalking,
+        'color': const Color(0xFF2A9474),
         'content': [
           l10n.dailyCare_item5_content1,
           l10n.dailyCare_item5_content2,
@@ -71,359 +67,271 @@ class _PerawatanSehariHariScreenState extends State<PerawatanSehariHariScreen> {
       },
       {
         'title': l10n.dailyCare_item6_title,
-        'icon': Icons.favorite,
+        'icon': FontAwesomeIcons.heartPulse,
+        'color': SabinaColors.error700,
         'content': [
           l10n.dailyCare_item6_content1,
           l10n.dailyCare_item6_content2,
         ],
       },
     ];
-  }
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
+    final List<String> moreTips = [
+      l10n.dailyCare_moreTip1,
+      l10n.dailyCare_moreTip2,
+      l10n.dailyCare_moreTip3,
+      l10n.dailyCare_moreTip4,
+      l10n.dailyCare_moreTip5,
+      l10n.dailyCare_moreTip6,
+      l10n.dailyCare_moreTip7,
+      l10n.dailyCare_moreTip8,
+      l10n.dailyCare_moreTip9,
+      l10n.dailyCare_moreTip10,
+    ];
 
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(l10n.dailyCare_screenTitle,
-            style: const TextStyle(color: Colors.black)),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.red[100]!,
-              Colors.orange[200]!,
-              Colors.purple[100]!,
-            ],
+        surfaceTintColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+          color: SabinaColors.neutral900,
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          l10n.dailyCare_screenTitle,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+            color: SabinaColors.neutral900,
           ),
         ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildIntroduction(l10n),
-                _buildPageView(),
-                _buildPageIndicator(),
-                _buildTipsSection(l10n),
-                _buildReferences(l10n),
-              ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Divider(height: 1, color: SabinaColors.neutral300),
+        ),
+      ),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Hero image — full bleed
+            Image.asset(
+              'assets/images/artikel_perawatan_ibu hamil.png',
+              width: double.infinity,
+              height: 220,
+              fit: BoxFit.cover,
             ),
-          ),
-        ),
-      ),
-    );
-  }
 
-  Widget _buildIntroduction(AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    'assets/images/artikel_perawatan_ibu hamil.png',
-                    height: 150,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  l10n.dailyCare_introduction,
-                  style: const TextStyle(fontSize: 16, color: Colors.black),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 28),
 
-  Widget _buildPageView() {
-    return SizedBox(
-      height: 400,
-      child: PageView.builder(
-        controller: _pageController,
-        itemCount: _careItems.length,
-        onPageChanged: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        itemBuilder: (context, index) {
-          final item = _careItems[index];
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.2),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.1),
-                        blurRadius: 10,
-                        spreadRadius: 5,
-                      ),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        Icon(item['icon'], size: 60, color: Colors.black),
-                        const SizedBox(height: 20),
-                        Text(
-                          item['title'],
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 20),
-                        Expanded(
-                          child: ListView.builder(
-                            itemCount: (item['content'] as List).length,
-                            itemBuilder: (context, contentIndex) {
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: 8.0),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Icon(Icons.check_circle,
-                                        color: Colors.black, size: 20),
-                                    const SizedBox(width: 10),
-                                    Expanded(
-                                      child: Text(
-                                        item['content'][contentIndex],
-                                        style: const TextStyle(
-                                            fontSize: 16, color: Colors.black),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
+                  // Intro text
+                  Text(
+                    l10n.dailyCare_introduction,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 15,
+                      color: SabinaColors.neutral700,
+                      height: 1.8,
                     ),
                   ),
-                ),
+
+                  const SizedBox(height: 36),
+
+                  _sectionLabel(l10n.panduanPerawatanHarian),
+
+                  const SizedBox(height: 24),
+
+                  // Numbered care items
+                  ...careItems.asMap().entries.map((e) {
+                    final item = e.value;
+                    final isLast = e.key == careItems.length - 1;
+                    return _articleSection(
+                      number: e.key + 1,
+                      title: item['title'],
+                      icon: item['icon'],
+                      color: item['color'],
+                      bulletItems: List<String>.from(item['content']),
+                      isLast: isLast,
+                    );
+                  }),
+
+                  const SizedBox(height: 40),
+                  Divider(color: SabinaColors.neutral300),
+                  const SizedBox(height: 32),
+
+                  // Tips tambahan
+                  _sectionLabel(l10n.dailyCare_moreTipsTitle),
+                  const SizedBox(height: 20),
+
+                  ...moreTips.asMap().entries.map((e) => _tipRow(
+                        number: e.key + 1,
+                        text: e.value,
+                        isLast: e.key == moreTips.length - 1,
+                      )),
+
+                  const SizedBox(height: 48),
+                ],
               ),
             ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildPageIndicator() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: _careItems.asMap().entries.map((entry) {
-        return Container(
-          width: 8.0,
-          height: 8.0,
-          margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white
-                .withValues(alpha: _currentIndex == entry.key ? 0.9 : 0.4),
-          ),
-        );
-      }).toList(),
-    );
-  }
-
-  Widget _buildTipsSection(AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.dailyCare_tipsTitle,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  l10n.dailyCare_tipsContent,
-                  style: const TextStyle(fontSize: 16, color: Colors.black),
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white.withValues(alpha: 0.3),
-                    foregroundColor: Colors.white,
-                  ),
-                  onPressed: () => _showMoreTips(l10n),
-                  child: Text(l10n.dailyCare_moreTipsButton),
-                ),
-              ],
-            ),
-          ),
+          ],
         ),
       ),
     );
   }
 
-  void _showMoreTips(AppLocalizations l10n) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (BuildContext context) {
-        return Container(
-          height: MediaQuery.of(context).size.height * 0.7,
-          decoration: BoxDecoration(
-            color: Colors.blue[100]!.withValues(alpha: 0.9),
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
-          ),
-          child: Column(
-            children: [
-              Container(
-                height: 5,
-                width: 40,
-                margin: const EdgeInsets.symmetric(vertical: 10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(2.5),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  l10n.dailyCare_moreTipsTitle,
-                  style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              Expanded(
-                child: ListView(
-                  children: [
-                    _buildTipItem(l10n.dailyCare_moreTip1),
-                    _buildTipItem(l10n.dailyCare_moreTip2),
-                    _buildTipItem(l10n.dailyCare_moreTip3),
-                    _buildTipItem(l10n.dailyCare_moreTip4),
-                    _buildTipItem(l10n.dailyCare_moreTip5),
-                    _buildTipItem(l10n.dailyCare_moreTip6),
-                    _buildTipItem(l10n.dailyCare_moreTip7),
-                    _buildTipItem(l10n.dailyCare_moreTip8),
-                    _buildTipItem(l10n.dailyCare_moreTip9),
-                    _buildTipItem(l10n.dailyCare_moreTip10),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
-      },
+  Widget _sectionLabel(String label) {
+    return Text(
+      label.toUpperCase(),
+      style: GoogleFonts.plusJakartaSans(
+        fontSize: 10,
+        fontWeight: FontWeight.w700,
+        color: SabinaColors.neutral500,
+        letterSpacing: 1.2,
+      ),
     );
   }
 
-  Widget _buildTipItem(String tip) {
+  Widget _articleSection({
+    required int number,
+    required String title,
+    required IconData icon,
+    required Color color,
+    required List<String> bulletItems,
+    bool isLast = false,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Section heading
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 28,
+              height: 28,
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.12),
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Text(
+                  '$number',
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w800,
+                    color: color,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            FaIcon(icon, size: 14, color: color),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                title,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: SabinaColors.neutral900,
+                ),
+              ),
+            ),
+          ],
+        ),
+
+        const SizedBox(height: 14),
+
+        // Bullet items
+        ...bulletItems.asMap().entries.map((e) => Padding(
+              padding: const EdgeInsets.only(left: 40, bottom: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 7),
+                    child: Container(
+                      width: 5,
+                      height: 5,
+                      decoration: BoxDecoration(
+                        color: color,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      e.value,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 14,
+                        color: SabinaColors.neutral700,
+                        height: 1.7,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )),
+
+        if (!isLast) ...[
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 40),
+            child: Divider(color: SabinaColors.neutral300),
+          ),
+          const SizedBox(height: 20),
+        ] else
+          const SizedBox(height: 8),
+      ],
+    );
+  }
+
+  Widget _tipRow(
+      {required int number, required String text, bool isLast = false}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.only(bottom: 14),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.check_circle, color: Colors.white, size: 20),
-          const SizedBox(width: 10),
+          Container(
+            width: 22,
+            height: 22,
+            decoration: BoxDecoration(
+              color: SabinaColors.primary700.withValues(alpha: 0.10),
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                '$number',
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w800,
+                  color: SabinaColors.primary700,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
           Expanded(
             child: Text(
-              tip,
-              style: const TextStyle(fontSize: 16, color: Colors.white),
+              text,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 14,
+                color: SabinaColors.neutral700,
+                height: 1.6,
+              ),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildReferences(AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.dailyCare_referencesTitle,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  l10n.dailyCare_reference1,
-                  style: const TextStyle(fontSize: 12, color: Colors.black),
-                ),
-              ],
-            ),
-          ),
-        ),
       ),
     );
   }

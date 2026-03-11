@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import '../utils/constants.dart';
 
 class ArticleScreen extends StatelessWidget {
@@ -6,12 +7,11 @@ class ArticleScreen extends StatelessWidget {
   final String content;
   final String imagePath;
 
-  const ArticleScreen({
-    super.key, 
-    required this.title, 
-    required this.content, 
-    required this.imagePath
-  });
+  const ArticleScreen(
+      {super.key,
+      required this.title,
+      required this.content,
+      required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -42,29 +42,30 @@ class ArticleScreen extends StatelessWidget {
                   Text(
                     title,
                     style: const TextStyle(
-                      fontSize: 24, 
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: AppColors.primaryPink,
                     ),
                   ),
+                  const SizedBox(height: 16),
                   const SizedBox(height: 16),
                   Text(
                     content,
                     style: const TextStyle(fontSize: 16, height: 1.5),
                   ),
                   const SizedBox(height: 24),
-                  const Text(
-                    'Tips Tambahan:',
-                    style: TextStyle(
-                      fontSize: 18, 
+                  Text(
+                    AppLocalizations.of(context)!.additionalTipsLabel,
+                    style: const TextStyle(
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: AppColors.primaryPink,
                     ),
                   ),
                   const SizedBox(height: 8),
-                  _buildTipItem('Konsultasikan dengan dokter secara teratur'),
-                  _buildTipItem('Jaga pola makan seimbang'),
-                  _buildTipItem('Lakukan olahraga ringan yang aman'),
+                  _buildTipItem(AppLocalizations.of(context)!.articleTip1),
+                  _buildTipItem(AppLocalizations.of(context)!.articleTip2),
+                  _buildTipItem(AppLocalizations.of(context)!.articleTip3),
                 ],
               ),
             ),
@@ -80,7 +81,8 @@ class ArticleScreen extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.check_circle, color: AppColors.primaryPink, size: 20),
+          const Icon(Icons.check_circle,
+              color: AppColors.primaryPink, size: 20),
           const SizedBox(width: 8),
           Expanded(child: Text(tip, style: const TextStyle(fontSize: 14))),
         ],

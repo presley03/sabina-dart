@@ -4,7 +4,7 @@
 
 ## 📱 Tentang Aplikasi
 
-SABINA adalah aplikasi mobile terintegrasi untuk memantau kesehatan ibu hamil dan memberdayakan keluarga dalam proses kehamilan. Aplikasi ini dirancang dengan pendekatan minimal modern menggunakan desain sistem Sabina dan menyediakan fitur komprehensif untuk pemantauan kesehatan maternal.
+SABINA adalah aplikasi mobile terintegrasi untuk memantau kesehatan ibu hamil dan memberdayakan keluarga dalam proses kehamilan. Aplikasi ini dirancang dengan pendekatan **clean minimal premium** menggunakan design system SabinaColors dan menyediakan fitur komprehensif untuk pemantauan kesehatan maternal.
 
 ### Visi
 Memberikan akses mudah dan terpercaya kepada ibu hamil untuk memantau kesehatan diri sendiri dan berkomunikasi dengan tenaga kesehatan.
@@ -19,135 +19,200 @@ Memberikan akses mudah dan terpercaya kepada ibu hamil untuk memantau kesehatan 
 
 ## ✨ Fitur Utama
 
-### 1. **Pemantauan Kesehatan**
-- Pencatatan berat badan dan tekanan darah berkala
-- Tracking aktivitas fisik ibu hamil
-- Monitoring pergerakan janin
-- Riwayat catatan kesehatan terstruktur
+### 1. **Profil & Identitas**
+- Data identitas ibu hamil (nama, tanggal lahir, golongan darah, agama, alamat)
+- Foto profil dari galeri
+- Usia otomatis dihitung dari tanggal lahir
+- Riwayat kehamilan lengkap dengan detail persalinan sebelumnya
 
-### 2. **Screening & Deteksi Dini**
-- Screening preeklampsia
-- Penapisan faktor risiko kehamilan
-- Penilaian kesehatan ibu hamil
-- Alert untuk kondisi darurat
+### 2. **Dashboard Beranda**
+- Salam sapaan dengan nama user dari database
+- Kartu kehamilan: minggu kehamilan, trimester, perkiraan tanggal lahir
+- Akses cepat: Preeklampsia, Skrining, Riwayat, Hitung IMT
+- Mini card IMT terakhir
+- Scroll artikel terkait kehamilan
 
-### 3. **Panduan Trimester**
+### 3. **Skrining & Deteksi Dini**
+- **Skrining Preeklampsia** — 12 pertanyaan faktor risiko dengan logika `isHighRisk`
+- **Penapisan Faktor Risiko** — kuesioner lengkap risiko kehamilan
+- Hasil skrining tersimpan otomatis, tampil di profil dengan waktu pemeriksaan
+- Hasil dapat diperbarui setiap skrining ulang
+
+### 4. **Kuesioner Keluhan** (6 jenis)
+- Mual & Muntah, Sakit Kepala, Keluar Darah, Keluar Cairan, Bengkak, Pergerakan Janin
+- Progress bar horizontal per pertanyaan
+- Tombol Ya / Tidak yang jelas
+- Hasil berwarna sesuai tingkat keparahan (hijau/kuning/merah)
+
+### 5. **Panduan Trimester**
 - Informasi trimester satu, dua, dan tiga
-- Tips kesehatan per trimester
-- Persiapan persalinan
-- Panduan pola hidup sehat
+- Tips kesehatan, nutrisi, dan persiapan per trimester
 
-### 4. **Manajemen Perawatan**
+### 6. **Perawatan & Artikel**
 - Panduan aktivitas fisik ibu hamil
 - Rekomendasi nutrisi dan makanan
 - Tips perawatan sehari-hari
-- Jadwal kunjungan ANC
+- Yang perlu dihindari selama kehamilan
+- Persiapan persalinan
 
-### 5. **Kontak Darurat**
-- Tombol akses cepat ambulans 118
-- Kontak dokter kandungan
-- Informasi rumah sakit terdekat
-- Panduan situasi darurat
+### 7. **IMT Calculator**
+- Gauge speedometer dengan animasi
+- Segmented bar kategori IMT
+- Rekomendasi berdasarkan hasil
 
-### 6. **Analitik Kesehatan**
-- Dashboard monitoring kesehatan
-- Grafik tren vital signs
-- Laporan kesehatan terperinci
-- Saran berbasis data
+### 8. **Profil Pengguna**
+- Ringkasan stat: usia, golongan darah, usia hamil (real-time)
+- Riwayat kehamilan expandable card (collapsed/expanded)
+- Hasil skrining terakhir semua jenis
+- Navigasi ke edit identitas & riwayat kehamilan
+- Pilihan bahasa (Indonesia/English)
 
 ---
 
-## 🎨 Desain Sistem
+## 🎨 Design System
 
 ### Palet Warna (SabinaColors)
-- **Primary**: Purple #8B5E9E (Rich Purple untuk aksi utama)
-- **Secondary**: Teal #2D9E78 (Untuk informasi dan success)
-- **Neutral**: Skala abu-abu untuk teks dan background
-- **Error**: Red #D32F2F (Untuk warning dan darurat)
-- **Success**: Teal #40B99D (Untuk konfirmasi)
+| Token | Hex | Penggunaan |
+|-------|-----|------------|
+| `primary700` | `#6D3F8E` | Aksi utama, button, icon |
+| `primary300` | — | Border, subtle accent |
+| `primary100` | `#F4EDF9` | Background badge, chip |
+| `neutral900` | `#111111` | Teks utama |
+| `neutral700` | `#3A3A3A` | Teks sekunder |
+| `neutral500` | `#888888` | Label, placeholder |
+| `neutral300` | `#E4E4E4` | Divider, border |
+| `neutral100` | `#F8F8F8` | Background screen |
+| `white` | `#FFFFFF` | Card, AppBar |
+| `secondary/teal` | `#2A9474` | Success, risiko rendah |
+| `amber` | `#D97706` | Warning, risiko sedang |
+| `error700` | `#C62828` | Bahaya, risiko tinggi |
 
-### Tipografi (Plus Jakarta Sans)
-- **H1**: 32px Bold (judul major)
-- **H2**: 24px Bold (judul section)
-- **H3**: 18px Bold (judul subsection)
-- **Body Large**: 16px Regular (teks utama)
-- **Body Regular**: 14px Regular (teks pendamping)
-- **Caption**: 12px Regular (keterangan)
+### Tipografi
+- **Font**: Plus Jakarta Sans (via `google_fonts`)
+- **Section label**: 10px, w700, uppercase, letterSpacing 1.2, neutral500
+- **Card title**: 14px, w600, neutral900
+- **Value/stat**: 16-22px, w700-w800, neutral900
+- **Caption**: 11-12px, neutral500
 
 ### Komponen UI
-- Border Radius: 16px (cards), 12px (inputs), 8px (small elements)
-- Icon Size: 36x36px (container), 18px (icon)
-- Elevation: 2 shadow (cards), 0 (appbar)
-- Spacing: 8px unit (multiples of 8)
+- **AppBar**: white, elevation 0, surfaceTintColor transparent, Divider bottom
+- **Cards**: white bg, borderRadius 16-18, shadow opacity 0.05
+- **Buttons**: Solid purple (utama), Outline purple (sekunder)
+- **Icon system**: `font_awesome_flutter ^10.7.0` — FaIcon langsung berwarna
+- **Bottom sheet**: handle bar + Batal/Selesai header + Flexible ListView
+- **Navbar**: 5 tab, active dot indicator 20×3px, haptic feedback
+
+### Severity Colors
+| Level | Background | Foreground |
+|-------|-----------|-----------|
+| Rendah | `#E5F5F0` | `#2A9474` |
+| Sedang | `#FFF3E0` | `#D97706` |
+| Tinggi | `#FFEBEE` | `#C62828` |
 
 ---
 
-## 🚀 Teknologi
+## 🗂️ Struktur Navigasi
 
-### Framework & SDK
-- **Flutter 3.3.0+** - UI Framework
-- **Dart** - Programming Language
-- **Material 3** - Design Language
-- **Provider** - State Management
-
-### Dependencies Utama
-```yaml
-google_fonts: ^6.1.0          # Plus Jakarta Sans font
-provider: ^6.0.0              # State management
-sqflite: ^2.3.0               # Local database
-shared_preferences: ^2.2.0   # Key-value storage
-flutter_secure_storage: ^9.0.0 # Secure storage
-image_picker: ^1.0.0          # Image selection
-url_launcher: ^6.0.0          # Link opening
 ```
+Navbar (5 tab):
+  0 — Beranda       (house)
+  1 — Skrining      (shieldHeart)
+  2 — Artikel       (bookOpen)
+  3 — Keluhan       (notesMedical)
+  4 — Konsultasi    (whatsapp)
 
-### Target Platform
-- **Android**: API 24+ (6.0 and above)
-- **iOS**: 11.0+
+Beranda
+  └── Akses Cepat
+       ├── Preeklampsia → PreeclampsiaScreeningScreen
+       ├── Skrining & Penapisan → SkriningScreen
+       ├── Riwayat → PregnancyHistoryScreen
+       └── Hitung IMT → ImtCalculatorScreen
+
+Skrining (tab 1)
+  ├── Preeklampsia → questionnaire → result
+  ├── Penapisan → questionnaire → result
+  └── Keluhan → KeluhanMenuScreen (showBackButton: true)
+       └── 6 keluhan → intro → questionnaire → result
+
+Keluhan (tab 3)
+  └── KeluhanMenuScreen (showBackButton: false)
+
+Profil (dari AppBar)
+  ├── Identitas → IdentityScreen
+  └── Riwayat Kehamilan → PregnancyHistoryScreen
+```
 
 ---
 
 ## 📋 Struktur Proyek
 
 ```
-sabina_app/
-├── lib/
-│   ├── main.dart                          # App entry point
-│   ├── core/
-│   │   └── theme/
-│   │       └── app_theme.dart             # Design system (SabinaColors, SabinaTextStyles)
-│   ├── screens/
-│   │   ├── splash_screen.dart             # Splash dengan initialization
-│   │   ├── home_screen.dart               # Dashboard utama
-│   │   ├── identity_screen.dart           # Profil ibu hamil
-│   │   ├── health_monitoring_screen.dart  # Monitoring kesehatan
-│   │   ├── care/                          # Panduan perawatan
-│   │   │   ├── aktivitas_fisik_ibu_hamil_screen.dart
-│   │   │   ├── makanan_screen.dart
-│   │   │   └── perawatan_sehari_hari_screen.dart
-│   │   └── trimester/                     # Panduan trimester
-│   │       ├── trimester_satu.dart
-│   │       ├── trimester_dua.dart
-│   │       └── trimester_tiga.dart
-│   ├── models/                            # Data models & providers
-│   ├── services/                          # Business logic
-│   │   ├── app_integration_service.dart   # Initialization & setup
-│   │   ├── database_helper.dart           # Database operations
-│   │   ├── secure_storage_helper.dart     # Secure data storage
-│   │   └── health_analytics_service.dart  # Health calculations
-│   ├── widgets/                           # Reusable components
-│   ├── utils/
-│   │   └── constants.dart                 # App constants & assets
-│   ├── l10n/                              # Localization (en, id)
-│   ├── generated/                         # Generated L10n files
-│   └── providers/                         # State management
-├── assets/
-│   ├── images/                            # App images & logo
-│   └── fonts/                             # Custom fonts
-├── pubspec.yaml                           # Dependencies
-├── l10n.yaml                              # Localization config
-├── analysis_options.yaml                  # Lint rules
-└── README.md                              # This file
+lib/
+├── main.dart
+├── core/theme/
+│   └── app_theme.dart              ← SabinaColors, SabinaTextStyles
+├── screens/
+│   ├── home_screen.dart            ← Dashboard, greeting dari DB
+│   ├── skrining_screen.dart        ← Hub: preeklampsia + penapisan + keluhan
+│   ├── artikel_screen.dart         ← Semua artikel/bacaan
+│   ├── identity_screen.dart
+│   ├── pregnancy_history_screen.dart
+│   ├── imt_calculator_screen.dart
+│   ├── persiapan_persalinan_screen.dart
+│   ├── user_profile_screen.dart    ← Profil dengan expandable card
+│   ├── health_monitoring_screen.dart  ← (pending)
+│   ├── keluhan/
+│   │   ├── keluhan_menu_screen.dart   ← showBackButton param
+│   │   ├── mual_muntah/  (intro + questionnaire + result)
+│   │   ├── sakit_kepala/
+│   │   ├── keluar_darah/
+│   │   ├── keluar_cairan/
+│   │   ├── bengkak/
+│   │   └── pergerakan_janin/
+│   ├── preeclampsia/
+│   │   ├── preeclampsia_screening_screen.dart
+│   │   ├── preeclampsia_questionnaire_screen.dart
+│   │   └── preeclampsia_result_screen.dart
+│   ├── penapisan/
+│   │   ├── penapisan_screen.dart
+│   │   ├── penapisan_questionnaire_screen.dart
+│   │   └── penapisan_result_screen.dart
+│   ├── trimester/
+│   │   ├── trimester_menu_screen.dart
+│   │   ├── trimester_satu.dart
+│   │   ├── trimester_dua.dart
+│   │   └── trimester_tiga.dart
+│   └── care/
+│       ├── care_menu_screen.dart
+│       ├── makanan_screen.dart
+│       ├── perawatan_sehari_hari_screen.dart
+│       ├── yang_perlu_dihindari_screen.dart
+│       └── aktivitas_fisik_ibu_hamil_screen.dart
+├── models/
+│   ├── user_identity.dart
+│   ├── pregnancy_history.dart
+│   ├── preeclampsia_model.dart     ← 12 pertanyaan faktor risiko
+│   ├── penapisan_model.dart
+│   ├── health_monitoring_model.dart
+│   └── [6 keluhan models]
+├── services/
+│   ├── database_helper.dart        ← SQLite v6, user_identity + pregnancy_history
+│   ├── secure_storage_helper.dart  ← Health records, emergency contacts
+│   ├── screening_result_service.dart  ← SharedPreferences, hasil 8 kuesioner
+│   ├── health_analytics_service.dart
+│   └── app_integration_service.dart
+├── widgets/
+│   ├── app_bar.dart
+│   ├── bottom_navigation.dart      ← 5 tab, active dot, haptic
+│   └── care_section.dart
+├── providers/
+│   └── locale_provider.dart
+├── utils/
+│   └── constants.dart
+└── generated/                      ← L10n generated files
+    ├── app_localizations.dart
+    ├── app_localizations_en.dart
+    └── app_localizations_id.dart
 ```
 
 ---
@@ -158,157 +223,92 @@ sabina_app/
 - Flutter SDK 3.3.0+
 - Dart SDK 3.0+
 - Android SDK (API 24+) atau Xcode (iOS 11.0+)
-- Android Emulator atau iOS Simulator
 
 ### Instalasi
 
-1. **Clone Repository**
 ```bash
+# 1. Clone repository
 git clone https://github.com/your-org/sabina_app.git
 cd sabina_app
-```
 
-2. **Setup Flutter**
-```bash
+# 2. Install dependencies
 flutter pub get
-flutter pub global activate intl_utils   # Untuk localization
-```
 
-3. **Generate Localization**
-```bash
+# 3. Generate localization
 flutter gen-l10n
-```
 
-4. **Run APK**
-```bash
-# Android Emulator
-flutter run -d emulator-5554
+# 4. Run app
+flutter run
 
-# iOS Simulator
-flutter run -d "iPhone 15"
-```
-
-5. **Build APK/IPA**
-```bash
-# Debug APK
-flutter build apk --debug
-
-# Release APK
+# 5. Build release APK
 flutter build apk --release
+```
 
-# Release IPA (iOS)
-flutter build ios --release
+### Dependencies Utama
+```yaml
+flutter:
+  sdk: flutter
+
+google_fonts: ^6.1.0
+provider: ^6.0.0
+sqflite: ^2.3.0
+shared_preferences: ^2.2.0
+flutter_secure_storage: ^9.0.0
+font_awesome_flutter: ^10.7.0
+image_picker: ^1.0.0
+intl: any
+numberpicker: any
+logger: any
+path_provider: any
+url_launcher: ^6.0.0
 ```
 
 ---
 
-## 📖 Panduan Penggunaan
+## 📝 Catatan Pengembangan
 
-### Untuk Ibu Hamil
-1. **Registrasi**: Buka "Identity Screen" dan isi data diri lengkap
-2. **Catat Kesehatan**: Monitor berat badan dan tekanan darah di "Health Monitoring"
-3. **Baca Panduan**: Akses panduan trimester dan tips perawatan
-4. **Gunakan Fitur Alert**: Aktifkan notifikasi untuk pengingat checkup
+### Penyimpanan Data
+| Data | Storage | Keterangan |
+|------|---------|-----------|
+| Identitas user | SQLite (`user_identity`) | Nama, tgl lahir, gol darah, agama, alamat |
+| Riwayat kehamilan | SQLite (`pregnancy_history`) | HPHT, BB, TB, riwayat persalinan |
+| Hasil skrining | SharedPreferences | JSON per jenis, timestamp, severity |
+| Health records | SecureStorage | Encrypted, HealthRecord model |
+| Foto profil | App Documents dir | Path disimpan di SharedPreferences |
 
-### Untuk Tenaga Kesehatan
-1. Lihat data kesehatan pasien terintegrasi
-2. Analisis tren kesehatan dari riwayat catatan
-3. Identifikasi faktor risiko menggunakan screening tools
-4. Lakukan intervensi berdasarkan alert sistem
+### Catatan Penting
+- **Usia kehamilan** dihitung real-time dari HPHT — tidak disimpan statis
+- **Usia user** dihitung real-time dari tanggal lahir
+- **Terjemahan kuesioner** belum dimasukkan ke l10n — semua pakai teks dari model langsung
+- **Preeklampsia model** punya 12 pertanyaan (bukan 10 seperti di l10n lama) — gunakan `model.questions[index].text`
+- **KeluhanMenuScreen** punya parameter `showBackButton` — pass `true` saat push dari skrining
+- **answerQuestion** berbeda per model: bool (preeklampsia, penapisan, mual, sakit kepala, darah, bengkak) vs String 'Ya'/'Tidak' (pergerakan janin, keluar cairan)
+
+### Pending
+- [ ] `health_monitoring_screen.dart` — belum didesain ulang
+- [ ] Terjemahan kuesioner ke `app_localizations_en.dart` (12 pertanyaan preeklampsia + semua keluhan)
 
 ---
 
 ## 🔐 Keamanan & Privasi
 
-### Penyimpanan Data
-- Data sensitive: SQLite + SQLCipher (encrypted)
-- Preferensi pengguna: SharedPreferences
-- Token & kredensial: Secure Storage (Keychain/Keystore)
+- Data kesehatan sensitif: SQLite lokal di perangkat
+- Preferensi & hasil skrining: SharedPreferences
+- Health records & kontak darurat: FlutterSecureStorage (Keychain/Keystore)
+- Tidak ada data yang dikirim ke server eksternal
 
-### Enkripsi
-- Semua data sensitif di-encrypt end-to-end
-- Koneksi API menggunakan HTTPS
-- Password di-hash dengan bcrypt
-
-Untuk informasi lengkap, lihat [PRIVACY_POLICY.md](PRIVACY_POLICY.md) dan [TERMS_OF_SERVICE.md](TERMS_OF_SERVICE.md)
-
----
-
-## 🤝 Kontribusi
-
-Kami menyambut kontribusi dari komunitas! Silakan baca [CONTRIBUTING.md](CONTRIBUTING.md) untuk panduan kontribusi.
-
-### Alur Kontribusi
-1. Fork repository
-2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
-
-### Code Style
-- Follow [Dart Style Guide](https://dart.dev/guides/language/effective-dart/style)
-- Run `flutter analyze` sebelum commit
-- Format code: `dart format .`
-
----
-
-## 📜 Lisensi
-
-Proyek ini dilisensikan di bawah [MIT License](LICENSE.md) - lihat file untuk detail.
+Lihat [PRIVACY_POLICY.md](PRIVACY_POLICY.md) dan [TERMS_OF_SERVICE.md](TERMS_OF_SERVICE.md) untuk detail.
 
 ---
 
 ## 📞 Dukungan & Kontak
 
-### Tim Development
 - **Lead Developer**: Presley
-- **UI/UX Design**: Sabina Design Team
-- **Health Consultant**: Maternal Health Expert
-
-### Lapor Bug / Feedback
-- Email: support@sabina-app.id
-- Issues: [GitHub Issues](https://github.com/your-org/sabina_app/issues)
-- Telegram: @sabina_support
-
-### Sumber Daya
-- 📚 [Dokumentasi Flutter](https://flutter.dev/docs)
-- 🎨 [Material Design 3](https://m3.material.io/)
-- 🏥 [WHO Guidelines on Maternal Health](https://www.who.int/)
-
----
-
-## 🙏 Penghargaan
-
-Terimakasih kepada:
-- Flutter community
-- Material Design team
-- All contributors
-- Maternal health experts
-
----
-
-## 📈 Roadmap
-
-### v1.1.0 (Q2 2026)
-- [ ] Integrasi dengan medical records system
-- [ ] Video consultation feature
-- [ ] Nutrition meal planner
-- [ ] Offline mode support
-
-### v1.2.0 (Q3 2026)
-- [ ] Integration dengan wearable devices
-- [ ] AI-powered health recommendations
-- [ ] Multi-language support expansion
-- [ ] Family sharing features
-
-### v2.0.0 (Q4 2026)
-- [ ] Web platform
-- [ ] Advanced analytics dashboard
-- [ ] Healthcare provider portal
-- [ ] Real-time collaboration features
+- **Email**: support@sabina-app.id
+- **Issues**: [GitHub Issues](https://github.com/your-org/sabina_app/issues)
 
 ---
 
 **Dibuat dengan ❤️ untuk kesehatan ibu hamil di Indonesia**
 
-*Last Updated: March 2026*
+*Last Updated: Maret 2026 — v1.2.0*

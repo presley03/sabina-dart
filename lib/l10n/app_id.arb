@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "id",
   "age": "Usia",
   "@age": {
@@ -472,9 +472,9 @@
   "@initiatorNames": {
     "description": "Nama-nama inisiator aplikasi SABINA"
   },
-  "illustrationCredits": "Ilustrasi dalam aplikasi ini dibuat menggunakan DALL·E AI.",
+  "illustrationCredits": "Ilustrasi dalam aplikasi ini dibuat menggunakan DALLÂ·E AI.",
   "@illustrationCredits": {
-    "description": "Pengakuan untuk DALL·E AI dalam pembuatan ilustrasi"
+    "description": "Pengakuan untuk DALLÂ·E AI dalam pembuatan ilustrasi"
   },
   "persiapanPersalinan": "Persiapan Persalinan",
   "@persiapanPersalinan": {
@@ -2662,32 +2662,32 @@
                           "description": "Judul untuk klasifikasi IMT menurut WHO"
                         },
                         
-                        "imtCalc_classificationUnderweight": "• < 18.5: Berat badan kurang",
+                        "imtCalc_classificationUnderweight": "â€¢ < 18.5: Berat badan kurang",
                         "@imtCalc_classificationUnderweight": {
                           "description": "Klasifikasi IMT untuk berat badan kurang"
                         },
                         
-                        "imtCalc_classificationNormal": "• 18.5 - 24.9: Berat badan normal",
+                        "imtCalc_classificationNormal": "â€¢ 18.5 - 24.9: Berat badan normal",
                         "@imtCalc_classificationNormal": {
                           "description": "Klasifikasi IMT untuk berat badan normal"
                         },
                         
-                        "imtCalc_classificationOverweight": "• 25.0 - 29.9: Pra-obesitas",
+                        "imtCalc_classificationOverweight": "â€¢ 25.0 - 29.9: Pra-obesitas",
                         "@imtCalc_classificationOverweight": {
                           "description": "Klasifikasi IMT untuk pra-obesitas"
                         },
                         
-                        "imtCalc_classificationObesity1": "• 30.0 - 34.9: Obesitas kelas I",
+                        "imtCalc_classificationObesity1": "â€¢ 30.0 - 34.9: Obesitas kelas I",
                         "@imtCalc_classificationObesity1": {
                           "description": "Klasifikasi IMT untuk obesitas kelas I"
                         },
                         
-                        "imtCalc_classificationObesity2": "• 35.0 - 39.9: Obesitas kelas II",
+                        "imtCalc_classificationObesity2": "â€¢ 35.0 - 39.9: Obesitas kelas II",
                         "@imtCalc_classificationObesity2": {
                           "description": "Klasifikasi IMT untuk obesitas kelas II"
                         },
                         
-                        "imtCalc_classificationObesity3": "• ≥ 40.0: Obesitas kelas III",
+                        "imtCalc_classificationObesity3": "â€¢ â‰¥ 40.0: Obesitas kelas III",
                         "@imtCalc_classificationObesity3": {
                           "description": "Klasifikasi IMT untuk obesitas kelas III"
                         },
@@ -2722,17 +2722,17 @@
                           "description": "Judul untuk bagian tips kesehatan"
                         },
                         
-                        "imtCalc_healthTip1": "• Jaga pola makan sehat dengan makanan bergizi seimbang.",
+                        "imtCalc_healthTip1": "â€¢ Jaga pola makan sehat dengan makanan bergizi seimbang.",
                         "@imtCalc_healthTip1": {
                           "description": "Tip kesehatan pertama"
                         },
                         
-                        "imtCalc_healthTip2": "• Tetap aktif dengan olahraga ringan selama kehamilan.",
+                        "imtCalc_healthTip2": "â€¢ Tetap aktif dengan olahraga ringan selama kehamilan.",
                         "@imtCalc_healthTip2": {
                           "description": "Tip kesehatan kedua"
                         },
                         
-                        "imtCalc_healthTip3": "• Jangan lupa istirahat yang cukup dan kelola stres.",
+                        "imtCalc_healthTip3": "â€¢ Jangan lupa istirahat yang cukup dan kelola stres.",
                         "@imtCalc_healthTip3": {
                           "description": "Tip kesehatan ketiga"
                         },
@@ -2817,6 +2817,370 @@
                         "@addressRequired": {
                           "description": "Pesan validasi untuk bidang alamat yang wajib diisi"
                         },
+                        "personalData": "DATA PRIBADI",
+                        "@personalData": {
+                          "description": "Header seksi untuk data pribadi di layar identitas"
+                        },
+                        "fullNameHint": "Nama lengkap Anda",
+                        "@fullNameHint": {
+                          "description": "Teks petunjuk untuk kolom nama lengkap"
+                        },
+                        "addressHint": "Alamat lengkap Anda",
+                        "@addressHint": {
+                          "description": "Teks petunjuk untuk kolom alamat"
+                        },
+                        "selectReligion": "Pilih Agama",
+                        "@selectReligion": {
+                          "description": "Judul bottom sheet pemilih agama"
+                        },
+                        "selectBloodType": "Pilih Golongan Darah",
+                        "@selectBloodType": {
+                          "description": "Judul bottom sheet pemilih golongan darah"
+                        },
+                        "selectDateOfBirth": "Pilih tanggal lahir",
+                        "@selectDateOfBirth": {
+                          "description": "Placeholder kolom tanggal lahir saat belum dipilih"
+                        },
+                        "localDataNote": "Data Anda tersimpan secara lokal di perangkat dan tidak dibagikan.",
+                        "@localDataNote": {
+                          "description": "Catatan privasi yang ditampilkan di bawah formulir identitas"
+                        },
+                        "done": "Selesai",
+                        "@done": {
+                          "description": "Label untuk tombol selesai"
+                        },
+                        "identitySaved": "Data identitas berhasil disimpan",
+                        "@identitySaved": {
+                          "description": "Pesan snackbar setelah data identitas tersimpan"
+                        },
+                        "currentPregnancy": "KEHAMILAN SAAT INI",
+                        "@currentPregnancy": {
+                          "description": "Label seksi untuk kehamilan saat ini"
+                        },
+                        "information": "INFORMASI",
+                        "@information": {
+                          "description": "Label seksi untuk informasi"
+                        },
+                        "settings": "PENGATURAN",
+                        "@settings": {
+                          "description": "Label seksi untuk pengaturan"
+                        },
+                        "lastScreeningResults": "HASIL SKRINING TERAKHIR",
+                        "@lastScreeningResults": {
+                          "description": "Label seksi untuk hasil skrining terakhir"
+                        },
+                        "nameNotSet": "Nama belum diisi",
+                        "@nameNotSet": {
+                          "description": "Placeholder saat nama pengguna belum diisi"
+                        },
+                        "ageUnit": "thn",
+                        "@ageUnit": {
+                          "description": "Satuan usia singkat"
+                        },
+                        "gestationalAgeShort": "Usia Hamil",
+                        "@gestationalAgeShort": {
+                          "description": "Label singkat usia hamil di baris statistik"
+                        },
+                        "bloodTypeShort": "Gol. Darah",
+                        "@bloodTypeShort": {
+                          "description": "Label singkat golongan darah di baris statistik"
+                        },
+                        "weeksShort": "mgg",
+                        "@weeksShort": {
+                          "description": "Label singkat untuk minggu (mis. 12mgg 6hr)"
+                        },
+                        "daysShort": "hr",
+                        "@daysShort": {
+                          "description": "Label singkat untuk hari (mis. 12mgg 6hr)"
+                        },
+                        "estimatedLabel": "Taksiran",
+                        "@estimatedLabel": {
+                          "description": "Label singkat untuk chip taksiran persalinan"
+                        },
+                        "pregnancyNumberLabel": "Kehamilan ke",
+                        "@pregnancyNumberLabel": {
+                          "description": "Label singkat untuk chip kehamilan ke berapa"
+                        },
+                        "hphtLabel": "HPHT",
+                        "@hphtLabel": {
+                          "description": "Label baris tanggal haid pertama haid terakhir"
+                        },
+                        "prePregnancyWeightLabel": "Berat Badan Sebelum Hamil",
+                        "@prePregnancyWeightLabel": {
+                          "description": "Label baris berat badan sebelum hamil"
+                        },
+                        "heightLabel": "Tinggi Badan",
+                        "@heightLabel": {
+                          "description": "Label baris tinggi badan"
+                        },
+                        "childrenCountLabel": "Jumlah Anak",
+                        "@childrenCountLabel": {
+                          "description": "Label baris jumlah anak"
+                        },
+                        "miscarriageLabel": "Riwayat Keguguran",
+                        "@miscarriageLabel": {
+                          "description": "Label baris riwayat keguguran"
+                        },
+                        "lastChildNumberLabel": "Anak Ke (Terakhir)",
+                        "@lastChildNumberLabel": {
+                          "description": "Label baris anak ke terakhir"
+                        },
+                        "lastBirthYearLabel": "Tahun Lahir Terakhir",
+                        "@lastBirthYearLabel": {
+                          "description": "Label baris tahun lahir terakhir"
+                        },
+                        "lastBirthWeightLabel": "Berat Lahir Terakhir",
+                        "@lastBirthWeightLabel": {
+                          "description": "Label baris berat lahir terakhir"
+                        },
+                        "deliveryMethodLabel": "Cara Persalinan",
+                        "@deliveryMethodLabel": {
+                          "description": "Label baris cara persalinan"
+                        },
+                        "birthAttendantLabel": "Penolong Persalinan",
+                        "@birthAttendantLabel": {
+                          "description": "Label baris penolong persalinan"
+                        },
+                        "complicationsLabel": "Komplikasi",
+                        "@complicationsLabel": {
+                          "description": "Label baris komplikasi"
+                        },
+                        "aboutSabinaTitle": "Tentang SABINA",
+                        "@aboutSabinaTitle": {
+                          "description": "Judul bottom sheet Tentang SABINA"
+                        },
+                        "lastPregnancySection": "RIWAYAT KEHAMILAN TERAKHIR",
+                        "@lastPregnancySection": {
+                          "description": "Label seksi riwayat kehamilan terakhir"
+                        },
+                        "selectDate": "Pilih tanggal",
+                        "@selectDate": {
+                          "description": "Teks petunjuk untuk bidang pemilih tanggal"
+                        },
+                        "timesUnit": "kali",
+                        "@timesUnit": {
+                          "description": "Satuan suffix untuk hitungan kejadian (misal: 1 kali)"
+                        },
+                        "childrenCountUnit": "anak",
+                        "@childrenCountUnit": {
+                          "description": "Satuan suffix untuk jumlah anak (misal: 2 anak)"
+                        },
+                        "complicationsHint": "Tuliskan jika ada...",
+                        "@complicationsHint": {
+                          "description": "Petunjuk untuk area teks komplikasi"
+                        },
+                        "selectPlaceholder": "Pilih...",
+                        "@selectPlaceholder": {
+                          "description": "Teks placeholder pada baris dropdown sebelum dipilih"
+                        },
+                        "recordHealth": "Catat Kesehatan",
+                        "@recordHealth": {
+                          "description": "Teks tombol untuk mencatat data kesehatan"
+                        },
+                        "scheduleCheckup": "Jadwal Kontrol",
+                        "@scheduleCheckup": {
+                          "description": "Teks tombol untuk jadwal pemeriksaan"
+                        },
+                        "emergency": "Darurat",
+                        "@emergency": {
+                          "description": "Teks tombol untuk kedaruratan"
+                        },
+                        "weight": "Berat Badan (kg)",
+                        "@weight": {
+                          "description": "Label untuk input berat badan"
+                        },
+                        "systolic": "Sistolik",
+                        "@systolic": {
+                          "description": "Label untuk tekanan darah sistolik"
+                        },
+                        "diastolic": "Diastolik",
+                        "@diastolic": {
+                          "description": "Label untuk tekanan darah diastolik"
+                        },
+                        "emergencyContacts": "Kontak Darurat",
+                        "@emergencyContacts": {
+                          "description": "Judul bagian kontak darurat"
+                        },
+                        "healthDataSaved": "Data kesehatan berhasil disimpan!",
+                        "@healthDataSaved": {
+                          "description": "Pesan sukses menyimpan data kesehatan"
+                        },
+                        "chartTitle": "Grafik Perkembangan",
+                        "@chartTitle": {
+                          "description": "Judul widget grafik perkembangan kesehatan"
+                        },
+                        "chartTabWeight": "Berat Badan",
+                        "@chartTabWeight": {
+                          "description": "Label tab untuk grafik berat badan"
+                        },
+                        "chartTabBloodPressure": "Tekanan Darah",
+                        "@chartTabBloodPressure": {
+                          "description": "Label tab untuk grafik tekanan darah"
+                        },
+                        "chartBpLimit": "Batas 140",
+                        "@chartBpLimit": {
+                          "description": "Label legenda untuk garis batas bahaya tekanan darah di angka 140"
+                        },
+                        "chartEmptyState": "Grafik akan tampil setelah\n2 data atau lebih tersimpan",
+                        "@chartEmptyState": {
+                          "description": "Pesan saat data belum cukup untuk menampilkan grafik apapun"
+                        },
+                        "chartNotEnoughData": "Butuh minimal 2 data untuk\nmenampilkan grafik ini",
+                        "@chartNotEnoughData": {
+                          "description": "Pesan saat tab grafik yang dipilih belum punya data yang cukup"
+                        },
+                        "dashboardYourHealth": "Kesehatan Anda",
+                        "@dashboardYourHealth": {
+                          "description": "Label judul pada kartu skor kesehatan"
+                        },
+                        "dashboardStatusHealthy": "Sehat",
+                        "@dashboardStatusHealthy": {
+                          "description": "Label status kesehatan saat skor >= 80"
+                        },
+                        "dashboardStatusGood": "Baik",
+                        "@dashboardStatusGood": {
+                          "description": "Label status kesehatan saat skor >= 60"
+                        },
+                        "dashboardStatusNeedsAttention": "Perlu Perhatian",
+                        "@dashboardStatusNeedsAttention": {
+                          "description": "Label status kesehatan saat skor < 60"
+                        },
+                        "dashboardRecordDailyHealth": "Catat Kesehatan Harian",
+                        "@dashboardRecordDailyHealth": {
+                          "description": "Judul tombol aksi utama di dashboard"
+                        },
+                        "dashboardMonitorSubtitle": "Pantau berat badan & tekanan darah",
+                        "@dashboardMonitorSubtitle": {
+                          "description": "Subjudul tombol aksi utama di dashboard"
+                        },
+                        "dashboardScheduleSubtitle": "Atur reminder dokter",
+                        "@dashboardScheduleSubtitle": {
+                          "description": "Subjudul kartu aksi jadwal kontrol"
+                        },
+                        "dashboardEmergencySubtitle": "Hubungi bantuan",
+                        "@dashboardEmergencySubtitle": {
+                          "description": "Subjudul kartu aksi darurat"
+                        },
+                        "dashboardHealthTipsTitle": "Tips Kesehatan",
+                        "@dashboardHealthTipsTitle": {
+                          "description": "Judul kartu tips kesehatan saat tidak ada insight"
+                        },
+                        "dashboardHealthTipsEmpty": "Mulai catat kesehatan harian untuk mendapatkan tips personal yang sesuai dengan kondisi Anda.",
+                        "@dashboardHealthTipsEmpty": {
+                          "description": "Teks isi kartu tips kesehatan saat tidak ada insight"
+                        },
+                        "dashboardRecommendation": "Rekomendasi untuk Anda",
+                        "@dashboardRecommendation": {
+                          "description": "Judul yang ditampilkan pada kartu rekomendasi insight"
+                        },
+                        "dashboardScheduleDialogContent": "Fitur ini membantu Anda mengatur reminder untuk kontrol rutin ke dokter kandungan.\n\nSegera hadir!",
+                        "@dashboardScheduleDialogContent": {
+                          "description": "Teks isi dialog jadwal kontrol"
+                        },
+                        "dashboardUnderstood": "Mengerti",
+                        "@dashboardUnderstood": {
+                          "description": "Label tombol pada dialog informasi"
+                        },
+                        "dashboardEmergencyCallPrompt": "Hubungi segera jika mengalami:",
+                        "@dashboardEmergencyCallPrompt": {
+                          "description": "Teks petunjuk dalam dialog darurat"
+                        },
+                        "dashboardEmergencySymptoms": "\u2022 Pendarahan hebat\n\u2022 Kontraksi kuat sebelum waktunya\n\u2022 Sakit kepala parah\n\u2022 Pandangan kabur",
+                        "@dashboardEmergencySymptoms": {
+                          "description": "Daftar poin gejala darurat"
+                        },
+                        "ambulance": "Ambulans",
+                        "@ambulance": {
+                          "description": "Label untuk entri ambulans di kontak darurat"
+                        },
+                        "dashboardClose": "Tutup",
+                        "@dashboardClose": {
+                          "description": "Tombol untuk menutup dialog"
+                        },
+                        "whyRecordTitle": "Mengapa Perlu Dicatat?",
+                        "@whyRecordTitle": {
+                          "description": "Judul kartu penjelasan di layar pemantauan kesehatan"
+                        },
+                        "whyRecordBody": "Dengan mencatat berat badan dan tekanan darah secara rutin, dokter dapat memantau perkembangan kehamilan Anda dan mendeteksi masalah sejak dini.",
+                        "@whyRecordBody": {
+                          "description": "Teks isi kartu penjelasan di layar pemantauan kesehatan"
+                        },
+                        "recordTodayTitle": "Catat Hari Ini",
+                        "@recordTodayTitle": {
+                          "description": "Judul seksi formulir input kesehatan harian"
+                        },
+                        "weightInputHint": "Contoh: 65",
+                        "@weightInputHint": {
+                          "description": "Teks petunjuk pada kolom input berat badan"
+                        },
+                        "weightInputError": "Masukkan berat badan Anda",
+                        "@weightInputError": {
+                          "description": "Pesan error saat kolom berat badan kosong"
+                        },
+                        "weightRangeError": "Berat badan harus antara 30-200 kg",
+                        "@weightRangeError": {
+                          "description": "Pesan error saat berat badan di luar rentang"
+                        },
+                        "bloodPressureLabel": "Tekanan Darah",
+                        "@bloodPressureLabel": {
+                          "description": "Label untuk seksi tekanan darah dalam formulir kesehatan"
+                        },
+                        "fieldRequired": "Wajib diisi",
+                        "@fieldRequired": {
+                          "description": "Pesan error singkat saat kolom wajib kosong"
+                        },
+                        "bpNormalNote": "Normal: 120/80 mmHg. Jika >140/90, segera konsultasi dokter.",
+                        "@bpNormalNote": {
+                          "description": "Catatan keterangan rentang tekanan darah normal"
+                        },
+                        "saveData": "Simpan Data",
+                        "@saveData": {
+                          "description": "Label tombol simpan data di formulir kesehatan"
+                        },
+                        "recentRecords": "Catatan Terakhir",
+                        "@recentRecords": {
+                          "description": "Judul seksi daftar catatan kesehatan terakhir"
+                        },
+                        "viewAll": "Lihat Semua",
+                        "@viewAll": {
+                          "description": "Tombol untuk melihat semua catatan"
+                        },
+                        "noRecordsYet": "Belum ada catatan",
+                        "@noRecordsYet": {
+                          "description": "Teks status kosong saat belum ada catatan kesehatan"
+                        },
+                        "startRecordingToday": "Mulai catat kesehatan Anda hari ini!",
+                        "@startRecordingToday": {
+                          "description": "Teks ajakan aksi pada kondisi catatan kosong"
+                        },
+                        "emergencyCardBody": "Hubungi segera jika mengalami: pendarahan hebat, kontraksi kuat, sakit kepala parah, atau pandangan kabur.",
+                        "@emergencyCardBody": {
+                          "description": "Teks isi kartu darurat pada pemantauan kesehatan"
+                        },
+                        "ambulance118": "Ambulans 118",
+                        "@ambulance118": {
+                          "description": "Label tombol ambulans dengan nomor"
+                        },
+                        "doctor": "Dokter",
+                        "@doctor": {
+                          "description": "Label tombol dokter"
+                        },
+                        "emergencyDialogTitle": "\uD83D\uDEA8 Kontak Darurat",
+                        "@emergencyDialogTitle": {
+                          "description": "Judul dialog kontak darurat"
+                        },
+                        "obstetrician": "Dokter Kandungan",
+                        "@obstetrician": {
+                          "description": "Label dokter kandungan di kontak darurat"
+                        },
+                        "contactYourDoctor": "Hubungi dokter Anda",
+                        "@contactYourDoctor": {
+                          "description": "Subjudul di bawah dokter kandungan di kontak darurat"
+                        },
+                        "allHealthRecords": "Semua Catatan Kesehatan",
+                        "@allHealthRecords": {
+                          "description": "Judul dialog semua catatan kesehatan"
+                        },
                         
                         "preeclampsiaQuestionnaire": "Kuesioner Preeklampsia",
                         "@preeclampsiaQuestionnaire": {
@@ -2861,5 +3225,916 @@
                         "preeclampsiaQuestion10": "Apakah Anda mengalami sesak napas atau nyeri dada?",
                         "@preeclampsiaQuestion10": {
                           "description": "Pertanyaan skrining preeklampsia kesepuluh"
-                        }                         
+                        },
+  "screeningPregnancy": "Skrining Kehamilan",
+  "@screeningPregnancy": {
+    "description": "Judul untuk layar skrining kehamilan"
+  },
+  "earlyDetectionDescription": "Deteksi dini risiko untuk kehamilan yang lebih aman",
+  "@earlyDetectionDescription": {
+    "description": "Subjudul pada layar skrining kehamilan"
+  },
+  "lastScreeningLabel": "Skrining terakhir: {days} hari yang lalu",
+  "@lastScreeningLabel": {
+    "description": "Label yang menunjukkan kapan skrining terakhir dilakukan",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "screeningRisks": "SKRINING RISIKO",
+  "@screeningRisks": {
+    "description": "Label bagian untuk skrining risiko"
+  },
+  "preeclampsiaDetection": "Deteksi Preeklampsia",
+  "@preeclampsiaDetection": {
+    "description": "Judul untuk kartu deteksi preeklampsia"
+  },
+  "preeclampsiaDetectionDesc": "Deteksi dini risiko tekanan darah tinggi & komplikasi kehamilan",
+  "@preeclampsiaDetectionDesc": {
+    "description": "Deskripsi untuk kartu deteksi preeklampsia"
+  },
+  "highRisk": "âš  Risiko Tinggi",
+  "@highRisk": {
+    "description": "Label tag untuk risiko tinggi"
+  },
+  "questionsCount": "{count} pertanyaan",
+  "@questionsCount": {
+    "description": "Tag yang menunjukkan jumlah pertanyaan dalam skrining",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "advancedScreening": "Penapisan Tingkat Lanjut",
+  "@advancedScreening": {
+    "description": "Judul untuk kartu penapisan tingkat lanjut"
+  },
+  "advancedScreeningDesc": "Skrining komprehensif risiko komplikasi persalinan",
+  "@advancedScreeningDesc": {
+    "description": "Deskripsi untuk kartu penapisan tingkat lanjut"
+  },
+  "lowRisk": "âœ“ Risiko Rendah",
+  "@lowRisk": {
+    "description": "Label tag untuk risiko rendah"
+  },
+  "routineMonitoring": "PEMANTAUAN RUTIN",
+  "@routineMonitoring": {
+    "description": "Label bagian untuk pemantauan rutin"
+  },
+  "reportComplaint": "Laporkan Keluhan",
+  "@reportComplaint": {
+    "description": "Judul untuk kartu laporkan keluhan"
+  },
+  "complaintDescription": "Mual, sakit kepala, perdarahan, cairan abnormal, pembengkakan, dan gejala lainnya",
+  "@complaintDescription": {
+    "description": "Deskripsi untuk kartu keluhan"
+  },
+  "complaintTypes": "6 jenis keluhan",
+  "@complaintTypes": {
+    "description": "Tag yang menunjukkan jumlah jenis keluhan"
+  },
+  "healthRecords": "Rekam Kesehatan",
+  "@healthRecords": {
+    "description": "Judul untuk kartu rekam kesehatan"
+  },
+  "healthRecordsDesc": "Pantau tekanan darah, berat badan, dan perkembangan kehamilan",
+  "@healthRecordsDesc": {
+    "description": "Deskripsi untuk kartu rekam kesehatan"
+  },
+  "dailyMonitoring": "Monitoring harian",
+  "@dailyMonitoring": {
+    "description": "Label tag untuk monitoring harian"
+  },
+  "screeningRecommendation": "Skrining rutin disarankan setiap 4 minggu pada trimester pertama, dan lebih sering memasuki trimester ketiga.",
+  "@screeningRecommendation": {
+    "description": "Info tip tentang frekuensi skrining yang disarankan"
+  },
+  "greetingMorning": "Selamat Pagi",
+  "@greetingMorning": {
+    "description": "Salam pagi"
+  },
+  "greetingAfternoon": "Selamat Siang",
+  "@greetingAfternoon": {
+    "description": "Salam siang"
+  },
+  "greetingEvening": "Selamat Sore",
+  "@greetingEvening": {
+    "description": "Salam sore"
+  },
+  "greetingNight": "Selamat Malam",
+  "@greetingNight": {
+    "description": "Salam malam"
+  },
+  "healthScoreLabel": "SKOR KESEHATAN",
+  "@healthScoreLabel": {
+    "description": "Label untuk bagian skor kesehatan"
+  },
+  "today": "Hari ini",
+  "@today": {
+    "description": "Label untuk hari ini"
+  },
+  "scoreVeryGood": "Sangat Baik",
+  "@scoreVeryGood": {
+    "description": "Label skor kesehatan: sangat baik"
+  },
+  "conditionOptimal": "Kondisi Anda dalam kondisi optimal",
+  "@conditionOptimal": {
+    "description": "Subjudul skor kesehatan"
+  },
+  "keepItUp": "Terus jaga!",
+  "@keepItUp": {
+    "description": "Label semangat di kartu skor kesehatan"
+  },
+  "completePregnancyHistory": "Lengkapi Riwayat Kehamilan",
+  "@completePregnancyHistory": {
+    "description": "Judul kartu prompt di home screen"
+  },
+  "fillForAccurate": "Isi data untuk rekomendasi yang lebih akurat",
+  "@fillForAccurate": {
+    "description": "Subjudul kartu prompt di home screen"
+  },
+  "fillNow": "Isi Sekarang",
+  "@fillNow": {
+    "description": "Tombol CTA pada kartu prompt"
+  },
+  "quickAccess": "AKSES CEPAT",
+  "@quickAccess": {
+    "description": "Label bagian menu akses cepat"
+  },
+  "featuredArticles": "ARTIKEL PILIHAN",
+  "@featuredArticles": {
+    "description": "Label bagian scroll artikel"
+  },
+  "detectPreeclampsia": "Deteksi Preeklampsia",
+  "@detectPreeclampsia": {
+    "description": "Label aksi cepat untuk deteksi preeklampsia"
+  },
+  "screeningRiskBP": "Skrining risiko tekanan darah",
+  "@screeningRiskBP": {
+    "description": "Subjudul aksi cepat untuk deteksi preeklampsia"
+  },
+  "screeningAndPenapisan": "Skrining & Penapisan",
+  "@screeningAndPenapisan": {
+    "description": "Label aksi cepat untuk menu skrining"
+  },
+  "deliveryRisk": "Risiko persalinan",
+  "@deliveryRisk": {
+    "description": "Subjudul aksi cepat untuk menu skrining"
+  },
+  "pregnancyHistoryLabel": "Riwayat Kehamilan",
+  "@pregnancyHistoryLabel": {
+    "description": "Label aksi cepat untuk riwayat kehamilan"
+  },
+  "pregnancyDataLabel": "Data kehamilan & persalinan",
+  "@pregnancyDataLabel": {
+    "description": "Subjudul aksi cepat untuk riwayat kehamilan"
+  },
+  "calculateIMT": "Hitung IMT",
+  "@calculateIMT": {
+    "description": "Label aksi cepat untuk kalkulator IMT"
+  },
+  "bmiFull": "Indeks massa tubuh",
+  "@bmiFull": {
+    "description": "Subjudul aksi cepat untuk kalkulator IMT"
+  },
+  "guideLabel": "PANDUAN",
+  "@guideLabel": {
+    "description": "Label untuk banner panduan"
+  },
+  "pregnancyInfoTitle": "Informasi Kehamilan",
+  "@pregnancyInfoTitle": {
+    "description": "Judul banner informasi kehamilan"
+  },
+  "trimesterRoman": "Trimester I, II & III",
+  "@trimesterRoman": {
+    "description": "Subjudul banner informasi kehamilan"
+  },
+  "firstTrimester": "Trimester Pertama",
+  "@firstTrimester": {
+    "description": "Label trimester pertama"
+  },
+  "secondTrimester": "Trimester Kedua",
+  "@secondTrimester": {
+    "description": "Label trimester kedua"
+  },
+  "thirdTrimester": "Trimester Ketiga",
+  "@thirdTrimester": {
+    "description": "Label trimester ketiga"
+  },
+  "weekUnit": "minggu",
+  "@weekUnit": {
+    "description": "Label satuan minggu pada banner kehamilan"
+  },
+  "babySizeOf": "Seukuran {fruit} \uD83C\uDF3F",
+  "@babySizeOf": {
+    "description": "Deskripsi ukuran bayi dengan perbandingan buah",
+    "placeholders": {
+      "fruit": {
+        "type": "String"
+      }
+    }
+  },
+  "weeksProgress": "{current} dari {total} minggu",
+  "@weeksProgress": {
+    "description": "Label progres kehamilan",
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "viewDetails": "Lihat detail",
+  "@viewDetails": {
+    "description": "Tautan untuk melihat detail pada banner kehamilan"
+  },
+  "imtLastLabel": "IMT TERAKHIR",
+  "@imtLastLabel": {
+    "description": "Label pada kartu mini IMT"
+  },
+  "updateArrow": "Perbarui \u2192",
+  "@updateArrow": {
+    "description": "Tombol perbarui pada kartu mini IMT"
+  },
+  "imtUnderweight": "Kurang",
+  "@imtUnderweight": {
+    "description": "Kategori IMT: kurang berat"
+  },
+  "imtNormal": "Normal",
+  "@imtNormal": {
+    "description": "Kategori IMT: normal"
+  },
+  "imtOverweight": "Lebih",
+  "@imtOverweight": {
+    "description": "Kategori IMT: lebih berat"
+  },
+  "imtObese": "Obesitas",
+  "@imtObese": {
+    "description": "Kategori IMT: obesitas"
+  },
+  "articleTagNutrition": "Nutrisi",
+  "@articleTagNutrition": {
+    "description": "Tag artikel: nutrisi"
+  },
+  "articleTagActivity": "Aktivitas",
+  "@articleTagActivity": {
+    "description": "Tag artikel: aktivitas"
+  },
+  "articleTagCare": "Perawatan",
+  "@articleTagCare": {
+    "description": "Tag artikel: perawatan"
+  },
+  "articleTagMentalHealth": "Kesehatan Mental",
+  "@articleTagMentalHealth": {
+    "description": "Tag artikel: kesehatan mental"
+  },
+  "article1Title": "Makanan Sehat Trimester 2",
+  "@article1Title": {
+    "description": "Judul kartu artikel pertama"
+  },
+  "article2Title": "Olahraga Aman Saat Hamil",
+  "@article2Title": {
+    "description": "Judul kartu artikel kedua"
+  },
+  "article3Title": "Tips Tidur Nyaman Trimester 3",
+  "@article3Title": {
+    "description": "Judul kartu artikel ketiga"
+  },
+  "article4Title": "Mengelola Stres Selama Kehamilan",
+  "@article4Title": {
+    "description": "Judul kartu artikel keempat"
+  },
+  "tipOfDayLabel": "TIP HARI INI",
+  "@tipOfDayLabel": {
+    "description": "Label pada kartu tips harian"
+  },
+  "tipOfDayContent": "Minum 8 gelas air sehari membantu janin berkembang optimal dan mencegah dehidrasi.",
+  "@tipOfDayContent": {
+    "description": "Konten teks tips harian"
+  },
+  "sabidanLinkText": "Informasi lebih lanjut di sapabidan.com",
+  "@sabidanLinkText": {
+    "description": "Teks tautan Sabidan di home screen"
+  },
+  "articleTab": "Artikel",
+  "@articleTab": {
+    "description": "Label navigasi bawah untuk tab artikel"
+  },
+  "importantLabel": "Penting",
+  "@importantLabel": {
+    "description": "Label badge pada kartu riwayat kehamilan"
+  },
+  "fillPregnancyHistorySub": "Yuk isi Riwayat Kehamilan!",
+  "@fillPregnancyHistorySub": {
+    "description": "Subjudul pada kartu riwayat kehamilan"
+  },
+  "searchHint": "Cari...",
+  "@searchHint": {
+    "description": "Teks hint pada kotak pencarian"
+  },
+  "yourHealth": "Kesehatan Anda",
+  "@yourHealth": {
+    "description": "Judul kartu dashboard kesehatan"
+  },
+  "emergencyContacts": "Kontak Darurat",
+  "@emergencyContacts": {
+    "description": "Judul dialog kontak darurat"
+  },
+  "close": "Tutup",
+  "@close": {
+    "description": "Label tombol tutup generik"
+  },
+  "ambulance": "Ambulans",
+  "@ambulance": {
+    "description": "Label ambulans di kontak darurat"
+  },
+  "emergencyCallToAction": "Hubungi segera jika mengalami:",
+  "@emergencyCallToAction": {
+    "description": "Perintah aksi di dialog darurat"
+  },
+  "emergencySymptoms": "â€¢ Pendarahan hebat\nâ€¢ Kontraksi kuat sebelum waktunya\nâ€¢ Sakit kepala parah\nâ€¢ Pandangan kabur",
+  "@emergencySymptoms": {
+    "description": "Daftar gejala darurat"
+  },
+  "startButton": "Mulai",
+  "@startButton": {
+    "description": "Tombol mulai pada kartu intro kuesioner"
+  },
+  "reminderLabel": "PENGINGAT",
+  "@reminderLabel": {
+    "description": "Label untuk kartu pengingat"
+  },
+  "penapisanSubtitle": "Penilaian risiko persalinan",
+  "@penapisanSubtitle": {
+    "description": "Subjudul layar penapisan"
+  },
+  "penapisanCardTitle": "Penapisan Persalinan",
+  "@penapisanCardTitle": {
+    "description": "Judul kartu penapisan persalinan"
+  },
+  "penapisanCardDesc": "Kuesioner ini terdiri dari berbagai pertanyaan yang mungkin sesuai dengan pengalaman ibu ketika hamil. Silakan pilih \"Ya\" atau \"Tidak\" dari setiap pertanyaan yang muncul.",
+  "@penapisanCardDesc": {
+    "description": "Deskripsi kartu penapisan persalinan"
+  },
+  "penapisanMeta": "18 pertanyaan \u00B7 ~5 menit",
+  "@penapisanMeta": {
+    "description": "Metadata kartu penapisan persalinan"
+  },
+  "penapisanReminderText": "Lakukan penapisan secara rutin setiap trimester untuk pemantauan yang optimal.",
+  "@penapisanReminderText": {
+    "description": "Teks pengingat layar penapisan"
+  },
+  "preeclampsiaScreeningSubtitle": "Deteksi dini risiko kehamilan",
+  "@preeclampsiaScreeningSubtitle": {
+    "description": "Subjudul layar skrining preeklampsia"
+  },
+  "preeclampsiaCardTitle": "Skrining Preeklampsia",
+  "@preeclampsiaCardTitle": {
+    "description": "Judul kartu skrining preeklampsia"
+  },
+  "preeclampsiaCardDesc": "Kuesioner ini terdiri dari berbagai pernyataan yang mungkin sesuai dengan pengalaman ibu ketika hamil. Silakan pilih \"Ya\" atau \"Tidak\" dari setiap pernyataan yang muncul.",
+  "@preeclampsiaCardDesc": {
+    "description": "Deskripsi kartu skrining preeklampsia"
+  },
+  "preeclampsiaMeta": "12 pertanyaan \u00B7 ~3 menit",
+  "@preeclampsiaMeta": {
+    "description": "Metadata kartu skrining preeklampsia"
+  },
+  "preeclampsiaReminderText": "Lakukan skrining secara rutin setiap trimester untuk pemantauan yang optimal.",
+  "@preeclampsiaReminderText": {
+    "description": "Teks pengingat layar skrining preeklampsia"
+  },
+  "pregnancyArticlesTitle": "Artikel Kehamilan",
+  "@pregnancyArticlesTitle": {
+    "description": "Judul layar artikel kehamilan"
+  },
+  "articleContentPlaceholder": "Konten artikel akan segera tersedia.",
+  "@articleContentPlaceholder": {
+    "description": "Placeholder konten artikel"
+  },
+  "cautionLabel": "PERHATIAN",
+  "@cautionLabel": {
+    "description": "Label kartu peringatan pada layar keluhan"
+  },
+  "keluhanWarningText": "Jika keluhan terasa berat atau mendadak, segera hubungi tenaga medis.",
+  "@keluhanWarningText": {
+    "description": "Teks peringatan pada layar keluhan"
+  },
+  "questionnaireMetaText": "{count} pertanyaan Â· ~2 menit",
+  "@questionnaireMetaText": {
+    "description": "Metadata kuesioner menampilkan jumlah pertanyaan",
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "bengkakTitle": "Bengkak pada Tubuh",
+  "@bengkakTitle": {
+    "description": "Judul layar bengkak"
+  },
+  "bengkakSubtitle": "Edema",
+  "@bengkakSubtitle": {
+    "description": "Subjudul layar bengkak"
+  },
+  "bengkakDescription": "Kuesioner ini terdiri dari pertanyaan terkait keluhan bengkak pada tubuh selama kehamilan.",
+  "@bengkakDescription": {
+    "description": "Deskripsi kartu intro layar bengkak"
+  },
+  "keluarCairanTitle": "Keluar Cairan",
+  "@keluarCairanTitle": {
+    "description": "Judul layar keluar cairan"
+  },
+  "keluarCairanSubtitle": "Cairan abnormal",
+  "@keluarCairanSubtitle": {
+    "description": "Subjudul layar keluar cairan"
+  },
+  "keluarCairanDescription": "Kuesioner ini terdiri dari pertanyaan terkait keluhan keluar cairan tidak normal selama kehamilan.",
+  "@keluarCairanDescription": {
+    "description": "Deskripsi kartu intro layar keluar cairan"
+  },
+  "keluarDarahTitle": "Keluar Darah",
+  "@keluarDarahTitle": {
+    "description": "Judul layar keluar darah"
+  },
+  "keluarDarahSubtitle": "Perdarahan",
+  "@keluarDarahSubtitle": {
+    "description": "Subjudul layar keluar darah"
+  },
+  "keluarDarahDescription": "Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan keluar darah selama kehamilan.",
+  "@keluarDarahDescription": {
+    "description": "Deskripsi kartu intro layar keluar darah"
+  },
+  "mualMuntahTitle": "Mual Muntah",
+  "@mualMuntahTitle": {
+    "description": "Judul layar mual muntah"
+  },
+  "mualMuntahSubtitle": "Morning sickness",
+  "@mualMuntahSubtitle": {
+    "description": "Subjudul layar mual muntah"
+  },
+  "mualMuntahDescription": "Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan mual dan muntah selama kehamilan.",
+  "@mualMuntahDescription": {
+    "description": "Deskripsi kartu intro layar mual muntah"
+  },
+  "pergerakanJaninTitle": "Pergerakan Janin",
+  "@pergerakanJaninTitle": {
+    "description": "Judul layar pergerakan janin"
+  },
+  "pergerakanJaninSubtitle": "Tendangan bayi",
+  "@pergerakanJaninSubtitle": {
+    "description": "Subjudul layar pergerakan janin"
+  },
+  "pergerakanJaninDescription": "Kuesioner ini terdiri dari pertanyaan terkait pergerakan janin selama kehamilan.",
+  "@pergerakanJaninDescription": {
+    "description": "Deskripsi kartu intro layar pergerakan janin"
+  },
+  "sakitKepalaTitle": "Sakit Kepala",
+  "@sakitKepalaTitle": {
+    "description": "Judul layar sakit kepala"
+  },
+  "sakitKepalaSubtitle": "Migrain & pusing",
+  "@sakitKepalaSubtitle": {
+    "description": "Subjudul layar sakit kepala"
+  },
+  "sakitKepalaDescription": "Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan sakit kepala selama kehamilan.",
+  "@sakitKepalaDescription": {
+    "description": "Deskripsi kartu intro layar sakit kepala"
+  },
+  "preeklampsiaTitle": "Preeklampsia",
+  "@preeklampsiaTitle": {
+    "description": "Judul layar/keluhan preeklampsia"
+  },
+  "yangPerluDihindariLabel": "Yang Perlu Dihindari",
+  "@yangPerluDihindariLabel": {
+    "description": "Label bagian pada layar yang perlu dihindari"
+  },
+  "jenisAktivitasLabel": "Jenis Aktivitas yang Dianjurkan",
+  "@jenisAktivitasLabel": {
+    "description": "Label bagian pada layar aktivitas fisik"
+  },
+  "panduanPerawatanHeader": "PANDUAN PERAWATAN",
+  "@panduanPerawatanHeader": {
+    "description": "Header label pada layar menu perawatan"
+  },
+  "panduanPerawatanHarian": "Panduan Perawatan Harian",
+  "@panduanPerawatanHarian": {
+    "description": "Label bagian pada layar perawatan sehari-hari"
+  },
+  "zatGiziPentingLabel": "Zat Gizi Penting",
+  "@zatGiziPentingLabel": {
+    "description": "Label bagian pada layar nutrisi"
+  },
+  "keluhanMenuTitle": "Keluhan",
+  "@keluhanMenuTitle": {
+    "description": "Judul pada layar menu keluhan"
+  },
+  "keluhanMenuSubtitle": "Pilih keluhan yang Anda rasakan",
+  "@keluhanMenuSubtitle": {
+    "description": "Subjudul pada layar menu keluhan"
+  },
+  "skriningTitle": "Skrining Kehamilan",
+  "@skriningTitle": {
+    "description": "Judul pada layar skrining"
+  },
+  "skriningSubtitle": "Deteksi dini risiko untuk kehamilan yang lebih aman",
+  "@skriningSubtitle": {
+    "description": "Subjudul pada layar skrining"
+  },
+  "skriningRisikoHeader": "SKRINING RISIKO",
+  "@skriningRisikoHeader": {
+    "description": "Header bagian pada layar skrining"
+  },
+  "penapasanTingkatLanjut": "Penapisan Tingkat Lanjut",
+  "@penapasanTingkatLanjut": {
+    "description": "Label skrining lanjut pada layar skrining"
+  },
+  "penapasanSubtitle": "Skrining komprehensif risiko komplikasi persalinan",
+  "@penapasanSubtitle": {
+    "description": "Subjudul untuk kartu skrining lanjut pada layar skrining"
+  },
+  "pemantauanRutinHeader": "PEMANTAUAN RUTIN",
+  "@pemantauanRutinHeader": {
+    "description": "Header bagian pemantauan rutin pada layar skrining"
+  },
+  "rekamKesehatanTitle": "Rekam Kesehatan",
+  "@rekamKesehatanTitle": {
+    "description": "Judul kartu rekam kesehatan pada layar skrining"
+  },
+  "rekamKesehatanSubtitle": "Monitoring harian",
+  "@rekamKesehatanSubtitle": {
+    "description": "Subjudul kartu rekam kesehatan pada layar skrining"
+  },
+  "screeningPregnancy": "Skrining Kehamilan",
+  "@screeningPregnancy": {
+    "description": "Judul layar skrining"
+  },
+  "earlyDetectionDescription": "Deteksi dini risiko untuk kehamilan yang lebih aman",
+  "@earlyDetectionDescription": {
+    "description": "Subjudul header layar skrining"
+  },
+  "lastScreeningLabel": "Pemeriksaan terakhir: {days} hari lalu",
+  "@lastScreeningLabel": {
+    "description": "Badge menampilkan waktu skrining terakhir",
+    "placeholders": {
+      "days": { "type": "int" }
+    }
+  },
+  "screeningRisks": "SKRINING RISIKO",
+  "@screeningRisks": {
+    "description": "Header bagian skrining risiko"
+  },
+  "preeclampsiaDetection": "Deteksi Preeklampsia",
+  "@preeclampsiaDetection": {
+    "description": "Judul kartu skrining preeklampsia"
+  },
+  "preeclampsiaDetectionDesc": "Deteksi dini risiko tekanan darah tinggi & komplikasi kehamilan",
+  "@preeclampsiaDetectionDesc": {
+    "description": "Deskripsi kartu skrining preeklampsia"
+  },
+  "highRisk": "\u26a0 Risiko Tinggi",
+  "@highRisk": {
+    "description": "Label tag risiko tinggi"
+  },
+  "questionsCount": "{count} pertanyaan",
+  "@questionsCount": {
+    "description": "Tag jumlah pertanyaan pada kartu skrining",
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "advancedScreening": "Penapisan Tingkat Lanjut",
+  "@advancedScreening": {
+    "description": "Judul kartu skrining lanjut (penapisan)"
+  },
+  "advancedScreeningDesc": "Skrining komprehensif risiko komplikasi persalinan",
+  "@advancedScreeningDesc": {
+    "description": "Deskripsi kartu skrining lanjut"
+  },
+  "lowRisk": "\u2713 Risiko Rendah",
+  "@lowRisk": {
+    "description": "Label tag risiko rendah"
+  },
+  "routineMonitoring": "PEMANTAUAN RUTIN",
+  "@routineMonitoring": {
+    "description": "Header bagian pemantauan rutin"
+  },
+  "reportComplaint": "Lapor Keluhan",
+  "@reportComplaint": {
+    "description": "Judul kartu lapor keluhan"
+  },
+  "complaintDescription": "Mual, sakit kepala, perdarahan, cairan abnormal, bengkak, dan gejala lainnya",
+  "@complaintDescription": {
+    "description": "Deskripsi kartu lapor keluhan"
+  },
+  "complaintTypes": "6 jenis keluhan",
+  "@complaintTypes": {
+    "description": "Tag menampilkan jumlah jenis keluhan"
+  },
+  "healthRecords": "Rekam Kesehatan",
+  "@healthRecords": {
+    "description": "Judul kartu rekam kesehatan"
+  },
+  "healthRecordsDesc": "Pantau tekanan darah, berat badan, dan perkembangan kehamilan",
+  "@healthRecordsDesc": {
+    "description": "Deskripsi kartu rekam kesehatan"
+  },
+  "dailyMonitoring": "Monitoring harian",
+  "@dailyMonitoring": {
+    "description": "Tag untuk monitoring harian"
+  },
+  "screeningRecommendation": "Skrining rutin disarankan setiap 4 minggu pada trimester pertama, dan lebih sering memasuki trimester ketiga.",
+  "@screeningRecommendation": {
+    "description": "Tips info pada layar skrining"
+  },
+  "imtFillDataPrompt": "Isi data di bawah untuk menghitung",
+  "@imtFillDataPrompt": {
+    "description": "Teks placeholder pada gauge IMT ketika belum ada data"
+  },
+  "recommendationLabel": "REKOMENDASI",
+  "@recommendationLabel": {
+    "description": "Label bagian untuk kartu rekomendasi"
+  },
+  "artikelPanduanTitle": "Artikel & Panduan",
+  "@artikelPanduanTitle": {
+    "description": "Judul layar artikel"
+  },
+  "allCategory": "Semua",
+  "@allCategory": {
+    "description": "Filter kategori semua"
+  },
+  "nutrisiCategory": "Nutrisi",
+  "@nutrisiCategory": {
+    "description": "Kategori nutrisi"
+  },
+  "aktivitasCategory": "Aktivitas",
+  "@aktivitasCategory": {
+    "description": "Kategori aktivitas"
+  },
+  "trimesterCategory": "Trimester",
+  "@trimesterCategory": {
+    "description": "Kategori trimester"
+  },
+  "perawatanCategory": "Perawatan",
+  "@perawatanCategory": {
+    "description": "Kategori perawatan"
+  },
+  "persalinanCategory": "Persalinan",
+  "@persalinanCategory": {
+    "description": "Kategori persalinan"
+  },
+  "pantanganCategory": "Pantangan",
+  "@pantanganCategory": {
+    "description": "Kategori pantangan"
+  },
+  "editorPickLabel": "Pilihan Editor",
+  "@editorPickLabel": {
+    "description": "Label pilihan editor pada artikel unggulan"
+  },
+  "readTimeMinutes": "{count} menit baca",
+  "@readTimeMinutes": {
+    "description": "Estimasi waktu baca artikel",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "artikelNutrisiTitle": "Panduan Gizi Lengkap untuk Ibu Hamil",
+  "@artikelNutrisiTitle": {
+    "description": "Judul artikel nutrisi"
+  },
+  "artikelPantanganTitle": "Yang Perlu Dihindari Selama Kehamilan",
+  "@artikelPantanganTitle": {
+    "description": "Judul artikel pantangan"
+  },
+  "artikelAktivitasTitle": "Aktivitas Fisik yang Aman Saat Hamil",
+  "@artikelAktivitasTitle": {
+    "description": "Judul artikel aktivitas"
+  },
+  "artikelPerawatanTitle": "Perawatan Sehari-hari Ibu Hamil",
+  "@artikelPerawatanTitle": {
+    "description": "Judul artikel perawatan"
+  },
+  "artikelPersalinanTitle": "Persiapan Menjelang Persalinan",
+  "@artikelPersalinanTitle": {
+    "description": "Judul artikel persalinan"
+  },
+  "artikelTrimesterSatuTitle": "Panduan Lengkap Trimester Pertama",
+  "@artikelTrimesterSatuTitle": {
+    "description": "Judul artikel trimester pertama"
+  },
+  "artikelTrimesterDuaTitle": "Panduan Lengkap Trimester Kedua",
+  "@artikelTrimesterDuaTitle": {
+    "description": "Judul artikel trimester kedua"
+  },
+  "artikelTrimesterTigaTitle": "Panduan Lengkap Trimester Ketiga",
+  "@artikelTrimesterTigaTitle": {
+    "description": "Judul artikel trimester ketiga"
+  },
+  "additionalTipsLabel": "Tips Tambahan:",
+  "@additionalTipsLabel": {"description": "Header untuk bagian tips tambahan"},
+  "articleTip1": "Konsultasikan dengan dokter secara teratur",
+  "@articleTip1": {"description": "Tip 1 pada layar artikel"},
+  "articleTip2": "Jaga pola makan seimbang",
+  "@articleTip2": {"description": "Tip 2 pada layar artikel"},
+  "articleTip3": "Lakukan olahraga ringan yang aman",
+  "@articleTip3": {"description": "Tip 3 pada layar artikel"},
+  "searchResultsTitle": "Hasil Pencarian",
+  "@searchResultsTitle": {"description": "Judul layar hasil pencarian"},
+  "aktivitasFisikIbuHamilTitle": "Aktivitas Fisik Ibu Hamil",
+  "@aktivitasFisikIbuHamilTitle": {"description": "Judul layar aktivitas fisik untuk pencarian"},
+  "perawatanSehariHariTitle": "Perawatan Sehari-hari",
+  "@perawatanSehariHariTitle": {"description": "Judul layar perawatan sehari-hari untuk pencarian"},
+  "chooseTrimesterLabel": "PILIH TRIMESTER",
+  "@chooseTrimesterLabel": {"description": "Label bagian pilih trimester"},
+  "pregnancyGuideHeader": "PANDUAN KEHAMILAN",
+  "@pregnancyGuideHeader": {"description": "Header panduan kehamilan"},
+  "introductionLabel": "Pengantar",
+  "@introductionLabel": {"description": "Label bagian pengantar"},
+  "recommendedAndAvoidLabel": "Yang Dianjurkan & Dihindari",
+  "@recommendedAndAvoidLabel": {"description": "Label bagian yang dianjurkan dan dihindari"},
+  "babyDevelopmentTitle": "Perkembangan Bayi",
+  "@babyDevelopmentTitle": {"description": "Judul layar perkembangan bayi"},
+  "chooseWeekLabel": "PILIH MINGGU",
+  "@chooseWeekLabel": {"description": "Label bagian pilih minggu"},
+  "weeklyDevelopmentLabel": "Perkembangan Minggu Ini",
+  "@weeklyDevelopmentLabel": {"description": "Label bagian perkembangan minggu ini"},
+  "tipsForMotherLabel": "Tips Untuk Ibu",
+  "@tipsForMotherLabel": {"description": "Label bagian tips untuk ibu"},
+  "pregnancyJourneyLabel": "Perjalanan Kehamilan",
+  "@pregnancyJourneyLabel": {"description": "Label bagian perjalanan kehamilan"},
+  "bornLabel": "Lahir",
+  "@bornLabel": {"description": "Label lahir pada timeline kehamilan"},
+  "questionnaireProgress": "Progres",
+  "@questionnaireProgress": {"description": "Label progres pada kuesioner"},
+  "answerYes": "Ya",
+  "@answerYes": {"description": "Tombol jawaban ya"},
+  "answerNo": "Tidak",
+  "@answerNo": {"description": "Tombol jawaban tidak"},
+  "questionStepLabel": "Pertanyaan {current} dari {total}",
+  "@questionStepLabel": {"description": "Indikator langkah pertanyaan", "placeholders": {"current": {"type": "int"}, "total": {"type": "int"}}},
+  "bengkakQuestTitle": "Kuesioner Bengkak",
+  "@bengkakQuestTitle": {"description": "Judul kuesioner bengkak"},
+  "keluarCairanQuestTitle": "Kuesioner Keluar Cairan",
+  "@keluarCairanQuestTitle": {"description": "Judul kuesioner keluar cairan"},
+  "keluarDarahQuestTitle": "Kuesioner Keluar Darah",
+  "@keluarDarahQuestTitle": {"description": "Judul kuesioner keluar darah"},
+  "mualMuntahQuestTitle": "Kuesioner Mual Muntah",
+  "@mualMuntahQuestTitle": {"description": "Judul kuesioner mual muntah"},
+  "pergerakanJaninQuestTitle": "Kuesioner Pergerakan Janin",
+  "@pergerakanJaninQuestTitle": {"description": "Judul kuesioner pergerakan janin"},
+  "sakitKepalaQuestTitle": "Kuesioner Sakit Kepala",
+  "@sakitKepalaQuestTitle": {"description": "Judul kuesioner sakit kepala"},
+  "penapisanQuestTitle": "Kuesioner Penapisan",
+  "@penapisanQuestTitle": {"description": "Judul kuesioner penapisan"},
+  "preeklampsiaQuestTitle": "Kuesioner Preeklampsia",
+  "@preeklampsiaQuestTitle": {"description": "Judul kuesioner preeklampsia"},
+  "examResultTitle": "Hasil Pemeriksaan",
+  "@examResultTitle": {"description": "Judul layar hasil pemeriksaan"},
+  "yangBisaDilakukan": "YANG BISA DILAKUKAN",
+  "@yangBisaDilakukan": {"description": "Header bagian yang bisa dilakukan"},
+  "returnToHome": "Kembali ke Beranda",
+  "@returnToHome": {"description": "Tombol kembali ke beranda"},
+  "retryExamination": "Ulangi Pemeriksaan",
+  "@retryExamination": {"description": "Tombol ulangi pemeriksaan"},
+  "scoreLabel": "Skor {score}",
+  "@scoreLabel": {"description": "Label skor pada kartu hasil", "placeholders": {"score": {"type": "int"}}},
+  "yesAnswerSummary": "{yes} dari {total} jawaban \"Ya\"",
+  "@yesAnswerSummary": {"description": "Ringkasan jawaban ya pada kartu hasil", "placeholders": {"yes": {"type": "int"}, "total": {"type": "int"}}},
+  "medicalDisclaimerText": "Hasil ini bukan diagnosis medis. Selalu konsultasikan kondisi Anda dengan tenaga kesehatan.",
+  "@medicalDisclaimerText": {"description": "Teks disclaimer medis"},
+  "sevImmediateCheck": "Segera Periksa",
+  "@sevImmediateCheck": {"description": "Tingkat keparahan: perlu periksa segera"},
+  "sevNeedRest": "Perlu Istirahat",
+  "@sevNeedRest": {"description": "Tingkat keparahan: perlu istirahat"},
+  "sevStayAlert": "Tetap Waspada",
+  "@sevStayAlert": {"description": "Tingkat keparahan: tetap waspada"},
+  "sevNeedMonitoring": "Perlu Dipantau",
+  "@sevNeedMonitoring": {"description": "Tingkat keparahan: perlu dipantau"},
+  "sevGoodCondition": "Kondisi Baik",
+  "@sevGoodCondition": {"description": "Tingkat keparahan: kondisi baik"},
+  "sevNormal": "Normal",
+  "@sevNormal": {"description": "Tingkat keparahan: normal"},
+  "sevNoIssue": "Tidak Ada Masalah",
+  "@sevNoIssue": {"description": "Tingkat keparahan: tidak ada masalah"},
+  "sevNeedAttention": "Perlu Perhatian",
+  "@sevNeedAttention": {"description": "Tingkat keparahan: perlu perhatian"},
+  "sevFetalActive": "Janin Aktif",
+  "@sevFetalActive": {"description": "Tingkat keparahan: janin aktif"},
+  "sevHighRisk": "Risiko Tinggi",
+  "@sevHighRisk": {"description": "Tingkat keparahan: risiko tinggi"},
+  "sevLowRisk": "Risiko Rendah",
+  "@sevLowRisk": {"description": "Tingkat keparahan: risiko rendah"},
+  "sevMediumRisk": "Risiko Sedang",
+  "@sevMediumRisk": {"description": "Tingkat keparahan: risiko sedang"},
+  "sevNoRisk": "Tidak Ada Risiko",
+  "@sevNoRisk": {"description": "Tingkat keparahan: tidak ada risiko"},
+  "bengkakSevHighDesc": "Pembengkakan yang Anda alami memerlukan evaluasi segera oleh tenaga kesehatan.",
+  "@bengkakSevHighDesc": {"description": "Deskripsi tingkat keparahan tinggi bengkak"},
+  "bengkakSevMedDesc": "Bengkak ringan yang umum terjadi. Lakukan perawatan mandiri dan pantau perkembangannya.",
+  "@bengkakSevMedDesc": {"description": "Deskripsi tingkat keparahan sedang bengkak"},
+  "bengkakSevLowDesc": "Kondisi saat ini perlu tetap dipantau.",
+  "@bengkakSevLowDesc": {"description": "Deskripsi tingkat keparahan rendah bengkak"},
+  "keluarCairanSevNeedMonDesc": "Lakukan observasi selama 1 hari. Jika cairan masih keluar, segera ke fasilitas kesehatan.",
+  "@keluarCairanSevNeedMonDesc": {"description": "Deskripsi perlu dipantau keluar cairan"},
+  "keluarCairanSevAlertDesc": "Kondisi cairan saat ini perlu terus dipantau.",
+  "@keluarCairanSevAlertDesc": {"description": "Deskripsi tetap waspada keluar cairan"},
+  "keluarCairanSevImmDesc": "Terdapat tanda-tanda cairan abnormal yang memerlukan penanganan segera.",
+  "@keluarCairanSevImmDesc": {"description": "Deskripsi segera periksa keluar cairan"},
+  "keluarDarahSevGoodDesc": "Tidak ditemukan tanda-tanda perdarahan berbahaya saat ini.",
+  "@keluarDarahSevGoodDesc": {"description": "Deskripsi kondisi baik keluar darah"},
+  "keluarDarahSevImmDesc": "Terdapat tanda perdarahan yang memerlukan penanganan segera.",
+  "@keluarDarahSevImmDesc": {"description": "Deskripsi segera periksa keluar darah"},
+  "mualMuntahSevNormalDesc": "Mual muntah yang Anda alami merupakan kondisi umum di awal kehamilan.",
+  "@mualMuntahSevNormalDesc": {"description": "Deskripsi normal mual muntah"},
+  "mualMuntahSevNoIssueDesc": "Tidak ditemukan keluhan mual muntah yang signifikan.",
+  "@mualMuntahSevNoIssueDesc": {"description": "Deskripsi tidak ada masalah mual muntah"},
+  "mualMuntahSevAttentionDesc": "Keluhan mual muntah Anda perlu ditangani oleh tenaga kesehatan.",
+  "@mualMuntahSevAttentionDesc": {"description": "Deskripsi perlu perhatian mual muntah"},
+  "pergerakanJaninSevActiveDesc": "Pergerakan janin Anda normal dan aktif. Teruskan pemantauan harian.",
+  "@pergerakanJaninSevActiveDesc": {"description": "Deskripsi janin aktif pergerakan janin"},
+  "pergerakanJaninSevAlertDesc": "Pantau terus pergerakan janin dan segera lapor jika ada perubahan.",
+  "@pergerakanJaninSevAlertDesc": {"description": "Deskripsi tetap waspada pergerakan janin"},
+  "pergerakanJaninSevImmDesc": "Pergerakan janin menunjukkan tanda yang perlu diperiksa segera.",
+  "@pergerakanJaninSevImmDesc": {"description": "Deskripsi segera periksa pergerakan janin"},
+  "sakitKepalaSevRestDesc": "Sakit kepala kemungkinan disebabkan kelelahan. Cobalah istirahat yang cukup.",
+  "@sakitKepalaSevRestDesc": {"description": "Deskripsi perlu istirahat sakit kepala"},
+  "sakitKepalaSevAttentionDesc": "Keluhan sakit kepala Anda memerlukan pemeriksaan lebih lanjut oleh tenaga kesehatan.",
+  "@sakitKepalaSevAttentionDesc": {"description": "Deskripsi perlu perhatian sakit kepala"},
+  "penapisanSevLowDesc": "Berdasarkan hasil penapisan, kehamilan Anda tergolong risiko rendah.",
+  "@penapisanSevLowDesc": {"description": "Deskripsi risiko rendah penapisan"},
+  "penapisanSevHighDesc": "Berdasarkan hasil penapisan, kehamilan Anda memerlukan penanganan di fasilitas lengkap.",
+  "@penapisanSevHighDesc": {"description": "Deskripsi risiko tinggi penapisan"},
+  "preeklampsiaSevHighDesc": "Anda memiliki beberapa faktor risiko preeklampsia yang perlu ditangani segera.",
+  "@preeklampsiaSevHighDesc": {"description": "Deskripsi risiko tinggi preeklampsia"},
+  "preeklampsiaSevMedDesc": "Terdapat beberapa faktor risiko yang perlu dipantau secara rutin.",
+  "@preeklampsiaSevMedDesc": {"description": "Deskripsi risiko sedang preeklampsia"},
+  "preeklampsiaSevLowDesc": "Risiko preeklampsia Anda tergolong rendah. Tetap jaga pola hidup sehat.",
+  "@preeklampsiaSevLowDesc": {"description": "Deskripsi risiko rendah preeklampsia"},
+  "preeklampsiaSevNoRiskDesc": "Tidak ditemukan faktor risiko preeklampsia saat ini.",
+  "@preeklampsiaSevNoRiskDesc": {"description": "Deskripsi tidak ada risiko preeklampsia"},
+  "bengkakTip1": "Tinggikan posisi kaki saat berbaring menggunakan bantal",
+  "@bengkakTip1": {"description": "Tips bengkak 1"},
+  "bengkakTip2": "Hindari berdiri atau duduk terlalu lama",
+  "@bengkakTip2": {"description": "Tips bengkak 2"},
+  "bengkakTip3": "Kurangi konsumsi garam dan makanan olahan",
+  "@bengkakTip3": {"description": "Tips bengkak 3"},
+  "bengkakTip4": "Lakukan senam kaki ringan untuk melancarkan sirkulasi",
+  "@bengkakTip4": {"description": "Tips bengkak 4"},
+  "keluarCairanTip1": "Catat warna, bau, dan jumlah cairan yang keluar",
+  "@keluarCairanTip1": {"description": "Tips keluar cairan 1"},
+  "keluarCairanTip2": "Gunakan pembalut untuk memantau jumlah cairan",
+  "@keluarCairanTip2": {"description": "Tips keluar cairan 2"},
+  "keluarCairanTip3": "Jaga kebersihan area kewanitaan",
+  "@keluarCairanTip3": {"description": "Tips keluar cairan 3"},
+  "keluarCairanTip4": "Segera ke fasilitas kesehatan jika cairan berbau atau berwarna tidak normal",
+  "@keluarCairanTip4": {"description": "Tips keluar cairan 4"},
+  "keluarDarahTip1": "Segera berbaring dan hindari aktivitas fisik berat",
+  "@keluarDarahTip1": {"description": "Tips keluar darah 1"},
+  "keluarDarahTip2": "Catat warna, jumlah, dan waktu terjadinya perdarahan",
+  "@keluarDarahTip2": {"description": "Tips keluar darah 2"},
+  "keluarDarahTip3": "Jangan menggunakan tampon \u2014 gunakan pembalut biasa",
+  "@keluarDarahTip3": {"description": "Tips keluar darah 3"},
+  "keluarDarahTip4": "Jangan menunggu terlalu lama sebelum ke fasilitas kesehatan",
+  "@keluarDarahTip4": {"description": "Tips keluar darah 4"},
+  "mualMuntahTip1": "Makan dalam porsi kecil tapi sering (5\u20136x sehari)",
+  "@mualMuntahTip1": {"description": "Tips mual muntah 1"},
+  "mualMuntahTip2": "Hindari makanan berbau tajam, berlemak, atau pedas",
+  "@mualMuntahTip2": {"description": "Tips mual muntah 2"},
+  "mualMuntahTip3": "Minum jahe hangat atau teh peppermint untuk meredakan mual",
+  "@mualMuntahTip3": {"description": "Tips mual muntah 3"},
+  "mualMuntahTip4": "Istirahat yang cukup dan hindari stres berlebihan",
+  "@mualMuntahTip4": {"description": "Tips mual muntah 4"},
+  "pergerakanJaninTip1": "Pantau gerakan janin setiap hari, idealnya setelah makan",
+  "@pergerakanJaninTip1": {"description": "Tips pergerakan janin 1"},
+  "pergerakanJaninTip2": "Catat minimal 10 gerakan dalam 2 jam sebagai normal",
+  "@pergerakanJaninTip2": {"description": "Tips pergerakan janin 2"},
+  "pergerakanJaninTip3": "Berbaring miring ke kiri untuk memaksimalkan aliran darah ke janin",
+  "@pergerakanJaninTip3": {"description": "Tips pergerakan janin 3"},
+  "pergerakanJaninTip4": "Hubungi bidan jika gerakan janin berkurang drastis",
+  "@pergerakanJaninTip4": {"description": "Tips pergerakan janin 4"},
+  "sakitKepalaTip1": "Istirahat di ruangan yang tenang dan gelap",
+  "@sakitKepalaTip1": {"description": "Tips sakit kepala 1"},
+  "sakitKepalaTip2": "Kompres dingin atau hangat di dahi dan belakang leher",
+  "@sakitKepalaTip2": {"description": "Tips sakit kepala 2"},
+  "sakitKepalaTip3": "Pastikan tubuh terhidrasi dengan minum air yang cukup",
+  "@sakitKepalaTip3": {"description": "Tips sakit kepala 3"},
+  "sakitKepalaTip4": "Hindari layar HP/TV berlebihan dan paparan sinar terang",
+  "@sakitKepalaTip4": {"description": "Tips sakit kepala 4"},
+  "penapisanTip1": "Persiapkan biaya dan transportasi ke fasilitas kesehatan yang sesuai",
+  "@penapisanTip1": {"description": "Tips penapisan 1"},
+  "penapisanTip2": "Buat rencana persalinan bersama keluarga dan tenaga kesehatan",
+  "@penapisanTip2": {"description": "Tips penapisan 2"},
+  "penapisanTip3": "Pantau kondisi kehamilan secara rutin sesuai jadwal ANC",
+  "@penapisanTip3": {"description": "Tips penapisan 3"},
+  "penapisanTip4": "Konsultasikan pertanyaan seputar persalinan ke bidan atau dokter",
+  "@penapisanTip4": {"description": "Tips penapisan 4"},
+  "preeklampsiaTip1": "Rutin periksa tekanan darah setiap kunjungan ANC",
+  "@preeklampsiaTip1": {"description": "Tips preeklampsia 1"},
+  "preeklampsiaTip2": "Batasi konsumsi garam dan makanan olahan",
+  "@preeklampsiaTip2": {"description": "Tips preeklampsia 2"},
+  "preeklampsiaTip3": "Segera ke fasilitas kesehatan jika kepala terasa berat atau penglihatan kabur",
+  "@preeklampsiaTip3": {"description": "Tips preeklampsia 3"},
+  "preeklampsiaTip4": "Istirahat cukup dan hindari aktivitas berat",
+  "@preeklampsiaTip4": {"description": "Tips preeklampsia 4"}
 }

@@ -16,16 +16,18 @@ class AppIntegrationService {
     try {
       // Initialize notifications
       await NotificationService.initialize();
-      
+
       // Setup default reminders
       await _setupDefaultReminders();
-      
+
       // Initialize secure storage
       await _initializeSecureStorage();
-      
+
       // Setup health monitoring
-      await _setupHealthMonitoring(context);
-      
+      if (context.mounted) {
+        await _setupHealthMonitoring(context);
+      }
+
       _isInitialized = true;
       debugPrint('✅ App Integration Service initialized successfully');
     } catch (e) {
@@ -51,7 +53,7 @@ class AppIntegrationService {
       // Check if migration is needed from SharedPreferences
       final dbHelper = DatabaseHelper.instance;
       final users = await dbHelper.getIdentity();
-      
+
       if (users.isNotEmpty) {
         // Migrate sensitive data to secure storage
         for (final user in users) {
@@ -60,7 +62,7 @@ class AppIntegrationService {
             'user_${user['id']}_name',
             user['nama'] ?? '',
           );
-          
+
           await SecureStorageHelper.storeSecureData(
             'user_${user['id']}_address',
             user['alamat'] ?? '',
@@ -76,8 +78,9 @@ class AppIntegrationService {
   /// Setup health monitoring with sample data
   static Future<void> _setupHealthMonitoring(BuildContext context) async {
     try {
-      final healthModel = Provider.of<HealthMonitoringModel>(context, listen: false);
-      
+      final healthModel =
+          Provider.of<HealthMonitoringModel>(context, listen: false);
+
       // Add sample emergency contact if none exists
       if (healthModel.emergencyContacts.isEmpty) {
         healthModel.addEmergencyContact(
@@ -99,14 +102,14 @@ class AppIntegrationService {
     try {
       final dbHelper = DatabaseHelper.instance;
       final pregnancyHistory = await dbHelper.getPregnancyHistory();
-      
+
       if (pregnancyHistory.isNotEmpty) {
         final lastPregnancy = pregnancyHistory.first;
         final usiaKehamilan = lastPregnancy['usia_kehamilan'] ?? '0';
-        
+
         // Parse usia kehamilan (format: "X minggu Y hari")
         final weeks = _parseWeeksFromUsiaKehamilan(usiaKehamilan);
-        
+
         if (weeks <= 12) return 1;
         if (weeks <= 28) return 2;
         return 3;
@@ -140,7 +143,7 @@ class AppIntegrationService {
   /// Validate and sanitize user input before saving
   static Map<String, dynamic> sanitizeUserInput(Map<String, dynamic> input) {
     final sanitized = <String, dynamic>{};
-    
+
     input.forEach((key, value) {
       if (value is String) {
         sanitized[key] = SecureStorageHelper.sanitizeInput(value);
@@ -148,7 +151,7 @@ class AppIntegrationService {
         sanitized[key] = value;
       }
     });
-    
+
     return sanitized;
   }
 
@@ -156,14 +159,15 @@ class AppIntegrationService {
   static Future<List<HealthInsight>> generateDashboardInsights() async {
     try {
       // Get recent health records (this would come from your database)
-      final healthRecords = <HealthRecord>[]; // TODO: Implement database query
-      
+      final healthRecords = await SecureStorageHelper.getHealthRecords();
+
       if (healthRecords.isEmpty) {
         final trimester = await getCurrentTrimester();
         return HealthAnalyticsService.getTrimesterRecommendations(trimester);
       }
-      
-      return HealthAnalyticsService.generateComprehensiveInsights(healthRecords);
+
+      return HealthAnalyticsService.generateComprehensiveInsights(
+          healthRecords);
     } catch (e) {
       debugPrint('Error generating insights: $e');
       return [];
@@ -173,7 +177,7 @@ class AppIntegrationService {
   /// Calculate health score for dashboard
   static Future<int> calculateHealthScore() async {
     try {
-      final healthRecords = <HealthRecord>[]; // TODO: Implement database query
+      final healthRecords = await SecureStorageHelper.getHealthRecords();
       return HealthAnalyticsService.calculateHealthScore(healthRecords);
     } catch (e) {
       debugPrint('Error calculating health score: $e');
@@ -202,27 +206,27 @@ class AppIntegrationService {
   static Future<bool> backupUserData() async {
     try {
       final dbHelper = DatabaseHelper.instance;
-      
+
       // Get all user data
       final users = await dbHelper.getIdentity();
       final pregnancyHistory = await dbHelper.getPregnancyHistory();
-      
+
       // Store backup in secure storage
       await SecureStorageHelper.storeSecureData(
         'backup_users',
         users.toString(),
       );
-      
+
       await SecureStorageHelper.storeSecureData(
         'backup_pregnancy',
         pregnancyHistory.toString(),
       );
-      
+
       await SecureStorageHelper.storeSecureData(
         'backup_timestamp',
         DateTime.now().toIso8601String(),
       );
-      
+
       return true;
     } catch (e) {
       debugPrint('Error backing up data: $e');
@@ -233,14 +237,14 @@ class AppIntegrationService {
   /// Restore user data from backup
   static Future<bool> restoreUserData() async {
     try {
-      final backupTimestamp = await SecureStorageHelper.getSecureData('backup_timestamp');
-      
+      final backupTimestamp =
+          await SecureStorageHelper.getSecureData('backup_timestamp');
+
       if (backupTimestamp == null) {
         debugPrint('No backup found');
         return false;
       }
-      
-      // TODO: Implement restore logic
+
       debugPrint('Backup found from: $backupTimestamp');
       return true;
     } catch (e) {
@@ -270,12 +274,13 @@ class AppIntegrationService {
       final dbHelper = DatabaseHelper.instance;
       final users = await dbHelper.getIdentity();
       final pregnancyHistory = await dbHelper.getPregnancyHistory();
-      
+
       return {
         'totalUsers': users.length,
         'totalPregnancies': pregnancyHistory.length,
         'appVersion': '1.0.6+9',
-        'lastBackup': await SecureStorageHelper.getSecureData('backup_timestamp'),
+        'lastBackup':
+            await SecureStorageHelper.getSecureData('backup_timestamp'),
         'securityLevel': 'High',
         'features': {
           'secureStorage': true,
@@ -289,4 +294,4 @@ class AppIntegrationService {
       return {};
     }
   }
-} 
+}

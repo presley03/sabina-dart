@@ -379,7 +379,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get illustrationCredits =>
-      'Ilustrasi dalam aplikasi ini dibuat menggunakan DALL·E AI.';
+      'Ilustrasi dalam aplikasi ini dibuat menggunakan DALLÂ·E AI.';
 
   @override
   String get persiapanPersalinan => 'Persiapan Persalinan';
@@ -1939,25 +1939,27 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get imtCalc_classificationUnderweight =>
-      '• < 18.5: Berat badan kurang';
+      'â€¢ < 18.5: Berat badan kurang';
 
   @override
   String get imtCalc_classificationNormal =>
-      '• 18.5 - 24.9: Berat badan normal';
+      'â€¢ 18.5 - 24.9: Berat badan normal';
 
   @override
-  String get imtCalc_classificationOverweight => '• 25.0 - 29.9: Pra-obesitas';
+  String get imtCalc_classificationOverweight =>
+      'â€¢ 25.0 - 29.9: Pra-obesitas';
 
   @override
   String get imtCalc_classificationObesity1 =>
-      '• 30.0 - 34.9: Obesitas kelas I';
+      'â€¢ 30.0 - 34.9: Obesitas kelas I';
 
   @override
   String get imtCalc_classificationObesity2 =>
-      '• 35.0 - 39.9: Obesitas kelas II';
+      'â€¢ 35.0 - 39.9: Obesitas kelas II';
 
   @override
-  String get imtCalc_classificationObesity3 => '• ≥ 40.0: Obesitas kelas III';
+  String get imtCalc_classificationObesity3 =>
+      'â€¢ â‰¥ 40.0: Obesitas kelas III';
 
   @override
   String get imtCalc_weightGainRecommendationTitle =>
@@ -1980,15 +1982,15 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get imtCalc_healthTip1 =>
-      '• Jaga pola makan sehat dengan makanan bergizi seimbang.';
+      'â€¢ Jaga pola makan sehat dengan makanan bergizi seimbang.';
 
   @override
   String get imtCalc_healthTip2 =>
-      '• Tetap aktif dengan olahraga ringan selama kehamilan.';
+      'â€¢ Tetap aktif dengan olahraga ringan selama kehamilan.';
 
   @override
   String get imtCalc_healthTip3 =>
-      '• Jangan lupa istirahat yang cukup dan kelola stres.';
+      'â€¢ Jangan lupa istirahat yang cukup dan kelola stres.';
 
   @override
   String get imtCalc_infoDialogTitle => 'Apa itu IMT WHO?';
@@ -2048,6 +2050,288 @@ class AppLocalizationsId extends AppLocalizations {
   String get addressRequired => 'Alamat harus diisi';
 
   @override
+  String get personalData => 'DATA PRIBADI';
+
+  @override
+  String get fullNameHint => 'Nama lengkap Anda';
+
+  @override
+  String get addressHint => 'Alamat lengkap Anda';
+
+  @override
+  String get selectReligion => 'Pilih Agama';
+
+  @override
+  String get selectBloodType => 'Pilih Golongan Darah';
+
+  @override
+  String get selectDateOfBirth => 'Pilih tanggal lahir';
+
+  @override
+  String get localDataNote =>
+      'Data Anda tersimpan secara lokal di perangkat dan tidak dibagikan.';
+
+  @override
+  String get done => 'Selesai';
+
+  @override
+  String get identitySaved => 'Data identitas berhasil disimpan';
+
+  @override
+  String get currentPregnancy => 'KEHAMILAN SAAT INI';
+
+  @override
+  String get information => 'INFORMASI';
+
+  @override
+  String get settings => 'PENGATURAN';
+
+  @override
+  String get lastScreeningResults => 'HASIL SKRINING TERAKHIR';
+
+  @override
+  String get nameNotSet => 'Nama belum diisi';
+
+  @override
+  String get ageUnit => 'thn';
+
+  @override
+  String get gestationalAgeShort => 'Usia Hamil';
+
+  @override
+  String get bloodTypeShort => 'Gol. Darah';
+
+  @override
+  String get weeksShort => 'mgg';
+
+  @override
+  String get daysShort => 'hr';
+
+  @override
+  String get estimatedLabel => 'Taksiran';
+
+  @override
+  String get pregnancyNumberLabel => 'Kehamilan ke';
+
+  @override
+  String get hphtLabel => 'HPHT';
+
+  @override
+  String get prePregnancyWeightLabel => 'Berat Badan Sebelum Hamil';
+
+  @override
+  String get heightLabel => 'Tinggi Badan';
+
+  @override
+  String get childrenCountLabel => 'Jumlah Anak';
+
+  @override
+  String get miscarriageLabel => 'Riwayat Keguguran';
+
+  @override
+  String get lastChildNumberLabel => 'Anak Ke (Terakhir)';
+
+  @override
+  String get lastBirthYearLabel => 'Tahun Lahir Terakhir';
+
+  @override
+  String get lastBirthWeightLabel => 'Berat Lahir Terakhir';
+
+  @override
+  String get deliveryMethodLabel => 'Cara Persalinan';
+
+  @override
+  String get birthAttendantLabel => 'Penolong Persalinan';
+
+  @override
+  String get complicationsLabel => 'Komplikasi';
+
+  @override
+  String get aboutSabinaTitle => 'Tentang SABINA';
+
+  @override
+  String get lastPregnancySection => 'RIWAYAT KEHAMILAN TERAKHIR';
+
+  @override
+  String get selectDate => 'Pilih tanggal';
+
+  @override
+  String get timesUnit => 'kali';
+
+  @override
+  String get childrenCountUnit => 'anak';
+
+  @override
+  String get complicationsHint => 'Tuliskan jika ada...';
+
+  @override
+  String get selectPlaceholder => 'Pilih...';
+
+  @override
+  String get recordHealth => 'Catat Kesehatan';
+
+  @override
+  String get scheduleCheckup => 'Jadwal Kontrol';
+
+  @override
+  String get emergency => 'Darurat';
+
+  @override
+  String get weight => 'Berat Badan (kg)';
+
+  @override
+  String get systolic => 'Sistolik';
+
+  @override
+  String get diastolic => 'Diastolik';
+
+  @override
+  String get emergencyContacts => 'Kontak Darurat';
+
+  @override
+  String get healthDataSaved => 'Data kesehatan berhasil disimpan!';
+
+  @override
+  String get chartTitle => 'Grafik Perkembangan';
+
+  @override
+  String get chartTabWeight => 'Berat Badan';
+
+  @override
+  String get chartTabBloodPressure => 'Tekanan Darah';
+
+  @override
+  String get chartBpLimit => 'Batas 140';
+
+  @override
+  String get chartEmptyState =>
+      'Grafik akan tampil setelah\n2 data atau lebih tersimpan';
+
+  @override
+  String get chartNotEnoughData =>
+      'Butuh minimal 2 data untuk\nmenampilkan grafik ini';
+
+  @override
+  String get dashboardYourHealth => 'Kesehatan Anda';
+
+  @override
+  String get dashboardStatusHealthy => 'Sehat';
+
+  @override
+  String get dashboardStatusGood => 'Baik';
+
+  @override
+  String get dashboardStatusNeedsAttention => 'Perlu Perhatian';
+
+  @override
+  String get dashboardRecordDailyHealth => 'Catat Kesehatan Harian';
+
+  @override
+  String get dashboardMonitorSubtitle => 'Pantau berat badan & tekanan darah';
+
+  @override
+  String get dashboardScheduleSubtitle => 'Atur reminder dokter';
+
+  @override
+  String get dashboardEmergencySubtitle => 'Hubungi bantuan';
+
+  @override
+  String get dashboardHealthTipsTitle => 'Tips Kesehatan';
+
+  @override
+  String get dashboardHealthTipsEmpty =>
+      'Mulai catat kesehatan harian untuk mendapatkan tips personal yang sesuai dengan kondisi Anda.';
+
+  @override
+  String get dashboardRecommendation => 'Rekomendasi untuk Anda';
+
+  @override
+  String get dashboardScheduleDialogContent =>
+      'Fitur ini membantu Anda mengatur reminder untuk kontrol rutin ke dokter kandungan.\n\nSegera hadir!';
+
+  @override
+  String get dashboardUnderstood => 'Mengerti';
+
+  @override
+  String get dashboardEmergencyCallPrompt => 'Hubungi segera jika mengalami:';
+
+  @override
+  String get dashboardEmergencySymptoms =>
+      '• Pendarahan hebat\n• Kontraksi kuat sebelum waktunya\n• Sakit kepala parah\n• Pandangan kabur';
+
+  @override
+  String get ambulance => 'Ambulans';
+
+  @override
+  String get dashboardClose => 'Tutup';
+
+  @override
+  String get whyRecordTitle => 'Mengapa Perlu Dicatat?';
+
+  @override
+  String get whyRecordBody =>
+      'Dengan mencatat berat badan dan tekanan darah secara rutin, dokter dapat memantau perkembangan kehamilan Anda dan mendeteksi masalah sejak dini.';
+
+  @override
+  String get recordTodayTitle => 'Catat Hari Ini';
+
+  @override
+  String get weightInputHint => 'Contoh: 65';
+
+  @override
+  String get weightInputError => 'Masukkan berat badan Anda';
+
+  @override
+  String get weightRangeError => 'Berat badan harus antara 30-200 kg';
+
+  @override
+  String get bloodPressureLabel => 'Tekanan Darah';
+
+  @override
+  String get fieldRequired => 'Wajib diisi';
+
+  @override
+  String get bpNormalNote =>
+      'Normal: 120/80 mmHg. Jika >140/90, segera konsultasi dokter.';
+
+  @override
+  String get saveData => 'Simpan Data';
+
+  @override
+  String get recentRecords => 'Catatan Terakhir';
+
+  @override
+  String get viewAll => 'Lihat Semua';
+
+  @override
+  String get noRecordsYet => 'Belum ada catatan';
+
+  @override
+  String get startRecordingToday => 'Mulai catat kesehatan Anda hari ini!';
+
+  @override
+  String get emergencyCardBody =>
+      'Hubungi segera jika mengalami: pendarahan hebat, kontraksi kuat, sakit kepala parah, atau pandangan kabur.';
+
+  @override
+  String get ambulance118 => 'Ambulans 118';
+
+  @override
+  String get doctor => 'Dokter';
+
+  @override
+  String get emergencyDialogTitle => '🚨 Kontak Darurat';
+
+  @override
+  String get obstetrician => 'Dokter Kandungan';
+
+  @override
+  String get contactYourDoctor => 'Hubungi dokter Anda';
+
+  @override
+  String get allHealthRecords => 'Semua Catatan Kesehatan';
+
+  @override
   String get preeclampsiaQuestionnaire => 'Kuesioner Preeklampsia';
 
   @override
@@ -2089,4 +2373,839 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get preeclampsiaQuestion10 =>
       'Apakah Anda mengalami sesak napas atau nyeri dada?';
+
+  @override
+  String get screeningPregnancy => 'Skrining Kehamilan';
+
+  @override
+  String get earlyDetectionDescription =>
+      'Deteksi dini risiko untuk kehamilan yang lebih aman';
+
+  @override
+  String lastScreeningLabel(int days) {
+    return 'Pemeriksaan terakhir: $days hari lalu';
+  }
+
+  @override
+  String get screeningRisks => 'SKRINING RISIKO';
+
+  @override
+  String get preeclampsiaDetection => 'Deteksi Preeklampsia';
+
+  @override
+  String get preeclampsiaDetectionDesc =>
+      'Deteksi dini risiko tekanan darah tinggi & komplikasi kehamilan';
+
+  @override
+  String get highRisk => '⚠ Risiko Tinggi';
+
+  @override
+  String questionsCount(int count) {
+    return '$count pertanyaan';
+  }
+
+  @override
+  String get advancedScreening => 'Penapisan Tingkat Lanjut';
+
+  @override
+  String get advancedScreeningDesc =>
+      'Skrining komprehensif risiko komplikasi persalinan';
+
+  @override
+  String get lowRisk => '✓ Risiko Rendah';
+
+  @override
+  String get routineMonitoring => 'PEMANTAUAN RUTIN';
+
+  @override
+  String get reportComplaint => 'Lapor Keluhan';
+
+  @override
+  String get complaintDescription =>
+      'Mual, sakit kepala, perdarahan, cairan abnormal, bengkak, dan gejala lainnya';
+
+  @override
+  String get complaintTypes => '6 jenis keluhan';
+
+  @override
+  String get healthRecords => 'Rekam Kesehatan';
+
+  @override
+  String get healthRecordsDesc =>
+      'Pantau tekanan darah, berat badan, dan perkembangan kehamilan';
+
+  @override
+  String get dailyMonitoring => 'Monitoring harian';
+
+  @override
+  String get screeningRecommendation =>
+      'Skrining rutin disarankan setiap 4 minggu pada trimester pertama, dan lebih sering memasuki trimester ketiga.';
+
+  @override
+  String get greetingMorning => 'Selamat Pagi';
+
+  @override
+  String get greetingAfternoon => 'Selamat Siang';
+
+  @override
+  String get greetingEvening => 'Selamat Sore';
+
+  @override
+  String get greetingNight => 'Selamat Malam';
+
+  @override
+  String get healthScoreLabel => 'SKOR KESEHATAN';
+
+  @override
+  String get today => 'Hari ini';
+
+  @override
+  String get scoreVeryGood => 'Sangat Baik';
+
+  @override
+  String get conditionOptimal => 'Kondisi Anda dalam kondisi optimal';
+
+  @override
+  String get keepItUp => 'Terus jaga!';
+
+  @override
+  String get completePregnancyHistory => 'Lengkapi Riwayat Kehamilan';
+
+  @override
+  String get fillForAccurate => 'Isi data untuk rekomendasi yang lebih akurat';
+
+  @override
+  String get fillNow => 'Isi Sekarang';
+
+  @override
+  String get quickAccess => 'AKSES CEPAT';
+
+  @override
+  String get featuredArticles => 'ARTIKEL PILIHAN';
+
+  @override
+  String get detectPreeclampsia => 'Deteksi Preeklampsia';
+
+  @override
+  String get screeningRiskBP => 'Skrining risiko tekanan darah';
+
+  @override
+  String get screeningAndPenapisan => 'Skrining & Penapisan';
+
+  @override
+  String get deliveryRisk => 'Risiko persalinan';
+
+  @override
+  String get pregnancyHistoryLabel => 'Riwayat Kehamilan';
+
+  @override
+  String get pregnancyDataLabel => 'Data kehamilan & persalinan';
+
+  @override
+  String get calculateIMT => 'Hitung IMT';
+
+  @override
+  String get bmiFull => 'Indeks massa tubuh';
+
+  @override
+  String get guideLabel => 'PANDUAN';
+
+  @override
+  String get pregnancyInfoTitle => 'Informasi Kehamilan';
+
+  @override
+  String get trimesterRoman => 'Trimester I, II & III';
+
+  @override
+  String get firstTrimester => 'Trimester Pertama';
+
+  @override
+  String get secondTrimester => 'Trimester Kedua';
+
+  @override
+  String get thirdTrimester => 'Trimester Ketiga';
+
+  @override
+  String babySizeOf(String fruit) {
+    return 'Seukuran $fruit 🌿';
+  }
+
+  @override
+  String weeksProgress(int current, int total) {
+    return '$current dari $total minggu';
+  }
+
+  @override
+  String get viewDetails => 'Lihat detail';
+
+  @override
+  String get imtLastLabel => 'IMT TERAKHIR';
+
+  @override
+  String get updateArrow => 'Perbarui →';
+
+  @override
+  String get imtUnderweight => 'Kurang';
+
+  @override
+  String get imtNormal => 'Normal';
+
+  @override
+  String get imtOverweight => 'Lebih';
+
+  @override
+  String get imtObese => 'Obesitas';
+
+  @override
+  String get articleTagNutrition => 'Nutrisi';
+
+  @override
+  String get articleTagActivity => 'Aktivitas';
+
+  @override
+  String get articleTagCare => 'Perawatan';
+
+  @override
+  String get articleTagMentalHealth => 'Kesehatan Mental';
+
+  @override
+  String get article1Title => 'Makanan Sehat Trimester 2';
+
+  @override
+  String get article2Title => 'Olahraga Aman Saat Hamil';
+
+  @override
+  String get article3Title => 'Tips Tidur Nyaman Trimester 3';
+
+  @override
+  String get article4Title => 'Mengelola Stres Selama Kehamilan';
+
+  @override
+  String get tipOfDayLabel => 'TIP HARI INI';
+
+  @override
+  String get tipOfDayContent =>
+      'Minum 8 gelas air sehari membantu janin berkembang optimal dan mencegah dehidrasi.';
+
+  @override
+  String get sabidanLinkText => 'Informasi lebih lanjut di sapabidan.com';
+
+  @override
+  String get articleTab => 'Artikel';
+
+  @override
+  String get importantLabel => 'Penting';
+
+  @override
+  String get fillPregnancyHistorySub => 'Yuk isi Riwayat Kehamilan!';
+
+  @override
+  String get searchHint => 'Cari...';
+
+  @override
+  String get yourHealth => 'Kesehatan Anda';
+
+  @override
+  String get close => 'Tutup';
+
+  @override
+  String get emergencyCallToAction => 'Hubungi segera jika mengalami:';
+
+  @override
+  String get emergencySymptoms =>
+      'â€¢ Pendarahan hebat\nâ€¢ Kontraksi kuat sebelum waktunya\nâ€¢ Sakit kepala parah\nâ€¢ Pandangan kabur';
+
+  @override
+  String get startButton => 'Mulai';
+
+  @override
+  String get reminderLabel => 'PENGINGAT';
+
+  @override
+  String get penapisanSubtitle => 'Penilaian risiko persalinan';
+
+  @override
+  String get penapisanCardTitle => 'Penapisan Persalinan';
+
+  @override
+  String get penapisanCardDesc =>
+      'Kuesioner ini terdiri dari berbagai pertanyaan yang mungkin sesuai dengan pengalaman ibu ketika hamil. Silakan pilih \"Ya\" atau \"Tidak\" dari setiap pertanyaan yang muncul.';
+
+  @override
+  String get penapisanMeta => '18 pertanyaan · ~5 menit';
+
+  @override
+  String get penapisanReminderText =>
+      'Lakukan penapisan secara rutin setiap trimester untuk pemantauan yang optimal.';
+
+  @override
+  String get preeclampsiaScreeningSubtitle => 'Deteksi dini risiko kehamilan';
+
+  @override
+  String get preeclampsiaCardTitle => 'Skrining Preeklampsia';
+
+  @override
+  String get preeclampsiaCardDesc =>
+      'Kuesioner ini terdiri dari berbagai pernyataan yang mungkin sesuai dengan pengalaman ibu ketika hamil. Silakan pilih \"Ya\" atau \"Tidak\" dari setiap pernyataan yang muncul.';
+
+  @override
+  String get preeclampsiaMeta => '12 pertanyaan · ~3 menit';
+
+  @override
+  String get preeclampsiaReminderText =>
+      'Lakukan skrining secara rutin setiap trimester untuk pemantauan yang optimal.';
+
+  @override
+  String get pregnancyArticlesTitle => 'Artikel Kehamilan';
+
+  @override
+  String get articleContentPlaceholder =>
+      'Konten artikel akan segera tersedia.';
+
+  @override
+  String get cautionLabel => 'PERHATIAN';
+
+  @override
+  String get keluhanWarningText =>
+      'Jika keluhan terasa berat atau mendadak, segera hubungi tenaga medis.';
+
+  @override
+  String questionnaireMetaText(int count) {
+    return '$count pertanyaan Â· ~2 menit';
+  }
+
+  @override
+  String get bengkakTitle => 'Bengkak pada Tubuh';
+
+  @override
+  String get bengkakSubtitle => 'Edema';
+
+  @override
+  String get bengkakDescription =>
+      'Kuesioner ini terdiri dari pertanyaan terkait keluhan bengkak pada tubuh selama kehamilan.';
+
+  @override
+  String get keluarCairanTitle => 'Keluar Cairan';
+
+  @override
+  String get keluarCairanSubtitle => 'Cairan abnormal';
+
+  @override
+  String get keluarCairanDescription =>
+      'Kuesioner ini terdiri dari pertanyaan terkait keluhan keluar cairan tidak normal selama kehamilan.';
+
+  @override
+  String get keluarDarahTitle => 'Keluar Darah';
+
+  @override
+  String get keluarDarahSubtitle => 'Perdarahan';
+
+  @override
+  String get keluarDarahDescription =>
+      'Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan keluar darah selama kehamilan.';
+
+  @override
+  String get mualMuntahTitle => 'Mual Muntah';
+
+  @override
+  String get mualMuntahSubtitle => 'Morning sickness';
+
+  @override
+  String get mualMuntahDescription =>
+      'Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan mual dan muntah selama kehamilan.';
+
+  @override
+  String get pergerakanJaninTitle => 'Pergerakan Janin';
+
+  @override
+  String get pergerakanJaninSubtitle => 'Tendangan bayi';
+
+  @override
+  String get pergerakanJaninDescription =>
+      'Kuesioner ini terdiri dari pertanyaan terkait pergerakan janin selama kehamilan.';
+
+  @override
+  String get sakitKepalaTitle => 'Sakit Kepala';
+
+  @override
+  String get sakitKepalaSubtitle => 'Migrain & pusing';
+
+  @override
+  String get sakitKepalaDescription =>
+      'Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan sakit kepala selama kehamilan.';
+
+  @override
+  String get preeklampsiaTitle => 'Preeklampsia';
+
+  @override
+  String get yangPerluDihindariLabel => 'Yang Perlu Dihindari';
+
+  @override
+  String get jenisAktivitasLabel => 'Jenis Aktivitas yang Dianjurkan';
+
+  @override
+  String get panduanPerawatanHeader => 'PANDUAN PERAWATAN';
+
+  @override
+  String get panduanPerawatanHarian => 'Panduan Perawatan Harian';
+
+  @override
+  String get zatGiziPentingLabel => 'Zat Gizi Penting';
+
+  @override
+  String get keluhanMenuTitle => 'Keluhan';
+
+  @override
+  String get keluhanMenuSubtitle => 'Pilih keluhan yang Anda rasakan';
+
+  @override
+  String get skriningTitle => 'Skrining Kehamilan';
+
+  @override
+  String get skriningSubtitle =>
+      'Deteksi dini risiko untuk kehamilan yang lebih aman';
+
+  @override
+  String get skriningRisikoHeader => 'SKRINING RISIKO';
+
+  @override
+  String get penapasanTingkatLanjut => 'Penapisan Tingkat Lanjut';
+
+  @override
+  String get penapasanSubtitle =>
+      'Skrining komprehensif risiko komplikasi persalinan';
+
+  @override
+  String get pemantauanRutinHeader => 'PEMANTAUAN RUTIN';
+
+  @override
+  String get rekamKesehatanTitle => 'Rekam Kesehatan';
+
+  @override
+  String get rekamKesehatanSubtitle => 'Monitoring harian';
+
+  @override
+  String get imtFillDataPrompt => 'Isi data di bawah untuk menghitung';
+
+  @override
+  String get recommendationLabel => 'REKOMENDASI';
+
+  @override
+  String get artikelPanduanTitle => 'Artikel & Panduan';
+
+  @override
+  String get allCategory => 'Semua';
+
+  @override
+  String get nutrisiCategory => 'Nutrisi';
+
+  @override
+  String get aktivitasCategory => 'Aktivitas';
+
+  @override
+  String get trimesterCategory => 'Trimester';
+
+  @override
+  String get perawatanCategory => 'Perawatan';
+
+  @override
+  String get persalinanCategory => 'Persalinan';
+
+  @override
+  String get pantanganCategory => 'Pantangan';
+
+  @override
+  String get editorPickLabel => 'Pilihan Editor';
+
+  @override
+  String readTimeMinutes(int count) {
+    return '$count menit baca';
+  }
+
+  @override
+  String get artikelNutrisiTitle => 'Panduan Gizi Lengkap untuk Ibu Hamil';
+
+  @override
+  String get artikelPantanganTitle => 'Yang Perlu Dihindari Selama Kehamilan';
+
+  @override
+  String get artikelAktivitasTitle => 'Aktivitas Fisik yang Aman Saat Hamil';
+
+  @override
+  String get artikelPerawatanTitle => 'Perawatan Sehari-hari Ibu Hamil';
+
+  @override
+  String get artikelPersalinanTitle => 'Persiapan Menjelang Persalinan';
+
+  @override
+  String get artikelTrimesterSatuTitle => 'Panduan Lengkap Trimester Pertama';
+
+  @override
+  String get artikelTrimesterDuaTitle => 'Panduan Lengkap Trimester Kedua';
+
+  @override
+  String get artikelTrimesterTigaTitle => 'Panduan Lengkap Trimester Ketiga';
+
+  @override
+  String get additionalTipsLabel => 'Tips Tambahan:';
+
+  @override
+  String get articleTip1 => 'Konsultasikan dengan dokter secara teratur';
+
+  @override
+  String get articleTip2 => 'Jaga pola makan seimbang';
+
+  @override
+  String get articleTip3 => 'Lakukan olahraga ringan yang aman';
+
+  @override
+  String get searchResultsTitle => 'Hasil Pencarian';
+
+  @override
+  String get aktivitasFisikIbuHamilTitle => 'Aktivitas Fisik Ibu Hamil';
+
+  @override
+  String get perawatanSehariHariTitle => 'Perawatan Sehari-hari';
+
+  @override
+  String get chooseTrimesterLabel => 'PILIH TRIMESTER';
+
+  @override
+  String get pregnancyGuideHeader => 'PANDUAN KEHAMILAN';
+
+  @override
+  String get introductionLabel => 'Pengantar';
+
+  @override
+  String get recommendedAndAvoidLabel => 'Yang Dianjurkan & Dihindari';
+
+  @override
+  String get babyDevelopmentTitle => 'Perkembangan Bayi';
+
+  @override
+  String get chooseWeekLabel => 'PILIH MINGGU';
+
+  @override
+  String get weeklyDevelopmentLabel => 'Perkembangan Minggu Ini';
+
+  @override
+  String get tipsForMotherLabel => 'Tips Untuk Ibu';
+
+  @override
+  String get pregnancyJourneyLabel => 'Perjalanan Kehamilan';
+
+  @override
+  String get bornLabel => 'Lahir';
+
+  @override
+  String get questionnaireProgress => 'Progres';
+
+  @override
+  String get answerYes => 'Ya';
+
+  @override
+  String get answerNo => 'Tidak';
+
+  @override
+  String questionStepLabel(int current, int total) {
+    return 'Pertanyaan $current dari $total';
+  }
+
+  @override
+  String get bengkakQuestTitle => 'Kuesioner Bengkak';
+
+  @override
+  String get keluarCairanQuestTitle => 'Kuesioner Keluar Cairan';
+
+  @override
+  String get keluarDarahQuestTitle => 'Kuesioner Keluar Darah';
+
+  @override
+  String get mualMuntahQuestTitle => 'Kuesioner Mual Muntah';
+
+  @override
+  String get pergerakanJaninQuestTitle => 'Kuesioner Pergerakan Janin';
+
+  @override
+  String get sakitKepalaQuestTitle => 'Kuesioner Sakit Kepala';
+
+  @override
+  String get penapisanQuestTitle => 'Kuesioner Penapisan';
+
+  @override
+  String get preeklampsiaQuestTitle => 'Kuesioner Preeklampsia';
+
+  @override
+  String get examResultTitle => 'Hasil Pemeriksaan';
+
+  @override
+  String get yangBisaDilakukan => 'YANG BISA DILAKUKAN';
+
+  @override
+  String get returnToHome => 'Kembali ke Beranda';
+
+  @override
+  String get retryExamination => 'Ulangi Pemeriksaan';
+
+  @override
+  String scoreLabel(int score) {
+    return 'Skor $score';
+  }
+
+  @override
+  String yesAnswerSummary(int yes, int total) {
+    return '$yes dari $total jawaban \"Ya\"';
+  }
+
+  @override
+  String get medicalDisclaimerText =>
+      'Hasil ini bukan diagnosis medis. Selalu konsultasikan kondisi Anda dengan tenaga kesehatan.';
+
+  @override
+  String get sevImmediateCheck => 'Segera Periksa';
+
+  @override
+  String get sevNeedRest => 'Perlu Istirahat';
+
+  @override
+  String get sevStayAlert => 'Tetap Waspada';
+
+  @override
+  String get sevNeedMonitoring => 'Perlu Dipantau';
+
+  @override
+  String get sevGoodCondition => 'Kondisi Baik';
+
+  @override
+  String get sevNormal => 'Normal';
+
+  @override
+  String get sevNoIssue => 'Tidak Ada Masalah';
+
+  @override
+  String get sevNeedAttention => 'Perlu Perhatian';
+
+  @override
+  String get sevFetalActive => 'Janin Aktif';
+
+  @override
+  String get sevHighRisk => 'Risiko Tinggi';
+
+  @override
+  String get sevLowRisk => 'Risiko Rendah';
+
+  @override
+  String get sevMediumRisk => 'Risiko Sedang';
+
+  @override
+  String get sevNoRisk => 'Tidak Ada Risiko';
+
+  @override
+  String get bengkakSevHighDesc =>
+      'Pembengkakan yang Anda alami memerlukan evaluasi segera oleh tenaga kesehatan.';
+
+  @override
+  String get bengkakSevMedDesc =>
+      'Bengkak ringan yang umum terjadi. Lakukan perawatan mandiri dan pantau perkembangannya.';
+
+  @override
+  String get bengkakSevLowDesc => 'Kondisi saat ini perlu tetap dipantau.';
+
+  @override
+  String get keluarCairanSevNeedMonDesc =>
+      'Lakukan observasi selama 1 hari. Jika cairan masih keluar, segera ke fasilitas kesehatan.';
+
+  @override
+  String get keluarCairanSevAlertDesc =>
+      'Kondisi cairan saat ini perlu terus dipantau.';
+
+  @override
+  String get keluarCairanSevImmDesc =>
+      'Terdapat tanda-tanda cairan abnormal yang memerlukan penanganan segera.';
+
+  @override
+  String get keluarDarahSevGoodDesc =>
+      'Tidak ditemukan tanda-tanda perdarahan berbahaya saat ini.';
+
+  @override
+  String get keluarDarahSevImmDesc =>
+      'Terdapat tanda perdarahan yang memerlukan penanganan segera.';
+
+  @override
+  String get mualMuntahSevNormalDesc =>
+      'Mual muntah yang Anda alami merupakan kondisi umum di awal kehamilan.';
+
+  @override
+  String get mualMuntahSevNoIssueDesc =>
+      'Tidak ditemukan keluhan mual muntah yang signifikan.';
+
+  @override
+  String get mualMuntahSevAttentionDesc =>
+      'Keluhan mual muntah Anda perlu ditangani oleh tenaga kesehatan.';
+
+  @override
+  String get pergerakanJaninSevActiveDesc =>
+      'Pergerakan janin Anda normal dan aktif. Teruskan pemantauan harian.';
+
+  @override
+  String get pergerakanJaninSevAlertDesc =>
+      'Pantau terus pergerakan janin dan segera lapor jika ada perubahan.';
+
+  @override
+  String get pergerakanJaninSevImmDesc =>
+      'Pergerakan janin menunjukkan tanda yang perlu diperiksa segera.';
+
+  @override
+  String get sakitKepalaSevRestDesc =>
+      'Sakit kepala kemungkinan disebabkan kelelahan. Cobalah istirahat yang cukup.';
+
+  @override
+  String get sakitKepalaSevAttentionDesc =>
+      'Keluhan sakit kepala Anda memerlukan pemeriksaan lebih lanjut oleh tenaga kesehatan.';
+
+  @override
+  String get penapisanSevLowDesc =>
+      'Berdasarkan hasil penapisan, kehamilan Anda tergolong risiko rendah.';
+
+  @override
+  String get penapisanSevHighDesc =>
+      'Berdasarkan hasil penapisan, kehamilan Anda memerlukan penanganan di fasilitas lengkap.';
+
+  @override
+  String get preeklampsiaSevHighDesc =>
+      'Anda memiliki beberapa faktor risiko preeklampsia yang perlu ditangani segera.';
+
+  @override
+  String get preeklampsiaSevMedDesc =>
+      'Terdapat beberapa faktor risiko yang perlu dipantau secara rutin.';
+
+  @override
+  String get preeklampsiaSevLowDesc =>
+      'Risiko preeklampsia Anda tergolong rendah. Tetap jaga pola hidup sehat.';
+
+  @override
+  String get preeklampsiaSevNoRiskDesc =>
+      'Tidak ditemukan faktor risiko preeklampsia saat ini.';
+
+  @override
+  String get bengkakTip1 =>
+      'Tinggikan posisi kaki saat berbaring menggunakan bantal';
+
+  @override
+  String get bengkakTip2 => 'Hindari berdiri atau duduk terlalu lama';
+
+  @override
+  String get bengkakTip3 => 'Kurangi konsumsi garam dan makanan olahan';
+
+  @override
+  String get bengkakTip4 =>
+      'Lakukan senam kaki ringan untuk melancarkan sirkulasi';
+
+  @override
+  String get keluarCairanTip1 =>
+      'Catat warna, bau, dan jumlah cairan yang keluar';
+
+  @override
+  String get keluarCairanTip2 =>
+      'Gunakan pembalut untuk memantau jumlah cairan';
+
+  @override
+  String get keluarCairanTip3 => 'Jaga kebersihan area kewanitaan';
+
+  @override
+  String get keluarCairanTip4 =>
+      'Segera ke fasilitas kesehatan jika cairan berbau atau berwarna tidak normal';
+
+  @override
+  String get keluarDarahTip1 =>
+      'Segera berbaring dan hindari aktivitas fisik berat';
+
+  @override
+  String get keluarDarahTip2 =>
+      'Catat warna, jumlah, dan waktu terjadinya perdarahan';
+
+  @override
+  String get keluarDarahTip3 =>
+      'Jangan menggunakan tampon — gunakan pembalut biasa';
+
+  @override
+  String get keluarDarahTip4 =>
+      'Jangan menunggu terlalu lama sebelum ke fasilitas kesehatan';
+
+  @override
+  String get mualMuntahTip1 =>
+      'Makan dalam porsi kecil tapi sering (5–6x sehari)';
+
+  @override
+  String get mualMuntahTip2 =>
+      'Hindari makanan berbau tajam, berlemak, atau pedas';
+
+  @override
+  String get mualMuntahTip3 =>
+      'Minum jahe hangat atau teh peppermint untuk meredakan mual';
+
+  @override
+  String get mualMuntahTip4 =>
+      'Istirahat yang cukup dan hindari stres berlebihan';
+
+  @override
+  String get pergerakanJaninTip1 =>
+      'Pantau gerakan janin setiap hari, idealnya setelah makan';
+
+  @override
+  String get pergerakanJaninTip2 =>
+      'Catat minimal 10 gerakan dalam 2 jam sebagai normal';
+
+  @override
+  String get pergerakanJaninTip3 =>
+      'Berbaring miring ke kiri untuk memaksimalkan aliran darah ke janin';
+
+  @override
+  String get pergerakanJaninTip4 =>
+      'Hubungi bidan jika gerakan janin berkurang drastis';
+
+  @override
+  String get sakitKepalaTip1 => 'Istirahat di ruangan yang tenang dan gelap';
+
+  @override
+  String get sakitKepalaTip2 =>
+      'Kompres dingin atau hangat di dahi dan belakang leher';
+
+  @override
+  String get sakitKepalaTip3 =>
+      'Pastikan tubuh terhidrasi dengan minum air yang cukup';
+
+  @override
+  String get sakitKepalaTip4 =>
+      'Hindari layar HP/TV berlebihan dan paparan sinar terang';
+
+  @override
+  String get penapisanTip1 =>
+      'Persiapkan biaya dan transportasi ke fasilitas kesehatan yang sesuai';
+
+  @override
+  String get penapisanTip2 =>
+      'Buat rencana persalinan bersama keluarga dan tenaga kesehatan';
+
+  @override
+  String get penapisanTip3 =>
+      'Pantau kondisi kehamilan secara rutin sesuai jadwal ANC';
+
+  @override
+  String get penapisanTip4 =>
+      'Konsultasikan pertanyaan seputar persalinan ke bidan atau dokter';
+
+  @override
+  String get preeklampsiaTip1 =>
+      'Rutin periksa tekanan darah setiap kunjungan ANC';
+
+  @override
+  String get preeklampsiaTip2 => 'Batasi konsumsi garam dan makanan olahan';
+
+  @override
+  String get preeklampsiaTip3 =>
+      'Segera ke fasilitas kesehatan jika kepala terasa berat atau penglihatan kabur';
+
+  @override
+  String get preeklampsiaTip4 => 'Istirahat cukup dan hindari aktivitas berat';
 }

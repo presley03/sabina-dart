@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import '../services/health_analytics_service.dart';
 import '../services/app_integration_service.dart';
 import '../screens/health_monitoring_screen.dart';
@@ -98,12 +99,13 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    final l10n = AppLocalizations.of(context)!;
 
     if (isLoading) {
       return _buildLoadingWidget();
     }
 
-    return _buildMinimalistContent();
+    return _buildMinimalistContent(l10n);
   }
 
   Widget _buildLoadingWidget() {
@@ -126,28 +128,28 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
     );
   }
 
-  Widget _buildMinimalistContent() {
+  Widget _buildMinimalistContent(AppLocalizations l10n) {
     return Column(
       children: [
         // Simple Health Score Card
-        _buildSimpleHealthScore(),
+        _buildSimpleHealthScore(l10n),
         const SizedBox(height: 20),
 
         // Main Action Button
-        _buildMainActionButton(),
+        _buildMainActionButton(l10n),
         const SizedBox(height: 20),
 
         // Essential Quick Actions (Only 2)
-        _buildEssentialActions(),
+        _buildEssentialActions(l10n),
         const SizedBox(height: 20),
 
         // Single Most Important Insight
-        _buildSingleInsight(),
+        _buildSingleInsight(l10n),
       ],
     );
   }
 
-  Widget _buildSimpleHealthScore() {
+  Widget _buildSimpleHealthScore(AppLocalizations l10n) {
     Color scoreColor = healthScore >= 80
         ? Colors.green
         : healthScore >= 60
@@ -155,10 +157,10 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
             : Colors.red;
 
     String statusText = healthScore >= 80
-        ? 'Sehat'
+        ? l10n.dashboardStatusHealthy
         : healthScore >= 60
-            ? 'Baik'
-            : 'Perlu Perhatian';
+            ? l10n.dashboardStatusGood
+            : l10n.dashboardStatusNeedsAttention;
 
     return Container(
       width: double.infinity,
@@ -187,9 +189,9 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Kesehatan Anda',
-                  style: TextStyle(
+                Text(
+                  l10n.yourHealth,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -232,7 +234,7 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
     );
   }
 
-  Widget _buildMainActionButton() {
+  Widget _buildMainActionButton(AppLocalizations l10n) {
     return SizedBox(
       width: double.infinity,
       height: 64,
@@ -259,20 +261,20 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
               child: const Icon(Icons.health_and_safety, size: 24),
             ),
             const SizedBox(width: 16),
-            const Column(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Catat Kesehatan Harian',
-                  style: TextStyle(
+                  l10n.dashboardRecordDailyHealth,
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  'Pantau berat badan & tekanan darah',
-                  style: TextStyle(
+                  l10n.dashboardMonitorSubtitle,
+                  style: const TextStyle(
                     fontSize: 12,
                     color: Colors.white70,
                   ),
@@ -285,14 +287,14 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
     );
   }
 
-  Widget _buildEssentialActions() {
+  Widget _buildEssentialActions(AppLocalizations l10n) {
     return Row(
       children: [
         Expanded(
           child: _buildActionCard(
             icon: Icons.calendar_today,
-            title: 'Jadwal Kontrol',
-            subtitle: 'Atur reminder dokter',
+            title: l10n.scheduleCheckup,
+            subtitle: l10n.dashboardScheduleSubtitle,
             color: Colors.blue,
             onTap: _showAppointmentDialog,
           ),
@@ -301,8 +303,8 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
         Expanded(
           child: _buildActionCard(
             icon: Icons.emergency,
-            title: 'Darurat',
-            subtitle: 'Hubungi bantuan',
+            title: l10n.emergency,
+            subtitle: l10n.dashboardEmergencySubtitle,
             color: Colors.red,
             onTap: _showEmergencyDialog,
           ),
@@ -371,7 +373,7 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
     );
   }
 
-  Widget _buildSingleInsight() {
+  Widget _buildSingleInsight(AppLocalizations l10n) {
     if (insights.isEmpty) {
       return Container(
         width: double.infinity,
@@ -394,7 +396,7 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
             ),
             const SizedBox(height: 12),
             Text(
-              'Tips Kesehatan',
+              l10n.dashboardHealthTipsTitle,
               style: TextStyle(
                 color: Colors.blue[800],
                 fontSize: 16,
@@ -402,9 +404,9 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
               ),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Mulai catat kesehatan harian untuk mendapatkan tips personal yang sesuai dengan kondisi Anda.',
-              style: TextStyle(
+            Text(
+              l10n.dashboardHealthTipsEmpty,
+              style: const TextStyle(
                 color: Colors.black87,
                 fontSize: 14,
                 height: 1.4,
@@ -454,10 +456,10 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
                 child: Icon(Icons.lightbulb, color: priorityColor, size: 20),
               ),
               const SizedBox(width: 12),
-              const Expanded(
+              Expanded(
                 child: Text(
-                  'Rekomendasi untuk Anda',
-                  style: TextStyle(
+                  l10n.dashboardRecommendation,
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.black87,
@@ -499,6 +501,7 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
   }
 
   void _showAppointmentDialog() {
+    final l10n = AppLocalizations.of(context)!;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -507,17 +510,17 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
           children: [
             Icon(Icons.calendar_today, color: Colors.blue[600]),
             const SizedBox(width: 12),
-            const Text('Jadwal Kontrol'),
+            Text(l10n.scheduleCheckup),
           ],
         ),
-        content: const Text(
-          'Fitur ini membantu Anda mengatur reminder untuk kontrol rutin ke dokter kandungan.\n\nSegera hadir!',
-          style: TextStyle(height: 1.4),
+        content: Text(
+          l10n.dashboardScheduleDialogContent,
+          style: const TextStyle(height: 1.4),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Mengerti'),
+            child: Text(l10n.dashboardUnderstood),
           ),
         ],
       ),
@@ -525,6 +528,7 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
   }
 
   void _showEmergencyDialog() {
+    final l10n = AppLocalizations.of(context)!;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -533,24 +537,23 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
           children: [
             Icon(Icons.emergency, color: Colors.red[600]),
             const SizedBox(width: 12),
-            const Text('Kontak Darurat'),
+            Text(l10n.emergencyContacts),
           ],
         ),
-        content: const Column(
+        content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Hubungi segera jika mengalami:',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              l10n.emergencyCallToAction,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 12),
-            Text(
-                '• Pendarahan hebat\n• Kontraksi kuat sebelum waktunya\n• Sakit kepala parah\n• Pandangan kabur'),
-            SizedBox(height: 16),
+            const SizedBox(height: 12),
+            Text(l10n.emergencySymptoms),
+            const SizedBox(height: 16),
             ListTile(
-              leading: Icon(Icons.local_hospital, color: Colors.red),
-              title: Text('Ambulans'),
-              subtitle: Text('118 / 119'),
+              leading: const Icon(Icons.local_hospital, color: Colors.red),
+              title: Text(l10n.ambulance),
+              subtitle: const Text('118 / 119'),
               contentPadding: EdgeInsets.zero,
             ),
           ],
@@ -558,7 +561,7 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Tutup'),
+            child: Text(l10n.close),
           ),
         ],
       ),

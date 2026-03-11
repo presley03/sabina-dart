@@ -20,8 +20,11 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor ?? AppColors.primaryPink, // Gunakan warna latar belakang jika ada, atau default
-        foregroundColor: textColor ?? Colors.white, // Gunakan warna teks jika ada, atau default putih
+        backgroundColor: backgroundColor ??
+            AppColors
+                .primaryPink, // Gunakan warna latar belakang jika ada, atau default
+        foregroundColor: textColor ??
+            Colors.white, // Gunakan warna teks jika ada, atau default putih
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),

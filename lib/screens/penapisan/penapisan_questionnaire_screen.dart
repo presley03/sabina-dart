@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sabina/core/theme/app_theme.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import '../../models/penapisan_model.dart';
 import 'penapisan_result_screen.dart';
 
@@ -13,135 +17,244 @@ class PenapisanQuestionnaireScreen extends StatelessWidget {
         if (model.isQuestionnaireCompleted) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const PenapisanResultScreen()),
+              MaterialPageRoute(builder: (_) => const PenapisanResultScreen()),
             );
           });
-          return const Scaffold(body: Center(child: CircularProgressIndicator()));
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
         }
 
+        final l10n = AppLocalizations.of(context)!;
+        final progress =
+            (model.currentQuestionIndex + 1) / model.questions.length;
+        final current = model.currentQuestionIndex + 1;
+        final total = model.questions.length;
+
         return Scaffold(
-          backgroundColor: const Color(0xFFF3F4F6), // Warna latar belakang yang netral
+          backgroundColor: SabinaColors.neutral100,
           appBar: AppBar(
+            backgroundColor: SabinaColors.white,
+            elevation: 0,
+            surfaceTintColor: Colors.transparent,
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+              color: SabinaColors.neutral900,
               onPressed: () => Navigator.of(context).pop(),
             ),
-            title: const Text('Kuesioner Penapisan', style: TextStyle(color: Colors.black)),
-            backgroundColor: Colors.white, // Warna header yang netral
-            elevation: 1,
+            title: Text(
+              l10n.penapisanQuestTitle,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+                color: SabinaColors.neutral900,
+              ),
+            ),
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(1),
+              child: Divider(height: 1, color: SabinaColors.neutral300),
+            ),
           ),
           body: SafeArea(
-            child: Center( // Pusatkan semua elemen di layar
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center, // Pusatkan secara vertikal
-                  crossAxisAlignment: CrossAxisAlignment.center, // Pusatkan secara horizontal
-                  children: [
-                    _buildProgressIndicator(model),
-                    const SizedBox(height: 20),
-                    _buildQuestionCard(context, model),
-                    const SizedBox(height: 30),
-                    _buildAnswerButtons(context, model),
-                  ],
+            child: Column(
+              children: [
+                // Progress bar
+                _ProgressBar(
+                    progress: progress, current: current, total: total),
+
+                // Question
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Step label
+                        Text(
+                          l10n.questionStepLabel(current, total),
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            color: SabinaColors.neutral500,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+
+                        // Question card
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 24,
+                            vertical: 32,
+                          ),
+                          decoration: BoxDecoration(
+                            color: SabinaColors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: SabinaColors.neutral900
+                                    .withValues(alpha: 0.06),
+                                blurRadius: 16,
+                                offset: const Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: Text(
+                            model.currentQuestion.text,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600,
+                              color: SabinaColors.neutral900,
+                              height: 1.55,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
+
+                // Answer buttons
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 32),
+                  child: Row(
+                    children: [
+                      // Tidak
+                      Expanded(
+                        child: _AnswerButton(
+                          label: l10n.answerNo,
+                          isYes: false,
+                          onTap: () {
+                            HapticFeedback.lightImpact();
+                            model.answerQuestion(false);
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      // Ya
+                      Expanded(
+                        child: _AnswerButton(
+                          label: l10n.answerYes,
+                          isYes: true,
+                          onTap: () {
+                            HapticFeedback.lightImpact();
+                            model.answerQuestion(true);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         );
       },
     );
   }
+}
 
-  // Membuat progress bar berbentuk lingkaran
-  Widget _buildProgressIndicator(PenapisanModel model) {
-    return CircularProgressIndicator(
-      value: (model.currentQuestionIndex + 1) / model.questions.length,
-      backgroundColor: Colors.grey[300],
-      valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF6C63FF)),
-      strokeWidth: 6,
-    );
-  }
+// ── Progress bar ──────────────────────────────────────────────────────────────
 
-  // Membuat card untuk menampilkan pertanyaan
-  Widget _buildQuestionCard(BuildContext context, PenapisanModel model) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      elevation: 6, // Shadow untuk kesan floating
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              "Pertanyaan ${model.currentQuestionIndex + 1} dari ${model.questions.length}",
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Colors.black54,
+class _ProgressBar extends StatelessWidget {
+  final double progress;
+  final int current;
+  final int total;
+
+  const _ProgressBar({
+    required this.progress,
+    required this.current,
+    required this.total,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: SabinaColors.white,
+      padding: const EdgeInsets.fromLTRB(24, 12, 24, 14),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.questionnaireProgress,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w500,
+                  color: SabinaColors.neutral500,
+                ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              model.currentQuestion.text,
-              style: const TextStyle(
-                fontSize: 20, // Ukuran teks lebih besar
-                fontWeight: FontWeight.bold,
+              Text(
+                '$current / $total',
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w700,
+                  color: SabinaColors.primary700,
+                ),
               ),
-              textAlign: TextAlign.center,
+            ],
+          ),
+          const SizedBox(height: 8),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(99),
+            child: LinearProgressIndicator(
+              value: progress,
+              minHeight: 6,
+              backgroundColor: SabinaColors.neutral300,
+              valueColor:
+                  AlwaysStoppedAnimation<Color>(SabinaColors.primary700),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
+}
 
-  // Membuat tombol jawaban dengan ikon
-  Widget _buildAnswerButtons(BuildContext context, PenapisanModel model) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        ElevatedButton.icon(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green[400],
-            foregroundColor: Colors.white,
-            minimumSize: const Size(140, 60),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            elevation: 3,
+// ── Answer button ─────────────────────────────────────────────────────────────
+
+class _AnswerButton extends StatelessWidget {
+  final String label;
+  final bool isYes;
+  final VoidCallback onTap;
+
+  const _AnswerButton({
+    required this.label,
+    required this.isYes,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: isYes ? SabinaColors.primary700 : SabinaColors.white,
+      borderRadius: BorderRadius.circular(14),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(14),
+        child: Container(
+          height: 54,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            border: isYes
+                ? null
+                : Border.all(color: SabinaColors.neutral300, width: 1.5),
           ),
-          onPressed: () => model.answerQuestion(true),
-          icon: const Icon(Icons.check_circle_outline),
-          label: const Text(
-            'Ya',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        ElevatedButton.icon(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.red[400],
-            foregroundColor: Colors.white,
-            minimumSize: const Size(140, 60),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            elevation: 3,
-          ),
-          onPressed: () => model.answerQuestion(false),
-          icon: const Icon(Icons.cancel_outlined),
-          label: const Text(
-            'Tidak',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+          child: Center(
+            child: Text(
+              label,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                color: isYes ? SabinaColors.white : SabinaColors.neutral700,
+              ),
             ),
           ),
         ),
-      ],
+      ),
     );
   }
 }

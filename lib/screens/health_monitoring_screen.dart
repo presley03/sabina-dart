@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sabina/core/theme/app_theme.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import '../models/health_monitoring_model.dart';
-import '../services/health_analytics_service.dart';
 import '../services/secure_storage_helper.dart';
+import '../widgets/health_chart_widget.dart';
 
 class HealthMonitoringScreen extends StatefulWidget {
   const HealthMonitoringScreen({super.key});
@@ -19,13 +20,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
   final _diastolicController = TextEditingController();
   final _symptomsController = TextEditingController();
 
-  final int _selectedMood = 3;
-  final int _waterGlasses = 0;
-  final int _sleepHours = 8;
-
   List<HealthRecord> _healthRecords = [];
-  List<EmergencyContact> _emergencyContacts = [];
-  int _healthScore = 75;
   bool _isLoading = false;
 
   @override
@@ -41,14 +36,10 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     setState(() => _isLoading = true);
     try {
       final records = await SecureStorageHelper.getHealthRecords();
-      final contacts = await SecureStorageHelper.getEmergencyContacts();
-      final score = HealthAnalyticsService.calculateHealthScore(records);
 
       if (mounted) {
         setState(() {
           _healthRecords = records;
-          _emergencyContacts = contacts;
-          _healthScore = score;
           _isLoading = false;
         });
       }
@@ -68,12 +59,13 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: SabinaColors.neutral100,
       appBar: AppBar(
         title: Text(
-          'Catat Kesehatan',
+          l10n.recordHealth,
           style: SabinaTextStyles.h3().copyWith(
             color: SabinaColors.primary700,
           ),
@@ -93,19 +85,24 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Simple explanation
-                    _buildExplanationCard(),
+                    _buildExplanationCard(l10n),
                     const SizedBox(height: 24),
 
                     // Simple health input form
-                    _buildSimpleHealthForm(),
+                    _buildSimpleHealthForm(l10n),
                     const SizedBox(height: 24),
 
+                    // Health trend charts
+                    if (_healthRecords.isNotEmpty)
+                      HealthChartWidget(records: _healthRecords),
+                    if (_healthRecords.isNotEmpty) const SizedBox(height: 24),
+
                     // Recent records (simplified)
-                    _buildSimpleRecords(),
+                    _buildSimpleRecords(l10n),
                     const SizedBox(height: 24),
 
                     // Emergency contact (simplified)
-                    _buildSimpleEmergencyCard(),
+                    _buildSimpleEmergencyCard(l10n),
                   ],
                 ),
               ),
@@ -113,7 +110,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     );
   }
 
-  Widget _buildExplanationCard() {
+  Widget _buildExplanationCard(AppLocalizations l10n) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -137,12 +134,12 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                   color: SabinaColors.secondary300,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child:
-                    Icon(Icons.info_outline, color: SabinaColors.secondary700, size: 18),
+                child: Icon(Icons.info_outline,
+                    color: SabinaColors.secondary700, size: 18),
               ),
               const SizedBox(width: 12),
               Text(
-                'Mengapa Perlu Dicatat?',
+                l10n.whyRecordTitle,
                 style: SabinaTextStyles.bodyLarge().copyWith(
                   color: SabinaColors.secondary700,
                 ),
@@ -151,7 +148,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
           ),
           const SizedBox(height: 12),
           Text(
-            'Dengan mencatat berat badan dan tekanan darah secara rutin, dokter dapat memantau perkembangan kehamilan Anda dan mendeteksi masalah sejak dini.',
+            l10n.whyRecordBody,
             style: SabinaTextStyles.bodyRegular().copyWith(
               color: SabinaColors.secondary700,
               height: 1.4,
@@ -162,7 +159,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     );
   }
 
-  Widget _buildSimpleHealthForm() {
+  Widget _buildSimpleHealthForm(AppLocalizations l10n) {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -199,7 +196,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                 const SizedBox(width: 16),
                 Expanded(
                   child: Text(
-                    'Catat Hari Ini',
+                    l10n.recordTodayTitle,
                     style: SabinaTextStyles.h2().copyWith(
                       color: SabinaColors.neutral900,
                     ),
@@ -211,7 +208,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
 
             // Weight Input with better explanation
             Text(
-              'Berat Badan (kg)',
+              l10n.weight,
               style: SabinaTextStyles.bodyLarge().copyWith(
                 color: SabinaColors.neutral700,
               ),
@@ -222,16 +219,17 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
               keyboardType: TextInputType.number,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Masukkan berat badan Anda';
+                  return l10n.weightInputError;
                 }
                 if (!_isValidWeight(value)) {
-                  return 'Berat badan harus antara 30-200 kg';
+                  return l10n.weightRangeError;
                 }
                 return null;
               },
               decoration: InputDecoration(
-                hintText: 'Contoh: 65',
-                prefixIcon: Icon(Icons.monitor_weight, color: SabinaColors.primary700),
+                hintText: l10n.weightInputHint,
+                prefixIcon:
+                    Icon(Icons.monitor_weight, color: SabinaColors.primary700),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide(color: SabinaColors.neutral300),
@@ -242,7 +240,8 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: SabinaColors.primary700, width: 2),
+                  borderSide:
+                      BorderSide(color: SabinaColors.primary700, width: 2),
                 ),
                 filled: true,
                 fillColor: SabinaColors.neutral100,
@@ -254,7 +253,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
 
             // Blood Pressure with better explanation
             Text(
-              'Tekanan Darah',
+              l10n.bloodPressureLabel,
               style: SabinaTextStyles.bodyLarge().copyWith(
                 color: SabinaColors.neutral700,
               ),
@@ -268,14 +267,15 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                     keyboardType: TextInputType.number,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Wajib diisi';
+                        return l10n.fieldRequired;
                       }
                       return null;
                     },
                     decoration: InputDecoration(
                       hintText: '120',
-                      labelText: 'Sistolik',
-                      prefixIcon: Icon(Icons.favorite, color: SabinaColors.error700),
+                      labelText: l10n.systolic,
+                      prefixIcon:
+                          Icon(Icons.favorite, color: SabinaColors.error700),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -301,15 +301,15 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                     keyboardType: TextInputType.number,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Wajib diisi';
+                        return l10n.fieldRequired;
                       }
                       return null;
                     },
                     decoration: InputDecoration(
                       hintText: '80',
-                      labelText: 'Diastolik',
-                      prefixIcon:
-                          Icon(Icons.favorite_border, color: SabinaColors.error700),
+                      labelText: l10n.diastolic,
+                      prefixIcon: Icon(Icons.favorite_border,
+                          color: SabinaColors.error700),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -322,7 +322,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
             ),
             const SizedBox(height: 12),
             Text(
-              'Normal: 120/80 mmHg. Jika >140/90, segera konsultasi dokter.',
+              l10n.bpNormalNote,
               style: SabinaTextStyles.caption().copyWith(
                 color: SabinaColors.neutral500,
                 fontStyle: FontStyle.italic,
@@ -351,7 +351,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                     const Icon(Icons.save, size: 20),
                     const SizedBox(width: 8),
                     Text(
-                      'Simpan Data',
+                      l10n.saveData,
                       style: SabinaTextStyles.button(),
                     ),
                   ],
@@ -364,7 +364,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     );
   }
 
-  Widget _buildSimpleRecords() {
+  Widget _buildSimpleRecords(AppLocalizations l10n) {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -399,7 +399,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
-                  'Catatan Terakhir',
+                  l10n.recentRecords,
                   style: SabinaTextStyles.h3().copyWith(
                     color: SabinaColors.neutral900,
                   ),
@@ -408,7 +408,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
               if (_healthRecords.isNotEmpty)
                 TextButton(
                   onPressed: _showAllRecords,
-                  child: const Text('Lihat Semua'),
+                  child: Text(l10n.viewAll),
                 ),
             ],
           ),
@@ -423,16 +423,17 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
               ),
               child: Column(
                 children: [
-                  Icon(Icons.note_add, size: 40, color: SabinaColors.neutral500),
+                  Icon(Icons.note_add,
+                      size: 40, color: SabinaColors.neutral500),
                   const SizedBox(height: 8),
                   Text(
-                    'Belum ada catatan',
+                    l10n.noRecordsYet,
                     style: SabinaTextStyles.bodyLarge().copyWith(
                       color: SabinaColors.neutral700,
                     ),
                   ),
                   Text(
-                    'Mulai catat kesehatan Anda hari ini!',
+                    l10n.startRecordingToday,
                     style: SabinaTextStyles.caption().copyWith(
                       color: SabinaColors.neutral500,
                     ),
@@ -466,7 +467,8 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
               color: SabinaColors.secondary300,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(Icons.favorite, color: SabinaColors.secondary700, size: 18),
+            child: Icon(Icons.favorite,
+                color: SabinaColors.secondary700, size: 18),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -494,7 +496,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
     );
   }
 
-  Widget _buildSimpleEmergencyCard() {
+  Widget _buildSimpleEmergencyCard(AppLocalizations l10n) {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -517,11 +519,12 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                   color: SabinaColors.error100,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Icon(Icons.emergency, color: SabinaColors.error700, size: 18),
+                child: Icon(Icons.emergency,
+                    color: SabinaColors.error700, size: 18),
               ),
               const SizedBox(width: 12),
               Text(
-                'Kontak Darurat',
+                l10n.emergencyContacts,
                 style: SabinaTextStyles.bodyLarge().copyWith(
                   color: SabinaColors.error700,
                 ),
@@ -530,7 +533,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
           ),
           const SizedBox(height: 12),
           Text(
-            'Hubungi segera jika mengalami: pendarahan hebat, kontraksi kuat, sakit kepala parah, atau pandangan kabur.',
+            l10n.emergencyCardBody,
             style: SabinaTextStyles.bodyRegular().copyWith(
               color: SabinaColors.error700,
               height: 1.4,
@@ -543,7 +546,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                 child: ElevatedButton.icon(
                   onPressed: _showEmergencyDialog,
                   icon: const Icon(Icons.phone, size: 18),
-                  label: const Text('Ambulans 118'),
+                  label: Text(l10n.ambulance118),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: SabinaColors.error700,
                     foregroundColor: SabinaColors.white,
@@ -558,7 +561,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
                 child: ElevatedButton.icon(
                   onPressed: _showEmergencyDialog,
                   icon: const Icon(Icons.local_hospital, size: 18),
-                  label: const Text('Dokter'),
+                  label: Text(l10n.doctor),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: SabinaColors.secondary700,
                     foregroundColor: SabinaColors.white,
@@ -603,7 +606,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text('Data kesehatan berhasil disimpan'),
+            content: Text(AppLocalizations.of(context)!.healthDataSaved),
             backgroundColor: SabinaColors.secondary700,
           ),
         );
@@ -625,29 +628,30 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
   }
 
   void _showEmergencyDialog() {
+    final l10n = AppLocalizations.of(context)!;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('🚨 Kontak Darurat'),
-        content: const Column(
+        title: Text(l10n.emergencyDialogTitle),
+        content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              leading: Icon(Icons.local_hospital, color: Colors.red),
-              title: Text('Ambulans'),
-              subtitle: Text('118 / 119'),
+              leading: const Icon(Icons.local_hospital, color: Colors.red),
+              title: Text(l10n.ambulance),
+              subtitle: const Text('118 / 119'),
             ),
             ListTile(
-              leading: Icon(Icons.phone, color: Colors.blue),
-              title: Text('Dokter Kandungan'),
-              subtitle: Text('Hubungi dokter Anda'),
+              leading: const Icon(Icons.phone, color: Colors.blue),
+              title: Text(l10n.obstetrician),
+              subtitle: Text(l10n.contactYourDoctor),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Tutup'),
+            child: Text(l10n.dashboardClose),
           ),
         ],
       ),
@@ -655,11 +659,12 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
   }
 
   void _showAllRecords() {
+    final l10n = AppLocalizations.of(context)!;
     // Navigate to detailed records screen
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Semua Catatan Kesehatan'),
+        title: Text(l10n.allHealthRecords),
         content: SizedBox(
           width: double.maxFinite,
           child: ListView.builder(
@@ -672,7 +677,7 @@ class _HealthMonitoringScreenState extends State<HealthMonitoringScreen>
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Tutup'),
+            child: Text(l10n.dashboardClose),
           ),
         ],
       ),

@@ -1,367 +1,424 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
-//import '../../utils/constants.dart';
 
-class MakananScreen extends StatefulWidget {
+class MakananScreen extends StatelessWidget {
   const MakananScreen({super.key});
-
-  @override
-  State<MakananScreen> createState() => _MakananScreenState();
-}
-
-class _MakananScreenState extends State<MakananScreen> {
-  int _currentIndex = 0;
-  final PageController _pageController = PageController(viewportFraction: 0.85);
-
-  late List<Map<String, dynamic>> _nutritionItems;
-  late List<String> _references;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final l10n = AppLocalizations.of(context)!;
-    _nutritionItems = [
-      {
-        'title': l10n.nutritionScreen_carbohydrates_title,
-        'icon': Icons.grain,
-        'content': l10n.nutritionScreen_carbohydrates_content,
-      },
-      {
-        'title': l10n.nutritionScreen_protein_title,
-        'icon': Icons.egg_alt,
-        'content': l10n.nutritionScreen_protein_content,
-      },
-      {
-        'title': l10n.nutritionScreen_healthyFats_title,
-        'icon': Icons.health_and_safety,
-        'content': l10n.nutritionScreen_healthyFats_content,
-      },
-      {
-        'title': l10n.nutritionScreen_vitaminsAndMinerals_title,
-        'icon': Icons.local_florist,
-        'content': l10n.nutritionScreen_vitaminsAndMinerals_content,
-      },
-      {
-        'title': l10n.nutritionScreen_fiber_title,
-        'icon': Icons.eco,
-        'content': l10n.nutritionScreen_fiber_content,
-      },
-    ];
-
-    _references = [
-      l10n.nutritionScreen_reference1,
-      l10n.nutritionScreen_reference2,
-      l10n.nutritionScreen_reference3,
-      l10n.nutritionScreen_reference4,
-    ];
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(l10n.nutritionScreen_title,
-            style: const TextStyle(color: Colors.black)),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.blue[100]!,
-              Colors.blue[200]!,
-              Colors.purple[100]!,
-            ],
+        surfaceTintColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+          color: SabinaColors.neutral900,
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          l10n.nutritionScreen_title,
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+            color: SabinaColors.neutral900,
           ),
         ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildIntroduction(l10n),
-                _buildPageView(),
-                _buildPageIndicator(),
-                _buildMealPlan(l10n),
-                _buildReferences(l10n),
-              ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Divider(height: 1, color: SabinaColors.neutral300),
+        ),
+      ),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Hero image — full bleed, no border radius
+            Image.asset(
+              'assets/images/healthy_pregnancy_diet.png',
+              width: double.infinity,
+              height: 220,
+              fit: BoxFit.cover,
             ),
-          ),
-        ),
-      ),
-    );
-  }
 
-  Widget _buildIntroduction(AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    'assets/images/healthy_pregnancy_diet.png',
-                    height: 150,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 28),
+
+                  // Article intro
+                  Text(
+                    l10n.nutritionScreen_introduction,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 15,
+                      color: SabinaColors.neutral700,
+                      height: 1.8,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  l10n.nutritionScreen_introduction,
-                  style: const TextStyle(fontSize: 16, color: Colors.black),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
-  Widget _buildPageView() {
-    return SizedBox(
-      height: 350,
-      child: PageView.builder(
-        controller: _pageController,
-        itemCount: _nutritionItems.length,
-        onPageChanged: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        itemBuilder: (context, index) {
-          final item = _nutritionItems[index];
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.2),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.1),
-                        blurRadius: 10,
-                        spreadRadius: 5,
-                      ),
+                  const SizedBox(height: 36),
+
+                  // Section label
+                  _sectionLabel(l10n.zatGiziPentingLabel),
+
+                  const SizedBox(height: 20),
+
+                  // Numbered nutrition items
+                  _numberedArticleItem(
+                    number: 1,
+                    title: l10n.nutritionScreen_carbohydrates_title,
+                    content: l10n.nutritionScreen_carbohydrates_content,
+                    icon: FontAwesomeIcons.wheatAwn,
+                    color: const Color(0xFFD97706),
+                  ),
+                  _numberedArticleItem(
+                    number: 2,
+                    title: l10n.nutritionScreen_protein_title,
+                    content: l10n.nutritionScreen_protein_content,
+                    icon: FontAwesomeIcons.egg,
+                    color: SabinaColors.error700,
+                  ),
+                  _numberedArticleItem(
+                    number: 3,
+                    title: l10n.nutritionScreen_healthyFats_title,
+                    content: l10n.nutritionScreen_healthyFats_content,
+                    icon: FontAwesomeIcons.droplet,
+                    color: const Color(0xFF2A9474),
+                  ),
+                  _numberedArticleItem(
+                    number: 4,
+                    title: l10n.nutritionScreen_vitaminsAndMinerals_title,
+                    content: l10n.nutritionScreen_vitaminsAndMinerals_content,
+                    icon: FontAwesomeIcons.leaf,
+                    color: const Color(0xFF1D4ED8),
+                  ),
+                  _numberedArticleItem(
+                    number: 5,
+                    title: l10n.nutritionScreen_fiber_title,
+                    content: l10n.nutritionScreen_fiber_content,
+                    icon: FontAwesomeIcons.seedling,
+                    color: SabinaColors.primary700,
+                    isLast: true,
+                  ),
+
+                  const SizedBox(height: 40),
+
+                  // Divider
+                  Divider(color: SabinaColors.neutral300),
+
+                  const SizedBox(height: 32),
+
+                  // Meal plan section
+                  _sectionLabel(l10n.nutritionScreen_mealPlan_title),
+
+                  const SizedBox(height: 20),
+
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      'assets/images/menu_makanan.png',
+                      height: 200,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+
+                  const SizedBox(height: 28),
+
+                  _mealSection(
+                    number: 1,
+                    title: l10n.nutritionScreen_breakfast_title,
+                    items: [
+                      l10n.nutritionScreen_breakfast_item1,
+                      l10n.nutritionScreen_breakfast_item2,
+                      l10n.nutritionScreen_breakfast_item3,
+                      l10n.nutritionScreen_breakfast_item4,
+                      l10n.nutritionScreen_breakfast_item5,
                     ],
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(item['icon'], size: 60, color: Colors.black),
-                        const SizedBox(height: 20),
-                        Text(
-                          item['title'],
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 20),
-                        Expanded(
-                          child: SingleChildScrollView(
-                            child: Text(
-                              item['content'],
-                              style: const TextStyle(
-                                  fontSize: 16, color: Colors.black),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  _mealSection(
+                    number: 2,
+                    title: l10n.nutritionScreen_lunch_title,
+                    items: [
+                      l10n.nutritionScreen_lunch_item1,
+                      l10n.nutritionScreen_lunch_item2,
+                      l10n.nutritionScreen_lunch_item3,
+                      l10n.nutritionScreen_lunch_item4,
+                      l10n.nutritionScreen_lunch_item5,
+                      l10n.nutritionScreen_lunch_item6,
+                    ],
+                  ),
+                  _mealSection(
+                    number: 3,
+                    title: l10n.nutritionScreen_afternoonSnack_title,
+                    items: [
+                      l10n.nutritionScreen_afternoonSnack_item1,
+                      l10n.nutritionScreen_afternoonSnack_item2,
+                    ],
+                  ),
+                  _mealSection(
+                    number: 4,
+                    title: l10n.nutritionScreen_dinner_title,
+                    items: [
+                      l10n.nutritionScreen_dinner_item1,
+                      l10n.nutritionScreen_dinner_item2,
+                      l10n.nutritionScreen_dinner_item3,
+                      l10n.nutritionScreen_dinner_item4,
+                      l10n.nutritionScreen_dinner_item5,
+                      l10n.nutritionScreen_dinner_item6,
+                    ],
+                  ),
+                  _mealSection(
+                    number: 5,
+                    title: l10n.nutritionScreen_eveningSnack_title,
+                    items: [
+                      l10n.nutritionScreen_eveningSnack_item1,
+                      l10n.nutritionScreen_eveningSnack_item2,
+                    ],
+                    isLast: true,
+                  ),
+
+                  const SizedBox(height: 40),
+
+                  Divider(color: SabinaColors.neutral300),
+
+                  const SizedBox(height: 28),
+
+                  // References
+                  _sectionLabel(l10n.nutritionScreen_references_title),
+                  const SizedBox(height: 16),
+
+                  _ReferenceList(
+                    references: [
+                      l10n.nutritionScreen_reference1,
+                      l10n.nutritionScreen_reference2,
+                      l10n.nutritionScreen_reference3,
+                      l10n.nutritionScreen_reference4,
+                    ],
+                  ),
+
+                  const SizedBox(height: 48),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _sectionLabel(String label) {
+    return Text(
+      label.toUpperCase(),
+      style: GoogleFonts.plusJakartaSans(
+        fontSize: 10,
+        fontWeight: FontWeight.w700,
+        color: SabinaColors.neutral500,
+        letterSpacing: 1.2,
+      ),
+    );
+  }
+
+  Widget _numberedArticleItem({
+    required int number,
+    required String title,
+    required String content,
+    required IconData icon,
+    required Color color,
+    bool isLast = false,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Number badge
+            Container(
+              width: 28,
+              height: 28,
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.12),
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Text(
+                  '$number',
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w800,
+                    color: color,
                   ),
                 ),
               ),
             ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildPageIndicator() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: _nutritionItems.asMap().entries.map((entry) {
-        return Container(
-          width: 8.0,
-          height: 8.0,
-          margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white
-                .withValues(alpha: _currentIndex == entry.key ? 0.9 : 0.4),
-          ),
-        );
-      }).toList(),
-    );
-  }
-
-  Widget _buildMealPlan(AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+            const SizedBox(width: 12),
+            FaIcon(icon, size: 14, color: color),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                title,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: SabinaColors.neutral900,
+                ),
+              ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.nutritionScreen_mealPlan_title,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                const SizedBox(height: 16),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.asset(
-                    'assets/images/menu_makanan.png',
-                    height: 200,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                _buildMealSection(l10n.nutritionScreen_breakfast_title, [
-                  l10n.nutritionScreen_breakfast_item1,
-                  l10n.nutritionScreen_breakfast_item2,
-                  l10n.nutritionScreen_breakfast_item3,
-                  l10n.nutritionScreen_breakfast_item4,
-                  l10n.nutritionScreen_breakfast_item5,
-                ]),
-                _buildMealSection(l10n.nutritionScreen_lunch_title, [
-                  l10n.nutritionScreen_lunch_item1,
-                  l10n.nutritionScreen_lunch_item2,
-                  l10n.nutritionScreen_lunch_item3,
-                  l10n.nutritionScreen_lunch_item4,
-                  l10n.nutritionScreen_lunch_item5,
-                  l10n.nutritionScreen_lunch_item6,
-                ]),
-                _buildMealSection(l10n.nutritionScreen_afternoonSnack_title, [
-                  l10n.nutritionScreen_afternoonSnack_item1,
-                  l10n.nutritionScreen_afternoonSnack_item2,
-                ]),
-                _buildMealSection(l10n.nutritionScreen_dinner_title, [
-                  l10n.nutritionScreen_dinner_item1,
-                  l10n.nutritionScreen_dinner_item2,
-                  l10n.nutritionScreen_dinner_item3,
-                  l10n.nutritionScreen_dinner_item4,
-                  l10n.nutritionScreen_dinner_item5,
-                  l10n.nutritionScreen_dinner_item6,
-                ]),
-                _buildMealSection(l10n.nutritionScreen_eveningSnack_title, [
-                  l10n.nutritionScreen_eveningSnack_item1,
-                  l10n.nutritionScreen_eveningSnack_item2,
-                ]),
-              ],
+          ],
+        ),
+        const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.only(left: 40),
+          child: Text(
+            content,
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 14,
+              color: SabinaColors.neutral700,
+              height: 1.7,
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildMealSection(String title, List<String> items) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        const SizedBox(height: 8),
-        ...items.map((item) => Padding(
-              padding: const EdgeInsets.only(left: 16, bottom: 4),
-              child: Text('• $item',
-                  style: const TextStyle(fontSize: 14, color: Colors.black)),
-            )),
-        const SizedBox(height: 16),
+        if (!isLast) ...[
+          const SizedBox(height: 24),
+          Padding(
+            padding: const EdgeInsets.only(left: 40),
+            child: Divider(color: SabinaColors.neutral300),
+          ),
+          const SizedBox(height: 24),
+        ] else
+          const SizedBox(height: 8),
       ],
     );
   }
 
-  Widget _buildReferences(AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.nutritionScreen_references_title,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
+  Widget _mealSection({
+    required int number,
+    required String title,
+    required List<String> items,
+    bool isLast = false,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Container(
+              width: 24,
+              height: 24,
+              decoration: BoxDecoration(
+                color: SabinaColors.primary700,
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Text(
+                  '$number',
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.white,
+                  ),
                 ),
-                const SizedBox(height: 8),
-                ..._references.map((ref) => Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: Text(
-                        ref,
-                        style:
-                            const TextStyle(fontSize: 12, color: Colors.black),
-                      ),
-                    )),
-              ],
+              ),
             ),
-          ),
+            const SizedBox(width: 10),
+            Text(
+              title,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                color: SabinaColors.neutral900,
+              ),
+            ),
+          ],
         ),
-      ),
+        const SizedBox(height: 12),
+        ...items.asMap().entries.map((e) => Padding(
+              padding: const EdgeInsets.only(left: 34, bottom: 8),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 7),
+                    child: Container(
+                      width: 5,
+                      height: 5,
+                      decoration: BoxDecoration(
+                        color: SabinaColors.neutral500,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      e.value,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 14,
+                        color: SabinaColors.neutral700,
+                        height: 1.6,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )),
+        if (!isLast) ...[
+          const SizedBox(height: 20),
+          Divider(color: SabinaColors.neutral300, indent: 34),
+          const SizedBox(height: 20),
+        ] else
+          const SizedBox(height: 8),
+      ],
+    );
+  }
+}
+
+class _ReferenceList extends StatelessWidget {
+  final List<String> references;
+  const _ReferenceList({required this.references});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: references.asMap().entries.map((e) {
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 12),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${e.key + 1}.',
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  color: SabinaColors.neutral500,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  e.value,
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 12,
+                    color: SabinaColors.neutral500,
+                    height: 1.6,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      }).toList(),
     );
   }
 }

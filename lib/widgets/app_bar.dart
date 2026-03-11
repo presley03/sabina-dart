@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../generated/app_localizations.dart';
 import '../utils/constants.dart';
 import '../screens/user_profile_screen.dart';
 import '../screens/search_result_screen.dart';
@@ -37,9 +38,11 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
                     child: TextField(
                       controller: searchController, // Tambahkan controller
                       decoration: InputDecoration(
-                        hintText: "Cari...",
-                        hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
-                        prefixIcon: const Icon(Icons.search, color: Colors.black, size: 20),
+                        hintText: AppLocalizations.of(context)!.searchHint,
+                        hintStyle:
+                            const TextStyle(color: Colors.grey, fontSize: 14),
+                        prefixIcon: const Icon(Icons.search,
+                            color: Colors.black, size: 20),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                           borderSide: const BorderSide(
@@ -56,7 +59,8 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
                         ),
                         filled: true,
                         fillColor: Colors.white,
-                        contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 0, horizontal: 10),
                       ),
                       onSubmitted: (query) {
                         // Implementasi pencarian
@@ -82,12 +86,14 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
   void _showUserIdentity(BuildContext context) {
     Navigator.of(context).push(
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => const UserProfileScreen(),
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const UserProfileScreen(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
           const curve = Curves.easeInOut;
-          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
           var offsetAnimation = animation.drive(tween);
           return SlideTransition(position: offsetAnimation, child: child);
         },
@@ -99,12 +105,14 @@ class SabinaAppBar extends StatelessWidget implements PreferredSizeWidget {
     // Navigasi ke halaman hasil pencarian
     Navigator.of(context).push(
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => SearchResultScreen(searchQuery: query),
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            SearchResultScreen(searchQuery: query),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
           const curve = Curves.easeInOut;
-          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
           var offsetAnimation = animation.drive(tween);
           return SlideTransition(position: offsetAnimation, child: child);
         },

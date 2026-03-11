@@ -416,7 +416,7 @@ abstract class AppLocalizations {
   /// **'cm'**
   String get centimeterUnit;
 
-  /// Satuan waktu dalam minggu
+  /// Label satuan minggu pada banner kehamilan
   ///
   /// In id, this message translates to:
   /// **'minggu'**
@@ -806,10 +806,10 @@ abstract class AppLocalizations {
   /// **'Wahidah Sukriani, SST, M.Keb (www.sapabidan.com)'**
   String get initiatorNames;
 
-  /// Pengakuan untuk DALL·E AI dalam pembuatan ilustrasi
+  /// Pengakuan untuk DALLÂ·E AI dalam pembuatan ilustrasi
   ///
   /// In id, this message translates to:
-  /// **'Ilustrasi dalam aplikasi ini dibuat menggunakan DALL·E AI.'**
+  /// **'Ilustrasi dalam aplikasi ini dibuat menggunakan DALLÂ·E AI.'**
   String get illustrationCredits;
 
   /// Judul untuk box Persiapan Persalinan
@@ -3419,37 +3419,37 @@ abstract class AppLocalizations {
   /// Klasifikasi IMT untuk berat badan kurang
   ///
   /// In id, this message translates to:
-  /// **'• < 18.5: Berat badan kurang'**
+  /// **'â€¢ < 18.5: Berat badan kurang'**
   String get imtCalc_classificationUnderweight;
 
   /// Klasifikasi IMT untuk berat badan normal
   ///
   /// In id, this message translates to:
-  /// **'• 18.5 - 24.9: Berat badan normal'**
+  /// **'â€¢ 18.5 - 24.9: Berat badan normal'**
   String get imtCalc_classificationNormal;
 
   /// Klasifikasi IMT untuk pra-obesitas
   ///
   /// In id, this message translates to:
-  /// **'• 25.0 - 29.9: Pra-obesitas'**
+  /// **'â€¢ 25.0 - 29.9: Pra-obesitas'**
   String get imtCalc_classificationOverweight;
 
   /// Klasifikasi IMT untuk obesitas kelas I
   ///
   /// In id, this message translates to:
-  /// **'• 30.0 - 34.9: Obesitas kelas I'**
+  /// **'â€¢ 30.0 - 34.9: Obesitas kelas I'**
   String get imtCalc_classificationObesity1;
 
   /// Klasifikasi IMT untuk obesitas kelas II
   ///
   /// In id, this message translates to:
-  /// **'• 35.0 - 39.9: Obesitas kelas II'**
+  /// **'â€¢ 35.0 - 39.9: Obesitas kelas II'**
   String get imtCalc_classificationObesity2;
 
   /// Klasifikasi IMT untuk obesitas kelas III
   ///
   /// In id, this message translates to:
-  /// **'• ≥ 40.0: Obesitas kelas III'**
+  /// **'â€¢ â‰¥ 40.0: Obesitas kelas III'**
   String get imtCalc_classificationObesity3;
 
   /// Judul untuk rekomendasi penambahan berat badan selama kehamilan
@@ -3491,19 +3491,19 @@ abstract class AppLocalizations {
   /// Tip kesehatan pertama
   ///
   /// In id, this message translates to:
-  /// **'• Jaga pola makan sehat dengan makanan bergizi seimbang.'**
+  /// **'â€¢ Jaga pola makan sehat dengan makanan bergizi seimbang.'**
   String get imtCalc_healthTip1;
 
   /// Tip kesehatan kedua
   ///
   /// In id, this message translates to:
-  /// **'• Tetap aktif dengan olahraga ringan selama kehamilan.'**
+  /// **'â€¢ Tetap aktif dengan olahraga ringan selama kehamilan.'**
   String get imtCalc_healthTip2;
 
   /// Tip kesehatan ketiga
   ///
   /// In id, this message translates to:
-  /// **'• Jangan lupa istirahat yang cukup dan kelola stres.'**
+  /// **'â€¢ Jangan lupa istirahat yang cukup dan kelola stres.'**
   String get imtCalc_healthTip3;
 
   /// Judul dialog informasi IMT WHO
@@ -3608,6 +3608,552 @@ abstract class AppLocalizations {
   /// **'Alamat harus diisi'**
   String get addressRequired;
 
+  /// Header seksi untuk data pribadi di layar identitas
+  ///
+  /// In id, this message translates to:
+  /// **'DATA PRIBADI'**
+  String get personalData;
+
+  /// Teks petunjuk untuk kolom nama lengkap
+  ///
+  /// In id, this message translates to:
+  /// **'Nama lengkap Anda'**
+  String get fullNameHint;
+
+  /// Teks petunjuk untuk kolom alamat
+  ///
+  /// In id, this message translates to:
+  /// **'Alamat lengkap Anda'**
+  String get addressHint;
+
+  /// Judul bottom sheet pemilih agama
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih Agama'**
+  String get selectReligion;
+
+  /// Judul bottom sheet pemilih golongan darah
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih Golongan Darah'**
+  String get selectBloodType;
+
+  /// Placeholder kolom tanggal lahir saat belum dipilih
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih tanggal lahir'**
+  String get selectDateOfBirth;
+
+  /// Catatan privasi yang ditampilkan di bawah formulir identitas
+  ///
+  /// In id, this message translates to:
+  /// **'Data Anda tersimpan secara lokal di perangkat dan tidak dibagikan.'**
+  String get localDataNote;
+
+  /// Label untuk tombol selesai
+  ///
+  /// In id, this message translates to:
+  /// **'Selesai'**
+  String get done;
+
+  /// Pesan snackbar setelah data identitas tersimpan
+  ///
+  /// In id, this message translates to:
+  /// **'Data identitas berhasil disimpan'**
+  String get identitySaved;
+
+  /// Label seksi untuk kehamilan saat ini
+  ///
+  /// In id, this message translates to:
+  /// **'KEHAMILAN SAAT INI'**
+  String get currentPregnancy;
+
+  /// Label seksi untuk informasi
+  ///
+  /// In id, this message translates to:
+  /// **'INFORMASI'**
+  String get information;
+
+  /// Label seksi untuk pengaturan
+  ///
+  /// In id, this message translates to:
+  /// **'PENGATURAN'**
+  String get settings;
+
+  /// Label seksi untuk hasil skrining terakhir
+  ///
+  /// In id, this message translates to:
+  /// **'HASIL SKRINING TERAKHIR'**
+  String get lastScreeningResults;
+
+  /// Placeholder saat nama pengguna belum diisi
+  ///
+  /// In id, this message translates to:
+  /// **'Nama belum diisi'**
+  String get nameNotSet;
+
+  /// Satuan usia singkat
+  ///
+  /// In id, this message translates to:
+  /// **'thn'**
+  String get ageUnit;
+
+  /// Label singkat usia hamil di baris statistik
+  ///
+  /// In id, this message translates to:
+  /// **'Usia Hamil'**
+  String get gestationalAgeShort;
+
+  /// Label singkat golongan darah di baris statistik
+  ///
+  /// In id, this message translates to:
+  /// **'Gol. Darah'**
+  String get bloodTypeShort;
+
+  /// Label singkat untuk minggu (mis. 12mgg 6hr)
+  ///
+  /// In id, this message translates to:
+  /// **'mgg'**
+  String get weeksShort;
+
+  /// Label singkat untuk hari (mis. 12mgg 6hr)
+  ///
+  /// In id, this message translates to:
+  /// **'hr'**
+  String get daysShort;
+
+  /// Label singkat untuk chip taksiran persalinan
+  ///
+  /// In id, this message translates to:
+  /// **'Taksiran'**
+  String get estimatedLabel;
+
+  /// Label singkat untuk chip kehamilan ke berapa
+  ///
+  /// In id, this message translates to:
+  /// **'Kehamilan ke'**
+  String get pregnancyNumberLabel;
+
+  /// Label baris tanggal haid pertama haid terakhir
+  ///
+  /// In id, this message translates to:
+  /// **'HPHT'**
+  String get hphtLabel;
+
+  /// Label baris berat badan sebelum hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Berat Badan Sebelum Hamil'**
+  String get prePregnancyWeightLabel;
+
+  /// Label baris tinggi badan
+  ///
+  /// In id, this message translates to:
+  /// **'Tinggi Badan'**
+  String get heightLabel;
+
+  /// Label baris jumlah anak
+  ///
+  /// In id, this message translates to:
+  /// **'Jumlah Anak'**
+  String get childrenCountLabel;
+
+  /// Label baris riwayat keguguran
+  ///
+  /// In id, this message translates to:
+  /// **'Riwayat Keguguran'**
+  String get miscarriageLabel;
+
+  /// Label baris anak ke terakhir
+  ///
+  /// In id, this message translates to:
+  /// **'Anak Ke (Terakhir)'**
+  String get lastChildNumberLabel;
+
+  /// Label baris tahun lahir terakhir
+  ///
+  /// In id, this message translates to:
+  /// **'Tahun Lahir Terakhir'**
+  String get lastBirthYearLabel;
+
+  /// Label baris berat lahir terakhir
+  ///
+  /// In id, this message translates to:
+  /// **'Berat Lahir Terakhir'**
+  String get lastBirthWeightLabel;
+
+  /// Label baris cara persalinan
+  ///
+  /// In id, this message translates to:
+  /// **'Cara Persalinan'**
+  String get deliveryMethodLabel;
+
+  /// Label baris penolong persalinan
+  ///
+  /// In id, this message translates to:
+  /// **'Penolong Persalinan'**
+  String get birthAttendantLabel;
+
+  /// Label baris komplikasi
+  ///
+  /// In id, this message translates to:
+  /// **'Komplikasi'**
+  String get complicationsLabel;
+
+  /// Judul bottom sheet Tentang SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Tentang SABINA'**
+  String get aboutSabinaTitle;
+
+  /// Label seksi riwayat kehamilan terakhir
+  ///
+  /// In id, this message translates to:
+  /// **'RIWAYAT KEHAMILAN TERAKHIR'**
+  String get lastPregnancySection;
+
+  /// Teks petunjuk untuk bidang pemilih tanggal
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih tanggal'**
+  String get selectDate;
+
+  /// Satuan suffix untuk hitungan kejadian (misal: 1 kali)
+  ///
+  /// In id, this message translates to:
+  /// **'kali'**
+  String get timesUnit;
+
+  /// Satuan suffix untuk jumlah anak (misal: 2 anak)
+  ///
+  /// In id, this message translates to:
+  /// **'anak'**
+  String get childrenCountUnit;
+
+  /// Petunjuk untuk area teks komplikasi
+  ///
+  /// In id, this message translates to:
+  /// **'Tuliskan jika ada...'**
+  String get complicationsHint;
+
+  /// Teks placeholder pada baris dropdown sebelum dipilih
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih...'**
+  String get selectPlaceholder;
+
+  /// Teks tombol untuk mencatat data kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Catat Kesehatan'**
+  String get recordHealth;
+
+  /// Teks tombol untuk jadwal pemeriksaan
+  ///
+  /// In id, this message translates to:
+  /// **'Jadwal Kontrol'**
+  String get scheduleCheckup;
+
+  /// Teks tombol untuk kedaruratan
+  ///
+  /// In id, this message translates to:
+  /// **'Darurat'**
+  String get emergency;
+
+  /// Label untuk input berat badan
+  ///
+  /// In id, this message translates to:
+  /// **'Berat Badan (kg)'**
+  String get weight;
+
+  /// Label untuk tekanan darah sistolik
+  ///
+  /// In id, this message translates to:
+  /// **'Sistolik'**
+  String get systolic;
+
+  /// Label untuk tekanan darah diastolik
+  ///
+  /// In id, this message translates to:
+  /// **'Diastolik'**
+  String get diastolic;
+
+  /// Judul dialog kontak darurat
+  ///
+  /// In id, this message translates to:
+  /// **'Kontak Darurat'**
+  String get emergencyContacts;
+
+  /// Pesan sukses menyimpan data kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Data kesehatan berhasil disimpan!'**
+  String get healthDataSaved;
+
+  /// Judul widget grafik perkembangan kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Grafik Perkembangan'**
+  String get chartTitle;
+
+  /// Label tab untuk grafik berat badan
+  ///
+  /// In id, this message translates to:
+  /// **'Berat Badan'**
+  String get chartTabWeight;
+
+  /// Label tab untuk grafik tekanan darah
+  ///
+  /// In id, this message translates to:
+  /// **'Tekanan Darah'**
+  String get chartTabBloodPressure;
+
+  /// Label legenda untuk garis batas bahaya tekanan darah di angka 140
+  ///
+  /// In id, this message translates to:
+  /// **'Batas 140'**
+  String get chartBpLimit;
+
+  /// Pesan saat data belum cukup untuk menampilkan grafik apapun
+  ///
+  /// In id, this message translates to:
+  /// **'Grafik akan tampil setelah\n2 data atau lebih tersimpan'**
+  String get chartEmptyState;
+
+  /// Pesan saat tab grafik yang dipilih belum punya data yang cukup
+  ///
+  /// In id, this message translates to:
+  /// **'Butuh minimal 2 data untuk\nmenampilkan grafik ini'**
+  String get chartNotEnoughData;
+
+  /// Label judul pada kartu skor kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Kesehatan Anda'**
+  String get dashboardYourHealth;
+
+  /// Label status kesehatan saat skor >= 80
+  ///
+  /// In id, this message translates to:
+  /// **'Sehat'**
+  String get dashboardStatusHealthy;
+
+  /// Label status kesehatan saat skor >= 60
+  ///
+  /// In id, this message translates to:
+  /// **'Baik'**
+  String get dashboardStatusGood;
+
+  /// Label status kesehatan saat skor < 60
+  ///
+  /// In id, this message translates to:
+  /// **'Perlu Perhatian'**
+  String get dashboardStatusNeedsAttention;
+
+  /// Judul tombol aksi utama di dashboard
+  ///
+  /// In id, this message translates to:
+  /// **'Catat Kesehatan Harian'**
+  String get dashboardRecordDailyHealth;
+
+  /// Subjudul tombol aksi utama di dashboard
+  ///
+  /// In id, this message translates to:
+  /// **'Pantau berat badan & tekanan darah'**
+  String get dashboardMonitorSubtitle;
+
+  /// Subjudul kartu aksi jadwal kontrol
+  ///
+  /// In id, this message translates to:
+  /// **'Atur reminder dokter'**
+  String get dashboardScheduleSubtitle;
+
+  /// Subjudul kartu aksi darurat
+  ///
+  /// In id, this message translates to:
+  /// **'Hubungi bantuan'**
+  String get dashboardEmergencySubtitle;
+
+  /// Judul kartu tips kesehatan saat tidak ada insight
+  ///
+  /// In id, this message translates to:
+  /// **'Tips Kesehatan'**
+  String get dashboardHealthTipsTitle;
+
+  /// Teks isi kartu tips kesehatan saat tidak ada insight
+  ///
+  /// In id, this message translates to:
+  /// **'Mulai catat kesehatan harian untuk mendapatkan tips personal yang sesuai dengan kondisi Anda.'**
+  String get dashboardHealthTipsEmpty;
+
+  /// Judul yang ditampilkan pada kartu rekomendasi insight
+  ///
+  /// In id, this message translates to:
+  /// **'Rekomendasi untuk Anda'**
+  String get dashboardRecommendation;
+
+  /// Teks isi dialog jadwal kontrol
+  ///
+  /// In id, this message translates to:
+  /// **'Fitur ini membantu Anda mengatur reminder untuk kontrol rutin ke dokter kandungan.\n\nSegera hadir!'**
+  String get dashboardScheduleDialogContent;
+
+  /// Label tombol pada dialog informasi
+  ///
+  /// In id, this message translates to:
+  /// **'Mengerti'**
+  String get dashboardUnderstood;
+
+  /// Teks petunjuk dalam dialog darurat
+  ///
+  /// In id, this message translates to:
+  /// **'Hubungi segera jika mengalami:'**
+  String get dashboardEmergencyCallPrompt;
+
+  /// Daftar poin gejala darurat
+  ///
+  /// In id, this message translates to:
+  /// **'• Pendarahan hebat\n• Kontraksi kuat sebelum waktunya\n• Sakit kepala parah\n• Pandangan kabur'**
+  String get dashboardEmergencySymptoms;
+
+  /// Label ambulans di kontak darurat
+  ///
+  /// In id, this message translates to:
+  /// **'Ambulans'**
+  String get ambulance;
+
+  /// Tombol untuk menutup dialog
+  ///
+  /// In id, this message translates to:
+  /// **'Tutup'**
+  String get dashboardClose;
+
+  /// Judul kartu penjelasan di layar pemantauan kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Mengapa Perlu Dicatat?'**
+  String get whyRecordTitle;
+
+  /// Teks isi kartu penjelasan di layar pemantauan kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Dengan mencatat berat badan dan tekanan darah secara rutin, dokter dapat memantau perkembangan kehamilan Anda dan mendeteksi masalah sejak dini.'**
+  String get whyRecordBody;
+
+  /// Judul seksi formulir input kesehatan harian
+  ///
+  /// In id, this message translates to:
+  /// **'Catat Hari Ini'**
+  String get recordTodayTitle;
+
+  /// Teks petunjuk pada kolom input berat badan
+  ///
+  /// In id, this message translates to:
+  /// **'Contoh: 65'**
+  String get weightInputHint;
+
+  /// Pesan error saat kolom berat badan kosong
+  ///
+  /// In id, this message translates to:
+  /// **'Masukkan berat badan Anda'**
+  String get weightInputError;
+
+  /// Pesan error saat berat badan di luar rentang
+  ///
+  /// In id, this message translates to:
+  /// **'Berat badan harus antara 30-200 kg'**
+  String get weightRangeError;
+
+  /// Label untuk seksi tekanan darah dalam formulir kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Tekanan Darah'**
+  String get bloodPressureLabel;
+
+  /// Pesan error singkat saat kolom wajib kosong
+  ///
+  /// In id, this message translates to:
+  /// **'Wajib diisi'**
+  String get fieldRequired;
+
+  /// Catatan keterangan rentang tekanan darah normal
+  ///
+  /// In id, this message translates to:
+  /// **'Normal: 120/80 mmHg. Jika >140/90, segera konsultasi dokter.'**
+  String get bpNormalNote;
+
+  /// Label tombol simpan data di formulir kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Simpan Data'**
+  String get saveData;
+
+  /// Judul seksi daftar catatan kesehatan terakhir
+  ///
+  /// In id, this message translates to:
+  /// **'Catatan Terakhir'**
+  String get recentRecords;
+
+  /// Tombol untuk melihat semua catatan
+  ///
+  /// In id, this message translates to:
+  /// **'Lihat Semua'**
+  String get viewAll;
+
+  /// Teks status kosong saat belum ada catatan kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Belum ada catatan'**
+  String get noRecordsYet;
+
+  /// Teks ajakan aksi pada kondisi catatan kosong
+  ///
+  /// In id, this message translates to:
+  /// **'Mulai catat kesehatan Anda hari ini!'**
+  String get startRecordingToday;
+
+  /// Teks isi kartu darurat pada pemantauan kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Hubungi segera jika mengalami: pendarahan hebat, kontraksi kuat, sakit kepala parah, atau pandangan kabur.'**
+  String get emergencyCardBody;
+
+  /// Label tombol ambulans dengan nomor
+  ///
+  /// In id, this message translates to:
+  /// **'Ambulans 118'**
+  String get ambulance118;
+
+  /// Label tombol dokter
+  ///
+  /// In id, this message translates to:
+  /// **'Dokter'**
+  String get doctor;
+
+  /// Judul dialog kontak darurat
+  ///
+  /// In id, this message translates to:
+  /// **'🚨 Kontak Darurat'**
+  String get emergencyDialogTitle;
+
+  /// Label dokter kandungan di kontak darurat
+  ///
+  /// In id, this message translates to:
+  /// **'Dokter Kandungan'**
+  String get obstetrician;
+
+  /// Subjudul di bawah dokter kandungan di kontak darurat
+  ///
+  /// In id, this message translates to:
+  /// **'Hubungi dokter Anda'**
+  String get contactYourDoctor;
+
+  /// Judul dialog semua catatan kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Semua Catatan Kesehatan'**
+  String get allHealthRecords;
+
   /// Judul untuk layar kuesioner preeklampsia
   ///
   /// In id, this message translates to:
@@ -3673,6 +4219,1500 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Apakah Anda mengalami sesak napas atau nyeri dada?'**
   String get preeclampsiaQuestion10;
+
+  /// Judul layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Skrining Kehamilan'**
+  String get screeningPregnancy;
+
+  /// Subjudul header layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Deteksi dini risiko untuk kehamilan yang lebih aman'**
+  String get earlyDetectionDescription;
+
+  /// Badge menampilkan waktu skrining terakhir
+  ///
+  /// In id, this message translates to:
+  /// **'Pemeriksaan terakhir: {days} hari lalu'**
+  String lastScreeningLabel(int days);
+
+  /// Header bagian skrining risiko
+  ///
+  /// In id, this message translates to:
+  /// **'SKRINING RISIKO'**
+  String get screeningRisks;
+
+  /// Judul kartu skrining preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Deteksi Preeklampsia'**
+  String get preeclampsiaDetection;
+
+  /// Deskripsi kartu skrining preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Deteksi dini risiko tekanan darah tinggi & komplikasi kehamilan'**
+  String get preeclampsiaDetectionDesc;
+
+  /// Label tag risiko tinggi
+  ///
+  /// In id, this message translates to:
+  /// **'⚠ Risiko Tinggi'**
+  String get highRisk;
+
+  /// Tag jumlah pertanyaan pada kartu skrining
+  ///
+  /// In id, this message translates to:
+  /// **'{count} pertanyaan'**
+  String questionsCount(int count);
+
+  /// Judul kartu skrining lanjut (penapisan)
+  ///
+  /// In id, this message translates to:
+  /// **'Penapisan Tingkat Lanjut'**
+  String get advancedScreening;
+
+  /// Deskripsi kartu skrining lanjut
+  ///
+  /// In id, this message translates to:
+  /// **'Skrining komprehensif risiko komplikasi persalinan'**
+  String get advancedScreeningDesc;
+
+  /// Label tag risiko rendah
+  ///
+  /// In id, this message translates to:
+  /// **'✓ Risiko Rendah'**
+  String get lowRisk;
+
+  /// Header bagian pemantauan rutin
+  ///
+  /// In id, this message translates to:
+  /// **'PEMANTAUAN RUTIN'**
+  String get routineMonitoring;
+
+  /// Judul kartu lapor keluhan
+  ///
+  /// In id, this message translates to:
+  /// **'Lapor Keluhan'**
+  String get reportComplaint;
+
+  /// Deskripsi kartu lapor keluhan
+  ///
+  /// In id, this message translates to:
+  /// **'Mual, sakit kepala, perdarahan, cairan abnormal, bengkak, dan gejala lainnya'**
+  String get complaintDescription;
+
+  /// Tag menampilkan jumlah jenis keluhan
+  ///
+  /// In id, this message translates to:
+  /// **'6 jenis keluhan'**
+  String get complaintTypes;
+
+  /// Judul kartu rekam kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Rekam Kesehatan'**
+  String get healthRecords;
+
+  /// Deskripsi kartu rekam kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Pantau tekanan darah, berat badan, dan perkembangan kehamilan'**
+  String get healthRecordsDesc;
+
+  /// Tag untuk monitoring harian
+  ///
+  /// In id, this message translates to:
+  /// **'Monitoring harian'**
+  String get dailyMonitoring;
+
+  /// Tips info pada layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Skrining rutin disarankan setiap 4 minggu pada trimester pertama, dan lebih sering memasuki trimester ketiga.'**
+  String get screeningRecommendation;
+
+  /// Salam pagi
+  ///
+  /// In id, this message translates to:
+  /// **'Selamat Pagi'**
+  String get greetingMorning;
+
+  /// Salam siang
+  ///
+  /// In id, this message translates to:
+  /// **'Selamat Siang'**
+  String get greetingAfternoon;
+
+  /// Salam sore
+  ///
+  /// In id, this message translates to:
+  /// **'Selamat Sore'**
+  String get greetingEvening;
+
+  /// Salam malam
+  ///
+  /// In id, this message translates to:
+  /// **'Selamat Malam'**
+  String get greetingNight;
+
+  /// Label untuk bagian skor kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'SKOR KESEHATAN'**
+  String get healthScoreLabel;
+
+  /// Label untuk hari ini
+  ///
+  /// In id, this message translates to:
+  /// **'Hari ini'**
+  String get today;
+
+  /// Label skor kesehatan: sangat baik
+  ///
+  /// In id, this message translates to:
+  /// **'Sangat Baik'**
+  String get scoreVeryGood;
+
+  /// Subjudul skor kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Kondisi Anda dalam kondisi optimal'**
+  String get conditionOptimal;
+
+  /// Label semangat di kartu skor kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Terus jaga!'**
+  String get keepItUp;
+
+  /// Judul kartu prompt di home screen
+  ///
+  /// In id, this message translates to:
+  /// **'Lengkapi Riwayat Kehamilan'**
+  String get completePregnancyHistory;
+
+  /// Subjudul kartu prompt di home screen
+  ///
+  /// In id, this message translates to:
+  /// **'Isi data untuk rekomendasi yang lebih akurat'**
+  String get fillForAccurate;
+
+  /// Tombol CTA pada kartu prompt
+  ///
+  /// In id, this message translates to:
+  /// **'Isi Sekarang'**
+  String get fillNow;
+
+  /// Label bagian menu akses cepat
+  ///
+  /// In id, this message translates to:
+  /// **'AKSES CEPAT'**
+  String get quickAccess;
+
+  /// Label bagian scroll artikel
+  ///
+  /// In id, this message translates to:
+  /// **'ARTIKEL PILIHAN'**
+  String get featuredArticles;
+
+  /// Label aksi cepat untuk deteksi preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Deteksi Preeklampsia'**
+  String get detectPreeclampsia;
+
+  /// Subjudul aksi cepat untuk deteksi preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Skrining risiko tekanan darah'**
+  String get screeningRiskBP;
+
+  /// Label aksi cepat untuk menu skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Skrining & Penapisan'**
+  String get screeningAndPenapisan;
+
+  /// Subjudul aksi cepat untuk menu skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Risiko persalinan'**
+  String get deliveryRisk;
+
+  /// Label aksi cepat untuk riwayat kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Riwayat Kehamilan'**
+  String get pregnancyHistoryLabel;
+
+  /// Subjudul aksi cepat untuk riwayat kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Data kehamilan & persalinan'**
+  String get pregnancyDataLabel;
+
+  /// Label aksi cepat untuk kalkulator IMT
+  ///
+  /// In id, this message translates to:
+  /// **'Hitung IMT'**
+  String get calculateIMT;
+
+  /// Subjudul aksi cepat untuk kalkulator IMT
+  ///
+  /// In id, this message translates to:
+  /// **'Indeks massa tubuh'**
+  String get bmiFull;
+
+  /// Label untuk banner panduan
+  ///
+  /// In id, this message translates to:
+  /// **'PANDUAN'**
+  String get guideLabel;
+
+  /// Judul banner informasi kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Informasi Kehamilan'**
+  String get pregnancyInfoTitle;
+
+  /// Subjudul banner informasi kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester I, II & III'**
+  String get trimesterRoman;
+
+  /// Label trimester pertama
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester Pertama'**
+  String get firstTrimester;
+
+  /// Label trimester kedua
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester Kedua'**
+  String get secondTrimester;
+
+  /// Label trimester ketiga
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester Ketiga'**
+  String get thirdTrimester;
+
+  /// Deskripsi ukuran bayi dengan perbandingan buah
+  ///
+  /// In id, this message translates to:
+  /// **'Seukuran {fruit} 🌿'**
+  String babySizeOf(String fruit);
+
+  /// Label progres kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'{current} dari {total} minggu'**
+  String weeksProgress(int current, int total);
+
+  /// Tautan untuk melihat detail pada banner kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Lihat detail'**
+  String get viewDetails;
+
+  /// Label pada kartu mini IMT
+  ///
+  /// In id, this message translates to:
+  /// **'IMT TERAKHIR'**
+  String get imtLastLabel;
+
+  /// Tombol perbarui pada kartu mini IMT
+  ///
+  /// In id, this message translates to:
+  /// **'Perbarui →'**
+  String get updateArrow;
+
+  /// Kategori IMT: kurang berat
+  ///
+  /// In id, this message translates to:
+  /// **'Kurang'**
+  String get imtUnderweight;
+
+  /// Kategori IMT: normal
+  ///
+  /// In id, this message translates to:
+  /// **'Normal'**
+  String get imtNormal;
+
+  /// Kategori IMT: lebih berat
+  ///
+  /// In id, this message translates to:
+  /// **'Lebih'**
+  String get imtOverweight;
+
+  /// Kategori IMT: obesitas
+  ///
+  /// In id, this message translates to:
+  /// **'Obesitas'**
+  String get imtObese;
+
+  /// Tag artikel: nutrisi
+  ///
+  /// In id, this message translates to:
+  /// **'Nutrisi'**
+  String get articleTagNutrition;
+
+  /// Tag artikel: aktivitas
+  ///
+  /// In id, this message translates to:
+  /// **'Aktivitas'**
+  String get articleTagActivity;
+
+  /// Tag artikel: perawatan
+  ///
+  /// In id, this message translates to:
+  /// **'Perawatan'**
+  String get articleTagCare;
+
+  /// Tag artikel: kesehatan mental
+  ///
+  /// In id, this message translates to:
+  /// **'Kesehatan Mental'**
+  String get articleTagMentalHealth;
+
+  /// Judul kartu artikel pertama
+  ///
+  /// In id, this message translates to:
+  /// **'Makanan Sehat Trimester 2'**
+  String get article1Title;
+
+  /// Judul kartu artikel kedua
+  ///
+  /// In id, this message translates to:
+  /// **'Olahraga Aman Saat Hamil'**
+  String get article2Title;
+
+  /// Judul kartu artikel ketiga
+  ///
+  /// In id, this message translates to:
+  /// **'Tips Tidur Nyaman Trimester 3'**
+  String get article3Title;
+
+  /// Judul kartu artikel keempat
+  ///
+  /// In id, this message translates to:
+  /// **'Mengelola Stres Selama Kehamilan'**
+  String get article4Title;
+
+  /// Label pada kartu tips harian
+  ///
+  /// In id, this message translates to:
+  /// **'TIP HARI INI'**
+  String get tipOfDayLabel;
+
+  /// Konten teks tips harian
+  ///
+  /// In id, this message translates to:
+  /// **'Minum 8 gelas air sehari membantu janin berkembang optimal dan mencegah dehidrasi.'**
+  String get tipOfDayContent;
+
+  /// Teks tautan Sabidan di home screen
+  ///
+  /// In id, this message translates to:
+  /// **'Informasi lebih lanjut di sapabidan.com'**
+  String get sabidanLinkText;
+
+  /// Label navigasi bawah untuk tab artikel
+  ///
+  /// In id, this message translates to:
+  /// **'Artikel'**
+  String get articleTab;
+
+  /// Label badge pada kartu riwayat kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Penting'**
+  String get importantLabel;
+
+  /// Subjudul pada kartu riwayat kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Yuk isi Riwayat Kehamilan!'**
+  String get fillPregnancyHistorySub;
+
+  /// Teks hint pada kotak pencarian
+  ///
+  /// In id, this message translates to:
+  /// **'Cari...'**
+  String get searchHint;
+
+  /// Judul kartu dashboard kesehatan
+  ///
+  /// In id, this message translates to:
+  /// **'Kesehatan Anda'**
+  String get yourHealth;
+
+  /// Label tombol tutup generik
+  ///
+  /// In id, this message translates to:
+  /// **'Tutup'**
+  String get close;
+
+  /// Perintah aksi di dialog darurat
+  ///
+  /// In id, this message translates to:
+  /// **'Hubungi segera jika mengalami:'**
+  String get emergencyCallToAction;
+
+  /// Daftar gejala darurat
+  ///
+  /// In id, this message translates to:
+  /// **'â€¢ Pendarahan hebat\nâ€¢ Kontraksi kuat sebelum waktunya\nâ€¢ Sakit kepala parah\nâ€¢ Pandangan kabur'**
+  String get emergencySymptoms;
+
+  /// Tombol mulai pada kartu intro kuesioner
+  ///
+  /// In id, this message translates to:
+  /// **'Mulai'**
+  String get startButton;
+
+  /// Label untuk kartu pengingat
+  ///
+  /// In id, this message translates to:
+  /// **'PENGINGAT'**
+  String get reminderLabel;
+
+  /// Subjudul layar penapisan
+  ///
+  /// In id, this message translates to:
+  /// **'Penilaian risiko persalinan'**
+  String get penapisanSubtitle;
+
+  /// Judul kartu penapisan persalinan
+  ///
+  /// In id, this message translates to:
+  /// **'Penapisan Persalinan'**
+  String get penapisanCardTitle;
+
+  /// Deskripsi kartu penapisan persalinan
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner ini terdiri dari berbagai pertanyaan yang mungkin sesuai dengan pengalaman ibu ketika hamil. Silakan pilih \"Ya\" atau \"Tidak\" dari setiap pertanyaan yang muncul.'**
+  String get penapisanCardDesc;
+
+  /// Metadata kartu penapisan persalinan
+  ///
+  /// In id, this message translates to:
+  /// **'18 pertanyaan · ~5 menit'**
+  String get penapisanMeta;
+
+  /// Teks pengingat layar penapisan
+  ///
+  /// In id, this message translates to:
+  /// **'Lakukan penapisan secara rutin setiap trimester untuk pemantauan yang optimal.'**
+  String get penapisanReminderText;
+
+  /// Subjudul layar skrining preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Deteksi dini risiko kehamilan'**
+  String get preeclampsiaScreeningSubtitle;
+
+  /// Judul kartu skrining preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Skrining Preeklampsia'**
+  String get preeclampsiaCardTitle;
+
+  /// Deskripsi kartu skrining preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner ini terdiri dari berbagai pernyataan yang mungkin sesuai dengan pengalaman ibu ketika hamil. Silakan pilih \"Ya\" atau \"Tidak\" dari setiap pernyataan yang muncul.'**
+  String get preeclampsiaCardDesc;
+
+  /// Metadata kartu skrining preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'12 pertanyaan · ~3 menit'**
+  String get preeclampsiaMeta;
+
+  /// Teks pengingat layar skrining preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Lakukan skrining secara rutin setiap trimester untuk pemantauan yang optimal.'**
+  String get preeclampsiaReminderText;
+
+  /// Judul layar artikel kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Artikel Kehamilan'**
+  String get pregnancyArticlesTitle;
+
+  /// Placeholder konten artikel
+  ///
+  /// In id, this message translates to:
+  /// **'Konten artikel akan segera tersedia.'**
+  String get articleContentPlaceholder;
+
+  /// Label kartu peringatan pada layar keluhan
+  ///
+  /// In id, this message translates to:
+  /// **'PERHATIAN'**
+  String get cautionLabel;
+
+  /// Teks peringatan pada layar keluhan
+  ///
+  /// In id, this message translates to:
+  /// **'Jika keluhan terasa berat atau mendadak, segera hubungi tenaga medis.'**
+  String get keluhanWarningText;
+
+  /// Metadata kuesioner menampilkan jumlah pertanyaan
+  ///
+  /// In id, this message translates to:
+  /// **'{count} pertanyaan Â· ~2 menit'**
+  String questionnaireMetaText(int count);
+
+  /// Judul layar bengkak
+  ///
+  /// In id, this message translates to:
+  /// **'Bengkak pada Tubuh'**
+  String get bengkakTitle;
+
+  /// Subjudul layar bengkak
+  ///
+  /// In id, this message translates to:
+  /// **'Edema'**
+  String get bengkakSubtitle;
+
+  /// Deskripsi kartu intro layar bengkak
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner ini terdiri dari pertanyaan terkait keluhan bengkak pada tubuh selama kehamilan.'**
+  String get bengkakDescription;
+
+  /// Judul layar keluar cairan
+  ///
+  /// In id, this message translates to:
+  /// **'Keluar Cairan'**
+  String get keluarCairanTitle;
+
+  /// Subjudul layar keluar cairan
+  ///
+  /// In id, this message translates to:
+  /// **'Cairan abnormal'**
+  String get keluarCairanSubtitle;
+
+  /// Deskripsi kartu intro layar keluar cairan
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner ini terdiri dari pertanyaan terkait keluhan keluar cairan tidak normal selama kehamilan.'**
+  String get keluarCairanDescription;
+
+  /// Judul layar keluar darah
+  ///
+  /// In id, this message translates to:
+  /// **'Keluar Darah'**
+  String get keluarDarahTitle;
+
+  /// Subjudul layar keluar darah
+  ///
+  /// In id, this message translates to:
+  /// **'Perdarahan'**
+  String get keluarDarahSubtitle;
+
+  /// Deskripsi kartu intro layar keluar darah
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan keluar darah selama kehamilan.'**
+  String get keluarDarahDescription;
+
+  /// Judul layar mual muntah
+  ///
+  /// In id, this message translates to:
+  /// **'Mual Muntah'**
+  String get mualMuntahTitle;
+
+  /// Subjudul layar mual muntah
+  ///
+  /// In id, this message translates to:
+  /// **'Morning sickness'**
+  String get mualMuntahSubtitle;
+
+  /// Deskripsi kartu intro layar mual muntah
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan mual dan muntah selama kehamilan.'**
+  String get mualMuntahDescription;
+
+  /// Judul layar pergerakan janin
+  ///
+  /// In id, this message translates to:
+  /// **'Pergerakan Janin'**
+  String get pergerakanJaninTitle;
+
+  /// Subjudul layar pergerakan janin
+  ///
+  /// In id, this message translates to:
+  /// **'Tendangan bayi'**
+  String get pergerakanJaninSubtitle;
+
+  /// Deskripsi kartu intro layar pergerakan janin
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner ini terdiri dari pertanyaan terkait pergerakan janin selama kehamilan.'**
+  String get pergerakanJaninDescription;
+
+  /// Judul layar sakit kepala
+  ///
+  /// In id, this message translates to:
+  /// **'Sakit Kepala'**
+  String get sakitKepalaTitle;
+
+  /// Subjudul layar sakit kepala
+  ///
+  /// In id, this message translates to:
+  /// **'Migrain & pusing'**
+  String get sakitKepalaSubtitle;
+
+  /// Deskripsi kartu intro layar sakit kepala
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner ini terdiri dari berbagai pertanyaan terkait keluhan sakit kepala selama kehamilan.'**
+  String get sakitKepalaDescription;
+
+  /// Judul layar/keluhan preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Preeklampsia'**
+  String get preeklampsiaTitle;
+
+  /// Label bagian pada layar yang perlu dihindari
+  ///
+  /// In id, this message translates to:
+  /// **'Yang Perlu Dihindari'**
+  String get yangPerluDihindariLabel;
+
+  /// Label bagian pada layar aktivitas fisik
+  ///
+  /// In id, this message translates to:
+  /// **'Jenis Aktivitas yang Dianjurkan'**
+  String get jenisAktivitasLabel;
+
+  /// Header label pada layar menu perawatan
+  ///
+  /// In id, this message translates to:
+  /// **'PANDUAN PERAWATAN'**
+  String get panduanPerawatanHeader;
+
+  /// Label bagian pada layar perawatan sehari-hari
+  ///
+  /// In id, this message translates to:
+  /// **'Panduan Perawatan Harian'**
+  String get panduanPerawatanHarian;
+
+  /// Label bagian pada layar nutrisi
+  ///
+  /// In id, this message translates to:
+  /// **'Zat Gizi Penting'**
+  String get zatGiziPentingLabel;
+
+  /// Judul pada layar menu keluhan
+  ///
+  /// In id, this message translates to:
+  /// **'Keluhan'**
+  String get keluhanMenuTitle;
+
+  /// Subjudul pada layar menu keluhan
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih keluhan yang Anda rasakan'**
+  String get keluhanMenuSubtitle;
+
+  /// Judul pada layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Skrining Kehamilan'**
+  String get skriningTitle;
+
+  /// Subjudul pada layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Deteksi dini risiko untuk kehamilan yang lebih aman'**
+  String get skriningSubtitle;
+
+  /// Header bagian pada layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'SKRINING RISIKO'**
+  String get skriningRisikoHeader;
+
+  /// Label skrining lanjut pada layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Penapisan Tingkat Lanjut'**
+  String get penapasanTingkatLanjut;
+
+  /// Subjudul untuk kartu skrining lanjut pada layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Skrining komprehensif risiko komplikasi persalinan'**
+  String get penapasanSubtitle;
+
+  /// Header bagian pemantauan rutin pada layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'PEMANTAUAN RUTIN'**
+  String get pemantauanRutinHeader;
+
+  /// Judul kartu rekam kesehatan pada layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Rekam Kesehatan'**
+  String get rekamKesehatanTitle;
+
+  /// Subjudul kartu rekam kesehatan pada layar skrining
+  ///
+  /// In id, this message translates to:
+  /// **'Monitoring harian'**
+  String get rekamKesehatanSubtitle;
+
+  /// Teks placeholder pada gauge IMT ketika belum ada data
+  ///
+  /// In id, this message translates to:
+  /// **'Isi data di bawah untuk menghitung'**
+  String get imtFillDataPrompt;
+
+  /// Label bagian untuk kartu rekomendasi
+  ///
+  /// In id, this message translates to:
+  /// **'REKOMENDASI'**
+  String get recommendationLabel;
+
+  /// Judul layar artikel
+  ///
+  /// In id, this message translates to:
+  /// **'Artikel & Panduan'**
+  String get artikelPanduanTitle;
+
+  /// Filter kategori semua
+  ///
+  /// In id, this message translates to:
+  /// **'Semua'**
+  String get allCategory;
+
+  /// Kategori nutrisi
+  ///
+  /// In id, this message translates to:
+  /// **'Nutrisi'**
+  String get nutrisiCategory;
+
+  /// Kategori aktivitas
+  ///
+  /// In id, this message translates to:
+  /// **'Aktivitas'**
+  String get aktivitasCategory;
+
+  /// Kategori trimester
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester'**
+  String get trimesterCategory;
+
+  /// Kategori perawatan
+  ///
+  /// In id, this message translates to:
+  /// **'Perawatan'**
+  String get perawatanCategory;
+
+  /// Kategori persalinan
+  ///
+  /// In id, this message translates to:
+  /// **'Persalinan'**
+  String get persalinanCategory;
+
+  /// Kategori pantangan
+  ///
+  /// In id, this message translates to:
+  /// **'Pantangan'**
+  String get pantanganCategory;
+
+  /// Label pilihan editor pada artikel unggulan
+  ///
+  /// In id, this message translates to:
+  /// **'Pilihan Editor'**
+  String get editorPickLabel;
+
+  /// Estimasi waktu baca artikel
+  ///
+  /// In id, this message translates to:
+  /// **'{count} menit baca'**
+  String readTimeMinutes(int count);
+
+  /// Judul artikel nutrisi
+  ///
+  /// In id, this message translates to:
+  /// **'Panduan Gizi Lengkap untuk Ibu Hamil'**
+  String get artikelNutrisiTitle;
+
+  /// Judul artikel pantangan
+  ///
+  /// In id, this message translates to:
+  /// **'Yang Perlu Dihindari Selama Kehamilan'**
+  String get artikelPantanganTitle;
+
+  /// Judul artikel aktivitas
+  ///
+  /// In id, this message translates to:
+  /// **'Aktivitas Fisik yang Aman Saat Hamil'**
+  String get artikelAktivitasTitle;
+
+  /// Judul artikel perawatan
+  ///
+  /// In id, this message translates to:
+  /// **'Perawatan Sehari-hari Ibu Hamil'**
+  String get artikelPerawatanTitle;
+
+  /// Judul artikel persalinan
+  ///
+  /// In id, this message translates to:
+  /// **'Persiapan Menjelang Persalinan'**
+  String get artikelPersalinanTitle;
+
+  /// Judul artikel trimester pertama
+  ///
+  /// In id, this message translates to:
+  /// **'Panduan Lengkap Trimester Pertama'**
+  String get artikelTrimesterSatuTitle;
+
+  /// Judul artikel trimester kedua
+  ///
+  /// In id, this message translates to:
+  /// **'Panduan Lengkap Trimester Kedua'**
+  String get artikelTrimesterDuaTitle;
+
+  /// Judul artikel trimester ketiga
+  ///
+  /// In id, this message translates to:
+  /// **'Panduan Lengkap Trimester Ketiga'**
+  String get artikelTrimesterTigaTitle;
+
+  /// Header untuk bagian tips tambahan
+  ///
+  /// In id, this message translates to:
+  /// **'Tips Tambahan:'**
+  String get additionalTipsLabel;
+
+  /// Tip 1 pada layar artikel
+  ///
+  /// In id, this message translates to:
+  /// **'Konsultasikan dengan dokter secara teratur'**
+  String get articleTip1;
+
+  /// Tip 2 pada layar artikel
+  ///
+  /// In id, this message translates to:
+  /// **'Jaga pola makan seimbang'**
+  String get articleTip2;
+
+  /// Tip 3 pada layar artikel
+  ///
+  /// In id, this message translates to:
+  /// **'Lakukan olahraga ringan yang aman'**
+  String get articleTip3;
+
+  /// Judul layar hasil pencarian
+  ///
+  /// In id, this message translates to:
+  /// **'Hasil Pencarian'**
+  String get searchResultsTitle;
+
+  /// Judul layar aktivitas fisik untuk pencarian
+  ///
+  /// In id, this message translates to:
+  /// **'Aktivitas Fisik Ibu Hamil'**
+  String get aktivitasFisikIbuHamilTitle;
+
+  /// Judul layar perawatan sehari-hari untuk pencarian
+  ///
+  /// In id, this message translates to:
+  /// **'Perawatan Sehari-hari'**
+  String get perawatanSehariHariTitle;
+
+  /// Label bagian pilih trimester
+  ///
+  /// In id, this message translates to:
+  /// **'PILIH TRIMESTER'**
+  String get chooseTrimesterLabel;
+
+  /// Header panduan kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'PANDUAN KEHAMILAN'**
+  String get pregnancyGuideHeader;
+
+  /// Label bagian pengantar
+  ///
+  /// In id, this message translates to:
+  /// **'Pengantar'**
+  String get introductionLabel;
+
+  /// Label bagian yang dianjurkan dan dihindari
+  ///
+  /// In id, this message translates to:
+  /// **'Yang Dianjurkan & Dihindari'**
+  String get recommendedAndAvoidLabel;
+
+  /// Judul layar perkembangan bayi
+  ///
+  /// In id, this message translates to:
+  /// **'Perkembangan Bayi'**
+  String get babyDevelopmentTitle;
+
+  /// Label bagian pilih minggu
+  ///
+  /// In id, this message translates to:
+  /// **'PILIH MINGGU'**
+  String get chooseWeekLabel;
+
+  /// Label bagian perkembangan minggu ini
+  ///
+  /// In id, this message translates to:
+  /// **'Perkembangan Minggu Ini'**
+  String get weeklyDevelopmentLabel;
+
+  /// Label bagian tips untuk ibu
+  ///
+  /// In id, this message translates to:
+  /// **'Tips Untuk Ibu'**
+  String get tipsForMotherLabel;
+
+  /// Label bagian perjalanan kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Perjalanan Kehamilan'**
+  String get pregnancyJourneyLabel;
+
+  /// Label lahir pada timeline kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Lahir'**
+  String get bornLabel;
+
+  /// Label progres pada kuesioner
+  ///
+  /// In id, this message translates to:
+  /// **'Progres'**
+  String get questionnaireProgress;
+
+  /// Tombol jawaban ya
+  ///
+  /// In id, this message translates to:
+  /// **'Ya'**
+  String get answerYes;
+
+  /// Tombol jawaban tidak
+  ///
+  /// In id, this message translates to:
+  /// **'Tidak'**
+  String get answerNo;
+
+  /// Indikator langkah pertanyaan
+  ///
+  /// In id, this message translates to:
+  /// **'Pertanyaan {current} dari {total}'**
+  String questionStepLabel(int current, int total);
+
+  /// Judul kuesioner bengkak
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner Bengkak'**
+  String get bengkakQuestTitle;
+
+  /// Judul kuesioner keluar cairan
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner Keluar Cairan'**
+  String get keluarCairanQuestTitle;
+
+  /// Judul kuesioner keluar darah
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner Keluar Darah'**
+  String get keluarDarahQuestTitle;
+
+  /// Judul kuesioner mual muntah
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner Mual Muntah'**
+  String get mualMuntahQuestTitle;
+
+  /// Judul kuesioner pergerakan janin
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner Pergerakan Janin'**
+  String get pergerakanJaninQuestTitle;
+
+  /// Judul kuesioner sakit kepala
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner Sakit Kepala'**
+  String get sakitKepalaQuestTitle;
+
+  /// Judul kuesioner penapisan
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner Penapisan'**
+  String get penapisanQuestTitle;
+
+  /// Judul kuesioner preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Kuesioner Preeklampsia'**
+  String get preeklampsiaQuestTitle;
+
+  /// Judul layar hasil pemeriksaan
+  ///
+  /// In id, this message translates to:
+  /// **'Hasil Pemeriksaan'**
+  String get examResultTitle;
+
+  /// Header bagian yang bisa dilakukan
+  ///
+  /// In id, this message translates to:
+  /// **'YANG BISA DILAKUKAN'**
+  String get yangBisaDilakukan;
+
+  /// Tombol kembali ke beranda
+  ///
+  /// In id, this message translates to:
+  /// **'Kembali ke Beranda'**
+  String get returnToHome;
+
+  /// Tombol ulangi pemeriksaan
+  ///
+  /// In id, this message translates to:
+  /// **'Ulangi Pemeriksaan'**
+  String get retryExamination;
+
+  /// Label skor pada kartu hasil
+  ///
+  /// In id, this message translates to:
+  /// **'Skor {score}'**
+  String scoreLabel(int score);
+
+  /// Ringkasan jawaban ya pada kartu hasil
+  ///
+  /// In id, this message translates to:
+  /// **'{yes} dari {total} jawaban \"Ya\"'**
+  String yesAnswerSummary(int yes, int total);
+
+  /// Teks disclaimer medis
+  ///
+  /// In id, this message translates to:
+  /// **'Hasil ini bukan diagnosis medis. Selalu konsultasikan kondisi Anda dengan tenaga kesehatan.'**
+  String get medicalDisclaimerText;
+
+  /// Tingkat keparahan: perlu periksa segera
+  ///
+  /// In id, this message translates to:
+  /// **'Segera Periksa'**
+  String get sevImmediateCheck;
+
+  /// Tingkat keparahan: perlu istirahat
+  ///
+  /// In id, this message translates to:
+  /// **'Perlu Istirahat'**
+  String get sevNeedRest;
+
+  /// Tingkat keparahan: tetap waspada
+  ///
+  /// In id, this message translates to:
+  /// **'Tetap Waspada'**
+  String get sevStayAlert;
+
+  /// Tingkat keparahan: perlu dipantau
+  ///
+  /// In id, this message translates to:
+  /// **'Perlu Dipantau'**
+  String get sevNeedMonitoring;
+
+  /// Tingkat keparahan: kondisi baik
+  ///
+  /// In id, this message translates to:
+  /// **'Kondisi Baik'**
+  String get sevGoodCondition;
+
+  /// Tingkat keparahan: normal
+  ///
+  /// In id, this message translates to:
+  /// **'Normal'**
+  String get sevNormal;
+
+  /// Tingkat keparahan: tidak ada masalah
+  ///
+  /// In id, this message translates to:
+  /// **'Tidak Ada Masalah'**
+  String get sevNoIssue;
+
+  /// Tingkat keparahan: perlu perhatian
+  ///
+  /// In id, this message translates to:
+  /// **'Perlu Perhatian'**
+  String get sevNeedAttention;
+
+  /// Tingkat keparahan: janin aktif
+  ///
+  /// In id, this message translates to:
+  /// **'Janin Aktif'**
+  String get sevFetalActive;
+
+  /// Tingkat keparahan: risiko tinggi
+  ///
+  /// In id, this message translates to:
+  /// **'Risiko Tinggi'**
+  String get sevHighRisk;
+
+  /// Tingkat keparahan: risiko rendah
+  ///
+  /// In id, this message translates to:
+  /// **'Risiko Rendah'**
+  String get sevLowRisk;
+
+  /// Tingkat keparahan: risiko sedang
+  ///
+  /// In id, this message translates to:
+  /// **'Risiko Sedang'**
+  String get sevMediumRisk;
+
+  /// Tingkat keparahan: tidak ada risiko
+  ///
+  /// In id, this message translates to:
+  /// **'Tidak Ada Risiko'**
+  String get sevNoRisk;
+
+  /// Deskripsi tingkat keparahan tinggi bengkak
+  ///
+  /// In id, this message translates to:
+  /// **'Pembengkakan yang Anda alami memerlukan evaluasi segera oleh tenaga kesehatan.'**
+  String get bengkakSevHighDesc;
+
+  /// Deskripsi tingkat keparahan sedang bengkak
+  ///
+  /// In id, this message translates to:
+  /// **'Bengkak ringan yang umum terjadi. Lakukan perawatan mandiri dan pantau perkembangannya.'**
+  String get bengkakSevMedDesc;
+
+  /// Deskripsi tingkat keparahan rendah bengkak
+  ///
+  /// In id, this message translates to:
+  /// **'Kondisi saat ini perlu tetap dipantau.'**
+  String get bengkakSevLowDesc;
+
+  /// Deskripsi perlu dipantau keluar cairan
+  ///
+  /// In id, this message translates to:
+  /// **'Lakukan observasi selama 1 hari. Jika cairan masih keluar, segera ke fasilitas kesehatan.'**
+  String get keluarCairanSevNeedMonDesc;
+
+  /// Deskripsi tetap waspada keluar cairan
+  ///
+  /// In id, this message translates to:
+  /// **'Kondisi cairan saat ini perlu terus dipantau.'**
+  String get keluarCairanSevAlertDesc;
+
+  /// Deskripsi segera periksa keluar cairan
+  ///
+  /// In id, this message translates to:
+  /// **'Terdapat tanda-tanda cairan abnormal yang memerlukan penanganan segera.'**
+  String get keluarCairanSevImmDesc;
+
+  /// Deskripsi kondisi baik keluar darah
+  ///
+  /// In id, this message translates to:
+  /// **'Tidak ditemukan tanda-tanda perdarahan berbahaya saat ini.'**
+  String get keluarDarahSevGoodDesc;
+
+  /// Deskripsi segera periksa keluar darah
+  ///
+  /// In id, this message translates to:
+  /// **'Terdapat tanda perdarahan yang memerlukan penanganan segera.'**
+  String get keluarDarahSevImmDesc;
+
+  /// Deskripsi normal mual muntah
+  ///
+  /// In id, this message translates to:
+  /// **'Mual muntah yang Anda alami merupakan kondisi umum di awal kehamilan.'**
+  String get mualMuntahSevNormalDesc;
+
+  /// Deskripsi tidak ada masalah mual muntah
+  ///
+  /// In id, this message translates to:
+  /// **'Tidak ditemukan keluhan mual muntah yang signifikan.'**
+  String get mualMuntahSevNoIssueDesc;
+
+  /// Deskripsi perlu perhatian mual muntah
+  ///
+  /// In id, this message translates to:
+  /// **'Keluhan mual muntah Anda perlu ditangani oleh tenaga kesehatan.'**
+  String get mualMuntahSevAttentionDesc;
+
+  /// Deskripsi janin aktif pergerakan janin
+  ///
+  /// In id, this message translates to:
+  /// **'Pergerakan janin Anda normal dan aktif. Teruskan pemantauan harian.'**
+  String get pergerakanJaninSevActiveDesc;
+
+  /// Deskripsi tetap waspada pergerakan janin
+  ///
+  /// In id, this message translates to:
+  /// **'Pantau terus pergerakan janin dan segera lapor jika ada perubahan.'**
+  String get pergerakanJaninSevAlertDesc;
+
+  /// Deskripsi segera periksa pergerakan janin
+  ///
+  /// In id, this message translates to:
+  /// **'Pergerakan janin menunjukkan tanda yang perlu diperiksa segera.'**
+  String get pergerakanJaninSevImmDesc;
+
+  /// Deskripsi perlu istirahat sakit kepala
+  ///
+  /// In id, this message translates to:
+  /// **'Sakit kepala kemungkinan disebabkan kelelahan. Cobalah istirahat yang cukup.'**
+  String get sakitKepalaSevRestDesc;
+
+  /// Deskripsi perlu perhatian sakit kepala
+  ///
+  /// In id, this message translates to:
+  /// **'Keluhan sakit kepala Anda memerlukan pemeriksaan lebih lanjut oleh tenaga kesehatan.'**
+  String get sakitKepalaSevAttentionDesc;
+
+  /// Deskripsi risiko rendah penapisan
+  ///
+  /// In id, this message translates to:
+  /// **'Berdasarkan hasil penapisan, kehamilan Anda tergolong risiko rendah.'**
+  String get penapisanSevLowDesc;
+
+  /// Deskripsi risiko tinggi penapisan
+  ///
+  /// In id, this message translates to:
+  /// **'Berdasarkan hasil penapisan, kehamilan Anda memerlukan penanganan di fasilitas lengkap.'**
+  String get penapisanSevHighDesc;
+
+  /// Deskripsi risiko tinggi preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Anda memiliki beberapa faktor risiko preeklampsia yang perlu ditangani segera.'**
+  String get preeklampsiaSevHighDesc;
+
+  /// Deskripsi risiko sedang preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Terdapat beberapa faktor risiko yang perlu dipantau secara rutin.'**
+  String get preeklampsiaSevMedDesc;
+
+  /// Deskripsi risiko rendah preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Risiko preeklampsia Anda tergolong rendah. Tetap jaga pola hidup sehat.'**
+  String get preeklampsiaSevLowDesc;
+
+  /// Deskripsi tidak ada risiko preeklampsia
+  ///
+  /// In id, this message translates to:
+  /// **'Tidak ditemukan faktor risiko preeklampsia saat ini.'**
+  String get preeklampsiaSevNoRiskDesc;
+
+  /// Tips bengkak 1
+  ///
+  /// In id, this message translates to:
+  /// **'Tinggikan posisi kaki saat berbaring menggunakan bantal'**
+  String get bengkakTip1;
+
+  /// Tips bengkak 2
+  ///
+  /// In id, this message translates to:
+  /// **'Hindari berdiri atau duduk terlalu lama'**
+  String get bengkakTip2;
+
+  /// Tips bengkak 3
+  ///
+  /// In id, this message translates to:
+  /// **'Kurangi konsumsi garam dan makanan olahan'**
+  String get bengkakTip3;
+
+  /// Tips bengkak 4
+  ///
+  /// In id, this message translates to:
+  /// **'Lakukan senam kaki ringan untuk melancarkan sirkulasi'**
+  String get bengkakTip4;
+
+  /// Tips keluar cairan 1
+  ///
+  /// In id, this message translates to:
+  /// **'Catat warna, bau, dan jumlah cairan yang keluar'**
+  String get keluarCairanTip1;
+
+  /// Tips keluar cairan 2
+  ///
+  /// In id, this message translates to:
+  /// **'Gunakan pembalut untuk memantau jumlah cairan'**
+  String get keluarCairanTip2;
+
+  /// Tips keluar cairan 3
+  ///
+  /// In id, this message translates to:
+  /// **'Jaga kebersihan area kewanitaan'**
+  String get keluarCairanTip3;
+
+  /// Tips keluar cairan 4
+  ///
+  /// In id, this message translates to:
+  /// **'Segera ke fasilitas kesehatan jika cairan berbau atau berwarna tidak normal'**
+  String get keluarCairanTip4;
+
+  /// Tips keluar darah 1
+  ///
+  /// In id, this message translates to:
+  /// **'Segera berbaring dan hindari aktivitas fisik berat'**
+  String get keluarDarahTip1;
+
+  /// Tips keluar darah 2
+  ///
+  /// In id, this message translates to:
+  /// **'Catat warna, jumlah, dan waktu terjadinya perdarahan'**
+  String get keluarDarahTip2;
+
+  /// Tips keluar darah 3
+  ///
+  /// In id, this message translates to:
+  /// **'Jangan menggunakan tampon — gunakan pembalut biasa'**
+  String get keluarDarahTip3;
+
+  /// Tips keluar darah 4
+  ///
+  /// In id, this message translates to:
+  /// **'Jangan menunggu terlalu lama sebelum ke fasilitas kesehatan'**
+  String get keluarDarahTip4;
+
+  /// Tips mual muntah 1
+  ///
+  /// In id, this message translates to:
+  /// **'Makan dalam porsi kecil tapi sering (5–6x sehari)'**
+  String get mualMuntahTip1;
+
+  /// Tips mual muntah 2
+  ///
+  /// In id, this message translates to:
+  /// **'Hindari makanan berbau tajam, berlemak, atau pedas'**
+  String get mualMuntahTip2;
+
+  /// Tips mual muntah 3
+  ///
+  /// In id, this message translates to:
+  /// **'Minum jahe hangat atau teh peppermint untuk meredakan mual'**
+  String get mualMuntahTip3;
+
+  /// Tips mual muntah 4
+  ///
+  /// In id, this message translates to:
+  /// **'Istirahat yang cukup dan hindari stres berlebihan'**
+  String get mualMuntahTip4;
+
+  /// Tips pergerakan janin 1
+  ///
+  /// In id, this message translates to:
+  /// **'Pantau gerakan janin setiap hari, idealnya setelah makan'**
+  String get pergerakanJaninTip1;
+
+  /// Tips pergerakan janin 2
+  ///
+  /// In id, this message translates to:
+  /// **'Catat minimal 10 gerakan dalam 2 jam sebagai normal'**
+  String get pergerakanJaninTip2;
+
+  /// Tips pergerakan janin 3
+  ///
+  /// In id, this message translates to:
+  /// **'Berbaring miring ke kiri untuk memaksimalkan aliran darah ke janin'**
+  String get pergerakanJaninTip3;
+
+  /// Tips pergerakan janin 4
+  ///
+  /// In id, this message translates to:
+  /// **'Hubungi bidan jika gerakan janin berkurang drastis'**
+  String get pergerakanJaninTip4;
+
+  /// Tips sakit kepala 1
+  ///
+  /// In id, this message translates to:
+  /// **'Istirahat di ruangan yang tenang dan gelap'**
+  String get sakitKepalaTip1;
+
+  /// Tips sakit kepala 2
+  ///
+  /// In id, this message translates to:
+  /// **'Kompres dingin atau hangat di dahi dan belakang leher'**
+  String get sakitKepalaTip2;
+
+  /// Tips sakit kepala 3
+  ///
+  /// In id, this message translates to:
+  /// **'Pastikan tubuh terhidrasi dengan minum air yang cukup'**
+  String get sakitKepalaTip3;
+
+  /// Tips sakit kepala 4
+  ///
+  /// In id, this message translates to:
+  /// **'Hindari layar HP/TV berlebihan dan paparan sinar terang'**
+  String get sakitKepalaTip4;
+
+  /// Tips penapisan 1
+  ///
+  /// In id, this message translates to:
+  /// **'Persiapkan biaya dan transportasi ke fasilitas kesehatan yang sesuai'**
+  String get penapisanTip1;
+
+  /// Tips penapisan 2
+  ///
+  /// In id, this message translates to:
+  /// **'Buat rencana persalinan bersama keluarga dan tenaga kesehatan'**
+  String get penapisanTip2;
+
+  /// Tips penapisan 3
+  ///
+  /// In id, this message translates to:
+  /// **'Pantau kondisi kehamilan secara rutin sesuai jadwal ANC'**
+  String get penapisanTip3;
+
+  /// Tips penapisan 4
+  ///
+  /// In id, this message translates to:
+  /// **'Konsultasikan pertanyaan seputar persalinan ke bidan atau dokter'**
+  String get penapisanTip4;
+
+  /// Tips preeklampsia 1
+  ///
+  /// In id, this message translates to:
+  /// **'Rutin periksa tekanan darah setiap kunjungan ANC'**
+  String get preeklampsiaTip1;
+
+  /// Tips preeklampsia 2
+  ///
+  /// In id, this message translates to:
+  /// **'Batasi konsumsi garam dan makanan olahan'**
+  String get preeklampsiaTip2;
+
+  /// Tips preeklampsia 3
+  ///
+  /// In id, this message translates to:
+  /// **'Segera ke fasilitas kesehatan jika kepala terasa berat atau penglihatan kabur'**
+  String get preeklampsiaTip3;
+
+  /// Tips preeklampsia 4
+  ///
+  /// In id, this message translates to:
+  /// **'Istirahat cukup dan hindari aktivitas berat'**
+  String get preeklampsiaTip4;
 }
 
 class _AppLocalizationsDelegate
