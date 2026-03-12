@@ -3419,37 +3419,37 @@ abstract class AppLocalizations {
   /// Klasifikasi IMT untuk berat badan kurang
   ///
   /// In id, this message translates to:
-  /// **'â€¢ < 18.5: Berat badan kurang'**
+  /// **'• < 18.5: Berat badan kurang'**
   String get imtCalc_classificationUnderweight;
 
   /// Klasifikasi IMT untuk berat badan normal
   ///
   /// In id, this message translates to:
-  /// **'â€¢ 18.5 - 24.9: Berat badan normal'**
+  /// **'• 18.5 - 24.9: Berat badan normal'**
   String get imtCalc_classificationNormal;
 
   /// Klasifikasi IMT untuk pra-obesitas
   ///
   /// In id, this message translates to:
-  /// **'â€¢ 25.0 - 29.9: Pra-obesitas'**
+  /// **'• 25.0 - 29.9: Pra-obesitas'**
   String get imtCalc_classificationOverweight;
 
   /// Klasifikasi IMT untuk obesitas kelas I
   ///
   /// In id, this message translates to:
-  /// **'â€¢ 30.0 - 34.9: Obesitas kelas I'**
+  /// **'• 30.0 - 34.9: Obesitas kelas I'**
   String get imtCalc_classificationObesity1;
 
   /// Klasifikasi IMT untuk obesitas kelas II
   ///
   /// In id, this message translates to:
-  /// **'â€¢ 35.0 - 39.9: Obesitas kelas II'**
+  /// **'• 35.0 - 39.9: Obesitas kelas II'**
   String get imtCalc_classificationObesity2;
 
   /// Klasifikasi IMT untuk obesitas kelas III
   ///
   /// In id, this message translates to:
-  /// **'â€¢ â‰¥ 40.0: Obesitas kelas III'**
+  /// **'• ≥ 40.0: Obesitas kelas III'**
   String get imtCalc_classificationObesity3;
 
   /// Judul untuk rekomendasi penambahan berat badan selama kehamilan
@@ -3491,19 +3491,19 @@ abstract class AppLocalizations {
   /// Tip kesehatan pertama
   ///
   /// In id, this message translates to:
-  /// **'â€¢ Jaga pola makan sehat dengan makanan bergizi seimbang.'**
+  /// **'• Jaga pola makan sehat dengan makanan bergizi seimbang.'**
   String get imtCalc_healthTip1;
 
   /// Tip kesehatan kedua
   ///
   /// In id, this message translates to:
-  /// **'â€¢ Tetap aktif dengan olahraga ringan selama kehamilan.'**
+  /// **'• Tetap aktif dengan olahraga ringan selama kehamilan.'**
   String get imtCalc_healthTip2;
 
   /// Tip kesehatan ketiga
   ///
   /// In id, this message translates to:
-  /// **'â€¢ Jangan lupa istirahat yang cukup dan kelola stres.'**
+  /// **'• Jangan lupa istirahat yang cukup dan kelola stres.'**
   String get imtCalc_healthTip3;
 
   /// Judul dialog informasi IMT WHO
@@ -4667,7 +4667,7 @@ abstract class AppLocalizations {
   /// Daftar gejala darurat
   ///
   /// In id, this message translates to:
-  /// **'â€¢ Pendarahan hebat\nâ€¢ Kontraksi kuat sebelum waktunya\nâ€¢ Sakit kepala parah\nâ€¢ Pandangan kabur'**
+  /// **'• Pendarahan hebat\n• Kontraksi kuat sebelum waktunya\n• Sakit kepala parah\n• Pandangan kabur'**
   String get emergencySymptoms;
 
   /// Tombol mulai pada kartu intro kuesioner
@@ -5149,6 +5149,30 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'PANDUAN KEHAMILAN'**
   String get pregnancyGuideHeader;
+
+  /// Deskripsi singkat panduan kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Pelajari perkembangan janin dan perubahan tubuh Anda di setiap trimester.'**
+  String get pregnancyGuideDescription;
+
+  /// Label nomor minggu pada layar perkembangan bayi
+  ///
+  /// In id, this message translates to:
+  /// **'MINGGU KE-{week}'**
+  String weekNumberLabel(Object week);
+
+  /// Label ukuran bayi dibandingkan buah
+  ///
+  /// In id, this message translates to:
+  /// **'Seukuran {fruit}'**
+  String sizedLikeLabel(String fruit);
+
+  /// Label progres minggu kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Minggu {current} / 40'**
+  String weekProgressLabel(Object current);
 
   /// Label bagian pengantar
   ///
@@ -5713,6 +5737,1068 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Istirahat cukup dan hindari aktivitas berat'**
   String get preeklampsiaTip4;
+
+  /// Judul insight berat badan naik cepat
+  ///
+  /// In id, this message translates to:
+  /// **'Kenaikan Berat Badan Cepat'**
+  String get insightWeightFastTitle;
+
+  /// Deskripsi kenaikan berat badan cepat
+  ///
+  /// In id, this message translates to:
+  /// **'Berat badan Anda naik {weeklyChange} kg per minggu'**
+  String insightWeightFastDesc(String weeklyChange);
+
+  /// Rekomendasi kenaikan berat badan cepat
+  ///
+  /// In id, this message translates to:
+  /// **'Konsultasikan dengan dokter tentang pola makan dan aktivitas fisik yang tepat'**
+  String get insightWeightFastRec;
+
+  /// Judul insight berat badan naik lambat
+  ///
+  /// In id, this message translates to:
+  /// **'Kenaikan Berat Badan Lambat'**
+  String get insightWeightSlowTitle;
+
+  /// Deskripsi kenaikan berat badan lambat
+  ///
+  /// In id, this message translates to:
+  /// **'Kenaikan berat badan Anda di bawah rekomendasi'**
+  String get insightWeightSlowDesc;
+
+  /// Rekomendasi kenaikan berat badan lambat
+  ///
+  /// In id, this message translates to:
+  /// **'Pastikan asupan nutrisi mencukupi dan konsultasi dengan ahli gizi'**
+  String get insightWeightSlowRec;
+
+  /// Judul insight berat badan normal
+  ///
+  /// In id, this message translates to:
+  /// **'Kenaikan Berat Badan Normal'**
+  String get insightWeightNormalTitle;
+
+  /// Deskripsi kenaikan berat badan normal
+  ///
+  /// In id, this message translates to:
+  /// **'Kenaikan berat badan Anda dalam rentang yang sehat'**
+  String get insightWeightNormalDesc;
+
+  /// Rekomendasi berat badan normal
+  ///
+  /// In id, this message translates to:
+  /// **'Pertahankan pola makan dan aktivitas yang sehat'**
+  String get insightWeightNormalRec;
+
+  /// Judul insight tekanan darah tinggi berulang
+  ///
+  /// In id, this message translates to:
+  /// **'Tekanan Darah Tinggi Berulang'**
+  String get insightBPHighTitle;
+
+  /// Deskripsi tekanan darah tinggi berulang
+  ///
+  /// In id, this message translates to:
+  /// **'{percentage}% pengukuran menunjukkan tekanan darah tinggi'**
+  String insightBPHighDesc(String percentage);
+
+  /// Rekomendasi tekanan darah tinggi berulang
+  ///
+  /// In id, this message translates to:
+  /// **'SEGERA konsultasi dengan dokter untuk evaluasi preeklampsia'**
+  String get insightBPHighRec;
+
+  /// Judul insight tekanan darah perlu dipantau
+  ///
+  /// In id, this message translates to:
+  /// **'Tekanan Darah Perlu Dipantau'**
+  String get insightBPMonitorTitle;
+
+  /// Deskripsi tekanan darah perlu dipantau
+  ///
+  /// In id, this message translates to:
+  /// **'Beberapa pengukuran menunjukkan tekanan darah tinggi'**
+  String get insightBPMonitorDesc;
+
+  /// Rekomendasi tekanan darah perlu dipantau
+  ///
+  /// In id, this message translates to:
+  /// **'Monitor tekanan darah lebih sering dan konsultasi dengan dokter'**
+  String get insightBPMonitorRec;
+
+  /// Rekomendasi untuk gejala sakit kepala berulang
+  ///
+  /// In id, this message translates to:
+  /// **'Sakit kepala berulang bisa menjadi tanda preeklampsia. Konsultasi dengan dokter'**
+  String get insightSymptomHeadacheRec;
+
+  /// Rekomendasi untuk gejala bengkak berulang
+  ///
+  /// In id, this message translates to:
+  /// **'Bengkak berlebihan perlu dievaluasi dokter untuk kemungkinan preeklampsia'**
+  String get insightSymptomSwellingRec;
+
+  /// Rekomendasi untuk gejala mual muntah berulang
+  ///
+  /// In id, this message translates to:
+  /// **'Mual muntah berlebihan (hyperemesis) perlu penanganan medis'**
+  String get insightSymptomNauseaRec;
+
+  /// Rekomendasi default untuk gejala berulang
+  ///
+  /// In id, this message translates to:
+  /// **'Gejala berulang perlu dikonsultasikan dengan dokter'**
+  String get insightSymptomDefaultRec;
+
+  /// Judul insight gejala berulang
+  ///
+  /// In id, this message translates to:
+  /// **'Gejala {symptom} Berulang'**
+  String insightSymptomRecurringTitle(String symptom);
+
+  /// Deskripsi gejala berulang
+  ///
+  /// In id, this message translates to:
+  /// **'Gejala ini muncul pada {percentage}% catatan kesehatan'**
+  String insightSymptomRecurringDesc(String percentage);
+
+  /// Judul insight kurang tidur
+  ///
+  /// In id, this message translates to:
+  /// **'Kurang Tidur'**
+  String get insightSleepLowTitle;
+
+  /// Deskripsi rata-rata tidur
+  ///
+  /// In id, this message translates to:
+  /// **'Rata-rata tidur Anda {hours} jam per hari'**
+  String insightSleepLowDesc(String hours);
+
+  /// Rekomendasi untuk kurang tidur
+  ///
+  /// In id, this message translates to:
+  /// **'Ibu hamil membutuhkan 7-9 jam tidur. Coba atur jadwal tidur yang lebih teratur'**
+  String get insightSleepLowRec;
+
+  /// Judul insight tidur berlebihan
+  ///
+  /// In id, this message translates to:
+  /// **'Tidur Berlebihan'**
+  String get insightSleepHighTitle;
+
+  /// Rekomendasi untuk tidur berlebihan
+  ///
+  /// In id, this message translates to:
+  /// **'Tidur berlebihan bisa menandakan kelelahan atau kondisi medis tertentu'**
+  String get insightSleepHighRec;
+
+  /// Judul insight kurang minum air
+  ///
+  /// In id, this message translates to:
+  /// **'Kurang Minum Air'**
+  String get insightHydrationLowTitle;
+
+  /// Deskripsi rata-rata asupan air
+  ///
+  /// In id, this message translates to:
+  /// **'Rata-rata asupan air {liters} liter per hari'**
+  String insightHydrationLowDesc(String liters);
+
+  /// Rekomendasi untuk kurang minum air
+  ///
+  /// In id, this message translates to:
+  /// **'Ibu hamil perlu 2-2.5 liter air per hari. Tingkatkan asupan air putih'**
+  String get insightHydrationLowRec;
+
+  /// Judul insight hidrasi baik
+  ///
+  /// In id, this message translates to:
+  /// **'Hidrasi Baik'**
+  String get insightHydrationGoodTitle;
+
+  /// Deskripsi hidrasi baik
+  ///
+  /// In id, this message translates to:
+  /// **'Asupan air Anda sudah mencukupi'**
+  String get insightHydrationGoodDesc;
+
+  /// Rekomendasi hidrasi baik
+  ///
+  /// In id, this message translates to:
+  /// **'Pertahankan kebiasaan minum air yang baik'**
+  String get insightHydrationGoodRec;
+
+  /// Judul insight mood negatif dominan
+  ///
+  /// In id, this message translates to:
+  /// **'Mood Negatif Dominan'**
+  String get insightMoodNegativeTitle;
+
+  /// Deskripsi mood negatif dominan
+  ///
+  /// In id, this message translates to:
+  /// **'{percentage}% catatan menunjukkan mood negatif'**
+  String insightMoodNegativeDesc(String percentage);
+
+  /// Rekomendasi mood negatif dominan
+  ///
+  /// In id, this message translates to:
+  /// **'Pertimbangkan konseling atau terapi untuk kesehatan mental selama kehamilan'**
+  String get insightMoodNegativeRec;
+
+  /// Judul insight perhatikan kesehatan mental
+  ///
+  /// In id, this message translates to:
+  /// **'Perhatikan Kesehatan Mental'**
+  String get insightMoodCareTitle;
+
+  /// Deskripsi perhatikan kesehatan mental
+  ///
+  /// In id, this message translates to:
+  /// **'Beberapa catatan menunjukkan mood yang kurang baik'**
+  String get insightMoodCareDesc;
+
+  /// Rekomendasi perhatikan kesehatan mental
+  ///
+  /// In id, this message translates to:
+  /// **'Lakukan aktivitas relaksasi dan bicarakan dengan orang terdekat'**
+  String get insightMoodCareRec;
+
+  /// Judul insight asam folat trimester 1
+  ///
+  /// In id, this message translates to:
+  /// **'Asam Folat Penting'**
+  String get insightTrimester1FolicTitle;
+
+  /// Deskripsi insight asam folat trimester 1
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester pertama adalah periode kritis untuk perkembangan saraf bayi'**
+  String get insightTrimester1FolicDesc;
+
+  /// Rekomendasi asam folat trimester 1
+  ///
+  /// In id, this message translates to:
+  /// **'Konsumsi asam folat 400mcg setiap hari dan hindari alkohol serta rokok'**
+  String get insightTrimester1FolicRec;
+
+  /// Judul insight morning sickness trimester 1
+  ///
+  /// In id, this message translates to:
+  /// **'Atasi Morning Sickness'**
+  String get insightTrimester1NauseaTitle;
+
+  /// Deskripsi insight morning sickness trimester 1
+  ///
+  /// In id, this message translates to:
+  /// **'Mual muntah adalah hal normal di trimester pertama'**
+  String get insightTrimester1NauseaDesc;
+
+  /// Rekomendasi morning sickness trimester 1
+  ///
+  /// In id, this message translates to:
+  /// **'Makan dalam porsi kecil tapi sering, hindari makanan berminyak'**
+  String get insightTrimester1NauseaRec;
+
+  /// Judul insight nutrisi trimester 2
+  ///
+  /// In id, this message translates to:
+  /// **'Kalsium dan Zat Besi'**
+  String get insightTrimester2NutritionTitle;
+
+  /// Deskripsi insight nutrisi trimester 2
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester kedua adalah waktu pertumbuhan tulang dan darah bayi'**
+  String get insightTrimester2NutritionDesc;
+
+  /// Rekomendasi nutrisi trimester 2
+  ///
+  /// In id, this message translates to:
+  /// **'Tingkatkan asupan kalsium dan zat besi, lakukan olahraga ringan'**
+  String get insightTrimester2NutritionRec;
+
+  /// Judul insight screening trimester 2
+  ///
+  /// In id, this message translates to:
+  /// **'Screening Anomali'**
+  String get insightTrimester2ScreeningTitle;
+
+  /// Deskripsi insight screening trimester 2
+  ///
+  /// In id, this message translates to:
+  /// **'Waktu optimal untuk pemeriksaan USG detail'**
+  String get insightTrimester2ScreeningDesc;
+
+  /// Rekomendasi screening trimester 2
+  ///
+  /// In id, this message translates to:
+  /// **'Lakukan USG anomali dan tes skrining sesuai jadwal dokter'**
+  String get insightTrimester2ScreeningRec;
+
+  /// Judul insight persiapan persalinan trimester 3
+  ///
+  /// In id, this message translates to:
+  /// **'Persiapan Persalinan'**
+  String get insightTrimester3PrepTitle;
+
+  /// Deskripsi insight persiapan persalinan trimester 3
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester ketiga adalah waktu persiapan kelahiran'**
+  String get insightTrimester3PrepDesc;
+
+  /// Rekomendasi persiapan persalinan trimester 3
+  ///
+  /// In id, this message translates to:
+  /// **'Siapkan tas rumah sakit, pelajari teknik pernapasan, monitor gerakan bayi'**
+  String get insightTrimester3PrepRec;
+
+  /// Judul insight preeklampsia trimester 3
+  ///
+  /// In id, this message translates to:
+  /// **'Waspada Preeklampsia'**
+  String get insightTrimester3PreecTitle;
+
+  /// Deskripsi insight preeklampsia trimester 3
+  ///
+  /// In id, this message translates to:
+  /// **'Risiko preeklampsia meningkat di trimester ketiga'**
+  String get insightTrimester3PreecDesc;
+
+  /// Rekomendasi preeklampsia trimester 3
+  ///
+  /// In id, this message translates to:
+  /// **'Monitor tekanan darah, perhatikan bengkak berlebihan dan sakit kepala'**
+  String get insightTrimester3PreecRec;
+
+  /// Singkatan minggu untuk tab pilih minggu
+  ///
+  /// In id, this message translates to:
+  /// **'M'**
+  String get weekAbbreviation;
+
+  /// No description provided for @babyW1Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Titik mikroskopis'**
+  String get babyW1Fruit;
+
+  /// No description provided for @babyW1Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Proses pembuahan sedang berlangsung'**
+  String get babyW1Milestone;
+
+  /// No description provided for @babyW1Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Mulai konsumsi asam folat 400 mcg setiap hari'**
+  String get babyW1Tip;
+
+  /// No description provided for @babyW2Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Titik mikroskopis'**
+  String get babyW2Fruit;
+
+  /// No description provided for @babyW2Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Ovulasi dan pembuahan terjadi'**
+  String get babyW2Milestone;
+
+  /// No description provided for @babyW2Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Hindari alkohol dan rokok sejak sekarang'**
+  String get babyW2Tip;
+
+  /// No description provided for @babyW3Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Biji wijen'**
+  String get babyW3Fruit;
+
+  /// No description provided for @babyW3Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Sel telur yang dibuahi menempel di rahim'**
+  String get babyW3Milestone;
+
+  /// No description provided for @babyW3Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Jaga pola makan bergizi dan istirahat cukup'**
+  String get babyW3Tip;
+
+  /// No description provided for @babyW4Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Biji apel'**
+  String get babyW4Fruit;
+
+  /// No description provided for @babyW4Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Embrio terbentuk, tabung saraf berkembang'**
+  String get babyW4Milestone;
+
+  /// No description provided for @babyW4Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Lanjutkan asam folat, konsultasi ke dokter'**
+  String get babyW4Tip;
+
+  /// No description provided for @babyW5Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Kacang polong'**
+  String get babyW5Fruit;
+
+  /// No description provided for @babyW5Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Jantung mulai berdetak 80-85x per menit'**
+  String get babyW5Milestone;
+
+  /// No description provided for @babyW5Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Makan makanan kaya zat besi untuk mendukung jantung bayi'**
+  String get babyW5Tip;
+
+  /// No description provided for @babyW6Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Blueberry'**
+  String get babyW6Fruit;
+
+  /// No description provided for @babyW6Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Wajah, mata, dan telinga mulai terbentuk'**
+  String get babyW6Milestone;
+
+  /// No description provided for @babyW6Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Mual pagi? Makan dalam porsi kecil tapi sering'**
+  String get babyW6Tip;
+
+  /// No description provided for @babyW7Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Buah raspberry'**
+  String get babyW7Fruit;
+
+  /// No description provided for @babyW7Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Lengan dan kaki mulai muncul sebagai tonjolan'**
+  String get babyW7Milestone;
+
+  /// No description provided for @babyW7Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Minum cukup air, minimal 8 gelas sehari'**
+  String get babyW7Tip;
+
+  /// No description provided for @babyW8Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Kacang merah'**
+  String get babyW8Fruit;
+
+  /// No description provided for @babyW8Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Jari-jari tangan mulai terbentuk'**
+  String get babyW8Milestone;
+
+  /// No description provided for @babyW8Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Tunda cat rambut atau chemical hingga trimester 2'**
+  String get babyW8Tip;
+
+  /// No description provided for @babyW9Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Anggur'**
+  String get babyW9Fruit;
+
+  /// No description provided for @babyW9Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Semua organ utama sudah ada dalam bentuk awal'**
+  String get babyW9Milestone;
+
+  /// No description provided for @babyW9Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Istirahat lebih banyak, tubuh bekerja keras'**
+  String get babyW9Tip;
+
+  /// No description provided for @babyW10Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Leci'**
+  String get babyW10Fruit;
+
+  /// No description provided for @babyW10Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Tulang mulai menggantikan tulang rawan'**
+  String get babyW10Milestone;
+
+  /// No description provided for @babyW10Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Kalsium penting: susu, keju, bayam, dan ikan'**
+  String get babyW10Tip;
+
+  /// No description provided for @babyW11Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Buah ara (fig)'**
+  String get babyW11Fruit;
+
+  /// No description provided for @babyW11Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Refleks pertama muncul, bayi mulai bergerak'**
+  String get babyW11Milestone;
+
+  /// No description provided for @babyW11Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Risiko keguguran menurun — kabar baik!'**
+  String get babyW11Tip;
+
+  /// No description provided for @babyW12Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Jeruk nipis'**
+  String get babyW12Fruit;
+
+  /// No description provided for @babyW12Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Ginjal mulai memproduksi urin'**
+  String get babyW12Milestone;
+
+  /// No description provided for @babyW12Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Waktu yang baik untuk USG trimester pertama'**
+  String get babyW12Tip;
+
+  /// No description provided for @babyW13Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Buah persik kecil'**
+  String get babyW13Fruit;
+
+  /// No description provided for @babyW13Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Sidik jari unik bayi terbentuk'**
+  String get babyW13Milestone;
+
+  /// No description provided for @babyW13Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Selamat memasuki trimester kedua!'**
+  String get babyW13Tip;
+
+  /// No description provided for @babyW14Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Lemon'**
+  String get babyW14Fruit;
+
+  /// No description provided for @babyW14Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Bayi bisa mengerutkan muka dan menghisap ibu jari'**
+  String get babyW14Milestone;
+
+  /// No description provided for @babyW14Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Mual biasanya mulai berkurang di minggu ini'**
+  String get babyW14Tip;
+
+  /// No description provided for @babyW15Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Apel'**
+  String get babyW15Fruit;
+
+  /// No description provided for @babyW15Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Bayi mulai dapat mendengar suara dari luar'**
+  String get babyW15Milestone;
+
+  /// No description provided for @babyW15Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Ajak bayi ngobrol — ia mulai mengenal suara Anda'**
+  String get babyW15Tip;
+
+  /// No description provided for @babyW16Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Alpukat'**
+  String get babyW16Fruit;
+
+  /// No description provided for @babyW16Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Kaki lebih panjang dari tangan, gerakan aktif'**
+  String get babyW16Milestone;
+
+  /// No description provided for @babyW16Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Anda mungkin mulai merasakan gerakan pertama bayi'**
+  String get babyW16Tip;
+
+  /// No description provided for @babyW17Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Lobak'**
+  String get babyW17Fruit;
+
+  /// No description provided for @babyW17Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Lapisan lemak pelindung mulai terbentuk'**
+  String get babyW17Milestone;
+
+  /// No description provided for @babyW17Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Makan ikan berlemak seperti salmon untuk Omega-3'**
+  String get babyW17Tip;
+
+  /// No description provided for @babyW18Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Ubi jalar'**
+  String get babyW18Fruit;
+
+  /// No description provided for @babyW18Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Bayi bisa mendengar detak jantung ibu'**
+  String get babyW18Milestone;
+
+  /// No description provided for @babyW18Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Waktu ideal untuk USG anomali (USG 4 dimensi)'**
+  String get babyW18Tip;
+
+  /// No description provided for @babyW19Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Tomat besar'**
+  String get babyW19Fruit;
+
+  /// No description provided for @babyW19Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Lapisan pelindung vernix terbentuk di kulit bayi'**
+  String get babyW19Milestone;
+
+  /// No description provided for @babyW19Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Oleskan minyak kelapa/cocoa butter untuk stretching'**
+  String get babyW19Tip;
+
+  /// No description provided for @babyW20Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Pisang'**
+  String get babyW20Fruit;
+
+  /// No description provided for @babyW20Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Setengah perjalanan! Rahim sebesar semangka kecil'**
+  String get babyW20Milestone;
+
+  /// No description provided for @babyW20Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Berhenti tidur tengkurap, tidur miring kiri lebih baik'**
+  String get babyW20Tip;
+
+  /// No description provided for @babyW21Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Wortel'**
+  String get babyW21Fruit;
+
+  /// No description provided for @babyW21Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Bayi bisa menelan cairan ketuban'**
+  String get babyW21Milestone;
+
+  /// No description provided for @babyW21Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Perut makin besar — gunakan bantal tambahan saat tidur'**
+  String get babyW21Tip;
+
+  /// No description provided for @babyW22Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Jagung manis'**
+  String get babyW22Fruit;
+
+  /// No description provided for @babyW22Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Indera peraba berkembang, merespons sentuhan'**
+  String get babyW22Milestone;
+
+  /// No description provided for @babyW22Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Sentuh perut Anda — bayi bisa merasakan tekanan'**
+  String get babyW22Tip;
+
+  /// No description provided for @babyW23Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Mangga'**
+  String get babyW23Fruit;
+
+  /// No description provided for @babyW23Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Paru-paru mulai memproduksi surfaktan'**
+  String get babyW23Milestone;
+
+  /// No description provided for @babyW23Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Daftarkan diri ke kelas senam hamil'**
+  String get babyW23Tip;
+
+  /// No description provided for @babyW24Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Jagung besar'**
+  String get babyW24Fruit;
+
+  /// No description provided for @babyW24Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Otak berkembang pesat, wajah lebih sempurna'**
+  String get babyW24Milestone;
+
+  /// No description provided for @babyW24Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Periksa tekanan darah secara rutin mulai minggu ini'**
+  String get babyW24Tip;
+
+  /// No description provided for @babyW25Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Nanas kecil'**
+  String get babyW25Fruit;
+
+  /// No description provided for @babyW25Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Tulang punggung menguat, refleks sentuh aktif'**
+  String get babyW25Milestone;
+
+  /// No description provided for @babyW25Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Latihan pernapasan dalam mulai bermanfaat'**
+  String get babyW25Tip;
+
+  /// No description provided for @babyW26Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Selada romaine'**
+  String get babyW26Fruit;
+
+  /// No description provided for @babyW26Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Mata mulai bisa membuka dan menutup'**
+  String get babyW26Milestone;
+
+  /// No description provided for @babyW26Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Korelasikan gerakan bayi — catat jika berkurang'**
+  String get babyW26Tip;
+
+  /// No description provided for @babyW27Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Kembang kol'**
+  String get babyW27Fruit;
+
+  /// No description provided for @babyW27Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Siklus tidur dan bangun mulai teratur'**
+  String get babyW27Milestone;
+
+  /// No description provided for @babyW27Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Selamat memasuki trimester ketiga!'**
+  String get babyW27Tip;
+
+  /// No description provided for @babyW28Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Terong'**
+  String get babyW28Fruit;
+
+  /// No description provided for @babyW28Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester 3 dimulai, otak berkembang sangat aktif'**
+  String get babyW28Milestone;
+
+  /// No description provided for @babyW28Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Kunjungi dokter lebih sering — tiap 2 minggu'**
+  String get babyW28Tip;
+
+  /// No description provided for @babyW29Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Labu kuning kecil'**
+  String get babyW29Fruit;
+
+  /// No description provided for @babyW29Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Otot dan paru-paru semakin matang'**
+  String get babyW29Milestone;
+
+  /// No description provided for @babyW29Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Tidur cukup menjadi lebih penting dari sebelumnya'**
+  String get babyW29Tip;
+
+  /// No description provided for @babyW30Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Kol besar'**
+  String get babyW30Fruit;
+
+  /// No description provided for @babyW30Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Otak berkembang membentuk alur dan lipatan'**
+  String get babyW30Milestone;
+
+  /// No description provided for @babyW30Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Persiapkan tas persalinan Anda'**
+  String get babyW30Tip;
+
+  /// No description provided for @babyW31Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Nanas'**
+  String get babyW31Fruit;
+
+  /// No description provided for @babyW31Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Bayi bisa mengedipkan mata dan berkedip merespons cahaya'**
+  String get babyW31Milestone;
+
+  /// No description provided for @babyW31Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Kenali tanda-tanda persalinan dini'**
+  String get babyW31Tip;
+
+  /// No description provided for @babyW32Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Bengkuang'**
+  String get babyW32Fruit;
+
+  /// No description provided for @babyW32Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Latihan pernapasan dimulai (gerak nafas)'**
+  String get babyW32Milestone;
+
+  /// No description provided for @babyW32Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Lakukan senam kegel untuk persiapan persalinan'**
+  String get babyW32Tip;
+
+  /// No description provided for @babyW33Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Nanas besar'**
+  String get babyW33Fruit;
+
+  /// No description provided for @babyW33Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Tulang semakin keras kecuali tengkorak (tetap lunak)'**
+  String get babyW33Milestone;
+
+  /// No description provided for @babyW33Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Kurangi kafein dan perbanyak minum air putih'**
+  String get babyW33Tip;
+
+  /// No description provided for @babyW34Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Labu kuning'**
+  String get babyW34Fruit;
+
+  /// No description provided for @babyW34Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Sistem kekebalan tubuh mendapat antibodi dari ibu'**
+  String get babyW34Milestone;
+
+  /// No description provided for @babyW34Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Visualisasikan proses persalinan, kurangi rasa cemas'**
+  String get babyW34Tip;
+
+  /// No description provided for @babyW35Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Melon kecil'**
+  String get babyW35Fruit;
+
+  /// No description provided for @babyW35Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Organ hampir sempurna, lemak terus bertambah'**
+  String get babyW35Milestone;
+
+  /// No description provided for @babyW35Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Kunjungan dokter tiap minggu mulai sekarang'**
+  String get babyW35Tip;
+
+  /// No description provided for @babyW36Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Pepaya kecil'**
+  String get babyW36Fruit;
+
+  /// No description provided for @babyW36Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Kepala bayi mulai turun ke panggul (engagement)'**
+  String get babyW36Milestone;
+
+  /// No description provided for @babyW36Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Persiapkan rumah sakit dan rencana kelahiran'**
+  String get babyW36Tip;
+
+  /// No description provided for @babyW37Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Pepaya'**
+  String get babyW37Fruit;
+
+  /// No description provided for @babyW37Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Dianggap cukup bulan awal (early term)'**
+  String get babyW37Milestone;
+
+  /// No description provided for @babyW37Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Kenali tanda persalinan: kontraksi teratur, ketuban pecah'**
+  String get babyW37Tip;
+
+  /// No description provided for @babyW38Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Semangka kecil'**
+  String get babyW38Fruit;
+
+  /// No description provided for @babyW38Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Vernix dan lanugo (rambut halus) mulai menghilang'**
+  String get babyW38Milestone;
+
+  /// No description provided for @babyW38Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Tetap aktif bergerak agar persalinan lebih lancar'**
+  String get babyW38Tip;
+
+  /// No description provided for @babyW39Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Semangka'**
+  String get babyW39Fruit;
+
+  /// No description provided for @babyW39Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Paru-paru sudah siap bernapas mandiri'**
+  String get babyW39Milestone;
+
+  /// No description provided for @babyW39Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Segera ke RS jika kontraksi 5 menit sekali'**
+  String get babyW39Tip;
+
+  /// No description provided for @babyW40Fruit.
+  ///
+  /// In id, this message translates to:
+  /// **'Semangka besar'**
+  String get babyW40Fruit;
+
+  /// No description provided for @babyW40Milestone.
+  ///
+  /// In id, this message translates to:
+  /// **'Bayi siap dilahirkan — selamat berjuang, Ibu!'**
+  String get babyW40Milestone;
+
+  /// No description provided for @babyW40Tip.
+  ///
+  /// In id, this message translates to:
+  /// **'Anda luar biasa! Percaya diri melewati persalinan'**
+  String get babyW40Tip;
 }
 
 class _AppLocalizationsDelegate

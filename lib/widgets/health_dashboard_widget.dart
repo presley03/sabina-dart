@@ -17,6 +17,7 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
   int healthScore = 75;
   bool isLoading = true;
   bool _isInitialized = false;
+  Locale? _loadedLocale;
 
   // Cache for expensive operations
   static final Map<String, dynamic> _cache = {};
@@ -26,13 +27,21 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
   bool get wantKeepAlive => true;
 
   @override
-  void initState() {
-    super.initState();
-    _loadDashboardDataOptimized();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final currentLocale = Localizations.localeOf(context);
+    if (!_isInitialized || _loadedLocale != currentLocale) {
+      _loadedLocale = currentLocale;
+      _loadDashboardDataOptimized();
+    }
   }
 
   Future<void> _loadDashboardDataOptimized() async {
-    if (_isInitialized && _isCacheValid()) {
+    final l10n = AppLocalizations.of(context)!;
+
+    if (_isInitialized &&
+        _isCacheValid() &&
+        _loadedLocale == Localizations.localeOf(context)) {
       setState(() {
         insights = _cache['insights'] ?? [];
         healthScore = _cache['healthScore'] ?? 75;
@@ -45,8 +54,8 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
 
     try {
       final results = await Future.wait([
-        _loadInsightsWithCache(),
-        _loadHealthScoreWithCache(),
+        _loadInsightsWithCache(l10n),
+        _loadHealthScoreWithCache(l10n),
       ]);
 
       final loadedInsights = results[0] as List<HealthInsight>;
@@ -78,18 +87,19 @@ class _HealthDashboardWidgetState extends State<HealthDashboardWidget>
     return cacheAge.inMinutes < 5;
   }
 
-  Future<List<HealthInsight>> _loadInsightsWithCache() async {
+  Future<List<HealthInsight>> _loadInsightsWithCache(
+      AppLocalizations l10n) async {
     try {
-      return await AppIntegrationService.generateDashboardInsights();
+      return await AppIntegrationService.generateDashboardInsights(l10n);
     } catch (e) {
       debugPrint('Error loading insights: $e');
       return [];
     }
   }
 
-  Future<int> _loadHealthScoreWithCache() async {
+  Future<int> _loadHealthScoreWithCache(AppLocalizations l10n) async {
     try {
-      return await AppIntegrationService.calculateHealthScore();
+      return await AppIntegrationService.calculateHealthScore(l10n);
     } catch (e) {
       debugPrint('Error calculating health score: $e');
       return 75;

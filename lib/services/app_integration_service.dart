@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import 'secure_storage_helper.dart';
 import 'notification_service.dart';
 import 'health_analytics_service.dart';
@@ -156,18 +157,20 @@ class AppIntegrationService {
   }
 
   /// Generate health insights for dashboard
-  static Future<List<HealthInsight>> generateDashboardInsights() async {
+  static Future<List<HealthInsight>> generateDashboardInsights(
+      AppLocalizations l10n) async {
     try {
       // Get recent health records (this would come from your database)
       final healthRecords = await SecureStorageHelper.getHealthRecords();
 
       if (healthRecords.isEmpty) {
         final trimester = await getCurrentTrimester();
-        return HealthAnalyticsService.getTrimesterRecommendations(trimester);
+        return HealthAnalyticsService.getTrimesterRecommendations(
+            trimester, l10n);
       }
 
       return HealthAnalyticsService.generateComprehensiveInsights(
-          healthRecords);
+          healthRecords, l10n);
     } catch (e) {
       debugPrint('Error generating insights: $e');
       return [];
@@ -175,10 +178,10 @@ class AppIntegrationService {
   }
 
   /// Calculate health score for dashboard
-  static Future<int> calculateHealthScore() async {
+  static Future<int> calculateHealthScore(AppLocalizations l10n) async {
     try {
       final healthRecords = await SecureStorageHelper.getHealthRecords();
-      return HealthAnalyticsService.calculateHealthScore(healthRecords);
+      return HealthAnalyticsService.calculateHealthScore(healthRecords, l10n);
     } catch (e) {
       debugPrint('Error calculating health score: $e');
       return 75; // Default score

@@ -1934,25 +1934,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get imtCalc_classificationTitle => 'WHO BMI Classification:';
 
   @override
-  String get imtCalc_classificationUnderweight => 'â€¢ < 18.5: Underweight';
+  String get imtCalc_classificationUnderweight => '• < 18.5: Underweight';
 
   @override
-  String get imtCalc_classificationNormal => 'â€¢ 18.5 - 24.9: Normal weight';
+  String get imtCalc_classificationNormal => '• 18.5 - 24.9: Normal weight';
 
   @override
-  String get imtCalc_classificationOverweight => 'â€¢ 25.0 - 29.9: Pre-obesity';
+  String get imtCalc_classificationOverweight => '• 25.0 - 29.9: Pre-obesity';
 
   @override
-  String get imtCalc_classificationObesity1 =>
-      'â€¢ 30.0 - 34.9: Obesity class I';
+  String get imtCalc_classificationObesity1 => '• 30.0 - 34.9: Obesity class I';
 
   @override
   String get imtCalc_classificationObesity2 =>
-      'â€¢ 35.0 - 39.9: Obesity class II';
+      '• 35.0 - 39.9: Obesity class II';
 
   @override
-  String get imtCalc_classificationObesity3 =>
-      'â€¢ â‰¥ 40.0: Obesity class III';
+  String get imtCalc_classificationObesity3 => '• ≥ 40.0: Obesity class III';
 
   @override
   String get imtCalc_weightGainRecommendationTitle =>
@@ -1975,15 +1973,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get imtCalc_healthTip1 =>
-      'â€¢ Maintain a healthy diet with balanced nutrition.';
+      '• Maintain a healthy diet with balanced nutrition.';
 
   @override
   String get imtCalc_healthTip2 =>
-      'â€¢ Stay active with light exercise during pregnancy.';
+      '• Stay active with light exercise during pregnancy.';
 
   @override
   String get imtCalc_healthTip3 =>
-      'â€¢ Don\'\'t forget to get enough rest and manage stress.';
+      '• Don\'\'t forget to get enough rest and manage stress.';
 
   @override
   String get imtCalc_infoDialogTitle => 'What is WHO BMI?';
@@ -2607,7 +2605,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get emergencySymptoms =>
-      'â€¢ Heavy bleeding\nâ€¢ Strong contractions before due date\nâ€¢ Severe headache\nâ€¢ Blurred vision';
+      '• Heavy bleeding\n• Strong contractions before due date\n• Severe headache\n• Blurred vision';
 
   @override
   String get startButton => 'Start';
@@ -2869,6 +2867,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pregnancyGuideHeader => 'PREGNANCY GUIDE';
+
+  @override
+  String get pregnancyGuideDescription =>
+      'Learn about fetal development and body changes throughout each trimester.';
+
+  @override
+  String weekNumberLabel(Object week) {
+    return 'WEEK $week';
+  }
+
+  @override
+  String sizedLikeLabel(String fruit) {
+    return 'Size of a $fruit';
+  }
+
+  @override
+  String weekProgressLabel(Object current) {
+    return 'Week $current / 40';
+  }
 
   @override
   String get introductionLabel => 'Introduction';
@@ -3200,4 +3217,596 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get preeklampsiaTip4 =>
       'Get adequate rest and avoid strenuous activities';
+
+  @override
+  String get insightWeightFastTitle => 'Rapid Weight Gain';
+
+  @override
+  String insightWeightFastDesc(String weeklyChange) {
+    return 'Your weight increased by $weeklyChange kg per week';
+  }
+
+  @override
+  String get insightWeightFastRec =>
+      'Consult your doctor about an appropriate diet and physical activity';
+
+  @override
+  String get insightWeightSlowTitle => 'Slow Weight Gain';
+
+  @override
+  String get insightWeightSlowDesc =>
+      'Your weight gain is below the recommended level';
+
+  @override
+  String get insightWeightSlowRec =>
+      'Ensure adequate nutritional intake and consult a nutritionist';
+
+  @override
+  String get insightWeightNormalTitle => 'Normal Weight Gain';
+
+  @override
+  String get insightWeightNormalDesc =>
+      'Your weight gain is within a healthy range';
+
+  @override
+  String get insightWeightNormalRec =>
+      'Maintain your healthy diet and activity habits';
+
+  @override
+  String get insightBPHighTitle => 'Recurring High Blood Pressure';
+
+  @override
+  String insightBPHighDesc(String percentage) {
+    return '$percentage% of measurements show high blood pressure';
+  }
+
+  @override
+  String get insightBPHighRec =>
+      'IMMEDIATELY consult your doctor for preeclampsia evaluation';
+
+  @override
+  String get insightBPMonitorTitle => 'Blood Pressure Needs Monitoring';
+
+  @override
+  String get insightBPMonitorDesc =>
+      'Some measurements show high blood pressure';
+
+  @override
+  String get insightBPMonitorRec =>
+      'Monitor blood pressure more frequently and consult your doctor';
+
+  @override
+  String get insightSymptomHeadacheRec =>
+      'Recurring headaches can be a sign of preeclampsia. Consult your doctor';
+
+  @override
+  String get insightSymptomSwellingRec =>
+      'Excessive swelling should be evaluated by a doctor for possible preeclampsia';
+
+  @override
+  String get insightSymptomNauseaRec =>
+      'Excessive nausea and vomiting (hyperemesis) requires medical treatment';
+
+  @override
+  String get insightSymptomDefaultRec =>
+      'Recurring symptoms should be discussed with your doctor';
+
+  @override
+  String insightSymptomRecurringTitle(String symptom) {
+    return 'Recurring $symptom Symptom';
+  }
+
+  @override
+  String insightSymptomRecurringDesc(String percentage) {
+    return 'This symptom appeared in $percentage% of health records';
+  }
+
+  @override
+  String get insightSleepLowTitle => 'Insufficient Sleep';
+
+  @override
+  String insightSleepLowDesc(String hours) {
+    return 'Your average sleep is $hours hours per day';
+  }
+
+  @override
+  String get insightSleepLowRec =>
+      'Pregnant women need 7–9 hours of sleep. Try to set a more regular sleep schedule';
+
+  @override
+  String get insightSleepHighTitle => 'Excessive Sleep';
+
+  @override
+  String get insightSleepHighRec =>
+      'Excessive sleep can indicate fatigue or certain medical conditions';
+
+  @override
+  String get insightHydrationLowTitle => 'Low Water Intake';
+
+  @override
+  String insightHydrationLowDesc(String liters) {
+    return 'Your average water intake is $liters liters per day';
+  }
+
+  @override
+  String get insightHydrationLowRec =>
+      'Pregnant women need 2–2.5 liters of water per day. Increase your water intake';
+
+  @override
+  String get insightHydrationGoodTitle => 'Good Hydration';
+
+  @override
+  String get insightHydrationGoodDesc => 'Your water intake is sufficient';
+
+  @override
+  String get insightHydrationGoodRec =>
+      'Keep up the good water-drinking habits';
+
+  @override
+  String get insightMoodNegativeTitle => 'Dominant Negative Mood';
+
+  @override
+  String insightMoodNegativeDesc(String percentage) {
+    return '$percentage% of records show a negative mood';
+  }
+
+  @override
+  String get insightMoodNegativeRec =>
+      'Consider counseling or therapy for mental health during pregnancy';
+
+  @override
+  String get insightMoodCareTitle => 'Pay Attention to Mental Health';
+
+  @override
+  String get insightMoodCareDesc => 'Some records show a less positive mood';
+
+  @override
+  String get insightMoodCareRec =>
+      'Do relaxation activities and talk to someone close to you';
+
+  @override
+  String get insightTrimester1FolicTitle => 'Folic Acid is Important';
+
+  @override
+  String get insightTrimester1FolicDesc =>
+      'The first trimester is a critical period for baby\'s neural development';
+
+  @override
+  String get insightTrimester1FolicRec =>
+      'Take 400mcg of folic acid daily and avoid alcohol and cigarettes';
+
+  @override
+  String get insightTrimester1NauseaTitle => 'Managing Morning Sickness';
+
+  @override
+  String get insightTrimester1NauseaDesc =>
+      'Nausea and vomiting are normal in the first trimester';
+
+  @override
+  String get insightTrimester1NauseaRec =>
+      'Eat small but frequent meals, avoid greasy foods';
+
+  @override
+  String get insightTrimester2NutritionTitle => 'Calcium and Iron';
+
+  @override
+  String get insightTrimester2NutritionDesc =>
+      'The second trimester is the time for baby\'s bone and blood development';
+
+  @override
+  String get insightTrimester2NutritionRec =>
+      'Increase calcium and iron intake, do light exercise';
+
+  @override
+  String get insightTrimester2ScreeningTitle => 'Anomaly Screening';
+
+  @override
+  String get insightTrimester2ScreeningDesc =>
+      'Optimal time for a detailed ultrasound examination';
+
+  @override
+  String get insightTrimester2ScreeningRec =>
+      'Schedule an anomaly ultrasound and screening tests as directed by your doctor';
+
+  @override
+  String get insightTrimester3PrepTitle => 'Birth Preparation';
+
+  @override
+  String get insightTrimester3PrepDesc =>
+      'The third trimester is the time to prepare for birth';
+
+  @override
+  String get insightTrimester3PrepRec =>
+      'Prepare your hospital bag, learn breathing techniques, monitor baby\'s movements';
+
+  @override
+  String get insightTrimester3PreecTitle => 'Watch Out for Preeclampsia';
+
+  @override
+  String get insightTrimester3PreecDesc =>
+      'The risk of preeclampsia increases in the third trimester';
+
+  @override
+  String get insightTrimester3PreecRec =>
+      'Monitor blood pressure, watch for excessive swelling and headaches';
+
+  @override
+  String get weekAbbreviation => 'W';
+
+  @override
+  String get babyW1Fruit => 'Microscopic dot';
+
+  @override
+  String get babyW1Milestone => 'Fertilization process is underway';
+
+  @override
+  String get babyW1Tip => 'Start taking 400 mcg of folic acid every day';
+
+  @override
+  String get babyW2Fruit => 'Microscopic dot';
+
+  @override
+  String get babyW2Milestone => 'Ovulation and fertilization occur';
+
+  @override
+  String get babyW2Tip => 'Avoid alcohol and cigarettes from now on';
+
+  @override
+  String get babyW3Fruit => 'Sesame seed';
+
+  @override
+  String get babyW3Milestone => 'Fertilized egg attaches to the uterus';
+
+  @override
+  String get babyW3Tip => 'Maintain a nutritious diet and get enough rest';
+
+  @override
+  String get babyW4Fruit => 'Apple seed';
+
+  @override
+  String get babyW4Milestone => 'Embryo forms, neural tube develops';
+
+  @override
+  String get babyW4Tip => 'Continue folic acid, consult your doctor';
+
+  @override
+  String get babyW5Fruit => 'Pea';
+
+  @override
+  String get babyW5Milestone => 'Heart begins beating 80-85 times per minute';
+
+  @override
+  String get babyW5Tip => 'Eat iron-rich foods to support baby\'\'s heart';
+
+  @override
+  String get babyW6Fruit => 'Blueberry';
+
+  @override
+  String get babyW6Milestone => 'Face, eyes, and ears start forming';
+
+  @override
+  String get babyW6Tip => 'Morning sickness? Eat small meals more frequently';
+
+  @override
+  String get babyW7Fruit => 'Raspberry';
+
+  @override
+  String get babyW7Milestone => 'Arms and legs begin to appear as buds';
+
+  @override
+  String get babyW7Tip => 'Drink enough water, at least 8 glasses a day';
+
+  @override
+  String get babyW8Fruit => 'Kidney bean';
+
+  @override
+  String get babyW8Milestone => 'Fingers start forming';
+
+  @override
+  String get babyW8Tip => 'Postpone hair dye or chemicals until trimester 2';
+
+  @override
+  String get babyW9Fruit => 'Grape';
+
+  @override
+  String get babyW9Milestone => 'All major organs exist in early form';
+
+  @override
+  String get babyW9Tip => 'Rest more, your body is working hard';
+
+  @override
+  String get babyW10Fruit => 'Lychee';
+
+  @override
+  String get babyW10Milestone => 'Bones begin replacing cartilage';
+
+  @override
+  String get babyW10Tip =>
+      'Calcium is important: milk, cheese, spinach, and fish';
+
+  @override
+  String get babyW11Fruit => 'Fig';
+
+  @override
+  String get babyW11Milestone => 'First reflexes appear, baby begins to move';
+
+  @override
+  String get babyW11Tip => 'Miscarriage risk is decreasing — great news!';
+
+  @override
+  String get babyW12Fruit => 'Lime';
+
+  @override
+  String get babyW12Milestone => 'Kidneys begin producing urine';
+
+  @override
+  String get babyW12Tip => 'A good time for a first trimester ultrasound';
+
+  @override
+  String get babyW13Fruit => 'Small peach';
+
+  @override
+  String get babyW13Milestone => 'Baby\'\'s unique fingerprints form';
+
+  @override
+  String get babyW13Tip => 'Congratulations on entering the second trimester!';
+
+  @override
+  String get babyW14Fruit => 'Lemon';
+
+  @override
+  String get babyW14Milestone => 'Baby can wrinkle its face and suck its thumb';
+
+  @override
+  String get babyW14Tip => 'Nausea usually starts to ease up this week';
+
+  @override
+  String get babyW15Fruit => 'Apple';
+
+  @override
+  String get babyW15Milestone => 'Baby starts to hear sounds from outside';
+
+  @override
+  String get babyW15Tip =>
+      'Talk to your baby — they\'\'re learning to recognize your voice';
+
+  @override
+  String get babyW16Fruit => 'Avocado';
+
+  @override
+  String get babyW16Milestone => 'Legs are longer than arms, active movement';
+
+  @override
+  String get babyW16Tip =>
+      'You may start to feel the baby\'\'s first movements';
+
+  @override
+  String get babyW17Fruit => 'Turnip';
+
+  @override
+  String get babyW17Milestone => 'Protective fat layer starts forming';
+
+  @override
+  String get babyW17Tip => 'Eat oily fish like salmon for Omega-3';
+
+  @override
+  String get babyW18Fruit => 'Sweet potato';
+
+  @override
+  String get babyW18Milestone => 'Baby can hear the mother\'\'s heartbeat';
+
+  @override
+  String get babyW18Tip => 'Ideal time for an anomaly scan (4D ultrasound)';
+
+  @override
+  String get babyW19Fruit => 'Large tomato';
+
+  @override
+  String get babyW19Milestone => 'Protective vernix forms on baby\'\'s skin';
+
+  @override
+  String get babyW19Tip =>
+      'Apply coconut oil or cocoa butter for stretch marks';
+
+  @override
+  String get babyW20Fruit => 'Banana';
+
+  @override
+  String get babyW20Milestone =>
+      'Halfway there! Uterus is the size of a small watermelon';
+
+  @override
+  String get babyW20Tip => 'Stop sleeping on your stomach, left side is better';
+
+  @override
+  String get babyW21Fruit => 'Carrot';
+
+  @override
+  String get babyW21Milestone => 'Baby can swallow amniotic fluid';
+
+  @override
+  String get babyW21Tip =>
+      'Belly is growing — use an extra pillow when sleeping';
+
+  @override
+  String get babyW22Fruit => 'Sweet corn';
+
+  @override
+  String get babyW22Milestone => 'Sense of touch develops, responds to contact';
+
+  @override
+  String get babyW22Tip => 'Touch your belly — the baby can feel the pressure';
+
+  @override
+  String get babyW23Fruit => 'Mango';
+
+  @override
+  String get babyW23Milestone => 'Lungs begin producing surfactant';
+
+  @override
+  String get babyW23Tip => 'Sign up for a prenatal yoga or exercise class';
+
+  @override
+  String get babyW24Fruit => 'Large corn';
+
+  @override
+  String get babyW24Milestone => 'Brain develops rapidly, face more defined';
+
+  @override
+  String get babyW24Tip => 'Check your blood pressure regularly from this week';
+
+  @override
+  String get babyW25Fruit => 'Small pineapple';
+
+  @override
+  String get babyW25Milestone => 'Spine strengthens, touch reflex active';
+
+  @override
+  String get babyW25Tip => 'Deep breathing exercises are now beneficial';
+
+  @override
+  String get babyW26Fruit => 'Romaine lettuce';
+
+  @override
+  String get babyW26Milestone => 'Eyes start opening and closing';
+
+  @override
+  String get babyW26Tip =>
+      'Monitor baby\'\'s movements — note if they decrease';
+
+  @override
+  String get babyW27Fruit => 'Cauliflower';
+
+  @override
+  String get babyW27Milestone => 'Sleep and wake cycles become regular';
+
+  @override
+  String get babyW27Tip => 'Congratulations on entering the third trimester!';
+
+  @override
+  String get babyW28Fruit => 'Eggplant';
+
+  @override
+  String get babyW28Milestone =>
+      'Trimester 3 begins, brain developing very actively';
+
+  @override
+  String get babyW28Tip => 'Visit the doctor more often — every 2 weeks';
+
+  @override
+  String get babyW29Fruit => 'Small butternut squash';
+
+  @override
+  String get babyW29Milestone => 'Muscles and lungs maturing';
+
+  @override
+  String get babyW29Tip =>
+      'Getting enough sleep is now more important than ever';
+
+  @override
+  String get babyW30Fruit => 'Large cabbage';
+
+  @override
+  String get babyW30Milestone => 'Brain develops folds and grooves';
+
+  @override
+  String get babyW30Tip => 'Prepare your delivery bag';
+
+  @override
+  String get babyW31Fruit => 'Pineapple';
+
+  @override
+  String get babyW31Milestone => 'Baby can blink and respond to light';
+
+  @override
+  String get babyW31Tip => 'Know the signs of early labor';
+
+  @override
+  String get babyW32Fruit => 'Jicama';
+
+  @override
+  String get babyW32Milestone =>
+      'Practice breathing begins (breathing movements)';
+
+  @override
+  String get babyW32Tip => 'Do Kegel exercises to prepare for childbirth';
+
+  @override
+  String get babyW33Fruit => 'Large pineapple';
+
+  @override
+  String get babyW33Milestone => 'Bones harden except the skull (remains soft)';
+
+  @override
+  String get babyW33Tip => 'Reduce caffeine and drink more water';
+
+  @override
+  String get babyW34Fruit => 'Butternut squash';
+
+  @override
+  String get babyW34Milestone =>
+      'Immune system receives antibodies from mother';
+
+  @override
+  String get babyW34Tip => 'Visualize the birth process, reduce anxiety';
+
+  @override
+  String get babyW35Fruit => 'Small melon';
+
+  @override
+  String get babyW35Milestone =>
+      'Organs nearly complete, fat continues building';
+
+  @override
+  String get babyW35Tip => 'Weekly doctor visits start now';
+
+  @override
+  String get babyW36Fruit => 'Small papaya';
+
+  @override
+  String get babyW36Milestone =>
+      'Baby\'\'s head starts descending into the pelvis';
+
+  @override
+  String get babyW36Tip => 'Prepare the hospital and birth plan';
+
+  @override
+  String get babyW37Fruit => 'Papaya';
+
+  @override
+  String get babyW37Milestone => 'Considered early term';
+
+  @override
+  String get babyW37Tip =>
+      'Know the signs of labor: regular contractions, water breaking';
+
+  @override
+  String get babyW38Fruit => 'Small watermelon';
+
+  @override
+  String get babyW38Milestone =>
+      'Vernix and lanugo (fine hair) begin to disappear';
+
+  @override
+  String get babyW38Tip => 'Keep moving to make delivery smoother';
+
+  @override
+  String get babyW39Fruit => 'Watermelon';
+
+  @override
+  String get babyW39Milestone => 'Lungs ready to breathe independently';
+
+  @override
+  String get babyW39Tip =>
+      'Go to hospital immediately if contractions are 5 minutes apart';
+
+  @override
+  String get babyW40Fruit => 'Large watermelon';
+
+  @override
+  String get babyW40Milestone => 'Baby ready to be born — you can do it, Mom!';
+
+  @override
+  String get babyW40Tip =>
+      'You are amazing! Be confident going through delivery';
 }

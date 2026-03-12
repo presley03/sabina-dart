@@ -1939,27 +1939,25 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get imtCalc_classificationUnderweight =>
-      'â€¢ < 18.5: Berat badan kurang';
+      '• < 18.5: Berat badan kurang';
 
   @override
   String get imtCalc_classificationNormal =>
-      'â€¢ 18.5 - 24.9: Berat badan normal';
+      '• 18.5 - 24.9: Berat badan normal';
 
   @override
-  String get imtCalc_classificationOverweight =>
-      'â€¢ 25.0 - 29.9: Pra-obesitas';
+  String get imtCalc_classificationOverweight => '• 25.0 - 29.9: Pra-obesitas';
 
   @override
   String get imtCalc_classificationObesity1 =>
-      'â€¢ 30.0 - 34.9: Obesitas kelas I';
+      '• 30.0 - 34.9: Obesitas kelas I';
 
   @override
   String get imtCalc_classificationObesity2 =>
-      'â€¢ 35.0 - 39.9: Obesitas kelas II';
+      '• 35.0 - 39.9: Obesitas kelas II';
 
   @override
-  String get imtCalc_classificationObesity3 =>
-      'â€¢ â‰¥ 40.0: Obesitas kelas III';
+  String get imtCalc_classificationObesity3 => '• ≥ 40.0: Obesitas kelas III';
 
   @override
   String get imtCalc_weightGainRecommendationTitle =>
@@ -1982,15 +1980,15 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get imtCalc_healthTip1 =>
-      'â€¢ Jaga pola makan sehat dengan makanan bergizi seimbang.';
+      '• Jaga pola makan sehat dengan makanan bergizi seimbang.';
 
   @override
   String get imtCalc_healthTip2 =>
-      'â€¢ Tetap aktif dengan olahraga ringan selama kehamilan.';
+      '• Tetap aktif dengan olahraga ringan selama kehamilan.';
 
   @override
   String get imtCalc_healthTip3 =>
-      'â€¢ Jangan lupa istirahat yang cukup dan kelola stres.';
+      '• Jangan lupa istirahat yang cukup dan kelola stres.';
 
   @override
   String get imtCalc_infoDialogTitle => 'Apa itu IMT WHO?';
@@ -2613,7 +2611,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get emergencySymptoms =>
-      'â€¢ Pendarahan hebat\nâ€¢ Kontraksi kuat sebelum waktunya\nâ€¢ Sakit kepala parah\nâ€¢ Pandangan kabur';
+      '• Pendarahan hebat\n• Kontraksi kuat sebelum waktunya\n• Sakit kepala parah\n• Pandangan kabur';
 
   @override
   String get startButton => 'Mulai';
@@ -2872,6 +2870,25 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get pregnancyGuideHeader => 'PANDUAN KEHAMILAN';
+
+  @override
+  String get pregnancyGuideDescription =>
+      'Pelajari perkembangan janin dan perubahan tubuh Anda di setiap trimester.';
+
+  @override
+  String weekNumberLabel(Object week) {
+    return 'MINGGU KE-$week';
+  }
+
+  @override
+  String sizedLikeLabel(String fruit) {
+    return 'Seukuran $fruit';
+  }
+
+  @override
+  String weekProgressLabel(Object current) {
+    return 'Minggu $current / 40';
+  }
 
   @override
   String get introductionLabel => 'Pengantar';
@@ -3208,4 +3225,599 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get preeklampsiaTip4 => 'Istirahat cukup dan hindari aktivitas berat';
+
+  @override
+  String get insightWeightFastTitle => 'Kenaikan Berat Badan Cepat';
+
+  @override
+  String insightWeightFastDesc(String weeklyChange) {
+    return 'Berat badan Anda naik $weeklyChange kg per minggu';
+  }
+
+  @override
+  String get insightWeightFastRec =>
+      'Konsultasikan dengan dokter tentang pola makan dan aktivitas fisik yang tepat';
+
+  @override
+  String get insightWeightSlowTitle => 'Kenaikan Berat Badan Lambat';
+
+  @override
+  String get insightWeightSlowDesc =>
+      'Kenaikan berat badan Anda di bawah rekomendasi';
+
+  @override
+  String get insightWeightSlowRec =>
+      'Pastikan asupan nutrisi mencukupi dan konsultasi dengan ahli gizi';
+
+  @override
+  String get insightWeightNormalTitle => 'Kenaikan Berat Badan Normal';
+
+  @override
+  String get insightWeightNormalDesc =>
+      'Kenaikan berat badan Anda dalam rentang yang sehat';
+
+  @override
+  String get insightWeightNormalRec =>
+      'Pertahankan pola makan dan aktivitas yang sehat';
+
+  @override
+  String get insightBPHighTitle => 'Tekanan Darah Tinggi Berulang';
+
+  @override
+  String insightBPHighDesc(String percentage) {
+    return '$percentage% pengukuran menunjukkan tekanan darah tinggi';
+  }
+
+  @override
+  String get insightBPHighRec =>
+      'SEGERA konsultasi dengan dokter untuk evaluasi preeklampsia';
+
+  @override
+  String get insightBPMonitorTitle => 'Tekanan Darah Perlu Dipantau';
+
+  @override
+  String get insightBPMonitorDesc =>
+      'Beberapa pengukuran menunjukkan tekanan darah tinggi';
+
+  @override
+  String get insightBPMonitorRec =>
+      'Monitor tekanan darah lebih sering dan konsultasi dengan dokter';
+
+  @override
+  String get insightSymptomHeadacheRec =>
+      'Sakit kepala berulang bisa menjadi tanda preeklampsia. Konsultasi dengan dokter';
+
+  @override
+  String get insightSymptomSwellingRec =>
+      'Bengkak berlebihan perlu dievaluasi dokter untuk kemungkinan preeklampsia';
+
+  @override
+  String get insightSymptomNauseaRec =>
+      'Mual muntah berlebihan (hyperemesis) perlu penanganan medis';
+
+  @override
+  String get insightSymptomDefaultRec =>
+      'Gejala berulang perlu dikonsultasikan dengan dokter';
+
+  @override
+  String insightSymptomRecurringTitle(String symptom) {
+    return 'Gejala $symptom Berulang';
+  }
+
+  @override
+  String insightSymptomRecurringDesc(String percentage) {
+    return 'Gejala ini muncul pada $percentage% catatan kesehatan';
+  }
+
+  @override
+  String get insightSleepLowTitle => 'Kurang Tidur';
+
+  @override
+  String insightSleepLowDesc(String hours) {
+    return 'Rata-rata tidur Anda $hours jam per hari';
+  }
+
+  @override
+  String get insightSleepLowRec =>
+      'Ibu hamil membutuhkan 7-9 jam tidur. Coba atur jadwal tidur yang lebih teratur';
+
+  @override
+  String get insightSleepHighTitle => 'Tidur Berlebihan';
+
+  @override
+  String get insightSleepHighRec =>
+      'Tidur berlebihan bisa menandakan kelelahan atau kondisi medis tertentu';
+
+  @override
+  String get insightHydrationLowTitle => 'Kurang Minum Air';
+
+  @override
+  String insightHydrationLowDesc(String liters) {
+    return 'Rata-rata asupan air $liters liter per hari';
+  }
+
+  @override
+  String get insightHydrationLowRec =>
+      'Ibu hamil perlu 2-2.5 liter air per hari. Tingkatkan asupan air putih';
+
+  @override
+  String get insightHydrationGoodTitle => 'Hidrasi Baik';
+
+  @override
+  String get insightHydrationGoodDesc => 'Asupan air Anda sudah mencukupi';
+
+  @override
+  String get insightHydrationGoodRec =>
+      'Pertahankan kebiasaan minum air yang baik';
+
+  @override
+  String get insightMoodNegativeTitle => 'Mood Negatif Dominan';
+
+  @override
+  String insightMoodNegativeDesc(String percentage) {
+    return '$percentage% catatan menunjukkan mood negatif';
+  }
+
+  @override
+  String get insightMoodNegativeRec =>
+      'Pertimbangkan konseling atau terapi untuk kesehatan mental selama kehamilan';
+
+  @override
+  String get insightMoodCareTitle => 'Perhatikan Kesehatan Mental';
+
+  @override
+  String get insightMoodCareDesc =>
+      'Beberapa catatan menunjukkan mood yang kurang baik';
+
+  @override
+  String get insightMoodCareRec =>
+      'Lakukan aktivitas relaksasi dan bicarakan dengan orang terdekat';
+
+  @override
+  String get insightTrimester1FolicTitle => 'Asam Folat Penting';
+
+  @override
+  String get insightTrimester1FolicDesc =>
+      'Trimester pertama adalah periode kritis untuk perkembangan saraf bayi';
+
+  @override
+  String get insightTrimester1FolicRec =>
+      'Konsumsi asam folat 400mcg setiap hari dan hindari alkohol serta rokok';
+
+  @override
+  String get insightTrimester1NauseaTitle => 'Atasi Morning Sickness';
+
+  @override
+  String get insightTrimester1NauseaDesc =>
+      'Mual muntah adalah hal normal di trimester pertama';
+
+  @override
+  String get insightTrimester1NauseaRec =>
+      'Makan dalam porsi kecil tapi sering, hindari makanan berminyak';
+
+  @override
+  String get insightTrimester2NutritionTitle => 'Kalsium dan Zat Besi';
+
+  @override
+  String get insightTrimester2NutritionDesc =>
+      'Trimester kedua adalah waktu pertumbuhan tulang dan darah bayi';
+
+  @override
+  String get insightTrimester2NutritionRec =>
+      'Tingkatkan asupan kalsium dan zat besi, lakukan olahraga ringan';
+
+  @override
+  String get insightTrimester2ScreeningTitle => 'Screening Anomali';
+
+  @override
+  String get insightTrimester2ScreeningDesc =>
+      'Waktu optimal untuk pemeriksaan USG detail';
+
+  @override
+  String get insightTrimester2ScreeningRec =>
+      'Lakukan USG anomali dan tes skrining sesuai jadwal dokter';
+
+  @override
+  String get insightTrimester3PrepTitle => 'Persiapan Persalinan';
+
+  @override
+  String get insightTrimester3PrepDesc =>
+      'Trimester ketiga adalah waktu persiapan kelahiran';
+
+  @override
+  String get insightTrimester3PrepRec =>
+      'Siapkan tas rumah sakit, pelajari teknik pernapasan, monitor gerakan bayi';
+
+  @override
+  String get insightTrimester3PreecTitle => 'Waspada Preeklampsia';
+
+  @override
+  String get insightTrimester3PreecDesc =>
+      'Risiko preeklampsia meningkat di trimester ketiga';
+
+  @override
+  String get insightTrimester3PreecRec =>
+      'Monitor tekanan darah, perhatikan bengkak berlebihan dan sakit kepala';
+
+  @override
+  String get weekAbbreviation => 'M';
+
+  @override
+  String get babyW1Fruit => 'Titik mikroskopis';
+
+  @override
+  String get babyW1Milestone => 'Proses pembuahan sedang berlangsung';
+
+  @override
+  String get babyW1Tip => 'Mulai konsumsi asam folat 400 mcg setiap hari';
+
+  @override
+  String get babyW2Fruit => 'Titik mikroskopis';
+
+  @override
+  String get babyW2Milestone => 'Ovulasi dan pembuahan terjadi';
+
+  @override
+  String get babyW2Tip => 'Hindari alkohol dan rokok sejak sekarang';
+
+  @override
+  String get babyW3Fruit => 'Biji wijen';
+
+  @override
+  String get babyW3Milestone => 'Sel telur yang dibuahi menempel di rahim';
+
+  @override
+  String get babyW3Tip => 'Jaga pola makan bergizi dan istirahat cukup';
+
+  @override
+  String get babyW4Fruit => 'Biji apel';
+
+  @override
+  String get babyW4Milestone => 'Embrio terbentuk, tabung saraf berkembang';
+
+  @override
+  String get babyW4Tip => 'Lanjutkan asam folat, konsultasi ke dokter';
+
+  @override
+  String get babyW5Fruit => 'Kacang polong';
+
+  @override
+  String get babyW5Milestone => 'Jantung mulai berdetak 80-85x per menit';
+
+  @override
+  String get babyW5Tip =>
+      'Makan makanan kaya zat besi untuk mendukung jantung bayi';
+
+  @override
+  String get babyW6Fruit => 'Blueberry';
+
+  @override
+  String get babyW6Milestone => 'Wajah, mata, dan telinga mulai terbentuk';
+
+  @override
+  String get babyW6Tip => 'Mual pagi? Makan dalam porsi kecil tapi sering';
+
+  @override
+  String get babyW7Fruit => 'Buah raspberry';
+
+  @override
+  String get babyW7Milestone => 'Lengan dan kaki mulai muncul sebagai tonjolan';
+
+  @override
+  String get babyW7Tip => 'Minum cukup air, minimal 8 gelas sehari';
+
+  @override
+  String get babyW8Fruit => 'Kacang merah';
+
+  @override
+  String get babyW8Milestone => 'Jari-jari tangan mulai terbentuk';
+
+  @override
+  String get babyW8Tip => 'Tunda cat rambut atau chemical hingga trimester 2';
+
+  @override
+  String get babyW9Fruit => 'Anggur';
+
+  @override
+  String get babyW9Milestone => 'Semua organ utama sudah ada dalam bentuk awal';
+
+  @override
+  String get babyW9Tip => 'Istirahat lebih banyak, tubuh bekerja keras';
+
+  @override
+  String get babyW10Fruit => 'Leci';
+
+  @override
+  String get babyW10Milestone => 'Tulang mulai menggantikan tulang rawan';
+
+  @override
+  String get babyW10Tip => 'Kalsium penting: susu, keju, bayam, dan ikan';
+
+  @override
+  String get babyW11Fruit => 'Buah ara (fig)';
+
+  @override
+  String get babyW11Milestone => 'Refleks pertama muncul, bayi mulai bergerak';
+
+  @override
+  String get babyW11Tip => 'Risiko keguguran menurun — kabar baik!';
+
+  @override
+  String get babyW12Fruit => 'Jeruk nipis';
+
+  @override
+  String get babyW12Milestone => 'Ginjal mulai memproduksi urin';
+
+  @override
+  String get babyW12Tip => 'Waktu yang baik untuk USG trimester pertama';
+
+  @override
+  String get babyW13Fruit => 'Buah persik kecil';
+
+  @override
+  String get babyW13Milestone => 'Sidik jari unik bayi terbentuk';
+
+  @override
+  String get babyW13Tip => 'Selamat memasuki trimester kedua!';
+
+  @override
+  String get babyW14Fruit => 'Lemon';
+
+  @override
+  String get babyW14Milestone =>
+      'Bayi bisa mengerutkan muka dan menghisap ibu jari';
+
+  @override
+  String get babyW14Tip => 'Mual biasanya mulai berkurang di minggu ini';
+
+  @override
+  String get babyW15Fruit => 'Apel';
+
+  @override
+  String get babyW15Milestone => 'Bayi mulai dapat mendengar suara dari luar';
+
+  @override
+  String get babyW15Tip => 'Ajak bayi ngobrol — ia mulai mengenal suara Anda';
+
+  @override
+  String get babyW16Fruit => 'Alpukat';
+
+  @override
+  String get babyW16Milestone =>
+      'Kaki lebih panjang dari tangan, gerakan aktif';
+
+  @override
+  String get babyW16Tip => 'Anda mungkin mulai merasakan gerakan pertama bayi';
+
+  @override
+  String get babyW17Fruit => 'Lobak';
+
+  @override
+  String get babyW17Milestone => 'Lapisan lemak pelindung mulai terbentuk';
+
+  @override
+  String get babyW17Tip => 'Makan ikan berlemak seperti salmon untuk Omega-3';
+
+  @override
+  String get babyW18Fruit => 'Ubi jalar';
+
+  @override
+  String get babyW18Milestone => 'Bayi bisa mendengar detak jantung ibu';
+
+  @override
+  String get babyW18Tip => 'Waktu ideal untuk USG anomali (USG 4 dimensi)';
+
+  @override
+  String get babyW19Fruit => 'Tomat besar';
+
+  @override
+  String get babyW19Milestone =>
+      'Lapisan pelindung vernix terbentuk di kulit bayi';
+
+  @override
+  String get babyW19Tip =>
+      'Oleskan minyak kelapa/cocoa butter untuk stretching';
+
+  @override
+  String get babyW20Fruit => 'Pisang';
+
+  @override
+  String get babyW20Milestone =>
+      'Setengah perjalanan! Rahim sebesar semangka kecil';
+
+  @override
+  String get babyW20Tip =>
+      'Berhenti tidur tengkurap, tidur miring kiri lebih baik';
+
+  @override
+  String get babyW21Fruit => 'Wortel';
+
+  @override
+  String get babyW21Milestone => 'Bayi bisa menelan cairan ketuban';
+
+  @override
+  String get babyW21Tip =>
+      'Perut makin besar — gunakan bantal tambahan saat tidur';
+
+  @override
+  String get babyW22Fruit => 'Jagung manis';
+
+  @override
+  String get babyW22Milestone => 'Indera peraba berkembang, merespons sentuhan';
+
+  @override
+  String get babyW22Tip => 'Sentuh perut Anda — bayi bisa merasakan tekanan';
+
+  @override
+  String get babyW23Fruit => 'Mangga';
+
+  @override
+  String get babyW23Milestone => 'Paru-paru mulai memproduksi surfaktan';
+
+  @override
+  String get babyW23Tip => 'Daftarkan diri ke kelas senam hamil';
+
+  @override
+  String get babyW24Fruit => 'Jagung besar';
+
+  @override
+  String get babyW24Milestone => 'Otak berkembang pesat, wajah lebih sempurna';
+
+  @override
+  String get babyW24Tip =>
+      'Periksa tekanan darah secara rutin mulai minggu ini';
+
+  @override
+  String get babyW25Fruit => 'Nanas kecil';
+
+  @override
+  String get babyW25Milestone =>
+      'Tulang punggung menguat, refleks sentuh aktif';
+
+  @override
+  String get babyW25Tip => 'Latihan pernapasan dalam mulai bermanfaat';
+
+  @override
+  String get babyW26Fruit => 'Selada romaine';
+
+  @override
+  String get babyW26Milestone => 'Mata mulai bisa membuka dan menutup';
+
+  @override
+  String get babyW26Tip => 'Korelasikan gerakan bayi — catat jika berkurang';
+
+  @override
+  String get babyW27Fruit => 'Kembang kol';
+
+  @override
+  String get babyW27Milestone => 'Siklus tidur dan bangun mulai teratur';
+
+  @override
+  String get babyW27Tip => 'Selamat memasuki trimester ketiga!';
+
+  @override
+  String get babyW28Fruit => 'Terong';
+
+  @override
+  String get babyW28Milestone =>
+      'Trimester 3 dimulai, otak berkembang sangat aktif';
+
+  @override
+  String get babyW28Tip => 'Kunjungi dokter lebih sering — tiap 2 minggu';
+
+  @override
+  String get babyW29Fruit => 'Labu kuning kecil';
+
+  @override
+  String get babyW29Milestone => 'Otot dan paru-paru semakin matang';
+
+  @override
+  String get babyW29Tip => 'Tidur cukup menjadi lebih penting dari sebelumnya';
+
+  @override
+  String get babyW30Fruit => 'Kol besar';
+
+  @override
+  String get babyW30Milestone => 'Otak berkembang membentuk alur dan lipatan';
+
+  @override
+  String get babyW30Tip => 'Persiapkan tas persalinan Anda';
+
+  @override
+  String get babyW31Fruit => 'Nanas';
+
+  @override
+  String get babyW31Milestone =>
+      'Bayi bisa mengedipkan mata dan berkedip merespons cahaya';
+
+  @override
+  String get babyW31Tip => 'Kenali tanda-tanda persalinan dini';
+
+  @override
+  String get babyW32Fruit => 'Bengkuang';
+
+  @override
+  String get babyW32Milestone => 'Latihan pernapasan dimulai (gerak nafas)';
+
+  @override
+  String get babyW32Tip => 'Lakukan senam kegel untuk persiapan persalinan';
+
+  @override
+  String get babyW33Fruit => 'Nanas besar';
+
+  @override
+  String get babyW33Milestone =>
+      'Tulang semakin keras kecuali tengkorak (tetap lunak)';
+
+  @override
+  String get babyW33Tip => 'Kurangi kafein dan perbanyak minum air putih';
+
+  @override
+  String get babyW34Fruit => 'Labu kuning';
+
+  @override
+  String get babyW34Milestone =>
+      'Sistem kekebalan tubuh mendapat antibodi dari ibu';
+
+  @override
+  String get babyW34Tip =>
+      'Visualisasikan proses persalinan, kurangi rasa cemas';
+
+  @override
+  String get babyW35Fruit => 'Melon kecil';
+
+  @override
+  String get babyW35Milestone => 'Organ hampir sempurna, lemak terus bertambah';
+
+  @override
+  String get babyW35Tip => 'Kunjungan dokter tiap minggu mulai sekarang';
+
+  @override
+  String get babyW36Fruit => 'Pepaya kecil';
+
+  @override
+  String get babyW36Milestone =>
+      'Kepala bayi mulai turun ke panggul (engagement)';
+
+  @override
+  String get babyW36Tip => 'Persiapkan rumah sakit dan rencana kelahiran';
+
+  @override
+  String get babyW37Fruit => 'Pepaya';
+
+  @override
+  String get babyW37Milestone => 'Dianggap cukup bulan awal (early term)';
+
+  @override
+  String get babyW37Tip =>
+      'Kenali tanda persalinan: kontraksi teratur, ketuban pecah';
+
+  @override
+  String get babyW38Fruit => 'Semangka kecil';
+
+  @override
+  String get babyW38Milestone =>
+      'Vernix dan lanugo (rambut halus) mulai menghilang';
+
+  @override
+  String get babyW38Tip => 'Tetap aktif bergerak agar persalinan lebih lancar';
+
+  @override
+  String get babyW39Fruit => 'Semangka';
+
+  @override
+  String get babyW39Milestone => 'Paru-paru sudah siap bernapas mandiri';
+
+  @override
+  String get babyW39Tip => 'Segera ke RS jika kontraksi 5 menit sekali';
+
+  @override
+  String get babyW40Fruit => 'Semangka besar';
+
+  @override
+  String get babyW40Milestone =>
+      'Bayi siap dilahirkan — selamat berjuang, Ibu!';
+
+  @override
+  String get babyW40Tip => 'Anda luar biasa! Percaya diri melewati persalinan';
 }

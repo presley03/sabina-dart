@@ -2662,32 +2662,32 @@
                           "description": "Judul untuk klasifikasi IMT menurut WHO"
                         },
                         
-                        "imtCalc_classificationUnderweight": "â€¢ < 18.5: Berat badan kurang",
+                        "imtCalc_classificationUnderweight": "• < 18.5: Berat badan kurang",
                         "@imtCalc_classificationUnderweight": {
                           "description": "Klasifikasi IMT untuk berat badan kurang"
                         },
                         
-                        "imtCalc_classificationNormal": "â€¢ 18.5 - 24.9: Berat badan normal",
+                        "imtCalc_classificationNormal": "• 18.5 - 24.9: Berat badan normal",
                         "@imtCalc_classificationNormal": {
                           "description": "Klasifikasi IMT untuk berat badan normal"
                         },
                         
-                        "imtCalc_classificationOverweight": "â€¢ 25.0 - 29.9: Pra-obesitas",
+                        "imtCalc_classificationOverweight": "• 25.0 - 29.9: Pra-obesitas",
                         "@imtCalc_classificationOverweight": {
                           "description": "Klasifikasi IMT untuk pra-obesitas"
                         },
                         
-                        "imtCalc_classificationObesity1": "â€¢ 30.0 - 34.9: Obesitas kelas I",
+                        "imtCalc_classificationObesity1": "• 30.0 - 34.9: Obesitas kelas I",
                         "@imtCalc_classificationObesity1": {
                           "description": "Klasifikasi IMT untuk obesitas kelas I"
                         },
                         
-                        "imtCalc_classificationObesity2": "â€¢ 35.0 - 39.9: Obesitas kelas II",
+                        "imtCalc_classificationObesity2": "• 35.0 - 39.9: Obesitas kelas II",
                         "@imtCalc_classificationObesity2": {
                           "description": "Klasifikasi IMT untuk obesitas kelas II"
                         },
                         
-                        "imtCalc_classificationObesity3": "â€¢ â‰¥ 40.0: Obesitas kelas III",
+                        "imtCalc_classificationObesity3": "• ≥ 40.0: Obesitas kelas III",
                         "@imtCalc_classificationObesity3": {
                           "description": "Klasifikasi IMT untuk obesitas kelas III"
                         },
@@ -2722,17 +2722,17 @@
                           "description": "Judul untuk bagian tips kesehatan"
                         },
                         
-                        "imtCalc_healthTip1": "â€¢ Jaga pola makan sehat dengan makanan bergizi seimbang.",
+                        "imtCalc_healthTip1": "• Jaga pola makan sehat dengan makanan bergizi seimbang.",
                         "@imtCalc_healthTip1": {
                           "description": "Tip kesehatan pertama"
                         },
                         
-                        "imtCalc_healthTip2": "â€¢ Tetap aktif dengan olahraga ringan selama kehamilan.",
+                        "imtCalc_healthTip2": "• Tetap aktif dengan olahraga ringan selama kehamilan.",
                         "@imtCalc_healthTip2": {
                           "description": "Tip kesehatan kedua"
                         },
                         
-                        "imtCalc_healthTip3": "â€¢ Jangan lupa istirahat yang cukup dan kelola stres.",
+                        "imtCalc_healthTip3": "• Jangan lupa istirahat yang cukup dan kelola stres.",
                         "@imtCalc_healthTip3": {
                           "description": "Tip kesehatan ketiga"
                         },
@@ -3553,7 +3553,7 @@
   "@emergencyCallToAction": {
     "description": "Perintah aksi di dialog darurat"
   },
-  "emergencySymptoms": "â€¢ Pendarahan hebat\nâ€¢ Kontraksi kuat sebelum waktunya\nâ€¢ Sakit kepala parah\nâ€¢ Pandangan kabur",
+  "emergencySymptoms": "• Pendarahan hebat\n• Kontraksi kuat sebelum waktunya\n• Sakit kepala parah\n• Pandangan kabur",
   "@emergencySymptoms": {
     "description": "Daftar gejala darurat"
   },
@@ -3949,6 +3949,23 @@
   "@chooseTrimesterLabel": {"description": "Label bagian pilih trimester"},
   "pregnancyGuideHeader": "PANDUAN KEHAMILAN",
   "@pregnancyGuideHeader": {"description": "Header panduan kehamilan"},
+  "pregnancyGuideDescription": "Pelajari perkembangan janin dan perubahan tubuh Anda di setiap trimester.",
+  "@pregnancyGuideDescription": {"description": "Deskripsi singkat panduan kehamilan"},
+  "weekNumberLabel": "MINGGU KE-{week}",
+  "@weekNumberLabel": {
+    "description": "Label nomor minggu pada layar perkembangan bayi",
+    "placeholders": {"week": {"type": "Object"}}
+  },
+  "sizedLikeLabel": "Seukuran {fruit}",
+  "@sizedLikeLabel": {
+    "description": "Label ukuran bayi dibandingkan buah",
+    "placeholders": {"fruit": {"type": "String"}}
+  },
+  "weekProgressLabel": "Minggu {current} / 40",
+  "@weekProgressLabel": {
+    "description": "Label progres minggu kehamilan",
+    "placeholders": {"current": {"type": "Object"}}
+  },
   "introductionLabel": "Pengantar",
   "@introductionLabel": {"description": "Label bagian pengantar"},
   "recommendedAndAvoidLabel": "Yang Dianjurkan & Dihindari",
@@ -4136,5 +4153,190 @@
   "preeklampsiaTip3": "Segera ke fasilitas kesehatan jika kepala terasa berat atau penglihatan kabur",
   "@preeklampsiaTip3": {"description": "Tips preeklampsia 3"},
   "preeklampsiaTip4": "Istirahat cukup dan hindari aktivitas berat",
-  "@preeklampsiaTip4": {"description": "Tips preeklampsia 4"}
+  "@preeklampsiaTip4": {"description": "Tips preeklampsia 4"},
+
+  "insightWeightFastTitle": "Kenaikan Berat Badan Cepat",
+  "@insightWeightFastTitle": {"description": "Judul insight berat badan naik cepat"},
+  "insightWeightFastDesc": "Berat badan Anda naik {weeklyChange} kg per minggu",
+  "@insightWeightFastDesc": {
+    "description": "Deskripsi kenaikan berat badan cepat",
+    "placeholders": {"weeklyChange": {"type": "String"}}
+  },
+  "insightWeightFastRec": "Konsultasikan dengan dokter tentang pola makan dan aktivitas fisik yang tepat",
+  "@insightWeightFastRec": {"description": "Rekomendasi kenaikan berat badan cepat"},
+  "insightWeightSlowTitle": "Kenaikan Berat Badan Lambat",
+  "@insightWeightSlowTitle": {"description": "Judul insight berat badan naik lambat"},
+  "insightWeightSlowDesc": "Kenaikan berat badan Anda di bawah rekomendasi",
+  "@insightWeightSlowDesc": {"description": "Deskripsi kenaikan berat badan lambat"},
+  "insightWeightSlowRec": "Pastikan asupan nutrisi mencukupi dan konsultasi dengan ahli gizi",
+  "@insightWeightSlowRec": {"description": "Rekomendasi kenaikan berat badan lambat"},
+  "insightWeightNormalTitle": "Kenaikan Berat Badan Normal",
+  "@insightWeightNormalTitle": {"description": "Judul insight berat badan normal"},
+  "insightWeightNormalDesc": "Kenaikan berat badan Anda dalam rentang yang sehat",
+  "@insightWeightNormalDesc": {"description": "Deskripsi kenaikan berat badan normal"},
+  "insightWeightNormalRec": "Pertahankan pola makan dan aktivitas yang sehat",
+  "@insightWeightNormalRec": {"description": "Rekomendasi berat badan normal"},
+
+  "insightBPHighTitle": "Tekanan Darah Tinggi Berulang",
+  "@insightBPHighTitle": {"description": "Judul insight tekanan darah tinggi berulang"},
+  "insightBPHighDesc": "{percentage}% pengukuran menunjukkan tekanan darah tinggi",
+  "@insightBPHighDesc": {
+    "description": "Deskripsi tekanan darah tinggi berulang",
+    "placeholders": {"percentage": {"type": "String"}}
+  },
+  "insightBPHighRec": "SEGERA konsultasi dengan dokter untuk evaluasi preeklampsia",
+  "@insightBPHighRec": {"description": "Rekomendasi tekanan darah tinggi berulang"},
+  "insightBPMonitorTitle": "Tekanan Darah Perlu Dipantau",
+  "@insightBPMonitorTitle": {"description": "Judul insight tekanan darah perlu dipantau"},
+  "insightBPMonitorDesc": "Beberapa pengukuran menunjukkan tekanan darah tinggi",
+  "@insightBPMonitorDesc": {"description": "Deskripsi tekanan darah perlu dipantau"},
+  "insightBPMonitorRec": "Monitor tekanan darah lebih sering dan konsultasi dengan dokter",
+  "@insightBPMonitorRec": {"description": "Rekomendasi tekanan darah perlu dipantau"},
+
+  "insightSymptomHeadacheRec": "Sakit kepala berulang bisa menjadi tanda preeklampsia. Konsultasi dengan dokter",
+  "@insightSymptomHeadacheRec": {"description": "Rekomendasi untuk gejala sakit kepala berulang"},
+  "insightSymptomSwellingRec": "Bengkak berlebihan perlu dievaluasi dokter untuk kemungkinan preeklampsia",
+  "@insightSymptomSwellingRec": {"description": "Rekomendasi untuk gejala bengkak berulang"},
+  "insightSymptomNauseaRec": "Mual muntah berlebihan (hyperemesis) perlu penanganan medis",
+  "@insightSymptomNauseaRec": {"description": "Rekomendasi untuk gejala mual muntah berulang"},
+  "insightSymptomDefaultRec": "Gejala berulang perlu dikonsultasikan dengan dokter",
+  "@insightSymptomDefaultRec": {"description": "Rekomendasi default untuk gejala berulang"},
+  "insightSymptomRecurringTitle": "Gejala {symptom} Berulang",
+  "@insightSymptomRecurringTitle": {
+    "description": "Judul insight gejala berulang",
+    "placeholders": {"symptom": {"type": "String"}}
+  },
+  "insightSymptomRecurringDesc": "Gejala ini muncul pada {percentage}% catatan kesehatan",
+  "@insightSymptomRecurringDesc": {
+    "description": "Deskripsi gejala berulang",
+    "placeholders": {"percentage": {"type": "String"}}
+  },
+
+  "insightSleepLowTitle": "Kurang Tidur",
+  "@insightSleepLowTitle": {"description": "Judul insight kurang tidur"},
+  "insightSleepLowDesc": "Rata-rata tidur Anda {hours} jam per hari",
+  "@insightSleepLowDesc": {
+    "description": "Deskripsi rata-rata tidur",
+    "placeholders": {"hours": {"type": "String"}}
+  },
+  "insightSleepLowRec": "Ibu hamil membutuhkan 7-9 jam tidur. Coba atur jadwal tidur yang lebih teratur",
+  "@insightSleepLowRec": {"description": "Rekomendasi untuk kurang tidur"},
+  "insightSleepHighTitle": "Tidur Berlebihan",
+  "@insightSleepHighTitle": {"description": "Judul insight tidur berlebihan"},
+  "insightSleepHighRec": "Tidur berlebihan bisa menandakan kelelahan atau kondisi medis tertentu",
+  "@insightSleepHighRec": {"description": "Rekomendasi untuk tidur berlebihan"},
+
+  "insightHydrationLowTitle": "Kurang Minum Air",
+  "@insightHydrationLowTitle": {"description": "Judul insight kurang minum air"},
+  "insightHydrationLowDesc": "Rata-rata asupan air {liters} liter per hari",
+  "@insightHydrationLowDesc": {
+    "description": "Deskripsi rata-rata asupan air",
+    "placeholders": {"liters": {"type": "String"}}
+  },
+  "insightHydrationLowRec": "Ibu hamil perlu 2-2.5 liter air per hari. Tingkatkan asupan air putih",
+  "@insightHydrationLowRec": {"description": "Rekomendasi untuk kurang minum air"},
+  "insightHydrationGoodTitle": "Hidrasi Baik",
+  "@insightHydrationGoodTitle": {"description": "Judul insight hidrasi baik"},
+  "insightHydrationGoodDesc": "Asupan air Anda sudah mencukupi",
+  "@insightHydrationGoodDesc": {"description": "Deskripsi hidrasi baik"},
+  "insightHydrationGoodRec": "Pertahankan kebiasaan minum air yang baik",
+  "@insightHydrationGoodRec": {"description": "Rekomendasi hidrasi baik"},
+
+  "insightMoodNegativeTitle": "Mood Negatif Dominan",
+  "@insightMoodNegativeTitle": {"description": "Judul insight mood negatif dominan"},
+  "insightMoodNegativeDesc": "{percentage}% catatan menunjukkan mood negatif",
+  "@insightMoodNegativeDesc": {
+    "description": "Deskripsi mood negatif dominan",
+    "placeholders": {"percentage": {"type": "String"}}
+  },
+  "insightMoodNegativeRec": "Pertimbangkan konseling atau terapi untuk kesehatan mental selama kehamilan",
+  "@insightMoodNegativeRec": {"description": "Rekomendasi mood negatif dominan"},
+  "insightMoodCareTitle": "Perhatikan Kesehatan Mental",
+  "@insightMoodCareTitle": {"description": "Judul insight perhatikan kesehatan mental"},
+  "insightMoodCareDesc": "Beberapa catatan menunjukkan mood yang kurang baik",
+  "@insightMoodCareDesc": {"description": "Deskripsi perhatikan kesehatan mental"},
+  "insightMoodCareRec": "Lakukan aktivitas relaksasi dan bicarakan dengan orang terdekat",
+  "@insightMoodCareRec": {"description": "Rekomendasi perhatikan kesehatan mental"},
+
+  "insightTrimester1FolicTitle": "Asam Folat Penting",
+  "@insightTrimester1FolicTitle": {"description": "Judul insight asam folat trimester 1"},
+  "insightTrimester1FolicDesc": "Trimester pertama adalah periode kritis untuk perkembangan saraf bayi",
+  "@insightTrimester1FolicDesc": {"description": "Deskripsi insight asam folat trimester 1"},
+  "insightTrimester1FolicRec": "Konsumsi asam folat 400mcg setiap hari dan hindari alkohol serta rokok",
+  "@insightTrimester1FolicRec": {"description": "Rekomendasi asam folat trimester 1"},
+  "insightTrimester1NauseaTitle": "Atasi Morning Sickness",
+  "@insightTrimester1NauseaTitle": {"description": "Judul insight morning sickness trimester 1"},
+  "insightTrimester1NauseaDesc": "Mual muntah adalah hal normal di trimester pertama",
+  "@insightTrimester1NauseaDesc": {"description": "Deskripsi insight morning sickness trimester 1"},
+  "insightTrimester1NauseaRec": "Makan dalam porsi kecil tapi sering, hindari makanan berminyak",
+  "@insightTrimester1NauseaRec": {"description": "Rekomendasi morning sickness trimester 1"},
+
+  "insightTrimester2NutritionTitle": "Kalsium dan Zat Besi",
+  "@insightTrimester2NutritionTitle": {"description": "Judul insight nutrisi trimester 2"},
+  "insightTrimester2NutritionDesc": "Trimester kedua adalah waktu pertumbuhan tulang dan darah bayi",
+  "@insightTrimester2NutritionDesc": {"description": "Deskripsi insight nutrisi trimester 2"},
+  "insightTrimester2NutritionRec": "Tingkatkan asupan kalsium dan zat besi, lakukan olahraga ringan",
+  "@insightTrimester2NutritionRec": {"description": "Rekomendasi nutrisi trimester 2"},
+  "insightTrimester2ScreeningTitle": "Screening Anomali",
+  "@insightTrimester2ScreeningTitle": {"description": "Judul insight screening trimester 2"},
+  "insightTrimester2ScreeningDesc": "Waktu optimal untuk pemeriksaan USG detail",
+  "@insightTrimester2ScreeningDesc": {"description": "Deskripsi insight screening trimester 2"},
+  "insightTrimester2ScreeningRec": "Lakukan USG anomali dan tes skrining sesuai jadwal dokter",
+  "@insightTrimester2ScreeningRec": {"description": "Rekomendasi screening trimester 2"},
+
+  "insightTrimester3PrepTitle": "Persiapan Persalinan",
+  "@insightTrimester3PrepTitle": {"description": "Judul insight persiapan persalinan trimester 3"},
+  "insightTrimester3PrepDesc": "Trimester ketiga adalah waktu persiapan kelahiran",
+  "@insightTrimester3PrepDesc": {"description": "Deskripsi insight persiapan persalinan trimester 3"},
+  "insightTrimester3PrepRec": "Siapkan tas rumah sakit, pelajari teknik pernapasan, monitor gerakan bayi",
+  "@insightTrimester3PrepRec": {"description": "Rekomendasi persiapan persalinan trimester 3"},
+  "insightTrimester3PreecTitle": "Waspada Preeklampsia",
+  "@insightTrimester3PreecTitle": {"description": "Judul insight preeklampsia trimester 3"},
+  "insightTrimester3PreecDesc": "Risiko preeklampsia meningkat di trimester ketiga",
+  "@insightTrimester3PreecDesc": {"description": "Deskripsi insight preeklampsia trimester 3"},
+  "insightTrimester3PreecRec": "Monitor tekanan darah, perhatikan bengkak berlebihan dan sakit kepala",
+  "@insightTrimester3PreecRec": {"description": "Rekomendasi preeklampsia trimester 3"}
+,
+  "weekAbbreviation": "M",
+  "@weekAbbreviation": {"description": "Singkatan minggu untuk tab pilih minggu"},
+  "babyW1Fruit": "Titik mikroskopis", "babyW1Milestone": "Proses pembuahan sedang berlangsung", "babyW1Tip": "Mulai konsumsi asam folat 400 mcg setiap hari",
+  "babyW2Fruit": "Titik mikroskopis", "babyW2Milestone": "Ovulasi dan pembuahan terjadi", "babyW2Tip": "Hindari alkohol dan rokok sejak sekarang",
+  "babyW3Fruit": "Biji wijen", "babyW3Milestone": "Sel telur yang dibuahi menempel di rahim", "babyW3Tip": "Jaga pola makan bergizi dan istirahat cukup",
+  "babyW4Fruit": "Biji apel", "babyW4Milestone": "Embrio terbentuk, tabung saraf berkembang", "babyW4Tip": "Lanjutkan asam folat, konsultasi ke dokter",
+  "babyW5Fruit": "Kacang polong", "babyW5Milestone": "Jantung mulai berdetak 80-85x per menit", "babyW5Tip": "Makan makanan kaya zat besi untuk mendukung jantung bayi",
+  "babyW6Fruit": "Blueberry", "babyW6Milestone": "Wajah, mata, dan telinga mulai terbentuk", "babyW6Tip": "Mual pagi? Makan dalam porsi kecil tapi sering",
+  "babyW7Fruit": "Buah raspberry", "babyW7Milestone": "Lengan dan kaki mulai muncul sebagai tonjolan", "babyW7Tip": "Minum cukup air, minimal 8 gelas sehari",
+  "babyW8Fruit": "Kacang merah", "babyW8Milestone": "Jari-jari tangan mulai terbentuk", "babyW8Tip": "Tunda cat rambut atau chemical hingga trimester 2",
+  "babyW9Fruit": "Anggur", "babyW9Milestone": "Semua organ utama sudah ada dalam bentuk awal", "babyW9Tip": "Istirahat lebih banyak, tubuh bekerja keras",
+  "babyW10Fruit": "Leci", "babyW10Milestone": "Tulang mulai menggantikan tulang rawan", "babyW10Tip": "Kalsium penting: susu, keju, bayam, dan ikan",
+  "babyW11Fruit": "Buah ara (fig)", "babyW11Milestone": "Refleks pertama muncul, bayi mulai bergerak", "babyW11Tip": "Risiko keguguran menurun — kabar baik!",
+  "babyW12Fruit": "Jeruk nipis", "babyW12Milestone": "Ginjal mulai memproduksi urin", "babyW12Tip": "Waktu yang baik untuk USG trimester pertama",
+  "babyW13Fruit": "Buah persik kecil", "babyW13Milestone": "Sidik jari unik bayi terbentuk", "babyW13Tip": "Selamat memasuki trimester kedua!",
+  "babyW14Fruit": "Lemon", "babyW14Milestone": "Bayi bisa mengerutkan muka dan menghisap ibu jari", "babyW14Tip": "Mual biasanya mulai berkurang di minggu ini",
+  "babyW15Fruit": "Apel", "babyW15Milestone": "Bayi mulai dapat mendengar suara dari luar", "babyW15Tip": "Ajak bayi ngobrol — ia mulai mengenal suara Anda",
+  "babyW16Fruit": "Alpukat", "babyW16Milestone": "Kaki lebih panjang dari tangan, gerakan aktif", "babyW16Tip": "Anda mungkin mulai merasakan gerakan pertama bayi",
+  "babyW17Fruit": "Lobak", "babyW17Milestone": "Lapisan lemak pelindung mulai terbentuk", "babyW17Tip": "Makan ikan berlemak seperti salmon untuk Omega-3",
+  "babyW18Fruit": "Ubi jalar", "babyW18Milestone": "Bayi bisa mendengar detak jantung ibu", "babyW18Tip": "Waktu ideal untuk USG anomali (USG 4 dimensi)",
+  "babyW19Fruit": "Tomat besar", "babyW19Milestone": "Lapisan pelindung vernix terbentuk di kulit bayi", "babyW19Tip": "Oleskan minyak kelapa/cocoa butter untuk stretching",
+  "babyW20Fruit": "Pisang", "babyW20Milestone": "Setengah perjalanan! Rahim sebesar semangka kecil", "babyW20Tip": "Berhenti tidur tengkurap, tidur miring kiri lebih baik",
+  "babyW21Fruit": "Wortel", "babyW21Milestone": "Bayi bisa menelan cairan ketuban", "babyW21Tip": "Perut makin besar — gunakan bantal tambahan saat tidur",
+  "babyW22Fruit": "Jagung manis", "babyW22Milestone": "Indera peraba berkembang, merespons sentuhan", "babyW22Tip": "Sentuh perut Anda — bayi bisa merasakan tekanan",
+  "babyW23Fruit": "Mangga", "babyW23Milestone": "Paru-paru mulai memproduksi surfaktan", "babyW23Tip": "Daftarkan diri ke kelas senam hamil",
+  "babyW24Fruit": "Jagung besar", "babyW24Milestone": "Otak berkembang pesat, wajah lebih sempurna", "babyW24Tip": "Periksa tekanan darah secara rutin mulai minggu ini",
+  "babyW25Fruit": "Nanas kecil", "babyW25Milestone": "Tulang punggung menguat, refleks sentuh aktif", "babyW25Tip": "Latihan pernapasan dalam mulai bermanfaat",
+  "babyW26Fruit": "Selada romaine", "babyW26Milestone": "Mata mulai bisa membuka dan menutup", "babyW26Tip": "Korelasikan gerakan bayi — catat jika berkurang",
+  "babyW27Fruit": "Kembang kol", "babyW27Milestone": "Siklus tidur dan bangun mulai teratur", "babyW27Tip": "Selamat memasuki trimester ketiga!",
+  "babyW28Fruit": "Terong", "babyW28Milestone": "Trimester 3 dimulai, otak berkembang sangat aktif", "babyW28Tip": "Kunjungi dokter lebih sering — tiap 2 minggu",
+  "babyW29Fruit": "Labu kuning kecil", "babyW29Milestone": "Otot dan paru-paru semakin matang", "babyW29Tip": "Tidur cukup menjadi lebih penting dari sebelumnya",
+  "babyW30Fruit": "Kol besar", "babyW30Milestone": "Otak berkembang membentuk alur dan lipatan", "babyW30Tip": "Persiapkan tas persalinan Anda",
+  "babyW31Fruit": "Nanas", "babyW31Milestone": "Bayi bisa mengedipkan mata dan berkedip merespons cahaya", "babyW31Tip": "Kenali tanda-tanda persalinan dini",
+  "babyW32Fruit": "Bengkuang", "babyW32Milestone": "Latihan pernapasan dimulai (gerak nafas)", "babyW32Tip": "Lakukan senam kegel untuk persiapan persalinan",
+  "babyW33Fruit": "Nanas besar", "babyW33Milestone": "Tulang semakin keras kecuali tengkorak (tetap lunak)", "babyW33Tip": "Kurangi kafein dan perbanyak minum air putih",
+  "babyW34Fruit": "Labu kuning", "babyW34Milestone": "Sistem kekebalan tubuh mendapat antibodi dari ibu", "babyW34Tip": "Visualisasikan proses persalinan, kurangi rasa cemas",
+  "babyW35Fruit": "Melon kecil", "babyW35Milestone": "Organ hampir sempurna, lemak terus bertambah", "babyW35Tip": "Kunjungan dokter tiap minggu mulai sekarang",
+  "babyW36Fruit": "Pepaya kecil", "babyW36Milestone": "Kepala bayi mulai turun ke panggul (engagement)", "babyW36Tip": "Persiapkan rumah sakit dan rencana kelahiran",
+  "babyW37Fruit": "Pepaya", "babyW37Milestone": "Dianggap cukup bulan awal (early term)", "babyW37Tip": "Kenali tanda persalinan: kontraksi teratur, ketuban pecah",
+  "babyW38Fruit": "Semangka kecil", "babyW38Milestone": "Vernix dan lanugo (rambut halus) mulai menghilang", "babyW38Tip": "Tetap aktif bergerak agar persalinan lebih lancar",
+  "babyW39Fruit": "Semangka", "babyW39Milestone": "Paru-paru sudah siap bernapas mandiri", "babyW39Tip": "Segera ke RS jika kontraksi 5 menit sekali",
+  "babyW40Fruit": "Semangka besar", "babyW40Milestone": "Bayi siap dilahirkan — selamat berjuang, Ibu!", "babyW40Tip": "Anda luar biasa! Percaya diri melewati persalinan"
 }

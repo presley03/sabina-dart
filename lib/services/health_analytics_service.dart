@@ -1,5 +1,6 @@
 import 'dart:math';
 import '../models/health_monitoring_model.dart';
+import 'package:sabina/generated/app_localizations.dart';
 
 class HealthInsight {
   final String title;
@@ -32,7 +33,8 @@ enum InsightPriority { low, medium, high, critical }
 
 class HealthAnalyticsService {
   // Analisis tren berat badan
-  static List<HealthInsight> analyzeWeightTrend(List<HealthRecord> records) {
+  static List<HealthInsight> analyzeWeightTrend(
+      List<HealthRecord> records, AppLocalizations l10n) {
     final insights = <HealthInsight>[];
 
     if (records.length < 2) return insights;
@@ -52,28 +54,26 @@ class HealthAnalyticsService {
 
     if (weeklyChange > 0.5) {
       insights.add(HealthInsight(
-        title: 'Kenaikan Berat Badan Cepat',
+        title: l10n.insightWeightFastTitle,
         description:
-            'Berat badan Anda naik ${weeklyChange.toStringAsFixed(1)} kg per minggu',
-        recommendation:
-            'Konsultasikan dengan dokter tentang pola makan dan aktivitas fisik yang tepat',
+            l10n.insightWeightFastDesc(weeklyChange.toStringAsFixed(1)),
+        recommendation: l10n.insightWeightFastRec,
         type: InsightType.weight,
         priority: InsightPriority.high,
       ));
     } else if (weeklyChange < 0.2 && weeksDiff > 4) {
       insights.add(HealthInsight(
-        title: 'Kenaikan Berat Badan Lambat',
-        description: 'Kenaikan berat badan Anda di bawah rekomendasi',
-        recommendation:
-            'Pastikan asupan nutrisi mencukupi dan konsultasi dengan ahli gizi',
+        title: l10n.insightWeightSlowTitle,
+        description: l10n.insightWeightSlowDesc,
+        recommendation: l10n.insightWeightSlowRec,
         type: InsightType.weight,
         priority: InsightPriority.medium,
       ));
     } else {
       insights.add(HealthInsight(
-        title: 'Kenaikan Berat Badan Normal',
-        description: 'Kenaikan berat badan Anda dalam rentang yang sehat',
-        recommendation: 'Pertahankan pola makan dan aktivitas yang sehat',
+        title: l10n.insightWeightNormalTitle,
+        description: l10n.insightWeightNormalDesc,
+        recommendation: l10n.insightWeightNormalRec,
         type: InsightType.weight,
         priority: InsightPriority.low,
       ));
@@ -83,7 +83,8 @@ class HealthAnalyticsService {
   }
 
   // Analisis tekanan darah
-  static List<HealthInsight> analyzeBloodPressure(List<HealthRecord> records) {
+  static List<HealthInsight> analyzeBloodPressure(
+      List<HealthRecord> records, AppLocalizations l10n) {
     final insights = <HealthInsight>[];
 
     final bpRecords = records.where((r) => r.bloodPressure != null).toList();
@@ -108,20 +109,18 @@ class HealthAnalyticsService {
 
     if (highBPPercentage > 30) {
       insights.add(HealthInsight(
-        title: 'Tekanan Darah Tinggi Berulang',
+        title: l10n.insightBPHighTitle,
         description:
-            '${highBPPercentage.toStringAsFixed(0)}% pengukuran menunjukkan tekanan darah tinggi',
-        recommendation:
-            'SEGERA konsultasi dengan dokter untuk evaluasi preeklampsia',
+            l10n.insightBPHighDesc(highBPPercentage.toStringAsFixed(0)),
+        recommendation: l10n.insightBPHighRec,
         type: InsightType.bloodPressure,
         priority: InsightPriority.critical,
       ));
     } else if (highBPCount > 0) {
       insights.add(HealthInsight(
-        title: 'Tekanan Darah Perlu Dipantau',
-        description: 'Beberapa pengukuran menunjukkan tekanan darah tinggi',
-        recommendation:
-            'Monitor tekanan darah lebih sering dan konsultasi dengan dokter',
+        title: l10n.insightBPMonitorTitle,
+        description: l10n.insightBPMonitorDesc,
+        recommendation: l10n.insightBPMonitorRec,
         type: InsightType.bloodPressure,
         priority: InsightPriority.high,
       ));
@@ -131,7 +130,8 @@ class HealthAnalyticsService {
   }
 
   // Analisis gejala
-  static List<HealthInsight> analyzeSymptoms(List<HealthRecord> records) {
+  static List<HealthInsight> analyzeSymptoms(
+      List<HealthRecord> records, AppLocalizations l10n) {
     final insights = <HealthInsight>[];
 
     final symptomsRecords = records
@@ -171,29 +171,25 @@ class HealthAnalyticsService {
 
         switch (symptom) {
           case 'sakit kepala':
-            recommendation =
-                'Sakit kepala berulang bisa menjadi tanda preeklampsia. Konsultasi dengan dokter';
+            recommendation = l10n.insightSymptomHeadacheRec;
             priority = InsightPriority.high;
             break;
           case 'bengkak':
-            recommendation =
-                'Bengkak berlebihan perlu dievaluasi dokter untuk kemungkinan preeklampsia';
+            recommendation = l10n.insightSymptomSwellingRec;
             priority = InsightPriority.high;
             break;
           case 'mual muntah':
-            recommendation =
-                'Mual muntah berlebihan (hyperemesis) perlu penanganan medis';
+            recommendation = l10n.insightSymptomNauseaRec;
             priority = InsightPriority.medium;
             break;
           default:
-            recommendation =
-                'Gejala berulang perlu dikonsultasikan dengan dokter';
+            recommendation = l10n.insightSymptomDefaultRec;
         }
 
         insights.add(HealthInsight(
-          title: 'Gejala $symptom Berulang',
+          title: l10n.insightSymptomRecurringTitle(symptom),
           description:
-              'Gejala ini muncul pada ${frequency.toStringAsFixed(0)}% catatan kesehatan',
+              l10n.insightSymptomRecurringDesc(frequency.toStringAsFixed(0)),
           recommendation: recommendation,
           type: InsightType.symptoms,
           priority: priority,
@@ -205,7 +201,8 @@ class HealthAnalyticsService {
   }
 
   // Analisis pola tidur
-  static List<HealthInsight> analyzeSleepPattern(List<HealthRecord> records) {
+  static List<HealthInsight> analyzeSleepPattern(
+      List<HealthRecord> records, AppLocalizations l10n) {
     final insights = <HealthInsight>[];
 
     final sleepRecords = records.where((r) => r.sleepHours != null).toList();
@@ -218,21 +215,17 @@ class HealthAnalyticsService {
 
     if (averageSleep < 7) {
       insights.add(HealthInsight(
-        title: 'Kurang Tidur',
-        description:
-            'Rata-rata tidur Anda ${averageSleep.toStringAsFixed(1)} jam per hari',
-        recommendation:
-            'Ibu hamil membutuhkan 7-9 jam tidur. Coba atur jadwal tidur yang lebih teratur',
+        title: l10n.insightSleepLowTitle,
+        description: l10n.insightSleepLowDesc(averageSleep.toStringAsFixed(1)),
+        recommendation: l10n.insightSleepLowRec,
         type: InsightType.sleep,
         priority: InsightPriority.medium,
       ));
     } else if (averageSleep > 9) {
       insights.add(HealthInsight(
-        title: 'Tidur Berlebihan',
-        description:
-            'Rata-rata tidur Anda ${averageSleep.toStringAsFixed(1)} jam per hari',
-        recommendation:
-            'Tidur berlebihan bisa menandakan kelelahan atau kondisi medis tertentu',
+        title: l10n.insightSleepHighTitle,
+        description: l10n.insightSleepLowDesc(averageSleep.toStringAsFixed(1)),
+        recommendation: l10n.insightSleepHighRec,
         type: InsightType.sleep,
         priority: InsightPriority.medium,
       ));
@@ -242,7 +235,8 @@ class HealthAnalyticsService {
   }
 
   // Analisis hidrasi
-  static List<HealthInsight> analyzeHydration(List<HealthRecord> records) {
+  static List<HealthInsight> analyzeHydration(
+      List<HealthRecord> records, AppLocalizations l10n) {
     final insights = <HealthInsight>[];
 
     final hydrationRecords =
@@ -257,19 +251,18 @@ class HealthAnalyticsService {
     // Target: 2000-2500ml per hari
     if (averageWater < 2000) {
       insights.add(HealthInsight(
-        title: 'Kurang Minum Air',
-        description:
-            'Rata-rata asupan air ${(averageWater / 1000).toStringAsFixed(1)} liter per hari',
-        recommendation:
-            'Ibu hamil perlu 2-2.5 liter air per hari. Tingkatkan asupan air putih',
+        title: l10n.insightHydrationLowTitle,
+        description: l10n
+            .insightHydrationLowDesc((averageWater / 1000).toStringAsFixed(1)),
+        recommendation: l10n.insightHydrationLowRec,
         type: InsightType.hydration,
         priority: InsightPriority.medium,
       ));
     } else {
       insights.add(HealthInsight(
-        title: 'Hidrasi Baik',
-        description: 'Asupan air Anda sudah mencukupi',
-        recommendation: 'Pertahankan kebiasaan minum air yang baik',
+        title: l10n.insightHydrationGoodTitle,
+        description: l10n.insightHydrationGoodDesc,
+        recommendation: l10n.insightHydrationGoodRec,
         type: InsightType.hydration,
         priority: InsightPriority.low,
       ));
@@ -279,7 +272,8 @@ class HealthAnalyticsService {
   }
 
   // Analisis mood
-  static List<HealthInsight> analyzeMood(List<HealthRecord> records) {
+  static List<HealthInsight> analyzeMood(
+      List<HealthRecord> records, AppLocalizations l10n) {
     final insights = <HealthInsight>[];
 
     final moodRecords = records.where((r) => r.mood != null).toList();
@@ -296,20 +290,18 @@ class HealthAnalyticsService {
 
     if (negativeMoodPercentage > 60) {
       insights.add(HealthInsight(
-        title: 'Mood Negatif Dominan',
-        description:
-            '${negativeMoodPercentage.toStringAsFixed(0)}% catatan menunjukkan mood negatif',
-        recommendation:
-            'Pertimbangkan konseling atau terapi untuk kesehatan mental selama kehamilan',
+        title: l10n.insightMoodNegativeTitle,
+        description: l10n
+            .insightMoodNegativeDesc(negativeMoodPercentage.toStringAsFixed(0)),
+        recommendation: l10n.insightMoodNegativeRec,
         type: InsightType.general,
         priority: InsightPriority.high,
       ));
     } else if (negativeMoodPercentage > 30) {
       insights.add(HealthInsight(
-        title: 'Perhatikan Kesehatan Mental',
-        description: 'Beberapa catatan menunjukkan mood yang kurang baik',
-        recommendation:
-            'Lakukan aktivitas relaksasi dan bicarakan dengan orang terdekat',
+        title: l10n.insightMoodCareTitle,
+        description: l10n.insightMoodCareDesc,
+        recommendation: l10n.insightMoodCareRec,
         type: InsightType.general,
         priority: InsightPriority.medium,
       ));
@@ -320,15 +312,15 @@ class HealthAnalyticsService {
 
   // Analisis komprehensif
   static List<HealthInsight> generateComprehensiveInsights(
-      List<HealthRecord> records) {
+      List<HealthRecord> records, AppLocalizations l10n) {
     final allInsights = <HealthInsight>[];
 
-    allInsights.addAll(analyzeWeightTrend(records));
-    allInsights.addAll(analyzeBloodPressure(records));
-    allInsights.addAll(analyzeSymptoms(records));
-    allInsights.addAll(analyzeSleepPattern(records));
-    allInsights.addAll(analyzeHydration(records));
-    allInsights.addAll(analyzeMood(records));
+    allInsights.addAll(analyzeWeightTrend(records, l10n));
+    allInsights.addAll(analyzeBloodPressure(records, l10n));
+    allInsights.addAll(analyzeSymptoms(records, l10n));
+    allInsights.addAll(analyzeSleepPattern(records, l10n));
+    allInsights.addAll(analyzeHydration(records, l10n));
+    allInsights.addAll(analyzeMood(records, l10n));
 
     // Sort by priority
     allInsights.sort((a, b) {
@@ -345,11 +337,12 @@ class HealthAnalyticsService {
   }
 
   // Skor kesehatan keseluruhan (0-100)
-  static int calculateHealthScore(List<HealthRecord> records) {
+  static int calculateHealthScore(
+      List<HealthRecord> records, AppLocalizations l10n) {
     if (records.isEmpty) return 50; // Skor netral jika tidak ada data
 
     int score = 100;
-    final insights = generateComprehensiveInsights(records);
+    final insights = generateComprehensiveInsights(records, l10n);
 
     for (final insight in insights) {
       switch (insight.priority) {
@@ -372,24 +365,22 @@ class HealthAnalyticsService {
   }
 
   // Rekomendasi berdasarkan trimester
-  static List<HealthInsight> getTrimesterRecommendations(int trimester) {
+  static List<HealthInsight> getTrimesterRecommendations(
+      int trimester, AppLocalizations l10n) {
     switch (trimester) {
       case 1:
         return [
           HealthInsight(
-            title: 'Asam Folat Penting',
-            description:
-                'Trimester pertama adalah periode kritis untuk perkembangan saraf bayi',
-            recommendation:
-                'Konsumsi asam folat 400mcg setiap hari dan hindari alkohol serta rokok',
+            title: l10n.insightTrimester1FolicTitle,
+            description: l10n.insightTrimester1FolicDesc,
+            recommendation: l10n.insightTrimester1FolicRec,
             type: InsightType.nutrition,
             priority: InsightPriority.high,
           ),
           HealthInsight(
-            title: 'Atasi Morning Sickness',
-            description: 'Mual muntah adalah hal normal di trimester pertama',
-            recommendation:
-                'Makan dalam porsi kecil tapi sering, hindari makanan berminyak',
+            title: l10n.insightTrimester1NauseaTitle,
+            description: l10n.insightTrimester1NauseaDesc,
+            recommendation: l10n.insightTrimester1NauseaRec,
             type: InsightType.general,
             priority: InsightPriority.medium,
           ),
@@ -398,19 +389,16 @@ class HealthAnalyticsService {
       case 2:
         return [
           HealthInsight(
-            title: 'Kalsium dan Zat Besi',
-            description:
-                'Trimester kedua adalah waktu pertumbuhan tulang dan darah bayi',
-            recommendation:
-                'Tingkatkan asupan kalsium dan zat besi, lakukan olahraga ringan',
+            title: l10n.insightTrimester2NutritionTitle,
+            description: l10n.insightTrimester2NutritionDesc,
+            recommendation: l10n.insightTrimester2NutritionRec,
             type: InsightType.nutrition,
             priority: InsightPriority.high,
           ),
           HealthInsight(
-            title: 'Screening Anomali',
-            description: 'Waktu optimal untuk pemeriksaan USG detail',
-            recommendation:
-                'Lakukan USG anomali dan tes skrining sesuai jadwal dokter',
+            title: l10n.insightTrimester2ScreeningTitle,
+            description: l10n.insightTrimester2ScreeningDesc,
+            recommendation: l10n.insightTrimester2ScreeningRec,
             type: InsightType.general,
             priority: InsightPriority.medium,
           ),
@@ -419,18 +407,16 @@ class HealthAnalyticsService {
       case 3:
         return [
           HealthInsight(
-            title: 'Persiapan Persalinan',
-            description: 'Trimester ketiga adalah waktu persiapan kelahiran',
-            recommendation:
-                'Siapkan tas rumah sakit, pelajari teknik pernapasan, monitor gerakan bayi',
+            title: l10n.insightTrimester3PrepTitle,
+            description: l10n.insightTrimester3PrepDesc,
+            recommendation: l10n.insightTrimester3PrepRec,
             type: InsightType.general,
             priority: InsightPriority.high,
           ),
           HealthInsight(
-            title: 'Waspada Preeklampsia',
-            description: 'Risiko preeklampsia meningkat di trimester ketiga',
-            recommendation:
-                'Monitor tekanan darah, perhatikan bengkak berlebihan dan sakit kepala',
+            title: l10n.insightTrimester3PreecTitle,
+            description: l10n.insightTrimester3PreecDesc,
+            recommendation: l10n.insightTrimester3PreecRec,
             type: InsightType.symptoms,
             priority: InsightPriority.high,
           ),

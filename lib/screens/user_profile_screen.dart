@@ -363,7 +363,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       }
       if (date == null) return '--';
       final due = date.add(const Duration(days: 280));
-      return DateFormat('dd MMM yy').format(due);
+      return DateFormat('dd MMM yy', Localizations.localeOf(context).toString())
+          .format(due);
     } catch (_) {
       return '--';
     }
