@@ -15,7 +15,6 @@ class SakitKepalaResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<SakitKepalaModel>(
       builder: (context, model, child) {
-        final recommendation = model.getResult();
         final score = model.calculateScore();
         final totalQ = model.answers.length;
         final totalYes = score;
@@ -87,7 +86,7 @@ class SakitKepalaResultScreen extends StatelessWidget {
                 _SectionCard(
                   title: l10n.recommendationLabel,
                   child: Text(
-                    recommendation,
+                    severityDesc,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 14,
                       color: SabinaColors.neutral700,

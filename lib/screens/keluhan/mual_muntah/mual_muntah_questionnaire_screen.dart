@@ -26,6 +26,7 @@ class MualMuntahQuestionnaireScreen extends StatelessWidget {
         }
 
         final l10n = AppLocalizations.of(context)!;
+        final localizedQuestions = [l10n.mualMuntahQ1, l10n.mualMuntahQ2, l10n.mualMuntahQ3, l10n.mualMuntahQ4, l10n.mualMuntahQ5, l10n.mualMuntahQ6, l10n.mualMuntahQ7];
         final progress =
             (model.currentQuestionIndex + 1) / model.questions.length;
         final current = model.currentQuestionIndex + 1;
@@ -101,7 +102,7 @@ class MualMuntahQuestionnaireScreen extends StatelessWidget {
                             ],
                           ),
                           child: Text(
-                            model.currentQuestion.text,
+                            localizedQuestions[model.currentQuestionIndex],
                             textAlign: TextAlign.center,
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 17,

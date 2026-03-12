@@ -16,7 +16,6 @@ class PenapisanResultScreen extends StatelessWidget {
     return Consumer<PenapisanModel>(
       builder: (context, model, child) {
         final score = model.calculateScore();
-        final recommendation = model.getRecommendation();
         final totalYes = model.answers.where((a) => a == true).length;
         final totalQ = model.answers.length;
 
@@ -87,7 +86,7 @@ class PenapisanResultScreen extends StatelessWidget {
                 _SectionCard(
                   title: l10n.recommendationLabel,
                   child: Text(
-                    recommendation,
+                    severityDesc,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 14,
                       color: SabinaColors.neutral700,

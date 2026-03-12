@@ -27,6 +27,7 @@ class KeluarDarahQuestionnaireScreen extends StatelessWidget {
         }
 
         final l10n = AppLocalizations.of(context)!;
+        final localizedQuestions = [l10n.keluarDarahQ1, l10n.keluarDarahQ2, l10n.keluarDarahQ3];
         final progress =
             (model.currentQuestionIndex + 1) / model.questions.length;
         final current = model.currentQuestionIndex + 1;
@@ -102,7 +103,7 @@ class KeluarDarahQuestionnaireScreen extends StatelessWidget {
                             ],
                           ),
                           child: Text(
-                            model.currentQuestion.text,
+                            localizedQuestions[model.currentQuestionIndex],
                             textAlign: TextAlign.center,
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 17,

@@ -26,11 +26,12 @@ class QuestionnaireScreenModern extends StatelessWidget {
         }
 
         final l10n = AppLocalizations.of(context)!;
+        final localizedQuestions = [l10n.preecQ1, l10n.preecQ2, l10n.preecQ3, l10n.preecQ4, l10n.preecQ5, l10n.preecQ6, l10n.preecQ7, l10n.preecQ8, l10n.preecQ9, l10n.preecQ10, l10n.preecQ11, l10n.preecQ12];
         final progress =
             (model.currentQuestionIndex + 1) / model.questions.length;
         final current = model.currentQuestionIndex + 1;
         final total = model.questions.length;
-        final questionText = model.questions[model.currentQuestionIndex].text;
+        final questionText = localizedQuestions[model.currentQuestionIndex];
 
         return Scaffold(
           backgroundColor: SabinaColors.neutral100,

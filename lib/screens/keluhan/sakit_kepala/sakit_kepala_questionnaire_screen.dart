@@ -27,6 +27,7 @@ class SakitKepalaQuestionnaireScreen extends StatelessWidget {
         }
 
         final l10n = AppLocalizations.of(context)!;
+        final localizedQuestions = [l10n.sakitKepalaQ1, l10n.sakitKepalaQ2, l10n.sakitKepalaQ3, l10n.sakitKepalaQ4, l10n.sakitKepalaQ5, l10n.sakitKepalaQ6];
         final progress =
             (model.currentQuestionIndex + 1) / model.questions.length;
         final current = model.currentQuestionIndex + 1;
@@ -102,7 +103,7 @@ class SakitKepalaQuestionnaireScreen extends StatelessWidget {
                             ],
                           ),
                           child: Text(
-                            model.currentQuestion.text,
+                            localizedQuestions[model.currentQuestionIndex],
                             textAlign: TextAlign.center,
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 17,

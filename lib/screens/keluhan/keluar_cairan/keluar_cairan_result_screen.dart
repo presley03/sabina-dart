@@ -90,7 +90,7 @@ class KeluarCairanResultScreen extends StatelessWidget {
                 _SectionCard(
                   title: l10n.recommendationLabel,
                   child: Text(
-                    recommendation,
+                    severityDesc,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 14,
                       color: SabinaColors.neutral700,

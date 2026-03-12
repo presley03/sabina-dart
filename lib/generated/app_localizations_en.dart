@@ -3809,4 +3809,200 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get babyW40Tip =>
       'You are amazing! Be confident going through delivery';
+
+  @override
+  String get bengkakQ1 => 'Is the swelling only in the legs and/or hands?';
+
+  @override
+  String get bengkakQ2 =>
+      'If swelling is only in the legs, does it go away with rest?';
+
+  @override
+  String get bengkakQ3 => 'Is swelling occurring throughout your entire body?';
+
+  @override
+  String get bengkakQ4 => 'Do you have a history of high blood pressure?';
+
+  @override
+  String get bengkakQ5 => 'Is your vision blurry?';
+
+  @override
+  String get bengkakQ6 => 'Do you have abdominal pain?';
+
+  @override
+  String get mualMuntahQ1 =>
+      'Does your nausea or vomiting only occur in the morning?';
+
+  @override
+  String get mualMuntahQ2 =>
+      'Does nausea or vomiting interfere with your daily activities?';
+
+  @override
+  String get mualMuntahQ3 => 'Is there blood in your vomit?';
+
+  @override
+  String get mualMuntahQ4 => 'Have you lost your appetite for food and drink?';
+
+  @override
+  String get mualMuntahQ5 =>
+      'Are there signs of dehydration (dry lips, infrequent or reduced urination, weakness)?';
+
+  @override
+  String get mualMuntahQ6 =>
+      'Are there flashing lights in your vision or a severe headache?';
+
+  @override
+  String get mualMuntahQ7 =>
+      'Is there pain in the upper abdomen (epigastric pain)?';
+
+  @override
+  String get keluarDarahQ1 =>
+      'Is there spotting or blood coming from the vagina?';
+
+  @override
+  String get keluarDarahQ2 =>
+      'Are you experiencing cramps or tightness in the abdomen?';
+
+  @override
+  String get keluarDarahQ3 =>
+      'Do you feel contractions or tightening in the abdomen?';
+
+  @override
+  String get keluarCairanQ1 =>
+      'What color is the fluid? Clear / Cloudy / Bloody';
+
+  @override
+  String get keluarCairanQ2 =>
+      'Does the discharge look like vaginal discharge (leucorrhea)?';
+
+  @override
+  String get keluarCairanQ3 =>
+      'Does the fluid have an odor? None / Foul-smelling';
+
+  @override
+  String get keluarCairanQ4 => 'Is the fluid leaking continuously?';
+
+  @override
+  String get keluarCairanQ5 => 'Are you experiencing abdominal pain?';
+
+  @override
+  String get keluarCairanQ6 =>
+      'Are you feeling contractions or tightening in the abdomen?';
+
+  @override
+  String get keluarCairanQ7 => 'Do you feel pain or discomfort when urinating?';
+
+  @override
+  String get keluarCairanQ8 => 'Do you have a fever?';
+
+  @override
+  String get sakitKepalaQ1 => 'Is your headache very severe?';
+
+  @override
+  String get sakitKepalaQ2 => 'Is your vision blurry?';
+
+  @override
+  String get sakitKepalaQ3 =>
+      'Are you experiencing upper abdominal (epigastric) pain?';
+
+  @override
+  String get sakitKepalaQ4 =>
+      'Is there swelling in the legs, hands, and/or throughout the body?';
+
+  @override
+  String get sakitKepalaQ5 => 'Have you experienced any seizures?';
+
+  @override
+  String get sakitKepalaQ6 =>
+      'If you have a digital blood pressure monitor at home, is your blood pressure above 120/80?';
+
+  @override
+  String get pergerakanJaninQ1 => 'Can you feel fetal movement?';
+
+  @override
+  String get pergerakanJaninQ2 => 'How strong is the fetal movement you feel?';
+
+  @override
+  String get pergerakanJaninQ3 =>
+      'How many fetal movements have you felt in the last 12 hours?';
+
+  @override
+  String get preecQ1 => 'Are you currently 35 years old or older?';
+
+  @override
+  String get preecQ2 => 'Is this your first pregnancy?';
+
+  @override
+  String get preecQ3 =>
+      'Is the interval from your previous pregnancy more than 10 years?';
+
+  @override
+  String get preecQ4 =>
+      'Is there a history of preeclampsia in your mother or sisters?';
+
+  @override
+  String get preecQ5 => 'Were you overweight (obese) before pregnancy?';
+
+  @override
+  String get preecQ6 =>
+      'Do you have a history of preeclampsia (body swelling and high blood pressure) in a previous pregnancy?';
+
+  @override
+  String get preecQ7 => 'Is this a multiple or twin pregnancy?';
+
+  @override
+  String get preecQ8 => 'Do you have diabetes during this pregnancy?';
+
+  @override
+  String get preecQ9 =>
+      'Do you have a history of hypertension before pregnancy that continues during this pregnancy?';
+
+  @override
+  String get preecQ10 => 'Do you have kidney disease?';
+
+  @override
+  String get preecQ11 => 'Do you have an autoimmune disease?';
+
+  @override
+  String get preecQ12 =>
+      'Do you have a history of miscarriage, stillbirth, or premature birth?';
+
+  @override
+  String get penapisanQ1 => 'Are you under 20 years old?';
+
+  @override
+  String get penapisanQ2 => 'Are you more than 35 years old?';
+
+  @override
+  String get penapisanQ3 =>
+      'Is the interval between pregnancies less than 2 years or more than 10 years? (For second pregnancy onward)';
+
+  @override
+  String get penapisanQ4 => 'Have you ever had a miscarriage?';
+
+  @override
+  String get penapisanQ5 => 'Do you already have 3 or more children?';
+
+  @override
+  String get penapisanQ6 => 'Was your previous delivery by cesarean section?';
+
+  @override
+  String get penapisanQ7 =>
+      'Was a previous pregnancy a twin or multiple pregnancy?';
+
+  @override
+  String get penapisanQ8 =>
+      'Are you experiencing high blood pressure and swelling in the hands, feet, face, or entire body during this pregnancy?';
+
+  @override
+  String get penapisanQ9 =>
+      'Have you ever had a baby that died in the womb (stillbirth)?';
+
+  @override
+  String get penapisanQ10 =>
+      'Has there been any bleeding (spotting or heavy bleeding) during this pregnancy?';
+
+  @override
+  String get penapisanQ11 =>
+      'Have you ever had seizures during this pregnancy?';
 }

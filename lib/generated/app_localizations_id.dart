@@ -3820,4 +3820,199 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get babyW40Tip => 'Anda luar biasa! Percaya diri melewati persalinan';
+
+  @override
+  String get bengkakQ1 =>
+      'Apakah Bengkak terjadi pada bagian kaki dan atau tangan saja?';
+
+  @override
+  String get bengkakQ2 =>
+      'Jika bengkak hanya pada kaki, apakah hilang jika istirahat?';
+
+  @override
+  String get bengkakQ3 => 'Apakah bengkak terjadi pada seluruh tubuh?';
+
+  @override
+  String get bengkakQ4 => 'Apakah ada riwayat tensi tinggi?';
+
+  @override
+  String get bengkakQ5 => 'Apakah pandangan terasa Kabur?';
+
+  @override
+  String get bengkakQ6 => 'Apakah ada nyeri perut?';
+
+  @override
+  String get mualMuntahQ1 => 'Mual atau muntah anda hanya di pagi hari?';
+
+  @override
+  String get mualMuntahQ2 =>
+      'Mual atau muntah mengganggu aktifitas sehari-hari?';
+
+  @override
+  String get mualMuntahQ3 => 'Muntah bercampur darah?';
+
+  @override
+  String get mualMuntahQ4 => 'Tidak memiliki nafsu makan dan minum?';
+
+  @override
+  String get mualMuntahQ5 =>
+      'Terdapat Gejala Dehidrasi (Bibir Kering, Buang air kecil jarang dan sedikit, lemas)';
+
+  @override
+  String get mualMuntahQ6 =>
+      'Disertai pandangan berkunang atau sakit kepala berat?';
+
+  @override
+  String get mualMuntahQ7 => 'Disertai Nyeri Ulu hati?';
+
+  @override
+  String get keluarDarahQ1 =>
+      'Apakah ada flek darah ataupun darah yang keluar dari vagina?';
+
+  @override
+  String get keluarDarahQ2 => 'Apakah merasakan kram atau tegang pada perut?';
+
+  @override
+  String get keluarDarahQ3 =>
+      'Apakah merasa terjadi kontraksi atau kencang-kencang pada perut?';
+
+  @override
+  String get keluarCairanQ1 =>
+      'Apakah Warna cairan yang keluar? Bening / keruh / Darah';
+
+  @override
+  String get keluarCairanQ2 => 'Apakah cairan yang keluar seperti keputihan?';
+
+  @override
+  String get keluarCairanQ3 => 'Apakah ada Bau cairan? Tidak ada / berbau';
+
+  @override
+  String get keluarCairanQ4 =>
+      'Apakah cairan yang keluar mengalir terus menerus?';
+
+  @override
+  String get keluarCairanQ5 => 'Apakah merasakan Nyeri Perut?';
+
+  @override
+  String get keluarCairanQ6 =>
+      'Apakah merasakan Kontraksi atau kencang-kencang pada perut?';
+
+  @override
+  String get keluarCairanQ7 => 'Apakah merasa Sakit pada Saat buang air kecil?';
+
+  @override
+  String get keluarCairanQ8 => 'Apakah merasa Demam?';
+
+  @override
+  String get sakitKepalaQ1 =>
+      'Apakah Sakit kepala yang dirasakan sangat berat?';
+
+  @override
+  String get sakitKepalaQ2 => 'Apakah Pandangan terasa kabur?';
+
+  @override
+  String get sakitKepalaQ3 => 'Apakah merasakan Nyeri Ulu hati?';
+
+  @override
+  String get sakitKepalaQ4 =>
+      'Apakah terjadi Bengkak pada kaki dan atau tangan dan atau seluruh tubuh?';
+
+  @override
+  String get sakitKepalaQ5 => 'Apakah pernah mengalami Kejang?';
+
+  @override
+  String get sakitKepalaQ6 =>
+      'Jika Memiliki Tensimeter digital di rumah, apakah tensi anda lebih dari 120/80?';
+
+  @override
+  String get pergerakanJaninQ1 => 'Terasa gerakan janin?';
+
+  @override
+  String get pergerakanJaninQ2 => 'Kekuatan gerakan yang dirasakan?';
+
+  @override
+  String get pergerakanJaninQ3 =>
+      'Frekuensi gerakan janin dalam 12 jam terakhir?';
+
+  @override
+  String get preecQ1 => 'Apakah usia anda saat ini 35 Tahun atau lebih?';
+
+  @override
+  String get preecQ2 => 'Apakah ini kehamilan pertama?';
+
+  @override
+  String get preecQ3 =>
+      'Apakah jarak dengan kehamilan sebelumnya lebih dari 10 Tahun?';
+
+  @override
+  String get preecQ4 =>
+      'Apakah ada riwayat preeklampsia (Keracunan kehamilan) pada ibu atau saudara perempuan anda?';
+
+  @override
+  String get preecQ5 =>
+      'Apakah anda memiliki berat badan berlebih (obesitas) sebelum kehamilan?';
+
+  @override
+  String get preecQ6 =>
+      'Apakah anda memiliki riwayat preekampsia (keracunan kehamilan) yang ditandai dengan bengkak pada tubuh dan hipertensi pada kehamilan sebelumnya?';
+
+  @override
+  String get preecQ7 => 'Apakah kehamilan ini kembar?';
+
+  @override
+  String get preecQ8 => 'Apakah anda mengalami diabetes saat kehamilan ini?';
+
+  @override
+  String get preecQ9 =>
+      'Apakah anda memiliki riwayat hipertensi sebelum hamil yang berlangsung hingga saat kehamilan ini?';
+
+  @override
+  String get preecQ10 => 'Apakah anda memiliki penyakit ginjal?';
+
+  @override
+  String get preecQ11 => 'Apakah anda memiliki penyakit auto imun?';
+
+  @override
+  String get preecQ12 =>
+      'Apakah ada riwayat keguguran atau riwayat bayi meninggal dalam kandungan atau riwayat bayi lahir premature?';
+
+  @override
+  String get penapisanQ1 => 'Apakah Usia anda kurang dari 20 Tahun?';
+
+  @override
+  String get penapisanQ2 => 'Apakah Usia anda lebih dari 35 Tahun?';
+
+  @override
+  String get penapisanQ3 =>
+      'Apakah jarak kehamilan kurang dari 2 Tahun atau lebih dari 10 Tahun? (Untuk kehamilan kedua dst)';
+
+  @override
+  String get penapisanQ4 => 'Apakah Pernah mengalami keguguran?';
+
+  @override
+  String get penapisanQ5 =>
+      'Apakah anda sudah memiliki anak 3 orang atau lebih?';
+
+  @override
+  String get penapisanQ6 =>
+      'Apakah Persalinan sebelumnya dilakukan dengan caesar?';
+
+  @override
+  String get penapisanQ7 => 'Apakah kehamilan sebelumnya kembar?';
+
+  @override
+  String get penapisanQ8 =>
+      'Apakah mengalami hipertensi dan bengkak pada tangan, kaki, wajah atau seluruh tubuh pada kehamilan ini?';
+
+  @override
+  String get penapisanQ9 =>
+      'Apakah pernah memiliki bayi yang meninggal dalam kandungan?';
+
+  @override
+  String get penapisanQ10 =>
+      'Apakah pernah terjadi perdarahan (keluar flek darah ataupun keluar darah dalam jumlah banyak) pada kehamilan ini?';
+
+  @override
+  String get penapisanQ11 =>
+      'Apakah pernah mengalami kejang-kejang pada kehamilan ini?';
 }

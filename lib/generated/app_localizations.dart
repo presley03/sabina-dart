@@ -6799,6 +6799,342 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Anda luar biasa! Percaya diri melewati persalinan'**
   String get babyW40Tip;
+
+  /// No description provided for @bengkakQ1.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah Bengkak terjadi pada bagian kaki dan atau tangan saja?'**
+  String get bengkakQ1;
+
+  /// No description provided for @bengkakQ2.
+  ///
+  /// In id, this message translates to:
+  /// **'Jika bengkak hanya pada kaki, apakah hilang jika istirahat?'**
+  String get bengkakQ2;
+
+  /// No description provided for @bengkakQ3.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah bengkak terjadi pada seluruh tubuh?'**
+  String get bengkakQ3;
+
+  /// No description provided for @bengkakQ4.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah ada riwayat tensi tinggi?'**
+  String get bengkakQ4;
+
+  /// No description provided for @bengkakQ5.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah pandangan terasa Kabur?'**
+  String get bengkakQ5;
+
+  /// No description provided for @bengkakQ6.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah ada nyeri perut?'**
+  String get bengkakQ6;
+
+  /// No description provided for @mualMuntahQ1.
+  ///
+  /// In id, this message translates to:
+  /// **'Mual atau muntah anda hanya di pagi hari?'**
+  String get mualMuntahQ1;
+
+  /// No description provided for @mualMuntahQ2.
+  ///
+  /// In id, this message translates to:
+  /// **'Mual atau muntah mengganggu aktifitas sehari-hari?'**
+  String get mualMuntahQ2;
+
+  /// No description provided for @mualMuntahQ3.
+  ///
+  /// In id, this message translates to:
+  /// **'Muntah bercampur darah?'**
+  String get mualMuntahQ3;
+
+  /// No description provided for @mualMuntahQ4.
+  ///
+  /// In id, this message translates to:
+  /// **'Tidak memiliki nafsu makan dan minum?'**
+  String get mualMuntahQ4;
+
+  /// No description provided for @mualMuntahQ5.
+  ///
+  /// In id, this message translates to:
+  /// **'Terdapat Gejala Dehidrasi (Bibir Kering, Buang air kecil jarang dan sedikit, lemas)'**
+  String get mualMuntahQ5;
+
+  /// No description provided for @mualMuntahQ6.
+  ///
+  /// In id, this message translates to:
+  /// **'Disertai pandangan berkunang atau sakit kepala berat?'**
+  String get mualMuntahQ6;
+
+  /// No description provided for @mualMuntahQ7.
+  ///
+  /// In id, this message translates to:
+  /// **'Disertai Nyeri Ulu hati?'**
+  String get mualMuntahQ7;
+
+  /// No description provided for @keluarDarahQ1.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah ada flek darah ataupun darah yang keluar dari vagina?'**
+  String get keluarDarahQ1;
+
+  /// No description provided for @keluarDarahQ2.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah merasakan kram atau tegang pada perut?'**
+  String get keluarDarahQ2;
+
+  /// No description provided for @keluarDarahQ3.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah merasa terjadi kontraksi atau kencang-kencang pada perut?'**
+  String get keluarDarahQ3;
+
+  /// No description provided for @keluarCairanQ1.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah Warna cairan yang keluar? Bening / keruh / Darah'**
+  String get keluarCairanQ1;
+
+  /// No description provided for @keluarCairanQ2.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah cairan yang keluar seperti keputihan?'**
+  String get keluarCairanQ2;
+
+  /// No description provided for @keluarCairanQ3.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah ada Bau cairan? Tidak ada / berbau'**
+  String get keluarCairanQ3;
+
+  /// No description provided for @keluarCairanQ4.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah cairan yang keluar mengalir terus menerus?'**
+  String get keluarCairanQ4;
+
+  /// No description provided for @keluarCairanQ5.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah merasakan Nyeri Perut?'**
+  String get keluarCairanQ5;
+
+  /// No description provided for @keluarCairanQ6.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah merasakan Kontraksi atau kencang-kencang pada perut?'**
+  String get keluarCairanQ6;
+
+  /// No description provided for @keluarCairanQ7.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah merasa Sakit pada Saat buang air kecil?'**
+  String get keluarCairanQ7;
+
+  /// No description provided for @keluarCairanQ8.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah merasa Demam?'**
+  String get keluarCairanQ8;
+
+  /// No description provided for @sakitKepalaQ1.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah Sakit kepala yang dirasakan sangat berat?'**
+  String get sakitKepalaQ1;
+
+  /// No description provided for @sakitKepalaQ2.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah Pandangan terasa kabur?'**
+  String get sakitKepalaQ2;
+
+  /// No description provided for @sakitKepalaQ3.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah merasakan Nyeri Ulu hati?'**
+  String get sakitKepalaQ3;
+
+  /// No description provided for @sakitKepalaQ4.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah terjadi Bengkak pada kaki dan atau tangan dan atau seluruh tubuh?'**
+  String get sakitKepalaQ4;
+
+  /// No description provided for @sakitKepalaQ5.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah pernah mengalami Kejang?'**
+  String get sakitKepalaQ5;
+
+  /// No description provided for @sakitKepalaQ6.
+  ///
+  /// In id, this message translates to:
+  /// **'Jika Memiliki Tensimeter digital di rumah, apakah tensi anda lebih dari 120/80?'**
+  String get sakitKepalaQ6;
+
+  /// No description provided for @pergerakanJaninQ1.
+  ///
+  /// In id, this message translates to:
+  /// **'Terasa gerakan janin?'**
+  String get pergerakanJaninQ1;
+
+  /// No description provided for @pergerakanJaninQ2.
+  ///
+  /// In id, this message translates to:
+  /// **'Kekuatan gerakan yang dirasakan?'**
+  String get pergerakanJaninQ2;
+
+  /// No description provided for @pergerakanJaninQ3.
+  ///
+  /// In id, this message translates to:
+  /// **'Frekuensi gerakan janin dalam 12 jam terakhir?'**
+  String get pergerakanJaninQ3;
+
+  /// No description provided for @preecQ1.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah usia anda saat ini 35 Tahun atau lebih?'**
+  String get preecQ1;
+
+  /// No description provided for @preecQ2.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah ini kehamilan pertama?'**
+  String get preecQ2;
+
+  /// No description provided for @preecQ3.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah jarak dengan kehamilan sebelumnya lebih dari 10 Tahun?'**
+  String get preecQ3;
+
+  /// No description provided for @preecQ4.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah ada riwayat preeklampsia (Keracunan kehamilan) pada ibu atau saudara perempuan anda?'**
+  String get preecQ4;
+
+  /// No description provided for @preecQ5.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah anda memiliki berat badan berlebih (obesitas) sebelum kehamilan?'**
+  String get preecQ5;
+
+  /// No description provided for @preecQ6.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah anda memiliki riwayat preekampsia (keracunan kehamilan) yang ditandai dengan bengkak pada tubuh dan hipertensi pada kehamilan sebelumnya?'**
+  String get preecQ6;
+
+  /// No description provided for @preecQ7.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah kehamilan ini kembar?'**
+  String get preecQ7;
+
+  /// No description provided for @preecQ8.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah anda mengalami diabetes saat kehamilan ini?'**
+  String get preecQ8;
+
+  /// No description provided for @preecQ9.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah anda memiliki riwayat hipertensi sebelum hamil yang berlangsung hingga saat kehamilan ini?'**
+  String get preecQ9;
+
+  /// No description provided for @preecQ10.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah anda memiliki penyakit ginjal?'**
+  String get preecQ10;
+
+  /// No description provided for @preecQ11.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah anda memiliki penyakit auto imun?'**
+  String get preecQ11;
+
+  /// No description provided for @preecQ12.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah ada riwayat keguguran atau riwayat bayi meninggal dalam kandungan atau riwayat bayi lahir premature?'**
+  String get preecQ12;
+
+  /// No description provided for @penapisanQ1.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah Usia anda kurang dari 20 Tahun?'**
+  String get penapisanQ1;
+
+  /// No description provided for @penapisanQ2.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah Usia anda lebih dari 35 Tahun?'**
+  String get penapisanQ2;
+
+  /// No description provided for @penapisanQ3.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah jarak kehamilan kurang dari 2 Tahun atau lebih dari 10 Tahun? (Untuk kehamilan kedua dst)'**
+  String get penapisanQ3;
+
+  /// No description provided for @penapisanQ4.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah Pernah mengalami keguguran?'**
+  String get penapisanQ4;
+
+  /// No description provided for @penapisanQ5.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah anda sudah memiliki anak 3 orang atau lebih?'**
+  String get penapisanQ5;
+
+  /// No description provided for @penapisanQ6.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah Persalinan sebelumnya dilakukan dengan caesar?'**
+  String get penapisanQ6;
+
+  /// No description provided for @penapisanQ7.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah kehamilan sebelumnya kembar?'**
+  String get penapisanQ7;
+
+  /// No description provided for @penapisanQ8.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah mengalami hipertensi dan bengkak pada tangan, kaki, wajah atau seluruh tubuh pada kehamilan ini?'**
+  String get penapisanQ8;
+
+  /// No description provided for @penapisanQ9.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah pernah memiliki bayi yang meninggal dalam kandungan?'**
+  String get penapisanQ9;
+
+  /// No description provided for @penapisanQ10.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah pernah terjadi perdarahan (keluar flek darah ataupun keluar darah dalam jumlah banyak) pada kehamilan ini?'**
+  String get penapisanQ10;
+
+  /// No description provided for @penapisanQ11.
+  ///
+  /// In id, this message translates to:
+  /// **'Apakah pernah mengalami kejang-kejang pada kehamilan ini?'**
+  String get penapisanQ11;
 }
 
 class _AppLocalizationsDelegate
