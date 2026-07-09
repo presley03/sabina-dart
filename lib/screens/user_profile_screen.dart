@@ -14,6 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/pregnancy_history.dart';
 import '../models/user_identity.dart';
 import '../providers/locale_provider.dart';
+import '../providers/theme_provider.dart';
 import '../services/database_helper.dart';
 import 'history_screen.dart';
 import 'identity_screen.dart';
@@ -194,6 +195,13 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             ),
                           ),
                           onTap: null,
+                        ),
+                        _MenuItem(
+                          icon: Icons.dark_mode_rounded,
+                          color: SabinaColors.primary700,
+                          label: l10n.appearance,
+                          onTap: null,
+                          extra: const _ThemeModeSelector(),
                         ),
                         _MenuItem(
                           icon: Icons.lock_rounded,
@@ -607,6 +615,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                 ),
               ),
+              if (item.extra != null)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 14),
+                  child: item.extra!,
+                ),
               if (!isLast)
                 Divider(
                   height: 1,
@@ -806,6 +819,7 @@ class _MenuItem {
   final String label;
   final Widget? trailing;
   final VoidCallback? onTap;
+  final Widget? extra;
 
   const _MenuItem({
     required this.icon,
@@ -813,7 +827,83 @@ class _MenuItem {
     required this.label,
     this.trailing,
     this.onTap,
+    this.extra,
   });
+}
+
+// ── Selektor mode tema (Terang/Gelap/Sistem) ─────────────────────────────────
+//
+// Warna sengaja diambil dari `SabinaColors` (bukan `context.palette`): layar
+// profil ini masih memakai latar putih hardcoded di kedua tema (di luar
+// cakupan migrasi §10), jadi selektor ini dibuat konsisten dengan gaya
+// hardcoded sekitarnya agar tetap terbaca jelas terlepas dari tema aktif.
+class _ThemeModeSelector extends StatelessWidget {
+  const _ThemeModeSelector();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final themeProvider = context.watch<ThemeProvider>();
+
+    final options = <(ThemeMode, IconData, String)>[
+      (ThemeMode.light, Icons.light_mode_rounded, l10n.themeLight),
+      (ThemeMode.dark, Icons.dark_mode_rounded, l10n.themeDark),
+      (ThemeMode.system, Icons.brightness_auto_rounded, l10n.themeSystem),
+    ];
+
+    return Container(
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        color: SabinaColors.neutral100,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Row(
+        children: options.map((option) {
+          final (mode, icon, label) = option;
+          final selected = themeProvider.mode == mode;
+          return Expanded(
+            child: GestureDetector(
+              onTap: () {
+                HapticFeedback.selectionClick();
+                themeProvider.setMode(mode);
+              },
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 180),
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                  color: selected ? SabinaColors.primary700 : Colors.transparent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      icon,
+                      size: 16,
+                      color: selected
+                          ? SabinaColors.white
+                          : SabinaColors.neutral500,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      label,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w600,
+                        color: selected
+                            ? SabinaColors.white
+                            : SabinaColors.neutral700,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
 }
 
 // ── Expandable Pregnancy Card ────────────────────────────────────────────────

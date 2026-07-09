@@ -32,6 +32,22 @@
   "@language": {
     "description": "Label for language selection"
   },
+  "appearance": "Appearance",
+  "@appearance": {
+    "description": "Menu label for theme appearance setting"
+  },
+  "themeLight": "Light",
+  "@themeLight": {
+    "description": "Light theme option"
+  },
+  "themeDark": "Dark",
+  "@themeDark": {
+    "description": "Dark theme option"
+  },
+  "themeSystem": "System",
+  "@themeSystem": {
+    "description": "Follow system theme option"
+  },
   "noData": "No data available",
   "@noData": {
     "description": "Displayed when no data is available"

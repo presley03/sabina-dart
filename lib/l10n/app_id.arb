@@ -32,6 +32,22 @@
   "@language": {
     "description": "Label untuk pemilihan bahasa"
   },
+  "appearance": "Tampilan",
+  "@appearance": {
+    "description": "Label menu untuk pengaturan tema tampilan"
+  },
+  "themeLight": "Terang",
+  "@themeLight": {
+    "description": "Pilihan tema terang"
+  },
+  "themeDark": "Gelap",
+  "@themeDark": {
+    "description": "Pilihan tema gelap"
+  },
+  "themeSystem": "Sistem",
+  "@themeSystem": {
+    "description": "Pilihan tema mengikuti pengaturan sistem"
+  },
   "noData": "Data tidak tersedia",
   "@noData": {
     "description": "Ditampilkan ketika tidak ada data tersedia"

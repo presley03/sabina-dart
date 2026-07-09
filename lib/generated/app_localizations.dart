@@ -146,6 +146,30 @@ abstract class AppLocalizations {
   /// **'Bahasa'**
   String get language;
 
+  /// Label menu untuk pengaturan tema tampilan
+  ///
+  /// In id, this message translates to:
+  /// **'Tampilan'**
+  String get appearance;
+
+  /// Pilihan tema terang
+  ///
+  /// In id, this message translates to:
+  /// **'Terang'**
+  String get themeLight;
+
+  /// Pilihan tema gelap
+  ///
+  /// In id, this message translates to:
+  /// **'Gelap'**
+  String get themeDark;
+
+  /// Pilihan tema mengikuti pengaturan sistem
+  ///
+  /// In id, this message translates to:
+  /// **'Sistem'**
+  String get themeSystem;
+
   /// Ditampilkan ketika tidak ada data tersedia
   ///
   /// In id, this message translates to:
