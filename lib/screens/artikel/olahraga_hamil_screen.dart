@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/utils/constants.dart';
@@ -36,7 +35,7 @@ class OlahragaHamilScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   ArticleCallout(
                     l10n.art2_callout,
-                    icon: FontAwesomeIcons.heartPulse,
+                    icon: Icons.monitor_heart_rounded,
                     color: const Color(0xFF6F937D),
                   ),
                   const ArticleDivider(),
@@ -47,7 +46,7 @@ class OlahragaHamilScreen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 1,
                     title: l10n.art2_item1_title,
-                    icon: FontAwesomeIcons.personWalking,
+                    icon: Icons.directions_walk_rounded,
                     color: const Color(0xFF6F937D),
                     items: [
                       l10n.art2_item1_a,
@@ -58,7 +57,7 @@ class OlahragaHamilScreen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 2,
                     title: l10n.art2_item2_title,
-                    icon: FontAwesomeIcons.personArrowUpFromLine,
+                    icon: Icons.self_improvement_rounded,
                     color: const Color(0xFF6F937D),
                     items: [
                       l10n.art2_item2_a,
@@ -69,7 +68,7 @@ class OlahragaHamilScreen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 3,
                     title: l10n.art2_item3_title,
-                    icon: FontAwesomeIcons.spa,
+                    icon: Icons.spa_rounded,
                     color: const Color(0xFF6F937D),
                     items: [
                       l10n.art2_item3_a,
@@ -80,7 +79,7 @@ class OlahragaHamilScreen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 4,
                     title: l10n.art2_item4_title,
-                    icon: FontAwesomeIcons.waterLadder,
+                    icon: Icons.pool_rounded,
                     color: const Color(0xFF1D4ED8),
                     items: [
                       l10n.art2_item4_a,
@@ -95,7 +94,7 @@ class OlahragaHamilScreen extends StatelessWidget {
                   ),
                   ArticleCallout(
                     l10n.art2_pantangan_callout,
-                    icon: FontAwesomeIcons.triangleExclamation,
+                    icon: Icons.warning_rounded,
                     color: SabinaColors.error700,
                   ),
                   const SizedBox(height: 12),

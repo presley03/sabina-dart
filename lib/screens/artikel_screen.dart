@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sabina/generated/app_localizations.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'care/makanan_screen.dart';
@@ -82,7 +81,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
 
   List<_Article> _buildArticles(AppLocalizations l10n) => [
         _Article(
-          icon: FontAwesomeIcons.utensils,
+          icon: Icons.restaurant_rounded,
           iconColor: const Color(0xFFC08A3C),
           iconBg: const Color(0xFFF5E8D2),
           categoryCode: 'Nutrisi',
@@ -92,7 +91,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           featured: true,
         ),
         _Article(
-          icon: FontAwesomeIcons.ban,
+          icon: Icons.block_rounded,
           iconColor: const Color(0xFFC0604D),
           iconBg: const Color(0xFFF5E1DB),
           categoryCode: 'Pantangan',
@@ -101,7 +100,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           screen: const YangPerluDihindariScreen(),
         ),
         _Article(
-          icon: FontAwesomeIcons.personWalking,
+          icon: Icons.directions_walk_rounded,
           iconColor: const Color(0xFF6F937D),
           iconBg: const Color(0xFFE2EBE4),
           categoryCode: 'Aktivitas',
@@ -110,7 +109,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           screen: const AktivitasFisikIbuHamilScreen(),
         ),
         _Article(
-          icon: FontAwesomeIcons.handSparkles,
+          icon: Icons.auto_awesome_rounded,
           iconColor: const Color(0xFF6E4260),
           iconBg: const Color(0xFFF4EDF9),
           categoryCode: 'Perawatan',
@@ -119,7 +118,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           screen: const PerawatanSehariHariScreen(),
         ),
         _Article(
-          icon: FontAwesomeIcons.baby,
+          icon: Icons.child_care_rounded,
           iconColor: const Color(0xFF1D4ED8),
           iconBg: const Color(0xFFEFF6FF),
           categoryCode: 'Persalinan',
@@ -128,7 +127,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           screen: const PersiapanPersalinanScreen(),
         ),
         _Article(
-          icon: FontAwesomeIcons.seedling,
+          icon: Icons.grass_rounded,
           iconColor: const Color(0xFF6F937D),
           iconBg: const Color(0xFFE2EBE4),
           categoryCode: 'Trimester',
@@ -137,7 +136,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           screen: const TrimesterSatuScreen(),
         ),
         _Article(
-          icon: FontAwesomeIcons.leaf,
+          icon: Icons.eco_rounded,
           iconColor: const Color(0xFFC08A3C),
           iconBg: const Color(0xFFF5E8D2),
           categoryCode: 'Trimester',
@@ -146,7 +145,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           screen: const TrimesterDuaScreen(),
         ),
         _Article(
-          icon: FontAwesomeIcons.personPregnant,
+          icon: Icons.pregnant_woman_rounded,
           iconColor: const Color(0xFF6E4260),
           iconBg: const Color(0xFFF4EDF9),
           categoryCode: 'Trimester',
@@ -307,7 +306,7 @@ class _FeaturedCard extends StatelessWidget {
             Positioned(
               right: -10,
               bottom: -10,
-              child: FaIcon(
+              child: Icon(
                 article.icon,
                 size: 110,
                 color: article.iconColor.withValues(alpha: 0.12),
@@ -407,7 +406,7 @@ class _ArticleListItem extends StatelessWidget {
                 ),
                 child: Center(
                   child:
-                      FaIcon(article.icon, size: 22, color: article.iconColor),
+                      Icon(article.icon, size: 22, color: article.iconColor),
                 ),
               ),
               const SizedBox(width: 14),

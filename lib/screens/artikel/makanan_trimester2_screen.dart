@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/utils/constants.dart';
@@ -39,7 +38,7 @@ class MakananTrimester2Screen extends StatelessWidget {
 
                   ArticleCallout(
                     l10n.art1_callout,
-                    icon: FontAwesomeIcons.lightbulb,
+                    icon: Icons.lightbulb_rounded,
                     color: const Color(0xFFC08A3C),
                   ),
 
@@ -53,35 +52,35 @@ class MakananTrimester2Screen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 1,
                     title: l10n.art1_item1_title,
-                    icon: FontAwesomeIcons.egg,
+                    icon: Icons.egg_rounded,
                     color: const Color(0xFFC08A3C),
                     content: l10n.art1_item1_content,
                   ),
                   ArticleNumberedItem(
                     number: 2,
                     title: l10n.art1_item2_title,
-                    icon: FontAwesomeIcons.leaf,
+                    icon: Icons.eco_rounded,
                     color: const Color(0xFF6F937D),
                     content: l10n.art1_item2_content,
                   ),
                   ArticleNumberedItem(
                     number: 3,
                     title: l10n.art1_item3_title,
-                    icon: FontAwesomeIcons.fish,
+                    icon: Icons.set_meal_rounded,
                     color: const Color(0xFF1D4ED8),
                     content: l10n.art1_item3_content,
                   ),
                   ArticleNumberedItem(
                     number: 4,
                     title: l10n.art1_item4_title,
-                    icon: FontAwesomeIcons.droplet,
+                    icon: Icons.water_drop_rounded,
                     color: SabinaColors.primary700,
                     content: l10n.art1_item4_content,
                   ),
                   ArticleNumberedItem(
                     number: 5,
                     title: l10n.art1_item5_title,
-                    icon: FontAwesomeIcons.wheatAwn,
+                    icon: Icons.grain_rounded,
                     color: const Color(0xFFC08A3C),
                     content: l10n.art1_item5_content,
                     isLast: true,

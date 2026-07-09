@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/utils/constants.dart';
 import 'package:sabina/widgets/article_reader_widgets.dart';
@@ -38,7 +37,7 @@ class StresKehamilanScreen extends StatelessWidget {
 
                   ArticleCallout(
                     l10n.art4_callout,
-                    icon: FontAwesomeIcons.brain,
+                    icon: Icons.psychology_rounded,
                     color: const Color(0xFF1D4ED8),
                   ),
 
@@ -82,7 +81,7 @@ class StresKehamilanScreen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 1,
                     title: l10n.art4_cara1_title,
-                    icon: FontAwesomeIcons.spa,
+                    icon: Icons.spa_rounded,
                     color: const Color(0xFF6F937D),
                     items: [
                       l10n.art4_cara1_a,
@@ -93,7 +92,7 @@ class StresKehamilanScreen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 2,
                     title: l10n.art4_cara2_title,
-                    icon: FontAwesomeIcons.personWalking,
+                    icon: Icons.directions_walk_rounded,
                     color: const Color(0xFF6F937D),
                     items: [
                       l10n.art4_cara2_a,
@@ -103,7 +102,7 @@ class StresKehamilanScreen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 3,
                     title: l10n.art4_cara3_title,
-                    icon: FontAwesomeIcons.peopleGroup,
+                    icon: Icons.groups_rounded,
                     color: const Color(0xFF6F937D),
                     items: [
                       l10n.art4_cara3_a,
@@ -114,7 +113,7 @@ class StresKehamilanScreen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 4,
                     title: l10n.art4_cara4_title,
-                    icon: FontAwesomeIcons.heartPulse,
+                    icon: Icons.monitor_heart_rounded,
                     color: const Color(0xFF6F937D),
                     items: [
                       l10n.art4_cara4_a,

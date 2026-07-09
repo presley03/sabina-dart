@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/utils/constants.dart';
@@ -38,7 +37,7 @@ class TidurNyamanScreen extends StatelessWidget {
 
                   ArticleCallout(
                     l10n.art3_callout,
-                    icon: FontAwesomeIcons.bed,
+                    icon: Icons.bed_rounded,
                   ),
 
                   const ArticleDivider(),
@@ -48,21 +47,21 @@ class TidurNyamanScreen extends StatelessWidget {
                   ArticleNumberedItem(
                     number: 1,
                     title: l10n.art3_item1_title,
-                    icon: FontAwesomeIcons.bed,
+                    icon: Icons.bed_rounded,
                     color: SabinaColors.primary700,
                     content: l10n.art3_item1_content,
                   ),
                   ArticleNumberedItem(
                     number: 2,
                     title: l10n.art3_item2_title,
-                    icon: FontAwesomeIcons.personPregnant,
+                    icon: Icons.pregnant_woman_rounded,
                     color: SabinaColors.primary700,
                     content: l10n.art3_item2_content,
                   ),
                   ArticleNumberedItem(
                     number: 3,
                     title: l10n.art3_item3_title,
-                    icon: FontAwesomeIcons.moon,
+                    icon: Icons.nightlight_rounded,
                     color: SabinaColors.primary700,
                     content: l10n.art3_item3_content,
                     isLast: true,
