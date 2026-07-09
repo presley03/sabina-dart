@@ -199,17 +199,20 @@ class YangPerluDihindariScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      l10n.avoidScreen_additionalTips_title,
-                      style: GoogleFonts.fraunces(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: -0.3,
-                        color: p.ink,
+                    Expanded(
+                      child: Text(
+                        l10n.avoidScreen_additionalTips_title,
+                        style: GoogleFonts.fraunces(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: -0.3,
+                          color: p.ink,
+                        ),
                       ),
                     ),
+                    const SizedBox(width: 12),
                     TextButton(
                       onPressed: () => Navigator.pop(sheetContext),
                       child: Text(l10n.close,
