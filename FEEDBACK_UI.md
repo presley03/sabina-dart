@@ -161,7 +161,7 @@ tiap langkah.
 - [x] **1. Jurnal Mingguan belum bisa tambah/edit/hapus** — lengkapi CRUD:
   edit entri minggu berjalan & minggu lampau, hapus dengan dialog konfirmasi
   bergaya Jurnal, simpan via journal_service.
-- [ ] **2. Gambar carousel tips terpotong** (kepala/objek terpangkas, tak
+- [x] **2. Gambar carousel tips terpotong** (kepala/objek terpangkas, tak
   nyaman) — samakan rasio kartu dengan rasio aset (1080×560 ≈ 1.93) atau
   atur alignment crop agar wajah tidak terpotong.
 - [ ] **3. Tile bento penuh sesak (2 ikon)** — hapus chip ikon Material,

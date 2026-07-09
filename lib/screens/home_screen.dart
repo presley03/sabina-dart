@@ -333,8 +333,8 @@ class _TipsCarouselState extends State<_TipsCarousel> {
         bottomLeft: Radius.circular(22),
         bottomRight: Radius.circular(22),
       ),
-      child: SizedBox(
-        height: 176,
+      child: AspectRatio(
+        aspectRatio: 1080 / 560,
         child: Stack(
           children: [
             PageView.builder(
@@ -383,6 +383,7 @@ class _TipsCarouselState extends State<_TipsCarousel> {
           Image.asset(
             slide.imagePath!,
             fit: BoxFit.cover,
+            alignment: Alignment.topCenter,
             errorBuilder: (_, __, ___) => const SizedBox.shrink(),
           ),
         // Ikon watermark besar — memberi "isi" walau belum ada foto
