@@ -79,8 +79,10 @@ dalam bullet). `flutter analyze` = 0 issues, `flutter test` lulus (4 file,
   berikutnya tanda baca. (`_highlightSpan(tightRight:)` di
   `article_reader_widgets.dart`, dipicu utk `, . ; : ! ?`; 2 unit test baru
   di `marked_text_test.dart`)
-- [ ] Bottom sheet "tips lainnya" di yang_perlu_dihindari masih badge+divider
-  lama — samakan dengan gaya majalah.
+- [x] Bottom sheet "tips lainnya" di yang_perlu_dihindari masih badge+divider
+  lama — samakan dengan gaya majalah. (badge nomor rust + divider dihapus,
+  diganti `ArticleBulletList` — bullet sage seragam, `context.palette`,
+  judul Fraunces)
 - Catatan koreksi laporan: total test = 10 (bukan 16); marker `50% (volume
   darah)` di makanan_trimester2 dinilai paling lemah secara editorial —
   dibiarkan, tak berbahaya.
