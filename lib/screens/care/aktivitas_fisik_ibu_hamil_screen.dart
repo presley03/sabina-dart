@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/utils/constants.dart';
 import 'package:sabina/widgets/article_reader_widgets.dart';
@@ -14,8 +13,6 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
     final List<Map<String, dynamic>> activityItems = [
       {
         'title': l10n.physicalActivity_item1_title,
-        'icon': Icons.directions_walk_rounded,
-        'color': const Color(0xFF6F937D),
         'content': [
           l10n.physicalActivity_item1_content1,
           l10n.physicalActivity_item1_content2,
@@ -24,8 +21,6 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
       },
       {
         'title': l10n.physicalActivity_item2_title,
-        'icon': Icons.self_improvement_rounded,
-        'color': const Color(0xFF1D4ED8),
         'content': [
           l10n.physicalActivity_item2_content1,
           l10n.physicalActivity_item2_content2,
@@ -34,8 +29,6 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
       },
       {
         'title': l10n.physicalActivity_item3_title,
-        'icon': Icons.child_care_rounded,
-        'color': SabinaColors.primary700,
         'content': [
           l10n.physicalActivity_item3_content1,
           l10n.physicalActivity_item3_content2,
@@ -44,8 +37,6 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
       },
       {
         'title': l10n.physicalActivity_item4_title,
-        'icon': Icons.spa_rounded,
-        'color': const Color(0xFFC08A3C),
         'content': [
           l10n.physicalActivity_item4_content1,
           l10n.physicalActivity_item4_content2,
@@ -54,8 +45,6 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
       },
       {
         'title': l10n.physicalActivity_item5_title,
-        'icon': Icons.pool_rounded,
-        'color': const Color(0xFF1D4ED8),
         'content': [
           l10n.physicalActivity_item5_content1,
           l10n.physicalActivity_item5_content2,
@@ -100,39 +89,30 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
 
                   ArticleStandfirst(l10n.physicalActivity_introduction),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
                   ArticleSectionLabel(l10n.jenisAktivitasLabel),
 
-                  // Numbered activity items with bullet content
+                  // Numbered activity items — magazine number, no divider
                   ...activityItems.asMap().entries.map((e) {
                     final item = e.value;
                     final isLast = e.key == activityItems.length - 1;
-                    final color = item['color'] as Color;
-                    return ArticleNumberedItem(
+                    return ArticleMagazineSection(
                       number: e.key + 1,
                       title: item['title'],
-                      icon: item['icon'],
-                      color: color,
                       items: List<String>.from(item['content']),
                       isLast: isLast,
                     );
                   }),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 6),
 
-                  // Tips
+                  // Tips — "Hal yang Perlu Diperhatikan"
                   ArticleSectionLabel(l10n.physicalActivity_tipsTitle),
 
-                  ...tips.asMap().entries.map((e) => ArticleNumberedItem(
-                        number: e.key + 1,
-                        title: e.value,
-                        color: const Color(0xFF6F937D),
-                        content: '',
-                        isLast: e.key == tips.length - 1,
-                      )),
+                  ArticleBulletList(tips),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
                   // References
                   ArticleSectionLabel(l10n.physicalActivity_referencesTitle),

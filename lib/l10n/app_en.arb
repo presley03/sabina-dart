@@ -2003,7 +2003,7 @@
                     "description": "Title for the smoking item"
                   },
                 
-                  "avoidScreen_smoking_content": "Smoking during pregnancy increases the risk of premature birth, low birth weight, and respiratory problems in the baby. It also raises the risk of Sudden Infant Death Syndrome (SIDS).",
+                  "avoidScreen_smoking_content": "Smoking during pregnancy increases the risk of premature birth, low birth weight, and respiratory problems in the baby. It also raises the risk of Sudden Infant Death Syndrome (==SIDS==).",
                   "@avoidScreen_smoking_content": {
                     "description": "Explanation of the dangers of smoking during pregnancy"
                   },
@@ -2013,7 +2013,7 @@
                     "description": "Title for the excessive caffeine item"
                   },
                 
-                  "avoidScreen_caffeine_content": "Excessive caffeine intake during pregnancy can increase the risk of miscarriage and low birth weight. It is recommended to limit caffeine intake to a maximum of 200 mg per day (about one cup of coffee).",
+                  "avoidScreen_caffeine_content": "Excessive caffeine intake during pregnancy can increase the risk of miscarriage and low birth weight. It is recommended to limit caffeine intake to a maximum of ==200 mg per day== (about one cup of coffee).",
                   "@avoidScreen_caffeine_content": {
                     "description": "Explanation of the dangers of excessive caffeine intake during pregnancy"
                   },
@@ -2073,7 +2073,7 @@
                     "description": "Title for the lack of rest item"
                   },
                 
-                  "avoidScreen_lackOfRest_content": "Pregnancy causes significant changes in the body, and adequate rest is essential. Lack of sleep can lead to stress, fatigue, and potential complications such as high blood pressure or preeclampsia.",
+                  "avoidScreen_lackOfRest_content": "Pregnancy causes significant changes in the body, and adequate rest is essential. Lack of sleep can lead to stress, fatigue, and potential complications such as high blood pressure or ==preeclampsia==.",
                   "@avoidScreen_lackOfRest_content": {
                     "description": "Explanation of the dangers of lack of rest during pregnancy"
                   },
@@ -2242,7 +2242,7 @@
                       "description": "Content 1 for the first care item"
                     },
                   
-                    "dailyCare_item1_content2": "Take Iron Supplements daily.",
+                    "dailyCare_item1_content2": "Take ==Iron Supplements== daily.",
                     "@dailyCare_item1_content2": {
                       "description": "Content 2 for the first care item"
                     },
@@ -2446,7 +2446,7 @@
                         "description": "Title for the physical activity screen for pregnant women"
                       },
                     
-                      "physicalActivity_introduction": "Physical activity is very important during pregnancy as it helps maintain the health of the mother and the development of the baby. By performing the right exercises, pregnant women can reduce the risk of complications, such as high blood pressure, strengthen muscles for labor, and reduce discomfort like back pain.",
+                      "physicalActivity_introduction": "Physical activity is very important during pregnancy as it helps maintain the health of the mother and the development of the baby. By performing the right exercises, pregnant women can reduce the risk of complications, such as ==high blood pressure==, strengthen muscles for labor, and reduce discomfort like back pain.",
                       "@physicalActivity_introduction": {
                         "description": "Introduction text about the importance of physical activity for pregnant women"
                       },

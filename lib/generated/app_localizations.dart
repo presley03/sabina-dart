@@ -2639,7 +2639,7 @@ abstract class AppLocalizations {
   /// Penjelasan tentang bahaya merokok selama kehamilan
   ///
   /// In id, this message translates to:
-  /// **'Merokok selama kehamilan meningkatkan risiko kelahiran prematur, berat badan lahir rendah, dan masalah pernapasan pada bayi. Juga meningkatkan risiko kematian mendadak pada bayi (SIDS).'**
+  /// **'Merokok selama kehamilan meningkatkan risiko kelahiran prematur, berat badan lahir rendah, dan masalah pernapasan pada bayi. Juga meningkatkan risiko kematian mendadak pada bayi (==SIDS==).'**
   String get avoidScreen_smoking_content;
 
   /// Judul untuk item kafein berlebihan
@@ -2651,7 +2651,7 @@ abstract class AppLocalizations {
   /// Penjelasan tentang bahaya mengonsumsi kafein berlebihan selama kehamilan
   ///
   /// In id, this message translates to:
-  /// **'Asupan kafein yang berlebihan selama kehamilan dapat meningkatkan risiko keguguran dan berat badan lahir rendah. Sebaiknya, batasi konsumsi kafein maksimal 200 mg per hari (sekitar satu cangkir kopi).'**
+  /// **'Asupan kafein yang berlebihan selama kehamilan dapat meningkatkan risiko keguguran dan berat badan lahir rendah. Sebaiknya, batasi konsumsi kafein maksimal ==200 mg per hari== (sekitar satu cangkir kopi).'**
   String get avoidScreen_caffeine_content;
 
   /// Judul untuk item obat-obatan terlarang
@@ -2723,7 +2723,7 @@ abstract class AppLocalizations {
   /// Penjelasan tentang bahaya kurang istirahat selama kehamilan
   ///
   /// In id, this message translates to:
-  /// **'Kehamilan menyebabkan perubahan besar pada tubuh, sehingga ibu hamil perlu banyak istirahat. Kurang tidur dapat menyebabkan stres, kelelahan, dan berpotensi menimbulkan komplikasi seperti tekanan darah tinggi atau preeklampsia.'**
+  /// **'Kehamilan menyebabkan perubahan besar pada tubuh, sehingga ibu hamil perlu banyak istirahat. Kurang tidur dapat menyebabkan stres, kelelahan, dan berpotensi menimbulkan komplikasi seperti tekanan darah tinggi atau ==preeklampsia==.'**
   String get avoidScreen_lackOfRest_content;
 
   /// Judul untuk item stres berlebihan
@@ -2927,7 +2927,7 @@ abstract class AppLocalizations {
   /// Konten 2 untuk item perawatan pertama
   ///
   /// In id, this message translates to:
-  /// **'Minum Tablet Tambah Darah (TTD) setiap hari.'**
+  /// **'Minum ==Tablet Tambah Darah (TTD)== setiap hari.'**
   String get dailyCare_item1_content2;
 
   /// Konten 3 untuk item perawatan pertama
@@ -3173,7 +3173,7 @@ abstract class AppLocalizations {
   /// Teks pengantar tentang pentingnya aktivitas fisik untuk ibu hamil
   ///
   /// In id, this message translates to:
-  /// **'Aktivitas fisik sangat penting selama kehamilan karena membantu menjaga kesehatan ibu dan perkembangan janin. Dengan melakukan latihan yang tepat, ibu hamil dapat mengurangi risiko komplikasi, seperti tekanan darah tinggi, memperkuat otot untuk persalinan, dan mengurangi rasa tidak nyaman seperti sakit punggung.'**
+  /// **'Aktivitas fisik sangat penting selama kehamilan karena membantu menjaga kesehatan ibu dan perkembangan janin. Dengan melakukan latihan yang tepat, ibu hamil dapat mengurangi risiko komplikasi, seperti ==tekanan darah tinggi==, memperkuat otot untuk persalinan, dan mengurangi rasa tidak nyaman seperti sakit punggung.'**
   String get physicalActivity_introduction;
 
   /// Judul untuk item aktivitas pertama

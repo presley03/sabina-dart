@@ -13,51 +13,52 @@ class CareMenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final palette = context.palette;
 
     final items = [
       {
         'title': l10n.careMenu_nutrition_title,
         'desc': l10n.careMenu_nutrition_description,
         'icon': Icons.restaurant_rounded,
-        'color': const Color(0xFFC08A3C),
-        'bg': const Color(0xFFF5E8D2),
+        'color': palette.amber,
+        'bg': palette.amberSoft,
         'screen': const MakananScreen(),
       },
       {
         'title': l10n.careMenu_avoidance_title,
         'desc': l10n.careMenu_avoidance_description,
         'icon': Icons.block_rounded,
-        'color': SabinaColors.error700,
-        'bg': SabinaColors.error100,
+        'color': palette.critical,
+        'bg': palette.criticalSoft,
         'screen': const YangPerluDihindariScreen(),
       },
       {
         'title': l10n.careMenu_dailyCare_title,
         'desc': l10n.careMenu_dailyCare_description,
         'icon': Icons.spa_rounded,
-        'color': const Color(0xFF6F937D),
-        'bg': const Color(0xFFE2EBE4),
+        'color': palette.sage,
+        'bg': palette.sageSoft,
         'screen': const PerawatanSehariHariScreen(),
       },
       {
         'title': l10n.careMenu_physicalActivity_title,
         'desc': l10n.careMenu_physicalActivity_description,
         'icon': Icons.directions_walk_rounded,
-        'color': const Color(0xFF1D4ED8),
-        'bg': const Color(0xFFEFF6FF),
+        'color': palette.primary,
+        'bg': palette.primarySoft,
         'screen': const AktivitasFisikIbuHamilScreen(),
       },
     ];
 
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: palette.ground,
       appBar: AppBar(
-        backgroundColor: SabinaColors.white,
+        backgroundColor: palette.surface,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
-          color: SabinaColors.neutral900,
+          color: palette.ink,
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
@@ -65,12 +66,12 @@ class CareMenuScreen extends StatelessWidget {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: SabinaColors.neutral900,
+            color: palette.ink,
           ),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
-          child: Divider(height: 1, color: SabinaColors.neutral300),
+          child: Divider(height: 1, color: palette.line),
         ),
       ),
       body: SingleChildScrollView(
@@ -89,7 +90,7 @@ class CareMenuScreen extends StatelessWidget {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 10,
                   fontWeight: FontWeight.w700,
-                  color: SabinaColors.neutral500,
+                  color: palette.inkMuted,
                   letterSpacing: 1.2,
                 ),
               ),
@@ -98,11 +99,11 @@ class CareMenuScreen extends StatelessWidget {
             // Card list
             Container(
               decoration: BoxDecoration(
-                color: SabinaColors.white,
+                color: palette.surface,
                 borderRadius: BorderRadius.circular(18),
                 boxShadow: [
                   BoxShadow(
-                    color: SabinaColors.neutral900.withValues(alpha: 0.05),
+                    color: palette.cardShadow,
                     blurRadius: 12,
                     offset: const Offset(0, 2),
                   ),
@@ -162,7 +163,7 @@ class CareMenuScreen extends StatelessWidget {
                                       style: GoogleFonts.plusJakartaSans(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
-                                        color: SabinaColors.neutral900,
+                                        color: palette.ink,
                                       ),
                                     ),
                                     const SizedBox(height: 2),
@@ -170,7 +171,7 @@ class CareMenuScreen extends StatelessWidget {
                                       item['desc'] as String,
                                       style: GoogleFonts.plusJakartaSans(
                                         fontSize: 12,
-                                        color: SabinaColors.neutral500,
+                                        color: palette.inkMuted,
                                       ),
                                     ),
                                   ],
@@ -178,7 +179,7 @@ class CareMenuScreen extends StatelessWidget {
                               ),
                               Icon(
                                 Icons.chevron_right_rounded,
-                                color: SabinaColors.neutral300,
+                                color: palette.line,
                                 size: 20,
                               ),
                             ],
@@ -189,7 +190,7 @@ class CareMenuScreen extends StatelessWidget {
                         Divider(
                           height: 1,
                           indent: 74,
-                          color: SabinaColors.neutral300,
+                          color: palette.line,
                         ),
                     ],
                   );

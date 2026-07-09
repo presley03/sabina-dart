@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/utils/constants.dart';
 import 'package:sabina/widgets/article_reader_widgets.dart';
@@ -41,51 +40,40 @@ class MakananScreen extends StatelessWidget {
                     icon: Icons.lightbulb_rounded,
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
                   // Section label
                   ArticleSectionLabel(l10n.zatGiziPentingLabel),
 
-                  // Numbered nutrition items
-                  ArticleNumberedItem(
+                  // Numbered nutrition items — magazine number, no divider
+                  ArticleMagazineSection(
                     number: 1,
                     title: l10n.nutritionScreen_carbohydrates_title,
                     content: l10n.nutritionScreen_carbohydrates_content,
-                    icon: Icons.grain_rounded,
-                    color: const Color(0xFFC08A3C),
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 2,
                     title: l10n.nutritionScreen_protein_title,
                     content: l10n.nutritionScreen_protein_content,
-                    icon: Icons.egg_rounded,
-                    color: SabinaColors.error700,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 3,
                     title: l10n.nutritionScreen_healthyFats_title,
                     content: l10n.nutritionScreen_healthyFats_content,
-                    icon: Icons.water_drop_rounded,
-                    color: const Color(0xFF6F937D),
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 4,
                     title: l10n.nutritionScreen_vitaminsAndMinerals_title,
-                    icon: Icons.eco_rounded,
-                    color: const Color(0xFF1D4ED8),
-                    // Use custom content builder for highlight support
                     content: l10n.nutritionScreen_vitaminsAndMinerals_content,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 5,
                     title: l10n.nutritionScreen_fiber_title,
                     content: l10n.nutritionScreen_fiber_content,
-                    icon: Icons.grass_rounded,
-                    color: SabinaColors.primary700,
                     isLast: true,
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 6),
 
                   // Meal plan section
                   ArticleSectionLabel(l10n.nutritionScreen_mealPlan_title),
@@ -97,10 +85,9 @@ class MakananScreen extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 1,
                     title: l10n.nutritionScreen_breakfast_title,
-                    color: SabinaColors.primary700,
                     items: [
                       l10n.nutritionScreen_breakfast_item1,
                       l10n.nutritionScreen_breakfast_item2,
@@ -109,10 +96,9 @@ class MakananScreen extends StatelessWidget {
                       l10n.nutritionScreen_breakfast_item5,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 2,
                     title: l10n.nutritionScreen_lunch_title,
-                    color: SabinaColors.primary700,
                     items: [
                       l10n.nutritionScreen_lunch_item1,
                       l10n.nutritionScreen_lunch_item2,
@@ -122,19 +108,17 @@ class MakananScreen extends StatelessWidget {
                       l10n.nutritionScreen_lunch_item6,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 3,
                     title: l10n.nutritionScreen_afternoonSnack_title,
-                    color: SabinaColors.primary700,
                     items: [
                       l10n.nutritionScreen_afternoonSnack_item1,
                       l10n.nutritionScreen_afternoonSnack_item2,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 4,
                     title: l10n.nutritionScreen_dinner_title,
-                    color: SabinaColors.primary700,
                     items: [
                       l10n.nutritionScreen_dinner_item1,
                       l10n.nutritionScreen_dinner_item2,
@@ -144,10 +128,9 @@ class MakananScreen extends StatelessWidget {
                       l10n.nutritionScreen_dinner_item6,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 5,
                     title: l10n.nutritionScreen_eveningSnack_title,
-                    color: SabinaColors.primary700,
                     items: [
                       l10n.nutritionScreen_eveningSnack_item1,
                       l10n.nutritionScreen_eveningSnack_item2,
@@ -155,7 +138,7 @@ class MakananScreen extends StatelessWidget {
                     isLast: true,
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
                   // References
                   ArticleSectionLabel(l10n.nutritionScreen_references_title),

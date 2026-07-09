@@ -1459,14 +1459,14 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get avoidScreen_smoking_content =>
-      'Merokok selama kehamilan meningkatkan risiko kelahiran prematur, berat badan lahir rendah, dan masalah pernapasan pada bayi. Juga meningkatkan risiko kematian mendadak pada bayi (SIDS).';
+      'Merokok selama kehamilan meningkatkan risiko kelahiran prematur, berat badan lahir rendah, dan masalah pernapasan pada bayi. Juga meningkatkan risiko kematian mendadak pada bayi (==SIDS==).';
 
   @override
   String get avoidScreen_caffeine_title => 'Mengkonsumsi Kafein Berlebihan';
 
   @override
   String get avoidScreen_caffeine_content =>
-      'Asupan kafein yang berlebihan selama kehamilan dapat meningkatkan risiko keguguran dan berat badan lahir rendah. Sebaiknya, batasi konsumsi kafein maksimal 200 mg per hari (sekitar satu cangkir kopi).';
+      'Asupan kafein yang berlebihan selama kehamilan dapat meningkatkan risiko keguguran dan berat badan lahir rendah. Sebaiknya, batasi konsumsi kafein maksimal ==200 mg per hari== (sekitar satu cangkir kopi).';
 
   @override
   String get avoidScreen_drugs_title => 'Paparan Obat-obatan Terlarang';
@@ -1509,7 +1509,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get avoidScreen_lackOfRest_content =>
-      'Kehamilan menyebabkan perubahan besar pada tubuh, sehingga ibu hamil perlu banyak istirahat. Kurang tidur dapat menyebabkan stres, kelelahan, dan berpotensi menimbulkan komplikasi seperti tekanan darah tinggi atau preeklampsia.';
+      'Kehamilan menyebabkan perubahan besar pada tubuh, sehingga ibu hamil perlu banyak istirahat. Kurang tidur dapat menyebabkan stres, kelelahan, dan berpotensi menimbulkan komplikasi seperti tekanan darah tinggi atau ==preeklampsia==.';
 
   @override
   String get avoidScreen_stress_title => 'Stres Berlebihan';
@@ -1639,7 +1639,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get dailyCare_item1_content2 =>
-      'Minum Tablet Tambah Darah (TTD) setiap hari.';
+      'Minum ==Tablet Tambah Darah (TTD)== setiap hari.';
 
   @override
   String get dailyCare_item1_content3 => 'Batasi gula dan garam.';
@@ -1783,7 +1783,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get physicalActivity_introduction =>
-      'Aktivitas fisik sangat penting selama kehamilan karena membantu menjaga kesehatan ibu dan perkembangan janin. Dengan melakukan latihan yang tepat, ibu hamil dapat mengurangi risiko komplikasi, seperti tekanan darah tinggi, memperkuat otot untuk persalinan, dan mengurangi rasa tidak nyaman seperti sakit punggung.';
+      'Aktivitas fisik sangat penting selama kehamilan karena membantu menjaga kesehatan ibu dan perkembangan janin. Dengan melakukan latihan yang tepat, ibu hamil dapat mengurangi risiko komplikasi, seperti ==tekanan darah tinggi==, memperkuat otot untuk persalinan, dan mengurangi rasa tidak nyaman seperti sakit punggung.';
 
   @override
   String get physicalActivity_item1_title => 'Jalan Kaki';

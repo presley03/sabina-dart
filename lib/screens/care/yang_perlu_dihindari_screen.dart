@@ -15,52 +15,42 @@ class YangPerluDihindariScreen extends StatelessWidget {
     final List<Map<String, dynamic>> avoidItems = [
       {
         'title': l10n.avoidScreen_alcohol_title,
-        'icon': Icons.wine_bar_rounded,
         'content': l10n.avoidScreen_alcohol_content
       },
       {
         'title': l10n.avoidScreen_smoking_title,
-        'icon': Icons.block_rounded,
         'content': l10n.avoidScreen_smoking_content
       },
       {
         'title': l10n.avoidScreen_caffeine_title,
-        'icon': Icons.local_cafe_rounded,
         'content': l10n.avoidScreen_caffeine_content
       },
       {
         'title': l10n.avoidScreen_drugs_title,
-        'icon': Icons.medication_rounded,
         'content': l10n.avoidScreen_drugs_content
       },
       {
         'title': l10n.avoidScreen_rawFood_title,
-        'icon': Icons.restaurant_rounded,
         'content': l10n.avoidScreen_rawFood_content
       },
       {
         'title': l10n.avoidScreen_highMercuryFish_title,
-        'icon': Icons.set_meal_rounded,
         'content': l10n.avoidScreen_highMercuryFish_content
       },
       {
         'title': l10n.avoidScreen_chemicals_title,
-        'icon': Icons.biotech_rounded,
         'content': l10n.avoidScreen_chemicals_content
       },
       {
         'title': l10n.avoidScreen_heavyLifting_title,
-        'icon': Icons.fitness_center_rounded,
         'content': l10n.avoidScreen_heavyLifting_content
       },
       {
         'title': l10n.avoidScreen_lackOfRest_title,
-        'icon': Icons.bed_rounded,
         'content': l10n.avoidScreen_lackOfRest_content
       },
       {
         'title': l10n.avoidScreen_stress_title,
-        'icon': Icons.psychology_rounded,
         'content': l10n.avoidScreen_stress_content
       },
     ];
@@ -116,24 +106,22 @@ class YangPerluDihindariScreen extends StatelessWidget {
 
                   ArticleStandfirst(l10n.avoidScreen_introduction),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
                   ArticleSectionLabel(l10n.yangPerluDihindariLabel),
 
-                  // Numbered avoid items
+                  // Numbered avoid items — magazine number, no divider
                   ...avoidItems.asMap().entries.map((e) {
                     final isLast = e.key == avoidItems.length - 1;
-                    return ArticleNumberedItem(
+                    return ArticleMagazineSection(
                       number: e.key + 1,
                       title: e.value['title'],
                       content: e.value['content'],
-                      icon: e.value['icon'],
-                      color: SabinaColors.error700,
                       isLast: isLast,
                     );
                   }),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 6),
 
                   // Tips section
                   ArticleSectionLabel(l10n.avoidScreen_tips_title),
@@ -164,7 +152,7 @@ class YangPerluDihindariScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
                   // References
                   ArticleSectionLabel(l10n.avoidScreen_references_title),

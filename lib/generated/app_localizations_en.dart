@@ -1457,14 +1457,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get avoidScreen_smoking_content =>
-      'Smoking during pregnancy increases the risk of premature birth, low birth weight, and respiratory problems in the baby. It also raises the risk of Sudden Infant Death Syndrome (SIDS).';
+      'Smoking during pregnancy increases the risk of premature birth, low birth weight, and respiratory problems in the baby. It also raises the risk of Sudden Infant Death Syndrome (==SIDS==).';
 
   @override
   String get avoidScreen_caffeine_title => 'Excessive Caffeine Intake';
 
   @override
   String get avoidScreen_caffeine_content =>
-      'Excessive caffeine intake during pregnancy can increase the risk of miscarriage and low birth weight. It is recommended to limit caffeine intake to a maximum of 200 mg per day (about one cup of coffee).';
+      'Excessive caffeine intake during pregnancy can increase the risk of miscarriage and low birth weight. It is recommended to limit caffeine intake to a maximum of ==200 mg per day== (about one cup of coffee).';
 
   @override
   String get avoidScreen_drugs_title => 'Exposure to Illegal Drugs';
@@ -1507,7 +1507,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get avoidScreen_lackOfRest_content =>
-      'Pregnancy causes significant changes in the body, and adequate rest is essential. Lack of sleep can lead to stress, fatigue, and potential complications such as high blood pressure or preeclampsia.';
+      'Pregnancy causes significant changes in the body, and adequate rest is essential. Lack of sleep can lead to stress, fatigue, and potential complications such as high blood pressure or ==preeclampsia==.';
 
   @override
   String get avoidScreen_stress_title => 'Excessive Stress';
@@ -1636,7 +1636,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Consume a balanced diet: Carbohydrates, Protein, Vegetables, Fruits.';
 
   @override
-  String get dailyCare_item1_content2 => 'Take Iron Supplements daily.';
+  String get dailyCare_item1_content2 => 'Take ==Iron Supplements== daily.';
 
   @override
   String get dailyCare_item1_content3 => 'Limit sugar and salt intake.';
@@ -1779,7 +1779,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get physicalActivity_introduction =>
-      'Physical activity is very important during pregnancy as it helps maintain the health of the mother and the development of the baby. By performing the right exercises, pregnant women can reduce the risk of complications, such as high blood pressure, strengthen muscles for labor, and reduce discomfort like back pain.';
+      'Physical activity is very important during pregnancy as it helps maintain the health of the mother and the development of the baby. By performing the right exercises, pregnant women can reduce the risk of complications, such as ==high blood pressure==, strengthen muscles for labor, and reduce discomfort like back pain.';
 
   @override
   String get physicalActivity_item1_title => 'Walking';
