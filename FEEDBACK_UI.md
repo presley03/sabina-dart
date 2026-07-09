@@ -205,20 +205,66 @@ tiap langkah.
 
 ## Koreksi putaran 3 (uji coba Presley 2026-07-10 — dark mode & tipografi)
 
-- [ ] **A. Toggle dark mode tidak ditemukan user** — tambah kontrol tema di
+- [x] **A. Toggle dark mode tidak ditemukan user** — tambah kontrol tema di
   user_profile_screen (Terang/Gelap/Sistem, pakai ThemeProvider yang sudah
-  persist). ARB id/en.
-- [ ] **B. Keterbacaan dark mode di Beranda** — sapaan "Selamat Pagi" nyaris
+  persist). ARB id/en. (Menu "Tampilan" baru — segmented Terang/Gelap/Sistem
+  di `_ThemeModeSelector`, `user_profile_screen.dart`, memanggil
+  `ThemeProvider.setMode` langsung; warna sengaja `SabinaColors` statis, bukan
+  `context.palette`, karena layar profil ini masih hardcode-terang di kedua
+  tema — dibuat konsisten dengan gaya sekitarnya agar tetap terbaca terlepas
+  dari tema aktif. Komit `8e3aa2e`.)
+- [x] **B. Keterbacaan dark mode di Beranda** — sapaan "Selamat Pagi" nyaris
   tak terbaca (ink terang hardcode di atas latar gelap); audit home_screen
   penuh: greeting, dateline, label seksi, kartu IMT mini, prompt card,
   colophon -> context.palette. (Screenshot user: greeting gelap-di-gelap.)
-- [ ] **C. Teks bento terpotong** ("Skrining risiko tek...", "Indeks massa
+  (Greeting/dateline/colophon/bento/IMT mini ternyata sudah context.palette
+  dari batch sebelumnya; yang masih hardcode & diperbaiki: Scaffold shell
+  `SabinaHomeScreen` (ground), `_buildSectionLabel` ("AKSES CEPAT"/"ARTIKEL
+  PILIHAN" — kini terima `BuildContext`), kartu prompt "Lengkapi Riwayat
+  Kehamilan" (`_PromptCardConditional`), ikon kartu Jurnal Mingguan (putih
+  statis → `p.surface` agar kontras di primary terang/gelap), kartu artikel
+  pilihan horizontal. Hero gradien, banner PANDUAN plum, dan carousel tips
+  (berlatar gambar/gradien) tidak disentuh — sudah benar by design. Komit
+  `3f1f8a1`.)
+- [x] **C. Teks bento terpotong** ("Skrining risiko tek...", "Indeks massa
   tubu...") — solusi elegan: HAPUS subjudul dari tile (info tetap ada di
   layar tujuan), judul boleh 2 baris penuh tanpa ellipsis; tile lebih tenang.
-- [ ] **D. Hasil skrining: ukuran font tidak seragam, terasa tidak
+  (`subtitle` dihapus dari `_BentoItem` & `_bentoTile`; tile diberi tinggi
+  tetap 104 agar seimbang dengan ilustrasi walau judul cuma 1 baris. Komit
+  `bbe95ba`.)
+- [x] **D. Hasil skrining: ukuran font tidak seragam, terasa tidak
   profesional** — referensi user: MEDIUM (clean, hitam-putih, warna hanya
   untuk marker/aksen bermakna). Samakan skala tipografi lintas 8 layar hasil
   via konstanta bersama; teks selalu ink/inkMuted; warna HANYA untuk
-  severity (busur, pill, CTA); judul seksi tidak berwarna-warni.
+  severity (busur, pill, CTA); judul seksi tidak berwarna-warni. (`ResultTextStyles`
+  baru di `result_experience_widgets.dart` — `sectionLabel` (PJS 12/w700/
+  letterSpacing 1.4/inkMuted, dipilih daripada opsi Fraunces 19), `body`
+  (PJS 14.5/height 1.55/ink), `meta` (PJS 12/inkMuted). Dipakai di
+  `ResultAnswerTable`, `ResultTrendChartView` (termasuk pesan tren kosong &
+  label sumbu tanggal), `ResultRecommendationList` (judul seksi + CTA
+  WhatsApp mini-heading/desc). Judul seksi yang tadinya `p.primary` (plum)
+  di ketiga komponen kini netral inkMuted. `ArticleBulletList` (dipakai
+  ulang untuk daftar rekomendasi) diberi parameter `textStyle` opsional agar
+  bisa memakai skala `body` tanpa mengubah default 16px di layar
+  artikel/care/trimester lain. Disclaimer lokal di ke-8 layar hasil
+  (fontSize 11 hardcode) disamakan ke `ResultTextStyles.meta`. Hero
+  (`ResultHeroArch`: eyebrow, busur, label severity Fraunces 23, meta) tidak
+  disentuh — dikecualikan dari audit skala sesuai instruksi. Logika medis/
+  `getResult()`/threshold tidak diubah. Komit `dc061fb`.)
+
+**Verifikasi visual (emulator, `screenshots_batch6/`):** `01_home_dark_top.png`
++ `02_home_dark_bento_imt.png` (dark mode — greeting "Selamat Pagi, Wahidah"
+terbaca terang-di-gelap, label "ARTIKEL PILIHAN" & bento tanpa subjudul,
+kartu IMT & artikel semua kontras kuat), `03_profile_dark_top.png` +
+`04_profile_settings.png` (menu "Tampilan" terlihat, segmented Gelap aktif),
+`05_profile_theme_light.png` (toggle ke Terang berhasil & kembali membaca
+baik), `06_home_light_bento_imt.png` (beranda mode terang tanpa regresi),
+`07_result_light_mid.png` + `08_result_light_bottom.png` (hasil skrining
+preeklampsia mode terang: "Ringkasan Jawaban"/"Tren Pemeriksaan"/"Yang Bisa
+Dilakukan" seragam netral, disclaimer skala meta), `09_result_dark_top.png` +
+`10_result_dark_bottom.png` + `11_result_dark_disclaimer.png` (hasil yang
+sama di mode gelap — seluruh teks tetap ink/inkMuted terbaca, warna hanya di
+busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
+`flutter test` = 16/16 lulus setelah tiap item (A, B, C, D).
 
 ## (tambahkan temuan berikutnya di bawah ini)
