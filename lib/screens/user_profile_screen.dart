@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -124,7 +123,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       const SizedBox(height: 10),
                       _buildMenuCard([
                         _MenuItem(
-                          icon: FontAwesomeIcons.userPen,
+                          icon: Icons.manage_accounts_rounded,
                           color: const Color(0xFF1D4ED8),
                           label: l10n.identity,
                           trailing: const Icon(Icons.chevron_right_rounded,
@@ -138,7 +137,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           ).then((_) => setState(() {})),
                         ),
                         _MenuItem(
-                          icon: FontAwesomeIcons.baby,
+                          icon: Icons.child_care_rounded,
                           color: const Color(0xFF6F937D),
                           label: l10n.pregnancyHistory,
                           trailing: const Icon(Icons.chevron_right_rounded,
@@ -151,7 +150,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           ).then((_) => setState(() {})),
                         ),
                         _MenuItem(
-                          icon: FontAwesomeIcons.clockRotateLeft,
+                          icon: Icons.history_rounded,
                           color: SabinaColors.primary700,
                           label: l10n.historyMenuLabel,
                           trailing: const Icon(Icons.chevron_right_rounded,
@@ -170,7 +169,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       const SizedBox(height: 10),
                       _buildMenuCard([
                         _MenuItem(
-                          icon: FontAwesomeIcons.globe,
+                          icon: Icons.public_rounded,
                           color: SabinaColors.primary700,
                           label: l10n.language,
                           trailing: Consumer<LocaleProvider>(
@@ -197,7 +196,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           onTap: null,
                         ),
                         _MenuItem(
-                          icon: FontAwesomeIcons.lock,
+                          icon: Icons.lock_rounded,
                           color: const Color(0xFFC08A3C),
                           label: l10n.privacyPolicy,
                           trailing: const Icon(Icons.chevron_right_rounded,
@@ -205,7 +204,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           onTap: () => _showPrivacySheet(context),
                         ),
                         _MenuItem(
-                          icon: FontAwesomeIcons.circleInfo,
+                          icon: Icons.info_rounded,
                           color: SabinaColors.neutral500,
                           label: l10n.aboutSabinaTitle,
                           trailing: const Icon(Icons.chevron_right_rounded,
@@ -407,14 +406,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       child: IntrinsicHeight(
         child: Row(
           children: [
-            _buildStat(l10n.age, age, FontAwesomeIcons.cakeCandles),
+            _buildStat(l10n.age, age, Icons.cake_rounded),
             VerticalDivider(width: 1, color: SabinaColors.neutral300),
             _buildStat(
                 l10n.bloodTypeShort,
                 identity.golonganDarah.isEmpty ? '--' : identity.golonganDarah,
-                FontAwesomeIcons.droplet),
+                Icons.water_drop_rounded),
             VerticalDivider(width: 1, color: SabinaColors.neutral300),
-            _buildStat(l10n.gestationalAgeShort, weeks, FontAwesomeIcons.baby),
+            _buildStat(l10n.gestationalAgeShort, weeks, Icons.child_care_rounded),
           ],
         ),
       ),
@@ -425,7 +424,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     return Expanded(
       child: Column(
         children: [
-          FaIcon(icon, size: 16, color: SabinaColors.primary700),
+          Icon(icon, size: 16, color: SabinaColors.primary700),
           const SizedBox(height: 6),
           Text(
             value,
@@ -589,7 +588,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Center(
-                          child: FaIcon(item.icon, size: 16, color: item.color),
+                          child: Icon(item.icon, size: 16, color: item.color),
                         ),
                       ),
                       const SizedBox(width: 14),
@@ -937,7 +936,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
                         ),
                         child: Column(
                           children: [
-                            FaIcon(FontAwesomeIcons.baby,
+                            Icon(Icons.child_care_rounded,
                                 size: 16, color: SabinaColors.primary700),
                             const SizedBox(height: 4),
                             Text(
@@ -964,11 +963,11 @@ class _PregnancyCardState extends State<_PregnancyCard>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            _infoChip(FontAwesomeIcons.calendarCheck,
+                            _infoChip(Icons.event_available_rounded,
                                 l10n.estimatedLabel, taksiran),
                             const SizedBox(height: 6),
                             _infoChip(
-                                FontAwesomeIcons.hashtag,
+                                Icons.tag_rounded,
                                 l10n.pregnancyNumberLabel,
                                 p.kehamilanKe.isEmpty ? '--' : p.kehamilanKe),
                           ],
@@ -1058,7 +1057,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
   Widget _infoChip(IconData icon, String label, String value) {
     return Row(
       children: [
-        FaIcon(icon, size: 11, color: SabinaColors.neutral500),
+        Icon(icon, size: 11, color: SabinaColors.neutral500),
         const SizedBox(width: 6),
         Text(
           '$label: ',

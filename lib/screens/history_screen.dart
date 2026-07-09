@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:sabina/core/theme/app_theme.dart';
@@ -191,23 +190,23 @@ class _HistoryCard extends StatelessWidget {
   IconData get _typeIcon {
     switch (entry.type) {
       case ScreeningResultService.preeklampsia:
-        return FontAwesomeIcons.heartPulse;
+        return Icons.monitor_heart_rounded;
       case ScreeningResultService.penapisan:
-        return FontAwesomeIcons.shield;
+        return Icons.shield_rounded;
       case ScreeningResultService.mualMuntah:
-        return FontAwesomeIcons.faceMeh;
+        return Icons.sentiment_dissatisfied_rounded;
       case ScreeningResultService.sakitKepala:
-        return FontAwesomeIcons.headSideCough;
+        return Icons.sick_rounded;
       case ScreeningResultService.keluarDarah:
-        return FontAwesomeIcons.droplet;
+        return Icons.water_drop_rounded;
       case ScreeningResultService.keluarCairan:
-        return FontAwesomeIcons.vial;
+        return Icons.science_rounded;
       case ScreeningResultService.bengkak:
-        return FontAwesomeIcons.person;
+        return Icons.person_rounded;
       case ScreeningResultService.pergerakanJanin:
-        return FontAwesomeIcons.baby;
+        return Icons.child_care_rounded;
       default:
-        return FontAwesomeIcons.notesMedical;
+        return Icons.medical_information_rounded;
     }
   }
 
@@ -277,7 +276,7 @@ class _HistoryCard extends StatelessWidget {
                 bottomRight: Radius.circular(10),
               ),
             ),
-            child: Center(child: FaIcon(_typeIcon, size: 18, color: fg)),
+            child: Center(child: Icon(_typeIcon, size: 18, color: fg)),
           ),
           const SizedBox(width: 14),
           Expanded(

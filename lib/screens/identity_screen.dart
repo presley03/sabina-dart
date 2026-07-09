@@ -173,7 +173,7 @@ class IdentityScreenState extends State<IdentityScreen>
               label: l10n.fullName,
               controller: _namaController,
               hint: l10n.fullNameHint,
-              icon: FontAwesomeIcons.user,
+              icon: Icons.person_rounded,
               validator: (v) => v?.isEmpty ?? true ? l10n.nameRequired : null,
               isFirst: true,
             ),
@@ -197,7 +197,7 @@ class IdentityScreenState extends State<IdentityScreen>
               label: l10n.address,
               controller: _alamatController,
               hint: l10n.addressHint,
-              icon: FontAwesomeIcons.locationDot,
+              icon: Icons.location_on_rounded,
               maxLines: 2,
               validator: (v) =>
                   v?.isEmpty ?? true ? l10n.addressRequired : null,
@@ -206,7 +206,7 @@ class IdentityScreenState extends State<IdentityScreen>
             _buildPickerRow(
               label: l10n.bloodType,
               value: _selectedGolonganDarah,
-              icon: FontAwesomeIcons.droplet,
+              icon: Icons.water_drop_rounded,
               onTap: () => _showPicker(
                 context,
                 _golonganDarahList,
@@ -259,7 +259,7 @@ class IdentityScreenState extends State<IdentityScreen>
           ),
           prefixIcon: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: FaIcon(icon, size: 15, color: SabinaColors.primary700),
+            child: Icon(icon, size: 15, color: SabinaColors.primary700),
           ),
           prefixIconConstraints:
               const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -299,7 +299,7 @@ class IdentityScreenState extends State<IdentityScreen>
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         child: Row(
           children: [
-            FaIcon(icon, size: 15, color: SabinaColors.primary700),
+            Icon(icon, size: 15, color: SabinaColors.primary700),
             const SizedBox(width: 14),
             Expanded(
               child: Column(
@@ -324,8 +324,8 @@ class IdentityScreenState extends State<IdentityScreen>
                 ],
               ),
             ),
-            FaIcon(
-              FontAwesomeIcons.chevronRight,
+            Icon(
+              Icons.chevron_right_rounded,
               size: 12,
               color: SabinaColors.neutral300,
             ),
@@ -344,8 +344,8 @@ class IdentityScreenState extends State<IdentityScreen>
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         child: Row(
           children: [
-            FaIcon(
-              FontAwesomeIcons.calendarDays,
+            Icon(
+              Icons.calendar_month_rounded,
               size: 15,
               color: SabinaColors.primary700,
             ),
@@ -377,8 +377,8 @@ class IdentityScreenState extends State<IdentityScreen>
                 ],
               ),
             ),
-            FaIcon(
-              FontAwesomeIcons.chevronRight,
+            Icon(
+              Icons.chevron_right_rounded,
               size: 12,
               color: SabinaColors.neutral300,
             ),
@@ -398,8 +398,8 @@ class IdentityScreenState extends State<IdentityScreen>
   Widget _buildPrivacyNote(AppLocalizations l10n) {
     return Row(
       children: [
-        FaIcon(
-          FontAwesomeIcons.lock,
+        Icon(
+          Icons.lock_rounded,
           size: 12,
           color: SabinaColors.neutral500,
         ),
@@ -527,8 +527,8 @@ class IdentityScreenState extends State<IdentityScreen>
                         ),
                       ),
                       trailing: isSelected
-                          ? FaIcon(
-                              FontAwesomeIcons.check,
+                          ? Icon(
+                              Icons.check_rounded,
                               color: SabinaColors.primary700,
                               size: 16,
                             )

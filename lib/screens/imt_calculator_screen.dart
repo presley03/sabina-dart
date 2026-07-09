@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
@@ -548,7 +547,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
                             controller: _weightController,
                             label: l10n.imtCalc_weightLabel,
                             hint: l10n.imtCalc_weightPlaceholder,
-                            icon: FontAwesomeIcons.weightScale,
+                            icon: Icons.monitor_weight_rounded,
                             iconColor: SabinaColors.primary700,
                             isFirst: true,
                             l10n: l10n,
@@ -561,7 +560,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
                             controller: _heightController,
                             label: l10n.imtCalc_heightLabel,
                             hint: l10n.imtCalc_heightPlaceholder,
-                            icon: FontAwesomeIcons.ruler,
+                            icon: Icons.straighten_rounded,
                             iconColor: const Color(0xFF6F937D),
                             isFirst: false,
                             l10n: l10n,
@@ -694,7 +693,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
                 borderRadius: BorderRadius.circular(11),
               ),
               child: Center(
-                child: FaIcon(icon, size: 16, color: iconColor),
+                child: Icon(icon, size: 16, color: iconColor),
               ),
             ),
             const SizedBox(width: 14),
@@ -807,7 +806,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Center(
-                    child: FaIcon(FontAwesomeIcons.weightHanging,
+                    child: Icon(Icons.scale_rounded,
                         size: 16, color: color),
                   ),
                 ),
@@ -842,7 +841,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FaIcon(FontAwesomeIcons.circleInfo,
+                Icon(Icons.info_rounded,
                     size: 14, color: SabinaColors.neutral500),
                 const SizedBox(width: 10),
                 Expanded(
@@ -886,7 +885,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
                     borderRadius: BorderRadius.circular(9),
                   ),
                   child: Center(
-                    child: FaIcon(FontAwesomeIcons.lightbulb,
+                    child: Icon(Icons.lightbulb_rounded,
                         size: 14, color: SabinaColors.primary700),
                   ),
                 ),

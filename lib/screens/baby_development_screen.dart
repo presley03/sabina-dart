@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sabina/generated/app_localizations.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:sabina/core/theme/app_theme.dart';
@@ -683,7 +682,7 @@ class _DetailCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
-                  child: FaIcon(FontAwesomeIcons.baby,
+                  child: Icon(Icons.child_care_rounded,
                       size: 16, color: SabinaColors.primary700),
                 ),
               ),
@@ -739,7 +738,7 @@ class _TipCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: const Center(
-              child: FaIcon(FontAwesomeIcons.lightbulb,
+              child: Icon(Icons.lightbulb_rounded,
                   size: 15, color: Color(0xFFC08A3C)),
             ),
           ),

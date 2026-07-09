@@ -1,6 +1,5 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -1644,7 +1643,7 @@ class _IMTMiniCardState extends State<_IMTMiniCard> {
 Widget _articleIconFallback(_ArticleData a) {
   return Container(
     color: a.bgColor,
-    child: Center(child: FaIcon(a.icon, size: 28, color: a.iconColor)),
+    child: Center(child: Icon(a.icon, size: 28, color: a.iconColor)),
   );
 }
 
@@ -1652,7 +1651,7 @@ Widget _buildArticleScroll(BuildContext context) {
   final l10n = AppLocalizations.of(context)!;
   final articles = [
     _ArticleData(
-      icon: FontAwesomeIcons.utensils,
+      icon: Icons.restaurant_rounded,
       iconColor: const Color(0xFFC08A3C),
       bgColor: const Color(0xFFF5E8D2),
       tag: l10n.articleTagNutrition,
@@ -1660,7 +1659,7 @@ Widget _buildArticleScroll(BuildContext context) {
       imagePath: 'assets/images/care/makanan_trimester2_hero.png',
     ),
     _ArticleData(
-      icon: FontAwesomeIcons.personWalking,
+      icon: Icons.directions_walk_rounded,
       iconColor: const Color(0xFF6F937D),
       bgColor: const Color(0xFFE2EBE4),
       tag: l10n.articleTagActivity,
@@ -1668,7 +1667,7 @@ Widget _buildArticleScroll(BuildContext context) {
       imagePath: 'assets/images/care/olahraga_hamil_hero.png',
     ),
     _ArticleData(
-      icon: FontAwesomeIcons.bed,
+      icon: Icons.bed_rounded,
       iconColor: SabinaColors.primary700,
       bgColor: SabinaColors.primary100,
       tag: l10n.articleTagCare,
@@ -1676,7 +1675,7 @@ Widget _buildArticleScroll(BuildContext context) {
       imagePath: 'assets/images/care/tidur_nyaman_hero.png',
     ),
     _ArticleData(
-      icon: FontAwesomeIcons.brain,
+      icon: Icons.psychology_rounded,
       iconColor: const Color(0xFF1D4ED8),
       bgColor: const Color(0xFFEFF6FF),
       tag: l10n.articleTagMentalHealth,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:sabina/core/theme/app_theme.dart';
@@ -128,7 +127,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _dateRow(
                   label: l10n.pregnancyHistory_lastPeriodDate,
                   controller: _lastPeriodDateController,
-                  icon: FontAwesomeIcons.calendarDays,
+                  icon: Icons.calendar_month_rounded,
                   hint: l10n.selectDate,
                   onTap: () => _pickDate(context, _lastPeriodDateController),
                   validator: (v) => v?.isEmpty ?? true
@@ -142,14 +141,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                     label: l10n.gestationalAge,
                     value:
                         '$_pregnancyWeeks ${l10n.weekUnit} $_pregnancyDays ${l10n.dayUnit}',
-                    icon: FontAwesomeIcons.clockRotateLeft,
+                    icon: Icons.history_rounded,
                     valueColor: SabinaColors.primary700,
                   ),
                   _divider(),
                   _infoRow(
                     label: l10n.estimatedDueDate,
                     value: _estimatedDueDate,
-                    icon: FontAwesomeIcons.baby,
+                    icon: Icons.child_care_rounded,
                     valueColor: const Color(0xFF6F937D),
                   ),
                 ],
@@ -157,7 +156,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _numberInputRow(
                   label: l10n.pregnancyHistory_prePregnancyWeight,
                   controller: _preBBController,
-                  icon: FontAwesomeIcons.weightScale,
+                  icon: Icons.monitor_weight_rounded,
                   suffix: 'kg',
                   validator: (v) => v?.isEmpty ?? true
                       ? l10n.pregnancyHistory_fillFieldError
@@ -167,7 +166,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _numberInputRow(
                   label: l10n.pregnancyHistory_height,
                   controller: _heightController,
-                  icon: FontAwesomeIcons.ruler,
+                  icon: Icons.straighten_rounded,
                   suffix: 'cm',
                   validator: (v) => v?.isEmpty ?? true
                       ? l10n.pregnancyHistory_fillFieldError
@@ -176,7 +175,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _divider(),
                 _pickerRow(
                   label: l10n.pregnancyHistory_pregnancyNumber,
-                  icon: FontAwesomeIcons.hashtag,
+                  icon: Icons.tag_rounded,
                   value: _pregnancyNumber,
                   min: 1,
                   max: 10,
@@ -186,7 +185,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _divider(),
                 _pickerRow(
                   label: l10n.pregnancyHistory_childrenCount,
-                  icon: FontAwesomeIcons.children,
+                  icon: Icons.family_restroom_rounded,
                   value: _childrenCount,
                   min: 0,
                   max: 10,
@@ -196,7 +195,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _divider(),
                 _dropdownRow(
                   label: l10n.pregnancyHistory_miscarriageHistory,
-                  icon: FontAwesomeIcons.triangleExclamation,
+                  icon: Icons.warning_rounded,
                   items: [
                     l10n.pregnancyHistory_yes,
                     l10n.pregnancyHistory_no,
@@ -221,7 +220,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               _buildCard([
                 _pickerRow(
                   label: l10n.pregnancyHistory_lastChildNumber,
-                  icon: FontAwesomeIcons.listOl,
+                  icon: Icons.format_list_numbered_rounded,
                   value: _lastChildInfo,
                   min: 0,
                   max: 10,
@@ -232,14 +231,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _divider(),
                 _yearPickerRow(
                   label: l10n.pregnancyHistory_lastChildBirthYear,
-                  icon: FontAwesomeIcons.calendarCheck,
+                  icon: Icons.event_available_rounded,
                   value: _lastChildBirthYear,
                   onTap: () => _showYearPicker(context),
                 ),
                 _divider(),
                 _dropdownRow(
                   label: l10n.pregnancyHistory_lastChildBirthWeight,
-                  icon: FontAwesomeIcons.weightHanging,
+                  icon: Icons.scale_rounded,
                   items: [
                     l10n.pregnancyHistory_birthWeight_0,
                     l10n.pregnancyHistory_birthWeight_under2500,
@@ -263,7 +262,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _divider(),
                 _dropdownRow(
                   label: l10n.pregnancyHistory_deliveryMethod,
-                  icon: FontAwesomeIcons.hospitalUser,
+                  icon: Icons.local_hospital_rounded,
                   items: [
                     l10n.pregnancyHistory_deliveryMethod_noPrior,
                     l10n.pregnancyHistory_deliveryMethod_normal,
@@ -285,7 +284,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _divider(),
                 _dropdownRow(
                   label: l10n.pregnancyHistory_birthAttendant,
-                  icon: FontAwesomeIcons.userDoctor,
+                  icon: Icons.medical_services_rounded,
                   items: [
                     l10n.pregnancyHistory_birthAttendant_none,
                     l10n.pregnancyHistory_birthAttendant_doctor,
@@ -310,7 +309,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 _textAreaRow(
                   label: l10n.pregnancyHistory_lastPregnancyComplications,
                   controller: _lastPregnancyComplicationsController,
-                  icon: FontAwesomeIcons.notesMedical,
+                  icon: Icons.medical_information_rounded,
                   hint: l10n.complicationsHint,
                   isLast: true,
                   validator: (v) => v?.isEmpty ?? true
@@ -356,7 +355,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
             fontSize: 14, color: SabinaColors.neutral300),
         prefixIcon: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: FaIcon(icon, size: 15, color: SabinaColors.primary700),
+          child: Icon(icon, size: 15, color: SabinaColors.primary700),
         ),
         prefixIconConstraints:
             const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -370,7 +369,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: Padding(
           padding: const EdgeInsets.only(right: 16),
-          child: FaIcon(FontAwesomeIcons.chevronRight,
+          child: Icon(Icons.chevron_right_rounded,
               size: 12, color: SabinaColors.neutral300),
         ),
       ),
@@ -387,7 +386,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
-          FaIcon(icon, size: 15, color: SabinaColors.primary700),
+          Icon(icon, size: 15, color: SabinaColors.primary700),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
@@ -430,7 +429,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
             fontSize: 12, color: SabinaColors.neutral500),
         prefixIcon: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: FaIcon(icon, size: 15, color: SabinaColors.primary700),
+          child: Icon(icon, size: 15, color: SabinaColors.primary700),
         ),
         prefixIconConstraints:
             const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -463,7 +462,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
-          FaIcon(icon, size: 15, color: SabinaColors.primary700),
+          Icon(icon, size: 15, color: SabinaColors.primary700),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
@@ -476,7 +475,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 Row(
                   children: [
                     _countButton(
-                      icon: FontAwesomeIcons.minus,
+                      icon: Icons.remove_rounded,
                       onTap: value > min ? () => onChanged(value - 1) : null,
                     ),
                     const SizedBox(width: 16),
@@ -490,7 +489,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                     ),
                     const SizedBox(width: 16),
                     _countButton(
-                      icon: FontAwesomeIcons.plus,
+                      icon: Icons.add_rounded,
                       onTap: value < max ? () => onChanged(value + 1) : null,
                     ),
                   ],
@@ -515,7 +514,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Center(
-          child: FaIcon(
+          child: Icon(
             icon,
             size: 12,
             color: enabled ? SabinaColors.primary700 : SabinaColors.neutral300,
@@ -537,7 +536,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         child: Row(
           children: [
-            FaIcon(icon, size: 15, color: SabinaColors.primary700),
+            Icon(icon, size: 15, color: SabinaColors.primary700),
             const SizedBox(width: 14),
             Expanded(
               child: Column(
@@ -558,7 +557,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 ],
               ),
             ),
-            FaIcon(FontAwesomeIcons.chevronRight,
+            Icon(Icons.chevron_right_rounded,
                 size: 12, color: SabinaColors.neutral300),
           ],
         ),
@@ -584,7 +583,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         child: Row(
           children: [
-            FaIcon(icon, size: 15, color: SabinaColors.primary700),
+            Icon(icon, size: 15, color: SabinaColors.primary700),
             const SizedBox(width: 14),
             Expanded(
               child: Column(
@@ -607,7 +606,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 ],
               ),
             ),
-            FaIcon(FontAwesomeIcons.chevronRight,
+            Icon(Icons.chevron_right_rounded,
                 size: 12, color: SabinaColors.neutral300),
           ],
         ),
@@ -640,7 +639,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               fontSize: 13, color: SabinaColors.neutral300),
           prefixIcon: Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-            child: FaIcon(icon, size: 15, color: SabinaColors.primary700),
+            child: Icon(icon, size: 15, color: SabinaColors.primary700),
           ),
           prefixIconConstraints:
               const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -942,7 +941,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                                 : SabinaColors.neutral900,
                           )),
                       trailing: isSelected
-                          ? FaIcon(FontAwesomeIcons.check,
+                          ? Icon(Icons.check_rounded,
                               color: SabinaColors.primary700, size: 16)
                           : null,
                       onTap: () {
