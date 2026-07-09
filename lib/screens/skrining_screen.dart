@@ -97,6 +97,8 @@ class SkriningScreen extends StatelessWidget {
                     icon: Icons.monitor_heart_rounded,
                     iconColor: SabinaColors.error700,
                     iconBg: SabinaColors.error100,
+                    illustrationAsset:
+                        'assets/images/home/bento_preeklampsia.png',
                     title:
                         AppLocalizations.of(context)?.preeclampsiaDetection ??
                             'Deteksi Preeklampsia',
@@ -129,6 +131,7 @@ class SkriningScreen extends StatelessWidget {
                     icon: Icons.shield_rounded,
                     iconColor: const Color(0xFF6F937D),
                     iconBg: const Color(0xFFE2EBE4),
+                    illustrationAsset: 'assets/images/home/bento_skrining.png',
                     title: AppLocalizations.of(context)?.advancedScreening ??
                         'Penapisan Tingkat Lanjut',
                     description: AppLocalizations.of(context)
@@ -166,6 +169,9 @@ class SkriningScreen extends StatelessWidget {
                     icon: Icons.medical_information_rounded,
                     iconColor: const Color(0xFFC08A3C),
                     iconBg: const Color(0xFFF5E8D2),
+                    illustrationAsset:
+                        'assets/images/keluhan/icons/ic_mual.png',
+                    illustrationTint: const Color(0xFFC08A3C),
                     title: AppLocalizations.of(context)?.reportComplaint ??
                         'Report Complaint',
                     description: AppLocalizations.of(context)
@@ -275,6 +281,8 @@ class _SkriningCard extends StatelessWidget {
   final String description;
   final List<_TagData> tags;
   final VoidCallback onTap;
+  final String? illustrationAsset;
+  final Color? illustrationTint;
 
   const _SkriningCard({
     required this.icon,
@@ -284,6 +292,8 @@ class _SkriningCard extends StatelessWidget {
     required this.description,
     required this.tags,
     required this.onTap,
+    this.illustrationAsset,
+    this.illustrationTint,
   });
 
   @override
@@ -321,7 +331,32 @@ class _SkriningCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: Center(
-                        child: Icon(icon, size: 20, color: iconColor),
+                        child: illustrationAsset == null
+                            ? Icon(icon, size: 20, color: iconColor)
+                            : Padding(
+                                padding: const EdgeInsets.all(7),
+                                child: illustrationTint == null
+                                    ? Image.asset(
+                                        illustrationAsset!,
+                                        fit: BoxFit.contain,
+                                        errorBuilder: (_, __, ___) =>
+                                            Icon(icon,
+                                                size: 20, color: iconColor),
+                                      )
+                                    : ColorFiltered(
+                                        colorFilter: ColorFilter.mode(
+                                            illustrationTint!,
+                                            BlendMode.srcIn),
+                                        child: Image.asset(
+                                          illustrationAsset!,
+                                          fit: BoxFit.contain,
+                                          errorBuilder: (_, __, ___) => Icon(
+                                              icon,
+                                              size: 20,
+                                              color: iconColor),
+                                        ),
+                                      ),
+                              ),
                       ),
                     ),
                     const SizedBox(width: 14),

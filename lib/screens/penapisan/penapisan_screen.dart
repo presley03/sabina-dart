@@ -53,6 +53,7 @@ class PenapisanScreen extends StatelessWidget {
                 icon: Icons.assignment_outlined,
                 iconColor: const Color(0xFF6F937D),
                 iconBg: const Color(0xFFE2EBE4),
+                illustrationAsset: 'assets/images/home/bento_skrining.png',
                 title: l10n.penapisanCardTitle,
                 description: l10n.penapisanCardDesc,
                 meta: l10n.penapisanMeta,
@@ -85,6 +86,7 @@ class _ScreeningCard extends StatelessWidget {
   final String description;
   final String meta;
   final VoidCallback onTap;
+  final String? illustrationAsset;
 
   const _ScreeningCard({
     required this.icon,
@@ -94,6 +96,7 @@ class _ScreeningCard extends StatelessWidget {
     required this.description,
     required this.meta,
     required this.onTap,
+    this.illustrationAsset,
   });
 
   @override
@@ -125,7 +128,17 @@ class _ScreeningCard extends StatelessWidget {
                     color: iconBg,
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  child: Icon(icon, color: iconColor, size: 22),
+                  child: illustrationAsset == null
+                      ? Icon(icon, color: iconColor, size: 22)
+                      : Padding(
+                          padding: const EdgeInsets.all(6),
+                          child: Image.asset(
+                            illustrationAsset!,
+                            fit: BoxFit.contain,
+                            errorBuilder: (_, __, ___) =>
+                                Icon(icon, color: iconColor, size: 22),
+                          ),
+                        ),
                 ),
                 const SizedBox(width: 14),
                 Expanded(

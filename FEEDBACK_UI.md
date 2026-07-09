@@ -167,7 +167,7 @@ tiap langkah.
 - [x] **3. Tile bento penuh sesak (2 ikon)** — hapus chip ikon Material,
   jadikan ilustrasi GPT satu-satunya anchor visual (lebih besar,
   proporsional); teks boleh menyesuaikan (label ringkas tapi terpahami).
-- [ ] **4. Ikon layar Skrining diganti & KONSISTEN sampai layar tujuan** —
+- [x] **4. Ikon layar Skrining diganti & KONSISTEN sampai layar tujuan** —
   hub skrining pakai ilustrasi yang sama dengan bento
   (bento_preeklampsia/bento_skrining), dan layar intro/questionnaire tujuan
   menampilkan visual yang sama (identitas berkelanjutan, bukan ganti ikon).

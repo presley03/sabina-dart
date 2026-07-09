@@ -53,6 +53,8 @@ class PreeclampsiaScreeningScreen extends StatelessWidget {
                 icon: Icons.monitor_heart_outlined,
                 iconColor: SabinaColors.error700,
                 iconBg: SabinaColors.error100,
+                illustrationAsset:
+                    'assets/images/home/bento_preeklampsia.png',
                 title: l10n.preeclampsiaCardTitle,
                 description: l10n.preeclampsiaCardDesc,
                 meta: l10n.preeclampsiaMeta,
@@ -85,6 +87,7 @@ class _ScreeningCard extends StatelessWidget {
   final String description;
   final String meta;
   final VoidCallback onTap;
+  final String? illustrationAsset;
 
   const _ScreeningCard({
     required this.icon,
@@ -94,6 +97,7 @@ class _ScreeningCard extends StatelessWidget {
     required this.description,
     required this.meta,
     required this.onTap,
+    this.illustrationAsset,
   });
 
   @override
@@ -125,7 +129,17 @@ class _ScreeningCard extends StatelessWidget {
                     color: iconBg,
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  child: Icon(icon, color: iconColor, size: 22),
+                  child: illustrationAsset == null
+                      ? Icon(icon, color: iconColor, size: 22)
+                      : Padding(
+                          padding: const EdgeInsets.all(6),
+                          child: Image.asset(
+                            illustrationAsset!,
+                            fit: BoxFit.contain,
+                            errorBuilder: (_, __, ___) =>
+                                Icon(icon, color: iconColor, size: 22),
+                          ),
+                        ),
                 ),
                 const SizedBox(width: 14),
                 Expanded(
