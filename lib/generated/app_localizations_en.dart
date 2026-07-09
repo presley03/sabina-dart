@@ -1285,6 +1285,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'During pregnancy, it is important for pregnant women to consume a balanced diet to ensure the health of both the mother and the baby. Balanced nutrition consists of a diet that includes all the essential nutrients in the right amounts according to the body\'\'s needs.';
 
   @override
+  String get nutritionScreen_callout =>
+      'Proper nutrition is the foundation of maternal and fetal health — from forming the baby’s organs to maintaining the mother’s energy throughout pregnancy.';
+
+  @override
   String get nutritionScreen_carbohydrates_title => 'Carbohydrates';
 
   @override
@@ -1311,7 +1315,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get nutritionScreen_vitaminsAndMinerals_content =>
-      'Pregnant women need increased amounts of vitamins and minerals, especially iron, calcium, and folic acid, which are essential for blood cell and bone formation. These can be obtained from green vegetables, fruits, dairy products, and supplements if necessary.';
+      'Pregnant women need increased amounts of vitamins and minerals, especially ==iron==, ==calcium==, and ==folic acid==, which are essential for blood cell and bone formation. These can be obtained from green vegetables, fruits, dairy products, and supplements if necessary.';
 
   @override
   String get nutritionScreen_fiber_title => 'Fiber';
@@ -2549,6 +2553,93 @@ class AppLocalizationsEn extends AppLocalizations {
   String get imtObese => 'Obese';
 
   @override
+  String get imtNoData => 'No data yet — calculate your BMI';
+
+  @override
+  String get trimesterChecklistLabel => 'TRIMESTER TO-DO';
+
+  @override
+  String weekLabel(int week) {
+    return '$week weeks';
+  }
+
+  @override
+  String get checkT1_1 => 'Take folic acid & prenatal vitamins';
+
+  @override
+  String get checkT1_2 => 'First visit to doctor/midwife';
+
+  @override
+  String get checkT1_3 => 'Avoid alcohol, smoking & random medications';
+
+  @override
+  String get checkT2_1 => 'Morphology ultrasound (weeks 18–20)';
+
+  @override
+  String get checkT2_2 => 'Blood test & routine blood pressure check';
+
+  @override
+  String get checkT2_3 => 'Start light exercise & maintain healthy diet';
+
+  @override
+  String get checkT3_1 => 'Prepare hospital/birth bag';
+
+  @override
+  String get checkT3_2 => 'Discuss birth plan with your doctor';
+
+  @override
+  String get checkT3_3 => 'Monitor fetal movement every day';
+
+  @override
+  String get tipTagHidrasi => 'HYDRATION';
+
+  @override
+  String get tipHidrasi =>
+      'Drink 8–10 glasses of water a day. Staying hydrated supports fetal development and prevents leg cramps.';
+
+  @override
+  String get tipTagTidur => 'REST';
+
+  @override
+  String get tipTidur =>
+      'Sleeping on your left side improves blood flow to the baby and reduces pressure on your organs.';
+
+  @override
+  String get tipTagNutrisi => 'NUTRITION';
+
+  @override
+  String get tipNutrisi =>
+      'Eat more protein, iron, and calcium. Small frequent meals help ease nausea throughout the day.';
+
+  @override
+  String get tipTagAktivitas => 'ACTIVITY';
+
+  @override
+  String get tipAktivitas =>
+      'A 20–30 minute walk daily is enough to maintain stamina and prepare your body for labor.';
+
+  @override
+  String get tipTagStres => 'MENTAL HEALTH';
+
+  @override
+  String get tipStres =>
+      'Make time to relax. Excessive stress is harmful to the baby — deep breathing and adequate rest help.';
+
+  @override
+  String get tipTagKontrol => 'ROUTINE CHECK-UP';
+
+  @override
+  String get tipKontrol =>
+      'Never skip your doctor or midwife appointments. Early detection of pregnancy complications is crucial.';
+
+  @override
+  String get tipTagKeluarga => 'FAMILY SUPPORT';
+
+  @override
+  String get tipKeluarga =>
+      'Involve your partner in every step of the pregnancy. Emotional support from family matters greatly for mom and baby.';
+
+  @override
   String get articleTagNutrition => 'Nutrition';
 
   @override
@@ -2650,9 +2741,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pregnancyArticlesTitle => 'Pregnancy Articles';
-
-  @override
-  String get articleContentPlaceholder => 'Article content coming soon.';
 
   @override
   String get cautionLabel => 'CAUTION';
@@ -4005,4 +4093,474 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get penapisanQ11 =>
       'Have you ever had seizures during this pregnancy?';
+
+  @override
+  String get art1_title => 'Healthy Eating in the Second Trimester';
+
+  @override
+  String get art1_tagNutrisi => 'Nutrition';
+
+  @override
+  String get art1_tagTrimester2 => 'Trimester 2';
+
+  @override
+  String get art1_intro =>
+      'The second trimester is often called the \'golden period\' of pregnancy — morning sickness usually fades, energy starts to return, and your bump begins to show. It\'s also the perfect time to pay close attention to what\'s on your plate, as your baby is growing rapidly and needs more nutrients than ever before.';
+
+  @override
+  String get art1_callout =>
+      'A pregnant woman\'s calorie needs increase by around 340 kcal per day in the second trimester compared to before pregnancy. But the quality of food matters far more than the quantity.';
+
+  @override
+  String get art1_sectionNutrisi => 'Key Nutrients in Trimester 2';
+
+  @override
+  String get art1_item1_title => 'Protein for your baby\'s growth';
+
+  @override
+  String get art1_item1_content =>
+      'Protein is the main building block for your baby\'s cells and tissues. During this trimester, your protein needs increase by around 25 grams per day. Best sources: eggs, fish, chicken, tofu, tempeh, and legumes.';
+
+  @override
+  String get art1_item2_title => 'Calcium and vitamin D for strong bones';
+
+  @override
+  String get art1_item2_content =>
+      'Your baby\'s bones begin to harden significantly in the second trimester. Calcium from milk, yogurt, broccoli, and dried anchovies, combined with vitamin D from morning sunlight, supports optimal bone development.';
+
+  @override
+  String get art1_item3_title => 'Omega-3 for brain development';
+
+  @override
+  String get art1_item3_content =>
+      'Your baby\'s brain is developing very actively this trimester. DHA and EPA from salmon, anchovies, or fish oil supplements help support your baby\'s nervous system and vision development.';
+
+  @override
+  String get art1_item4_title => 'Iron to prevent anaemia';
+
+  @override
+  String get art1_item4_content =>
+      'Your blood volume increases by up to 50% during pregnancy, so your iron needs rise as well. Eat lean red meat, spinach, and kidney beans. Avoid drinking tea or coffee alongside iron-rich foods as they can inhibit absorption.';
+
+  @override
+  String get art1_item5_title => 'Fibre to keep digestion smooth';
+
+  @override
+  String get art1_item5_content =>
+      'Constipation is a common complaint in the second trimester due to hormonal changes and the expanding uterus. Green vegetables, fruits, and whole grains help keep your digestive system moving. Don\'t forget to drink enough water.';
+
+  @override
+  String get art1_sectionTips => 'Everyday Healthy Eating Tips';
+
+  @override
+  String get art1_tips_intro =>
+      'Eating well doesn\'t have to be complicated. A few small habits can make a big difference:';
+
+  @override
+  String get art1_tips_item1_title => 'Split meals into 5–6 smaller portions';
+
+  @override
+  String get art1_tips_item1_a =>
+      'Eating more frequently in smaller portions helps keep blood sugar levels stable';
+
+  @override
+  String get art1_tips_item1_b =>
+      'Avoid going too long on an empty stomach to prevent dizziness or fatigue';
+
+  @override
+  String get art1_tips_item1_c =>
+      'Sneak in healthy snacks like fruit, nuts, or yogurt between meals';
+
+  @override
+  String get art1_tips_item2_title => 'Stay well hydrated';
+
+  @override
+  String get art1_tips_item2_a =>
+      'Aim for 8–10 glasses of water per day to support blood volume and amniotic fluid';
+
+  @override
+  String get art1_tips_item2_b =>
+      'Plain water is the best choice; limit sugary and caffeinated drinks';
+
+  @override
+  String get art1_sectionRef => 'References';
+
+  @override
+  String get art1_ref1 =>
+      'World Health Organization (WHO). Nutrition during pregnancy. who.int';
+
+  @override
+  String get art1_ref2 =>
+      'American College of Obstetricians and Gynecologists (ACOG). Nutrition during pregnancy. acog.org';
+
+  @override
+  String get art1_ref3 =>
+      'Mayo Clinic. Pregnancy diet: Focus on these essential nutrients. mayoclinic.org';
+
+  @override
+  String get art2_title => 'Safe Exercise During Pregnancy';
+
+  @override
+  String get art2_tagAktivitas => 'Activity';
+
+  @override
+  String get art2_tagKesehatan => 'Health';
+
+  @override
+  String get art2_intro =>
+      'There used to be a belief that pregnant women should rest as much as possible and avoid physical activity. Research now proves otherwise — regular exercise done correctly is actually very beneficial for both mother and baby, from maintaining weight to preparing the body for labour.';
+
+  @override
+  String get art2_callout =>
+      'General guideline: 150 minutes of moderate-intensity aerobic activity per week is enough for healthy pregnant women — equivalent to 30 minutes of brisk walking 5 days a week.';
+
+  @override
+  String get art2_sectionJenis => 'Recommended Types of Exercise';
+
+  @override
+  String get art2_item1_title => 'Walking';
+
+  @override
+  String get art2_item1_a => 'The easiest and safest activity at any trimester';
+
+  @override
+  String get art2_item1_b =>
+      'Start with 15–20 minutes and gradually build up to 30 minutes';
+
+  @override
+  String get art2_item1_c => 'Wear comfortable shoes and avoid uneven surfaces';
+
+  @override
+  String get art2_item2_title => 'Prenatal exercise classes';
+
+  @override
+  String get art2_item2_a =>
+      'Designed specifically for pregnant women and safe at any stage of pregnancy';
+
+  @override
+  String get art2_item2_b =>
+      'Helps train pelvic muscles and breathing in preparation for labour';
+
+  @override
+  String get art2_item2_c =>
+      'Available in in-person classes or online video guides';
+
+  @override
+  String get art2_item3_title => 'Prenatal yoga';
+
+  @override
+  String get art2_item3_a =>
+      'Trains flexibility, balance, and breathing all at once';
+
+  @override
+  String get art2_item3_b =>
+      'Meditation movements help reduce anxiety and stress';
+
+  @override
+  String get art2_item3_c =>
+      'Choose a class led by a certified prenatal instructor';
+
+  @override
+  String get art2_item4_title => 'Swimming';
+
+  @override
+  String get art2_item4_a =>
+      'Water supports your body weight, making it very comfortable — especially in the third trimester';
+
+  @override
+  String get art2_item4_b =>
+      'Works the whole body without stressing the joints';
+
+  @override
+  String get art2_sectionPantangan => 'What to Avoid';
+
+  @override
+  String get art2_pantangan_callout =>
+      'Stop exercising immediately and contact your doctor if you experience chest pain, excessive breathlessness, dizziness, contractions, or fluid leaking from the vagina.';
+
+  @override
+  String get art2_pantangan1_title => 'Sports with a risk of falling or impact';
+
+  @override
+  String get art2_pantangan1_content =>
+      'Avoid sports such as road cycling, horse riding, skiing, or contact sports. The risk of falling or receiving a blow to the abdomen is very dangerous for the baby.';
+
+  @override
+  String get art2_pantangan2_title => 'Lying flat on your back for too long';
+
+  @override
+  String get art2_pantangan2_content =>
+      'After the first trimester, avoid exercises that require lying flat on your back for more than a few minutes. This position can compress the major blood vessel (inferior vena cava) and reduce blood flow to your baby.';
+
+  @override
+  String get art2_pantangan3_title => 'Exercising in hot or humid weather';
+
+  @override
+  String get art2_pantangan3_content =>
+      'A pregnant woman\'s body temperature rises more easily. Avoid exercising outdoors in hot weather, and make sure there is good ventilation when exercising indoors.';
+
+  @override
+  String get art2_sectionRef => 'References';
+
+  @override
+  String get art2_ref1 =>
+      'American College of Obstetricians and Gynecologists (ACOG). Exercise during pregnancy. acog.org';
+
+  @override
+  String get art2_ref2 =>
+      'Royal College of Obstetricians and Gynaecologists (RCOG). Exercise in pregnancy. rcog.org.uk';
+
+  @override
+  String get art2_ref3 =>
+      'Mayo Clinic. Pregnancy and exercise: Baby, let\'s move! mayoclinic.org';
+
+  @override
+  String get art3_title =>
+      'Tips for Sleeping Comfortably in the Third Trimester';
+
+  @override
+  String get art3_tagPerawatan => 'Self-care';
+
+  @override
+  String get art3_tagTrimester3 => 'Trimester 3';
+
+  @override
+  String get art3_intro =>
+      'The third trimester brings many body changes — your bump grows larger, your back starts to ache, and finding a comfortable sleeping position can feel like a challenge in itself. Sleep disturbances at this stage are very common, but that doesn\'t mean nothing can be done about them.';
+
+  @override
+  String get art3_callout =>
+      'Good, restful sleep is not a luxury — it\'s a basic need for pregnant women. Prolonged sleep deprivation can increase the risk of pregnancy complications and slow down recovery after birth.';
+
+  @override
+  String get art3_sectionPosisi => 'The Best Sleeping Positions';
+
+  @override
+  String get art3_item1_title =>
+      'Sleep on your left side (SOS — Sleep On Side)';
+
+  @override
+  String get art3_item1_content =>
+      'Sleeping on your left side is the most recommended position in the third trimester. It improves blood flow to the placenta and kidneys, and reduces pressure on your liver. If you wake up in a different position, just roll back to the left — don\'t worry too much if your position shifts during sleep.';
+
+  @override
+  String get art3_item2_title => 'Use extra pillows';
+
+  @override
+  String get art3_item2_content =>
+      'Place a pillow between your knees to keep your hips aligned and reduce back pain. A long body pillow or bolster can be a great sleeping companion. A thin pillow under your bump also helps support the weight of the baby.';
+
+  @override
+  String get art3_item3_title => 'Avoid lying flat on your back';
+
+  @override
+  String get art3_item3_content =>
+      'Lying flat on your back for extended periods in the third trimester can compress the inferior vena cava, which may cause dizziness, nausea, or reduced blood flow to your baby. If you occasionally wake up on your back, don\'t panic — just gently roll back onto your side.';
+
+  @override
+  String get art3_sectionTips => 'Tips for Better Sleep';
+
+  @override
+  String get art3_tips1_title => 'Create a consistent sleep routine';
+
+  @override
+  String get art3_tips1_a =>
+      'Go to bed and wake up at the same time every day, including weekends';
+
+  @override
+  String get art3_tips1_b =>
+      'Dim the lights 30–60 minutes before bed to signal to your body that it\'s time to rest';
+
+  @override
+  String get art3_tips1_c =>
+      'Avoid phone or tablet screens for at least 30 minutes before sleeping';
+
+  @override
+  String get art3_tips2_title => 'Manage complaints that disrupt sleep';
+
+  @override
+  String get art3_tips2_a =>
+      'For heartburn: eat dinner earlier, in smaller portions, and slightly elevate your head while sleeping';
+
+  @override
+  String get art3_tips2_b =>
+      'For leg cramps: do light calf stretches before bed and ensure you\'re getting enough calcium and magnesium';
+
+  @override
+  String get art3_tips2_c =>
+      'For frequent urination: reduce fluid intake 2 hours before bed, but make sure your total daily intake remains sufficient';
+
+  @override
+  String get art3_tips3_title => 'Keep your sleep environment comfortable';
+
+  @override
+  String get art3_tips3_a =>
+      'A cool room temperature (around 18–22°C) helps your body fall asleep more easily';
+
+  @override
+  String get art3_tips3_b =>
+      'Complete darkness or blackout curtains help stimulate melatonin production, your body\'s natural sleep hormone';
+
+  @override
+  String get art3_sectionRef => 'References';
+
+  @override
+  String get art3_ref1 =>
+      'National Sleep Foundation. Sleeping positions during pregnancy. sleepfoundation.org';
+
+  @override
+  String get art3_ref2 =>
+      'American College of Obstetricians and Gynecologists (ACOG). How to sleep comfortably during pregnancy. acog.org';
+
+  @override
+  String get art3_ref3 =>
+      'Mayo Clinic. Sleeping positions during pregnancy. mayoclinic.org';
+
+  @override
+  String get art4_title => 'Managing Stress During Pregnancy';
+
+  @override
+  String get art4_tagMentalHealth => 'Mental Health';
+
+  @override
+  String get art4_tagPerawatan => 'Self-care';
+
+  @override
+  String get art4_intro =>
+      'Feeling anxious, worried, or overwhelmed during pregnancy is completely human. Your body and emotions are going through enormous changes all at once, and it\'s natural to feel like it\'s a lot to handle. The goal isn\'t to eliminate stress entirely — it\'s to learn how to manage it in a healthy way.';
+
+  @override
+  String get art4_callout =>
+      'Mild to moderate stress is generally not harmful to your baby. However, severe, prolonged stress that goes unaddressed can increase the risk of preterm birth and low birth weight. Don\'t hesitate to ask for help.';
+
+  @override
+  String get art4_sectionTanda => 'Recognising Signs of Excessive Stress';
+
+  @override
+  String get art4_tanda_intro =>
+      'Stress in pregnant women can show up in many forms. Recognising it early is an important first step:';
+
+  @override
+  String get art4_tanda1_title => 'Physical signs';
+
+  @override
+  String get art4_tanda1_content =>
+      'Frequent headaches, tension in the shoulders and neck, sleep disturbances, dramatic changes in appetite, or heart palpitations without an obvious cause.';
+
+  @override
+  String get art4_tanda2_title => 'Emotional signs';
+
+  @override
+  String get art4_tanda2_content =>
+      'Crying easily, feeling helpless, frequent unexplained irritability, difficulty concentrating, or losing interest in things that used to bring you joy.';
+
+  @override
+  String get art4_tanda3_title => 'Behavioural signs';
+
+  @override
+  String get art4_tanda3_content =>
+      'Withdrawing from people close to you, avoiding social activities, or on the other hand, staying overly busy to distract yourself — both can be signs that stress needs attention.';
+
+  @override
+  String get art4_sectionCara => 'Healthy Ways to Manage Stress';
+
+  @override
+  String get art4_cara1_title => 'Relaxation techniques';
+
+  @override
+  String get art4_cara1_a =>
+      'Deep breathing: inhale for 4 counts, hold for 4, exhale for 6 — repeat 5–10 times';
+
+  @override
+  String get art4_cara1_b =>
+      '10 minutes of meditation or mindfulness each morning helps calm your mind before the day begins';
+
+  @override
+  String get art4_cara1_c =>
+      'Prenatal yoga combines gentle movement with breathing techniques that are highly effective for easing anxiety';
+
+  @override
+  String get art4_cara2_title => 'Stay physically active';
+
+  @override
+  String get art4_cara2_a =>
+      'A 20–30 minute daily walk has been shown to boost endorphin levels and improve mood';
+
+  @override
+  String get art4_cara2_b =>
+      'Choose activities you genuinely enjoy — not ones that feel like a chore';
+
+  @override
+  String get art4_cara3_title => 'Build a support system';
+
+  @override
+  String get art4_cara3_a =>
+      'Share your feelings with your partner, parents, or a trusted friend — sharing the load makes everything feel lighter';
+
+  @override
+  String get art4_cara3_b =>
+      'Join a pregnancy community or mothers\' group to share experiences and support one another';
+
+  @override
+  String get art4_cara3_c =>
+      'Don\'t hesitate to ask for practical help — cooking, shopping, or housework — that\'s not a sign of weakness';
+
+  @override
+  String get art4_cara4_title => 'Look after the basics';
+
+  @override
+  String get art4_cara4_a =>
+      'Enough sleep, regular meals, and adequate hydration are the foundations of mental wellbeing that are often underestimated';
+
+  @override
+  String get art4_cara4_b =>
+      'If stress feels very heavy or has lasted more than 2 weeks, talk to your midwife or doctor — seeking professional help is a wise choice';
+
+  @override
+  String get art4_sectionRef => 'References';
+
+  @override
+  String get art4_ref1 =>
+      'American Psychological Association (APA). Stress and pregnancy. apa.org';
+
+  @override
+  String get art4_ref2 =>
+      'March of Dimes. Stress and pregnancy. marchofdimes.org';
+
+  @override
+  String get art4_ref3 => 'NHS. Mental health in pregnancy. nhs.uk';
+
+  @override
+  String get historyTitle => 'Examination History';
+
+  @override
+  String get historyMenuLabel => 'Examination History';
+
+  @override
+  String get historyEmptyTitle => 'No history yet';
+
+  @override
+  String get historyEmptyDesc =>
+      'Every screening and symptom questionnaire you complete will be recorded here.';
+
+  @override
+  String get timeJustNow => 'Just now';
+
+  @override
+  String timeHoursAgo(int hours) {
+    return '${hours}h ago';
+  }
+
+  @override
+  String get timeYesterday => 'Yesterday';
+
+  @override
+  String timeDaysAgo(int days) {
+    return '${days}d ago';
+  }
+
+  @override
+  String timeMonthsAgo(int months) {
+    return '${months}mo ago';
+  }
 }

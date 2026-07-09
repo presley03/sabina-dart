@@ -2348,6 +2348,12 @@ abstract class AppLocalizations {
   /// **'Selama kehamilan, penting bagi ibu hamil untuk mengonsumsi makanan dengan gizi seimbang agar kesehatan ibu dan janin tetap optimal. Gizi seimbang adalah pola makan yang mengandung semua zat gizi penting dalam jumlah yang tepat sesuai kebutuhan tubuh.'**
   String get nutritionScreen_introduction;
 
+  /// Pesan kunci tentang pentingnya nutrisi selama kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Nutrisi yang tepat menjadi fondasi utama kesehatan ibu dan janin — mulai dari pembentukan organ bayi hingga menjaga energi ibu sepanjang kehamilan.'**
+  String get nutritionScreen_callout;
+
   /// Judul untuk bagian karbohidrat
   ///
   /// In id, this message translates to:
@@ -2393,7 +2399,7 @@ abstract class AppLocalizations {
   /// Penjelasan tentang vitamin dan mineral serta sumbernya
   ///
   /// In id, this message translates to:
-  /// **'Ibu hamil membutuhkan vitamin dan mineral lebih banyak, terutama zat besi, kalsium, dan asam folat yang berperan penting dalam pembentukan sel darah dan tulang. Ini bisa didapat dari sayuran hijau, buah-buahan, susu, dan suplemen jika diperlukan.'**
+  /// **'Ibu hamil membutuhkan vitamin dan mineral lebih banyak, terutama ==zat besi==, ==kalsium==, dan ==asam folat== yang berperan penting dalam pembentukan sel darah dan tulang. Ini bisa didapat dari sayuran hijau, buah-buahan, susu, dan suplemen jika diperlukan.'**
   String get nutritionScreen_vitaminsAndMinerals_content;
 
   /// Judul untuk bagian serat
@@ -4556,6 +4562,162 @@ abstract class AppLocalizations {
   /// **'Obesitas'**
   String get imtObese;
 
+  /// Teks saat IMT belum pernah dihitung
+  ///
+  /// In id, this message translates to:
+  /// **'Belum ada data — hitung IMT kamu'**
+  String get imtNoData;
+
+  /// Label header checklist trimester
+  ///
+  /// In id, this message translates to:
+  /// **'TO-DO TRIMESTER'**
+  String get trimesterChecklistLabel;
+
+  /// Label minggu kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'{week} minggu'**
+  String weekLabel(int week);
+
+  /// Checklist trimester 1 item 1
+  ///
+  /// In id, this message translates to:
+  /// **'Konsumsi asam folat & vitamin prenatal'**
+  String get checkT1_1;
+
+  /// Checklist trimester 1 item 2
+  ///
+  /// In id, this message translates to:
+  /// **'Kunjungan pertama ke dokter/bidan'**
+  String get checkT1_2;
+
+  /// Checklist trimester 1 item 3
+  ///
+  /// In id, this message translates to:
+  /// **'Hindari alkohol, rokok & obat sembarangan'**
+  String get checkT1_3;
+
+  /// Checklist trimester 2 item 1
+  ///
+  /// In id, this message translates to:
+  /// **'USG morfologi (minggu 18–20)'**
+  String get checkT2_1;
+
+  /// Checklist trimester 2 item 2
+  ///
+  /// In id, this message translates to:
+  /// **'Tes darah & cek tekanan darah rutin'**
+  String get checkT2_2;
+
+  /// Checklist trimester 2 item 3
+  ///
+  /// In id, this message translates to:
+  /// **'Mulai latihan ringan & jaga pola makan'**
+  String get checkT2_3;
+
+  /// Checklist trimester 3 item 1
+  ///
+  /// In id, this message translates to:
+  /// **'Siapkan tas persalinan'**
+  String get checkT3_1;
+
+  /// Checklist trimester 3 item 2
+  ///
+  /// In id, this message translates to:
+  /// **'Diskusikan rencana persalinan dengan dokter'**
+  String get checkT3_2;
+
+  /// Checklist trimester 3 item 3
+  ///
+  /// In id, this message translates to:
+  /// **'Perhatikan gerakan janin setiap hari'**
+  String get checkT3_3;
+
+  /// Tag kartu tips: hidrasi
+  ///
+  /// In id, this message translates to:
+  /// **'HIDRASI'**
+  String get tipTagHidrasi;
+
+  /// Tips hidrasi untuk ibu hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Minum 8–10 gelas air sehari. Cairan yang cukup membantu perkembangan janin dan mencegah kram kaki.'**
+  String get tipHidrasi;
+
+  /// Tag kartu tips: tidur
+  ///
+  /// In id, this message translates to:
+  /// **'ISTIRAHAT'**
+  String get tipTagTidur;
+
+  /// Tips tidur untuk ibu hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Tidur miring ke kiri meningkatkan aliran darah ke janin dan mengurangi tekanan pada organ tubuh.'**
+  String get tipTidur;
+
+  /// Tag kartu tips: nutrisi
+  ///
+  /// In id, this message translates to:
+  /// **'NUTRISI'**
+  String get tipTagNutrisi;
+
+  /// Tips nutrisi untuk ibu hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Perbanyak protein, zat besi, dan kalsium. Makan dalam porsi kecil tapi sering agar tidak mual.'**
+  String get tipNutrisi;
+
+  /// Tag kartu tips: aktivitas
+  ///
+  /// In id, this message translates to:
+  /// **'AKTIVITAS'**
+  String get tipTagAktivitas;
+
+  /// Tips aktivitas fisik untuk ibu hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Jalan kaki 20–30 menit sehari cukup untuk menjaga stamina dan mempersiapkan tubuh untuk persalinan.'**
+  String get tipAktivitas;
+
+  /// Tag kartu tips: stres
+  ///
+  /// In id, this message translates to:
+  /// **'KESEHATAN MENTAL'**
+  String get tipTagStres;
+
+  /// Tips manajemen stres untuk ibu hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Luangkan waktu untuk relaksasi. Stres berlebihan tidak baik untuk janin — napas dalam dan istirahat cukup.'**
+  String get tipStres;
+
+  /// Tag kartu tips: kontrol
+  ///
+  /// In id, this message translates to:
+  /// **'KONTROL RUTIN'**
+  String get tipTagKontrol;
+
+  /// Tips kontrol rutin untuk ibu hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Jangan lewatkan jadwal kontrol ke dokter atau bidan. Deteksi dini masalah kehamilan sangat penting.'**
+  String get tipKontrol;
+
+  /// Tag kartu tips: keluarga
+  ///
+  /// In id, this message translates to:
+  /// **'DUKUNGAN KELUARGA'**
+  String get tipTagKeluarga;
+
+  /// Tips dukungan keluarga untuk ibu hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Libatkan pasangan dalam setiap proses kehamilan. Dukungan emosional keluarga sangat berarti bagi ibu dan janin.'**
+  String get tipKeluarga;
+
   /// Tag artikel: nutrisi
   ///
   /// In id, this message translates to:
@@ -4747,12 +4909,6 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Artikel Kehamilan'**
   String get pregnancyArticlesTitle;
-
-  /// Placeholder konten artikel
-  ///
-  /// In id, this message translates to:
-  /// **'Konten artikel akan segera tersedia.'**
-  String get articleContentPlaceholder;
 
   /// Label kartu peringatan pada layar keluhan
   ///
@@ -7135,6 +7291,792 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Apakah pernah mengalami kejang-kejang pada kehamilan ini?'**
   String get penapisanQ11;
+
+  /// Judul artikel 1 – makanan sehat trimester 2
+  ///
+  /// In id, this message translates to:
+  /// **'Makanan Sehat di Trimester Kedua'**
+  String get art1_title;
+
+  /// Tag artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Nutrisi'**
+  String get art1_tagNutrisi;
+
+  /// Tag artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester 2'**
+  String get art1_tagTrimester2;
+
+  /// Paragraf pembuka artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester kedua sering disebut \'masa emas\' kehamilan — mual biasanya mereda, energi mulai kembali, dan perut mulai terasa membesar. Ini juga saat yang tepat untuk memperhatikan apa yang masuk ke piring Anda, karena janin tumbuh pesat dan membutuhkan lebih banyak nutrisi dari sebelumnya.'**
+  String get art1_intro;
+
+  /// Callout artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Kebutuhan kalori ibu hamil trimester kedua meningkat sekitar 340 kkal per hari dibanding sebelum hamil. Tapi kualitas makanan jauh lebih penting dari kuantitasnya.'**
+  String get art1_callout;
+
+  /// Judul seksi nutrisi artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Nutrisi Penting di Trimester 2'**
+  String get art1_sectionNutrisi;
+
+  /// Judul item 1 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Protein untuk tumbuh kembang janin'**
+  String get art1_item1_title;
+
+  /// Konten item 1 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Protein adalah bahan baku utama pembentukan sel dan jaringan tubuh bayi. Di trimester ini, kebutuhan protein meningkat sekitar 25 gram per hari. Sumber terbaik: telur, ikan, ayam, tahu, tempe, dan kacang-kacangan.'**
+  String get art1_item1_content;
+
+  /// Judul item 2 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Kalsium dan vitamin D untuk tulang kuat'**
+  String get art1_item2_title;
+
+  /// Konten item 2 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Tulang bayi mulai mengeras secara signifikan di trimester kedua. Kalsium dari susu, yogurt, brokoli, dan ikan teri, dipadukan dengan vitamin D dari paparan matahari pagi, membantu pembentukan tulang yang optimal.'**
+  String get art1_item2_content;
+
+  /// Judul item 3 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Omega-3 untuk perkembangan otak'**
+  String get art1_item3_title;
+
+  /// Konten item 3 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Otak bayi berkembang sangat aktif di trimester ini. DHA dan EPA dari ikan salmon, ikan teri, atau suplemen minyak ikan membantu perkembangan sistem saraf dan penglihatan bayi.'**
+  String get art1_item3_content;
+
+  /// Judul item 4 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Zat besi untuk mencegah anemia'**
+  String get art1_item4_title;
+
+  /// Konten item 4 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Volume darah ibu meningkat hingga 50% selama kehamilan, sehingga kebutuhan zat besi pun naik. Konsumsi daging merah tanpa lemak, bayam, dan kacang merah. Minum teh atau kopi bersamaan dengan makanan kaya zat besi sebaiknya dihindari karena dapat menghambat penyerapannya.'**
+  String get art1_item4_content;
+
+  /// Judul item 5 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Serat untuk pencernaan lancar'**
+  String get art1_item5_title;
+
+  /// Konten item 5 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Sembelit adalah keluhan umum di trimester kedua akibat perubahan hormon dan rahim yang membesar. Sayuran hijau, buah-buahan, dan biji-bijian utuh membantu melancarkan pencernaan. Jangan lupa minum air yang cukup.'**
+  String get art1_item5_content;
+
+  /// Judul seksi tips artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Tips Makan Sehat Sehari-hari'**
+  String get art1_sectionTips;
+
+  /// Intro tips artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Makan sehat bukan berarti harus rumit. Beberapa kebiasaan kecil ini bisa membuat perbedaan besar:'**
+  String get art1_tips_intro;
+
+  /// Judul tips 1 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Bagi makan jadi 5–6 porsi kecil'**
+  String get art1_tips_item1_title;
+
+  /// Tips 1a artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Makan lebih sering dengan porsi kecil membantu menjaga kadar gula darah tetap stabil'**
+  String get art1_tips_item1_a;
+
+  /// Tips 1b artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Hindari perut kosong terlalu lama agar tidak pusing atau lemas'**
+  String get art1_tips_item1_b;
+
+  /// Tips 1c artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Selipkan camilan sehat seperti buah, kacang, atau yogurt di antara waktu makan'**
+  String get art1_tips_item1_c;
+
+  /// Judul tips 2 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Minum cukup air'**
+  String get art1_tips_item2_title;
+
+  /// Tips 2a artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Targetkan 8–10 gelas air per hari untuk mendukung volume darah dan cairan ketuban'**
+  String get art1_tips_item2_a;
+
+  /// Tips 2b artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Air putih adalah pilihan terbaik; hindari minuman manis dan berkafein berlebihan'**
+  String get art1_tips_item2_b;
+
+  /// Judul seksi referensi artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Referensi'**
+  String get art1_sectionRef;
+
+  /// Referensi 1 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'World Health Organization (WHO). Nutrition during pregnancy. who.int'**
+  String get art1_ref1;
+
+  /// Referensi 2 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'American College of Obstetricians and Gynecologists (ACOG). Nutrition during pregnancy. acog.org'**
+  String get art1_ref2;
+
+  /// Referensi 3 artikel 1
+  ///
+  /// In id, this message translates to:
+  /// **'Mayo Clinic. Pregnancy diet: Focus on these essential nutrients. mayoclinic.org'**
+  String get art1_ref3;
+
+  /// Judul artikel 2 – olahraga saat hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Olahraga Aman Saat Hamil'**
+  String get art2_title;
+
+  /// Tag artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Aktivitas'**
+  String get art2_tagAktivitas;
+
+  /// Tag artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Kesehatan'**
+  String get art2_tagKesehatan;
+
+  /// Paragraf pembuka artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Dulu ada anggapan bahwa ibu hamil harus banyak istirahat dan menghindari aktivitas fisik. Kini penelitian membuktikan sebaliknya — olahraga teratur yang dilakukan dengan benar justru sangat bermanfaat bagi ibu dan janin, mulai dari menjaga berat badan hingga mempersiapkan tubuh untuk persalinan.'**
+  String get art2_intro;
+
+  /// Callout artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Panduan umum: 150 menit aktivitas aerobik intensitas sedang per minggu sudah cukup bagi ibu hamil yang sehat. Setara dengan 30 menit berjalan kaki 5 hari seminggu.'**
+  String get art2_callout;
+
+  /// Judul seksi jenis olahraga artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Jenis Olahraga yang Dianjurkan'**
+  String get art2_sectionJenis;
+
+  /// Judul item 1 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Jalan kaki'**
+  String get art2_item1_title;
+
+  /// Item 1a artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Aktivitas paling mudah dan aman di semua trimester'**
+  String get art2_item1_a;
+
+  /// Item 1b artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Mulai dari 15–20 menit, tingkatkan secara bertahap hingga 30 menit'**
+  String get art2_item1_b;
+
+  /// Item 1c artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Gunakan sepatu yang nyaman dan hindari permukaan yang tidak rata'**
+  String get art2_item1_c;
+
+  /// Judul item 2 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Senam hamil'**
+  String get art2_item2_title;
+
+  /// Item 2a artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Dirancang khusus untuk ibu hamil, aman untuk semua usia kehamilan'**
+  String get art2_item2_a;
+
+  /// Item 2b artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Membantu melatih otot panggul dan pernapasan untuk persiapan persalinan'**
+  String get art2_item2_b;
+
+  /// Item 2c artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Tersedia dalam kelas tatap muka maupun video panduan online'**
+  String get art2_item2_c;
+
+  /// Judul item 3 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Yoga prenatal'**
+  String get art2_item3_title;
+
+  /// Item 3a artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Melatih kelenturan, keseimbangan, dan pernapasan sekaligus'**
+  String get art2_item3_a;
+
+  /// Item 3b artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Gerakan meditasi membantu mengurangi kecemasan dan stres'**
+  String get art2_item3_b;
+
+  /// Item 3c artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih kelas yang dipimpin instruktur bersertifikat prenatal'**
+  String get art2_item3_c;
+
+  /// Judul item 4 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Berenang'**
+  String get art2_item4_title;
+
+  /// Item 4a artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Air menopang berat tubuh sehingga sangat nyaman, terutama di trimester ketiga'**
+  String get art2_item4_a;
+
+  /// Item 4b artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Melatih otot seluruh tubuh tanpa membebani sendi'**
+  String get art2_item4_b;
+
+  /// Judul seksi pantangan artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Yang Perlu Dihindari'**
+  String get art2_sectionPantangan;
+
+  /// Callout peringatan artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Segera hentikan olahraga dan hubungi dokter jika mengalami nyeri dada, sesak napas berlebihan, pusing, kontraksi, atau keluar cairan dari vagina.'**
+  String get art2_pantangan_callout;
+
+  /// Pantangan 1 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Olahraga dengan risiko jatuh atau benturan'**
+  String get art2_pantangan1_title;
+
+  /// Konten pantangan 1 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Hindari olahraga seperti bersepeda di jalan raya, berkuda, ski, atau olahraga kontak fisik. Risiko jatuh dan benturan ke perut sangat berbahaya bagi janin.'**
+  String get art2_pantangan1_content;
+
+  /// Pantangan 2 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Berbaring telentang terlalu lama'**
+  String get art2_pantangan2_title;
+
+  /// Konten pantangan 2 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Setelah trimester pertama, hindari gerakan yang mengharuskan berbaring telentang lebih dari beberapa menit. Posisi ini bisa menekan pembuluh darah besar dan mengurangi aliran darah ke janin.'**
+  String get art2_pantangan2_content;
+
+  /// Pantangan 3 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Olahraga di cuaca panas atau lembap'**
+  String get art2_pantangan3_title;
+
+  /// Konten pantangan 3 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Suhu tubuh ibu hamil lebih mudah naik. Hindari berolahraga di luar ruangan saat cuaca terik, dan pastikan ada ventilasi yang baik jika berolahraga di dalam ruangan.'**
+  String get art2_pantangan3_content;
+
+  /// Judul seksi referensi artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Referensi'**
+  String get art2_sectionRef;
+
+  /// Referensi 1 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'American College of Obstetricians and Gynecologists (ACOG). Exercise during pregnancy. acog.org'**
+  String get art2_ref1;
+
+  /// Referensi 2 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Royal College of Obstetricians and Gynaecologists (RCOG). Exercise in pregnancy. rcog.org.uk'**
+  String get art2_ref2;
+
+  /// Referensi 3 artikel 2
+  ///
+  /// In id, this message translates to:
+  /// **'Mayo Clinic. Pregnancy and exercise: Baby, let\'s move! mayoclinic.org'**
+  String get art2_ref3;
+
+  /// Judul artikel 3 – tidur nyaman trimester 3
+  ///
+  /// In id, this message translates to:
+  /// **'Tips Tidur Nyaman di Trimester Ketiga'**
+  String get art3_title;
+
+  /// Tag artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Perawatan'**
+  String get art3_tagPerawatan;
+
+  /// Tag artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester 3'**
+  String get art3_tagTrimester3;
+
+  /// Paragraf pembuka artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Trimester ketiga membawa banyak perubahan pada tubuh — perut semakin besar, punggung mulai terasa berat, dan mencari posisi tidur yang nyaman bisa terasa seperti pekerjaan tersendiri. Gangguan tidur di trimester ini sangat umum, tapi bukan berarti tidak bisa diatasi.'**
+  String get art3_intro;
+
+  /// Callout artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Tidur yang cukup dan berkualitas bukan kemewahan — ini kebutuhan dasar ibu hamil. Kurang tidur berkepanjangan dapat meningkatkan risiko komplikasi kehamilan dan memperlama proses pemulihan setelah melahirkan.'**
+  String get art3_callout;
+
+  /// Judul seksi posisi tidur artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Posisi Tidur Terbaik'**
+  String get art3_sectionPosisi;
+
+  /// Judul item 1 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Tidur miring ke kiri (SOS — Sleep On Side)'**
+  String get art3_item1_title;
+
+  /// Konten item 1 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Posisi tidur miring kiri adalah yang paling dianjurkan di trimester ketiga. Posisi ini meningkatkan aliran darah ke plasenta dan ginjal, serta mengurangi tekanan pada hati. Jika terbangun dalam posisi lain, cukup balik ke kiri — jangan terlalu khawatir jika posisi berubah saat tidur.'**
+  String get art3_item1_content;
+
+  /// Judul item 2 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Gunakan bantal tambahan'**
+  String get art3_item2_title;
+
+  /// Konten item 2 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Selipkan bantal di antara lutut untuk menjaga tulang pinggul tetap sejajar dan mengurangi nyeri punggung. Bantal panjang (body pillow) atau guling bisa menjadi teman tidur yang nyaman. Bantal tipis di bawah perut juga membantu menopang berat janin.'**
+  String get art3_item2_content;
+
+  /// Judul item 3 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Hindari tidur telentang'**
+  String get art3_item3_title;
+
+  /// Konten item 3 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Tidur telentang dalam waktu lama di trimester ketiga dapat menekan pembuluh darah besar (vena cava inferior), yang bisa menyebabkan pusing, mual, atau berkurangnya aliran darah ke janin. Jika sesekali terbangun dalam posisi telentang, tidak perlu panik — segera balikkan tubuh ke posisi miring.'**
+  String get art3_item3_content;
+
+  /// Judul seksi tips artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Tips Mendapatkan Tidur yang Lebih Baik'**
+  String get art3_sectionTips;
+
+  /// Judul tips 1 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Ciptakan rutinitas tidur yang konsisten'**
+  String get art3_tips1_title;
+
+  /// Tips 1a artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Tidur dan bangun di jam yang sama setiap hari, termasuk akhir pekan'**
+  String get art3_tips1_a;
+
+  /// Tips 1b artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Redupkan lampu 30–60 menit sebelum tidur untuk memberi sinyal kepada tubuh bahwa sudah waktunya beristirahat'**
+  String get art3_tips1_b;
+
+  /// Tips 1c artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Hindari layar ponsel atau tablet setidaknya 30 menit sebelum tidur'**
+  String get art3_tips1_c;
+
+  /// Judul tips 2 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Kelola keluhan yang mengganggu tidur'**
+  String get art3_tips2_title;
+
+  /// Tips 2a artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Untuk nyeri ulu hati (heartburn): makan malam lebih awal, porsi lebih kecil, dan tinggikan posisi kepala sedikit saat tidur'**
+  String get art3_tips2_a;
+
+  /// Tips 2b artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Untuk kram kaki: lakukan peregangan betis ringan sebelum tidur dan pastikan asupan kalsium dan magnesium cukup'**
+  String get art3_tips2_b;
+
+  /// Tips 2c artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Untuk sering buang air kecil: kurangi minum cairan 2 jam sebelum tidur, tapi pastikan total asupan harian tetap cukup'**
+  String get art3_tips2_c;
+
+  /// Judul tips 3 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Jaga lingkungan tidur tetap nyaman'**
+  String get art3_tips3_title;
+
+  /// Tips 3a artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Suhu kamar yang sejuk (sekitar 18–22°C) membantu tubuh lebih mudah tertidur'**
+  String get art3_tips3_a;
+
+  /// Tips 3b artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Kegelapan total atau tirai tebal membantu merangsang produksi melatonin, hormon tidur alami tubuh'**
+  String get art3_tips3_b;
+
+  /// Judul seksi referensi artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Referensi'**
+  String get art3_sectionRef;
+
+  /// Referensi 1 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'National Sleep Foundation. Sleeping positions during pregnancy. sleepfoundation.org'**
+  String get art3_ref1;
+
+  /// Referensi 2 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'American College of Obstetricians and Gynecologists (ACOG). How to sleep comfortably during pregnancy. acog.org'**
+  String get art3_ref2;
+
+  /// Referensi 3 artikel 3
+  ///
+  /// In id, this message translates to:
+  /// **'Mayo Clinic. Sleeping positions during pregnancy. mayoclinic.org'**
+  String get art3_ref3;
+
+  /// Judul artikel 4 – mengelola stres kehamilan
+  ///
+  /// In id, this message translates to:
+  /// **'Mengelola Stres Selama Kehamilan'**
+  String get art4_title;
+
+  /// Tag artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Kesehatan Mental'**
+  String get art4_tagMentalHealth;
+
+  /// Tag artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Perawatan'**
+  String get art4_tagPerawatan;
+
+  /// Paragraf pembuka artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Merasa cemas, khawatir, atau kewalahan selama kehamilan adalah hal yang sangat manusiawi. Tubuh dan emosi mengalami perubahan besar sekaligus, dan itu wajar membuat siapa pun merasa kewalahan. Yang penting bukan menghilangkan stres sepenuhnya, tapi belajar mengelolanya dengan cara yang sehat.'**
+  String get art4_intro;
+
+  /// Callout artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Stres ringan hingga sedang umumnya tidak berbahaya bagi janin. Namun stres berat yang berlangsung lama — terutama yang tidak ditangani — dapat meningkatkan risiko kelahiran prematur dan berat badan lahir rendah. Jangan ragu meminta bantuan.'**
+  String get art4_callout;
+
+  /// Judul seksi tanda stres artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Kenali Tanda Stres Berlebihan'**
+  String get art4_sectionTanda;
+
+  /// Intro tanda stres artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Stres pada ibu hamil bisa muncul dalam berbagai bentuk. Mengenalinya lebih awal adalah langkah pertama yang penting:'**
+  String get art4_tanda_intro;
+
+  /// Judul tanda 1 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Tanda fisik'**
+  String get art4_tanda1_title;
+
+  /// Konten tanda 1 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Sakit kepala yang sering, ketegangan di otot bahu dan leher, gangguan tidur, nafsu makan berubah drastis, atau jantung berdebar tanpa sebab jelas.'**
+  String get art4_tanda1_content;
+
+  /// Judul tanda 2 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Tanda emosional'**
+  String get art4_tanda2_title;
+
+  /// Konten tanda 2 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Mudah menangis, merasa tidak berdaya, sering marah tanpa alasan jelas, sulit berkonsentrasi, atau kehilangan minat pada hal-hal yang biasanya menyenangkan.'**
+  String get art4_tanda2_content;
+
+  /// Judul tanda 3 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Tanda perilaku'**
+  String get art4_tanda3_title;
+
+  /// Konten tanda 3 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Menarik diri dari orang-orang terdekat, menghindari aktivitas sosial, atau justru terlalu sibuk untuk mengalihkan pikiran — keduanya bisa menjadi tanda bahwa stres perlu diperhatikan.'**
+  String get art4_tanda3_content;
+
+  /// Judul seksi cara mengelola stres artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Cara Mengelola Stres dengan Sehat'**
+  String get art4_sectionCara;
+
+  /// Judul cara 1 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Teknik relaksasi'**
+  String get art4_cara1_title;
+
+  /// Cara 1a artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Pernapasan dalam: tarik napas 4 hitungan, tahan 4 hitungan, hembuskan 6 hitungan — ulangi 5–10 kali'**
+  String get art4_cara1_a;
+
+  /// Cara 1b artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Meditasi atau mindfulness 10 menit setiap pagi membantu menenangkan pikiran sebelum hari dimulai'**
+  String get art4_cara1_b;
+
+  /// Cara 1c artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Yoga prenatal menggabungkan gerakan fisik ringan dengan teknik pernapasan yang sangat efektif untuk meredakan kecemasan'**
+  String get art4_cara1_c;
+
+  /// Judul cara 2 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Tetap aktif secara fisik'**
+  String get art4_cara2_title;
+
+  /// Cara 2a artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Berjalan kaki 20–30 menit sehari terbukti meningkatkan kadar endorfin dan memperbaiki suasana hati'**
+  String get art4_cara2_a;
+
+  /// Cara 2b artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih aktivitas yang menyenangkan dan tidak terasa seperti beban — bukan sekadar kewajiban'**
+  String get art4_cara2_b;
+
+  /// Judul cara 3 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Bangun sistem dukungan'**
+  String get art4_cara3_title;
+
+  /// Cara 3a artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Ceritakan perasaan kepada pasangan, orang tua, atau sahabat yang dipercaya — berbagi beban membuat segalanya terasa lebih ringan'**
+  String get art4_cara3_a;
+
+  /// Cara 3b artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Bergabung dengan komunitas atau grup ibu hamil untuk berbagi pengalaman dan saling mendukung'**
+  String get art4_cara3_b;
+
+  /// Cara 3c artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Jangan ragu meminta bantuan praktis — memasak, belanja, atau pekerjaan rumah — itu bukan tanda kelemahan'**
+  String get art4_cara3_c;
+
+  /// Judul cara 4 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Jaga kesehatan dasar'**
+  String get art4_cara4_title;
+
+  /// Cara 4a artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Tidur cukup, makan teratur, dan minum air yang cukup adalah fondasi kesehatan mental yang sering diremehkan'**
+  String get art4_cara4_a;
+
+  /// Cara 4b artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Jika stres terasa sangat berat atau berlangsung lebih dari 2 minggu, bicarakan dengan bidan atau dokter — bantuan profesional adalah pilihan yang bijak'**
+  String get art4_cara4_b;
+
+  /// Judul seksi referensi artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'Referensi'**
+  String get art4_sectionRef;
+
+  /// Referensi 1 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'American Psychological Association (APA). Stress and pregnancy. apa.org'**
+  String get art4_ref1;
+
+  /// Referensi 2 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'March of Dimes. Stress and pregnancy. marchofdimes.org'**
+  String get art4_ref2;
+
+  /// Referensi 3 artikel 4
+  ///
+  /// In id, this message translates to:
+  /// **'NHS. Mental health in pregnancy. nhs.uk'**
+  String get art4_ref3;
+
+  /// Judul layar riwayat pemeriksaan
+  ///
+  /// In id, this message translates to:
+  /// **'Riwayat Pemeriksaan'**
+  String get historyTitle;
+
+  /// Label menu jalan masuk ke riwayat di profil
+  ///
+  /// In id, this message translates to:
+  /// **'Riwayat Pemeriksaan'**
+  String get historyMenuLabel;
+
+  /// Judul kondisi kosong layar riwayat
+  ///
+  /// In id, this message translates to:
+  /// **'Belum ada riwayat'**
+  String get historyEmptyTitle;
+
+  /// Deskripsi kondisi kosong layar riwayat
+  ///
+  /// In id, this message translates to:
+  /// **'Setiap hasil skrining dan kuesioner keluhan yang kamu selesaikan akan tercatat di sini.'**
+  String get historyEmptyDesc;
+
+  /// Waktu relatif: baru saja
+  ///
+  /// In id, this message translates to:
+  /// **'Baru saja'**
+  String get timeJustNow;
+
+  /// Waktu relatif: sekian jam lalu
+  ///
+  /// In id, this message translates to:
+  /// **'{hours} jam lalu'**
+  String timeHoursAgo(int hours);
+
+  /// Waktu relatif: kemarin
+  ///
+  /// In id, this message translates to:
+  /// **'Kemarin'**
+  String get timeYesterday;
+
+  /// Waktu relatif: sekian hari lalu
+  ///
+  /// In id, this message translates to:
+  /// **'{days} hari lalu'**
+  String timeDaysAgo(int days);
+
+  /// Waktu relatif: sekian bulan lalu
+  ///
+  /// In id, this message translates to:
+  /// **'{months} bulan lalu'**
+  String timeMonthsAgo(int months);
 }
 
 class _AppLocalizationsDelegate
