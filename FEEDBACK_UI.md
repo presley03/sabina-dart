@@ -18,16 +18,19 @@
   - [ ] Lepas bingkai beberapa kartu agar kotak tersisa bermakna. (belum —
     di luar cakupan batch ini per instruksi: hero/bento/carousel/IMT
     tidak diubah struktural di langkah ini)
-- [ ] **Akses Cepat & banner PANDUAN terasa datar** — pasang ilustrasi
+- [x] **Akses Cepat & banner PANDUAN terasa datar** — pasang ilustrasi
   (di-generate GPT, brief gaya seragam sudah disepakati — palet Twilight,
   flat editorial, paper grain, no text):
-  - `assets/images/home/panduan_banner.png` (~1200×480) — siluet ibu +
-    3 niche lengkung trimester.
-  - `bento_preeklampsia/skrining/riwayat/imt.png` (~400×400, transparan) —
-    satu objek ilustrasi per tile, pojok kanan-bawah, BUKAN background penuh.
-  - `journal_corner.png` (~500×500, transparan) — ranting eukaliptus.
-  - Semua dipasang dengan `errorBuilder` fallback; kompres ke WebP
-    (AAB sudah 89 MB).
+  - [x] `assets/images/home/panduan_banner.png` (~1200×480) — siluet ibu +
+    3 niche lengkung trimester. Slot dipasang di sisi kanan panel plum,
+    `errorBuilder` mengembalikan tampilan lama persis.
+  - [x] `bento_preeklampsia/skrining/riwayat/imt.png` (~400×400, transparan) —
+    satu objek ilustrasi per tile, pojok kanan-bawah (68px), BUKAN
+    background penuh.
+  - [x] `journal_corner.png` (~500×500, transparan) — ranting eukaliptus,
+    opasitas rendah di pojok kartu jurnal.
+  - Semua dipasang dengan `errorBuilder` fallback; gambar aktual (WebP,
+    AAB sudah 89 MB) menyusul dari Presley — belum ada file di folder ini.
 
 ## Pengalaman baca artikel & layar care (yang_perlu_dihindari, aktivitas_fisik, dll.)
 

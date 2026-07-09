@@ -80,6 +80,7 @@ flutter:
     - assets/images/care/
     - assets/images/persalinan/
     - assets/images/tips/
+    - assets/images/home/
 
   fonts:
     - family: Poppins

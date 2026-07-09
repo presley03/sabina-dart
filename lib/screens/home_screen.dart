@@ -784,7 +784,6 @@ Widget _buildJournalCard(BuildContext context) {
       MaterialPageRoute(builder: (_) => const WeeklyJournalScreen()),
     ),
     child: Container(
-      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: p.primarySoft,
         borderRadius: const BorderRadius.only(
@@ -795,48 +794,71 @@ Widget _buildJournalCard(BuildContext context) {
         ),
         border: Border.all(color: p.primary.withValues(alpha: 0.22)),
       ),
-      child: Row(
+      clipBehavior: Clip.antiAlias,
+      child: Stack(
         children: [
-          Container(
-            width: 46,
-            height: 50,
-            decoration: BoxDecoration(
-              color: p.primary,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(23),
-                topRight: Radius.circular(23),
-                bottomLeft: Radius.circular(11),
-                bottomRight: Radius.circular(11),
+          // Slot ilustrasi pojok — hanya tampil jika aset tersedia.
+          Positioned(
+            right: -10,
+            top: -10,
+            width: 90,
+            height: 90,
+            child: Opacity(
+              opacity: 0.18,
+              child: Image.asset(
+                'assets/images/home/journal_corner.png',
+                fit: BoxFit.contain,
+                errorBuilder: (_, __, ___) => const SizedBox.shrink(),
               ),
             ),
-            child: const Icon(Icons.auto_stories_rounded,
-                color: Colors.white, size: 22),
           ),
-          const SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
               children: [
-                Text(
-                  'Jurnal Mingguan',
-                  style: GoogleFonts.fraunces(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: p.ink,
+                Container(
+                  width: 46,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: p.primary,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(23),
+                      topRight: Radius.circular(23),
+                      bottomLeft: Radius.circular(11),
+                      bottomRight: Radius.circular(11),
+                    ),
+                  ),
+                  child: const Icon(Icons.auto_stories_rounded,
+                      color: Colors.white, size: 22),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Jurnal Mingguan',
+                        style: GoogleFonts.fraunces(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: p.ink,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        'Catat perasaanmu minggu ini',
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 12.5,
+                          color: p.inkMuted,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  'Catat perasaanmu minggu ini',
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 12.5,
-                    color: p.inkMuted,
-                  ),
-                ),
+                Icon(Icons.arrow_forward_rounded, color: p.primary, size: 18),
               ],
             ),
           ),
-          Icon(Icons.arrow_forward_rounded, color: p.primary, size: 18),
         ],
       ),
     ),
@@ -853,6 +875,7 @@ Widget _buildQuickActionsCard(BuildContext context) {
       iconBg: p.peachSoft,
       label: l10n.detectPreeclampsia,
       subtitle: l10n.screeningRiskBP,
+      illustrationAsset: 'assets/images/home/bento_preeklampsia.png',
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (_) => const PreeclampsiaScreeningScreen()),
@@ -864,6 +887,7 @@ Widget _buildQuickActionsCard(BuildContext context) {
       iconBg: p.sageSoft,
       label: l10n.screeningAndPenapisan,
       subtitle: l10n.deliveryRisk,
+      illustrationAsset: 'assets/images/home/bento_skrining.png',
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (_) => const PenapisanScreen()),
@@ -875,6 +899,7 @@ Widget _buildQuickActionsCard(BuildContext context) {
       iconBg: p.primarySoft,
       label: l10n.pregnancyHistoryLabel,
       subtitle: l10n.pregnancyDataLabel,
+      illustrationAsset: 'assets/images/home/bento_riwayat.png',
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (_) => const PregnancyHistoryScreen()),
@@ -886,6 +911,7 @@ Widget _buildQuickActionsCard(BuildContext context) {
       iconBg: p.amberSoft,
       label: l10n.calculateIMT,
       subtitle: l10n.bmiFull,
+      illustrationAsset: 'assets/images/home/bento_imt.png',
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (_) => const IMTCalculatorScreen()),
@@ -924,7 +950,6 @@ Widget _bentoTile(BuildContext context, _BentoItem item) {
   return GestureDetector(
     onTap: item.onTap,
     child: Container(
-      padding: const EdgeInsets.fromLTRB(15, 15, 15, 14),
       decoration: BoxDecoration(
         color: p.surface,
         borderRadius: const BorderRadius.only(
@@ -942,44 +967,64 @@ Widget _bentoTile(BuildContext context, _BentoItem item) {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      clipBehavior: Clip.antiAlias,
+      child: Stack(
         children: [
-          Container(
-            width: 42,
-            height: 46,
-            decoration: BoxDecoration(
-              color: item.iconBg,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(21),
-                topRight: Radius.circular(21),
-                bottomLeft: Radius.circular(9),
-                bottomRight: Radius.circular(9),
-              ),
-            ),
-            child: Icon(item.icon, color: item.iconColor, size: 21),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            item.label,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 13.5,
-              fontWeight: FontWeight.w700,
-              height: 1.25,
-              color: p.ink,
+          // Slot ilustrasi pojok kanan-bawah — hanya tampil jika aset tersedia.
+          Positioned(
+            right: -6,
+            bottom: -6,
+            width: 68,
+            height: 68,
+            child: Image.asset(
+              item.illustrationAsset,
+              fit: BoxFit.contain,
+              errorBuilder: (_, __, ___) => const SizedBox.shrink(),
             ),
           ),
-          const SizedBox(height: 2),
-          Text(
-            item.subtitle,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 11,
-              fontWeight: FontWeight.w500,
-              color: p.inkMuted,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15, 15, 15, 14),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 42,
+                  height: 46,
+                  decoration: BoxDecoration(
+                    color: item.iconBg,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(21),
+                      topRight: Radius.circular(21),
+                      bottomLeft: Radius.circular(9),
+                      bottomRight: Radius.circular(9),
+                    ),
+                  ),
+                  child: Icon(item.icon, color: item.iconColor, size: 21),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  item.label,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 13.5,
+                    fontWeight: FontWeight.w700,
+                    height: 1.25,
+                    color: p.ink,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  item.subtitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w500,
+                    color: p.inkMuted,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -994,68 +1039,90 @@ Widget _bentoTile(BuildContext context, _BentoItem item) {
 
 Widget _buildInfoBanner(BuildContext context) {
   return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
     decoration: BoxDecoration(
       color: SabinaColors.primary700,
       borderRadius: BorderRadius.circular(18),
     ),
-    child: Row(
+    clipBehavior: Clip.antiAlias,
+    child: Stack(
       children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        // Ilustrasi latar sisi kanan — hanya tampil jika aset tersedia.
+        Positioned(
+          top: 0,
+          bottom: 0,
+          right: 0,
+          width: 130,
+          child: Image.asset(
+            'assets/images/home/panduan_banner.png',
+            fit: BoxFit.cover,
+            alignment: Alignment.centerRight,
+            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+          child: Row(
             children: [
-              Text(
-                AppLocalizations.of(context)!.guideLabel,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white.withValues(alpha: 0.65),
-                  letterSpacing: 0.8,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.guideLabel,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white.withValues(alpha: 0.65),
+                        letterSpacing: 0.8,
+                      ),
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      AppLocalizations.of(context)!.pregnancyInfoTitle,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w800,
+                        color: SabinaColors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      AppLocalizations.of(context)!.trimesterRoman,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 12,
+                        color: Colors.white.withValues(alpha: 0.75),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: 3),
-              Text(
-                AppLocalizations.of(context)!.pregnancyInfoTitle,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w800,
-                  color: SabinaColors.white,
+              const SizedBox(width: 12),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const TrimesterMenuScreen()),
                 ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                AppLocalizations.of(context)!.trimesterRoman,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 12,
-                  color: Colors.white.withValues(alpha: 0.75),
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.18),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.35),
+                        width: 1.5),
+                  ),
+                  child: Text(
+                    AppLocalizations.of(context)!.checkNow,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: SabinaColors.white,
+                    ),
+                  ),
                 ),
               ),
             ],
-          ),
-        ),
-        const SizedBox(width: 12),
-        GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const TrimesterMenuScreen()),
-          ),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.18),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                  color: Colors.white.withValues(alpha: 0.35), width: 1.5),
-            ),
-            child: Text(
-              AppLocalizations.of(context)!.checkNow,
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 13,
-                fontWeight: FontWeight.w700,
-                color: SabinaColors.white,
-              ),
-            ),
           ),
         ),
       ],
@@ -1822,6 +1889,7 @@ class _BentoItem {
   final String subtitle;
   final Color iconColor;
   final Color iconBg;
+  final String illustrationAsset;
   final VoidCallback onTap;
 
   const _BentoItem({
@@ -1830,6 +1898,7 @@ class _BentoItem {
     required this.subtitle,
     required this.iconColor,
     required this.iconBg,
+    required this.illustrationAsset,
     required this.onTap,
   });
 }
