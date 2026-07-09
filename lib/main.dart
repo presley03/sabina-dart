@@ -20,6 +20,7 @@ import 'models/bengkak_model.dart';
 import 'models/pergerakan_janin_model.dart';
 import 'models/health_monitoring_model.dart'; // New model
 import 'providers/locale_provider.dart';
+import 'providers/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => PreeclampsiaScreeningModel()),
         ChangeNotifierProvider(create: (_) => PenapisanModel()),
         ChangeNotifierProvider(create: (_) => MualMuntahModel()),
@@ -49,11 +51,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<LocaleProvider>(
-      builder: (context, localeProvider, child) {
+    return Consumer2<LocaleProvider, ThemeProvider>(
+      builder: (context, localeProvider, themeProvider, child) {
         return MaterialApp(
           title: 'Sabina App',
           theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: themeProvider.mode,
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
