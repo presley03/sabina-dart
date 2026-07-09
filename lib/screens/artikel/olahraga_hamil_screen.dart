@@ -10,6 +10,7 @@ class OlahragaHamilScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final palette = context.palette;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -36,92 +37,72 @@ class OlahragaHamilScreen extends StatelessWidget {
                   ArticleCallout(
                     l10n.art2_callout,
                     icon: Icons.monitor_heart_rounded,
-                    color: const Color(0xFF6F937D),
+                    color: palette.sage,
                   ),
-                  const ArticleDivider(),
-                  ArticleSectionLabel(
-                    l10n.art2_sectionJenis,
-                    accentColor: const Color(0xFF6F937D),
-                  ),
-                  ArticleNumberedItem(
+                  const SizedBox(height: 32),
+                  ArticleSectionLabel(l10n.art2_sectionJenis),
+                  ArticleMagazineSection(
                     number: 1,
                     title: l10n.art2_item1_title,
-                    icon: Icons.directions_walk_rounded,
-                    color: const Color(0xFF6F937D),
                     items: [
                       l10n.art2_item1_a,
                       l10n.art2_item1_b,
                       l10n.art2_item1_c,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 2,
                     title: l10n.art2_item2_title,
-                    icon: Icons.self_improvement_rounded,
-                    color: const Color(0xFF6F937D),
                     items: [
                       l10n.art2_item2_a,
                       l10n.art2_item2_b,
                       l10n.art2_item2_c,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 3,
                     title: l10n.art2_item3_title,
-                    icon: Icons.spa_rounded,
-                    color: const Color(0xFF6F937D),
                     items: [
                       l10n.art2_item3_a,
                       l10n.art2_item3_b,
                       l10n.art2_item3_c,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 4,
                     title: l10n.art2_item4_title,
-                    icon: Icons.pool_rounded,
-                    color: const Color(0xFF1D4ED8),
                     items: [
                       l10n.art2_item4_a,
                       l10n.art2_item4_b,
                     ],
                     isLast: true,
                   ),
-                  const ArticleDivider(),
-                  ArticleSectionLabel(
-                    l10n.art2_sectionPantangan,
-                    accentColor: SabinaColors.error700,
-                  ),
+                  const SizedBox(height: 6),
+                  ArticleSectionLabel(l10n.art2_sectionPantangan),
                   ArticleCallout(
                     l10n.art2_pantangan_callout,
                     icon: Icons.warning_rounded,
-                    color: SabinaColors.error700,
+                    color: palette.critical,
                   ),
-                  const SizedBox(height: 12),
-                  ArticleNumberedItem(
+                  const SizedBox(height: 20),
+                  ArticleMagazineSection(
                     number: 1,
                     title: l10n.art2_pantangan1_title,
-                    color: SabinaColors.error700,
                     content: l10n.art2_pantangan1_content,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 2,
                     title: l10n.art2_pantangan2_title,
-                    color: SabinaColors.error700,
                     content: l10n.art2_pantangan2_content,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 3,
                     title: l10n.art2_pantangan3_title,
-                    color: SabinaColors.error700,
                     content: l10n.art2_pantangan3_content,
                     isLast: true,
                   ),
-                  const ArticleDivider(),
-                  ArticleSectionLabel(
-                    l10n.art2_sectionRef,
-                    accentColor: const Color(0xFF6F937D),
-                  ),
+                  const SizedBox(height: 32),
+                  ArticleSectionLabel(l10n.art2_sectionRef),
                   ArticleReferenceList(references: [
                     l10n.art2_ref1,
                     l10n.art2_ref2,

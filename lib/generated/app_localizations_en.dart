@@ -618,7 +618,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get trimesterTwo_week16_17_desc =>
-      'Fetal size: About 12-14 cm and weighing around 100-150 grams. The fetal heart begins to pump about 25 liters of blood daily. Fingerprints begin to form, and a layer of fat starts developing under the skin. By the end of week 16, some mothers may feel the first fetal movements known as \'quickening\'.';
+      'Fetal size: About 12-14 cm and weighing around 100-150 grams. The fetal heart begins to pump about 25 liters of blood daily. Fingerprints begin to form, and a layer of fat starts developing under the skin. By the end of week 16, some mothers may feel the first fetal movements known as \'==quickening==\'.';
 
   @override
   String get trimesterTwo_week18_19 => 'Weeks 18-19';
@@ -871,7 +871,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get trimesterThree_commonComplaints_braxtonHicks =>
-      'Braxton Hicks Contractions: The mother may start feeling Braxton Hicks contractions, which are irregular and mild tightening of the uterus.';
+      '==Braxton Hicks Contractions==: The mother may start feeling Braxton Hicks contractions, which are irregular and mild tightening of the uterus.';
 
   @override
   String get trimesterThree_dos_title => 'What to Do';
@@ -917,7 +917,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get trimesterThree_donts_ignoreLabor =>
-      'Ignoring Signs of Labor: If you experience regular contractions, water breaking, or mucus discharge, go to the hospital immediately.';
+      'Ignoring Signs of Labor: If you experience regular contractions, ==water breaking==, or mucus discharge, go to the hospital immediately.';
 
   @override
   String get trimesterThree_fetalDevelopmentImage_caption =>
@@ -4102,7 +4102,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get art1_callout =>
-      'A pregnant woman\'s calorie needs increase by around 340 kcal per day in the second trimester compared to before pregnancy. But the quality of food matters far more than the quantity.';
+      'A pregnant woman\'s calorie needs increase by around ==340 kcal per day== in the second trimester compared to before pregnancy. But the quality of food matters far more than the quantity.';
 
   @override
   String get art1_sectionNutrisi => 'Key Nutrients in Trimester 2';
@@ -4126,14 +4126,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get art1_item3_content =>
-      'Your baby\'s brain is developing very actively this trimester. DHA and EPA from salmon, anchovies, or fish oil supplements help support your baby\'s nervous system and vision development.';
+      'Your baby\'s brain is developing very actively this trimester. ==DHA and EPA== from salmon, anchovies, or fish oil supplements help support your baby\'s nervous system and vision development.';
 
   @override
   String get art1_item4_title => 'Iron to prevent anaemia';
 
   @override
   String get art1_item4_content =>
-      'Your blood volume increases by up to 50% during pregnancy, so your iron needs rise as well. Eat lean red meat, spinach, and kidney beans. Avoid drinking tea or coffee alongside iron-rich foods as they can inhibit absorption.';
+      'Your blood volume increases by up to ==50%== during pregnancy, so your iron needs rise as well. Eat lean red meat, spinach, and kidney beans. Avoid drinking tea or coffee alongside iron-rich foods as they can inhibit absorption.';
 
   @override
   String get art1_item5_title => 'Fibre to keep digestion smooth';
@@ -4283,7 +4283,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get art2_pantangan2_content =>
-      'After the first trimester, avoid exercises that require lying flat on your back for more than a few minutes. This position can compress the major blood vessel (inferior vena cava) and reduce blood flow to your baby.';
+      'After the first trimester, avoid exercises that require lying flat on your back for more than a few minutes. This position can compress the major blood vessel (==inferior vena cava==) and reduce blood flow to your baby.';
 
   @override
   String get art2_pantangan3_title => 'Exercising in hot or humid weather';
@@ -4348,7 +4348,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get art3_item3_content =>
-      'Lying flat on your back for extended periods in the third trimester can compress the inferior vena cava, which may cause dizziness, nausea, or reduced blood flow to your baby. If you occasionally wake up on your back, don\'t panic — just gently roll back onto your side.';
+      'Lying flat on your back for extended periods in the third trimester can compress the ==inferior vena cava==, which may cause dizziness, nausea, or reduced blood flow to your baby. If you occasionally wake up on your back, don\'t panic — just gently roll back onto your side.';
 
   @override
   String get art3_sectionTips => 'Tips for Better Sleep';
@@ -4507,7 +4507,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get art4_cara4_b =>
-      'If stress feels very heavy or has lasted more than 2 weeks, talk to your midwife or doctor — seeking professional help is a wise choice';
+      'If stress feels very heavy or has lasted ==more than 2 weeks==, talk to your midwife or doctor — seeking professional help is a wise choice';
 
   @override
   String get art4_sectionRef => 'References';

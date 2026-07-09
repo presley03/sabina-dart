@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/utils/constants.dart';
 import 'package:sabina/widgets/article_reader_widgets.dart';
@@ -40,61 +39,52 @@ class TidurNyamanScreen extends StatelessWidget {
                     icon: Icons.bed_rounded,
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
                   ArticleSectionLabel(l10n.art3_sectionPosisi),
 
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 1,
                     title: l10n.art3_item1_title,
-                    icon: Icons.bed_rounded,
-                    color: SabinaColors.primary700,
                     content: l10n.art3_item1_content,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 2,
                     title: l10n.art3_item2_title,
-                    icon: Icons.pregnant_woman_rounded,
-                    color: SabinaColors.primary700,
                     content: l10n.art3_item2_content,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 3,
                     title: l10n.art3_item3_title,
-                    icon: Icons.nightlight_rounded,
-                    color: SabinaColors.primary700,
                     content: l10n.art3_item3_content,
                     isLast: true,
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 6),
 
                   ArticleSectionLabel(l10n.art3_sectionTips),
 
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 1,
                     title: l10n.art3_tips1_title,
-                    color: SabinaColors.primary700,
                     items: [
                       l10n.art3_tips1_a,
                       l10n.art3_tips1_b,
                       l10n.art3_tips1_c,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 2,
                     title: l10n.art3_tips2_title,
-                    color: SabinaColors.primary700,
                     items: [
                       l10n.art3_tips2_a,
                       l10n.art3_tips2_b,
                       l10n.art3_tips2_c,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 3,
                     title: l10n.art3_tips3_title,
-                    color: SabinaColors.primary700,
                     items: [
                       l10n.art3_tips3_a,
                       l10n.art3_tips3_b,
@@ -102,7 +92,7 @@ class TidurNyamanScreen extends StatelessWidget {
                     isLast: true,
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
                   ArticleSectionLabel(l10n.art3_sectionRef),
                   ArticleReferenceList(references: [

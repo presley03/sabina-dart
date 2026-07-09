@@ -824,7 +824,7 @@
         "description": "Label untuk minggu 16-17"
       },
     
-      "trimesterTwo_week16_17_desc": "Ukuran janin: Sekitar 12-14 cm dan berat sekitar 100-150 gram. Jantung janin mulai memompa sekitar 25 liter darah setiap hari. Sidik jari mulai terbentuk, dan lapisan lemak mulai berkembang di bawah kulit. Pada akhir minggu 16, beberapa ibu mulai merasakan gerakan janin pertama yang disebut \"quickening\".",
+      "trimesterTwo_week16_17_desc": "Ukuran janin: Sekitar 12-14 cm dan berat sekitar 100-150 gram. Jantung janin mulai memompa sekitar 25 liter darah setiap hari. Sidik jari mulai terbentuk, dan lapisan lemak mulai berkembang di bawah kulit. Pada akhir minggu 16, beberapa ibu mulai merasakan gerakan janin pertama yang disebut \"==quickening==\".",
       "@trimesterTwo_week16_17_desc": {
         "description": "Deskripsi perkembangan janin pada minggu 16-17"
       },
@@ -1168,7 +1168,7 @@
           "description": "Keluhan umum terkait pembengkakan"
         },
       
-        "trimesterThree_commonComplaints_braxtonHicks": "Kontraksi Braxton Hicks: Ibu mungkin mulai merasakan kontraksi Braxton Hicks, yang terasa seperti kram atau pengencangan perut tetapi tidak menyebabkan rasa sakit yang signifikan.",
+        "trimesterThree_commonComplaints_braxtonHicks": "==Kontraksi Braxton Hicks==: Ibu mungkin mulai merasakan kontraksi Braxton Hicks, yang terasa seperti kram atau pengencangan perut tetapi tidak menyebabkan rasa sakit yang signifikan.",
         "@trimesterThree_commonComplaints_braxtonHicks": {
           "description": "Keluhan umum terkait kontraksi Braxton Hicks"
         },
@@ -1228,7 +1228,7 @@
           "description": "Peringatan untuk menghindari berdiri atau duduk terlalu lama"
         },
       
-        "trimesterThree_donts_ignoreLabor": "Mengabaikan Tanda Persalinan: Jika ibu mulai merasakan kontraksi yang teratur, pecahnya air ketuban, atau keluarnya lendir bercampur darah, segera pergi ke rumah sakit.",
+        "trimesterThree_donts_ignoreLabor": "Mengabaikan Tanda Persalinan: Jika ibu mulai merasakan kontraksi yang teratur, ==pecahnya air ketuban==, atau keluarnya lendir bercampur darah, segera pergi ke rumah sakit.",
         "@trimesterThree_donts_ignoreLabor": {
           "description": "Peringatan untuk tidak mengabaikan tanda-tanda persalinan"
         },
@@ -4462,7 +4462,7 @@
   "@art1_tagTrimester2": {"description": "Tag artikel 1"},
   "art1_intro": "Trimester kedua sering disebut 'masa emas' kehamilan — mual biasanya mereda, energi mulai kembali, dan perut mulai terasa membesar. Ini juga saat yang tepat untuk memperhatikan apa yang masuk ke piring Anda, karena janin tumbuh pesat dan membutuhkan lebih banyak nutrisi dari sebelumnya.",
   "@art1_intro": {"description": "Paragraf pembuka artikel 1"},
-  "art1_callout": "Kebutuhan kalori ibu hamil trimester kedua meningkat sekitar 340 kkal per hari dibanding sebelum hamil. Tapi kualitas makanan jauh lebih penting dari kuantitasnya.",
+  "art1_callout": "Kebutuhan kalori ibu hamil trimester kedua meningkat sekitar ==340 kkal per hari== dibanding sebelum hamil. Tapi kualitas makanan jauh lebih penting dari kuantitasnya.",
   "@art1_callout": {"description": "Callout artikel 1"},
   "art1_sectionNutrisi": "Nutrisi Penting di Trimester 2",
   "@art1_sectionNutrisi": {"description": "Judul seksi nutrisi artikel 1"},
@@ -4476,11 +4476,11 @@
   "@art1_item2_content": {"description": "Konten item 2 artikel 1"},
   "art1_item3_title": "Omega-3 untuk perkembangan otak",
   "@art1_item3_title": {"description": "Judul item 3 artikel 1"},
-  "art1_item3_content": "Otak bayi berkembang sangat aktif di trimester ini. DHA dan EPA dari ikan salmon, ikan teri, atau suplemen minyak ikan membantu perkembangan sistem saraf dan penglihatan bayi.",
+  "art1_item3_content": "Otak bayi berkembang sangat aktif di trimester ini. ==DHA dan EPA== dari ikan salmon, ikan teri, atau suplemen minyak ikan membantu perkembangan sistem saraf dan penglihatan bayi.",
   "@art1_item3_content": {"description": "Konten item 3 artikel 1"},
   "art1_item4_title": "Zat besi untuk mencegah anemia",
   "@art1_item4_title": {"description": "Judul item 4 artikel 1"},
-  "art1_item4_content": "Volume darah ibu meningkat hingga 50% selama kehamilan, sehingga kebutuhan zat besi pun naik. Konsumsi daging merah tanpa lemak, bayam, dan kacang merah. Minum teh atau kopi bersamaan dengan makanan kaya zat besi sebaiknya dihindari karena dapat menghambat penyerapannya.",
+  "art1_item4_content": "Volume darah ibu meningkat hingga ==50%== selama kehamilan, sehingga kebutuhan zat besi pun naik. Konsumsi daging merah tanpa lemak, bayam, dan kacang merah. Minum teh atau kopi bersamaan dengan makanan kaya zat besi sebaiknya dihindari karena dapat menghambat penyerapannya.",
   "@art1_item4_content": {"description": "Konten item 4 artikel 1"},
   "art1_item5_title": "Serat untuk pencernaan lancar",
   "@art1_item5_title": {"description": "Judul item 5 artikel 1"},
@@ -4565,7 +4565,7 @@
   "@art2_pantangan1_content": {"description": "Konten pantangan 1 artikel 2"},
   "art2_pantangan2_title": "Berbaring telentang terlalu lama",
   "@art2_pantangan2_title": {"description": "Pantangan 2 artikel 2"},
-  "art2_pantangan2_content": "Setelah trimester pertama, hindari gerakan yang mengharuskan berbaring telentang lebih dari beberapa menit. Posisi ini bisa menekan pembuluh darah besar dan mengurangi aliran darah ke janin.",
+  "art2_pantangan2_content": "Setelah trimester pertama, hindari gerakan yang mengharuskan berbaring telentang lebih dari beberapa menit. Posisi ini bisa menekan ==pembuluh darah besar== dan mengurangi aliran darah ke janin.",
   "@art2_pantangan2_content": {"description": "Konten pantangan 2 artikel 2"},
   "art2_pantangan3_title": "Olahraga di cuaca panas atau lembap",
   "@art2_pantangan3_title": {"description": "Pantangan 3 artikel 2"},
@@ -4602,7 +4602,7 @@
   "@art3_item2_content": {"description": "Konten item 2 artikel 3"},
   "art3_item3_title": "Hindari tidur telentang",
   "@art3_item3_title": {"description": "Judul item 3 artikel 3"},
-  "art3_item3_content": "Tidur telentang dalam waktu lama di trimester ketiga dapat menekan pembuluh darah besar (vena cava inferior), yang bisa menyebabkan pusing, mual, atau berkurangnya aliran darah ke janin. Jika sesekali terbangun dalam posisi telentang, tidak perlu panik — segera balikkan tubuh ke posisi miring.",
+  "art3_item3_content": "Tidur telentang dalam waktu lama di trimester ketiga dapat menekan pembuluh darah besar (==vena cava inferior==), yang bisa menyebabkan pusing, mual, atau berkurangnya aliran darah ke janin. Jika sesekali terbangun dalam posisi telentang, tidak perlu panik — segera balikkan tubuh ke posisi miring.",
   "@art3_item3_content": {"description": "Konten item 3 artikel 3"},
   "art3_sectionTips": "Tips Mendapatkan Tidur yang Lebih Baik",
   "@art3_sectionTips": {"description": "Judul seksi tips artikel 3"},
@@ -4691,7 +4691,7 @@
   "@art4_cara4_title": {"description": "Judul cara 4 artikel 4"},
   "art4_cara4_a": "Tidur cukup, makan teratur, dan minum air yang cukup adalah fondasi kesehatan mental yang sering diremehkan",
   "@art4_cara4_a": {"description": "Cara 4a artikel 4"},
-  "art4_cara4_b": "Jika stres terasa sangat berat atau berlangsung lebih dari 2 minggu, bicarakan dengan bidan atau dokter — bantuan profesional adalah pilihan yang bijak",
+  "art4_cara4_b": "Jika stres terasa sangat berat atau berlangsung ==lebih dari 2 minggu==, bicarakan dengan bidan atau dokter — bantuan profesional adalah pilihan yang bijak",
   "@art4_cara4_b": {"description": "Cara 4b artikel 4"},
   "art4_sectionRef": "Referensi",
   "@art4_sectionRef": {"description": "Judul seksi referensi artikel 4"},

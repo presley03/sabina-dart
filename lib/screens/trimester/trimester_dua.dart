@@ -33,15 +33,16 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final palette = context.palette;
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: palette.ground,
       appBar: AppBar(
-        backgroundColor: SabinaColors.white,
+        backgroundColor: palette.surface,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
-          color: SabinaColors.neutral900,
+          color: palette.ink,
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
@@ -49,12 +50,12 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: SabinaColors.neutral900,
+            color: palette.ink,
           ),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
-          child: Divider(height: 1, color: SabinaColors.neutral300),
+          child: Divider(height: 1, color: palette.line),
         ),
       ),
       floatingActionButton: _showBackToTop
@@ -62,7 +63,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               onPressed: () => _scrollController.animateTo(0,
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOut),
-              backgroundColor: const Color(0xFF6F937D),
+              backgroundColor: palette.sage,
               child: const Icon(Icons.keyboard_arrow_up_rounded,
                   color: Colors.white),
             )
@@ -71,46 +72,43 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
         controller: _scrollController,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         children: [
-          _headerBadge(
-              'Minggu 14–27', const Color(0xFF6F937D), const Color(0xFFE2EBE4)),
+          _headerBadge('Minggu 14–27'),
           const SizedBox(height: 16),
-          _sectionLabel(l10n.introductionLabel),
-          ArticleCallout(l10n.trimesterTwo_intro,
-              color: const Color(0xFF6F937D)),
+
+          ArticleSectionLabel(l10n.introductionLabel, accentColor: palette.sage),
+          ArticleCallout(l10n.trimesterTwo_intro, color: palette.sage),
+
           ArticleInlineImage(
             ArticleImages.trimester2BayiDevelopment,
             caption: l10n.trimesterTwo_maternalChangesImage_caption,
           ),
-          _sectionLabel(l10n.trimesterTwo_weeklyDevelopment_title),
-          _weeklyCard(
-            [
-              _weekItem(
-                  l10n.trimesterTwo_week14_15, l10n.trimesterTwo_week14_15_desc,
-                  color: const Color(0xFF6F937D)),
-              _weekItem(
-                  l10n.trimesterTwo_week16_17, l10n.trimesterTwo_week16_17_desc,
-                  color: const Color(0xFF6F937D)),
-              _weekItem(
-                  l10n.trimesterTwo_week18_19, l10n.trimesterTwo_week18_19_desc,
-                  color: const Color(0xFF6F937D)),
-              _weekItem(
-                  l10n.trimesterTwo_week20_21, l10n.trimesterTwo_week20_21_desc,
-                  color: const Color(0xFF6F937D)),
-              _weekItem(
-                  l10n.trimesterTwo_week22_23, l10n.trimesterTwo_week22_23_desc,
-                  color: const Color(0xFF6F937D)),
-              _weekItem(
-                  l10n.trimesterTwo_week24_25, l10n.trimesterTwo_week24_25_desc,
-                  color: const Color(0xFF6F937D)),
-              _weekItem(
-                  l10n.trimesterTwo_week26_27, l10n.trimesterTwo_week26_27_desc,
-                  color: const Color(0xFF6F937D), isLast: true),
-            ],
-          ),
-          const SizedBox(height: 8),
-          _sectionLabel(l10n.trimesterTwo_motherChanges_title),
-          _bulletCard(
-            l10n.trimesterTwo_motherChanges_title,
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.trimesterTwo_weeklyDevelopment_title,
+              accentColor: palette.sage),
+          _weeklyCard([
+            _weekItem(
+                l10n.trimesterTwo_week14_15, l10n.trimesterTwo_week14_15_desc),
+            _weekItem(
+                l10n.trimesterTwo_week16_17, l10n.trimesterTwo_week16_17_desc),
+            _weekItem(
+                l10n.trimesterTwo_week18_19, l10n.trimesterTwo_week18_19_desc),
+            _weekItem(
+                l10n.trimesterTwo_week20_21, l10n.trimesterTwo_week20_21_desc),
+            _weekItem(
+                l10n.trimesterTwo_week22_23, l10n.trimesterTwo_week22_23_desc),
+            _weekItem(
+                l10n.trimesterTwo_week24_25, l10n.trimesterTwo_week24_25_desc),
+            _weekItem(
+                l10n.trimesterTwo_week26_27, l10n.trimesterTwo_week26_27_desc),
+          ]),
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.trimesterTwo_motherChanges_title,
+              accentColor: palette.sage),
+          _bulletGroup(
             [
               l10n.trimesterTwo_motherChanges_14_16,
               l10n.trimesterTwo_motherChanges_17_20,
@@ -118,12 +116,14 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               l10n.trimesterTwo_motherChanges_25_27,
             ],
             icon: Icons.pregnant_woman_rounded,
-            color: const Color(0xFF6F937D),
+            headerColor: palette.sage,
           ),
-          const SizedBox(height: 8),
-          _sectionLabel(l10n.trimesterTwo_commonComplaints_title),
-          _bulletCard(
-            l10n.trimesterTwo_commonComplaints_title,
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.trimesterTwo_commonComplaints_title,
+              accentColor: palette.sage),
+          _bulletGroup(
             [
               l10n.trimesterTwo_commonComplaints_backPain,
               l10n.trimesterTwo_commonComplaints_legCramps,
@@ -132,12 +132,14 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               l10n.trimesterTwo_commonComplaints_breathlessness,
             ],
             icon: Icons.sentiment_dissatisfied_rounded,
-            color: const Color(0xFFC08A3C),
+            headerColor: palette.amber,
           ),
-          const SizedBox(height: 8),
-          _sectionLabel(l10n.recommendedAndAvoidLabel),
-          _bulletCard(
-            l10n.trimesterTwo_dos_title,
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.recommendedAndAvoidLabel,
+              accentColor: palette.sage),
+          _bulletGroup(
             [
               l10n.trimesterTwo_dos_nutrition,
               l10n.trimesterTwo_dos_hydration,
@@ -146,10 +148,10 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               l10n.trimesterTwo_dos_rest,
             ],
             icon: Icons.check_circle_rounded,
-            color: const Color(0xFF6F937D),
+            headerColor: palette.sage,
           ),
-          _bulletCard(
-            l10n.trimesterTwo_donts_title,
+          const SizedBox(height: 18),
+          _bulletGroup(
             [
               l10n.trimesterTwo_donts_heavyLifting,
               l10n.trimesterTwo_donts_prolongedStanding,
@@ -158,14 +160,20 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               l10n.trimesterTwo_donts_ignoringMovement,
             ],
             icon: Icons.block_rounded,
-            color: SabinaColors.error700,
+            headerColor: palette.critical,
           ),
-          const SizedBox(height: 8),
+
+          const SizedBox(height: 28),
+
           ArticleInlineImage(
             ArticleImages.pantanganHero,
             caption: l10n.trimesterTwo_cautionImage_caption,
           ),
-          _sectionLabel(l10n.trimesterTwo_reference_title),
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.trimesterTwo_reference_title,
+              accentColor: palette.sage),
           _referenceCard([
             {'title': l10n.trimesterTwo_reference_acog, 'url': 'www.acog.org'},
             {
@@ -174,6 +182,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
             },
             {'title': l10n.trimesterTwo_reference_nhs, 'url': 'www.nhs.uk'},
           ]),
+
           const SizedBox(height: 24),
         ],
       ),
@@ -182,26 +191,27 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
 
   // ---------------------------------------------------------------------------
 
-  Widget _headerBadge(String label, Color color, Color bg) {
+  Widget _headerBadge(String label) {
+    final palette = context.palette;
     return Row(
       children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: bg,
+            color: palette.sageSoft,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.calendar_month_rounded, size: 12, color: color),
+              Icon(Icons.calendar_month_rounded, size: 12, color: palette.sage),
               const SizedBox(width: 6),
               Text(
                 label,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
-                  color: color,
+                  color: palette.sage,
                 ),
               ),
             ],
@@ -211,27 +221,12 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
     );
   }
 
-  Widget _sectionLabel(String label) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 14),
-      child: Text(
-        label,
-        style: GoogleFonts.plusJakartaSans(
-          fontSize: 18,
-          fontWeight: FontWeight.w700,
-          color: const Color(0xFF6F937D),
-          height: 1.3,
-        ),
-      ),
-    );
-  }
-
   Widget _weeklyCard(List<Widget> items) {
     return Column(children: items);
   }
 
-  Widget _weekItem(String week, String desc,
-      {bool isLast = false, Color color = const Color(0xFF6F937D)}) {
+  Widget _weekItem(String week, String desc) {
+    final palette = context.palette;
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
       child: Row(
@@ -240,7 +235,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.12),
+              color: palette.sageSoft,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -248,94 +243,39 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
-                color: color,
+                color: palette.sage,
               ),
             ),
           ),
           const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              desc,
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 14,
-                color: SabinaColors.neutral700,
-                height: 1.6,
-              ),
-            ),
-          ),
+          Expanded(child: MarkedText(desc)),
         ],
       ),
     );
   }
 
-  Widget _bulletCard(String title, List<String> items,
-      {IconData? icon, Color? color}) {
-    final c = color ?? SabinaColors.primary700;
-    final bg = c.withValues(alpha: 0.10);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              if (icon != null) ...[
-                Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    color: bg,
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                  child: Center(child: Icon(icon, size: 14, color: c)),
-                ),
-                const SizedBox(width: 10),
-              ],
-              Text(
-                title,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: SabinaColors.neutral900,
-                ),
-              ),
-            ],
+  Widget _bulletGroup(List<String> items,
+      {required IconData icon, required Color headerColor}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: 32,
+          height: 32,
+          decoration: BoxDecoration(
+            color: headerColor.withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(9),
           ),
-          const SizedBox(height: 10),
-          ...items.map((item) => Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 7),
-                      child: Container(
-                        width: 5,
-                        height: 5,
-                        decoration:
-                            BoxDecoration(color: c, shape: BoxShape.circle),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        item,
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 14,
-                          color: SabinaColors.neutral700,
-                          height: 1.6,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )),
-        ],
-      ),
+          child: Center(child: Icon(icon, size: 14, color: headerColor)),
+        ),
+        const SizedBox(height: 12),
+        ArticleBulletList(items),
+      ],
     );
   }
 
   Widget _referenceCard(List<Map<String, String>> refs) {
+    final palette = context.palette;
     return Column(
       children: refs
           .map((ref) => Padding(
@@ -343,8 +283,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.menu_book_rounded,
-                        size: 13, color: const Color(0xFF6F937D)),
+                    Icon(Icons.menu_book_rounded, size: 13, color: palette.sage),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Column(
@@ -355,14 +294,14 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
-                              color: SabinaColors.neutral900,
+                              color: palette.ink,
                             ),
                           ),
                           Text(
                             ref['url']!,
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 11,
-                              color: const Color(0xFF6F937D),
+                              color: palette.sage,
                             ),
                           ),
                         ],

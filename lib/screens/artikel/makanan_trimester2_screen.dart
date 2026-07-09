@@ -10,7 +10,7 @@ class MakananTrimester2Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-
+    final palette = context.palette;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -39,77 +39,59 @@ class MakananTrimester2Screen extends StatelessWidget {
                   ArticleCallout(
                     l10n.art1_callout,
                     icon: Icons.lightbulb_rounded,
-                    color: const Color(0xFFC08A3C),
+                    color: palette.amber,
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
-                  ArticleSectionLabel(
-                    l10n.art1_sectionNutrisi,
-                    accentColor: const Color(0xFFC08A3C),
-                  ),
+                  ArticleSectionLabel(l10n.art1_sectionNutrisi),
 
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 1,
                     title: l10n.art1_item1_title,
-                    icon: Icons.egg_rounded,
-                    color: const Color(0xFFC08A3C),
                     content: l10n.art1_item1_content,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 2,
                     title: l10n.art1_item2_title,
-                    icon: Icons.eco_rounded,
-                    color: const Color(0xFF6F937D),
                     content: l10n.art1_item2_content,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 3,
                     title: l10n.art1_item3_title,
-                    icon: Icons.set_meal_rounded,
-                    color: const Color(0xFF1D4ED8),
                     content: l10n.art1_item3_content,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 4,
                     title: l10n.art1_item4_title,
-                    icon: Icons.water_drop_rounded,
-                    color: SabinaColors.primary700,
                     content: l10n.art1_item4_content,
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 5,
                     title: l10n.art1_item5_title,
-                    icon: Icons.grain_rounded,
-                    color: const Color(0xFFC08A3C),
                     content: l10n.art1_item5_content,
                     isLast: true,
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 6),
 
-                  ArticleSectionLabel(
-                    l10n.art1_sectionTips,
-                    accentColor: const Color(0xFFC08A3C),
-                  ),
+                  ArticleSectionLabel(l10n.art1_sectionTips),
 
                   ArticleBody(l10n.art1_tips_intro),
                   const SizedBox(height: 12),
 
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 1,
                     title: l10n.art1_tips_item1_title,
-                    color: const Color(0xFFC08A3C),
                     items: [
                       l10n.art1_tips_item1_a,
                       l10n.art1_tips_item1_b,
                       l10n.art1_tips_item1_c,
                     ],
                   ),
-                  ArticleNumberedItem(
+                  ArticleMagazineSection(
                     number: 2,
                     title: l10n.art1_tips_item2_title,
-                    color: const Color(0xFFC08A3C),
                     items: [
                       l10n.art1_tips_item2_a,
                       l10n.art1_tips_item2_b,
@@ -117,12 +99,9 @@ class MakananTrimester2Screen extends StatelessWidget {
                     isLast: true,
                   ),
 
-                  const ArticleDivider(),
+                  const SizedBox(height: 32),
 
-                  ArticleSectionLabel(
-                    l10n.art1_sectionRef,
-                    accentColor: const Color(0xFFC08A3C),
-                  ),
+                  ArticleSectionLabel(l10n.art1_sectionRef),
                   ArticleReferenceList(references: [
                     l10n.art1_ref1,
                     l10n.art1_ref2,

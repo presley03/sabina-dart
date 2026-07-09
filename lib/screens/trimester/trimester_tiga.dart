@@ -15,9 +15,6 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
   final ScrollController _scrollController = ScrollController();
   bool _showBackToTop = false;
 
-  static const _amber = Color(0xFFC08A3C);
-  static const _amberBg = Color(0xFFF5E8D2);
-
   @override
   void initState() {
     super.initState();
@@ -36,15 +33,16 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final palette = context.palette;
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: palette.ground,
       appBar: AppBar(
-        backgroundColor: SabinaColors.white,
+        backgroundColor: palette.surface,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
-          color: SabinaColors.neutral900,
+          color: palette.ink,
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
@@ -52,12 +50,12 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: SabinaColors.neutral900,
+            color: palette.ink,
           ),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
-          child: Divider(height: 1, color: SabinaColors.neutral300),
+          child: Divider(height: 1, color: palette.line),
         ),
       ),
       floatingActionButton: _showBackToTop
@@ -65,7 +63,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               onPressed: () => _scrollController.animateTo(0,
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOut),
-              backgroundColor: _amber,
+              backgroundColor: palette.amber,
               child: const Icon(Icons.keyboard_arrow_up_rounded,
                   color: Colors.white),
             )
@@ -74,15 +72,22 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
         controller: _scrollController,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         children: [
-          _headerBadge('Minggu 28–40', _amber, _amberBg),
+          _headerBadge('Minggu 28–40'),
           const SizedBox(height: 16),
-          _sectionLabel(l10n.introductionLabel),
-          ArticleCallout(l10n.trimesterThree_intro, color: _amber),
+
+          ArticleSectionLabel(l10n.introductionLabel,
+              accentColor: palette.amber),
+          ArticleCallout(l10n.trimesterThree_intro, color: palette.amber),
+
           ArticleInlineImage(
             ArticleImages.trimester3BayiDevelopment,
             caption: l10n.trimesterThree_fetalDevelopmentImage_caption,
           ),
-          _sectionLabel(l10n.trimesterThree_weeklyDevelopment_title),
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.trimesterThree_weeklyDevelopment_title,
+              accentColor: palette.amber),
           _weeklyCard([
             _weekItem(l10n.trimesterThree_week28_29,
                 l10n.trimesterThree_week28_29_desc),
@@ -97,13 +102,14 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
             _weekItem(l10n.trimesterThree_week38_39,
                 l10n.trimesterThree_week38_39_desc),
             _weekItem(
-                l10n.trimesterThree_week40, l10n.trimesterThree_week40_desc,
-                isLast: true),
+                l10n.trimesterThree_week40, l10n.trimesterThree_week40_desc),
           ]),
-          const SizedBox(height: 8),
-          _sectionLabel(l10n.trimesterThree_maternalChanges_title),
-          _bulletCard(
-            l10n.trimesterThree_maternalChanges_title,
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.trimesterThree_maternalChanges_title,
+              accentColor: palette.amber),
+          _bulletGroup(
             [
               l10n.trimesterThree_maternalChanges_28_30,
               l10n.trimesterThree_maternalChanges_31_34,
@@ -111,12 +117,14 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               l10n.trimesterThree_maternalChanges_38_40,
             ],
             icon: Icons.pregnant_woman_rounded,
-            color: _amber,
+            headerColor: palette.amber,
           ),
-          const SizedBox(height: 8),
-          _sectionLabel(l10n.trimesterThree_commonComplaints_title),
-          _bulletCard(
-            l10n.trimesterThree_commonComplaints_title,
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.trimesterThree_commonComplaints_title,
+              accentColor: palette.amber),
+          _bulletGroup(
             [
               l10n.trimesterThree_commonComplaints_backPain,
               l10n.trimesterThree_commonComplaints_sleepProblems,
@@ -126,12 +134,14 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               l10n.trimesterThree_commonComplaints_braxtonHicks,
             ],
             icon: Icons.sentiment_dissatisfied_rounded,
-            color: SabinaColors.error700,
+            headerColor: palette.amber,
           ),
-          const SizedBox(height: 8),
-          _sectionLabel(l10n.recommendedAndAvoidLabel),
-          _bulletCard(
-            l10n.trimesterThree_dos_title,
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.recommendedAndAvoidLabel,
+              accentColor: palette.amber),
+          _bulletGroup(
             [
               l10n.trimesterThree_dos_nutrition,
               l10n.trimesterThree_dos_rest,
@@ -140,10 +150,10 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               l10n.trimesterThree_dos_preparation,
             ],
             icon: Icons.check_circle_rounded,
-            color: const Color(0xFF6F937D),
+            headerColor: palette.sage,
           ),
-          _bulletCard(
-            l10n.trimesterThree_donts_title,
+          const SizedBox(height: 18),
+          _bulletGroup(
             [
               l10n.trimesterThree_donts_ignoreMovement,
               l10n.trimesterThree_donts_rawFood,
@@ -152,14 +162,20 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               l10n.trimesterThree_donts_ignoreLabor,
             ],
             icon: Icons.block_rounded,
-            color: SabinaColors.error700,
+            headerColor: palette.critical,
           ),
-          const SizedBox(height: 8),
+
+          const SizedBox(height: 28),
+
           ArticleInlineImage(
             ArticleImages.trimester3KeluhanIbu,
             caption: l10n.trimesterThree_maternalComplaintsImage_caption,
           ),
-          _sectionLabel(l10n.trimesterThree_reference_title),
+
+          const SizedBox(height: 28),
+
+          ArticleSectionLabel(l10n.trimesterThree_reference_title,
+              accentColor: palette.amber),
           _referenceCard([
             {
               'title': l10n.trimesterThree_reference_acog,
@@ -171,6 +187,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
             },
             {'title': l10n.trimesterThree_reference_nhs, 'url': 'www.nhs.uk'},
           ]),
+
           const SizedBox(height: 24),
         ],
       ),
@@ -179,26 +196,28 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
 
   // ---------------------------------------------------------------------------
 
-  Widget _headerBadge(String label, Color color, Color bg) {
+  Widget _headerBadge(String label) {
+    final palette = context.palette;
     return Row(
       children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: bg,
+            color: palette.amberSoft,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.calendar_month_rounded, size: 12, color: color),
+              Icon(Icons.calendar_month_rounded,
+                  size: 12, color: palette.amber),
               const SizedBox(width: 6),
               Text(
                 label,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
-                  color: color,
+                  color: palette.amber,
                 ),
               ),
             ],
@@ -208,26 +227,12 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
     );
   }
 
-  Widget _sectionLabel(String label) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 14),
-      child: Text(
-        label,
-        style: GoogleFonts.plusJakartaSans(
-          fontSize: 18,
-          fontWeight: FontWeight.w700,
-          color: _amber,
-          height: 1.3,
-        ),
-      ),
-    );
-  }
-
   Widget _weeklyCard(List<Widget> items) {
     return Column(children: items);
   }
 
-  Widget _weekItem(String week, String desc, {bool isLast = false}) {
+  Widget _weekItem(String week, String desc) {
+    final palette = context.palette;
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
       child: Row(
@@ -236,7 +241,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
-              color: _amberBg,
+              color: palette.amberSoft,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -244,94 +249,39 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
-                color: _amber,
+                color: palette.amber,
               ),
             ),
           ),
           const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              desc,
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 14,
-                color: SabinaColors.neutral700,
-                height: 1.6,
-              ),
-            ),
-          ),
+          Expanded(child: MarkedText(desc)),
         ],
       ),
     );
   }
 
-  Widget _bulletCard(String title, List<String> items,
-      {IconData? icon, Color? color}) {
-    final c = color ?? SabinaColors.primary700;
-    final bg = c.withValues(alpha: 0.10);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              if (icon != null) ...[
-                Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    color: bg,
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                  child: Center(child: Icon(icon, size: 14, color: c)),
-                ),
-                const SizedBox(width: 10),
-              ],
-              Text(
-                title,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: SabinaColors.neutral900,
-                ),
-              ),
-            ],
+  Widget _bulletGroup(List<String> items,
+      {required IconData icon, required Color headerColor}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: 32,
+          height: 32,
+          decoration: BoxDecoration(
+            color: headerColor.withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(9),
           ),
-          const SizedBox(height: 10),
-          ...items.map((item) => Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 7),
-                      child: Container(
-                        width: 5,
-                        height: 5,
-                        decoration:
-                            BoxDecoration(color: c, shape: BoxShape.circle),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        item,
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 14,
-                          color: SabinaColors.neutral700,
-                          height: 1.6,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )),
-        ],
-      ),
+          child: Center(child: Icon(icon, size: 14, color: headerColor)),
+        ),
+        const SizedBox(height: 12),
+        ArticleBulletList(items),
+      ],
     );
   }
 
   Widget _referenceCard(List<Map<String, String>> refs) {
+    final palette = context.palette;
     return Column(
       children: refs
           .map((ref) => Padding(
@@ -339,7 +289,8 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.menu_book_rounded, size: 13, color: _amber),
+                    Icon(Icons.menu_book_rounded,
+                        size: 13, color: palette.amber),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Column(
@@ -350,14 +301,14 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
-                              color: SabinaColors.neutral900,
+                              color: palette.ink,
                             ),
                           ),
                           Text(
                             ref['url']!,
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 11,
-                              color: _amber,
+                              color: palette.amber,
                             ),
                           ),
                         ],
