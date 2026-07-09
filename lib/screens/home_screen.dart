@@ -874,7 +874,6 @@ Widget _buildQuickActionsCard(BuildContext context) {
       iconColor: p.peach,
       iconBg: p.peachSoft,
       label: l10n.detectPreeclampsia,
-      subtitle: l10n.screeningRiskBP,
       illustrationAsset: 'assets/images/home/bento_preeklampsia.png',
       onTap: () => Navigator.push(
         context,
@@ -886,7 +885,6 @@ Widget _buildQuickActionsCard(BuildContext context) {
       iconColor: p.sage,
       iconBg: p.sageSoft,
       label: l10n.screeningAndPenapisan,
-      subtitle: l10n.deliveryRisk,
       illustrationAsset: 'assets/images/home/bento_skrining.png',
       onTap: () => Navigator.push(
         context,
@@ -898,7 +896,6 @@ Widget _buildQuickActionsCard(BuildContext context) {
       iconColor: p.primary,
       iconBg: p.primarySoft,
       label: l10n.pregnancyHistoryLabel,
-      subtitle: l10n.pregnancyDataLabel,
       illustrationAsset: 'assets/images/home/bento_riwayat.png',
       onTap: () => Navigator.push(
         context,
@@ -910,7 +907,6 @@ Widget _buildQuickActionsCard(BuildContext context) {
       iconColor: p.amber,
       iconBg: p.amberSoft,
       label: l10n.calculateIMT,
-      subtitle: l10n.bmiFull,
       illustrationAsset: 'assets/images/home/bento_imt.png',
       onTap: () => Navigator.push(
         context,
@@ -968,46 +964,47 @@ Widget _bentoTile(BuildContext context, _BentoItem item) {
         ],
       ),
       clipBehavior: Clip.antiAlias,
-      child: Stack(
-        children: [
-          // Ilustrasi GPT = satu-satunya anchor visual (pojok kanan-bawah).
-          // Fallback: chip ikon Material lama, bila aset belum tersedia.
-          Positioned(
-            right: -8,
-            bottom: -8,
-            width: 90,
-            height: 90,
-            child: Image.asset(
-              item.illustrationAsset,
-              fit: BoxFit.contain,
-              errorBuilder: (_, __, ___) => Center(
-                child: Container(
-                  width: 42,
-                  height: 46,
-                  decoration: BoxDecoration(
-                    color: item.iconBg,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(21),
-                      topRight: Radius.circular(21),
-                      bottomLeft: Radius.circular(9),
-                      bottomRight: Radius.circular(9),
+      child: SizedBox(
+        // Tinggi tetap: tile seimbang dengan ilustrasi walau judul cuma 1 baris.
+        height: 104,
+        child: Stack(
+          children: [
+            // Ilustrasi GPT = satu-satunya anchor visual (pojok kanan-bawah).
+            // Fallback: chip ikon Material lama, bila aset belum tersedia.
+            Positioned(
+              right: -8,
+              bottom: -8,
+              width: 90,
+              height: 90,
+              child: Image.asset(
+                item.illustrationAsset,
+                fit: BoxFit.contain,
+                errorBuilder: (_, __, ___) => Center(
+                  child: Container(
+                    width: 42,
+                    height: 46,
+                    decoration: BoxDecoration(
+                      color: item.iconBg,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(21),
+                        topRight: Radius.circular(21),
+                        bottomLeft: Radius.circular(9),
+                        bottomRight: Radius.circular(9),
+                      ),
                     ),
+                    child: Icon(item.icon, color: item.iconColor, size: 21),
                   ),
-                  child: Icon(item.icon, color: item.iconColor, size: 21),
                 ),
               ),
             ),
-          ),
-          Padding(
-            // Sisi kanan lebih lebar: ruang aman agar teks tak menabrak ilustrasi.
-            padding: const EdgeInsets.fromLTRB(15, 15, 58, 14),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
+            Padding(
+              // Sisi kanan lebih lebar: ruang aman agar teks tak menabrak ilustrasi.
+              padding: const EdgeInsets.fromLTRB(15, 15, 58, 14),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
                   item.label,
                   maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 13.5,
                     fontWeight: FontWeight.w700,
@@ -1015,21 +1012,10 @@ Widget _bentoTile(BuildContext context, _BentoItem item) {
                     color: p.ink,
                   ),
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  item.subtitle,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                    color: p.inkMuted,
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
@@ -1901,7 +1887,6 @@ Widget _buildSabidanLink(BuildContext context) {
 class _BentoItem {
   final IconData icon;
   final String label;
-  final String subtitle;
   final Color iconColor;
   final Color iconBg;
   final String illustrationAsset;
@@ -1910,7 +1895,6 @@ class _BentoItem {
   const _BentoItem({
     required this.icon,
     required this.label,
-    required this.subtitle,
     required this.iconColor,
     required this.iconBg,
     required this.illustrationAsset,
