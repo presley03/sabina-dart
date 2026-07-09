@@ -26,7 +26,7 @@ class SkriningScreen extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Color(0xFF6D3F8E), Color(0xFF9B59B6)],
+                  colors: [Color(0xFF6E4260), Color(0xFF9E5A6E)],
                 ),
               ),
               padding: const EdgeInsets.fromLTRB(20, 56, 20, 28),
@@ -128,8 +128,8 @@ class SkriningScreen extends StatelessWidget {
                   // Penapisan card
                   _SkriningCard(
                     icon: FontAwesomeIcons.shield,
-                    iconColor: const Color(0xFF2A9474),
-                    iconBg: const Color(0xFFE5F5F0),
+                    iconColor: const Color(0xFF6F937D),
+                    iconBg: const Color(0xFFE2EBE4),
                     title: AppLocalizations.of(context)?.advancedScreening ??
                         'Penapisan Tingkat Lanjut',
                     description: AppLocalizations.of(context)
@@ -139,8 +139,8 @@ class SkriningScreen extends StatelessWidget {
                       _TagData(
                           AppLocalizations.of(context)?.lowRisk ??
                               '✓ Risiko Rendah',
-                          const Color(0xFFE5F5F0),
-                          const Color(0xFF2A9474)),
+                          const Color(0xFFE2EBE4),
+                          const Color(0xFF6F937D)),
                       _TagData(
                           AppLocalizations.of(context)?.questionsCount(20) ??
                               '20 pertanyaan',
@@ -165,8 +165,8 @@ class SkriningScreen extends StatelessWidget {
                   // Keluhan card
                   _SkriningCard(
                     icon: FontAwesomeIcons.notesMedical,
-                    iconColor: const Color(0xFFD97706),
-                    iconBg: const Color(0xFFFFF3E0),
+                    iconColor: const Color(0xFFC08A3C),
+                    iconBg: const Color(0xFFF5E8D2),
                     title: AppLocalizations.of(context)?.reportComplaint ??
                         'Report Complaint',
                     description: AppLocalizations.of(context)

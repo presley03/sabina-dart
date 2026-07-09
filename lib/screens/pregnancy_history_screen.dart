@@ -150,7 +150,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                     label: l10n.estimatedDueDate,
                     value: _estimatedDueDate,
                     icon: FontAwesomeIcons.baby,
-                    valueColor: const Color(0xFF2A9474),
+                    valueColor: const Color(0xFF6F937D),
                   ),
                 ],
                 _divider(),

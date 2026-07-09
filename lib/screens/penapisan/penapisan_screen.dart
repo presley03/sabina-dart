@@ -51,8 +51,8 @@ class PenapisanScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _ScreeningCard(
                 icon: Icons.assignment_outlined,
-                iconColor: const Color(0xFF2A9474),
-                iconBg: const Color(0xFFE5F5F0),
+                iconColor: const Color(0xFF6F937D),
+                iconBg: const Color(0xFFE2EBE4),
                 title: l10n.penapisanCardTitle,
                 description: l10n.penapisanCardDesc,
                 meta: l10n.penapisanMeta,

@@ -20,8 +20,8 @@ class CareMenuScreen extends StatelessWidget {
         'title': l10n.careMenu_nutrition_title,
         'desc': l10n.careMenu_nutrition_description,
         'icon': FontAwesomeIcons.utensils,
-        'color': const Color(0xFFD97706),
-        'bg': const Color(0xFFFFF3E0),
+        'color': const Color(0xFFC08A3C),
+        'bg': const Color(0xFFF5E8D2),
         'screen': const MakananScreen(),
       },
       {
@@ -36,8 +36,8 @@ class CareMenuScreen extends StatelessWidget {
         'title': l10n.careMenu_dailyCare_title,
         'desc': l10n.careMenu_dailyCare_description,
         'icon': FontAwesomeIcons.spa,
-        'color': const Color(0xFF2A9474),
-        'bg': const Color(0xFFE5F5F0),
+        'color': const Color(0xFF6F937D),
+        'bg': const Color(0xFFE2EBE4),
         'screen': const PerawatanSehariHariScreen(),
       },
       {

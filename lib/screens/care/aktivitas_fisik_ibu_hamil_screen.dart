@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
+import 'package:sabina/utils/constants.dart';
+import 'package:sabina/widgets/article_reader_widgets.dart';
 
 class AktivitasFisikIbuHamilScreen extends StatelessWidget {
   const AktivitasFisikIbuHamilScreen({super.key});
@@ -15,7 +16,7 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
       {
         'title': l10n.physicalActivity_item1_title,
         'icon': FontAwesomeIcons.personWalking,
-        'color': const Color(0xFF2A9474),
+        'color': const Color(0xFF6F937D),
         'content': [
           l10n.physicalActivity_item1_content1,
           l10n.physicalActivity_item1_content2,
@@ -45,7 +46,7 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
       {
         'title': l10n.physicalActivity_item4_title,
         'icon': FontAwesomeIcons.spa,
-        'color': const Color(0xFFD97706),
+        'color': const Color(0xFFC08A3C),
         'content': [
           l10n.physicalActivity_item4_content1,
           l10n.physicalActivity_item4_content2,
@@ -79,68 +80,37 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        surfaceTintColor: Colors.transparent,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
-          color: SabinaColors.neutral900,
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Text(
-          l10n.physicalActivity_screenTitle,
-          style: GoogleFonts.plusJakartaSans(
-            fontSize: 18,
-            fontWeight: FontWeight.w700,
-            color: SabinaColors.neutral900,
-          ),
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1),
-          child: Divider(height: 1, color: SabinaColors.neutral300),
-        ),
-      ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Hero image
-            Image.asset(
-              'assets/images/aktifitas_fisik_ibu_hamil.png',
-              width: double.infinity,
-              height: 220,
-              fit: BoxFit.cover,
+            ArticleHeader(
+              title: l10n.physicalActivity_screenTitle,
+              imagePath: ArticleImages.aktivitasHero,
+              tags: const ['Kehamilan', 'Aktivitas'],
+              gradientColors: const [Color(0xFF6F937D), Color(0xFF6FCFB3)],
+              readMinutes: 4,
             ),
-
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 28),
 
-                  Text(
-                    l10n.physicalActivity_introduction,
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 15,
-                      color: SabinaColors.neutral700,
-                      height: 1.8,
-                    ),
-                  ),
+                  ArticleStandfirst(l10n.physicalActivity_introduction),
 
-                  const SizedBox(height: 36),
+                  const ArticleDivider(),
 
-                  _label(l10n.jenisAktivitasLabel),
-                  const SizedBox(height: 24),
+                  ArticleSectionLabel(l10n.jenisAktivitasLabel),
 
                   // Numbered activity items with bullet content
                   ...activityItems.asMap().entries.map((e) {
                     final item = e.value;
                     final isLast = e.key == activityItems.length - 1;
                     final color = item['color'] as Color;
-                    return _activitySection(
+                    return ArticleNumberedItem(
                       number: e.key + 1,
                       title: item['title'],
                       icon: item['icon'],
@@ -150,82 +120,25 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
                     );
                   }),
 
-                  const SizedBox(height: 40),
-                  Divider(color: SabinaColors.neutral300),
-                  const SizedBox(height: 32),
+                  const ArticleDivider(),
 
                   // Tips
-                  _label(l10n.physicalActivity_tipsTitle),
-                  const SizedBox(height: 20),
+                  ArticleSectionLabel(l10n.physicalActivity_tipsTitle),
 
-                  ...tips.asMap().entries.map((e) => Padding(
-                        padding: const EdgeInsets.only(bottom: 14),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              width: 22,
-                              height: 22,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF2A9474)
-                                    .withValues(alpha: 0.12),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '${e.key + 1}',
-                                  style: GoogleFonts.plusJakartaSans(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w800,
-                                    color: const Color(0xFF2A9474),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Text(
-                                e.value,
-                                style: GoogleFonts.plusJakartaSans(
-                                  fontSize: 14,
-                                  color: SabinaColors.neutral700,
-                                  height: 1.6,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                  ...tips.asMap().entries.map((e) => ArticleNumberedItem(
+                        number: e.key + 1,
+                        title: e.value,
+                        color: const Color(0xFF6F937D),
+                        content: '',
+                        isLast: e.key == tips.length - 1,
                       )),
 
-                  const SizedBox(height: 40),
-                  Divider(color: SabinaColors.neutral300),
-                  const SizedBox(height: 28),
+                  const ArticleDivider(),
 
                   // References
-                  _label(l10n.physicalActivity_referencesTitle),
-                  const SizedBox(height: 16),
+                  ArticleSectionLabel(l10n.physicalActivity_referencesTitle),
 
-                  ...references.asMap().entries.map((e) => Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('${e.key + 1}.',
-                                style: GoogleFonts.plusJakartaSans(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w700,
-                                    color: SabinaColors.neutral500)),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(e.value,
-                                  style: GoogleFonts.plusJakartaSans(
-                                      fontSize: 12,
-                                      color: SabinaColors.neutral500,
-                                      height: 1.5)),
-                            ),
-                          ],
-                        ),
-                      )),
+                  ArticleReferenceList(references: references),
 
                   const SizedBox(height: 48),
                 ],
@@ -234,107 +147,6 @@ class AktivitasFisikIbuHamilScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _label(String text) {
-    return Text(
-      text.toUpperCase(),
-      style: GoogleFonts.plusJakartaSans(
-        fontSize: 10,
-        fontWeight: FontWeight.w700,
-        color: SabinaColors.neutral500,
-        letterSpacing: 1.2,
-      ),
-    );
-  }
-
-  Widget _activitySection({
-    required int number,
-    required String title,
-    required IconData icon,
-    required Color color,
-    required List<String> items,
-    bool isLast = false,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 28,
-              height: 28,
-              decoration: BoxDecoration(
-                color: color.withValues(alpha: 0.12),
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Text(
-                  '$number',
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w800,
-                    color: color,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 12),
-            FaIcon(icon, size: 14, color: color),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                title,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: SabinaColors.neutral900,
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 14),
-        ...items.map((item) => Padding(
-              padding: const EdgeInsets.only(left: 40, bottom: 10),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 7),
-                    child: Container(
-                      width: 5,
-                      height: 5,
-                      decoration:
-                          BoxDecoration(color: color, shape: BoxShape.circle),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Text(
-                      item,
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 14,
-                        color: SabinaColors.neutral700,
-                        height: 1.7,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            )),
-        if (!isLast) ...[
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(left: 40),
-            child: Divider(color: SabinaColors.neutral300),
-          ),
-          const SizedBox(height: 20),
-        ] else
-          const SizedBox(height: 8),
-      ],
     );
   }
 }

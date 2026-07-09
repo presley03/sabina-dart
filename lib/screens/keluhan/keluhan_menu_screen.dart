@@ -20,28 +20,26 @@ class KeluhanMenuScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: SabinaColors.neutral100,
       appBar: AppBar(
-        backgroundColor: SabinaColors.white,
+        backgroundColor: SabinaColors.neutral100,
         elevation: 0,
+        scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
         automaticallyImplyLeading: false,
         leading: showBackButton
             ? IconButton(
-                icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+                icon: const Icon(Icons.arrow_back_rounded, size: 24),
                 color: SabinaColors.neutral900,
                 onPressed: () => Navigator.of(context).pop(),
               )
             : null,
         title: Text(
           l10n.keluhanMenuTitle,
-          style: GoogleFonts.plusJakartaSans(
-            fontSize: 18,
-            fontWeight: FontWeight.w700,
+          style: GoogleFonts.fraunces(
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+            letterSpacing: -0.4,
             color: SabinaColors.neutral900,
           ),
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1),
-          child: Divider(height: 1, color: SabinaColors.neutral300),
         ),
       ),
       body: SingleChildScrollView(
@@ -113,7 +111,7 @@ class KeluhanMenuScreen extends StatelessWidget {
                   icon: FontAwesomeIcons.faceMeh,
                   label: l10n.mualMuntahTitle,
                   subtitle: l10n.mualMuntahSubtitle,
-                  iconColor: const Color(0xFFD97706),
+                  iconColor: const Color(0xFFC08A3C),
                   onTap: () => _nav(context, const MualMuntahScreen()),
                 ),
                 _KeluhanCard(
@@ -141,7 +139,7 @@ class KeluhanMenuScreen extends StatelessWidget {
                   icon: FontAwesomeIcons.person,
                   label: l10n.bengkakTitle,
                   subtitle: l10n.bengkakSubtitle,
-                  iconColor: const Color(0xFF2A9474),
+                  iconColor: const Color(0xFF6F937D),
                   onTap: () => _nav(context, const BengkakScreen()),
                 ),
                 _KeluhanCard(

@@ -52,8 +52,8 @@ class MualMuntahScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _IntroCard(
                 icon: FontAwesomeIcons.faceMeh,
-                iconColor: const Color(0xFFD97706),
-                iconBg: const Color(0xFFFFF3E0),
+                iconColor: const Color(0xFFC08A3C),
+                iconBg: const Color(0xFFF5E8D2),
                 title: l10n.mualMuntahTitle,
                 description: l10n.mualMuntahDescription,
                 meta: l10n.questionnaireMetaText(8),

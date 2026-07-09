@@ -5,29 +5,37 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-// ─── IMT color palette ────────────────────────────────────────────────────────
-const _kUnderweight = Color(0xFF60A5FA); // soft blue
-const _kNormal = Color(0xFF34D399); // soft teal/green
-const _kOverweight = Color(0xFFFBBF24); // amber
-const _kObese1 = Color(0xFFF87171); // soft red
-const _kObese2 = Color(0xFFEF4444);
-const _kObese3 = Color(0xFFDC2626);
+// ─── IMT color palette (Twilight Bloom) ─────────────────────────────────────
+// Nada dicerahkan agar tetap terbaca di atas panel plum yang gelap.
+const _kUnderweight = Color(0xFF8CA0C4); // dusty blue
+const _kNormal = Color(0xFF86B396); // eukaliptus
+const _kOverweight = Color(0xFFDCA857); // gold
+const _kObese1 = Color(0xFFDD9179); // soft coral
+const _kObese2 = Color(0xFFCE6E59); // rust
+const _kObese3 = Color(0xFFB0503F); // deep rust
 
-// Dark background for gauge card
-const _kCardBg = Color(0xFF1C1C2E);
-const _kCardBg2 = Color(0xFF16213E);
+// Panel gauge — plum mulberry dalam (bukan navy klinis)
+const _kCardBg = Color(0xFF3E2438);
+const _kCardBg2 = Color(0xFF271523);
 
-// ─── Gauge painter ────────────────────────────────────────────────────────────
-class _GaugePainter extends CustomPainter {
+// ─── Ring gauge painter ─────────────────────────────────────────────────────
+// Cincin zona IMT (300°, celah di bawah) dengan marker meluncur. Angka Fraunces
+// ditempatkan di tengah oleh widget pemanggil.
+class _RingGaugePainter extends CustomPainter {
   final double? imt;
   final double animValue;
 
-  _GaugePainter({this.imt, required this.animValue});
+  _RingGaugePainter({this.imt, required this.animValue});
 
   static const imtMin = 10.0;
   static const imtMax = 50.0;
   static const imtRange = imtMax - imtMin;
+
+  // 300° busur, celah 60° di bawah (mulai kiri-bawah → atas → kanan-bawah)
+  static const _start = 2.0943951; // 120°
+  static const _sweep = 5.2359877; // 300°
 
   static const segments = [
     [0.0, 18.5, _kUnderweight],
@@ -40,150 +48,72 @@ class _GaugePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final cx = size.width / 2;
-    final cy = size.height;
-    final r = size.width * 0.40;
+    final center = Offset(size.width / 2, size.height / 2);
+    final r = size.width / 2 - 16;
+    final rect = Rect.fromCircle(center: center, radius: r);
 
-    const startAngle = math.pi;
-    const sweepAngle = math.pi;
-
-    // Track background dim ring
-    final trackBg = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = r * 0.22
-      ..color = Colors.white.withValues(alpha: 0.07);
+    // Track redup
     canvas.drawArc(
-      Rect.fromCircle(center: Offset(cx, cy), radius: r),
-      startAngle,
-      sweepAngle,
+      rect,
+      _start,
+      _sweep,
       false,
-      trackBg,
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 15
+        ..strokeCap = StrokeCap.round
+        ..color = Colors.white.withValues(alpha: 0.07),
     );
 
-    // Colored segments
-    final trackPaint = Paint()
+    // Segmen berwarna
+    final segPaint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = r * 0.18
+      ..strokeWidth = 13
       ..strokeCap = StrokeCap.butt;
-
     for (final seg in segments) {
       final sMin = (seg[0] as double).clamp(imtMin, imtMax);
       final sMax = (seg[1] as double).clamp(imtMin, imtMax);
-      final color = seg[2] as Color;
-      final segStart = startAngle + sweepAngle * ((sMin - imtMin) / imtRange);
-      final segSweep = sweepAngle * ((sMax - sMin) / imtRange);
-      trackPaint.color = color;
+      segPaint.color = seg[2] as Color;
       canvas.drawArc(
-        Rect.fromCircle(center: Offset(cx, cy), radius: r),
-        segStart,
-        segSweep,
+        rect,
+        _start + _sweep * ((sMin - imtMin) / imtRange),
+        _sweep * ((sMax - sMin) / imtRange),
         false,
-        trackPaint,
+        segPaint,
       );
     }
 
-    // Gap lines
-    final gapPaint = Paint()
+    // Garis pemisah zona
+    final gap = Paint()
       ..color = _kCardBg
-      ..strokeWidth = 2.0;
+      ..strokeWidth = 3;
     for (final seg in segments.skip(1)) {
       final sMin = (seg[0] as double).clamp(imtMin, imtMax);
-      final angle = startAngle + sweepAngle * ((sMin - imtMin) / imtRange);
-      final inner = r - r * 0.10;
-      final outer = r + r * 0.10;
+      final a = _start + _sweep * ((sMin - imtMin) / imtRange);
       canvas.drawLine(
-        Offset(cx + inner * math.cos(angle), cy + inner * math.sin(angle)),
-        Offset(cx + outer * math.cos(angle), cy + outer * math.sin(angle)),
-        gapPaint,
+        Offset(center.dx + (r - 8) * math.cos(a), center.dy + (r - 8) * math.sin(a)),
+        Offset(center.dx + (r + 8) * math.cos(a), center.dy + (r + 8) * math.sin(a)),
+        gap,
       );
     }
 
-    // Tick marks at each segment boundary
-    final tickPaint = Paint()
-      ..color = Colors.white.withValues(alpha: 0.25)
-      ..strokeWidth = 1.0;
-    for (final seg in segments.skip(1)) {
-      final sMin = (seg[0] as double).clamp(imtMin, imtMax);
-      final angle = startAngle + sweepAngle * ((sMin - imtMin) / imtRange);
-      final inner2 = r + r * 0.13;
-      final outer2 = r + r * 0.22;
-      canvas.drawLine(
-        Offset(cx + inner2 * math.cos(angle), cy + inner2 * math.sin(angle)),
-        Offset(cx + outer2 * math.cos(angle), cy + outer2 * math.sin(angle)),
-        tickPaint,
-      );
-    }
-
-    // Needle
+    // Marker meluncur
     if (imt != null) {
       final clamped = imt!.clamp(imtMin, imtMax);
-      final needleAngle =
-          startAngle + sweepAngle * ((clamped - imtMin) / imtRange) * animValue;
-
-      final catColor = _colorForIMT(imt!);
-      final needleLen = r * 0.68;
-
-      // Glow
-      for (final opacity in [0.06, 0.12, 0.20]) {
-        canvas.drawLine(
-          Offset(cx, cy),
-          Offset(
-            cx + needleLen * math.cos(needleAngle),
-            cy + needleLen * math.sin(needleAngle),
-          ),
-          Paint()
-            ..color = catColor.withValues(alpha: opacity)
-            ..strokeWidth = 12
-            ..strokeCap = StrokeCap.round,
-        );
-      }
-
-      // Needle body
-      canvas.drawLine(
-        Offset(cx, cy),
-        Offset(
-          cx + needleLen * math.cos(needleAngle),
-          cy + needleLen * math.sin(needleAngle),
-        ),
+      final a = _start +
+          _sweep * ((clamped - imtMin) / imtRange) * animValue.clamp(0.0, 1.0);
+      final mx = center.dx + r * math.cos(a);
+      final my = center.dy + r * math.sin(a);
+      final c = _colorForIMT(imt!);
+      canvas.drawCircle(
+        Offset(mx, my),
+        17,
         Paint()
-          ..color = Colors.white
-          ..strokeWidth = 2.5
-          ..strokeCap = StrokeCap.round,
+          ..color = c.withValues(alpha: 0.32)
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 7),
       );
-
-      // Center hub
-      canvas.drawCircle(
-        Offset(cx, cy),
-        12,
-        Paint()..color = catColor.withValues(alpha: 0.3),
-      );
-      canvas.drawCircle(
-        Offset(cx, cy),
-        8,
-        Paint()..color = catColor,
-      );
-      canvas.drawCircle(
-        Offset(cx, cy),
-        4,
-        Paint()..color = Colors.white,
-      );
-    } else {
-      // Empty hub
-      canvas.drawCircle(
-        Offset(cx, cy),
-        12,
-        Paint()..color = Colors.white.withValues(alpha: 0.08),
-      );
-      canvas.drawCircle(
-        Offset(cx, cy),
-        8,
-        Paint()..color = Colors.white.withValues(alpha: 0.15),
-      );
-      canvas.drawCircle(
-        Offset(cx, cy),
-        4,
-        Paint()..color = Colors.white.withValues(alpha: 0.4),
-      );
+      canvas.drawCircle(Offset(mx, my), 11.5, Paint()..color = Colors.white);
+      canvas.drawCircle(Offset(mx, my), 6.5, Paint()..color = c);
     }
   }
 
@@ -195,7 +125,7 @@ class _GaugePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_GaugePainter old) =>
+  bool shouldRepaint(_RingGaugePainter old) =>
       old.imt != imt || old.animValue != animValue;
 }
 
@@ -262,7 +192,7 @@ class _SegmentedBarPainter extends CustomPainter {
     if (imt != null) {
       final clamped = imt!.clamp(imtMin, imtMax);
       final mx = size.width * ((clamped - imtMin) / imtRange) * animValue;
-      final catColor = _GaugePainter._colorForIMT(imt!);
+      final catColor = _RingGaugePainter._colorForIMT(imt!);
 
       // Glow dot above
       canvas.drawCircle(
@@ -319,7 +249,21 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
     super.initState();
     _animCtrl = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000));
-    _anim = CurvedAnimation(parent: _animCtrl, curve: Curves.easeOutCubic);
+    _anim = CurvedAnimation(parent: _animCtrl, curve: Curves.easeOutQuart);
+    _loadSaved();
+  }
+
+  Future<void> _loadSaved() async {
+    final prefs = await SharedPreferences.getInstance();
+    final saved = prefs.getDouble('imt_value');
+    if (saved != null) {
+      final w = prefs.getDouble('imt_weight');
+      final h = prefs.getDouble('imt_height');
+      if (w != null) _weightController.text = w.toStringAsFixed(1);
+      if (h != null) _heightController.text = h.toStringAsFixed(0);
+      setState(() => _imt = saved);
+      _animCtrl.forward(from: 0);
+    }
   }
 
   @override
@@ -333,10 +277,22 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
   void _calculate() {
     if (_formKey.currentState!.validate()) {
       final w = double.parse(_weightController.text);
-      final h = double.parse(_heightController.text) / 100;
-      setState(() => _imt = w / (h * h));
+      final hCm = double.parse(_heightController.text);
+      final h = hCm / 100;
+      final result = w / (h * h);
+      setState(() => _imt = result);
       _animCtrl.forward(from: 0);
+      _persist(result, w, hCm);
     }
+  }
+
+  Future<void> _persist(double imt, double weight, double height) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setDouble('imt_value', imt);
+    await prefs.setDouble('imt_weight', weight);
+    await prefs.setDouble('imt_height', height);
+    await prefs.setString(
+        'imt_date', DateTime.now().toIso8601String().substring(0, 10));
   }
 
   // ── IMT helpers ──────────────────────────────────────────────────────────────
@@ -430,82 +386,101 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
                   end: Alignment.bottomRight,
                   colors: [_kCardBg, _kCardBg2],
                 ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(44),
+                  bottomRight: Radius.circular(44),
+                ),
               ),
-              padding: const EdgeInsets.fromLTRB(24, 32, 24, 28),
+              padding: const EdgeInsets.fromLTRB(24, 28, 24, 32),
               child: Column(
                 children: [
-                  // Gauge
-                  AnimatedBuilder(
-                    animation: _anim,
-                    builder: (_, __) => SizedBox(
-                      height: 150,
-                      child: CustomPaint(
-                        painter:
-                            _GaugePainter(imt: _imt, animValue: _anim.value),
-                        size: const Size(double.infinity, 150),
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 16),
-
-                  // Value display
+                  // Ring gauge — zona IMT melingkar + angka di tengah
                   AnimatedBuilder(
                     animation: _anim,
                     builder: (_, __) {
-                      if (_imt == null) {
-                        return Column(children: [
-                          Text('—',
-                              style: GoogleFonts.plusJakartaSans(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                color: Colors.white.withValues(alpha: 0.2),
-                                height: 1,
-                              )),
-                          const SizedBox(height: 4),
-                          Text(
-                            l10n.imtFillDataPrompt,
-                            style: GoogleFonts.plusJakartaSans(
-                              fontSize: 12,
-                              color: Colors.white.withValues(alpha: 0.35),
+                      final c = _imt != null ? _catColor(_imt!) : Colors.white;
+                      return SizedBox(
+                        width: 234,
+                        height: 234,
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CustomPaint(
+                              size: const Size(234, 234),
+                              painter: _RingGaugePainter(
+                                  imt: _imt, animValue: _anim.value),
                             ),
-                          ),
-                        ]);
-                      }
-                      final catColor = _catColor(_imt!);
-                      return Opacity(
-                        opacity: _anim.value,
-                        child: Column(children: [
-                          Text(
-                            _imt!.toStringAsFixed(1),
-                            style: GoogleFonts.plusJakartaSans(
-                              fontSize: 52,
-                              fontWeight: FontWeight.w800,
-                              color: catColor,
-                              height: 1,
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 4),
-                            decoration: BoxDecoration(
-                              color: catColor.withValues(alpha: 0.18),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                  color: catColor.withValues(alpha: 0.4),
-                                  width: 1),
-                            ),
-                            child: Text(
-                              _category(_imt!, l10n),
-                              style: GoogleFonts.plusJakartaSans(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w700,
-                                color: catColor,
+                            if (_imt == null)
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text('—',
+                                      style: GoogleFonts.fraunces(
+                                        fontSize: 56,
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Colors.white.withValues(alpha: 0.25),
+                                        height: 1,
+                                      )),
+                                  const SizedBox(height: 8),
+                                  SizedBox(
+                                    width: 130,
+                                    child: Text(
+                                      l10n.imtFillDataPrompt,
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.plusJakartaSans(
+                                        fontSize: 11.5,
+                                        color:
+                                            Colors.white.withValues(alpha: 0.4),
+                                        height: 1.35,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            else
+                              Opacity(
+                                opacity: _anim.value.clamp(0.0, 1.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      _imt!.toStringAsFixed(1),
+                                      style: GoogleFonts.fraunces(
+                                        fontSize: 62,
+                                        fontWeight: FontWeight.w500,
+                                        color: c,
+                                        height: 1,
+                                        letterSpacing: -1,
+                                        fontFeatures: const [
+                                          FontFeature.tabularFigures()
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 13, vertical: 4),
+                                      decoration: BoxDecoration(
+                                        color: c.withValues(alpha: 0.18),
+                                        borderRadius: BorderRadius.circular(20),
+                                        border: Border.all(
+                                            color: c.withValues(alpha: 0.4)),
+                                      ),
+                                      child: Text(
+                                        _category(_imt!, l10n),
+                                        style: GoogleFonts.plusJakartaSans(
+                                          fontSize: 12.5,
+                                          fontWeight: FontWeight.w700,
+                                          color: c,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ),
-                        ]),
+                          ],
+                        ),
                       );
                     },
                   ),
@@ -587,7 +562,7 @@ class _IMTCalculatorScreenState extends State<IMTCalculatorScreen>
                             label: l10n.imtCalc_heightLabel,
                             hint: l10n.imtCalc_heightPlaceholder,
                             icon: FontAwesomeIcons.ruler,
-                            iconColor: const Color(0xFF2A9474),
+                            iconColor: const Color(0xFF6F937D),
                             isFirst: false,
                             l10n: l10n,
                           ),

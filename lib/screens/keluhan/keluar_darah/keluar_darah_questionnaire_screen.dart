@@ -27,7 +27,11 @@ class KeluarDarahQuestionnaireScreen extends StatelessWidget {
         }
 
         final l10n = AppLocalizations.of(context)!;
-        final localizedQuestions = [l10n.keluarDarahQ1, l10n.keluarDarahQ2, l10n.keluarDarahQ3];
+        final localizedQuestions = [
+          l10n.keluarDarahQ1,
+          l10n.keluarDarahQ2,
+          l10n.keluarDarahQ3
+        ];
         final progress =
             (model.currentQuestionIndex + 1) / model.questions.length;
         final current = model.currentQuestionIndex + 1;

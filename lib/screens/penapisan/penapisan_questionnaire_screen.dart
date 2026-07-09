@@ -26,7 +26,19 @@ class PenapisanQuestionnaireScreen extends StatelessWidget {
         }
 
         final l10n = AppLocalizations.of(context)!;
-        final localizedQuestions = [l10n.penapisanQ1, l10n.penapisanQ2, l10n.penapisanQ3, l10n.penapisanQ4, l10n.penapisanQ5, l10n.penapisanQ6, l10n.penapisanQ7, l10n.penapisanQ8, l10n.penapisanQ9, l10n.penapisanQ10, l10n.penapisanQ11];
+        final localizedQuestions = [
+          l10n.penapisanQ1,
+          l10n.penapisanQ2,
+          l10n.penapisanQ3,
+          l10n.penapisanQ4,
+          l10n.penapisanQ5,
+          l10n.penapisanQ6,
+          l10n.penapisanQ7,
+          l10n.penapisanQ8,
+          l10n.penapisanQ9,
+          l10n.penapisanQ10,
+          l10n.penapisanQ11
+        ];
         final progress =
             (model.currentQuestionIndex + 1) / model.questions.length;
         final current = model.currentQuestionIndex + 1;

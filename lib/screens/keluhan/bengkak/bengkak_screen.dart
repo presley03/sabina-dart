@@ -52,8 +52,8 @@ class BengkakScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _IntroCard(
                 icon: FontAwesomeIcons.person,
-                iconColor: const Color(0xFF2A9474),
-                iconBg: const Color(0xFFE5F5F0),
+                iconColor: const Color(0xFF6F937D),
+                iconBg: const Color(0xFFE2EBE4),
                 title: l10n.bengkakTitle,
                 description: l10n.bengkakDescription,
                 meta: l10n.questionnaireMetaText(8),

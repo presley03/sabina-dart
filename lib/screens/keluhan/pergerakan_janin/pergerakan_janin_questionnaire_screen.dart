@@ -31,7 +31,11 @@ class PergerakanJaninQuestionnaireScreen extends StatelessWidget {
         final current = model.currentQuestionIndex + 1;
         final total = model.questions.length;
         final l10n = AppLocalizations.of(context)!;
-        final localizedQuestions = [l10n.pergerakanJaninQ1, l10n.pergerakanJaninQ2, l10n.pergerakanJaninQ3];
+        final localizedQuestions = [
+          l10n.pergerakanJaninQ1,
+          l10n.pergerakanJaninQ2,
+          l10n.pergerakanJaninQ3
+        ];
 
         return Scaffold(
           backgroundColor: SabinaColors.neutral100,

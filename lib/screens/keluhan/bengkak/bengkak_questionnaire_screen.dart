@@ -26,7 +26,14 @@ class BengkakQuestionnaireScreen extends StatelessWidget {
         }
 
         final l10n = AppLocalizations.of(context)!;
-        final localizedQuestions = [l10n.bengkakQ1, l10n.bengkakQ2, l10n.bengkakQ3, l10n.bengkakQ4, l10n.bengkakQ5, l10n.bengkakQ6];
+        final localizedQuestions = [
+          l10n.bengkakQ1,
+          l10n.bengkakQ2,
+          l10n.bengkakQ3,
+          l10n.bengkakQ4,
+          l10n.bengkakQ5,
+          l10n.bengkakQ6
+        ];
         final progress =
             (model.currentQuestionIndex + 1) / model.questions.length;
         final current = model.currentQuestionIndex + 1;

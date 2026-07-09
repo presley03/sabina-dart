@@ -7,6 +7,7 @@ import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import '../../../models/keluar_cairan_model.dart';
 import 'package:sabina/services/screening_result_service.dart';
+import 'package:sabina/services/history_service.dart';
 
 class KeluarCairanResultScreen extends StatelessWidget {
   const KeluarCairanResultScreen({super.key});
@@ -40,6 +41,11 @@ class KeluarCairanResultScreen extends StatelessWidget {
         // Simpan hasil ke SharedPreferences
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           await ScreeningResultService.save(
+            type: ScreeningResultService.keluarCairan,
+            label: severityLabel,
+            severity: severity.name,
+          );
+          await HistoryService.add(
             type: ScreeningResultService.keluarCairan,
             label: severityLabel,
             severity: severity.name,
@@ -350,11 +356,11 @@ class _StatusCard extends StatelessWidget {
   Map<String, Color?> _severityColors(_SeverityLevel s) {
     switch (s) {
       case _SeverityLevel.low:
-        return {'bg': const Color(0xFFE5F5F0), 'fg': const Color(0xFF2A9474)};
+        return {'bg': const Color(0xFFE2EBE4), 'fg': const Color(0xFF6F937D)};
       case _SeverityLevel.medium:
-        return {'bg': const Color(0xFFFFF3E0), 'fg': const Color(0xFFD97706)};
+        return {'bg': const Color(0xFFF5E8D2), 'fg': const Color(0xFFC08A3C)};
       case _SeverityLevel.high:
-        return {'bg': const Color(0xFFFFEBEE), 'fg': const Color(0xFFC62828)};
+        return {'bg': const Color(0xFFF5E1DB), 'fg': const Color(0xFFC0604D)};
     }
   }
 

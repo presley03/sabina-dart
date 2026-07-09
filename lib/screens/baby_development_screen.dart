@@ -567,7 +567,7 @@ class _HeroCard extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF6D3F8E), Color(0xFF9B59B6)],
+          colors: [Color(0xFF6E4260), Color(0xFF9E5A6E)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -740,7 +740,7 @@ class _TipCard extends StatelessWidget {
             ),
             child: const Center(
               child: FaIcon(FontAwesomeIcons.lightbulb,
-                  size: 15, color: Color(0xFFD97706)),
+                  size: 15, color: Color(0xFFC08A3C)),
             ),
           ),
           const SizedBox(width: 12),
@@ -753,7 +753,7 @@ class _TipCard extends StatelessWidget {
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
-                    color: const Color(0xFFD97706),
+                    color: const Color(0xFFC08A3C),
                   ),
                 ),
                 const SizedBox(height: 6),
