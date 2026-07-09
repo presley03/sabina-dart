@@ -53,23 +53,23 @@ class SabinaBottomNavigation extends StatelessWidget {
     // Tab definitions — index 2 is now Artikel (was Penapisan)
     final tabs = [
       _NavTab(
-        icon: FontAwesomeIcons.house,
-        activeIcon: FontAwesomeIcons.house,
+        icon: Icons.home_rounded,
+        activeIcon: Icons.home_rounded,
         label: l10n.home,
       ),
       _NavTab(
-        icon: FontAwesomeIcons.shieldHeart,
-        activeIcon: FontAwesomeIcons.shieldHeart,
+        icon: Icons.health_and_safety_rounded,
+        activeIcon: Icons.health_and_safety_rounded,
         label: l10n.screening,
       ),
       _NavTab(
-        icon: FontAwesomeIcons.bookOpen,
-        activeIcon: FontAwesomeIcons.bookOpen,
+        icon: Icons.menu_book_rounded,
+        activeIcon: Icons.menu_book_rounded,
         label: l10n.articleTab,
       ),
       _NavTab(
-        icon: FontAwesomeIcons.notesMedical,
-        activeIcon: FontAwesomeIcons.notesMedical,
+        icon: Icons.medical_information_rounded,
+        activeIcon: Icons.medical_information_rounded,
         label: l10n.complaints,
       ),
       _NavTab(
@@ -134,7 +134,7 @@ class SabinaBottomNavigation extends StatelessWidget {
                           borderRadius: BorderRadius.circular(2),
                         ),
                       ),
-                      FaIcon(
+                      Icon(
                         active ? tab.activeIcon : tab.icon,
                         size: 18,
                         color: color,

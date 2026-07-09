@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:sabina/core/theme/app_theme.dart';
@@ -349,7 +348,7 @@ class ArticleCallout extends StatelessWidget {
           if (icon != null) ...[
             Padding(
               padding: const EdgeInsets.only(top: 2),
-              child: FaIcon(icon!, size: 13, color: c),
+              child: Icon(icon!, size: 13, color: c),
             ),
             const SizedBox(width: 10),
           ],
@@ -524,7 +523,7 @@ class ArticleNumberedItem extends StatelessWidget {
             _badge(),
             const SizedBox(width: 12),
             if (icon != null) ...[
-              FaIcon(icon!, size: 13, color: color),
+              Icon(icon!, size: 13, color: color),
               const SizedBox(width: 8),
             ],
             Expanded(
@@ -695,8 +694,8 @@ class ArticleInlineImage extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      FaIcon(
-                        FontAwesomeIcons.magnifyingGlass,
+                      Icon(
+                        Icons.search_rounded,
                         size: 10,
                         color: SabinaColors.neutral500,
                       ),
