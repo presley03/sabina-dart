@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sabina/core/theme/app_theme.dart';
@@ -264,7 +263,7 @@ class _StatusCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child:
-                    Center(child: FaIcon(icon, size: 18, color: colors['fg'])),
+                    Center(child: Icon(icon, size: 18, color: colors['fg'])),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -367,11 +366,11 @@ class _StatusCard extends StatelessWidget {
   IconData _severityIcon(_SeverityLevel s) {
     switch (s) {
       case _SeverityLevel.low:
-        return FontAwesomeIcons.circleCheck;
+        return Icons.check_circle_rounded;
       case _SeverityLevel.medium:
-        return FontAwesomeIcons.triangleExclamation;
+        return Icons.warning_rounded;
       case _SeverityLevel.high:
-        return FontAwesomeIcons.circleExclamation;
+        return Icons.error_rounded;
     }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
@@ -51,7 +50,7 @@ class MualMuntahScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               _IntroCard(
-                icon: FontAwesomeIcons.faceMeh,
+                icon: Icons.sentiment_dissatisfied_rounded,
                 iconColor: const Color(0xFFC08A3C),
                 iconBg: const Color(0xFFF5E8D2),
                 title: l10n.mualMuntahTitle,
@@ -123,7 +122,7 @@ class _IntroCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child:
-                      Center(child: FaIcon(icon, color: iconColor, size: 22)),
+                      Center(child: Icon(icon, color: iconColor, size: 22)),
                 ),
                 const SizedBox(width: 14),
                 Expanded(
@@ -222,7 +221,7 @@ class _WarningCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Center(
-              child: FaIcon(FontAwesomeIcons.triangleExclamation,
+              child: Icon(Icons.warning_rounded,
                   color: SabinaColors.error700, size: 16),
             ),
           ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
@@ -108,42 +107,42 @@ class KeluhanMenuScreen extends StatelessWidget {
               childAspectRatio: 1.15,
               children: [
                 _KeluhanCard(
-                  icon: FontAwesomeIcons.faceMeh,
+                  icon: Icons.sentiment_dissatisfied_rounded,
                   label: l10n.mualMuntahTitle,
                   subtitle: l10n.mualMuntahSubtitle,
                   iconColor: const Color(0xFFC08A3C),
                   onTap: () => _nav(context, const MualMuntahScreen()),
                 ),
                 _KeluhanCard(
-                  icon: FontAwesomeIcons.headSideCough,
+                  icon: Icons.sick_rounded,
                   label: l10n.sakitKepalaTitle,
                   subtitle: l10n.sakitKepalaSubtitle,
                   iconColor: SabinaColors.error700,
                   onTap: () => _nav(context, const SakitKepalaScreen()),
                 ),
                 _KeluhanCard(
-                  icon: FontAwesomeIcons.droplet,
+                  icon: Icons.water_drop_rounded,
                   label: l10n.keluarDarahTitle,
                   subtitle: l10n.keluarDarahSubtitle,
                   iconColor: SabinaColors.error700,
                   onTap: () => _nav(context, const KeluarDarahScreen()),
                 ),
                 _KeluhanCard(
-                  icon: FontAwesomeIcons.vial,
+                  icon: Icons.science_rounded,
                   label: l10n.keluarCairanTitle,
                   subtitle: l10n.keluarCairanSubtitle,
                   iconColor: const Color(0xFF1D4ED8),
                   onTap: () => _nav(context, const KeluarCairanScreen()),
                 ),
                 _KeluhanCard(
-                  icon: FontAwesomeIcons.person,
+                  icon: Icons.person_rounded,
                   label: l10n.bengkakTitle,
                   subtitle: l10n.bengkakSubtitle,
                   iconColor: const Color(0xFF6F937D),
                   onTap: () => _nav(context, const BengkakScreen()),
                 ),
                 _KeluhanCard(
-                  icon: FontAwesomeIcons.heartPulse,
+                  icon: Icons.monitor_heart_rounded,
                   label: l10n.pergerakanJaninTitle,
                   subtitle: l10n.pergerakanJaninSubtitle,
                   iconColor: SabinaColors.primary700,
@@ -215,7 +214,7 @@ class _KeluhanCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              FaIcon(icon, color: iconColor, size: 28),
+              Icon(icon, color: iconColor, size: 28),
               const Spacer(),
               Text(
                 label,
