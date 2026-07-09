@@ -171,7 +171,7 @@ tiap langkah.
   hub skrining pakai ilustrasi yang sama dengan bento
   (bento_preeklampsia/bento_skrining), dan layar intro/questionnaire tujuan
   menampilkan visual yang sama (identitas berkelanjutan, bukan ganti ikon).
-- [ ] **5. Artikel: ikon → thumbnail gambar artikel** — kartu daftar artikel
+- [x] **5. Artikel: ikon → thumbnail gambar artikel** — kartu daftar artikel
   pakai thumbnail aset artikelnya (rounded/arch kecil) sebagai leading,
   fallback ke ikon bila aset tak ada.
 - [ ] **6. Ikon keluhan premium TAPI berubah saat diklik** — layar intro &

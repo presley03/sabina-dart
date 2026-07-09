@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
+import 'package:sabina/utils/constants.dart';
 import 'care/makanan_screen.dart';
 import 'care/yang_perlu_dihindari_screen.dart';
 import 'care/perawatan_sehari_hari_screen.dart';
@@ -22,6 +23,7 @@ class _Article {
   final String readTime;
   final Widget screen;
   final bool featured;
+  final String? thumbnailAsset;
 
   _Article({
     required this.icon,
@@ -32,6 +34,7 @@ class _Article {
     required this.readTime,
     required this.screen,
     this.featured = false,
+    this.thumbnailAsset,
   });
 }
 
@@ -89,6 +92,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           readTime: l10n.readTimeMinutes(10),
           screen: const MakananScreen(),
           featured: true,
+          thumbnailAsset: ArticleImages.nutrisiHero,
         ),
         _Article(
           icon: Icons.block_rounded,
@@ -98,6 +102,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           title: l10n.artikelPantanganTitle,
           readTime: l10n.readTimeMinutes(8),
           screen: const YangPerluDihindariScreen(),
+          thumbnailAsset: ArticleImages.pantanganHero,
         ),
         _Article(
           icon: Icons.directions_walk_rounded,
@@ -107,6 +112,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           title: l10n.artikelAktivitasTitle,
           readTime: l10n.readTimeMinutes(6),
           screen: const AktivitasFisikIbuHamilScreen(),
+          thumbnailAsset: ArticleImages.aktivitasHero,
         ),
         _Article(
           icon: Icons.auto_awesome_rounded,
@@ -116,6 +122,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           title: l10n.artikelPerawatanTitle,
           readTime: l10n.readTimeMinutes(7),
           screen: const PerawatanSehariHariScreen(),
+          thumbnailAsset: ArticleImages.perawatanHero,
         ),
         _Article(
           icon: Icons.child_care_rounded,
@@ -125,6 +132,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           title: l10n.artikelPersalinanTitle,
           readTime: l10n.readTimeMinutes(10),
           screen: const PersiapanPersalinanScreen(),
+          thumbnailAsset: ArticleImages.persalinanHero,
         ),
         _Article(
           icon: Icons.grass_rounded,
@@ -134,6 +142,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           title: l10n.artikelTrimesterSatuTitle,
           readTime: l10n.readTimeMinutes(12),
           screen: const TrimesterSatuScreen(),
+          thumbnailAsset: ArticleImages.trimester1BayiDevelopment,
         ),
         _Article(
           icon: Icons.eco_rounded,
@@ -143,6 +152,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           title: l10n.artikelTrimesterDuaTitle,
           readTime: l10n.readTimeMinutes(12),
           screen: const TrimesterDuaScreen(),
+          thumbnailAsset: ArticleImages.trimester2BayiDevelopment,
         ),
         _Article(
           icon: Icons.pregnant_woman_rounded,
@@ -152,6 +162,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           title: l10n.artikelTrimesterTigaTitle,
           readTime: l10n.readTimeMinutes(12),
           screen: const TrimesterTigaScreen(),
+          thumbnailAsset: ArticleImages.trimester3BayiDevelopment,
         ),
       ];
 
@@ -396,18 +407,25 @@ class _ArticleListItem extends StatelessWidget {
           padding: const EdgeInsets.all(14),
           child: Row(
             children: [
-              // Thumbnail
-              Container(
-                width: 52,
-                height: 52,
-                decoration: BoxDecoration(
-                  color: article.iconBg,
-                  borderRadius: BorderRadius.circular(14),
+              // Thumbnail — gambar artikel itu sendiri, bentuk arch kecil.
+              // Fallback ke chip ikon kategori bila aset tak ada.
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
                 ),
-                child: Center(
-                  child:
-                      Icon(article.icon, size: 22, color: article.iconColor),
-                ),
+                child: article.thumbnailAsset == null
+                    ? _thumbnailFallback(article)
+                    : Image.asset(
+                        article.thumbnailAsset!,
+                        width: 56,
+                        height: 56,
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) =>
+                            _thumbnailFallback(article),
+                      ),
               ),
               const SizedBox(width: 14),
               // Info
@@ -456,4 +474,13 @@ class _ArticleListItem extends StatelessWidget {
       ),
     );
   }
+
+  Widget _thumbnailFallback(_Article article) => Container(
+        width: 56,
+        height: 56,
+        color: article.iconBg,
+        child: Center(
+          child: Icon(article.icon, size: 22, color: article.iconColor),
+        ),
+      );
 }
