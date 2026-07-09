@@ -126,9 +126,19 @@ tiap langkah.
 
 ### Tindak lanjut minor Batch 3
 
-- Ikon Flaticon (`ic_mual.png` dkk.) masih placeholder folder kosong — belum
-  diunggah Presley; fallback Material bertint sudah menutupi sampai aset
-  tiba.
+- [x] Ikon keluhan TERPENUHI (2026-07-09) — bukan dari Flaticon: **6 ikon garis
+  minimalis digambar programatik oleh Fable** (PIL, bezier + stempel-lingkaran,
+  512px satu-warna ink, ter-tint otomatis): pusaran/mual, kilat+percik/sakit
+  kepala, tetes+kilau/darah, tiga tetes/cairan, kaos kaki+tanda/bengkak,
+  jejak kaki bayi/pergerakan janin. Generator: scratchpad `gen_icons.py`.
+  Diverifikasi live di emulator (`screenshots_final/final_keluhan.png`).
+- [x] 6 gambar GPT beranda TERPASANG & diverifikasi live (2026-07-09):
+  dioptimasi 9,5 MB → ~0,3 MB (resize + kuantisasi palet PIL). Banner PANDUAN
+  diberi fade ShaderMask (fade di kode, bukan aset — pelajaran: aset di-crop
+  BoxFit.cover). Ilustrasi bento 58px + ruang aman teks. PENTING: aset baru
+  dalam folder terdaftar butuh `flutter clean` — build inkremental tidak
+  menyegarkan isi direktori aset (bug menahun Flutter).
+  Bukti: `screenshots_final/`.
 - Dark mode `home_screen.dart` belum sepenuhnya rapi (scaffold/teks sapaan
   masih terang saat AppBar & kartu Jurnal sudah gelap) — ditemukan saat
   verifikasi batch ini, di luar cakupan (item ini milik §10 roadmap "dark
