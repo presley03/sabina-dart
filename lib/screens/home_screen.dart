@@ -21,6 +21,7 @@ import 'artikel/tidur_nyaman_screen.dart';
 import 'artikel/stres_kehamilan_screen.dart';
 import 'skrining_screen.dart';
 import '../services/database_helper.dart';
+import '../utils/baby_fruit_emoji.dart';
 import 'baby_development_screen.dart';
 import 'weekly_journal_screen.dart';
 
@@ -1149,7 +1150,10 @@ class _PregnancyBannerState extends State<_PregnancyBanner> {
         : _currentWeek <= 27
             ? l10n.secondTrimester
             : l10n.thirdTrimester;
-    final String babySize = l10n.babySizeOf(fruits[_currentWeek.clamp(1, 40)]);
+    final String babySize = l10n.babySizeOf(
+      fruits[_currentWeek.clamp(1, 40)],
+      babyFruitEmoji[_currentWeek.clamp(1, 40)],
+    );
 
     return GestureDetector(
       onTap: () => Navigator.push(

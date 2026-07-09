@@ -3444,11 +3444,14 @@
   "@weekUnit": {
     "description": "Week unit label on pregnancy banner"
   },
-  "babySizeOf": "About the size of a {fruit} \uD83C\uDF3F",
+  "babySizeOf": "About the size of a {fruit} {emoji}",
   "@babySizeOf": {
     "description": "Baby size description with fruit comparison",
     "placeholders": {
       "fruit": {
+        "type": "String"
+      },
+      "emoji": {
         "type": "String"
       }
     }

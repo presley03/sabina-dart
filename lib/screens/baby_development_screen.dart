@@ -4,13 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import '../services/database_helper.dart';
+import '../utils/baby_fruit_emoji.dart';
 
 // ─── Data model ──────────────────────────────────────────────────────────────
 
 class _WeekData {
   final int week;
   final String fruit; // perbandingan ukuran
-  final String fruitEmoji;
   final double lengthCm;
   final double weightG;
   final String milestone; // perkembangan utama minggu ini
@@ -18,12 +18,13 @@ class _WeekData {
   const _WeekData({
     required this.week,
     required this.fruit,
-    required this.fruitEmoji,
     required this.lengthCm,
     required this.weightG,
     required this.milestone,
     required this.tip,
   });
+
+  String get fruitEmoji => babyFruitEmoji[week];
 }
 
 // ─── Static data 40 weeks (localized) ────────────────────────────────────────
@@ -32,7 +33,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 1,
           fruit: l10n.babyW1Fruit,
-          fruitEmoji: '🔬',
           lengthCm: 0.0,
           weightG: 0,
           milestone: l10n.babyW1Milestone,
@@ -40,7 +40,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 2,
           fruit: l10n.babyW2Fruit,
-          fruitEmoji: '🔬',
           lengthCm: 0.0,
           weightG: 0,
           milestone: l10n.babyW2Milestone,
@@ -48,7 +47,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 3,
           fruit: l10n.babyW3Fruit,
-          fruitEmoji: '🌱',
           lengthCm: 0.1,
           weightG: 0,
           milestone: l10n.babyW3Milestone,
@@ -56,7 +54,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 4,
           fruit: l10n.babyW4Fruit,
-          fruitEmoji: '🌱',
           lengthCm: 0.2,
           weightG: 0,
           milestone: l10n.babyW4Milestone,
@@ -64,7 +61,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 5,
           fruit: l10n.babyW5Fruit,
-          fruitEmoji: '🫛',
           lengthCm: 0.4,
           weightG: 0,
           milestone: l10n.babyW5Milestone,
@@ -72,7 +68,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 6,
           fruit: l10n.babyW6Fruit,
-          fruitEmoji: '🫐',
           lengthCm: 0.6,
           weightG: 0,
           milestone: l10n.babyW6Milestone,
@@ -80,7 +75,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 7,
           fruit: l10n.babyW7Fruit,
-          fruitEmoji: '🫐',
           lengthCm: 1.0,
           weightG: 0,
           milestone: l10n.babyW7Milestone,
@@ -88,7 +82,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 8,
           fruit: l10n.babyW8Fruit,
-          fruitEmoji: '🫘',
           lengthCm: 1.6,
           weightG: 1,
           milestone: l10n.babyW8Milestone,
@@ -96,7 +89,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 9,
           fruit: l10n.babyW9Fruit,
-          fruitEmoji: '🍇',
           lengthCm: 2.3,
           weightG: 2,
           milestone: l10n.babyW9Milestone,
@@ -104,7 +96,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 10,
           fruit: l10n.babyW10Fruit,
-          fruitEmoji: '🍑',
           lengthCm: 3.1,
           weightG: 4,
           milestone: l10n.babyW10Milestone,
@@ -112,7 +103,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 11,
           fruit: l10n.babyW11Fruit,
-          fruitEmoji: '🍈',
           lengthCm: 4.1,
           weightG: 7,
           milestone: l10n.babyW11Milestone,
@@ -120,7 +110,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 12,
           fruit: l10n.babyW12Fruit,
-          fruitEmoji: '🍋',
           lengthCm: 5.4,
           weightG: 14,
           milestone: l10n.babyW12Milestone,
@@ -128,7 +117,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 13,
           fruit: l10n.babyW13Fruit,
-          fruitEmoji: '🍑',
           lengthCm: 7.4,
           weightG: 23,
           milestone: l10n.babyW13Milestone,
@@ -136,7 +124,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 14,
           fruit: l10n.babyW14Fruit,
-          fruitEmoji: '🍋',
           lengthCm: 8.7,
           weightG: 43,
           milestone: l10n.babyW14Milestone,
@@ -144,7 +131,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 15,
           fruit: l10n.babyW15Fruit,
-          fruitEmoji: '🍎',
           lengthCm: 10.1,
           weightG: 70,
           milestone: l10n.babyW15Milestone,
@@ -152,7 +138,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 16,
           fruit: l10n.babyW16Fruit,
-          fruitEmoji: '🥑',
           lengthCm: 11.6,
           weightG: 100,
           milestone: l10n.babyW16Milestone,
@@ -160,7 +145,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 17,
           fruit: l10n.babyW17Fruit,
-          fruitEmoji: '🥕',
           lengthCm: 13.0,
           weightG: 140,
           milestone: l10n.babyW17Milestone,
@@ -168,7 +152,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 18,
           fruit: l10n.babyW18Fruit,
-          fruitEmoji: '🍠',
           lengthCm: 14.2,
           weightG: 190,
           milestone: l10n.babyW18Milestone,
@@ -176,7 +159,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 19,
           fruit: l10n.babyW19Fruit,
-          fruitEmoji: '🍅',
           lengthCm: 15.3,
           weightG: 240,
           milestone: l10n.babyW19Milestone,
@@ -184,7 +166,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 20,
           fruit: l10n.babyW20Fruit,
-          fruitEmoji: '🍌',
           lengthCm: 16.4,
           weightG: 300,
           milestone: l10n.babyW20Milestone,
@@ -192,7 +173,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 21,
           fruit: l10n.babyW21Fruit,
-          fruitEmoji: '🥕',
           lengthCm: 26.7,
           weightG: 360,
           milestone: l10n.babyW21Milestone,
@@ -200,7 +180,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 22,
           fruit: l10n.babyW22Fruit,
-          fruitEmoji: '🌽',
           lengthCm: 27.8,
           weightG: 430,
           milestone: l10n.babyW22Milestone,
@@ -208,7 +187,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 23,
           fruit: l10n.babyW23Fruit,
-          fruitEmoji: '🥭',
           lengthCm: 28.9,
           weightG: 501,
           milestone: l10n.babyW23Milestone,
@@ -216,7 +194,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 24,
           fruit: l10n.babyW24Fruit,
-          fruitEmoji: '🌽',
           lengthCm: 30.0,
           weightG: 600,
           milestone: l10n.babyW24Milestone,
@@ -224,7 +201,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 25,
           fruit: l10n.babyW25Fruit,
-          fruitEmoji: '🍍',
           lengthCm: 34.6,
           weightG: 660,
           milestone: l10n.babyW25Milestone,
@@ -232,7 +208,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 26,
           fruit: l10n.babyW26Fruit,
-          fruitEmoji: '🥬',
           lengthCm: 35.6,
           weightG: 760,
           milestone: l10n.babyW26Milestone,
@@ -240,7 +215,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 27,
           fruit: l10n.babyW27Fruit,
-          fruitEmoji: '🥦',
           lengthCm: 36.6,
           weightG: 875,
           milestone: l10n.babyW27Milestone,
@@ -248,7 +222,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 28,
           fruit: l10n.babyW28Fruit,
-          fruitEmoji: '🍆',
           lengthCm: 37.6,
           weightG: 1000,
           milestone: l10n.babyW28Milestone,
@@ -256,7 +229,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 29,
           fruit: l10n.babyW29Fruit,
-          fruitEmoji: '🎃',
           lengthCm: 38.6,
           weightG: 1150,
           milestone: l10n.babyW29Milestone,
@@ -264,7 +236,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 30,
           fruit: l10n.babyW30Fruit,
-          fruitEmoji: '🥬',
           lengthCm: 39.9,
           weightG: 1320,
           milestone: l10n.babyW30Milestone,
@@ -272,7 +243,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 31,
           fruit: l10n.babyW31Fruit,
-          fruitEmoji: '🍍',
           lengthCm: 41.1,
           weightG: 1500,
           milestone: l10n.babyW31Milestone,
@@ -280,7 +250,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 32,
           fruit: l10n.babyW32Fruit,
-          fruitEmoji: '🥔',
           lengthCm: 42.4,
           weightG: 1700,
           milestone: l10n.babyW32Milestone,
@@ -288,7 +257,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 33,
           fruit: l10n.babyW33Fruit,
-          fruitEmoji: '🍍',
           lengthCm: 43.7,
           weightG: 1900,
           milestone: l10n.babyW33Milestone,
@@ -296,7 +264,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 34,
           fruit: l10n.babyW34Fruit,
-          fruitEmoji: '🎃',
           lengthCm: 45.0,
           weightG: 2100,
           milestone: l10n.babyW34Milestone,
@@ -304,7 +271,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 35,
           fruit: l10n.babyW35Fruit,
-          fruitEmoji: '🍈',
           lengthCm: 46.2,
           weightG: 2350,
           milestone: l10n.babyW35Milestone,
@@ -312,7 +278,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 36,
           fruit: l10n.babyW36Fruit,
-          fruitEmoji: '🍐',
           lengthCm: 47.4,
           weightG: 2600,
           milestone: l10n.babyW36Milestone,
@@ -320,7 +285,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 37,
           fruit: l10n.babyW37Fruit,
-          fruitEmoji: '🍈',
           lengthCm: 48.6,
           weightG: 2900,
           milestone: l10n.babyW37Milestone,
@@ -328,7 +292,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 38,
           fruit: l10n.babyW38Fruit,
-          fruitEmoji: '🍉',
           lengthCm: 49.8,
           weightG: 3100,
           milestone: l10n.babyW38Milestone,
@@ -336,7 +299,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 39,
           fruit: l10n.babyW39Fruit,
-          fruitEmoji: '🍉',
           lengthCm: 50.7,
           weightG: 3300,
           milestone: l10n.babyW39Milestone,
@@ -344,7 +306,6 @@ List<_WeekData> _buildWeekList(AppLocalizations l10n) => [
       _WeekData(
           week: 40,
           fruit: l10n.babyW40Fruit,
-          fruitEmoji: '🍉',
           lengthCm: 51.2,
           weightG: 3400,
           milestone: l10n.babyW40Milestone,

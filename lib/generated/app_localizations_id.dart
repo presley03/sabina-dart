@@ -2528,8 +2528,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get thirdTrimester => 'Trimester Ketiga';
 
   @override
-  String babySizeOf(String fruit) {
-    return 'Seukuran $fruit 🌿';
+  String babySizeOf(String fruit, String emoji) {
+    return 'Seukuran $fruit $emoji';
   }
 
   @override

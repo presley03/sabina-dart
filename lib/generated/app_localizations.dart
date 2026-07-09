@@ -4511,8 +4511,8 @@ abstract class AppLocalizations {
   /// Deskripsi ukuran bayi dengan perbandingan buah
   ///
   /// In id, this message translates to:
-  /// **'Seukuran {fruit} 🌿'**
-  String babySizeOf(String fruit);
+  /// **'Seukuran {fruit} {emoji}'**
+  String babySizeOf(String fruit, String emoji);
 
   /// Label progres kehamilan
   ///

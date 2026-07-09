@@ -3433,11 +3433,14 @@
   "@weekUnit": {
     "description": "Label satuan minggu pada banner kehamilan"
   },
-  "babySizeOf": "Seukuran {fruit} \uD83C\uDF3F",
+  "babySizeOf": "Seukuran {fruit} {emoji}",
   "@babySizeOf": {
     "description": "Deskripsi ukuran bayi dengan perbandingan buah",
     "placeholders": {
       "fruit": {
+        "type": "String"
+      },
+      "emoji": {
         "type": "String"
       }
     }

@@ -2522,8 +2522,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get thirdTrimester => 'Third Trimester';
 
   @override
-  String babySizeOf(String fruit) {
-    return 'About the size of a $fruit 🌿';
+  String babySizeOf(String fruit, String emoji) {
+    return 'About the size of a $fruit $emoji';
   }
 
   @override
