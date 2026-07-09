@@ -738,17 +738,19 @@ class ArticleNumberedItem extends StatelessWidget {
 class ArticleBulletList extends StatelessWidget {
   final List<String> items;
   final double gap;
+  final TextStyle? textStyle;
 
-  const ArticleBulletList(this.items, {super.key, this.gap = 10});
+  const ArticleBulletList(this.items, {super.key, this.gap = 10, this.textStyle});
 
   @override
   Widget build(BuildContext context) {
     final palette = context.palette;
-    final base = GoogleFonts.plusJakartaSans(
-      fontSize: 16,
-      color: palette.ink,
-      height: 1.65,
-    );
+    final base = textStyle ??
+        GoogleFonts.plusJakartaSans(
+          fontSize: 16,
+          color: palette.ink,
+          height: 1.65,
+        );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: items

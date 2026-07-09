@@ -111,11 +111,8 @@ class ResultScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         l10n.medicalDisclaimerText,
-                        style: TextStyle(
-                          fontSize: 11,
-                          color: context.palette.inkMuted,
-                          height: 1.5,
-                        ),
+                        style: ResultTextStyles.meta(context.palette)
+                            .copyWith(height: 1.5),
                       ),
                     ),
                   ],

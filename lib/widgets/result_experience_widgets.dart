@@ -18,6 +18,33 @@ import 'article_reader_widgets.dart' show ArticleBulletList;
 /// rekomendasi terstruktur — dipakai lewat komposisi, bukan warisan, sehingga
 /// tiap layar tetap memegang logika medisnya sendiri (severity, rekomendasi).
 
+// ── Skala tipografi bersama (gaya Medium: hitam-putih, warna hanya untuk
+// severity/pill/CTA) — satu-satunya sumber ukuran font di 8 layar hasil,
+// kecuali hero (`ResultHeroArch`) yang punya ukurannya sendiri.
+class ResultTextStyles {
+  /// Label seksi uppercase kecil ("RINGKASAN JAWABAN", "TREN PEMERIKSAAN",
+  /// "YANG BISA DILAKUKAN") — netral, tidak berwarna merek.
+  static TextStyle sectionLabel(SabinaPalette p) => GoogleFonts.plusJakartaSans(
+        fontSize: 12,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 1.4,
+        color: p.inkMuted,
+      );
+
+  /// Isi utama: pertanyaan tabel jawaban, item rekomendasi, judul mini CTA.
+  static TextStyle body(SabinaPalette p) => GoogleFonts.plusJakartaSans(
+        fontSize: 14.5,
+        height: 1.55,
+        color: p.ink,
+      );
+
+  /// Meta/keterangan: disclaimer medis, label sumbu grafik, pesan tren kosong.
+  static TextStyle meta(SabinaPalette p) => GoogleFonts.plusJakartaSans(
+        fontSize: 12,
+        color: p.inkMuted,
+      );
+}
+
 // ── Severity ─────────────────────────────────────────────────────────────────
 
 /// Tingkat keparahan generik untuk presentasi visual. Setiap layar tetap
@@ -278,12 +305,7 @@ class ResultAnswerTable extends StatelessWidget {
         children: [
           Text(
             title,
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 1.2,
-              color: p.primary,
-            ),
+            style: ResultTextStyles.sectionLabel(p),
           ),
           const SizedBox(height: 8),
           ...List.generate(rows.length, (i) {
@@ -302,11 +324,7 @@ class ResultAnswerTable extends StatelessWidget {
                   Expanded(
                     child: Text(
                       row.question,
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 13.5,
-                        color: p.ink,
-                        height: 1.45,
-                      ),
+                      style: ResultTextStyles.body(p),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -401,11 +419,7 @@ class ResultTrendChartView extends StatelessWidget {
             Expanded(
               child: Text(
                 l10n.resultTrendEmpty,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 13,
-                  color: p.inkMuted,
-                  height: 1.5,
-                ),
+                style: ResultTextStyles.meta(p).copyWith(height: 1.5),
               ),
             ),
           ],
@@ -433,12 +447,7 @@ class ResultTrendChartView extends StatelessWidget {
         children: [
           Text(
             l10n.resultTrendTitle,
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 1.2,
-              color: p.primary,
-            ),
+            style: ResultTextStyles.sectionLabel(p),
           ),
           const SizedBox(height: 16),
           SizedBox(
@@ -466,10 +475,7 @@ class ResultTrendChartView extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 6),
                           child: Text(
                             DateFormat('dd/MM').format(entries[i].timestamp),
-                            style: GoogleFonts.plusJakartaSans(
-                              fontSize: 10,
-                              color: p.inkMuted,
-                            ),
+                            style: ResultTextStyles.meta(p),
                           ),
                         );
                       },
@@ -570,15 +576,10 @@ class ResultRecommendationList extends StatelessWidget {
         children: [
           Text(
             title,
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 1.2,
-              color: p.primary,
-            ),
+            style: ResultTextStyles.sectionLabel(p),
           ),
           const SizedBox(height: 14),
-          ArticleBulletList(items, gap: 12),
+          ArticleBulletList(items, gap: 12, textStyle: ResultTextStyles.body(p)),
           if (showConsultCta) ...[
             const SizedBox(height: 18),
             Container(height: 1, color: p.line),
@@ -594,20 +595,13 @@ class ResultRecommendationList extends StatelessWidget {
                     children: [
                       Text(
                         l10n.resultConsultCtaTitle,
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          color: p.ink,
-                        ),
+                        style: ResultTextStyles.body(p)
+                            .copyWith(fontWeight: FontWeight.w700),
                       ),
                       const SizedBox(height: 2),
                       Text(
                         l10n.resultConsultCtaDesc,
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 12.5,
-                          color: p.inkMuted,
-                          height: 1.4,
-                        ),
+                        style: ResultTextStyles.meta(p).copyWith(height: 1.4),
                       ),
                     ],
                   ),
