@@ -113,6 +113,27 @@ dalam bullet). `flutter analyze` = 0 issues, `flutter test` lulus (4 file,
   Tempat yang tepat nanti: animasi lembut di layar hasil kuesioner / empty
   state jurnal — baru saat itu tambahkan package `lottie`.
 
+**Verifikasi visual (emulator, `screenshots_batch3/`):**
+`01_keluhan_menu_light.png` + `02_keluhan_menu_scrolled.png` (6 niche +
+banner rust-soft, mode terang), `04_keluhan_menu_dark.png` (dark mode —
+niche & banner tetap benar via `context.palette`), `05_tips_bottomsheet.png`
+(bottom sheet tips migrasi ke `ArticleBulletList`, tanpa badge/divider — juga
+menemukan & memperbaiki overflow judul 66px terhadap tombol Tutup),
+`06_marker_comma_polish.png` (marker "lebih dari 2 minggu," di
+`stres_kehamilan` — koma menempel wajar, tanpa spasi visual). `flutter
+analyze` = 0 issues, `flutter test` lulus (12 test, naik dari 10) setelah
+tiap langkah.
+
+### Tindak lanjut minor Batch 3
+
+- Ikon Flaticon (`ic_mual.png` dkk.) masih placeholder folder kosong — belum
+  diunggah Presley; fallback Material bertint sudah menutupi sampai aset
+  tiba.
+- Dark mode `home_screen.dart` belum sepenuhnya rapi (scaffold/teks sapaan
+  masih terang saat AppBar & kartu Jurnal sudah gelap) — ditemukan saat
+  verifikasi batch ini, di luar cakupan (item ini milik §10 roadmap "dark
+  mode per-layar", bukan Layar Keluhan).
+
 ## Fitur baru disetujui: "Tanya SABINA" (setelah daftar di atas selesai)
 
 - [ ] Tanya-jawab **retrieval kurasi offline** — BUKAN LLM (keputusan 2026-07-09;
