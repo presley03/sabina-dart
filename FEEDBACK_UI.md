@@ -72,21 +72,39 @@ diganti mulberry) + `14_stres_cara.png` (marker "lebih dari 2 minggu" di
 dalam bullet). `flutter analyze` = 0 issues, `flutter test` lulus (4 file,
 16 test) setelah tiap langkah.
 
+### Tindak lanjut minor Batch 2 (review Fable, bukan blocker)
+
+- [ ] Polish marker: padding highlight menciptakan spasi visual sebelum tanda
+  baca setelahnya ("…2 minggu ,") — trim padding kanan bila karakter
+  berikutnya tanda baca.
+- [ ] Bottom sheet "tips lainnya" di yang_perlu_dihindari masih badge+divider
+  lama — samakan dengan gaya majalah.
+- Catatan koreksi laporan: total test = 10 (bukan 16); marker `50% (volume
+  darah)` di makanan_trimester2 dinilai paling lemah secara editorial —
+  dibiarkan, tak berbahaya.
+
 ## Layar Keluhan (menu 6 tile)
 
-- [ ] **Tile → "niche keluhan"**: panel atas berlengkung (arch, motif tanda
+- [x] **Tile → "niche keluhan"**: panel atas berlengkung (arch, motif tanda
   tangan) dengan soft-tint berbeda per keluhan (sage/peach/amber/plum-soft),
   ikon besar ±48px di tengah niche; judul + deskripsi di bawah. Mengisi rongga
-  kosong dan menghapus rasa kotak identik.
-- [ ] **Ikon campur gaya & warna non-palet** (labu kimia BIRU, wajah emoji) →
+  kosong dan menghapus rasa kotak identik. (`_KeluhanNicheCard` di
+  `keluhan_menu_screen.dart`; tint per keluhan: mual=sage, sakit kepala=amber,
+  keluar darah=critical/rust, keluar cairan=primary/plum, bengkak=peach,
+  pergerakan janin=sage — semua via `context.palette`)
+- [x] **Ikon campur gaya & warna non-palet** (labu kimia BIRU, wajah emoji) →
   ganti dengan SATU keluarga ikon dari Flaticon premium (user punya akun).
   Aset: `assets/images/keluhan/icons/ic_mual.png, ic_sakit_kepala.png,
   ic_keluar_darah.png, ic_keluar_cairan.png, ic_bengkak.png,
   ic_pergerakan_janin.png` — PNG 512px transparan, satu pack, style
   flat/hand-drawn; prefer satu-warna agar bisa di-tint via
-  `Image.asset(color:)` (ikut dark mode).
-- [ ] **Banner peringatan** diperhalus: panel rust-soft berlengkung, ikon kecil
-  + teks italic — tetap terlihat, tidak seperti kotak alarm.
+  `Image.asset(color:)` (ikut dark mode). (folder didaftarkan di pubspec;
+  file PNG asli belum diunggah Presley — `errorBuilder` di tiap tile jatuh
+  balik ke ikon Material rounded bertint sama, jadi tampilan tetap benar
+  sampai aset asli tersedia)
+- [x] **Banner peringatan** diperhalus: panel rust-soft berlengkung, ikon kecil
+  + teks italic — tetap terlihat, tidak seperti kotak alarm. (`_WarningNiche`,
+  `criticalSoft` + ikon hati kecil + teks Fraunces italic)
 - [ ] Lottie DITUNDA (beban perangkat kelas bawah + melawan nuansa tenang).
   Tempat yang tepat nanti: animasi lembut di layar hasil kuesioner / empty
   state jurnal — baru saat itu tambahkan package `lottie`.

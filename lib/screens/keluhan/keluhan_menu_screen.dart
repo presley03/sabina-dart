@@ -16,10 +16,11 @@ class KeluhanMenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: p.ground,
       appBar: AppBar(
-        backgroundColor: SabinaColors.neutral100,
+        backgroundColor: p.ground,
         elevation: 0,
         scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
@@ -27,7 +28,7 @@ class KeluhanMenuScreen extends StatelessWidget {
         leading: showBackButton
             ? IconButton(
                 icon: const Icon(Icons.arrow_back_rounded, size: 24),
-                color: SabinaColors.neutral900,
+                color: p.ink,
                 onPressed: () => Navigator.of(context).pop(),
               )
             : null,
@@ -37,7 +38,7 @@ class KeluhanMenuScreen extends StatelessWidget {
             fontSize: 24,
             fontWeight: FontWeight.w500,
             letterSpacing: -0.4,
-            color: SabinaColors.neutral900,
+            color: p.ink,
           ),
         ),
       ),
@@ -51,49 +52,12 @@ class KeluhanMenuScreen extends StatelessWidget {
               l10n.keluhanMenuSubtitle,
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 13,
-                color: SabinaColors.neutral500,
+                color: p.inkMuted,
               ),
             ),
             const SizedBox(height: 16),
 
-            // Alert card
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-              decoration: BoxDecoration(
-                color: SabinaColors.error100,
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: const Color(0xFFFFCDD2)),
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    width: 36,
-                    height: 36,
-                    decoration: BoxDecoration(
-                      color: SabinaColors.error700,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Icon(
-                      Icons.warning_amber_rounded,
-                      color: Colors.white,
-                      size: 18,
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Text(
-                      l10n.keluhanWarningText,
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: SabinaColors.error700,
-                        height: 1.45,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            _WarningNiche(text: l10n.keluhanWarningText),
 
             const SizedBox(height: 20),
 
@@ -102,50 +66,63 @@ class KeluhanMenuScreen extends StatelessWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 1.15,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              childAspectRatio: 0.92,
               children: [
-                _KeluhanCard(
-                  icon: Icons.sentiment_dissatisfied_rounded,
+                _KeluhanNicheCard(
+                  iconAsset: 'assets/images/keluhan/icons/ic_mual.png',
+                  fallbackIcon: Icons.sentiment_dissatisfied_rounded,
                   label: l10n.mualMuntahTitle,
                   subtitle: l10n.mualMuntahSubtitle,
-                  iconColor: const Color(0xFFC08A3C),
+                  accent: p.sage,
+                  tint: p.sageSoft,
                   onTap: () => _nav(context, const MualMuntahScreen()),
                 ),
-                _KeluhanCard(
-                  icon: Icons.sick_rounded,
+                _KeluhanNicheCard(
+                  iconAsset: 'assets/images/keluhan/icons/ic_sakit_kepala.png',
+                  fallbackIcon: Icons.sick_rounded,
                   label: l10n.sakitKepalaTitle,
                   subtitle: l10n.sakitKepalaSubtitle,
-                  iconColor: SabinaColors.error700,
+                  accent: p.amber,
+                  tint: p.amberSoft,
                   onTap: () => _nav(context, const SakitKepalaScreen()),
                 ),
-                _KeluhanCard(
-                  icon: Icons.water_drop_rounded,
+                _KeluhanNicheCard(
+                  iconAsset: 'assets/images/keluhan/icons/ic_keluar_darah.png',
+                  fallbackIcon: Icons.water_drop_rounded,
                   label: l10n.keluarDarahTitle,
                   subtitle: l10n.keluarDarahSubtitle,
-                  iconColor: SabinaColors.error700,
+                  accent: p.critical,
+                  tint: p.criticalSoft,
                   onTap: () => _nav(context, const KeluarDarahScreen()),
                 ),
-                _KeluhanCard(
-                  icon: Icons.science_rounded,
+                _KeluhanNicheCard(
+                  iconAsset: 'assets/images/keluhan/icons/ic_keluar_cairan.png',
+                  fallbackIcon: Icons.opacity_rounded,
                   label: l10n.keluarCairanTitle,
                   subtitle: l10n.keluarCairanSubtitle,
-                  iconColor: const Color(0xFF1D4ED8),
+                  accent: p.primary,
+                  tint: p.primarySoft,
                   onTap: () => _nav(context, const KeluarCairanScreen()),
                 ),
-                _KeluhanCard(
-                  icon: Icons.person_rounded,
+                _KeluhanNicheCard(
+                  iconAsset: 'assets/images/keluhan/icons/ic_bengkak.png',
+                  fallbackIcon: Icons.person_rounded,
                   label: l10n.bengkakTitle,
                   subtitle: l10n.bengkakSubtitle,
-                  iconColor: const Color(0xFF6F937D),
+                  accent: p.peach,
+                  tint: p.peachSoft,
                   onTap: () => _nav(context, const BengkakScreen()),
                 ),
-                _KeluhanCard(
-                  icon: Icons.monitor_heart_rounded,
+                _KeluhanNicheCard(
+                  iconAsset:
+                      'assets/images/keluhan/icons/ic_pergerakan_janin.png',
+                  fallbackIcon: Icons.monitor_heart_rounded,
                   label: l10n.pergerakanJaninTitle,
                   subtitle: l10n.pergerakanJaninSubtitle,
-                  iconColor: SabinaColors.primary700,
+                  accent: p.sage,
+                  tint: p.sageSoft,
                   onTap: () => _nav(context, const PergerakanJaninScreen()),
                 ),
               ],
@@ -173,64 +150,147 @@ class KeluhanMenuScreen extends StatelessWidget {
   }
 }
 
-// ── Card widget ───────────────────────────────────────────────────────────────
+// ── Banner peringatan — niche berlengkung, nada menenangkan ─────────────────
 
-class _KeluhanCard extends StatelessWidget {
-  final IconData icon;
+class _WarningNiche extends StatelessWidget {
+  final String text;
+  const _WarningNiche({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    return Container(
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+      decoration: BoxDecoration(
+        color: p.criticalSoft,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(28),
+          topRight: Radius.circular(28),
+          bottomLeft: Radius.circular(14),
+          bottomRight: Radius.circular(14),
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(Icons.favorite_rounded, color: p.critical, size: 20),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              text,
+              style: GoogleFonts.fraunces(
+                fontSize: 13.5,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w500,
+                color: p.critical,
+                height: 1.45,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ── Card widget — "niche keluhan" ────────────────────────────────────────────
+
+class _KeluhanNicheCard extends StatelessWidget {
+  final String iconAsset;
+  final IconData fallbackIcon;
   final String label;
   final String subtitle;
-  final Color iconColor;
+  final Color accent;
+  final Color tint;
   final VoidCallback onTap;
 
-  const _KeluhanCard({
-    required this.icon,
+  const _KeluhanNicheCard({
+    required this.iconAsset,
+    required this.fallbackIcon,
     required this.label,
     required this.subtitle,
-    required this.iconColor,
+    required this.accent,
+    required this.tint,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
+    final p = context.palette;
     return Material(
-      color: SabinaColors.white,
-      borderRadius: BorderRadius.circular(16),
+      color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
-        splashColor: SabinaColors.primary100,
+        borderRadius: BorderRadius.circular(18),
+        splashColor: accent.withValues(alpha: 0.12),
         child: Container(
-          padding: const EdgeInsets.fromLTRB(16, 20, 16, 16),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            color: p.surface,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(32),
+              topRight: Radius.circular(32),
+              bottomLeft: Radius.circular(16),
+              bottomRight: Radius.circular(16),
+            ),
+            border: Border.all(color: p.line),
             boxShadow: [
               BoxShadow(
-                color: SabinaColors.neutral900.withValues(alpha: 0.05),
-                blurRadius: 8,
-                offset: const Offset(0, 2),
+                color: p.cardShadow,
+                blurRadius: 14,
+                offset: const Offset(0, 6),
               ),
             ],
           ),
+          clipBehavior: Clip.antiAlias,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(icon, color: iconColor, size: 28),
-              const Spacer(),
-              Text(
-                label,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: SabinaColors.neutral900,
-                  height: 1.3,
+              // Panel niche — lengkung, soft-tint per keluhan.
+              Container(
+                width: double.infinity,
+                height: 86,
+                color: tint,
+                alignment: Alignment.center,
+                child: Image.asset(
+                  iconAsset,
+                  width: 48,
+                  height: 48,
+                  color: accent,
+                  errorBuilder: (_, __, ___) => Icon(
+                    fallbackIcon,
+                    color: accent,
+                    size: 44,
+                  ),
                 ),
               ),
-              const SizedBox(height: 3),
-              Text(
-                subtitle,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 11,
-                  color: SabinaColors.neutral500,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      label,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 13.5,
+                        fontWeight: FontWeight.w700,
+                        color: p.ink,
+                        height: 1.3,
+                      ),
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      subtitle,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 11,
+                        color: p.inkMuted,
+                        height: 1.35,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

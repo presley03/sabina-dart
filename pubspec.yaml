@@ -75,6 +75,7 @@ flutter:
     - assets/images/common/
     - assets/images/questionnaire/
     - assets/images/keluhan/
+    - assets/images/keluhan/icons/
     - assets/images/trimester/
     - assets/images/imt/
     - assets/images/care/
