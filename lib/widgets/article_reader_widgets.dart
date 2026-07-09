@@ -12,7 +12,12 @@ import 'package:sabina/core/theme/app_theme.dart';
 ///   ArticleBody           — standard body paragraph
 ///   ArticleCallout        — left-bordered insight / warning box
 ///   ArticleHighlightText  — body text with keyword highlighting
-///   ArticleNumberedItem   — numbered section (paragraph or bullet list)
+///   ArticleNumberedItem   — numbered section, circle badge (legacy; kept for
+///                           screens outside the "Jurnal" reading redesign)
+///   ArticleBulletList     — uniform sage-dot bullet list, ink text
+///   MarkedText            — body text with `==term==` stabilo highlighting
+///   ArticleMagazineNumber — large thin serif number + ink title
+///   ArticleMagazineSection— magazine number + paragraph/bullets, no divider
 ///   ArticleInlineImage    — image with caption + tap-to-zoom
 ///   ArticleReferenceList  — numbered reference list
 ///   ArticleDivider        — thin section separator with vertical spacing
@@ -192,30 +197,112 @@ class ArticleHeader extends StatelessWidget {
 
 // ── Inline markup renderer ───────────────────────────────────────────────────
 
-/// Parses inline markup and returns a list of [TextSpan]s.
+/// Builds the rounded "stabilo" highlight span for a single marked term.
+/// Shared by [parseMarkedText] (public, unit-tested) and [_buildInlineSpans]
+/// (internal, also supports **bold**) so the two never visually drift apart.
+WidgetSpan _highlightSpan(
+  String term,
+  TextStyle base,
+  Color highlightBg,
+  Color textColor,
+) {
+  return WidgetSpan(
+    alignment: PlaceholderAlignment.middle,
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 1),
+      decoration: BoxDecoration(
+        color: highlightBg,
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Text(term, style: base.copyWith(color: textColor)),
+    ),
+  );
+}
+
+/// Parses `==term==` markers in [text] into a soft, rounded stabilo-highlight
+/// span (background [highlightBg], text [textColor]); everything else keeps
+/// [base]. Pure and context-free so it can be unit-tested directly — see
+/// `test/marked_text_test.dart`.
+///
+/// Used by [MarkedText] for reading content (article/care/trimester body
+/// copy) where an important term — a medical word, a dosage limit — deserves
+/// a highlighter sweep instead of a bold or colored word.
+List<InlineSpan> parseMarkedText(
+  String text, {
+  required TextStyle base,
+  required Color highlightBg,
+  required Color textColor,
+}) {
+  final pattern = RegExp(r'==(.*?)==');
+  final spans = <InlineSpan>[];
+  int lastEnd = 0;
+
+  for (final match in pattern.allMatches(text)) {
+    if (match.start > lastEnd) {
+      spans.add(TextSpan(text: text.substring(lastEnd, match.start), style: base));
+    }
+    spans.add(_highlightSpan(match.group(1)!, base, highlightBg, textColor));
+    lastEnd = match.end;
+  }
+  if (lastEnd < text.length || spans.isEmpty) {
+    spans.add(TextSpan(text: text.substring(lastEnd), style: base));
+  }
+  return spans;
+}
+
+/// Body text with `==term==` stabilo highlighting, theme-aware via
+/// [context.palette]. Drop-in replacement for a plain [Text] anywhere in the
+/// reading experience — bullets, callouts, paragraphs.
+class MarkedText extends StatelessWidget {
+  final String text;
+  final TextStyle? style;
+
+  const MarkedText(this.text, {super.key, this.style});
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    final base = style ??
+        GoogleFonts.plusJakartaSans(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          color: palette.ink,
+          height: 1.65,
+        );
+    final spans = parseMarkedText(
+      text,
+      base: base,
+      highlightBg: palette.peach.withValues(alpha: 0.28),
+      textColor: palette.ink,
+    );
+    if (spans.length == 1 && spans.single is TextSpan) {
+      return Text(text, style: base);
+    }
+    return Text.rich(TextSpan(children: spans));
+  }
+}
+
+/// Parses inline markup and returns a list of [InlineSpan]s.
 ///
 /// Supported syntax:
-///   **text**   → bold (neutral900, w700)
-///   ==text==   → teal stabilo highlight (bg #D4F0E8, fg #2A9474, w600)
+///   **text**   → bold (palette.ink, w700)
+///   ==text==   → stabilo highlight, see [parseMarkedText]
 ///
 /// Plain text outside markers inherits [base].
-List<TextSpan> _buildInlineSpans(String text, TextStyle base) {
-  const Color hlBg = Color(0xFFD4F0E8);
-  const Color hlFg = Color(0xFF6F937D);
-
+List<InlineSpan> _buildInlineSpans(
+  String text,
+  TextStyle base,
+  SabinaPalette palette,
+) {
   final boldStyle = base.copyWith(
     fontWeight: FontWeight.w700,
-    color: SabinaColors.neutral900,
+    color: palette.ink,
     background: null,
   );
-  final highlightStyle = base.copyWith(
-    fontWeight: FontWeight.w600,
-    color: hlFg,
-    background: Paint()..color = hlBg,
-  );
+  final highlightBg = palette.peach.withValues(alpha: 0.28);
 
   final pattern = RegExp(r'\*\*(.*?)\*\*|==(.*?)==');
-  final spans = <TextSpan>[];
+  final spans = <InlineSpan>[];
   int lastEnd = 0;
 
   for (final match in pattern.allMatches(text)) {
@@ -227,7 +314,7 @@ List<TextSpan> _buildInlineSpans(String text, TextStyle base) {
     if (match.group(1) != null) {
       spans.add(TextSpan(text: match.group(1)!, style: boldStyle));
     } else if (match.group(2) != null) {
-      spans.add(TextSpan(text: match.group(2)!, style: highlightStyle));
+      spans.add(_highlightSpan(match.group(2)!, base, highlightBg, palette.ink));
     }
     lastEnd = match.end;
   }
@@ -247,7 +334,7 @@ class ArticleSectionLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = accentColor ?? SabinaColors.primary700;
+    final color = accentColor ?? context.palette.primary;
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
       child: Text(
@@ -278,13 +365,11 @@ class ArticleStandfirst extends StatelessWidget {
     final base = GoogleFonts.plusJakartaSans(
       fontSize: 17,
       fontWeight: FontWeight.w500,
-      color: SabinaColors.neutral700,
-      height: 1.85,
+      color: context.palette.ink,
+      height: 1.7,
     );
-    final spans = _buildInlineSpans(text, base);
-    if (spans.length == 1 && spans.first.style == base) {
-      return Text(text, style: base);
-    }
+    final spans = _buildInlineSpans(text, base, context.palette);
+    if (spans.length == 1) return Text(text, style: base);
     return Text.rich(TextSpan(children: spans));
   }
 }
@@ -292,6 +377,7 @@ class ArticleStandfirst extends StatelessWidget {
 // ── 3. Body text ──────────────────────────────────────────────────────────────
 
 /// Standard body paragraph. Use for secondary prose sections.
+/// Reading voice: Plus Jakarta Sans ~16px, line-height 1.6–1.7, always ink.
 class ArticleBody extends StatelessWidget {
   final String text;
 
@@ -302,13 +388,11 @@ class ArticleBody extends StatelessWidget {
     final base = GoogleFonts.plusJakartaSans(
       fontSize: 16,
       fontWeight: FontWeight.w400,
-      color: SabinaColors.neutral700,
-      height: 1.85,
+      color: context.palette.ink,
+      height: 1.65,
     );
-    final spans = _buildInlineSpans(text, base);
-    if (spans.length == 1 && spans.first.style == base) {
-      return Text(text, style: base);
-    }
+    final spans = _buildInlineSpans(text, base, context.palette);
+    if (spans.length == 1) return Text(text, style: base);
     return Text.rich(TextSpan(children: spans));
   }
 }
@@ -619,6 +703,161 @@ class ArticleNumberedItem extends StatelessWidget {
           ],
         ),
       );
+}
+
+// ── 6b. Bullet list — uniform sage dot ───────────────────────────────────────
+
+/// Shared bullet list for reading content: a small uniform sage dot per line,
+/// body text always ink. One accent (sage) for every bullet on every page —
+/// no more per-section blue/pink/amber dots competing with each other.
+/// Each item supports `==term==` stabilo highlighting via [MarkedText].
+class ArticleBulletList extends StatelessWidget {
+  final List<String> items;
+  final double gap;
+
+  const ArticleBulletList(this.items, {super.key, this.gap = 10});
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    final base = GoogleFonts.plusJakartaSans(
+      fontSize: 16,
+      color: palette.ink,
+      height: 1.65,
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: items
+          .map((item) => Padding(
+                padding: EdgeInsets.only(bottom: gap),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Container(
+                        width: 5,
+                        height: 5,
+                        decoration: BoxDecoration(
+                          color: palette.sage,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text.rich(
+                        TextSpan(
+                          children: parseMarkedText(
+                            item,
+                            base: base,
+                            highlightBg: palette.peach.withValues(alpha: 0.28),
+                            textColor: palette.ink,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ))
+          .toList(),
+    );
+  }
+}
+
+// ── 6c. Magazine section number ──────────────────────────────────────────────
+
+/// "Nomor bagian majalah": a large, light-weight serif number in the page's
+/// single accent (mulberry), paired with an ink title — replacing the old
+/// colored circle badge + icon + colored title combo. One quiet ornament
+/// instead of three competing ones.
+class ArticleMagazineNumber extends StatelessWidget {
+  final int number;
+  final String title;
+
+  const ArticleMagazineNumber({
+    super.key,
+    required this.number,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          number.toString().padLeft(2, '0'),
+          style: GoogleFonts.fraunces(
+            fontSize: 42,
+            fontWeight: FontWeight.w300,
+            color: palette.primary,
+            height: 1.0,
+          ),
+        ),
+        const SizedBox(width: 14),
+        Expanded(
+          child: Text(
+            title,
+            style: GoogleFonts.fraunces(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              color: palette.ink,
+              height: 1.3,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Full numbered section for the reading experience: [ArticleMagazineNumber]
+/// header + indented paragraph ([content]) or bullet list ([items]) below.
+/// No divider between sections — spacing alone sets the rhythm (28–36px
+/// between sections via [isLast], 10–14px within one via [ArticleBulletList]).
+class ArticleMagazineSection extends StatelessWidget {
+  final int number;
+  final String title;
+
+  /// Paragraph content — mutually exclusive with [items].
+  final String? content;
+
+  /// Bullet list items — mutually exclusive with [content].
+  final List<String>? items;
+
+  final bool isLast;
+
+  const ArticleMagazineSection({
+    super.key,
+    required this.number,
+    required this.title,
+    this.content,
+    this.items,
+    this.isLast = false,
+  }) : assert(
+          content != null || items != null,
+          'ArticleMagazineSection: provide either content or items',
+        );
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ArticleMagazineNumber(number: number, title: title),
+        const SizedBox(height: 12),
+        Padding(
+          padding: const EdgeInsets.only(left: 56),
+          child: content != null
+              ? MarkedText(content!)
+              : ArticleBulletList(items!),
+        ),
+        SizedBox(height: isLast ? 8 : 30),
+      ],
+    );
+  }
 }
 
 // ── 7. Inline image with caption ─────────────────────────────────────────────
