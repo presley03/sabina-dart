@@ -16,6 +16,7 @@ import '../models/pregnancy_history.dart';
 import '../models/user_identity.dart';
 import '../providers/locale_provider.dart';
 import '../services/database_helper.dart';
+import 'history_screen.dart';
 import 'identity_screen.dart';
 import 'pregnancy_history_screen.dart';
 
@@ -138,7 +139,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         ),
                         _MenuItem(
                           icon: FontAwesomeIcons.baby,
-                          color: const Color(0xFF2A9474),
+                          color: const Color(0xFF6F937D),
                           label: l10n.pregnancyHistory,
                           trailing: const Icon(Icons.chevron_right_rounded,
                               size: 18, color: Color(0xFF888888)),
@@ -148,6 +149,19 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               builder: (_) => const PregnancyHistoryScreen(),
                             ),
                           ).then((_) => setState(() {})),
+                        ),
+                        _MenuItem(
+                          icon: FontAwesomeIcons.clockRotateLeft,
+                          color: SabinaColors.primary700,
+                          label: l10n.historyMenuLabel,
+                          trailing: const Icon(Icons.chevron_right_rounded,
+                              size: 18, color: Color(0xFF888888)),
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const HistoryScreen(),
+                            ),
+                          ),
                         ),
                       ]),
                       const SizedBox(height: 12),
@@ -184,7 +198,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         ),
                         _MenuItem(
                           icon: FontAwesomeIcons.lock,
-                          color: const Color(0xFFD97706),
+                          color: const Color(0xFFC08A3C),
                           label: l10n.privacyPolicy,
                           trailing: const Icon(Icons.chevron_right_rounded,
                               size: 18, color: Color(0xFF888888)),
@@ -240,7 +254,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         background: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [SabinaColors.primary700, const Color(0xFF9B59B6)],
+              colors: [SabinaColors.primary700, const Color(0xFF9E5A6E)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -765,11 +779,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   Map<String, Color> _sevColors(String severity) {
     switch (severity) {
       case 'low':
-        return {'bg': const Color(0xFFE5F5F0), 'fg': const Color(0xFF2A9474)};
+        return {'bg': const Color(0xFFE2EBE4), 'fg': const Color(0xFF6F937D)};
       case 'medium':
-        return {'bg': const Color(0xFFFFF3E0), 'fg': const Color(0xFFD97706)};
+        return {'bg': const Color(0xFFF5E8D2), 'fg': const Color(0xFFC08A3C)};
       default:
-        return {'bg': const Color(0xFFFFEBEE), 'fg': const Color(0xFFC62828)};
+        return {'bg': const Color(0xFFF5E1DB), 'fg': const Color(0xFFC0604D)};
     }
   }
 

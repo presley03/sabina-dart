@@ -83,8 +83,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
   List<_Article> _buildArticles(AppLocalizations l10n) => [
         _Article(
           icon: FontAwesomeIcons.utensils,
-          iconColor: const Color(0xFFD97706),
-          iconBg: const Color(0xFFFFF3E0),
+          iconColor: const Color(0xFFC08A3C),
+          iconBg: const Color(0xFFF5E8D2),
           categoryCode: 'Nutrisi',
           title: l10n.artikelNutrisiTitle,
           readTime: l10n.readTimeMinutes(10),
@@ -93,8 +93,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: FontAwesomeIcons.ban,
-          iconColor: const Color(0xFFC62828),
-          iconBg: const Color(0xFFFFEBEE),
+          iconColor: const Color(0xFFC0604D),
+          iconBg: const Color(0xFFF5E1DB),
           categoryCode: 'Pantangan',
           title: l10n.artikelPantanganTitle,
           readTime: l10n.readTimeMinutes(8),
@@ -102,8 +102,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: FontAwesomeIcons.personWalking,
-          iconColor: const Color(0xFF2A9474),
-          iconBg: const Color(0xFFE5F5F0),
+          iconColor: const Color(0xFF6F937D),
+          iconBg: const Color(0xFFE2EBE4),
           categoryCode: 'Aktivitas',
           title: l10n.artikelAktivitasTitle,
           readTime: l10n.readTimeMinutes(6),
@@ -111,7 +111,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: FontAwesomeIcons.handSparkles,
-          iconColor: const Color(0xFF6D3F8E),
+          iconColor: const Color(0xFF6E4260),
           iconBg: const Color(0xFFF4EDF9),
           categoryCode: 'Perawatan',
           title: l10n.artikelPerawatanTitle,
@@ -129,8 +129,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: FontAwesomeIcons.seedling,
-          iconColor: const Color(0xFF2A9474),
-          iconBg: const Color(0xFFE5F5F0),
+          iconColor: const Color(0xFF6F937D),
+          iconBg: const Color(0xFFE2EBE4),
           categoryCode: 'Trimester',
           title: l10n.artikelTrimesterSatuTitle,
           readTime: l10n.readTimeMinutes(12),
@@ -138,8 +138,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: FontAwesomeIcons.leaf,
-          iconColor: const Color(0xFFD97706),
-          iconBg: const Color(0xFFFFF3E0),
+          iconColor: const Color(0xFFC08A3C),
+          iconBg: const Color(0xFFF5E8D2),
           categoryCode: 'Trimester',
           title: l10n.artikelTrimesterDuaTitle,
           readTime: l10n.readTimeMinutes(12),
@@ -147,7 +147,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: FontAwesomeIcons.personPregnant,
-          iconColor: const Color(0xFF6D3F8E),
+          iconColor: const Color(0xFF6E4260),
           iconBg: const Color(0xFFF4EDF9),
           categoryCode: 'Trimester',
           title: l10n.artikelTrimesterTigaTitle,
@@ -171,9 +171,10 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
-            backgroundColor: SabinaColors.white,
+            backgroundColor: SabinaColors.neutral100,
             surfaceTintColor: Colors.transparent,
             elevation: 0,
+            scrolledUnderElevation: 0,
             floating: true,
             snap: true,
             automaticallyImplyLeading: false,
@@ -185,9 +186,10 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
                 children: [
                   Text(
                     l10n.artikelPanduanTitle,
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w800,
+                    style: GoogleFonts.fraunces(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: -0.4,
                       color: SabinaColors.neutral900,
                     ),
                   ),
@@ -244,7 +246,6 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
                       },
                     ),
                   ),
-                  Divider(height: 1, color: SabinaColors.neutral300),
                 ],
               ),
             ),
