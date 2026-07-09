@@ -181,7 +181,10 @@ class _SeverityArcPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height - 2);
-    final radius = size.width / 2 - 24;
+    // Radius dibatasi tinggi kotak juga: CustomPaint tidak melakukan clip,
+    // jadi radius berbasis lebar saja membuat puncak busur + marker keluar
+    // kotak dan menimpa teks eyebrow di atasnya (26 = ruang glow marker).
+    final radius = math.min(size.width / 2 - 24, size.height - 26);
     final rect = Rect.fromCircle(center: center, radius: radius);
     const strokeWidth = 9.0;
 
