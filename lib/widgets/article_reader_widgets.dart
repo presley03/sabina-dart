@@ -197,19 +197,29 @@ class ArticleHeader extends StatelessWidget {
 
 // ── Inline markup renderer ───────────────────────────────────────────────────
 
+/// Punctuation that should sit flush against a highlight span instead of
+/// floating behind its right padding (e.g. "…2 minggu, kondisi" must not
+/// render as "…2 minggu , kondisi").
+final RegExp _trailingPunctuation = RegExp(r'^[,.;:!?]');
+
 /// Builds the rounded "stabilo" highlight span for a single marked term.
 /// Shared by [parseMarkedText] (public, unit-tested) and [_buildInlineSpans]
 /// (internal, also supports **bold**) so the two never visually drift apart.
+///
+/// [tightRight] drops the right padding when the character immediately
+/// following the marker is punctuation, so the mark doesn't create a visual
+/// gap before it.
 WidgetSpan _highlightSpan(
   String term,
   TextStyle base,
   Color highlightBg,
-  Color textColor,
-) {
+  Color textColor, {
+  bool tightRight = false,
+}) {
   return WidgetSpan(
     alignment: PlaceholderAlignment.middle,
     child: Container(
-      padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 1),
+      padding: EdgeInsets.fromLTRB(3, 1, tightRight ? 0 : 3, 1),
       decoration: BoxDecoration(
         color: highlightBg,
         borderRadius: BorderRadius.circular(4),
@@ -241,7 +251,14 @@ List<InlineSpan> parseMarkedText(
     if (match.start > lastEnd) {
       spans.add(TextSpan(text: text.substring(lastEnd, match.start), style: base));
     }
-    spans.add(_highlightSpan(match.group(1)!, base, highlightBg, textColor));
+    final following = match.end < text.length ? text[match.end] : '';
+    spans.add(_highlightSpan(
+      match.group(1)!,
+      base,
+      highlightBg,
+      textColor,
+      tightRight: _trailingPunctuation.hasMatch(following),
+    ));
     lastEnd = match.end;
   }
   if (lastEnd < text.length || spans.isEmpty) {
@@ -314,7 +331,14 @@ List<InlineSpan> _buildInlineSpans(
     if (match.group(1) != null) {
       spans.add(TextSpan(text: match.group(1)!, style: boldStyle));
     } else if (match.group(2) != null) {
-      spans.add(_highlightSpan(match.group(2)!, base, highlightBg, palette.ink));
+      final following = match.end < text.length ? text[match.end] : '';
+      spans.add(_highlightSpan(
+        match.group(2)!,
+        base,
+        highlightBg,
+        palette.ink,
+        tightRight: _trailingPunctuation.hasMatch(following),
+      ));
     }
     lastEnd = match.end;
   }

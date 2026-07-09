@@ -60,5 +60,34 @@ void main() {
       final plain = spans.whereType<TextSpan>().map((s) => s.text).toList();
       expect(plain, [' dan ', ' perlu diwaspadai.']);
     });
+
+    test('a marker followed by a comma has no right padding', () {
+      final spans = parseMarkedText(
+        'Berlangsung ==lebih dari 2 minggu==, segera periksa.',
+        base: base,
+        highlightBg: highlightBg,
+        textColor: textColor,
+      );
+
+      final highlight = spans.whereType<WidgetSpan>().single;
+      final container = highlight.child as Container;
+      final padding = container.padding as EdgeInsets;
+      expect(padding.right, 0);
+      expect(padding.left, 3);
+    });
+
+    test('a marker NOT followed by punctuation keeps right padding', () {
+      final spans = parseMarkedText(
+        'Batasi ==200 mg== per hari.',
+        base: base,
+        highlightBg: highlightBg,
+        textColor: textColor,
+      );
+
+      final highlight = spans.whereType<WidgetSpan>().single;
+      final container = highlight.child as Container;
+      final padding = container.padding as EdgeInsets;
+      expect(padding.right, 3);
+    });
   });
 }

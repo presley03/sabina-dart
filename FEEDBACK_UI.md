@@ -74,9 +74,11 @@ dalam bullet). `flutter analyze` = 0 issues, `flutter test` lulus (4 file,
 
 ### Tindak lanjut minor Batch 2 (review Fable, bukan blocker)
 
-- [ ] Polish marker: padding highlight menciptakan spasi visual sebelum tanda
+- [x] Polish marker: padding highlight menciptakan spasi visual sebelum tanda
   baca setelahnya ("…2 minggu ,") — trim padding kanan bila karakter
-  berikutnya tanda baca.
+  berikutnya tanda baca. (`_highlightSpan(tightRight:)` di
+  `article_reader_widgets.dart`, dipicu utk `, . ; : ! ?`; 2 unit test baru
+  di `marked_text_test.dart`)
 - [ ] Bottom sheet "tips lainnya" di yang_perlu_dihindari masih badge+divider
   lama — samakan dengan gaya majalah.
 - Catatan koreksi laporan: total test = 10 (bukan 16); marker `50% (volume
