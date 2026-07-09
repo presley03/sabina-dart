@@ -4723,5 +4723,7 @@
   "timeDaysAgo": "{days} hari lalu",
   "@timeDaysAgo": {"description": "Waktu relatif: sekian hari lalu", "placeholders": {"days": {"type": "int"}}},
   "timeMonthsAgo": "{months} bulan lalu",
-  "@timeMonthsAgo": {"description": "Waktu relatif: sekian bulan lalu", "placeholders": {"months": {"type": "int"}}}
+  "@timeMonthsAgo": {"description": "Waktu relatif: sekian bulan lalu", "placeholders": {"months": {"type": "int"}}},
+  "journalEntrySaved": "Catatan minggu ini tersimpan 🤍",
+  "@journalEntrySaved": {"description": "SnackBar setelah entri jurnal mingguan berhasil disimpan"}
 }

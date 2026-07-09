@@ -4563,4 +4563,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String timeMonthsAgo(int months) {
     return '${months}mo ago';
   }
+
+  @override
+  String get journalEntrySaved => 'This week\'s note has been saved 🤍';
 }

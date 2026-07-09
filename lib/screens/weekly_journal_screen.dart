@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:sabina/core/theme/app_theme.dart';
+import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/services/database_helper.dart';
 import 'package:sabina/services/journal_service.dart';
 
@@ -116,8 +117,11 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
       _saving = false;
     });
     FocusScope.of(context).unfocus();
+    if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Catatan minggu ini tersimpan 🤍')),
+      SnackBar(
+        content: Text(AppLocalizations.of(context)!.journalEntrySaved),
+      ),
     );
   }
 

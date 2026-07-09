@@ -8077,6 +8077,12 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'{months} bulan lalu'**
   String timeMonthsAgo(int months);
+
+  /// SnackBar setelah entri jurnal mingguan berhasil disimpan
+  ///
+  /// In id, this message translates to:
+  /// **'Catatan minggu ini tersimpan 🤍'**
+  String get journalEntrySaved;
 }
 
 class _AppLocalizationsDelegate

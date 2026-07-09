@@ -4572,4 +4572,7 @@ class AppLocalizationsId extends AppLocalizations {
   String timeMonthsAgo(int months) {
     return '$months bulan lalu';
   }
+
+  @override
+  String get journalEntrySaved => 'Catatan minggu ini tersimpan 🤍';
 }

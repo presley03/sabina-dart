@@ -4734,5 +4734,7 @@
   "timeDaysAgo": "{days}d ago",
   "@timeDaysAgo": {"description": "Relative time: days ago", "placeholders": {"days": {"type": "int"}}},
   "timeMonthsAgo": "{months}mo ago",
-  "@timeMonthsAgo": {"description": "Relative time: months ago", "placeholders": {"months": {"type": "int"}}}
+  "@timeMonthsAgo": {"description": "Relative time: months ago", "placeholders": {"months": {"type": "int"}}},
+  "journalEntrySaved": "This week's note has been saved 🤍",
+  "@journalEntrySaved": {"description": "SnackBar shown after a weekly journal entry is saved successfully"}
 }
