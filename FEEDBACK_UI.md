@@ -177,11 +177,30 @@ tiap langkah.
 - [x] **6. Ikon keluhan premium TAPI berubah saat diklik** — layar intro &
   questionnaire keluhan harus memakai ic_*.png ter-tint yang sama dengan
   menu (konsistensi identitas sepanjang alur).
-- [ ] **7. FITUR: hasil kuesioner premium** — user menyukai hasil yang rapi,
+- [x] **7. FITUR: hasil kuesioner premium** — user menyukai hasil yang rapi,
   elegan, user-friendly: severity dalam bentuk visual (arc/gauge senada
   busur app), ringkasan jawaban dalam TABEL rapi, grafik tren riwayat
   (fl_chart, data dari history_service) bila ada ≥2 entri, rekomendasi
   terstruktur, gaya Jurnal (Fraunces + arch + palet tenang). Berlaku untuk
   8 layar hasil (preeklampsia, penapisan, 6 keluhan) via komponen bersama.
+  (`lib/widgets/result_experience_widgets.dart`: `ResultHeroArch` — panel
+  lengkung dengan busur 3-zona sage-amber-rust + marker menyala, senada
+  `_WeekArcPainter`/ring gauge IMT; `ResultAnswerTable` — tabel jawaban
+  zebra tipis, pill sage/rust; `ResultTrendChart`/`ResultTrendChartView` —
+  line chart fl_chart dari `HistoryService`, guard pesan lembut bila <2
+  entri; `ResultRecommendationList` — `ArticleBulletList` + CTA WhatsApp
+  baru untuk severity tinggi. Semua 8 layar hasil dimigrasi — komit
+  `b2114b9` (komponen+test), `3ed1436` (preeklampsia), `ba801aa` (7 layar
+  lain). Logika medis/`getResult()`/threshold TIDAK diubah di model
+  manapun — hanya presentasi; warna pill "concern" per pertanyaan dihitung
+  di tiap layar karena beberapa pertanyaan berbentuk terbalik (mis.
+  bengkak/mual_muntah pola jinak, dan keluar_cairan/pergerakan_janin yang
+  UI kuesionernya cuma pernah kirim Ya/Tidak literal walau model punya opsi
+  lebih kaya). ARB id/en baru + 4 widget test (`test/result_experience_widgets_test.dart`).
+  Verifikasi live emulator: preeklampsia risiko tinggi & tidak ada risiko,
+  penapisan risiko rendah, mual muntah normal, sakit kepala perlu
+  perhatian, keluar cairan segera periksa, pergerakan janin tetap waspada,
+  grafik tren 3-entri terisi, dan dark mode (`screenshots_batch5/`).
+  `flutter analyze` = 0 issues, `flutter test` = 16/16.
 
 ## (tambahkan temuan berikutnya di bawah ini)
