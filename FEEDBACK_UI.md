@@ -164,7 +164,7 @@ tiap langkah.
 - [x] **2. Gambar carousel tips terpotong** (kepala/objek terpangkas, tak
   nyaman) — samakan rasio kartu dengan rasio aset (1080×560 ≈ 1.93) atau
   atur alignment crop agar wajah tidak terpotong.
-- [ ] **3. Tile bento penuh sesak (2 ikon)** — hapus chip ikon Material,
+- [x] **3. Tile bento penuh sesak (2 ikon)** — hapus chip ikon Material,
   jadikan ilustrasi GPT satu-satunya anchor visual (lebih besar,
   proporsional); teks boleh menyesuaikan (label ringkas tapi terpahami).
 - [ ] **4. Ikon layar Skrining diganti & KONSISTEN sampai layar tujuan** —

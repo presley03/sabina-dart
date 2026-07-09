@@ -971,25 +971,18 @@ Widget _bentoTile(BuildContext context, _BentoItem item) {
       clipBehavior: Clip.antiAlias,
       child: Stack(
         children: [
-          // Slot ilustrasi pojok kanan-bawah — hanya tampil jika aset tersedia.
+          // Ilustrasi GPT = satu-satunya anchor visual (pojok kanan-bawah).
+          // Fallback: chip ikon Material lama, bila aset belum tersedia.
           Positioned(
-            right: -4,
-            bottom: -4,
-            width: 58,
-            height: 58,
+            right: -8,
+            bottom: -8,
+            width: 90,
+            height: 90,
             child: Image.asset(
               item.illustrationAsset,
               fit: BoxFit.contain,
-              errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-            ),
-          ),
-          Padding(
-            // Sisi kanan lebih lebar: ruang aman agar teks tak menabrak ilustrasi.
-            padding: const EdgeInsets.fromLTRB(15, 15, 46, 14),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
+              errorBuilder: (_, __, ___) => Center(
+                child: Container(
                   width: 42,
                   height: 46,
                   decoration: BoxDecoration(
@@ -1003,7 +996,15 @@ Widget _bentoTile(BuildContext context, _BentoItem item) {
                   ),
                   child: Icon(item.icon, color: item.iconColor, size: 21),
                 ),
-                const SizedBox(height: 12),
+              ),
+            ),
+          ),
+          Padding(
+            // Sisi kanan lebih lebar: ruang aman agar teks tak menabrak ilustrasi.
+            padding: const EdgeInsets.fromLTRB(15, 15, 58, 14),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 Text(
                   item.label,
                   maxLines: 2,
