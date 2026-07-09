@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
@@ -118,7 +117,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               l10n.trimesterTwo_motherChanges_21_24,
               l10n.trimesterTwo_motherChanges_25_27,
             ],
-            icon: FontAwesomeIcons.personPregnant,
+            icon: Icons.pregnant_woman_rounded,
             color: const Color(0xFF6F937D),
           ),
           const SizedBox(height: 8),
@@ -132,7 +131,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               l10n.trimesterTwo_commonComplaints_constipation,
               l10n.trimesterTwo_commonComplaints_breathlessness,
             ],
-            icon: FontAwesomeIcons.faceMeh,
+            icon: Icons.sentiment_dissatisfied_rounded,
             color: const Color(0xFFC08A3C),
           ),
           const SizedBox(height: 8),
@@ -146,7 +145,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               l10n.trimesterTwo_dos_clothing,
               l10n.trimesterTwo_dos_rest,
             ],
-            icon: FontAwesomeIcons.circleCheck,
+            icon: Icons.check_circle_rounded,
             color: const Color(0xFF6F937D),
           ),
           _bulletCard(
@@ -158,7 +157,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
               l10n.trimesterTwo_donts_lyingOnBack,
               l10n.trimesterTwo_donts_ignoringMovement,
             ],
-            icon: FontAwesomeIcons.ban,
+            icon: Icons.block_rounded,
             color: SabinaColors.error700,
           ),
           const SizedBox(height: 8),
@@ -195,7 +194,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              FaIcon(FontAwesomeIcons.calendarDays, size: 12, color: color),
+              Icon(Icons.calendar_month_rounded, size: 12, color: color),
               const SizedBox(width: 6),
               Text(
                 label,
@@ -288,7 +287,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
                     color: bg,
                     borderRadius: BorderRadius.circular(9),
                   ),
-                  child: Center(child: FaIcon(icon, size: 14, color: c)),
+                  child: Center(child: Icon(icon, size: 14, color: c)),
                 ),
                 const SizedBox(width: 10),
               ],
@@ -344,7 +343,7 @@ class _TrimesterDuaScreenState extends State<TrimesterDuaScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    FaIcon(FontAwesomeIcons.bookOpen,
+                    Icon(Icons.menu_book_rounded,
                         size: 13, color: const Color(0xFF6F937D)),
                     const SizedBox(width: 12),
                     Expanded(

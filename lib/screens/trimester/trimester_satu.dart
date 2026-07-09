@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
@@ -117,7 +116,7 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
               l10n.trimesterOne_motherChanges_5_8,
               l10n.trimesterOne_motherChanges_9_13,
             ],
-            icon: FontAwesomeIcons.personPregnant,
+            icon: Icons.pregnant_woman_rounded,
             color: SabinaColors.primary700,
           ),
 
@@ -135,7 +134,7 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
               l10n.trimesterOne_commonComplaints_constipation,
               l10n.trimesterOne_commonComplaints_breastTenderness,
             ],
-            icon: FontAwesomeIcons.faceMeh,
+            icon: Icons.sentiment_dissatisfied_rounded,
             color: const Color(0xFFC08A3C),
           ),
 
@@ -152,7 +151,7 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
               l10n.trimesterOne_dos_hydration,
               l10n.trimesterOne_dos_exercise,
             ],
-            icon: FontAwesomeIcons.circleCheck,
+            icon: Icons.check_circle_rounded,
             color: const Color(0xFF6F937D),
           ),
           _bulletCard(
@@ -164,7 +163,7 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
               l10n.trimesterOne_donts_unsafeMedication,
               l10n.trimesterOne_donts_rawFood,
             ],
-            icon: FontAwesomeIcons.ban,
+            icon: Icons.block_rounded,
             color: SabinaColors.error700,
           ),
 
@@ -208,7 +207,7 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              FaIcon(FontAwesomeIcons.calendarDays, size: 12, color: color),
+              Icon(Icons.calendar_month_rounded, size: 12, color: color),
               const SizedBox(width: 6),
               Text(
                 label,
@@ -300,7 +299,7 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
                     color: bg,
                     borderRadius: BorderRadius.circular(9),
                   ),
-                  child: Center(child: FaIcon(icon, size: 14, color: c)),
+                  child: Center(child: Icon(icon, size: 14, color: c)),
                 ),
                 const SizedBox(width: 10),
               ],
@@ -356,7 +355,7 @@ class _TrimesterSatuScreenState extends State<TrimesterSatuScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    FaIcon(FontAwesomeIcons.bookOpen,
+                    Icon(Icons.menu_book_rounded,
                         size: 13, color: SabinaColors.primary700),
                     const SizedBox(width: 12),
                     Expanded(

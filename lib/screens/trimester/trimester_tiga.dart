@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
@@ -111,7 +110,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               l10n.trimesterThree_maternalChanges_35_37,
               l10n.trimesterThree_maternalChanges_38_40,
             ],
-            icon: FontAwesomeIcons.personPregnant,
+            icon: Icons.pregnant_woman_rounded,
             color: _amber,
           ),
           const SizedBox(height: 8),
@@ -126,7 +125,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               l10n.trimesterThree_commonComplaints_swelling,
               l10n.trimesterThree_commonComplaints_braxtonHicks,
             ],
-            icon: FontAwesomeIcons.faceMeh,
+            icon: Icons.sentiment_dissatisfied_rounded,
             color: SabinaColors.error700,
           ),
           const SizedBox(height: 8),
@@ -140,7 +139,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               l10n.trimesterThree_dos_exercise,
               l10n.trimesterThree_dos_preparation,
             ],
-            icon: FontAwesomeIcons.circleCheck,
+            icon: Icons.check_circle_rounded,
             color: const Color(0xFF6F937D),
           ),
           _bulletCard(
@@ -152,7 +151,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
               l10n.trimesterThree_donts_prolongedStanding,
               l10n.trimesterThree_donts_ignoreLabor,
             ],
-            icon: FontAwesomeIcons.ban,
+            icon: Icons.block_rounded,
             color: SabinaColors.error700,
           ),
           const SizedBox(height: 8),
@@ -192,7 +191,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              FaIcon(FontAwesomeIcons.calendarDays, size: 12, color: color),
+              Icon(Icons.calendar_month_rounded, size: 12, color: color),
               const SizedBox(width: 6),
               Text(
                 label,
@@ -284,7 +283,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
                     color: bg,
                     borderRadius: BorderRadius.circular(9),
                   ),
-                  child: Center(child: FaIcon(icon, size: 14, color: c)),
+                  child: Center(child: Icon(icon, size: 14, color: c)),
                 ),
                 const SizedBox(width: 10),
               ],
@@ -340,7 +339,7 @@ class _TrimesterTigaScreenState extends State<TrimesterTigaScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    FaIcon(FontAwesomeIcons.bookOpen, size: 13, color: _amber),
+                    Icon(Icons.menu_book_rounded, size: 13, color: _amber),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Column(
