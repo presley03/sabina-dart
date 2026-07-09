@@ -267,4 +267,19 @@ sama di mode gelap — seluruh teks tetap ink/inkMuted terbaca, warna hanya di
 busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
 `flutter test` = 16/16 lulus setelah tiap item (A, B, C, D).
 
+### Tindak lanjut minor Batch 6 (review Presley, bukan blocker)
+
+- [x] **Ikon severity di hero menimpa label** ("Tidak Ada Risiko" tertutup
+  ikon centang) — `Icon(severity.icon)` di `ResultHeroArch` berjarak cuma
+  6px dari teks dengan `height:1.05`; ascender Fraunces di font besar
+  ("T", "d", "k") ternyata melampaui line-box itu, jadi menabrak ikon di
+  atasnya berapa pun sekadar ditambah jarak (dicoba 12px & 40px — 40px baru
+  benar-benar lepas). Solusi akhir: **hapus ikon**, sisakan `severityLabel`
+  saja — busur + marker berwarna di atasnya sudah cukup menyampaikan
+  severity tanpa ikon kedua yang redundan (lebih sesuai disiplin "satu
+  aksen" gaya Medium juga). `ResultSeverityX.icon` (getter yang jadi tak
+  terpakai) turut dihapus. Diverifikasi live: `13_result_hero_icon_removed.png`
+  + `14_result_hero_icon_removed_full.png`. `flutter analyze` = 0 issues,
+  `flutter test` = 16/16.
+
 ## (tambahkan temuan berikutnya di bawah ini)

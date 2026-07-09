@@ -49,7 +49,7 @@ class ResultTextStyles {
 
 /// Tingkat keparahan generik untuk presentasi visual. Setiap layar tetap
 /// menghitung sendiri hasil & tingkatnya (logika medis tidak berubah) — enum
-/// ini hanya menyatukan warna/ikon yang sebelumnya diduplikasi di 8 file.
+/// ini hanya menyatukan warna yang sebelumnya diduplikasi di 8 file.
 enum ResultSeverity { low, medium, high }
 
 extension ResultSeverityX on ResultSeverity {
@@ -63,12 +63,6 @@ extension ResultSeverityX on ResultSeverity {
         ResultSeverity.low => p.sageSoft,
         ResultSeverity.medium => p.amberSoft,
         ResultSeverity.high => p.criticalSoft,
-      };
-
-  IconData get icon => switch (this) {
-        ResultSeverity.low => Icons.check_circle_rounded,
-        ResultSeverity.medium => Icons.warning_rounded,
-        ResultSeverity.high => Icons.error_rounded,
       };
 }
 
@@ -142,23 +136,16 @@ class ResultHeroArch extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 2),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(severity.icon, size: 26, color: c),
-                      const SizedBox(height: 6),
-                      Text(
-                        severityLabel,
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.fraunces(
-                          fontSize: 23,
-                          fontWeight: FontWeight.w500,
-                          height: 1.05,
-                          color: c,
-                        ),
-                      ),
-                    ],
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    severityLabel,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.fraunces(
+                      fontSize: 23,
+                      fontWeight: FontWeight.w500,
+                      height: 1.2,
+                      color: c,
+                    ),
                   ),
                 ),
               ],
