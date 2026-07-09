@@ -34,23 +34,43 @@
 
 ## Pengalaman baca artikel & layar care (yang_perlu_dihindari, aktivitas_fisik, dll.)
 
-- [ ] **Ornamen ganda di judul bagian** — badge angka berwarna + emoji + judul
+- [x] **Ornamen ganda di judul bagian** — badge angka berwarna + emoji + judul
   berwarna bersaing. Hapus emoji; nomor bagian → angka Fraunces besar tipis
-  gaya majalah.
-- [ ] **Pemisahan ganda** — divider + gap besar sekaligus antar bagian → hapus
-  divider, rapatkan ritme spasi jadi konsisten.
-- [ ] **Warna tak berdisiplin** — badge pink/hijau, bullet BIRU (bukan palet
+  gaya majalah. (`ArticleMagazineNumber`/`ArticleMagazineSection`, komit
+  `1ee6078`, dipakai di semua 12 layar batch ini)
+- [x] **Pemisahan ganda** — divider + gap besar sekaligus antar bagian → hapus
+  divider, rapatkan ritme spasi jadi konsisten. (dihapus di semua 12 layar;
+  gap antar bagian 28–32px, dalam bagian 10–14px via `ArticleBulletList`)
+- [x] **Warna tak berdisiplin** — badge pink/hijau, bullet BIRU (bukan palet
   Twilight), judul plum dalam satu layar. Aturan: satu aksen per halaman,
-  teks body selalu `ink`; bullet → titik kecil sage seragam.
-- [ ] **Tangga tipografi baca**: judul bagian Fraunces; body Plus Jakarta Sans
-  ~16px, line-height 1.6–1.7.
-- [ ] **FITUR BARU: marker/stabilo istilah penting** — sapuan latar
+  teks body selalu `ink`; bullet → titik kecil sage seragam. (bullet biru
+  `#1D4ED8` dihapus dari aktivitas_fisik/makanan/stres_kehamilan; setiap
+  layar kini satu aksen konsisten — mulberry/sage/amber sesuai trimester/
+  topik; bullet selalu sage via `ArticleBulletList`)
+- [x] **Tangga tipografi baca**: judul bagian Fraunces; body Plus Jakarta Sans
+  ~16px, line-height 1.6–1.7. (`ArticleBody`/`ArticleStandfirst`/`MarkedText`
+  diperbarui: `context.palette.ink`, line-height 1.65–1.7)
+- [x] **FITUR BARU: marker/stabilo istilah penting** — sapuan latar
   peach/amber transparan berujung bulat di belakang istilah kunci
   (mis. *preeklampsia*, *200 mg kafein*, *SIDS*). Implementasi `TextSpan`
   background sadar-tema (`context.palette`). Fase 2 (nanti): ketuk istilah →
-  bottom sheet glosarium.
-- [ ] Layar care/trimester dimigrasi ke pustaka `article_reader_widgets`
-  agar konsisten dengan artikel utama.
+  bottom sheet glosarium. (`MarkedText`/`parseMarkedText`, unit test di
+  `test/marked_text_test.dart`; markers ditambahkan di 12 istilah lintas
+  layar — lihat daftar di bawah)
+- [x] Layar care/trimester dimigrasi ke pustaka `article_reader_widgets`
+  agar konsisten dengan artikel utama. (5 layar care + 3 layar trimester +
+  4 layar artikel/ — komit `458d644` dan `15c4d44`)
+
+**Verifikasi visual (emulator, `screenshots_batch2/`):**
+`04_yang_perlu_dihindari_top.png` + `05_yang_perlu_dihindari_markers.png`
+(marker "200 mg per hari" terlihat), `06_aktivitas_top.png` (marker "tekanan
+darah tinggi") + `07_aktivitas_perlu_diperhatikan.png` (bagian "Hal yang
+Perlu Diperhatikan", bullet sage, tanpa divider), `09_trimester_dua_top.png`
++ `10_trimester_satu_bullets.png` (satu aksen, bullet sage seragam termasuk
+di daftar "yang dihindari"), `13_stres_top.png` (gradient off-palette biru
+diganti mulberry) + `14_stres_cara.png` (marker "lebih dari 2 minggu" di
+dalam bullet). `flutter analyze` = 0 issues, `flutter test` lulus (4 file,
+16 test) setelah tiap langkah.
 
 ## Layar Keluhan (menu 6 tile)
 
