@@ -48,13 +48,43 @@ class PergerakanJaninQuestionnaireScreen extends StatelessWidget {
               color: SabinaColors.neutral900,
               onPressed: () => Navigator.of(context).pop(),
             ),
-            title: Text(
-              l10n.pergerakanJaninQuestTitle,
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: SabinaColors.neutral900,
-              ),
+            titleSpacing: 0,
+            title: Row(
+              children: [
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE2EBE4),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/keluhan/icons/ic_pergerakan_janin.png',
+                      width: 17,
+                      height: 17,
+                      color: const Color(0xFF6F937D),
+                      errorBuilder: (_, __, ___) => const Icon(
+                        Icons.monitor_heart_rounded,
+                        color: Color(0xFF6F937D),
+                        size: 15,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    l10n.pergerakanJaninQuestTitle,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: SabinaColors.neutral900,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
             ),
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(1),

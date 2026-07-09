@@ -51,8 +51,9 @@ class MualMuntahScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _IntroCard(
                 icon: Icons.sentiment_dissatisfied_rounded,
-                iconColor: const Color(0xFFC08A3C),
-                iconBg: const Color(0xFFF5E8D2),
+                iconColor: const Color(0xFF6F937D),
+                iconBg: const Color(0xFFE2EBE4),
+                illustrationAsset: 'assets/images/keluhan/icons/ic_mual.png',
                 title: l10n.mualMuntahTitle,
                 description: l10n.mualMuntahDescription,
                 meta: l10n.questionnaireMetaText(8),
@@ -81,6 +82,7 @@ class _IntroCard extends StatelessWidget {
   final String description;
   final String meta;
   final VoidCallback onTap;
+  final String? illustrationAsset;
 
   const _IntroCard({
     required this.icon,
@@ -90,6 +92,7 @@ class _IntroCard extends StatelessWidget {
     required this.description,
     required this.meta,
     required this.onTap,
+    this.illustrationAsset,
   });
 
   @override
@@ -121,8 +124,18 @@ class _IntroCard extends StatelessWidget {
                     color: iconBg,
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  child:
-                      Center(child: Icon(icon, color: iconColor, size: 22)),
+                  child: Center(
+                    child: illustrationAsset == null
+                        ? Icon(icon, color: iconColor, size: 22)
+                        : Image.asset(
+                            illustrationAsset!,
+                            width: 26,
+                            height: 26,
+                            color: iconColor,
+                            errorBuilder: (_, __, ___) =>
+                                Icon(icon, color: iconColor, size: 22),
+                          ),
+                  ),
                 ),
                 const SizedBox(width: 14),
                 Expanded(

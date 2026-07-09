@@ -51,8 +51,10 @@ class PergerakanJaninScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _IntroCard(
                 icon: Icons.monitor_heart_rounded,
-                iconColor: SabinaColors.primary700,
-                iconBg: SabinaColors.primary100,
+                iconColor: const Color(0xFF6F937D),
+                iconBg: const Color(0xFFE2EBE4),
+                illustrationAsset:
+                    'assets/images/keluhan/icons/ic_pergerakan_janin.png',
                 title: l10n.pergerakanJaninTitle,
                 description: l10n.pergerakanJaninDescription,
                 meta: l10n.questionnaireMetaText(6),
@@ -81,6 +83,7 @@ class _IntroCard extends StatelessWidget {
   final String description;
   final String meta;
   final VoidCallback onTap;
+  final String? illustrationAsset;
 
   const _IntroCard({
     required this.icon,
@@ -90,6 +93,7 @@ class _IntroCard extends StatelessWidget {
     required this.description,
     required this.meta,
     required this.onTap,
+    this.illustrationAsset,
   });
 
   @override
@@ -121,8 +125,18 @@ class _IntroCard extends StatelessWidget {
                     color: iconBg,
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  child:
-                      Center(child: Icon(icon, color: iconColor, size: 22)),
+                  child: Center(
+                    child: illustrationAsset == null
+                        ? Icon(icon, color: iconColor, size: 22)
+                        : Image.asset(
+                            illustrationAsset!,
+                            width: 26,
+                            height: 26,
+                            color: iconColor,
+                            errorBuilder: (_, __, ___) =>
+                                Icon(icon, color: iconColor, size: 22),
+                          ),
+                  ),
                 ),
                 const SizedBox(width: 14),
                 Expanded(

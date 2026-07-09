@@ -51,8 +51,10 @@ class KeluarCairanScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _IntroCard(
                 icon: Icons.science_rounded,
-                iconColor: const Color(0xFF1D4ED8),
-                iconBg: const Color(0xFFEFF6FF),
+                iconColor: const Color(0xFF6E4260),
+                iconBg: const Color(0xFFF0E5EC),
+                illustrationAsset:
+                    'assets/images/keluhan/icons/ic_keluar_cairan.png',
                 title: l10n.keluarCairanTitle,
                 description: l10n.keluarCairanDescription,
                 meta: l10n.questionnaireMetaText(8),
@@ -81,6 +83,7 @@ class _IntroCard extends StatelessWidget {
   final String description;
   final String meta;
   final VoidCallback onTap;
+  final String? illustrationAsset;
 
   const _IntroCard({
     required this.icon,
@@ -90,6 +93,7 @@ class _IntroCard extends StatelessWidget {
     required this.description,
     required this.meta,
     required this.onTap,
+    this.illustrationAsset,
   });
 
   @override
@@ -121,8 +125,18 @@ class _IntroCard extends StatelessWidget {
                     color: iconBg,
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  child:
-                      Center(child: Icon(icon, color: iconColor, size: 22)),
+                  child: Center(
+                    child: illustrationAsset == null
+                        ? Icon(icon, color: iconColor, size: 22)
+                        : Image.asset(
+                            illustrationAsset!,
+                            width: 26,
+                            height: 26,
+                            color: iconColor,
+                            errorBuilder: (_, __, ___) =>
+                                Icon(icon, color: iconColor, size: 22),
+                          ),
+                  ),
                 ),
                 const SizedBox(width: 14),
                 Expanded(

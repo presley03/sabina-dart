@@ -48,13 +48,43 @@ class KeluarDarahQuestionnaireScreen extends StatelessWidget {
               color: SabinaColors.neutral900,
               onPressed: () => Navigator.of(context).pop(),
             ),
-            title: Text(
-              l10n.keluarDarahQuestTitle,
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: SabinaColors.neutral900,
-              ),
+            titleSpacing: 0,
+            title: Row(
+              children: [
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: SabinaColors.error100,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/keluhan/icons/ic_keluar_darah.png',
+                      width: 17,
+                      height: 17,
+                      color: SabinaColors.error700,
+                      errorBuilder: (_, __, ___) => Icon(
+                        Icons.water_drop_rounded,
+                        color: SabinaColors.error700,
+                        size: 15,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    l10n.keluarDarahQuestTitle,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: SabinaColors.neutral900,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
             ),
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(1),

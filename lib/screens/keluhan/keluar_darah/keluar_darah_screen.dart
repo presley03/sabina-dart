@@ -53,6 +53,8 @@ class KeluarDarahScreen extends StatelessWidget {
                 icon: Icons.water_drop_rounded,
                 iconColor: SabinaColors.error700,
                 iconBg: SabinaColors.error100,
+                illustrationAsset:
+                    'assets/images/keluhan/icons/ic_keluar_darah.png',
                 title: l10n.keluarDarahTitle,
                 description: l10n.keluarDarahDescription,
                 meta: l10n.questionnaireMetaText(8),
@@ -81,6 +83,7 @@ class _IntroCard extends StatelessWidget {
   final String description;
   final String meta;
   final VoidCallback onTap;
+  final String? illustrationAsset;
 
   const _IntroCard({
     required this.icon,
@@ -90,6 +93,7 @@ class _IntroCard extends StatelessWidget {
     required this.description,
     required this.meta,
     required this.onTap,
+    this.illustrationAsset,
   });
 
   @override
@@ -121,8 +125,18 @@ class _IntroCard extends StatelessWidget {
                     color: iconBg,
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  child:
-                      Center(child: Icon(icon, color: iconColor, size: 22)),
+                  child: Center(
+                    child: illustrationAsset == null
+                        ? Icon(icon, color: iconColor, size: 22)
+                        : Image.asset(
+                            illustrationAsset!,
+                            width: 26,
+                            height: 26,
+                            color: iconColor,
+                            errorBuilder: (_, __, ___) =>
+                                Icon(icon, color: iconColor, size: 22),
+                          ),
+                  ),
                 ),
                 const SizedBox(width: 14),
                 Expanded(

@@ -174,7 +174,7 @@ tiap langkah.
 - [x] **5. Artikel: ikon → thumbnail gambar artikel** — kartu daftar artikel
   pakai thumbnail aset artikelnya (rounded/arch kecil) sebagai leading,
   fallback ke ikon bila aset tak ada.
-- [ ] **6. Ikon keluhan premium TAPI berubah saat diklik** — layar intro &
+- [x] **6. Ikon keluhan premium TAPI berubah saat diklik** — layar intro &
   questionnaire keluhan harus memakai ic_*.png ter-tint yang sama dengan
   menu (konsistensi identitas sepanjang alur).
 - [ ] **7. FITUR: hasil kuesioner premium** — user menyukai hasil yang rapi,
