@@ -47,11 +47,14 @@ Color _moodColor(int i, SabinaPalette p) {
 
 class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
   final TextEditingController _noteCtrl = TextEditingController();
-  int? _week;
+  int? _currentWeek;
+  int? _editingWeek;
   int _mood = 2;
   bool _loading = true;
   bool _saving = false;
   List<JournalEntry> _entries = [];
+
+  int? get _activeWeek => _editingWeek ?? _currentWeek;
 
   @override
   void initState() {
@@ -72,7 +75,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
     if (week != null) existing = await JournalService.forWeek(week);
     if (!mounted) return;
     setState(() {
-      _week = week;
+      _currentWeek = week;
       _entries = all;
       if (existing != null) {
         _mood = existing.mood;
@@ -101,11 +104,13 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
   }
 
   Future<void> _save() async {
-    if (_week == null || _saving) return;
+    final week = _activeWeek;
+    if (week == null || _saving) return;
+    final wasEditingPast = _editingWeek != null;
     setState(() => _saving = true);
     HapticFeedback.lightImpact();
     await JournalService.save(JournalEntry(
-      week: _week!,
+      week: week,
       mood: _mood,
       note: _noteCtrl.text.trim(),
       updatedAt: DateTime.now(),
@@ -115,13 +120,141 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
     setState(() {
       _entries = all;
       _saving = false;
+      _editingWeek = null;
     });
+    await _resetFormToCurrentWeek();
+    if (!mounted) return;
     FocusScope.of(context).unfocus();
-    if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(AppLocalizations.of(context)!.journalEntrySaved),
+        content: Text(wasEditingPast
+            ? AppLocalizations.of(context)!.journalEntryUpdated(week)
+            : AppLocalizations.of(context)!.journalEntrySaved),
       ),
+    );
+  }
+
+  Future<void> _resetFormToCurrentWeek() async {
+    if (_currentWeek == null) return;
+    final existing = await JournalService.forWeek(_currentWeek!);
+    if (!mounted) return;
+    setState(() {
+      _mood = existing?.mood ?? 2;
+      _noteCtrl.text = existing?.note ?? '';
+    });
+  }
+
+  void _startEditing(JournalEntry e) {
+    HapticFeedback.selectionClick();
+    setState(() {
+      _editingWeek = e.week;
+      _mood = e.mood;
+      _noteCtrl.text = e.note;
+    });
+  }
+
+  Future<void> _cancelEditing() async {
+    setState(() => _editingWeek = null);
+    await _resetFormToCurrentWeek();
+  }
+
+  Future<void> _confirmDelete(JournalEntry e) async {
+    final l = AppLocalizations.of(context)!;
+    final p = context.palette;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => Dialog(
+        backgroundColor: p.surface,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(32),
+            topRight: Radius.circular(32),
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(24, 26, 24, 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                l.journalDeleteTitle,
+                style: GoogleFonts.fraunces(
+                  fontSize: 21,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: -0.2,
+                  color: p.ink,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                l.journalDeleteBody(e.week),
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 14,
+                  height: 1.5,
+                  color: p.inkMuted,
+                ),
+              ),
+              const SizedBox(height: 22),
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () => Navigator.pop(ctx, false),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: p.ink,
+                        side: BorderSide(color: p.line),
+                        minimumSize: const Size.fromHeight(48),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                      ),
+                      child: Text(
+                        l.journalDeleteCancel,
+                        style: GoogleFonts.plusJakartaSans(
+                            fontSize: 14, fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.pop(ctx, true),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: p.critical,
+                        foregroundColor: Colors.white,
+                        minimumSize: const Size.fromHeight(48),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                      ),
+                      child: Text(
+                        l.journalDeleteConfirm,
+                        style: GoogleFonts.plusJakartaSans(
+                            fontSize: 14, fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    if (confirmed != true) return;
+    await JournalService.delete(e.week);
+    final all = await JournalService.all();
+    if (!mounted) return;
+    if (_editingWeek == e.week) {
+      _editingWeek = null;
+      await _resetFormToCurrentWeek();
+    }
+    setState(() => _entries = all);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(l.journalEntryDeleted)),
     );
   }
 
@@ -159,7 +292,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  if (_week == null)
+                  if (_activeWeek == null)
                     _noHpht(p)
                   else
                     _entryCard(p),
@@ -192,7 +325,9 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
   }
 
   Widget _entryCard(SabinaPalette p) {
+    final l = AppLocalizations.of(context)!;
     final moodColor = _moodColor(_mood, p);
+    final isEditingPast = _editingWeek != null;
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 22, 20, 20),
       decoration: BoxDecoration(
@@ -203,7 +338,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
-        border: Border.all(color: p.line),
+        border: Border.all(color: isEditingPast ? moodColor : p.line),
         boxShadow: [
           BoxShadow(
               color: p.cardShadow, blurRadius: 20, offset: const Offset(0, 10)),
@@ -212,14 +347,33 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'MINGGU KE-$_week',
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 1.6,
-              color: p.primary,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                isEditingPast
+                    ? l.journalEditingWeek(_activeWeek!)
+                    : 'MINGGU KE-${_activeWeek!}',
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 1.6,
+                  color: p.primary,
+                ),
+              ),
+              if (isEditingPast)
+                GestureDetector(
+                  onTap: _cancelEditing,
+                  child: Text(
+                    l.journalCancelEdit,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: p.inkMuted,
+                    ),
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 6),
           Text(
@@ -352,7 +506,9 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
   }
 
   Widget _timelineCard(JournalEntry e, SabinaPalette p) {
+    final l = AppLocalizations.of(context)!;
     final c = _moodColor(e.mood, p);
+    final isEditing = _editingWeek == e.week;
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
@@ -364,7 +520,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
           bottomLeft: Radius.circular(16),
           bottomRight: Radius.circular(16),
         ),
-        border: Border.all(color: p.line),
+        border: Border.all(color: isEditing ? c : p.line),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -430,6 +586,23 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
                 ),
               ],
             ),
+          ),
+          const SizedBox(width: 8),
+          IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+            visualDensity: VisualDensity.compact,
+            icon: Icon(Icons.edit_rounded, size: 18, color: p.inkMuted),
+            tooltip: l.journalEditTooltip,
+            onPressed: () => _startEditing(e),
+          ),
+          IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+            visualDensity: VisualDensity.compact,
+            icon: Icon(Icons.delete_outline_rounded, size: 18, color: p.inkMuted),
+            tooltip: l.journalDeleteTooltip,
+            onPressed: () => _confirmDelete(e),
           ),
         ],
       ),

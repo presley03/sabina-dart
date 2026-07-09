@@ -4559,4 +4559,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get journalEntrySaved => 'This week\'s note has been saved 🤍';
+
+  @override
+  String journalEntryUpdated(int week) {
+    return 'Week $week\'s note has been updated 🤍';
+  }
+
+  @override
+  String journalEditingWeek(int week) {
+    return 'EDITING WEEK $week';
+  }
+
+  @override
+  String get journalCancelEdit => 'Cancel edit';
+
+  @override
+  String get journalEditTooltip => 'Edit note';
+
+  @override
+  String get journalDeleteTooltip => 'Delete note';
+
+  @override
+  String get journalDeleteTitle => 'Delete this note?';
+
+  @override
+  String journalDeleteBody(int week) {
+    return 'Week $week\'s note will be deleted and can\'t be recovered.';
+  }
+
+  @override
+  String get journalDeleteConfirm => 'Yes, Delete';
+
+  @override
+  String get journalDeleteCancel => 'Cancel';
+
+  @override
+  String get journalEntryDeleted => 'Note deleted';
 }

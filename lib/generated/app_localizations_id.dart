@@ -4568,4 +4568,40 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get journalEntrySaved => 'Catatan minggu ini tersimpan 🤍';
+
+  @override
+  String journalEntryUpdated(int week) {
+    return 'Catatan minggu ke-$week diperbarui 🤍';
+  }
+
+  @override
+  String journalEditingWeek(int week) {
+    return 'MENGEDIT MINGGU KE-$week';
+  }
+
+  @override
+  String get journalCancelEdit => 'Batal edit';
+
+  @override
+  String get journalEditTooltip => 'Edit catatan';
+
+  @override
+  String get journalDeleteTooltip => 'Hapus catatan';
+
+  @override
+  String get journalDeleteTitle => 'Hapus catatan ini?';
+
+  @override
+  String journalDeleteBody(int week) {
+    return 'Catatan minggu ke-$week akan dihapus dan tidak bisa dikembalikan.';
+  }
+
+  @override
+  String get journalDeleteConfirm => 'Ya, Hapus';
+
+  @override
+  String get journalDeleteCancel => 'Batal';
+
+  @override
+  String get journalEntryDeleted => 'Catatan dihapus';
 }

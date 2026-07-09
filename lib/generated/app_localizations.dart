@@ -8071,6 +8071,66 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Catatan minggu ini tersimpan 🤍'**
   String get journalEntrySaved;
+
+  /// SnackBar setelah entri jurnal minggu lampau diperbarui
+  ///
+  /// In id, this message translates to:
+  /// **'Catatan minggu ke-{week} diperbarui 🤍'**
+  String journalEntryUpdated(int week);
+
+  /// Label saat mengedit entri jurnal minggu lampau
+  ///
+  /// In id, this message translates to:
+  /// **'MENGEDIT MINGGU KE-{week}'**
+  String journalEditingWeek(int week);
+
+  /// Tombol membatalkan mode edit entri jurnal lampau
+  ///
+  /// In id, this message translates to:
+  /// **'Batal edit'**
+  String get journalCancelEdit;
+
+  /// Tooltip tombol edit pada kartu jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Edit catatan'**
+  String get journalEditTooltip;
+
+  /// Tooltip tombol hapus pada kartu jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Hapus catatan'**
+  String get journalDeleteTooltip;
+
+  /// Judul dialog konfirmasi hapus jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Hapus catatan ini?'**
+  String get journalDeleteTitle;
+
+  /// Isi dialog konfirmasi hapus jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Catatan minggu ke-{week} akan dihapus dan tidak bisa dikembalikan.'**
+  String journalDeleteBody(int week);
+
+  /// Tombol konfirmasi hapus pada dialog jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Ya, Hapus'**
+  String get journalDeleteConfirm;
+
+  /// Tombol batal pada dialog hapus jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Batal'**
+  String get journalDeleteCancel;
+
+  /// SnackBar setelah entri jurnal dihapus
+  ///
+  /// In id, this message translates to:
+  /// **'Catatan dihapus'**
+  String get journalEntryDeleted;
 }
 
 class _AppLocalizationsDelegate

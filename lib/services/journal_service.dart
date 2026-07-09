@@ -68,4 +68,9 @@ class JournalService {
   }
 
   static Future<int> count() async => (await all()).length;
+
+  static Future<void> delete(int week) async {
+    final p = await SharedPreferences.getInstance();
+    await p.remove('$_prefix$week');
+  }
 }

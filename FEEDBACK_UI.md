@@ -158,7 +158,7 @@ tiap langkah.
 
 ## Koreksi putaran 2 (uji coba Presley 2026-07-09, setelah aset terpasang)
 
-- [ ] **1. Jurnal Mingguan belum bisa tambah/edit/hapus** — lengkapi CRUD:
+- [x] **1. Jurnal Mingguan belum bisa tambah/edit/hapus** — lengkapi CRUD:
   edit entri minggu berjalan & minggu lampau, hapus dengan dialog konfirmasi
   bergaya Jurnal, simpan via journal_service.
 - [ ] **2. Gambar carousel tips terpotong** (kepala/objek terpangkas, tak
