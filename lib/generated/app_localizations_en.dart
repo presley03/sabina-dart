@@ -2664,13 +2664,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get article4Title => 'Managing Stress During Pregnancy';
 
   @override
-  String get tipOfDayLabel => 'TIP OF THE DAY';
-
-  @override
-  String get tipOfDayContent =>
-      'Drinking 8 glasses of water a day helps the fetus develop optimally and prevents dehydration.';
-
-  @override
   String get sabidanLinkText => 'More information at sapabidan.com';
 
   @override

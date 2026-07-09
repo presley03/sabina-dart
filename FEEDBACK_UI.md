@@ -11,11 +11,13 @@
   `baby_development_screen.dart` (🫐 🍇 🍌 dst.), jadikan map bersama.
 - [ ] **Ritme monoton ("kardus bertumpuk")** — 9 blok kotak putih selebar layar
   berturut-turut setelah hero (`home_screen.dart:83-112`). Perbaikan:
-  - Hapus `_TipCard` "TIP HARI INI" di bawah (redundan dengan carousel tips
+  - [x] Hapus `_TipCard` "TIP HARI INI" di bawah (redundan dengan carousel tips
     bergambar di atas).
-  - Link sapabidan.com → *colophon* editorial: teks serif kecil di tengah,
+  - [x] Link sapabidan.com → *colophon* editorial: teks serif kecil di tengah,
     langsung di plaster, tanpa kotak.
-  - Lepas bingkai beberapa kartu agar kotak tersisa bermakna.
+  - [ ] Lepas bingkai beberapa kartu agar kotak tersisa bermakna. (belum —
+    di luar cakupan batch ini per instruksi: hero/bento/carousel/IMT
+    tidak diubah struktural di langkah ini)
 - [ ] **Akses Cepat & banner PANDUAN terasa datar** — pasang ilustrasi
   (di-generate GPT, brief gaya seragam sudah disepakati — palet Twilight,
   flat editorial, paper grain, no text):

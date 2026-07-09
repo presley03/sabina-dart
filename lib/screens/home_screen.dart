@@ -105,9 +105,7 @@ class HomeContent extends StatelessWidget {
             _buildSectionLabel(AppLocalizations.of(context)!.featuredArticles),
             const SizedBox(height: 10),
             _buildArticleScroll(context),
-            const SizedBox(height: 20),
-            _TipCard(),
-            const SizedBox(height: 16),
+            const SizedBox(height: 28),
             _buildSabidanLink(context),
             const SizedBox(height: 8),
           ],
@@ -1783,79 +1781,11 @@ Widget _buildArticleScroll(BuildContext context) {
 }
 
 // ---------------------------------------------------------------------------
-// 9. Tip card
-// ---------------------------------------------------------------------------
-
-class _TipCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: SabinaColors.white,
-        borderRadius: BorderRadius.circular(18),
-        border: Border(
-          left: BorderSide(color: SabinaColors.primary700, width: 3),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: SabinaColors.neutral900.withValues(alpha: 0.05),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 36,
-            height: 36,
-            decoration: BoxDecoration(
-              color: SabinaColors.primary100,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(Icons.info_outline,
-                color: SabinaColors.primary700, size: 18),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.tipOfDayLabel,
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w700,
-                    color: SabinaColors.primary700,
-                    letterSpacing: 0.8,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  AppLocalizations.of(context)!.tipOfDayContent,
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: SabinaColors.neutral700,
-                    height: 1.5,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-// ---------------------------------------------------------------------------
-// 10. Sabidan link (subtle)
+// 9. Sabidan colophon — penutup editorial, tanpa kotak/kartu
 // ---------------------------------------------------------------------------
 
 Widget _buildSabidanLink(BuildContext context) {
+  final p = context.palette;
   return GestureDetector(
     onTap: () async {
       final uri = Uri.parse('https://sapabidan.com');
@@ -1863,28 +1793,20 @@ Widget _buildSabidanLink(BuildContext context) {
         launchUrl(uri, mode: LaunchMode.externalApplication);
       }
     },
-    child: Container(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: SabinaColors.neutral300),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.open_in_new_rounded,
-              size: 14, color: SabinaColors.neutral500),
-          const SizedBox(width: 6),
-          Text(
-            AppLocalizations.of(context)!.sabidanLinkText,
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: SabinaColors.neutral500,
-            ),
+    behavior: HitTestBehavior.opaque,
+    child: Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Center(
+        child: Text(
+          AppLocalizations.of(context)!.sabidanLinkText,
+          textAlign: TextAlign.center,
+          style: GoogleFonts.fraunces(
+            fontSize: 13,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w500,
+            color: p.inkMuted,
           ),
-        ],
+        ),
       ),
     ),
   );

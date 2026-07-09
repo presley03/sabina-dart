@@ -2670,13 +2670,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get article4Title => 'Mengelola Stres Selama Kehamilan';
 
   @override
-  String get tipOfDayLabel => 'TIP HARI INI';
-
-  @override
-  String get tipOfDayContent =>
-      'Minum 8 gelas air sehari membantu janin berkembang optimal dan mencegah dehidrasi.';
-
-  @override
   String get sabidanLinkText => 'Informasi lebih lanjut di sapabidan.com';
 
   @override

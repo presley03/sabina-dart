@@ -4766,18 +4766,6 @@ abstract class AppLocalizations {
   /// **'Mengelola Stres Selama Kehamilan'**
   String get article4Title;
 
-  /// Label pada kartu tips harian
-  ///
-  /// In id, this message translates to:
-  /// **'TIP HARI INI'**
-  String get tipOfDayLabel;
-
-  /// Konten teks tips harian
-  ///
-  /// In id, this message translates to:
-  /// **'Minum 8 gelas air sehari membantu janin berkembang optimal dan mencegah dehidrasi.'**
-  String get tipOfDayContent;
-
   /// Teks tautan Sabidan di home screen
   ///
   /// In id, this message translates to:

@@ -3574,14 +3574,6 @@
   "@article4Title": {
     "description": "Judul kartu artikel keempat"
   },
-  "tipOfDayLabel": "TIP HARI INI",
-  "@tipOfDayLabel": {
-    "description": "Label pada kartu tips harian"
-  },
-  "tipOfDayContent": "Minum 8 gelas air sehari membantu janin berkembang optimal dan mencegah dehidrasi.",
-  "@tipOfDayContent": {
-    "description": "Konten teks tips harian"
-  },
   "sabidanLinkText": "Informasi lebih lanjut di sapabidan.com",
   "@sabidanLinkText": {
     "description": "Teks tautan Sabidan di home screen"

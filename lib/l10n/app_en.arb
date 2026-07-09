@@ -3585,14 +3585,6 @@
   "@article4Title": {
     "description": "Title of fourth article card"
   },
-  "tipOfDayLabel": "TIP OF THE DAY",
-  "@tipOfDayLabel": {
-    "description": "Label on daily tip card"
-  },
-  "tipOfDayContent": "Drinking 8 glasses of water a day helps the fetus develop optimally and prevents dehydration.",
-  "@tipOfDayContent": {
-    "description": "Daily tip content text"
-  },
   "sabidanLinkText": "More information at sapabidan.com",
   "@sabidanLinkText": {
     "description": "Sabidan link text on home screen"
