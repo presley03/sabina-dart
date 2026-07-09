@@ -972,10 +972,10 @@ Widget _bentoTile(BuildContext context, _BentoItem item) {
         children: [
           // Slot ilustrasi pojok kanan-bawah — hanya tampil jika aset tersedia.
           Positioned(
-            right: -6,
-            bottom: -6,
-            width: 68,
-            height: 68,
+            right: -4,
+            bottom: -4,
+            width: 58,
+            height: 58,
             child: Image.asset(
               item.illustrationAsset,
               fit: BoxFit.contain,
@@ -983,7 +983,8 @@ Widget _bentoTile(BuildContext context, _BentoItem item) {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(15, 15, 15, 14),
+            // Sisi kanan lebih lebar: ruang aman agar teks tak menabrak ilustrasi.
+            padding: const EdgeInsets.fromLTRB(15, 15, 46, 14),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -1047,16 +1048,27 @@ Widget _buildInfoBanner(BuildContext context) {
     child: Stack(
       children: [
         // Ilustrasi latar sisi kanan — hanya tampil jika aset tersedia.
+        // ShaderMask melarutkan tepi kiri gambar ke panel plum (fade di kode,
+        // bukan di aset, agar tak bergantung pada crop BoxFit.cover).
         Positioned(
           top: 0,
           bottom: 0,
           right: 0,
-          width: 130,
-          child: Image.asset(
-            'assets/images/home/panduan_banner.png',
-            fit: BoxFit.cover,
-            alignment: Alignment.centerRight,
-            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+          width: 150,
+          child: ShaderMask(
+            shaderCallback: (rect) => const LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [Colors.transparent, Colors.white],
+              stops: [0.0, 0.55],
+            ).createShader(rect),
+            blendMode: BlendMode.dstIn,
+            child: Image.asset(
+              'assets/images/home/panduan_banner.png',
+              fit: BoxFit.cover,
+              alignment: Alignment.centerRight,
+              errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+            ),
           ),
         ),
         Padding(
