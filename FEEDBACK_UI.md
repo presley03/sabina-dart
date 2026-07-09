@@ -156,4 +156,32 @@ tiap langkah.
   Sonnet. Opsi Claude API (Haiku, opt-in, online) = fase 2 nanti; LLM
   on-device ditolak.
 
+## Koreksi putaran 2 (uji coba Presley 2026-07-09, setelah aset terpasang)
+
+- [ ] **1. Jurnal Mingguan belum bisa tambah/edit/hapus** — lengkapi CRUD:
+  edit entri minggu berjalan & minggu lampau, hapus dengan dialog konfirmasi
+  bergaya Jurnal, simpan via journal_service.
+- [ ] **2. Gambar carousel tips terpotong** (kepala/objek terpangkas, tak
+  nyaman) — samakan rasio kartu dengan rasio aset (1080×560 ≈ 1.93) atau
+  atur alignment crop agar wajah tidak terpotong.
+- [ ] **3. Tile bento penuh sesak (2 ikon)** — hapus chip ikon Material,
+  jadikan ilustrasi GPT satu-satunya anchor visual (lebih besar,
+  proporsional); teks boleh menyesuaikan (label ringkas tapi terpahami).
+- [ ] **4. Ikon layar Skrining diganti & KONSISTEN sampai layar tujuan** —
+  hub skrining pakai ilustrasi yang sama dengan bento
+  (bento_preeklampsia/bento_skrining), dan layar intro/questionnaire tujuan
+  menampilkan visual yang sama (identitas berkelanjutan, bukan ganti ikon).
+- [ ] **5. Artikel: ikon → thumbnail gambar artikel** — kartu daftar artikel
+  pakai thumbnail aset artikelnya (rounded/arch kecil) sebagai leading,
+  fallback ke ikon bila aset tak ada.
+- [ ] **6. Ikon keluhan premium TAPI berubah saat diklik** — layar intro &
+  questionnaire keluhan harus memakai ic_*.png ter-tint yang sama dengan
+  menu (konsistensi identitas sepanjang alur).
+- [ ] **7. FITUR: hasil kuesioner premium** — user menyukai hasil yang rapi,
+  elegan, user-friendly: severity dalam bentuk visual (arc/gauge senada
+  busur app), ringkasan jawaban dalam TABEL rapi, grafik tren riwayat
+  (fl_chart, data dari history_service) bila ada ≥2 entri, rekomendasi
+  terstruktur, gaya Jurnal (Fraunces + arch + palet tenang). Berlaku untuk
+  8 layar hasil (preeklampsia, penapisan, 6 keluhan) via komponen bersama.
+
 ## (tambahkan temuan berikutnya di bawah ini)
