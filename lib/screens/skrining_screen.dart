@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
@@ -63,7 +62,7 @@ class SkriningScreen extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        FaIcon(FontAwesomeIcons.clockRotateLeft,
+                        Icon(Icons.history_rounded,
                             size: 11,
                             color: Colors.white.withValues(alpha: 0.85)),
                         const SizedBox(width: 6),
@@ -95,7 +94,7 @@ class SkriningScreen extends StatelessWidget {
 
                   // Preeklampsia card
                   _SkriningCard(
-                    icon: FontAwesomeIcons.heartPulse,
+                    icon: Icons.monitor_heart_rounded,
                     iconColor: SabinaColors.error700,
                     iconBg: SabinaColors.error100,
                     title:
@@ -127,7 +126,7 @@ class SkriningScreen extends StatelessWidget {
 
                   // Penapisan card
                   _SkriningCard(
-                    icon: FontAwesomeIcons.shield,
+                    icon: Icons.shield_rounded,
                     iconColor: const Color(0xFF6F937D),
                     iconBg: const Color(0xFFE2EBE4),
                     title: AppLocalizations.of(context)?.advancedScreening ??
@@ -164,7 +163,7 @@ class SkriningScreen extends StatelessWidget {
 
                   // Keluhan card
                   _SkriningCard(
-                    icon: FontAwesomeIcons.notesMedical,
+                    icon: Icons.medical_information_rounded,
                     iconColor: const Color(0xFFC08A3C),
                     iconBg: const Color(0xFFF5E8D2),
                     title: AppLocalizations.of(context)?.reportComplaint ??
@@ -191,7 +190,7 @@ class SkriningScreen extends StatelessWidget {
 
                   // Rekam kesehatan card
                   _SkriningCard(
-                    icon: FontAwesomeIcons.clipboardList,
+                    icon: Icons.assignment_rounded,
                     iconColor: const Color(0xFF1D4ED8),
                     iconBg: const Color(0xFFEFF6FF),
                     title: AppLocalizations.of(context)?.healthRecords ??
@@ -225,7 +224,7 @@ class SkriningScreen extends StatelessWidget {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        FaIcon(FontAwesomeIcons.circleInfo,
+                        Icon(Icons.info_rounded,
                             size: 15, color: SabinaColors.primary700),
                         const SizedBox(width: 10),
                         Expanded(
@@ -322,7 +321,7 @@ class _SkriningCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: Center(
-                        child: FaIcon(icon, size: 20, color: iconColor),
+                        child: Icon(icon, size: 20, color: iconColor),
                       ),
                     ),
                     const SizedBox(width: 14),
