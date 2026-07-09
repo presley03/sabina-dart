@@ -71,7 +71,15 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
+    - assets/images/brand/
+    - assets/images/common/
+    - assets/images/questionnaire/
+    - assets/images/keluhan/
+    - assets/images/trimester/
+    - assets/images/imt/
+    - assets/images/care/
+    - assets/images/persalinan/
+    - assets/images/tips/
 
   fonts:
     - family: Poppins
