@@ -3098,6 +3098,35 @@ class AppLocalizationsId extends AppLocalizations {
   String get sevNoRisk => 'Tidak Ada Risiko';
 
   @override
+  String get resultAnswerSummaryTitle => 'Ringkasan Jawaban';
+
+  @override
+  String get resultTrendTitle => 'Tren Pemeriksaan';
+
+  @override
+  String get resultTrendEmpty =>
+      'Tren akan muncul setelah pemeriksaan berikutnya.';
+
+  @override
+  String get resultConsultCtaTitle => 'Butuh bantuan segera?';
+
+  @override
+  String get resultConsultCtaDesc =>
+      'Hubungi bidan atau dokter melalui WhatsApp untuk konsultasi lebih lanjut.';
+
+  @override
+  String get resultConsultCtaButton => 'Konsultasi via WhatsApp';
+
+  @override
+  String resultConsultWhatsAppMessage(String jenis) {
+    return 'Halo, saya ingin berkonsultasi terkait hasil pemeriksaan $jenis saya.';
+  }
+
+  @override
+  String get whatsAppLaunchError =>
+      'Gagal membuka WhatsApp. Pastikan WhatsApp terinstal.';
+
+  @override
   String get bengkakSevHighDesc =>
       'Pembengkakan yang Anda alami memerlukan evaluasi segera oleh tenaga kesehatan.';
 

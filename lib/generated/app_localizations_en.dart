@@ -3096,6 +3096,35 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sevNoRisk => 'No Risk';
 
   @override
+  String get resultAnswerSummaryTitle => 'Answer Summary';
+
+  @override
+  String get resultTrendTitle => 'Examination Trend';
+
+  @override
+  String get resultTrendEmpty =>
+      'The trend will appear after your next check-up.';
+
+  @override
+  String get resultConsultCtaTitle => 'Need help right away?';
+
+  @override
+  String get resultConsultCtaDesc =>
+      'Reach out to a midwife or doctor via WhatsApp for further consultation.';
+
+  @override
+  String get resultConsultCtaButton => 'Consult via WhatsApp';
+
+  @override
+  String resultConsultWhatsAppMessage(String jenis) {
+    return 'Hello, I would like to consult about my $jenis examination result.';
+  }
+
+  @override
+  String get whatsAppLaunchError =>
+      'Couldn\'t open WhatsApp. Please make sure it is installed.';
+
+  @override
   String get bengkakSevHighDesc =>
       'The swelling you are experiencing requires immediate evaluation by a healthcare professional.';
 

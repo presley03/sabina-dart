@@ -5558,6 +5558,54 @@ abstract class AppLocalizations {
   /// **'Tidak Ada Risiko'**
   String get sevNoRisk;
 
+  /// Judul tabel ringkasan jawaban di layar hasil
+  ///
+  /// In id, this message translates to:
+  /// **'Ringkasan Jawaban'**
+  String get resultAnswerSummaryTitle;
+
+  /// Judul grafik tren riwayat severity di layar hasil
+  ///
+  /// In id, this message translates to:
+  /// **'Tren Pemeriksaan'**
+  String get resultTrendTitle;
+
+  /// Pesan lembut saat riwayat belum cukup (<2 entri) untuk menampilkan grafik tren
+  ///
+  /// In id, this message translates to:
+  /// **'Tren akan muncul setelah pemeriksaan berikutnya.'**
+  String get resultTrendEmpty;
+
+  /// Judul blok CTA konsultasi WhatsApp di layar hasil severity tinggi
+  ///
+  /// In id, this message translates to:
+  /// **'Butuh bantuan segera?'**
+  String get resultConsultCtaTitle;
+
+  /// Deskripsi blok CTA konsultasi WhatsApp di layar hasil
+  ///
+  /// In id, this message translates to:
+  /// **'Hubungi bidan atau dokter melalui WhatsApp untuk konsultasi lebih lanjut.'**
+  String get resultConsultCtaDesc;
+
+  /// Tombol CTA konsultasi WhatsApp di layar hasil
+  ///
+  /// In id, this message translates to:
+  /// **'Konsultasi via WhatsApp'**
+  String get resultConsultCtaButton;
+
+  /// Pesan awal WhatsApp saat konsultasi dari layar hasil
+  ///
+  /// In id, this message translates to:
+  /// **'Halo, saya ingin berkonsultasi terkait hasil pemeriksaan {jenis} saya.'**
+  String resultConsultWhatsAppMessage(String jenis);
+
+  /// Pesan galat saat WhatsApp gagal dibuka
+  ///
+  /// In id, this message translates to:
+  /// **'Gagal membuka WhatsApp. Pastikan WhatsApp terinstal.'**
+  String get whatsAppLaunchError;
+
   /// Deskripsi tingkat keparahan tinggi bengkak
   ///
   /// In id, this message translates to:
