@@ -122,10 +122,6 @@ class ArticleImages {
   static const String trimester1BayiDevelopment =
       'assets/images/trimester/gambar_bayi_trimester_1.png';
 
-  /// Ilustrasi janin usia 13 minggu
-  static const String trimester1Bayi13Minggu =
-      'assets/images/trimester/gambar_bayi_trimester_1_13minggu.png';
-
   /// Ilustrasi persiapan yang dilakukan trimester 1
   static const String trimester1Persiapan =
       'assets/images/trimester/trimester_1_persiapan_yang_dilakukan.png';
@@ -143,10 +139,6 @@ class ArticleImages {
   /// Ilustrasi perkembangan janin trimester 3
   static const String trimester3BayiDevelopment =
       'assets/images/trimester/gambar_bayi_trimester_3.png';
-
-  /// Ilustrasi janin usia 40 minggu
-  static const String trimester3Bayi40Minggu =
-      'assets/images/trimester/gambar_bayi_trimester_3_40minggu.png';
 
   /// Ilustrasi keluhan pada ibu trimester 3
   static const String trimester3KeluhanIbu =
