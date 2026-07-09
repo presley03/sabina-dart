@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
@@ -19,7 +18,7 @@ class CareMenuScreen extends StatelessWidget {
       {
         'title': l10n.careMenu_nutrition_title,
         'desc': l10n.careMenu_nutrition_description,
-        'icon': FontAwesomeIcons.utensils,
+        'icon': Icons.restaurant_rounded,
         'color': const Color(0xFFC08A3C),
         'bg': const Color(0xFFF5E8D2),
         'screen': const MakananScreen(),
@@ -27,7 +26,7 @@ class CareMenuScreen extends StatelessWidget {
       {
         'title': l10n.careMenu_avoidance_title,
         'desc': l10n.careMenu_avoidance_description,
-        'icon': FontAwesomeIcons.ban,
+        'icon': Icons.block_rounded,
         'color': SabinaColors.error700,
         'bg': SabinaColors.error100,
         'screen': const YangPerluDihindariScreen(),
@@ -35,7 +34,7 @@ class CareMenuScreen extends StatelessWidget {
       {
         'title': l10n.careMenu_dailyCare_title,
         'desc': l10n.careMenu_dailyCare_description,
-        'icon': FontAwesomeIcons.spa,
+        'icon': Icons.spa_rounded,
         'color': const Color(0xFF6F937D),
         'bg': const Color(0xFFE2EBE4),
         'screen': const PerawatanSehariHariScreen(),
@@ -43,7 +42,7 @@ class CareMenuScreen extends StatelessWidget {
       {
         'title': l10n.careMenu_physicalActivity_title,
         'desc': l10n.careMenu_physicalActivity_description,
-        'icon': FontAwesomeIcons.personWalking,
+        'icon': Icons.directions_walk_rounded,
         'color': const Color(0xFF1D4ED8),
         'bg': const Color(0xFFEFF6FF),
         'screen': const AktivitasFisikIbuHamilScreen(),
@@ -145,7 +144,7 @@ class CareMenuScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Center(
-                                  child: FaIcon(
+                                  child: Icon(
                                     item['icon'] as IconData,
                                     size: 18,
                                     color: color,

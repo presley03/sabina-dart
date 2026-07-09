@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/utils/constants.dart';
@@ -15,7 +14,7 @@ class PerawatanSehariHariScreen extends StatelessWidget {
     final List<Map<String, dynamic>> careItems = [
       {
         'title': l10n.dailyCare_item1_title,
-        'icon': FontAwesomeIcons.utensils,
+        'icon': Icons.restaurant_rounded,
         'color': const Color(0xFFC08A3C),
         'content': [
           l10n.dailyCare_item1_content1,
@@ -26,7 +25,7 @@ class PerawatanSehariHariScreen extends StatelessWidget {
       },
       {
         'title': l10n.dailyCare_item2_title,
-        'icon': FontAwesomeIcons.handSparkles,
+        'icon': Icons.auto_awesome_rounded,
         'color': const Color(0xFF6F937D),
         'content': [
           l10n.dailyCare_item2_content1,
@@ -38,7 +37,7 @@ class PerawatanSehariHariScreen extends StatelessWidget {
       },
       {
         'title': l10n.dailyCare_item3_title,
-        'icon': FontAwesomeIcons.bed,
+        'icon': Icons.bed_rounded,
         'color': const Color(0xFF1D4ED8),
         'content': [
           l10n.dailyCare_item3_content1,
@@ -47,7 +46,7 @@ class PerawatanSehariHariScreen extends StatelessWidget {
       },
       {
         'title': l10n.dailyCare_item4_title,
-        'icon': FontAwesomeIcons.baby,
+        'icon': Icons.child_care_rounded,
         'color': SabinaColors.primary700,
         'content': [
           l10n.dailyCare_item4_content1,
@@ -58,7 +57,7 @@ class PerawatanSehariHariScreen extends StatelessWidget {
       },
       {
         'title': l10n.dailyCare_item5_title,
-        'icon': FontAwesomeIcons.personWalking,
+        'icon': Icons.directions_walk_rounded,
         'color': const Color(0xFF6F937D),
         'content': [
           l10n.dailyCare_item5_content1,
@@ -68,7 +67,7 @@ class PerawatanSehariHariScreen extends StatelessWidget {
       },
       {
         'title': l10n.dailyCare_item6_title,
-        'icon': FontAwesomeIcons.heartPulse,
+        'icon': Icons.monitor_heart_rounded,
         'color': SabinaColors.error700,
         'content': [
           l10n.dailyCare_item6_content1,

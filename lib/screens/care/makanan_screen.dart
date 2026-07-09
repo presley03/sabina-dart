@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/utils/constants.dart';
@@ -39,7 +38,7 @@ class MakananScreen extends StatelessWidget {
                   // Callout — key message
                   ArticleCallout(
                     l10n.nutritionScreen_callout,
-                    icon: FontAwesomeIcons.lightbulb,
+                    icon: Icons.lightbulb_rounded,
                   ),
 
                   const ArticleDivider(),
@@ -52,27 +51,27 @@ class MakananScreen extends StatelessWidget {
                     number: 1,
                     title: l10n.nutritionScreen_carbohydrates_title,
                     content: l10n.nutritionScreen_carbohydrates_content,
-                    icon: FontAwesomeIcons.wheatAwn,
+                    icon: Icons.grain_rounded,
                     color: const Color(0xFFC08A3C),
                   ),
                   ArticleNumberedItem(
                     number: 2,
                     title: l10n.nutritionScreen_protein_title,
                     content: l10n.nutritionScreen_protein_content,
-                    icon: FontAwesomeIcons.egg,
+                    icon: Icons.egg_rounded,
                     color: SabinaColors.error700,
                   ),
                   ArticleNumberedItem(
                     number: 3,
                     title: l10n.nutritionScreen_healthyFats_title,
                     content: l10n.nutritionScreen_healthyFats_content,
-                    icon: FontAwesomeIcons.droplet,
+                    icon: Icons.water_drop_rounded,
                     color: const Color(0xFF6F937D),
                   ),
                   ArticleNumberedItem(
                     number: 4,
                     title: l10n.nutritionScreen_vitaminsAndMinerals_title,
-                    icon: FontAwesomeIcons.leaf,
+                    icon: Icons.eco_rounded,
                     color: const Color(0xFF1D4ED8),
                     // Use custom content builder for highlight support
                     content: l10n.nutritionScreen_vitaminsAndMinerals_content,
@@ -81,7 +80,7 @@ class MakananScreen extends StatelessWidget {
                     number: 5,
                     title: l10n.nutritionScreen_fiber_title,
                     content: l10n.nutritionScreen_fiber_content,
-                    icon: FontAwesomeIcons.seedling,
+                    icon: Icons.grass_rounded,
                     color: SabinaColors.primary700,
                     isLast: true,
                   ),

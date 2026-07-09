@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
@@ -16,52 +15,52 @@ class YangPerluDihindariScreen extends StatelessWidget {
     final List<Map<String, dynamic>> avoidItems = [
       {
         'title': l10n.avoidScreen_alcohol_title,
-        'icon': FontAwesomeIcons.wineBottle,
+        'icon': Icons.wine_bar_rounded,
         'content': l10n.avoidScreen_alcohol_content
       },
       {
         'title': l10n.avoidScreen_smoking_title,
-        'icon': FontAwesomeIcons.ban,
+        'icon': Icons.block_rounded,
         'content': l10n.avoidScreen_smoking_content
       },
       {
         'title': l10n.avoidScreen_caffeine_title,
-        'icon': FontAwesomeIcons.mugHot,
+        'icon': Icons.local_cafe_rounded,
         'content': l10n.avoidScreen_caffeine_content
       },
       {
         'title': l10n.avoidScreen_drugs_title,
-        'icon': FontAwesomeIcons.pills,
+        'icon': Icons.medication_rounded,
         'content': l10n.avoidScreen_drugs_content
       },
       {
         'title': l10n.avoidScreen_rawFood_title,
-        'icon': FontAwesomeIcons.utensils,
+        'icon': Icons.restaurant_rounded,
         'content': l10n.avoidScreen_rawFood_content
       },
       {
         'title': l10n.avoidScreen_highMercuryFish_title,
-        'icon': FontAwesomeIcons.fish,
+        'icon': Icons.set_meal_rounded,
         'content': l10n.avoidScreen_highMercuryFish_content
       },
       {
         'title': l10n.avoidScreen_chemicals_title,
-        'icon': FontAwesomeIcons.flask,
+        'icon': Icons.biotech_rounded,
         'content': l10n.avoidScreen_chemicals_content
       },
       {
         'title': l10n.avoidScreen_heavyLifting_title,
-        'icon': FontAwesomeIcons.dumbbell,
+        'icon': Icons.fitness_center_rounded,
         'content': l10n.avoidScreen_heavyLifting_content
       },
       {
         'title': l10n.avoidScreen_lackOfRest_title,
-        'icon': FontAwesomeIcons.bed,
+        'icon': Icons.bed_rounded,
         'content': l10n.avoidScreen_lackOfRest_content
       },
       {
         'title': l10n.avoidScreen_stress_title,
-        'icon': FontAwesomeIcons.brain,
+        'icon': Icons.psychology_rounded,
         'content': l10n.avoidScreen_stress_content
       },
     ];
@@ -154,7 +153,7 @@ class YangPerluDihindariScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 10),
                     ),
-                    icon: FaIcon(FontAwesomeIcons.listOl,
+                    icon: Icon(Icons.format_list_numbered_rounded,
                         size: 13, color: SabinaColors.primary700),
                     label: Text(
                       l10n.avoidScreen_moreTips,
