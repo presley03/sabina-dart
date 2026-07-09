@@ -53,7 +53,7 @@ class _SabinaHomeScreenState extends State<SabinaHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: context.palette.ground,
       appBar: const SabinaAppBar(),
       body: IndexedStack(
         index: _currentIndex,
@@ -94,7 +94,7 @@ class HomeContent extends StatelessWidget {
             const SizedBox(height: 20),
             _PromptCardConditional(),
             const SizedBox(height: 20),
-            _buildSectionLabel(AppLocalizations.of(context)!.quickAccess),
+            _buildSectionLabel(context, AppLocalizations.of(context)!.quickAccess),
             const SizedBox(height: 10),
             _buildQuickActionsCard(context),
             const SizedBox(height: 16),
@@ -102,7 +102,7 @@ class HomeContent extends StatelessWidget {
             const SizedBox(height: 20),
             _buildInfoBanner(context),
             const SizedBox(height: 20),
-            _buildSectionLabel(AppLocalizations.of(context)!.featuredArticles),
+            _buildSectionLabel(context, AppLocalizations.of(context)!.featuredArticles),
             const SizedBox(height: 10),
             _buildArticleScroll(context),
             const SizedBox(height: 28),
@@ -673,12 +673,13 @@ class _PromptCardConditional extends StatelessWidget {
 
   Widget _buildCard(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFFFAF6FC),
+        color: p.primarySoft,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: SabinaColors.primary300, width: 1.5),
+        border: Border.all(color: p.primary.withValues(alpha: 0.4), width: 1.5),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -687,11 +688,10 @@ class _PromptCardConditional extends StatelessWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: SabinaColors.primary100,
+              color: p.surface,
               borderRadius: BorderRadius.circular(14),
             ),
-            child: Icon(Icons.assignment_outlined,
-                color: SabinaColors.primary700, size: 24),
+            child: Icon(Icons.assignment_outlined, color: p.primary, size: 24),
           ),
           const SizedBox(width: 14),
           Expanded(
@@ -703,7 +703,7 @@ class _PromptCardConditional extends StatelessWidget {
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
-                    color: SabinaColors.neutral900,
+                    color: p.ink,
                   ),
                 ),
                 const SizedBox(height: 3),
@@ -711,7 +711,7 @@ class _PromptCardConditional extends StatelessWidget {
                   l10n.fillForAccurate,
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 12,
-                    color: SabinaColors.neutral500,
+                    color: p.inkMuted,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -725,7 +725,7 @@ class _PromptCardConditional extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 14, vertical: 8),
                     decoration: BoxDecoration(
-                      color: SabinaColors.primary700,
+                      color: p.primary,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Row(
@@ -736,12 +736,11 @@ class _PromptCardConditional extends StatelessWidget {
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 12,
                             fontWeight: FontWeight.w700,
-                            color: SabinaColors.white,
+                            color: p.surface,
                           ),
                         ),
                         const SizedBox(width: 4),
-                        const Icon(Icons.chevron_right,
-                            color: Colors.white, size: 16),
+                        Icon(Icons.chevron_right, color: p.surface, size: 16),
                       ],
                     ),
                   ),
@@ -759,13 +758,13 @@ class _PromptCardConditional extends StatelessWidget {
 // 4. Section label
 // ---------------------------------------------------------------------------
 
-Widget _buildSectionLabel(String label) {
+Widget _buildSectionLabel(BuildContext context, String label) {
   return Text(
     label,
     style: GoogleFonts.plusJakartaSans(
       fontSize: 10,
       fontWeight: FontWeight.w700,
-      color: SabinaColors.neutral500,
+      color: context.palette.inkMuted,
       letterSpacing: 1.0,
     ),
   );
@@ -829,8 +828,8 @@ Widget _buildJournalCard(BuildContext context) {
                       bottomRight: Radius.circular(11),
                     ),
                   ),
-                  child: const Icon(Icons.auto_stories_rounded,
-                      color: Colors.white, size: 22),
+                  child: Icon(Icons.auto_stories_rounded,
+                      color: p.surface, size: 22),
                 ),
                 const SizedBox(width: 14),
                 Expanded(
@@ -1732,6 +1731,7 @@ Widget _articleIconFallback(_ArticleData a) {
 
 Widget _buildArticleScroll(BuildContext context) {
   final l10n = AppLocalizations.of(context)!;
+  final p = context.palette;
   final articles = [
     _ArticleData(
       icon: Icons.restaurant_rounded,
@@ -1793,11 +1793,12 @@ Widget _buildArticleScroll(BuildContext context) {
           child: Container(
             width: 154,
             decoration: BoxDecoration(
-              color: SabinaColors.white,
+              color: p.surface,
               borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: p.line),
               boxShadow: [
                 BoxShadow(
-                  color: SabinaColors.neutral900.withValues(alpha: 0.05),
+                  color: p.cardShadow,
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -1833,7 +1834,7 @@ Widget _buildArticleScroll(BuildContext context) {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 10,
                           fontWeight: FontWeight.w700,
-                          color: SabinaColors.primary700,
+                          color: p.primary,
                           letterSpacing: 0.4,
                         ),
                       ),
@@ -1845,7 +1846,7 @@ Widget _buildArticleScroll(BuildContext context) {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
-                          color: SabinaColors.neutral900,
+                          color: p.ink,
                           height: 1.4,
                         ),
                       ),
