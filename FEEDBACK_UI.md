@@ -203,4 +203,22 @@ tiap langkah.
   grafik tren 3-entri terisi, dan dark mode (`screenshots_batch5/`).
   `flutter analyze` = 0 issues, `flutter test` = 16/16.
 
+## Koreksi putaran 3 (uji coba Presley 2026-07-10 — dark mode & tipografi)
+
+- [ ] **A. Toggle dark mode tidak ditemukan user** — tambah kontrol tema di
+  user_profile_screen (Terang/Gelap/Sistem, pakai ThemeProvider yang sudah
+  persist). ARB id/en.
+- [ ] **B. Keterbacaan dark mode di Beranda** — sapaan "Selamat Pagi" nyaris
+  tak terbaca (ink terang hardcode di atas latar gelap); audit home_screen
+  penuh: greeting, dateline, label seksi, kartu IMT mini, prompt card,
+  colophon -> context.palette. (Screenshot user: greeting gelap-di-gelap.)
+- [ ] **C. Teks bento terpotong** ("Skrining risiko tek...", "Indeks massa
+  tubu...") — solusi elegan: HAPUS subjudul dari tile (info tetap ada di
+  layar tujuan), judul boleh 2 baris penuh tanpa ellipsis; tile lebih tenang.
+- [ ] **D. Hasil skrining: ukuran font tidak seragam, terasa tidak
+  profesional** — referensi user: MEDIUM (clean, hitam-putih, warna hanya
+  untuk marker/aksen bermakna). Samakan skala tipografi lintas 8 layar hasil
+  via konstanta bersama; teks selalu ink/inkMuted; warna HANYA untuk
+  severity (busur, pill, CTA); judul seksi tidak berwarna-warni.
+
 ## (tambahkan temuan berikutnya di bawah ini)
