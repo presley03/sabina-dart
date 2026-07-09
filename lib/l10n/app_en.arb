@@ -2807,18 +2807,6 @@
                         "@preeclampsiaQuestionnaire": {
                           "description": "Title for preeclampsia questionnaire screen"
                         },
-                        "questionOf": "Question {current} of {total}",
-                        "@questionOf": {
-                          "description": "Question counter format",
-                          "placeholders": {
-                            "current": {
-                              "type": "int"
-                            },
-                            "total": {
-                              "type": "int"
-                            }
-                          }
-                        },
                         "yes": "Yes",
                         "@yes": {
                           "description": "Affirmative answer"
@@ -2867,65 +2855,6 @@
                         "preeclampsiaQuestion10": "Are you experiencing shortness of breath or chest pain?",
                         "@preeclampsiaQuestion10": {
                           "description": "Tenth preeclampsia screening question"
-                        },
-                        
-                        "preeclampsiaRiskLow": "Low Risk",
-                        "@preeclampsiaRiskLow": {
-                          "description": "Low risk assessment result"
-                        },
-                        "preeclampsiaRiskModerate": "Moderate Risk",
-                        "@preeclampsiaRiskModerate": {
-                          "description": "Moderate risk assessment result"
-                        },
-                        "preeclampsiaRiskHigh": "High Risk",
-                        "@preeclampsiaRiskHigh": {
-                          "description": "High risk assessment result"
-                        },
-                        
-                        "preeclampsiaResultTitle": "Preeclampsia Screening Result",
-                        "@preeclampsiaResultTitle": {
-                          "description": "Title for preeclampsia result screen"
-                        },
-                        "preeclampsiaLowRiskMessage": "Based on your answers, you have a low risk of developing preeclampsia. Continue regular prenatal care and monitor your health.",
-                        "@preeclampsiaLowRiskMessage": {
-                          "description": "Message for low risk preeclampsia result"
-                        },
-                        "preeclampsiaModerateRiskMessage": "Based on your answers, you have a moderate risk of developing preeclampsia. Please consult with your healthcare provider for closer monitoring.",
-                        "@preeclampsiaModerateRiskMessage": {
-                          "description": "Message for moderate risk preeclampsia result"
-                        },
-                        "preeclampsiaHighRiskMessage": "Based on your answers, you have a high risk of developing preeclampsia. Please seek immediate medical attention and consult with your healthcare provider.",
-                        "@preeclampsiaHighRiskMessage": {
-                          "description": "Message for high risk preeclampsia result"
-                        },
-                        
-                        "maternalComplaintsTitle": "Maternal Health Complaints Assessment",
-                        "@maternalComplaintsTitle": {
-                          "description": "Title for maternal complaints screen"
-                        },
-                        "nauseavomitingTitle": "Nausea and Vomiting Assessment",
-                        "@nauseavomitingTitle": {
-                          "description": "Title for nausea vomiting assessment"
-                        },
-                        "headacheTitle": "Headache Assessment",
-                        "@headacheTitle": {
-                          "description": "Title for headache assessment"
-                        },
-                        "bleedingTitle": "Vaginal Bleeding Assessment",
-                        "@bleedingTitle": {
-                          "description": "Title for bleeding assessment"
-                        },
-                        "fluidLeakageTitle": "Amniotic Fluid Leakage Assessment",
-                        "@fluidLeakageTitle": {
-                          "description": "Title for fluid leakage assessment"
-                        },
-                        "swellingTitle": "Swelling Assessment",
-                        "@swellingTitle": {
-                          "description": "Title for swelling assessment"
-                        },
-                        "fetalMovementTitle": "Fetal Movement Assessment",
-                        "@fetalMovementTitle": {
-                          "description": "Title for fetal movement assessment"
                         },
                         
                         "completeIdentityData": "Complete Your Personal Information",
@@ -3105,22 +3034,6 @@
                           "description": "Placeholder text shown in dropdown rows before selection"
                         },
                         
-                        "healthMonitoringComplete": "Complete Health Monitoring",
-                        "@healthMonitoringComplete": {
-                          "description": "Button text for complete health monitoring"
-                        },
-                        "healthMonitoring": "Health Monitoring",
-                        "@healthMonitoring": {
-                          "description": "Title for health monitoring screen"
-                        },
-                        "healthScore": "Health Score",
-                        "@healthScore": {
-                          "description": "Label for health score"
-                        },
-                        "quickActions": "Quick Actions",
-                        "@quickActions": {
-                          "description": "Title for quick actions section"
-                        },
                         "recordHealth": "Record Health",
                         "@recordHealth": {
                           "description": "Button text for recording health data"
@@ -3132,10 +3045,6 @@
                         "emergency": "Emergency",
                         "@emergency": {
                           "description": "Button text for emergency"
-                        },
-                        "dailyHealthInput": "Daily Health Input",
-                        "@dailyHealthInput": {
-                          "description": "Title for daily health input form"
                         },
                         "weight": "Weight (kg)",
                         "@weight": {
@@ -3149,73 +3058,13 @@
                         "@diastolic": {
                           "description": "Label for diastolic blood pressure"
                         },
-                        "saveHealthData": "Save Health Data",
-                        "@saveHealthData": {
-                          "description": "Button text for saving health data"
-                        },
-                        "recentHealthRecords": "Recent Health Records",
-                        "@recentHealthRecords": {
-                          "description": "Title for recent health records section"
-                        },
                         "emergencyContacts": "Emergency Contacts",
                         "@emergencyContacts": {
                           "description": "Title for emergency contacts section"
                         },
-                        "addContact": "Add Contact",
-                        "@addContact": {
-                          "description": "Button text for adding contact"
-                        },
-                        "addEmergencyContact": "Add Emergency Contact",
-                        "@addEmergencyContact": {
-                          "description": "Title for add emergency contact dialog"
-                        },
-                        "name": "Name",
-                        "@name": {
-                          "description": "Label for name field"
-                        },
-                        "phoneNumber": "Phone Number",
-                        "@phoneNumber": {
-                          "description": "Label for phone number field"
-                        },
-                        "relationship": "Relationship",
-                        "@relationship": {
-                          "description": "Label for relationship field"
-                        },
-                        "primary": "Primary",
-                        "@primary": {
-                          "description": "Label for primary contact"
-                        },
                         "healthDataSaved": "Health data saved successfully!",
                         "@healthDataSaved": {
                           "description": "Success message for saving health data"
-                        },
-                        "emergencyContactAdded": "Emergency contact added successfully!",
-                        "@emergencyContactAdded": {
-                          "description": "Success message for adding emergency contact"
-                        },
-                        "noHealthRecords": "No health records yet.\\nStart recording your daily health!",
-                        "@noHealthRecords": {
-                          "description": "Message when no health records exist"
-                        },
-                        "noEmergencyContacts": "No emergency contacts yet.\\nAdd contacts for emergency situations!",
-                        "@noEmergencyContacts": {
-                          "description": "Message when no emergency contacts exist"
-                        },
-                        "bloodPressureNotRecorded": "Blood pressure not recorded",
-                        "@bloodPressureNotRecorded": {
-                          "description": "Message when blood pressure is not recorded"
-                        },
-                        "weightRequired": "Weight is required",
-                        "@weightRequired": {
-                          "description": "Validation message for weight field"
-                        },
-                        "invalidFormat": "Invalid format",
-                        "@invalidFormat": {
-                          "description": "Validation message for invalid format"
-                        },
-                        "invalidWeight": "Invalid weight (30-200kg)",
-                        "@invalidWeight": {
-                          "description": "Validation message for invalid weight range"
                         },
                         "chartTitle": "Development Chart",
                         "@chartTitle": {
