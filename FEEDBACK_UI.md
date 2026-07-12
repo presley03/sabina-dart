@@ -293,4 +293,23 @@ busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
   (struktural, bukan patch spacing); screenshot 13/14 batch 6 diambil
   sebelum commit final tsb.
 
+## Koreksi putaran 4 (uji Presley 2026-07-12 — EN, dark mode tab, splash)
+
+- [ ] **A. Terjemahan EN belum lengkap** — di locale EN: kartu "Jurnal
+  Mingguan / Catat perasaanmu minggu ini" masih ID (hardcode,
+  home_screen.dart:~852 + weekly_journal_screen.dart ber-TODO(l10n));
+  teks carousel tips & chip kategori masih ID. Audit sistematis: bandingkan
+  ARB id vs en, key bernilai identik >25 char = kandidat belum
+  diterjemahkan (34 kandidat; nama referensi Inggris yang memang sama
+  DILEWATI).
+- [ ] **B. Dark mode tidak mengubah tab Skrining & Artikel** — kedua layar
+  tab (skrining_screen header gradien + kartu; artikel_screen filter chip +
+  kartu daftar) masih hardcode warna terang -> migrasi context.palette.
+- [ ] **C. USULAN splash "orb"** — splash sekarang: logo statis + fade
+  0,8 dtk lalu diam 3 dtk. Buat pembuka lebih hidup ala orb Siri versi
+  SABINA: 3-4 bola gradien radial lembut warna Twilight (mulberry/koral/
+  sage/ochre) yang bernapas & berputar pelan di belakang logo, wordmark
+  Fraunces. TANPA package baru, TANPA ImageFilter blur (Impeller off,
+  jaga perangkat kelas bawah) — cukup RadialGradient + AnimatedBuilder.
+
 ## (tambahkan temuan berikutnya di bawah ini)
