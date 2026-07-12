@@ -8293,6 +8293,24 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Jawaban'**
   String get searchAnswersSectionLabel;
+
+  /// No description provided for @heroEmptyTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Mulai Perjalanan 40 Minggu Anda'**
+  String get heroEmptyTitle;
+
+  /// No description provided for @heroEmptyDesc.
+  ///
+  /// In id, this message translates to:
+  /// **'Isi tanggal haid terakhir (HPHT) untuk melihat usia kehamilan, ukuran si kecil, dan panduan tiap minggu.'**
+  String get heroEmptyDesc;
+
+  /// No description provided for @heroEmptyCta.
+  ///
+  /// In id, this message translates to:
+  /// **'Isi Data Kehamilan'**
+  String get heroEmptyCta;
 }
 
 class _AppLocalizationsDelegate

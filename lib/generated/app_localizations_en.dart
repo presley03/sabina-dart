@@ -4684,4 +4684,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get searchAnswersSectionLabel => 'Answers';
+
+  @override
+  String get heroEmptyTitle => 'Begin Your 40-Week Journey';
+
+  @override
+  String get heroEmptyDesc =>
+      'Enter your last menstrual period (LMP) date to see your pregnancy week, your baby\'s size, and weekly guidance.';
+
+  @override
+  String get heroEmptyCta => 'Fill In Pregnancy Data';
 }

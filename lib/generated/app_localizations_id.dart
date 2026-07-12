@@ -4692,4 +4692,14 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get searchAnswersSectionLabel => 'Jawaban';
+
+  @override
+  String get heroEmptyTitle => 'Mulai Perjalanan 40 Minggu Anda';
+
+  @override
+  String get heroEmptyDesc =>
+      'Isi tanggal haid terakhir (HPHT) untuk melihat usia kehamilan, ukuran si kecil, dan panduan tiap minggu.';
+
+  @override
+  String get heroEmptyCta => 'Isi Data Kehamilan';
 }

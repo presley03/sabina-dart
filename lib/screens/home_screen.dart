@@ -1213,7 +1213,10 @@ class _PregnancyBanner extends StatefulWidget {
 }
 
 class _PregnancyBannerState extends State<_PregnancyBanner> {
-  int _currentWeek = 20;
+  // 0 = belum ada HPHT (instal pertama) → tampilkan ajakan isi data,
+  // BUKAN minggu placeholder (bug lama: default 20 → "Seukuran Pisang"
+  // fiktif untuk pengguna baru).
+  int _currentWeek = 0;
 
   static const _fruitsId = [
     '', // index 0 unused
@@ -1275,8 +1278,89 @@ class _PregnancyBannerState extends State<_PregnancyBanner> {
         int.parse(parts[0]), int.parse(parts[1]), int.parse(parts[2]));
   }
 
+  /// Varian instal-pertama: belum ada HPHT → ajakan mengisi data kehamilan
+  /// dalam panggung lengkung yang sama (tanpa minggu/buah fiktif).
+  Widget _buildEmptyInvite(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const PregnancyHistoryScreen()),
+      ),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.fromLTRB(28, 44, 28, 30),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF6E4260), Color(0xFF8A4E68), Color(0xFFC26A5A)],
+            stops: [0.0, 0.52, 1.0],
+          ),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(150),
+            topRight: Radius.circular(150),
+            bottomLeft: Radius.circular(34),
+            bottomRight: Radius.circular(34),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFF6E4260).withValues(alpha: 0.32),
+              blurRadius: 34,
+              offset: const Offset(0, 18),
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            Text(
+              l10n.heroEmptyTitle,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.fraunces(
+                fontSize: 24,
+                fontWeight: FontWeight.w500,
+                height: 1.25,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              l10n.heroEmptyDesc,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 13.5,
+                height: 1.55,
+                color: Colors.white.withValues(alpha: 0.85),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Container(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.18),
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(
+                    color: Colors.white.withValues(alpha: 0.4), width: 1.5),
+              ),
+              child: Text(
+                l10n.heroEmptyCta,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 14.5,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (_currentWeek == 0) return _buildEmptyInvite(context);
     const int totalWeeks = 40;
     final double progress = _currentWeek / totalWeeks;
     final l10n = AppLocalizations.of(context)!;
