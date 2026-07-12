@@ -381,4 +381,48 @@ busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
   = 0 issues, `flutter test` = 29/29.
   Komit `ec631a6`.)
 
+## Materi Resep
+
+- [x] **FITUR BARU: Resep Gizi Ibu Hamil** — 5 resep keluarga (Nasi Kuning
+  Harum Rempa Ikan Tuna Balado, Liwet Ikan Goreng dan Kari Daun Singkong dan
+  Ebi, Siomay Ayam Udang Komplit, Lapis Tamie Isi Ayam, Nasi Rawon) + Panduan
+  Porsi Ibu Hamil, diarsipkan dari `kurasi/Buku_Resep_Kebutuhan_Gizi_Ibu_
+  Hamil.pdf` (11 halaman, tulisan ulang dari foto buku milik Presley). Teks
+  disalin setia (ejaan/satuan dipertahankan) ke `lib/data/resep_data.dart`
+  (model `ResepGizi`/`ResepSection`/`PanduanPorsiItem`, const list, tidak
+  diterjemahkan — materi asli pemilik, hanya label/judul UI lewat ARB id&en).
+  - `ResepScreen` (`lib/screens/resep/resep_screen.dart`): panduan porsi
+    sebagai konten pembuka (kartu sage-soft ber-lengkung) + 5 `ResepCard`.
+  - `ResepDetailScreen` (`resep_detail_screen.dart`): hero gambar lengkung
+    besar (radius asimetris, arch motif), info-gizi via `ArticleCallout`,
+    Bahan & Cara Membuat per-subseksi lewat `ArticleMagazineSection`-style
+    manual + `ArticleBulletList`, Buah Pendamping, panel catatan-gizi
+    rust-soft opsional (`bila ada` — belum ada resep yang memakainya).
+  - `ResepCard` (`lib/widgets/resep_card.dart`): kartu arch kecil dipakai di
+    kedua entry point, thumbnail dari `assets/images/resep/*.png` (sudah
+    terkompres, TIDAK dikompres ulang) dengan `errorBuilder`.
+  - Entry point (a): chip kategori "Resep" baru di `artikel_screen.dart`
+    (`_kCategoryCodes`) — render 5 `ResepCard` inline saat aktif, featured
+    card disembunyikan seperti filter lain.
+  - Entry point (b): kartu CTA "Lihat Resep Bergizi" (amber-soft, arch) di
+    `care/makanan_screen.dart`, di bawah callout pembuka, mendorong ke
+    `ResepScreen`.
+  - Aset `assets/images/resep/` didaftarkan di `pubspec.yaml`; **`flutter
+    clean` dijalankan sebelum verifikasi** (build inkremental tidak
+    me-refresh folder aset baru — dicatat juga di CLAUDE.md §8).
+  - **BUG ditemukan & diperbaiki saat verifikasi dark mode**: `ArticleCallout`
+    (dipakai info-gizi di layar resep, dan sudah dipakai `makanan_screen`
+    dkk. sebelumnya) meng-hardcode warna teks ke `SabinaColors.neutral900`
+    — sama persis dengan `ink` mode terang, jadi nyaris tak terbaca di atas
+    latar gelap. Diganti ke `context.palette.ink` (1 baris,
+    `article_reader_widgets.dart`) — tidak mengubah tampilan terang sama
+    sekali (nilai warnanya identik), memperbaiki kontras gelap di SEMUA
+    layar yang memakai `ArticleCallout`, bukan cuma layar resep baru.
+  - Diverifikasi live emulator: daftar resep (terang & gelap), detail resep
+    penuh (hero → bahan → cara → buah, terang & gelap), chip Resep di tab
+    Artikel (terang & gelap), kartu CTA di layar Makanan. Screenshot di
+    `screenshots_batch10/` (01–07). `flutter analyze` = 0 issues,
+    `flutter test` = 29/29. Komit `19bda4a`, `f5ccf87`, `07c27c6`,
+    `820e568`.
+
 ## (tambahkan temuan berikutnya di bawah ini)
