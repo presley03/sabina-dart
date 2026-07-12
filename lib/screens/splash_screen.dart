@@ -119,7 +119,13 @@ class _SplashScreenState extends State<SplashScreen>
                   size: Size.square(orbSize),
                   painter: _OrbAuroraPainter(
                     t: _orbAnimationController.value * _orbCycleSeconds,
-                    colors: [p.primary, p.sage, p.peach, p.amber],
+                    // Palet mengikuti referensi Clara (overlay.html LAYERS):
+                    // violet / cyan / pink — permintaan eksplisit pemilik.
+                    colors: const [
+                      Color(0xFF785AE6), // violet rgb(120,90,230)
+                      Color(0xFF3CAAE6), // cyan   rgb(60,170,230)
+                      Color(0xFFE678B4), // pink   rgb(230,120,180)
+                    ],
                   ),
                 ),
               );
@@ -143,22 +149,22 @@ class _SplashScreenState extends State<SplashScreen>
 // gradient radial yang memudar ke transparan.
 class _OrbAuroraPainter extends CustomPainter {
   final double t; // detik berjalan, monoton (tidak pernah wrap ke 0)
-  final List<Color> colors; // [primary, sage, peach, amber]
+  final List<Color> colors; // [violet, cyan, pink] — palet Clara
 
   _OrbAuroraPainter({required this.t, required this.colors});
 
-  // (rotasi, frekuensi wobble, fase offset, alpha) per layer. Alpha lebih
-  // rendah dari referensi Clara karena palet Twilight lebih hangat/lebih
-  // sedikit tersebar di roda warna — additive plus cepat jenuh ke putih
-  // bila alpha terlalu tinggi.
-  static const _rot = [0.16, -0.12, 0.09, -0.20];
-  static const _freq = [3.0, 4.0, 5.0, 4.0];
-  static const _off = [0.0, 1.7, 3.4, 5.1];
-  static const _alpha = [0.30, 0.25, 0.24, 0.27];
+  // (rotasi, frekuensi wobble, fase offset, alpha) per layer — angka persis
+  // dari overlay.html LAYERS (rot 0.18/-0.13/0.09, freq 3/4/5,
+  // off 0/1.7/3.4, alpha 0.55/0.45/0.40).
+  static const _rot = [0.18, -0.13, 0.09];
+  static const _freq = [3.0, 4.0, 5.0];
+  static const _off = [0.0, 1.7, 3.4];
+  static const _alpha = [0.55, 0.45, 0.40];
 
   static const _breathe = 0.09; // amplitudo napas
   static const _wobble = 0.10; // amplitudo goyang tepi blob
-  static const _backdropColor = Color(0xFF1A1220); // disc kontras tetap
+  // Backdrop disc rgba(8,6,16) — persis referensi Clara.
+  static const _backdropColor = Color(0xFF080610);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -168,20 +174,22 @@ class _OrbAuroraPainter extends CustomPainter {
 
     // Disc backdrop gelap (source-over biasa) — menjaga orb tetap terbaca
     // di latar terang; di latar gelap disc ini nyaris menyatu (disengaja).
+    // Alpha 0.42 mengikuti referensi Clara.
     final backdropR = baseR * breatheScale * 1.4;
     final backdropPaint = Paint()
       ..shader = RadialGradient(colors: [
-        _backdropColor.withValues(alpha: 0.55),
+        _backdropColor.withValues(alpha: 0.42),
         _backdropColor.withValues(alpha: 0),
       ]).createShader(Rect.fromCircle(center: center, radius: backdropR));
     canvas.drawCircle(center, backdropR, backdropPaint);
 
-    // Halo lembut — aditif, tint dari warna utama (mulberry).
+    // Halo lembut — aditif, ungu rgb(110,90,210) alpha 0.18 (angka Clara).
     final haloR = baseR * 2.1;
+    const haloColor = Color(0xFF6E5AD2);
     final haloPaint = Paint()
       ..shader = RadialGradient(colors: [
-        colors.first.withValues(alpha: 0.08),
-        colors.first.withValues(alpha: 0),
+        haloColor.withValues(alpha: 0.18),
+        haloColor.withValues(alpha: 0),
       ]).createShader(Rect.fromCircle(center: center, radius: haloR))
       ..blendMode = BlendMode.plus;
     canvas.drawCircle(center, haloR, haloPaint);
@@ -205,9 +213,10 @@ class _OrbAuroraPainter extends CustomPainter {
     // lembut, bukan mendominasi).
     final coreR = baseR * breatheScale * 0.42;
     final corePaint = Paint()
+      // Core putih-kebiruan rgb(235,240,255) alpha 0.40 (angka Clara).
       ..shader = RadialGradient(colors: [
-        const Color(0xFFFDF8F5).withValues(alpha: 0.16),
-        const Color(0xFFFDF8F5).withValues(alpha: 0),
+        const Color(0xFFEBF0FF).withValues(alpha: 0.40),
+        const Color(0xFFEBF0FF).withValues(alpha: 0),
       ]).createShader(Rect.fromCircle(center: center, radius: coreR))
       ..blendMode = BlendMode.plus;
     canvas.drawCircle(center, coreR, corePaint);
