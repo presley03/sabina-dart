@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<title>Clara V2 — Orb</title>
+<style>
+  /* Transparan penuh — WebEngine host (overlay.py) mengandalkan ini supaya
+     orb tidak duduk di atas kotak buram. Jangan beri background solid. */
+  html, body {
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    background: transparent;
+    overflow: hidden;
+    user-select: none;
+  }
+  #orb-canvas {
+    display: block;
+    width: 100%; height: 100%;
+  }
+</style>
+</head>
+<body>
+<canvas id="orb-canvas"></canvas>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// STATE VISUAL MAPPING — animasi & intensitas per state Clara.
+// Warna TIDAK berubah antar state (konsisten palet Fluenta) —
+// hanya speed, amplitude wobble, breathing range, brightness, scale.
+//
+// Terjemahan dari STATE_VISUALS lama (overlay.py QPainter) — pemetaan
+// INTENT, bukan sekadar copy angka:
+//   tick_ms/speed lama (state tenang = jarang repaint) → `speed` (rAF).
+//   size_factor                                        → `scale`.
+//   opacity + kecerahan core                           → `bright`.
+//   jenis `anim` + intensitas denyut                   → `breathe` + `wobble`.
+// Urutan tenang→aktif dipertahankan: DEEP_SLEEP paling lambat/kecil/redup,
+// SPEAKING paling cepat/besar/terang.
+// ══════════════════════════════════════════════════════════════
+const STATE_PARAMS = {
+  DEEP_SLEEP:   { speed: 0.35, breathe: 0.03, wobble: 0.06, bright: 0.35, scale: 0.75 },
+  ATTENTIVE:    { speed: 0.60, breathe: 0.06, wobble: 0.09, bright: 0.60, scale: 0.85 },
+  THINKING:     { speed: 1.10, breathe: 0.08, wobble: 0.13, bright: 0.80, scale: 0.95 },
+  INTERACTING:  { speed: 1.60, breathe: 0.11, wobble: 0.16, bright: 0.95, scale: 1.05 },
+  SPEAKING:     { speed: 2.20, breathe: 0.15, wobble: 0.20, bright: 1.10, scale: 1.15 },
+};
+
+// Palet warna tetap — 3 layer blob (violet/cyan/pink), konsisten semua state.
+const LAYERS = [
+  { col: [120, 90, 230],  rot:  0.18, freq: 3, off: 0,   a: 0.55 }, // violet
+  { col: [60, 170, 230],  rot: -0.13, freq: 4, off: 1.7, a: 0.45 }, // cyan
+  { col: [230, 120, 180], rot:  0.09, freq: 5, off: 3.4, a: 0.40 }, // pink
+];
+
+// WARNING flag — palet merah-oranye, di-blend di atas palet normal saat aktif.
+// Ini FLAG (mewarnai state manapun), BUKAN state ke-6 — semua STATE_PARAMS
+// tetap berlaku untuk speed/breathe/wobble; hanya warna & pulsa yang berubah.
+const WARNING_LAYERS = [
+  { col: [255, 90, 40],   rot:  0.30, freq: 3, off: 0,   a: 0.65 },
+  { col: [255, 160, 40],  rot: -0.22, freq: 4, off: 1.2, a: 0.50 },
+  { col: [220, 40, 30],   rot:  0.16, freq: 6, off: 2.6, a: 0.55 },
+];
+let warningActive = false;
+let warningMix = 0; // 0 = normal, 1 = full warning (eased)
+
+const canvas = document.getElementById('orb-canvas');
+const ctx = canvas.getContext('2d');
+
+// Geometri dihitung dari ukuran canvas aktual (window = size_default + 100 di
+// overlay.py), bukan hardcode — supaya orb ikut skala config.overlay.size_default.
+let W = 0, H = 0, cxc = 0, cyc = 0, baseR = 0;
+
+function resize() {
+  const dpr = window.devicePixelRatio || 1;
+  W = window.innerWidth;
+  H = window.innerHeight;
+  canvas.width  = Math.round(W * dpr);
+  canvas.height = Math.round(H * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);  // kerja dalam koordinat CSS px
+  cxc = W / 2;
+  cyc = H / 2;
+  // baseR ~0.21 dari sisi terpendek → ≈46 px pada window 220 (samakan prototype).
+  baseR = Math.min(W, H) * 0.21;
+}
+window.addEventListener('resize', resize);
+resize();
+
+let target = STATE_PARAMS.ATTENTIVE;
+let cur = { ...STATE_PARAMS.ATTENTIVE };
+let T = 0, last = 0;
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+function blob(layer, warnLayer, breatheAmt, wobbleAmt, phase, mix) {
+  const steps = 72;
+  const r = lerp(layer.col[0], warnLayer.col[0], mix);
+  const g = lerp(layer.col[1], warnLayer.col[1], mix);
+  const b = lerp(layer.col[2], warnLayer.col[2], mix);
+  const a = lerp(layer.a, warnLayer.a, mix);
+  // Pulsa cepat tak-beraturan saat warning aktif (di atas breathing normal).
+  const warnPulse = mix > 0.01
+    ? (Math.sin(phase * 4.2) * 0.5 + Math.sin(phase * 7.1 + 1.3) * 0.3) * mix * 0.06
+    : 0;
+  ctx.beginPath();
+  for (let i = 0; i <= steps; i++) {
+    const ang = (i / steps) * Math.PI * 2;
+    const wob =
+      Math.sin(ang * layer.freq + phase * 1.1 + layer.off) * wobbleAmt +
+      Math.sin(ang * (layer.freq + 2) - phase * 0.7 + layer.off) * wobbleAmt * 0.5;
+    const rad = baseR * cur.scale * (1 + Math.sin(phase * 1.2) * breatheAmt + warnPulse) * (1 + wob);
+    const a2 = ang + phase * layer.rot;
+    const x = cxc + Math.cos(a2) * rad;
+    const y = cyc + Math.sin(a2) * rad;
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  const grd = ctx.createRadialGradient(cxc, cyc, 0, cxc, cyc, baseR * cur.scale * 1.5);
+  grd.addColorStop(0, `rgba(${r},${g},${b},${a * cur.bright})`);
+  grd.addColorStop(1, `rgba(${r},${g},${b},0)`);
+  ctx.fillStyle = grd;
+  ctx.fill();
+}
+
+function frame(ts) {
+  const dt = Math.min((ts - last) / 1000, 0.05);
+  last = ts;
+  T += dt * cur.speed;
+
+  // Ease params menuju target (transisi state mulus). WARNING menaikkan
+  // speed/wobble tambahan di atas state manapun — bikin terasa "mendesak"
+  // tanpa mengganti state.
+  const k = 0.06;
+  const warnBoost = warningActive ? 1.7 : 1.0;
+  for (const key of ['speed', 'breathe', 'wobble', 'bright', 'scale']) {
+    cur[key] = lerp(cur[key], target[key] * (key === 'speed' || key === 'wobble' ? warnBoost : 1.0), k);
+  }
+  warningMix = lerp(warningMix, warningActive ? 1 : 0, 0.08);
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Dark backdrop disc — pass SOLID (non-additive) digambar SEKALI di belakang
+  // seluruh kumpulan blob, sebelum halo & blob (yang additive 'lighter').
+  // Inilah yang menjaga orb terbaca di wallpaper TERANG: disc gelap lembut
+  // duduk di belakang warna, jadi di background cerah/putih orb tetap terbaca
+  // sebagai bentuk jelas alih-alih "tenggelam". Di wallpaper GELAP backdrop ini
+  // praktis tak terlihat (menyatu dengan background) — tanpa deteksi wallpaper
+  // apa pun, murni visual.
+  ctx.globalCompositeOperation = 'source-over';
+  const backdropR = baseR * cur.scale * 1.15;
+  const backdrop = ctx.createRadialGradient(cxc, cyc, backdropR * 0.3, cxc, cyc, backdropR);
+  backdrop.addColorStop(0, `rgba(8,6,16,${0.42 * cur.bright})`);
+  backdrop.addColorStop(1, 'rgba(8,6,16,0)');
+  ctx.fillStyle = backdrop;
+  ctx.beginPath();
+  ctx.arc(cxc, cyc, backdropR, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Outer halo — tint merah-oranye saat warning aktif. Additive glow.
+  ctx.globalCompositeOperation = 'lighter';
+  const haloCol = [
+    lerp(110, 230, warningMix), lerp(90, 60, warningMix), lerp(210, 30, warningMix)
+  ];
+  const halo = ctx.createRadialGradient(cxc, cyc, baseR * 0.3, cxc, cyc, baseR * 2.4);
+  halo.addColorStop(0, `rgba(${haloCol[0]},${haloCol[1]},${haloCol[2]},${0.18 * cur.bright})`);
+  halo.addColorStop(1, `rgba(${haloCol[0]},${haloCol[1]},${haloCol[2]},0)`);
+  ctx.fillStyle = halo;
+  ctx.fillRect(0, 0, W, H);
+
+  for (let i = 0; i < LAYERS.length; i++) {
+    blob(LAYERS[i], WARNING_LAYERS[i], cur.breathe, cur.wobble, T, warningMix);
+  }
+
+  // Bright core.
+  const core = ctx.createRadialGradient(cxc, cyc, 0, cxc, cyc, baseR * cur.scale * 0.7);
+  core.addColorStop(0, `rgba(235,240,255,${0.4 * cur.bright})`);
+  core.addColorStop(1, 'rgba(235,240,255,0)');
+  ctx.fillStyle = core;
+  ctx.beginPath();
+  ctx.arc(cxc, cyc, baseR * cur.scale * 0.7, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.globalCompositeOperation = 'source-over';
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+// ══════════════════════════════════════════════════════════════
+// Bridge Python→JS (dipanggil overlay.py via page().runJavaScript).
+// Satu arah: overlay read-only, tidak ada JS→Python.
+// ══════════════════════════════════════════════════════════════
+function setState(s) {
+  if (STATE_PARAMS[s]) target = STATE_PARAMS[s];  // guard: state tak dikenal diabaikan
+}
+function setWarning(b) {
+  warningActive = !!b;
+}
+</script>
+</body>
+</html>

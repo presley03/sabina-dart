@@ -140,7 +140,8 @@ class TanyaSabinaService {
   /// seperti "gerakan berkurang".
   static bool containsDangerWord(String normalizedQuery, String locale) {
     final list = locale == 'en' ? _dangerKeywordsEn : _dangerKeywordsId;
-    final queryWords = normalizedQuery.split(' ').where((w) => w.isNotEmpty).toSet();
+    final queryWords =
+        normalizedQuery.split(' ').where((w) => w.isNotEmpty).toSet();
     for (final kw in list) {
       final kwWords = kw.split(' ');
       if (kwWords.length == 1) {
@@ -169,7 +170,8 @@ class TanyaSabinaService {
 
     final dangerDetected = containsDangerWord(normalizedQuery, locale);
     final queryConcepts = _concepts(normalizedQuery, locale);
-    final queryWords = normalizedQuery.split(' ').where((w) => w.isNotEmpty).toSet();
+    final queryWords =
+        normalizedQuery.split(' ').where((w) => w.isNotEmpty).toSet();
 
     final scored = <TanyaSabinaMatch>[];
     for (final entry in tanyaSabinaEntries) {
@@ -212,7 +214,8 @@ class TanyaSabinaService {
 
     scored.sort((a, b) => b.score.compareTo(a.score));
     final top = scored.take(limit).toList();
-    return TanyaSabinaSearchResult(matches: top, dangerDetected: dangerDetected);
+    return TanyaSabinaSearchResult(
+        matches: top, dangerDetected: dangerDetected);
   }
 
   // ── Log pertanyaan tak terjawab ──────────────────────────────────────────
