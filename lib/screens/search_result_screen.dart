@@ -296,8 +296,11 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
 
   Widget _buildEmpty(
       BuildContext context, AppLocalizations l10n, SabinaPalette p) {
+    // SingleChildScrollView (rather than a bare Center) keeps this from
+    // overflowing when vertical space is squeezed — e.g. keyboard open
+    // together with the "Jawaban" section pushing the empty state down.
     return Center(
-      child: Padding(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.all(32),
         child: Column(
           mainAxisSize: MainAxisSize.min,
