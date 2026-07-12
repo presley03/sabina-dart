@@ -3,7 +3,7 @@
 
 **Versi**: 1.2.0
 **Tanggal Berlaku**: 1 Maret 2026
-**Terakhir Diperbarui**: Maret 2026
+**Terakhir Diperbarui**: Juli 2026 (v1.1.0 — mencakup fitur Tanya SABINA offline, Jurnal Mingguan, dan Resep Gizi; seluruhnya tetap 100% lokal di perangkat, tanpa pengiriman data)
 
 ---
 

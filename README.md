@@ -1,5 +1,7 @@
 # SABINA - Sahabat Ibu Hamil & Keluarga
 
+![Platform](https://img.shields.io/badge/platform-Android-green) ![Flutter](https://img.shields.io/badge/Flutter-3.41-blue) ![Offline](https://img.shields.io/badge/data-100%25%20lokal%20%26%20offline-8A4E68) ![Version](https://img.shields.io/badge/versi-1.1.0-6E4260)
+
 ![SABINA Logo](assets/images/brand/sabina_logo.png)
 
 ## 📱 Tentang Aplikasi
@@ -227,6 +229,41 @@ Lihat [PRIVACY_POLICY.md](PRIVACY_POLICY.md) dan
 - **Email**: support@sabina-app.id
 
 ---
+
+---
+
+## 📋 Persyaratan Sistem
+
+- Android 5.0 (Lollipop) ke atas · RAM 2 GB · penyimpanan ±150 MB
+- Tidak memerlukan koneksi internet untuk seluruh fitur inti (offline-first)
+
+## 🔬 Referensi Ilmiah & Standar
+
+Konten edukasi dan skrining disusun serta **divalidasi langsung oleh
+Bdn. Wahidah Sukriani, S.ST., M.Keb.** (dosen kebidanan Poltekkes Kemenkes
+Palangka Raya), merujuk pada:
+- Sukriani, W. — *Asuhan Kebidanan Kehamilan* (2022); *Buku Ajar Asuhan
+  Persalinan & Bayi Baru Lahir* (2023); *Asuhan Kebidanan Pada Nifas*
+  (2023); *KB dan Kesehatan Reproduksi* (2023); *Asuhan Holistik Masa
+  Nifas dan Menyusui* (2024)
+- Pedoman ANC Kementerian Kesehatan RI; rujukan internasional pada artikel
+  (ACOG, WHO, NHS — tercantum di tiap artikel)
+- Fitur "Tanya SABINA": 72 jawaban terkurasi, tervalidasi ahli dua putaran
+  (dokumentasi validasi: `kurasi/validasi_checklist.md`)
+
+## 👥 Tim Pengembang
+
+- **Pemilik & Validator Medis**: Bdn. Wahidah Sukriani, S.ST., M.Keb. —
+  [sapabidan.com](https://sapabidan.com)
+- **Pengembang**: Presley
+
+## ⚠️ Disclaimer Medis
+
+SABINA adalah **alat bantu edukasi dan deteksi dini**, BUKAN alat
+diagnosis. Hasil skrining, kuesioner, dan jawaban Tanya SABINA bersifat
+informatif dan tidak menggantikan pemeriksaan tenaga kesehatan. Untuk
+kondisi darurat, segera hubungi fasilitas kesehatan terdekat. Lihat
+[PRIVACY_POLICY.md](PRIVACY_POLICY.md) & [TERMS_OF_SERVICE.md](TERMS_OF_SERVICE.md).
 
 **Dibuat dengan ❤️ untuk kesehatan ibu hamil di Indonesia**
 
