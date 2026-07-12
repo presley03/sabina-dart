@@ -82,6 +82,7 @@ flutter:
     - assets/images/persalinan/
     - assets/images/tips/
     - assets/images/home/
+    - assets/images/resep/
 
   fonts:
     - family: Poppins

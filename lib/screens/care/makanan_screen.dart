@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
+import 'package:sabina/screens/resep/resep_screen.dart';
 import 'package:sabina/utils/constants.dart';
 import 'package:sabina/widgets/article_reader_widgets.dart';
 
@@ -9,6 +12,7 @@ class MakananScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -39,6 +43,11 @@ class MakananScreen extends StatelessWidget {
                     l10n.nutritionScreen_callout,
                     icon: Icons.lightbulb_rounded,
                   ),
+
+                  const SizedBox(height: 20),
+
+                  // Tautan ke Resep Gizi Ibu Hamil
+                  _ResepCtaCard(l10n: l10n, p: p),
 
                   const SizedBox(height: 32),
 
@@ -155,6 +164,72 @@ class MakananScreen extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ResepCtaCard extends StatelessWidget {
+  final AppLocalizations l10n;
+  final SabinaPalette p;
+
+  const _ResepCtaCard({required this.l10n, required this.p});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: p.amberSoft,
+      borderRadius: const BorderRadius.only(
+        topLeft: Radius.circular(28),
+        topRight: Radius.circular(12),
+        bottomLeft: Radius.circular(12),
+        bottomRight: Radius.circular(12),
+      ),
+      child: InkWell(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const ResepScreen()),
+        ),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(28),
+          topRight: Radius.circular(12),
+          bottomLeft: Radius.circular(12),
+          bottomRight: Radius.circular(12),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Row(
+            children: [
+              Icon(Icons.restaurant_rounded, color: p.amber, size: 28),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.resepLihatResepCta,
+                      style: GoogleFonts.fraunces(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: p.ink,
+                      ),
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      l10n.resepLihatResepDesc,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 12,
+                        color: p.inkMuted,
+                        height: 1.4,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right_rounded, color: p.amber, size: 22),
+            ],
+          ),
         ),
       ),
     );

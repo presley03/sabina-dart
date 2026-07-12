@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
+import 'package:sabina/data/resep_data.dart';
 import 'package:sabina/utils/constants.dart';
+import 'package:sabina/widgets/resep_card.dart';
 import 'care/makanan_screen.dart';
 import 'care/yang_perlu_dihindari_screen.dart';
 import 'care/perawatan_sehari_hari_screen.dart';
@@ -42,6 +44,7 @@ class _Article {
 const _kCategoryCodes = [
   'Semua',
   'Nutrisi',
+  'Resep',
   'Aktivitas',
   'Trimester',
   'Perawatan',
@@ -55,6 +58,8 @@ String _categoryLabel(String code, AppLocalizations l10n) {
       return l10n.allCategory;
     case 'Nutrisi':
       return l10n.nutrisiCategory;
+    case 'Resep':
+      return l10n.resepCategory;
     case 'Aktivitas':
       return l10n.aktivitasCategory;
     case 'Trimester':
@@ -170,6 +175,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final p = context.palette;
+    final showResep = _selectedCategory == 'Resep';
     final articles = _buildArticles(l10n, p);
     final filtered = _selectedCategory == 'Semua'
         ? articles
@@ -266,13 +272,20 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
               const SizedBox(height: 16),
             ],
 
-            // Article list
-            ...filtered
-                .where((a) => showFeatured ? !a.featured : true)
-                .map((a) => Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: _ArticleListItem(article: a),
-                    )),
+            if (showResep)
+              // Resep chip — daftar 5 kartu resep gizi ibu hamil
+              ...resepGiziList.map((r) => Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: ResepCard(resep: r),
+                  ))
+            else
+              // Article list
+              ...filtered
+                  .where((a) => showFeatured ? !a.featured : true)
+                  .map((a) => Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: _ArticleListItem(article: a),
+                      )),
 
             const SizedBox(height: 16),
           ],
