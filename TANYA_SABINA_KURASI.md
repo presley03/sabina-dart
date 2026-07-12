@@ -64,6 +64,49 @@ sering bertanya soal ini. Juga jadi benih roadmap Fase D (postpartum).
 ## 5. Status
 - [x] Inventaris 3 sumber (scholar, sapabidan, bukuloka)
 - [x] Fetch & ringkas 12 artikel sapabidan → `kurasi/bahan_sapabidan.md` (2026-07-10)
-- [x] Draf Q&A → `kurasi/qna_draft.md` — **VALIDASI SELESAI PENUH 2026-07-10** (72 entri final, 9 jalur aman, Q33 dihapus)
+- [x] Draf Q&A → `kurasi/qna_draft.md` — **VALIDASI SELESAI PENUH 2026-07-10** (72 entri final, 13 jalur aman by keyword, Q33 dihapus)
 - [ ] Bahan buku dari pemilik
 - [x] Validasi pemilik SELESAI → implementasi mesin: Batch 7 Sonnet; sinkron data final + EN: Batch 8
+
+## 6. Implementasi "Tanya SABINA" v1 (Batch 7, 2026-07-12) — SELESAI
+
+Retrieval kurasi OFFLINE (bukan LLM), tiga commit terpisah, `flutter analyze` 0
+issues + `flutter test` lulus (29 test) di tiap langkah:
+
+1. **Data** — `lib/data/tanya_sabina_data.dart`: 72 entri const `TanyaSabinaEntry`
+   (id, cluster K1–K8, questionId/En, keywordsId/En, answerId/En dengan sintaks
+   `==marker==` & semua angka dipertahankan persis, sourceLabel, routes,
+   isSafetyPath). Terjemahan EN oleh Sonnet, setia ke teks tervalidasi.
+2. **Mesin** — `lib/services/tanya_sabina_service.dart`: normalisasi
+   (lowercase, strip tanda baca), 18 grup sinonim ID + 18 EN, skor
+   substring/keyword/konsep sederhana, detektor kata-bahaya (frasa satu-kata
+   → substring; multi-kata → kumpulan kata tak-berdampingan) yang memberi
+   bonus +1000 pada entri `isSafetyPath` relevan agar selalu naik ke atas, dan
+   log pertanyaan tak terjawab ke SharedPreferences (dedup, maks 100, FIFO).
+   13 entri berkata-bahaya (⚠ di judul) ditandai `isSafetyPath` — 6 eksplisit
+   "JALUR AMAN" (Q2/5/7/8/9/12) + 7 klaster K3 (Q26–32); ini menggantikan
+   rekap "9" yang sudah usang di draf sebelum K3 diperluas.
+   `test/tanya_sabina_service_test.dart` — 13 test.
+3. **UI** — `lib/screens/tanya_sabina_screen.dart`: kolom tanya besar
+   Fraunces-italic, 8 chip contoh (satu per klaster), kartu jawaban
+   (`MarkedText` + baris sumber + tombol "Buka: <layar>" per rute lewat
+   resolver `_routeTargets`), panel darurat rust DI ATAS jawaban untuk
+   `isSafetyPath` (tombol kuesioner + Konsultasi WhatsApp), fallback
+   bermartabat + saran topik + log otomatis (debounce 700ms). Jalan masuk:
+   kartu sage di Beranda setelah Jurnal Mingguan, dan seksi "Jawaban" di
+   `SearchResultScreen` (kartu ringkas, tap membuka layar penuh dengan query
+   yang sama via `initialQuery`). ARB id/en ditambah untuk semua teks baru.
+
+**Bug ditemukan & diperbaiki saat verifikasi manual di emulator:** seksi
+"Jawaban" + empty-state pencarian bisa overflow beberapa piksel saat keyboard
+terbuka (ruang vertikal terlalu sempit) — diperbaiki dengan membungkus
+empty-state dalam `SingleChildScrollView`.
+
+Diverifikasi live di `emulator-5554` (screenshot: `screenshots_batch7/`):
+kosong+chip, jawaban kopi (marker `==200 mg kafein per hari==`), jalur
+darurat "keluar darah banyak" (panel rust + tombol kuesioner & Konsultasi di
+atas jawaban), fallback pertanyaan ngawur + saran topik, dark mode (kosong +
+panel darurat), locale EN penuh (kosong + jawaban kopi), dan seksi "Jawaban"
+di layar hasil pencarian. Jumlah entri termuat dikonfirmasi = **72** (test +
+manual). Konsultasi menggunakan nomor WhatsApp yang sama dengan
+`bottom_navigation.dart` (6285249509299).
