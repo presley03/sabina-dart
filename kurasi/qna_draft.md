@@ -1,7 +1,8 @@
 # Draf Q&A Tanya SABINA — v1 (73 entri, 8 klaster)
 
-> STATUS: TERVALIDASI validator 2026-07-10 — kecuali 5 entri bertanda
-> `[MENUNGGU KONFIRMASI ULANG]` (Q10, Q13, Q33, Q70, Q72).
+> STATUS: FINAL — TERVALIDASI PENUH oleh Bdn. Wahidah Sukriani, S.ST.,
+> M.Keb. (2026-07-10, dua putaran). 72 entri aktif; Q33 dihapus atas
+> keputusan validator. Siap konversi data + terjemahan EN.
 > Bahasa Indonesia dulu; terjemahan EN dikerjakan Sonnet saat implementasi.
 > Format tiap entri: pertanyaan · kata kunci pencarian · jawaban (≤±120 kata,
 > `==istilah==` = marker stabilo) · sumber · rute layar terkait.
@@ -71,7 +72,7 @@ Rute: keluhan/keluar_cairan + Konsultasi
 ### Q10. Keputihan saat hamil normal?
 Kata kunci: keputihan, cairan putih, lendir
 Jawaban: Keputihan bening/putih susu tanpa bau menyengat dan tanpa gatal umumnya normal saat hamil — produksinya memang meningkat. Yang perlu diperiksakan: bila berbau, berwarna kehijauan/keabu-abuan, gatal, atau perih — bisa jadi infeksi yang perlu diobati agar tidak memengaruhi kehamilan.
-Sumber: `[MENUNGGU KONFIRMASI ULANG — A24: keputihan normal vs infeksi]`
+Sumber: Asuhan Kebidanan Kehamilan (2022) — divalidasi 2026-07-10
 Rute: keluhan/keluar_cairan
 
 ### Q11. Kapan gerakan janin mulai terasa?
@@ -89,7 +90,7 @@ Rute: keluhan/pergerakan_janin + Konsultasi
 ### Q13. Kram perut ringan saat hamil?
 Kata kunci: kram perut, nyeri perut bawah, perut kencang
 Jawaban: Kram ringan sesekali bisa normal — rahim yang membesar menarik ligamen di sekitarnya (nyeri ligamen bundar), terutama saat berubah posisi. Istirahat dan ubah posisi perlahan biasanya membantu. Waspadai bila kram hebat, menetap, atau disertai perdarahan/keluar cairan — segera periksakan.
-Sumber: `[MENUNGGU KONFIRMASI ULANG — A25: nyeri ligamen bundar]`
+Sumber: Asuhan Kebidanan Kehamilan (2022) — divalidasi 2026-07-10
 Rute: keluhan (menu)
 
 ### Q14. Nyeri punggung saat hamil, bagaimana mengatasinya?
@@ -210,13 +211,7 @@ Jawaban: Nyeri ulu hati ringan bisa sekadar asam lambung, tetapi nyeri ulu hati 
 Sumber: Konten SABINA (skrining preeklampsia)
 Rute: preeclampsia + Konsultasi
 
-### Q33. ⚠ Gatal hebat di telapak tangan/kaki?
-Kata kunci: gatal telapak, gatal seluruh badan
-Jawaban: Gatal ringan karena kulit meregang itu biasa. Namun gatal ==hebat di telapak tangan dan kaki==, terutama malam hari tanpa ruam, perlu diperiksakan — bisa terkait gangguan empedu kehamilan (kolestasis) yang memerlukan pemantauan. Sampaikan ke bidan/dokter pada kunjungan secepatnya.
-Sumber: `[MENUNGGU KONFIRMASI ULANG — B3: dimasukkan/tidak]`
-Rute: Konsultasi
-
-## K4 — Trimester & Perkembangan Janin
+### Q33. (DIHAPUS — keputusan validator 2026-07-10: topik kolestasis tidak dimasukkan)
 
 ### Q34. Kapan sebaiknya USG dan berapa kali?
 Kata kunci: usg, periksa kandungan, kapan usg
@@ -445,7 +440,7 @@ Rute: Konsultasi
 ### Q70. Benarkah menyusui bisa jadi KB alami?
 Kata kunci: kb alami, mal, menyusui mencegah hamil
 Jawaban: Metode Amenorea Laktasi (==MAL==) efektif hingga ==98%== HANYA bila tiga syarat terpenuhi sekaligus: ASI eksklusif (siang-malam, tanpa selingan), belum haid, DAN bayi belum 6 bulan. Bila satu saja tidak terpenuhi, perlindungannya turun — siapkan metode KB lanjutan.
-Sumber: sapabidan.com (Manfaat ASI) + buku KB & Kespro (2023) `[MENUNGGU KONFIRMASI ULANG — A20: 3 syarat MAL]`
+Sumber: sapabidan.com (Manfaat ASI) + buku KB & Kespro (2023) — divalidasi 2026-07-10
 Rute: Konsultasi
 
 ### Q71. KB apa yang aman untuk ibu menyusui?
@@ -457,7 +452,7 @@ Rute: Konsultasi
 ### Q72. Apa itu masa nifas dan berapa lama?
 Kata kunci: nifas, masa nifas, darah nifas
 Jawaban: Masa nifas adalah pemulihan setelah persalinan, berlangsung sekitar ==6 minggu (42 hari)==. Darah nifas (lokia) normal berangsur berubah dari merah → kecokelatan → kekuningan → bening. Waspadai: darah kembali banyak, berbau busuk, demam, atau nyeri hebat — segera periksa. Jadwalkan kunjungan nifas sesuai anjuran bidan.
-Sumber: Buku Nifas (2023, 2024) `[MENUNGGU KONFIRMASI ULANG — A22]`
+Sumber: Buku "Asuhan Kebidanan Pada Nifas" (2023) + "Asuhan Holistik Masa Nifas dan Menyusui" (2024) — divalidasi 2026-07-10
 Rute: Konsultasi
 
 ### Q73. Sedih terus setelah melahirkan, apakah baby blues?
@@ -469,13 +464,14 @@ Rute: artikel/stres_kehamilan + Konsultasi
 ---
 
 ## Rekap untuk validasi
-- Total: **73 entri** (15 keluhan, 10 nutrisi, 8 tanda bahaya, 8 trimester,
+- Total: **72 entri aktif** (15 keluhan, 10 nutrisi, 7 tanda bahaya, 8 trimester,
   8 aktivitas/stres, 13 menyusui, 6 persalinan, 5 KB/nifas).
 - **9 entri JALUR AMAN** (Q2, Q5, Q7, Q8, Q9, Q12, Q26–Q33) — wajib tampil
   dengan tombol kuesioner + Konsultasi.
-- **Validasi 2026-07-10 selesai** (lihat `kurasi/validasi_checklist.md`):
-  19 item angka dikonfirmasi, 3 koreksi diterapkan, sitasi buku/riset
-  disetujui, daftar jalur aman disetujui tanpa tambahan. **5 entri menunggu
-  konfirmasi ulang** (pertanyaan disederhanakan): Q10, Q13, Q33, Q70, Q72.
+- **Validasi SELESAI PENUH 2026-07-10** (dua putaran, lihat
+  `kurasi/validasi_checklist.md`): 23 item angka dikonfirmasi, 3 koreksi
+  diterapkan (TTD 90 tablet; folat minimal 400 mcg; metode hitung gerakan
+  janin dihapus), Q33 dihapus, angka +340 kkal dipertahankan sesuai artikel
+  app, sitasi & jalur aman disetujui. TIDAK ADA entri menggantung.
 - Setelah validasi: Sonnet menerjemahkan ke EN + implementasi mesin retrieval
   (kata kunci + sinonim + jalur aman) sesuai memory `tanya-sabina-qna-direction`.

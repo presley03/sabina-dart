@@ -98,3 +98,8 @@ C. Persetujuan sitasi
 
 D. Jalur aman (safety)
 1. Itu saja tidak usah ditambah
+
+---
+## Putaran 2 (2026-07-10) — konfirmasi akhir via Presley
+Q70 benar · Q72 benar · Q10 benar · Q13 benar · Q33 TIDAK dimasukkan ·
+angka +340 kkal dipertahankan sesuai artikel app. VALIDASI SELESAI PENUH.

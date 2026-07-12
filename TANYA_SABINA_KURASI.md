@@ -64,6 +64,6 @@ sering bertanya soal ini. Juga jadi benih roadmap Fase D (postpartum).
 ## 5. Status
 - [x] Inventaris 3 sumber (scholar, sapabidan, bukuloka)
 - [x] Fetch & ringkas 12 artikel sapabidan → `kurasi/bahan_sapabidan.md` (2026-07-10)
-- [x] Draf 73 Q&A / 8 klaster → `kurasi/qna_draft.md` (9 jalur aman, ±25 tanda [VALIDASI]) — MENUNGGU VALIDASI BU WAHIDAH
+- [x] Draf Q&A → `kurasi/qna_draft.md` — **VALIDASI SELESAI PENUH 2026-07-10** (72 entri final, 9 jalur aman, Q33 dihapus)
 - [ ] Bahan buku dari pemilik
-- [ ] Validasi pemilik → implementasi Sonnet (mesin retrieval)
+- [x] Validasi pemilik SELESAI → implementasi mesin: Batch 7 Sonnet; sinkron data final + EN: Batch 8
