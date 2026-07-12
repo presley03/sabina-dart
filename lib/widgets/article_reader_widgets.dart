@@ -466,7 +466,7 @@ class ArticleCallout extends StatelessWidget {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
-                color: SabinaColors.neutral900,
+                color: context.palette.ink,
                 height: 1.75,
               ),
             ),
