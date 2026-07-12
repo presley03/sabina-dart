@@ -282,4 +282,15 @@ busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
   + `14_result_hero_icon_removed_full.png`. `flutter analyze` = 0 issues,
   `flutter test` = 16/16.
 
+### Tindak lanjut minor putaran 3 (review Fable)
+
+- [ ] Halaman PROFIL masih tampil terang saat tema "Gelap" aktif (screenshot
+  04 batch 6) — user_profile_screen belum dimigrasi ke context.palette;
+  gabungkan dengan batch "dark mode per-layar menyeluruh" + ikon off-palette
+  di menu profil (Identitas biru, dsb.).
+- Catatan verifikasi: overlap label busur ("Tidak Ada Risiko" tertimpa
+  marker) sudah TUNTAS di 646b0fe — label dipindah ke bawah kotak busur
+  (struktural, bukan patch spacing); screenshot 13/14 batch 6 diambil
+  sebelum commit final tsb.
+
 ## (tambahkan temuan berikutnya di bawah ini)
