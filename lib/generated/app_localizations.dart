@@ -8204,6 +8204,96 @@ abstract class AppLocalizations {
   /// **'Catatan dihapus'**
   String get journalEntryDeleted;
 
+  /// Judul kartu Jurnal Mingguan di beranda & judul layar jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Jurnal Mingguan'**
+  String get journalCardTitle;
+
+  /// Subjudul kartu Jurnal Mingguan di beranda
+  ///
+  /// In id, this message translates to:
+  /// **'Catat perasaanmu minggu ini'**
+  String get journalCardSubtitle;
+
+  /// Label mood: bahagia
+  ///
+  /// In id, this message translates to:
+  /// **'Bahagia'**
+  String get journalMoodHappy;
+
+  /// Label mood: tenang
+  ///
+  /// In id, this message translates to:
+  /// **'Tenang'**
+  String get journalMoodCalm;
+
+  /// Label mood: biasa saja
+  ///
+  /// In id, this message translates to:
+  /// **'Biasa'**
+  String get journalMoodNeutral;
+
+  /// Label mood: lelah
+  ///
+  /// In id, this message translates to:
+  /// **'Lelah'**
+  String get journalMoodTired;
+
+  /// Label mood: cemas
+  ///
+  /// In id, this message translates to:
+  /// **'Cemas'**
+  String get journalMoodAnxious;
+
+  /// Label seksi daftar riwayat jurnal, dengan jumlah catatan
+  ///
+  /// In id, this message translates to:
+  /// **'PERJALANANMU · {count} CATATAN'**
+  String journalTimelineHeader(int count);
+
+  /// Teks empty state saat belum ada entri jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Belum ada catatan. Mulai dari minggu ini — kelak jadi kenang-kenangan perjalananmu.'**
+  String get journalEmptyState;
+
+  /// Label minggu berjalan pada kartu entri jurnal (huruf besar)
+  ///
+  /// In id, this message translates to:
+  /// **'MINGGU KE-{week}'**
+  String journalCurrentWeekLabel(int week);
+
+  /// Pertanyaan ajakan memilih mood pada kartu entri jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Bagaimana perasaanmu?'**
+  String get journalMoodPrompt;
+
+  /// Hint text kolom catatan jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Tulis catatan untuk minggu ini…'**
+  String get journalNoteHint;
+
+  /// Tombol simpan pada kartu entri jurnal
+  ///
+  /// In id, this message translates to:
+  /// **'Simpan Catatan'**
+  String get journalSaveButton;
+
+  /// Pesan saat HPHT belum diisi sehingga jurnal mingguan belum bisa dimulai
+  ///
+  /// In id, this message translates to:
+  /// **'Isi tanggal HPHT di Riwayat Kehamilan agar usia kehamilanmu terhitung — lalu kamu bisa mulai menulis jurnal mingguan di sini.'**
+  String get journalNoHpht;
+
+  /// Label minggu pada kartu riwayat jurnal (huruf kapital biasa)
+  ///
+  /// In id, this message translates to:
+  /// **'Minggu ke-{week}'**
+  String journalTimelineWeekLabel(int week);
+
   /// Judul kartu ajakan Tanya SABINA di Beranda
   ///
   /// In id, this message translates to:

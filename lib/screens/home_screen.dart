@@ -778,8 +778,8 @@ Widget _buildSectionLabel(BuildContext context, String label) {
 // ---------------------------------------------------------------------------
 
 // Kartu masuk Jurnal Mingguan (fitur keepsake).
-// TODO(l10n): teks masih ID.
 Widget _buildJournalCard(BuildContext context) {
+  final l10n = AppLocalizations.of(context)!;
   final p = context.palette;
   return GestureDetector(
     onTap: () => Navigator.push(
@@ -840,7 +840,7 @@ Widget _buildJournalCard(BuildContext context) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Jurnal Mingguan',
+                        l10n.journalCardTitle,
                         style: GoogleFonts.fraunces(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -849,7 +849,7 @@ Widget _buildJournalCard(BuildContext context) {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        'Catat perasaanmu minggu ini',
+                        l10n.journalCardSubtitle,
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 12.5,
                           color: p.inkMuted,

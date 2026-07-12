@@ -5060,6 +5060,81 @@
   "@journalEntryDeleted": {
     "description": "SnackBar shown after a journal entry is deleted"
   },
+  "journalCardTitle": "Weekly Journal",
+  "@journalCardTitle": {
+    "description": "Title of the Weekly Journal card on Home & the journal screen title"
+  },
+  "journalCardSubtitle": "Note how you feel this week",
+  "@journalCardSubtitle": {
+    "description": "Subtitle of the Weekly Journal card on Home"
+  },
+  "journalMoodHappy": "Happy",
+  "@journalMoodHappy": {
+    "description": "Mood label: happy"
+  },
+  "journalMoodCalm": "Calm",
+  "@journalMoodCalm": {
+    "description": "Mood label: calm"
+  },
+  "journalMoodNeutral": "Okay",
+  "@journalMoodNeutral": {
+    "description": "Mood label: neutral/okay"
+  },
+  "journalMoodTired": "Tired",
+  "@journalMoodTired": {
+    "description": "Mood label: tired"
+  },
+  "journalMoodAnxious": "Anxious",
+  "@journalMoodAnxious": {
+    "description": "Mood label: anxious"
+  },
+  "journalTimelineHeader": "YOUR JOURNEY · {count} NOTES",
+  "@journalTimelineHeader": {
+    "description": "Section label above the journal history list, with note count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "journalEmptyState": "No notes yet. Start this week — it'll become a keepsake of your journey.",
+  "@journalEmptyState": {
+    "description": "Empty state text shown when there are no journal entries yet"
+  },
+  "journalCurrentWeekLabel": "WEEK {week}",
+  "@journalCurrentWeekLabel": {
+    "description": "Current week label on the journal entry card (uppercase)",
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
+  "journalMoodPrompt": "How are you feeling?",
+  "@journalMoodPrompt": {
+    "description": "Prompt inviting the user to pick a mood on the journal entry card"
+  },
+  "journalNoteHint": "Write a note for this week…",
+  "@journalNoteHint": {
+    "description": "Hint text for the journal note field"
+  },
+  "journalSaveButton": "Save Note",
+  "@journalSaveButton": {
+    "description": "Save button on the journal entry card"
+  },
+  "journalNoHpht": "Fill in your LMP date in Pregnancy History so your gestational age can be calculated — then you can start writing your weekly journal here.",
+  "@journalNoHpht": {
+    "description": "Message shown when LMP date is missing so the weekly journal cannot start yet"
+  },
+  "journalTimelineWeekLabel": "Week {week}",
+  "@journalTimelineWeekLabel": {
+    "description": "Week label on the journal history card (regular case)",
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
   "tanyaSabinaCardTitle": "Ask SABINA",
   "@tanyaSabinaCardTitle": {
     "description": "Title of the Ask SABINA prompt card on the Home screen"

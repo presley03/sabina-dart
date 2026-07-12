@@ -4647,6 +4647,59 @@ class AppLocalizationsId extends AppLocalizations {
   String get journalEntryDeleted => 'Catatan dihapus';
 
   @override
+  String get journalCardTitle => 'Jurnal Mingguan';
+
+  @override
+  String get journalCardSubtitle => 'Catat perasaanmu minggu ini';
+
+  @override
+  String get journalMoodHappy => 'Bahagia';
+
+  @override
+  String get journalMoodCalm => 'Tenang';
+
+  @override
+  String get journalMoodNeutral => 'Biasa';
+
+  @override
+  String get journalMoodTired => 'Lelah';
+
+  @override
+  String get journalMoodAnxious => 'Cemas';
+
+  @override
+  String journalTimelineHeader(int count) {
+    return 'PERJALANANMU · $count CATATAN';
+  }
+
+  @override
+  String get journalEmptyState =>
+      'Belum ada catatan. Mulai dari minggu ini — kelak jadi kenang-kenangan perjalananmu.';
+
+  @override
+  String journalCurrentWeekLabel(int week) {
+    return 'MINGGU KE-$week';
+  }
+
+  @override
+  String get journalMoodPrompt => 'Bagaimana perasaanmu?';
+
+  @override
+  String get journalNoteHint => 'Tulis catatan untuk minggu ini…';
+
+  @override
+  String get journalSaveButton => 'Simpan Catatan';
+
+  @override
+  String get journalNoHpht =>
+      'Isi tanggal HPHT di Riwayat Kehamilan agar usia kehamilanmu terhitung — lalu kamu bisa mulai menulis jurnal mingguan di sini.';
+
+  @override
+  String journalTimelineWeekLabel(int week) {
+    return 'Minggu ke-$week';
+  }
+
+  @override
   String get tanyaSabinaCardTitle => 'Tanya SABINA';
 
   @override

@@ -7,8 +7,6 @@ import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/services/database_helper.dart';
 import 'package:sabina/services/journal_service.dart';
 
-// TODO(l10n): teks di layar ini masih ID — pindahkan ke ARB (id/en) saat sempat.
-
 class WeeklyJournalScreen extends StatefulWidget {
   const WeeklyJournalScreen({super.key});
 
@@ -18,17 +16,23 @@ class WeeklyJournalScreen extends StatefulWidget {
 
 class _MoodSpec {
   final IconData icon;
-  final String label;
+  final String Function(AppLocalizations) label;
   const _MoodSpec(this.icon, this.label);
 }
 
 const _moods = <_MoodSpec>[
-  _MoodSpec(Icons.sentiment_very_satisfied_rounded, 'Bahagia'),
-  _MoodSpec(Icons.sentiment_satisfied_rounded, 'Tenang'),
-  _MoodSpec(Icons.sentiment_neutral_rounded, 'Biasa'),
-  _MoodSpec(Icons.sentiment_dissatisfied_rounded, 'Lelah'),
-  _MoodSpec(Icons.sentiment_very_dissatisfied_rounded, 'Cemas'),
+  _MoodSpec(Icons.sentiment_very_satisfied_rounded, _moodHappy),
+  _MoodSpec(Icons.sentiment_satisfied_rounded, _moodCalm),
+  _MoodSpec(Icons.sentiment_neutral_rounded, _moodNeutral),
+  _MoodSpec(Icons.sentiment_dissatisfied_rounded, _moodTired),
+  _MoodSpec(Icons.sentiment_very_dissatisfied_rounded, _moodAnxious),
 ];
+
+String _moodHappy(AppLocalizations l) => l.journalMoodHappy;
+String _moodCalm(AppLocalizations l) => l.journalMoodCalm;
+String _moodNeutral(AppLocalizations l) => l.journalMoodNeutral;
+String _moodTired(AppLocalizations l) => l.journalMoodTired;
+String _moodAnxious(AppLocalizations l) => l.journalMoodAnxious;
 
 Color _moodColor(int i, SabinaPalette p) {
   switch (i) {
@@ -261,6 +265,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
   @override
   Widget build(BuildContext context) {
     final p = context.palette;
+    final l = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: p.ground,
       body: SafeArea(
@@ -281,7 +286,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
                       ),
                       const SizedBox(width: 12),
                       Text(
-                        'Jurnal Mingguan',
+                        l.journalCardTitle,
                         style: GoogleFonts.fraunces(
                           fontSize: 26,
                           fontWeight: FontWeight.w500,
@@ -293,12 +298,12 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
                   ),
                   const SizedBox(height: 20),
                   if (_activeWeek == null)
-                    _noHpht(p)
+                    _noHpht(p, l)
                   else
                     _entryCard(p),
                   const SizedBox(height: 28),
                   Text(
-                    'PERJALANANMU · ${_entries.length} CATATAN',
+                    l.journalTimelineHeader(_entries.length),
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 11,
                       fontWeight: FontWeight.w700,
@@ -309,7 +314,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
                   const SizedBox(height: 14),
                   if (_entries.isEmpty)
                     Text(
-                      'Belum ada catatan. Mulai dari minggu ini — kelak jadi kenang-kenangan perjalananmu.',
+                      l.journalEmptyState,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 13.5,
                         height: 1.5,
@@ -353,7 +358,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
               Text(
                 isEditingPast
                     ? l.journalEditingWeek(_activeWeek!)
-                    : 'MINGGU KE-${_activeWeek!}',
+                    : l.journalCurrentWeekLabel(_activeWeek!),
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
@@ -377,7 +382,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
           ),
           const SizedBox(height: 6),
           Text(
-            'Bagaimana perasaanmu?',
+            l.journalMoodPrompt,
             style: GoogleFonts.fraunces(
               fontSize: 23,
               fontWeight: FontWeight.w500,
@@ -422,7 +427,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      _moods[i].label,
+                      _moods[i].label(l),
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 10.5,
                         fontWeight: active ? FontWeight.w700 : FontWeight.w500,
@@ -443,7 +448,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
             style: GoogleFonts.plusJakartaSans(
                 fontSize: 14.5, height: 1.5, color: p.ink),
             decoration: InputDecoration(
-              hintText: 'Tulis catatan untuk minggu ini…',
+              hintText: l.journalNoteHint,
               hintStyle:
                   GoogleFonts.plusJakartaSans(fontSize: 14.5, color: p.inkMuted),
               filled: true,
@@ -477,7 +482,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
                     borderRadius: BorderRadius.circular(18)),
               ),
               child: Text(
-                'Simpan Catatan',
+                l.journalSaveButton,
                 style: GoogleFonts.plusJakartaSans(
                     fontSize: 15, fontWeight: FontWeight.w700),
               ),
@@ -488,7 +493,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
     );
   }
 
-  Widget _noHpht(SabinaPalette p) {
+  Widget _noHpht(SabinaPalette p, AppLocalizations l) {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -497,8 +502,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
         border: Border.all(color: p.line),
       ),
       child: Text(
-        'Isi tanggal HPHT di Riwayat Kehamilan agar usia kehamilanmu terhitung — '
-        'lalu kamu bisa mulai menulis jurnal mingguan di sini.',
+        l.journalNoHpht,
         style: GoogleFonts.plusJakartaSans(
             fontSize: 13.5, height: 1.55, color: p.ink),
       ),
@@ -547,7 +551,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
                 Row(
                   children: [
                     Text(
-                      'Minggu ke-${e.week}',
+                      l.journalTimelineWeekLabel(e.week),
                       style: GoogleFonts.fraunces(
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
@@ -556,7 +560,7 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      '· ${_moods[e.mood].label}',
+                      '· ${_moods[e.mood].label(l)}',
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 12,
                         fontWeight: FontWeight.w700,

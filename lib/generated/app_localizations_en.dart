@@ -4638,6 +4638,59 @@ class AppLocalizationsEn extends AppLocalizations {
   String get journalEntryDeleted => 'Note deleted';
 
   @override
+  String get journalCardTitle => 'Weekly Journal';
+
+  @override
+  String get journalCardSubtitle => 'Note how you feel this week';
+
+  @override
+  String get journalMoodHappy => 'Happy';
+
+  @override
+  String get journalMoodCalm => 'Calm';
+
+  @override
+  String get journalMoodNeutral => 'Okay';
+
+  @override
+  String get journalMoodTired => 'Tired';
+
+  @override
+  String get journalMoodAnxious => 'Anxious';
+
+  @override
+  String journalTimelineHeader(int count) {
+    return 'YOUR JOURNEY · $count NOTES';
+  }
+
+  @override
+  String get journalEmptyState =>
+      'No notes yet. Start this week — it\'ll become a keepsake of your journey.';
+
+  @override
+  String journalCurrentWeekLabel(int week) {
+    return 'WEEK $week';
+  }
+
+  @override
+  String get journalMoodPrompt => 'How are you feeling?';
+
+  @override
+  String get journalNoteHint => 'Write a note for this week…';
+
+  @override
+  String get journalSaveButton => 'Save Note';
+
+  @override
+  String get journalNoHpht =>
+      'Fill in your LMP date in Pregnancy History so your gestational age can be calculated — then you can start writing your weekly journal here.';
+
+  @override
+  String journalTimelineWeekLabel(int week) {
+    return 'Week $week';
+  }
+
+  @override
   String get tanyaSabinaCardTitle => 'Ask SABINA';
 
   @override

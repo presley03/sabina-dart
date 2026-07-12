@@ -5060,6 +5060,81 @@
   "@journalEntryDeleted": {
     "description": "SnackBar setelah entri jurnal dihapus"
   },
+  "journalCardTitle": "Jurnal Mingguan",
+  "@journalCardTitle": {
+    "description": "Judul kartu Jurnal Mingguan di beranda & judul layar jurnal"
+  },
+  "journalCardSubtitle": "Catat perasaanmu minggu ini",
+  "@journalCardSubtitle": {
+    "description": "Subjudul kartu Jurnal Mingguan di beranda"
+  },
+  "journalMoodHappy": "Bahagia",
+  "@journalMoodHappy": {
+    "description": "Label mood: bahagia"
+  },
+  "journalMoodCalm": "Tenang",
+  "@journalMoodCalm": {
+    "description": "Label mood: tenang"
+  },
+  "journalMoodNeutral": "Biasa",
+  "@journalMoodNeutral": {
+    "description": "Label mood: biasa saja"
+  },
+  "journalMoodTired": "Lelah",
+  "@journalMoodTired": {
+    "description": "Label mood: lelah"
+  },
+  "journalMoodAnxious": "Cemas",
+  "@journalMoodAnxious": {
+    "description": "Label mood: cemas"
+  },
+  "journalTimelineHeader": "PERJALANANMU · {count} CATATAN",
+  "@journalTimelineHeader": {
+    "description": "Label seksi daftar riwayat jurnal, dengan jumlah catatan",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "journalEmptyState": "Belum ada catatan. Mulai dari minggu ini — kelak jadi kenang-kenangan perjalananmu.",
+  "@journalEmptyState": {
+    "description": "Teks empty state saat belum ada entri jurnal"
+  },
+  "journalCurrentWeekLabel": "MINGGU KE-{week}",
+  "@journalCurrentWeekLabel": {
+    "description": "Label minggu berjalan pada kartu entri jurnal (huruf besar)",
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
+  "journalMoodPrompt": "Bagaimana perasaanmu?",
+  "@journalMoodPrompt": {
+    "description": "Pertanyaan ajakan memilih mood pada kartu entri jurnal"
+  },
+  "journalNoteHint": "Tulis catatan untuk minggu ini…",
+  "@journalNoteHint": {
+    "description": "Hint text kolom catatan jurnal"
+  },
+  "journalSaveButton": "Simpan Catatan",
+  "@journalSaveButton": {
+    "description": "Tombol simpan pada kartu entri jurnal"
+  },
+  "journalNoHpht": "Isi tanggal HPHT di Riwayat Kehamilan agar usia kehamilanmu terhitung — lalu kamu bisa mulai menulis jurnal mingguan di sini.",
+  "@journalNoHpht": {
+    "description": "Pesan saat HPHT belum diisi sehingga jurnal mingguan belum bisa dimulai"
+  },
+  "journalTimelineWeekLabel": "Minggu ke-{week}",
+  "@journalTimelineWeekLabel": {
+    "description": "Label minggu pada kartu riwayat jurnal (huruf kapital biasa)",
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
   "tanyaSabinaCardTitle": "Tanya SABINA",
   "@tanyaSabinaCardTitle": {
     "description": "Judul kartu ajakan Tanya SABINA di Beranda"
