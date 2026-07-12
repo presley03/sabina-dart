@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:sabina/core/theme/app_theme.dart';
 import 'identity_screen.dart';
 import 'home_screen.dart';
 import '../services/app_integration_service.dart';
@@ -103,9 +102,11 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    final p = context.palette;
+    // Splash SELALU gelap (kedua tema): blending aditif orb jenuh ke putih
+    // di latar terang — kontras gelap membuat violet/cyan/pink tampil pekat
+    // seperti referensi Clara. Ungu-hitam dalam, senada dunia Twilight.
     return Scaffold(
-      backgroundColor: p.ground,
+      backgroundColor: const Color(0xFF0C0812),
       body: Center(
         child: FadeTransition(
           opacity: _fadeAnimation,
