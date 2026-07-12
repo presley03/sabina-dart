@@ -295,13 +295,34 @@ busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
 
 ## Koreksi putaran 4 (uji Presley 2026-07-12 — EN, dark mode tab, splash)
 
-- [ ] **A. Terjemahan EN belum lengkap** — di locale EN: kartu "Jurnal
+- [x] **A. Terjemahan EN belum lengkap** — di locale EN: kartu "Jurnal
   Mingguan / Catat perasaanmu minggu ini" masih ID (hardcode,
   home_screen.dart:~852 + weekly_journal_screen.dart ber-TODO(l10n));
   teks carousel tips & chip kategori masih ID. Audit sistematis: bandingkan
   ARB id vs en, key bernilai identik >25 char = kandidat belum
   diterjemahkan (34 kandidat; nama referensi Inggris yang memang sama
   DILEWATI).
+  (Kartu Jurnal Mingguan di home_screen + SELURUH weekly_journal_screen.dart
+  dimigrasi ke ARB id/en — 17 key baru: judul/subjudul kartu, 5 label mood,
+  prompt "Bagaimana perasaanmu?", hint catatan, tombol simpan, dialog hapus
+  (sudah ada sebelumnya), empty state, state tanpa-HPHT, label minggu
+  berjalan & timeline. Audit sistematis ARB id-vs-en (skrip Node,
+  kandidat = nilai identik >25 char) menemukan PERSIS 34 kandidat — SEMUA
+  adalah sitasi referensi Inggris (ACOG/WHO/NHS/Mayo Clinic/CDC/dst.) yang
+  memang wajar sama di kedua bahasa; tidak ada yang perlu diterjemahkan.
+  Carousel tips (`tipTag*`/`tip*`) & chip kategori artikel (`*Category`)
+  sudah punya terjemahan EN yang benar di ARB — dikonfirmasi live di
+  emulator. Ditemukan & diperbaiki bug terpisah saat verifikasi: `_slides`
+  di `_TipsCarouselState` (home_screen.dart) dideklarasikan `late final`
+  tapi di-assign ulang di `didChangeDependencies` setiap locale/tema
+  berubah, melempar `LateInitializationError` yang membuat carousel beku
+  di teks ID terakhir walau locale sudah EN — diperbaiki jadi `late`
+  (bukan `late final`), komit `80f084c`. Diverifikasi live emulator locale
+  EN: beranda (sapaan, kartu Jurnal, kartu Tanya SABINA, carousel tips
+  "HYDRATION"/"MENTAL HEALTH", bento, kartu artikel pilihan), layar Tanya
+  SABINA, dan seluruh layar Jurnal Mingguan — screenshot di
+  `screenshots_batch9/`. `flutter analyze` = 0 issues, `flutter test` =
+  29/29 lulus. Komit `d245195` (ARB+migrasi) & `80f084c` (fix crash).
 - [ ] **B. Dark mode tidak mengubah tab Skrining & Artikel** — kedua layar
   tab (skrining_screen header gradien + kartu; artikel_screen filter chip +
   kartu daftar) masih hardcode warna terang -> migrasi context.palette.
