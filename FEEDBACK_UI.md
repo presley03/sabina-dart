@@ -342,8 +342,8 @@ busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
   Persalinan yang tetap biru off-palette (isu terpisah, di luar cakupan,
   sama seperti dicatat di §10 roadmap). Diverifikasi live emulator: kedua
   tab terang & gelap, filter chip aktif/nonaktif, screenshot di
-  `screenshots_batch9/` (29_skrining_light, 35_skrining_dark,
-  30_artikel_light, 36_artikel_dark, 37_artikel_dark_filtered). Halaman
+  `screenshots_batch9/` (05_skrining_light, 06_skrining_dark,
+  07_artikel_light, 08_artikel_dark, 09_artikel_dark_filtered). Halaman
   Profil sendiri sengaja TIDAK disentuh — sudah tercatat sebagai isu
   terpisah di §"Tindak lanjut minor putaran 3". `flutter analyze` = 0
   issues, `flutter test` = 29/29. Komit `d624f01`.)
@@ -375,9 +375,10 @@ busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
   `context.palette.ground` (sadar tema). Logika 3 detik + cek identitas
   TIDAK diubah. Diverifikasi live emulator mode terang & gelap (cold-start
   burst-capture karena splash hanya tampil ±3 detik) —
-  screenshots_batch9/orb3_4.png, orb3_6.png (terang, dua fase animasi
-  berbeda), orbdark_4.png (gelap — backdrop menyatu, core & fringe warna
-  tetap terbaca). `flutter analyze` = 0 issues, `flutter test` = 29/29.
+  screenshots_batch9/10_splash_orb_light_a.png, 11_splash_orb_light_b.png
+  (terang, dua fase animasi berbeda), 12_splash_orb_dark.png (gelap —
+  backdrop menyatu, core & fringe warna tetap terbaca). `flutter analyze`
+  = 0 issues, `flutter test` = 29/29.
   Komit `ec631a6`.)
 
 ## (tambahkan temuan berikutnya di bawah ini)
