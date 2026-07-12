@@ -12,8 +12,9 @@ class SkriningScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final p = context.palette;
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: p.ground,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -88,15 +89,17 @@ class SkriningScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // ── Section: Skrining Risiko ──────────────────────────────
-                  _sectionLabel(AppLocalizations.of(context)?.screeningRisks ??
-                      'SKRINING RISIKO'),
+                  _sectionLabel(
+                      p,
+                      AppLocalizations.of(context)?.screeningRisks ??
+                          'SKRINING RISIKO'),
                   const SizedBox(height: 10),
 
                   // Preeklampsia card
                   _SkriningCard(
                     icon: Icons.monitor_heart_rounded,
-                    iconColor: SabinaColors.error700,
-                    iconBg: SabinaColors.error100,
+                    iconColor: p.critical,
+                    iconBg: p.criticalSoft,
                     illustrationAsset:
                         'assets/images/home/bento_preeklampsia.png',
                     title:
@@ -109,13 +112,13 @@ class SkriningScreen extends StatelessWidget {
                       _TagData(
                           AppLocalizations.of(context)?.highRisk ??
                               '⚠ Risiko Tinggi',
-                          SabinaColors.error100,
-                          SabinaColors.error700),
+                          p.criticalSoft,
+                          p.critical),
                       _TagData(
                           AppLocalizations.of(context)?.questionsCount(12) ??
                               '12 pertanyaan',
-                          SabinaColors.neutral100,
-                          SabinaColors.neutral500),
+                          p.groundAlt,
+                          p.inkMuted),
                     ],
                     onTap: () => Navigator.push(
                       context,
@@ -129,8 +132,8 @@ class SkriningScreen extends StatelessWidget {
                   // Penapisan card
                   _SkriningCard(
                     icon: Icons.shield_rounded,
-                    iconColor: const Color(0xFF6F937D),
-                    iconBg: const Color(0xFFE2EBE4),
+                    iconColor: p.sage,
+                    iconBg: p.sageSoft,
                     illustrationAsset: 'assets/images/home/bento_skrining.png',
                     title: AppLocalizations.of(context)?.advancedScreening ??
                         'Penapisan Tingkat Lanjut',
@@ -141,13 +144,13 @@ class SkriningScreen extends StatelessWidget {
                       _TagData(
                           AppLocalizations.of(context)?.lowRisk ??
                               '✓ Risiko Rendah',
-                          const Color(0xFFE2EBE4),
-                          const Color(0xFF6F937D)),
+                          p.sageSoft,
+                          p.sage),
                       _TagData(
                           AppLocalizations.of(context)?.questionsCount(20) ??
                               '20 pertanyaan',
-                          SabinaColors.neutral100,
-                          SabinaColors.neutral500),
+                          p.groundAlt,
+                          p.inkMuted),
                     ],
                     onTap: () => Navigator.push(
                       context,
@@ -160,6 +163,7 @@ class SkriningScreen extends StatelessWidget {
 
                   // ── Section: Pemantauan Rutin ─────────────────────────────
                   _sectionLabel(
+                      p,
                       AppLocalizations.of(context)?.routineMonitoring ??
                           'PEMANTAUAN RUTIN'),
                   const SizedBox(height: 10),
@@ -167,11 +171,11 @@ class SkriningScreen extends StatelessWidget {
                   // Keluhan card
                   _SkriningCard(
                     icon: Icons.medical_information_rounded,
-                    iconColor: const Color(0xFFC08A3C),
-                    iconBg: const Color(0xFFF5E8D2),
+                    iconColor: p.amber,
+                    iconBg: p.amberSoft,
                     illustrationAsset:
                         'assets/images/keluhan/icons/ic_mual.png',
-                    illustrationTint: const Color(0xFFC08A3C),
+                    illustrationTint: p.amber,
                     title: AppLocalizations.of(context)?.reportComplaint ??
                         'Report Complaint',
                     description: AppLocalizations.of(context)
@@ -181,8 +185,8 @@ class SkriningScreen extends StatelessWidget {
                       _TagData(
                           AppLocalizations.of(context)?.complaintTypes ??
                               '6 types of complaints',
-                          SabinaColors.neutral100,
-                          SabinaColors.neutral500),
+                          p.groundAlt,
+                          p.inkMuted),
                     ],
                     onTap: () => Navigator.push(
                       context,
@@ -208,8 +212,8 @@ class SkriningScreen extends StatelessWidget {
                       _TagData(
                           AppLocalizations.of(context)?.dailyMonitoring ??
                               'Monitoring harian',
-                          SabinaColors.neutral100,
-                          SabinaColors.neutral500),
+                          p.groundAlt,
+                          p.inkMuted),
                     ],
                     onTap: () => Navigator.push(
                       context,
@@ -224,14 +228,13 @@ class SkriningScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
-                      color: SabinaColors.primary100,
+                      color: p.primarySoft,
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(Icons.info_rounded,
-                            size: 15, color: SabinaColors.primary700),
+                        Icon(Icons.info_rounded, size: 15, color: p.primary),
                         const SizedBox(width: 10),
                         Expanded(
                           child: Text(
@@ -240,7 +243,7 @@ class SkriningScreen extends StatelessWidget {
                                 'Skrining rutin disarankan setiap 4 minggu pada trimester pertama, dan lebih sering memasuki trimester ketiga.',
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 12,
-                              color: SabinaColors.primary700,
+                              color: p.primary,
                               fontWeight: FontWeight.w500,
                               height: 1.5,
                             ),
@@ -260,12 +263,12 @@ class SkriningScreen extends StatelessWidget {
     );
   }
 
-  Widget _sectionLabel(String label) => Text(
+  Widget _sectionLabel(SabinaPalette p, String label) => Text(
         label,
         style: GoogleFonts.plusJakartaSans(
           fontSize: 10,
           fontWeight: FontWeight.w700,
-          color: SabinaColors.neutral500,
+          color: p.inkMuted,
           letterSpacing: 1.2,
         ),
       );
@@ -298,8 +301,9 @@ class _SkriningCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final p = context.palette;
     return Material(
-      color: SabinaColors.white,
+      color: p.surface,
       borderRadius: BorderRadius.circular(18),
       child: InkWell(
         onTap: onTap,
@@ -310,7 +314,7 @@ class _SkriningCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(18),
             boxShadow: [
               BoxShadow(
-                color: SabinaColors.neutral900.withValues(alpha: 0.05),
+                color: p.cardShadow,
                 blurRadius: 10,
                 offset: const Offset(0, 2),
               ),
@@ -369,7 +373,7 @@ class _SkriningCard extends StatelessWidget {
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
-                              color: SabinaColors.neutral900,
+                              color: p.ink,
                             ),
                           ),
                           const SizedBox(height: 3),
@@ -377,7 +381,7 @@ class _SkriningCard extends StatelessWidget {
                             description,
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 12,
-                              color: SabinaColors.neutral500,
+                              color: p.inkMuted,
                               height: 1.4,
                             ),
                           ),
@@ -385,13 +389,13 @@ class _SkriningCard extends StatelessWidget {
                       ),
                     ),
                     Icon(Icons.chevron_right_rounded,
-                        color: SabinaColors.neutral300, size: 22),
+                        color: p.line, size: 22),
                   ],
                 ),
               ),
               // Tags footer
               if (tags.isNotEmpty) ...[
-                Divider(height: 1, color: SabinaColors.neutral300),
+                Divider(height: 1, color: p.line),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 10),

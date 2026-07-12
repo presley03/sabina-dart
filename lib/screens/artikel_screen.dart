@@ -82,11 +82,11 @@ class ArtikelScreen extends StatefulWidget {
 class _ArtikelScreenState extends State<ArtikelScreen> {
   String _selectedCategory = 'Semua';
 
-  List<_Article> _buildArticles(AppLocalizations l10n) => [
+  List<_Article> _buildArticles(AppLocalizations l10n, SabinaPalette p) => [
         _Article(
           icon: Icons.restaurant_rounded,
-          iconColor: const Color(0xFFC08A3C),
-          iconBg: const Color(0xFFF5E8D2),
+          iconColor: p.amber,
+          iconBg: p.amberSoft,
           categoryCode: 'Nutrisi',
           title: l10n.artikelNutrisiTitle,
           readTime: l10n.readTimeMinutes(10),
@@ -96,8 +96,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: Icons.block_rounded,
-          iconColor: const Color(0xFFC0604D),
-          iconBg: const Color(0xFFF5E1DB),
+          iconColor: p.critical,
+          iconBg: p.criticalSoft,
           categoryCode: 'Pantangan',
           title: l10n.artikelPantanganTitle,
           readTime: l10n.readTimeMinutes(8),
@@ -106,8 +106,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: Icons.directions_walk_rounded,
-          iconColor: const Color(0xFF6F937D),
-          iconBg: const Color(0xFFE2EBE4),
+          iconColor: p.sage,
+          iconBg: p.sageSoft,
           categoryCode: 'Aktivitas',
           title: l10n.artikelAktivitasTitle,
           readTime: l10n.readTimeMinutes(6),
@@ -116,8 +116,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: Icons.auto_awesome_rounded,
-          iconColor: const Color(0xFF6E4260),
-          iconBg: const Color(0xFFF4EDF9),
+          iconColor: p.primary,
+          iconBg: p.primarySoft,
           categoryCode: 'Perawatan',
           title: l10n.artikelPerawatanTitle,
           readTime: l10n.readTimeMinutes(7),
@@ -136,8 +136,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: Icons.grass_rounded,
-          iconColor: const Color(0xFF6F937D),
-          iconBg: const Color(0xFFE2EBE4),
+          iconColor: p.sage,
+          iconBg: p.sageSoft,
           categoryCode: 'Trimester',
           title: l10n.artikelTrimesterSatuTitle,
           readTime: l10n.readTimeMinutes(12),
@@ -146,8 +146,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: Icons.eco_rounded,
-          iconColor: const Color(0xFFC08A3C),
-          iconBg: const Color(0xFFF5E8D2),
+          iconColor: p.amber,
+          iconBg: p.amberSoft,
           categoryCode: 'Trimester',
           title: l10n.artikelTrimesterDuaTitle,
           readTime: l10n.readTimeMinutes(12),
@@ -156,8 +156,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
         ),
         _Article(
           icon: Icons.pregnant_woman_rounded,
-          iconColor: const Color(0xFF6E4260),
-          iconBg: const Color(0xFFF4EDF9),
+          iconColor: p.primary,
+          iconBg: p.primarySoft,
           categoryCode: 'Trimester',
           title: l10n.artikelTrimesterTigaTitle,
           readTime: l10n.readTimeMinutes(12),
@@ -169,7 +169,8 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final articles = _buildArticles(l10n);
+    final p = context.palette;
+    final articles = _buildArticles(l10n, p);
     final filtered = _selectedCategory == 'Semua'
         ? articles
         : articles.where((a) => a.categoryCode == _selectedCategory).toList();
@@ -177,11 +178,11 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
     final showFeatured = _selectedCategory == 'Semua';
 
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: p.ground,
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
-            backgroundColor: SabinaColors.neutral100,
+            backgroundColor: p.ground,
             surfaceTintColor: Colors.transparent,
             elevation: 0,
             scrolledUnderElevation: 0,
@@ -200,7 +201,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
                       fontSize: 25,
                       fontWeight: FontWeight.w500,
                       letterSpacing: -0.4,
-                      color: SabinaColors.neutral900,
+                      color: p.ink,
                     ),
                   ),
                 ],
@@ -229,14 +230,10 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 14, vertical: 6),
                             decoration: BoxDecoration(
-                              color: active
-                                  ? SabinaColors.primary700
-                                  : Colors.transparent,
+                              color: active ? p.primary : Colors.transparent,
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
-                                color: active
-                                    ? SabinaColors.primary700
-                                    : SabinaColors.neutral300,
+                                color: active ? p.primary : p.line,
                                 width: 1.5,
                               ),
                             ),
@@ -246,9 +243,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: active
-                                    ? Colors.white
-                                    : SabinaColors.neutral500,
+                                color: active ? p.surface : p.inkMuted,
                               ),
                             ),
                           ),
@@ -295,6 +290,7 @@ class _FeaturedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final p = context.palette;
     return GestureDetector(
       onTap: () => Navigator.push(
           context, MaterialPageRoute(builder: (_) => article.screen)),
@@ -305,7 +301,7 @@ class _FeaturedCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: SabinaColors.neutral900.withValues(alpha: 0.07),
+              color: p.cardShadow,
               blurRadius: 14,
               offset: const Offset(0, 4),
             ),
@@ -353,7 +349,7 @@ class _FeaturedCard extends StatelessWidget {
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 18,
                       fontWeight: FontWeight.w800,
-                      color: SabinaColors.neutral900,
+                      color: p.ink,
                       height: 1.2,
                     ),
                     maxLines: 2,
@@ -364,7 +360,7 @@ class _FeaturedCard extends StatelessWidget {
                     article.readTime,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 11,
-                      color: SabinaColors.neutral500,
+                      color: p.inkMuted,
                     ),
                   ),
                 ],
@@ -385,8 +381,9 @@ class _ArticleListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final p = context.palette;
     return Material(
-      color: SabinaColors.white,
+      color: p.surface,
       borderRadius: BorderRadius.circular(16),
       child: InkWell(
         onTap: () => Navigator.push(
@@ -398,7 +395,7 @@ class _ArticleListItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: SabinaColors.neutral900.withValues(alpha: 0.04),
+                color: p.cardShadow,
                 blurRadius: 8,
                 offset: const Offset(0, 2),
               ),
@@ -449,7 +446,7 @@ class _ArticleListItem extends StatelessWidget {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 13,
                         fontWeight: FontWeight.w700,
-                        color: SabinaColors.neutral900,
+                        color: p.ink,
                         height: 1.3,
                       ),
                       maxLines: 2,
@@ -460,14 +457,13 @@ class _ArticleListItem extends StatelessWidget {
                       article.readTime,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 10,
-                        color: SabinaColors.neutral500,
+                        color: p.inkMuted,
                       ),
                     ),
                   ],
                 ),
               ),
-              Icon(Icons.chevron_right_rounded,
-                  color: SabinaColors.neutral300, size: 20),
+              Icon(Icons.chevron_right_rounded, color: p.line, size: 20),
             ],
           ),
         ),
