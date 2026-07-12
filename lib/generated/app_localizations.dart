@@ -8203,6 +8203,96 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Catatan dihapus'**
   String get journalEntryDeleted;
+
+  /// Judul kartu ajakan Tanya SABINA di Beranda
+  ///
+  /// In id, this message translates to:
+  /// **'Tanya SABINA'**
+  String get tanyaSabinaCardTitle;
+
+  /// Subjudul kartu ajakan Tanya SABINA di Beranda
+  ///
+  /// In id, this message translates to:
+  /// **'Punya pertanyaan seputar kehamilan?'**
+  String get tanyaSabinaCardSubtitle;
+
+  /// Judul layar Tanya SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Tanya SABINA'**
+  String get tanyaSabinaScreenTitle;
+
+  /// Placeholder kolom tanya di layar Tanya SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Tanya apa saja seputar kehamilan…'**
+  String get tanyaSabinaInputPlaceholder;
+
+  /// Label daftar chip contoh pertanyaan di Tanya SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Contoh pertanyaan'**
+  String get tanyaSabinaExampleQuestionsLabel;
+
+  /// Awalan baris sumber pada kartu jawaban Tanya SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Sumber: '**
+  String get tanyaSabinaSourcePrefix;
+
+  /// Awalan tombol buka layar terkait pada kartu jawaban Tanya SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Buka: '**
+  String get tanyaSabinaOpenPrefix;
+
+  /// Judul panel darurat pada jawaban jalur aman Tanya SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Ini bisa jadi tanda bahaya'**
+  String get tanyaSabinaEmergencyTitle;
+
+  /// Deskripsi panel darurat pada jawaban jalur aman Tanya SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Isi kuesioner terkait dan segera hubungi bidan/dokter Anda.'**
+  String get tanyaSabinaEmergencyDesc;
+
+  /// Judul kartu fallback saat Tanya SABINA tidak menemukan jawaban
+  ///
+  /// In id, this message translates to:
+  /// **'SABINA belum punya jawaban untuk itu'**
+  String get tanyaSabinaFallbackTitle;
+
+  /// Deskripsi kartu fallback saat Tanya SABINA tidak menemukan jawaban
+  ///
+  /// In id, this message translates to:
+  /// **'Coba topik lain di bawah ini, atau konsultasikan langsung ke bidan lewat WhatsApp.'**
+  String get tanyaSabinaFallbackDesc;
+
+  /// Label daftar saran topik terdekat pada kartu fallback Tanya SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Mungkin maksud Anda'**
+  String get tanyaSabinaFallbackSuggestionsLabel;
+
+  /// Label di atas daftar kartu jawaban Tanya SABINA
+  ///
+  /// In id, this message translates to:
+  /// **'Kemungkinan jawaban'**
+  String get tanyaSabinaResultsLabel;
+
+  /// Judul layar/rute Jurnal Mingguan
+  ///
+  /// In id, this message translates to:
+  /// **'Jurnal Mingguan'**
+  String get weeklyJournalTitle;
+
+  /// Label seksi jawaban Tanya SABINA di layar hasil pencarian
+  ///
+  /// In id, this message translates to:
+  /// **'Jawaban'**
+  String get searchAnswersSectionLabel;
 }
 
 class _AppLocalizationsDelegate

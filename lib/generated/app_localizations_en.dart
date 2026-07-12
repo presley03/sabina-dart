@@ -4636,4 +4636,52 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get journalEntryDeleted => 'Note deleted';
+
+  @override
+  String get tanyaSabinaCardTitle => 'Ask SABINA';
+
+  @override
+  String get tanyaSabinaCardSubtitle => 'Have a question about pregnancy?';
+
+  @override
+  String get tanyaSabinaScreenTitle => 'Ask SABINA';
+
+  @override
+  String get tanyaSabinaInputPlaceholder => 'Ask anything about pregnancy…';
+
+  @override
+  String get tanyaSabinaExampleQuestionsLabel => 'Example questions';
+
+  @override
+  String get tanyaSabinaSourcePrefix => 'Source: ';
+
+  @override
+  String get tanyaSabinaOpenPrefix => 'Open: ';
+
+  @override
+  String get tanyaSabinaEmergencyTitle => 'This could be a warning sign';
+
+  @override
+  String get tanyaSabinaEmergencyDesc =>
+      'Fill in the related questionnaire and contact your midwife/doctor right away.';
+
+  @override
+  String get tanyaSabinaFallbackTitle =>
+      'SABINA doesn\'t have an answer for that yet';
+
+  @override
+  String get tanyaSabinaFallbackDesc =>
+      'Try a topic below, or consult a midwife directly via WhatsApp.';
+
+  @override
+  String get tanyaSabinaFallbackSuggestionsLabel => 'You might mean';
+
+  @override
+  String get tanyaSabinaResultsLabel => 'Possible answers';
+
+  @override
+  String get weeklyJournalTitle => 'Weekly Journal';
+
+  @override
+  String get searchAnswersSectionLabel => 'Answers';
 }

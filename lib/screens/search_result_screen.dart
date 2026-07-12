@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
+import 'package:sabina/data/tanya_sabina_data.dart';
+import 'package:sabina/services/tanya_sabina_service.dart';
+import 'tanya_sabina_screen.dart';
 import 'care/aktivitas_fisik_ibu_hamil_screen.dart';
 import 'care/makanan_screen.dart';
 import 'care/perawatan_sehari_hari_screen.dart';
@@ -142,6 +145,12 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                 r.category.toLowerCase().contains(query))
             .toList();
 
+    final locale =
+        Localizations.localeOf(context).languageCode == 'en' ? 'en' : 'id';
+    final qnaMatches = query.isEmpty
+        ? const <TanyaSabinaMatch>[]
+        : TanyaSabinaService.search(query, locale: locale, limit: 2).matches;
+
     return Scaffold(
       backgroundColor: p.ground,
       body: SafeArea(
@@ -222,6 +231,37 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                 ),
               ),
             ),
+            if (qnaMatches.isNotEmpty) ...[
+              const SizedBox(height: 18),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 22),
+                child: Text(
+                  l10n.searchAnswersSectionLabel,
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 11.5,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.6,
+                    color: p.inkMuted,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: qnaMatches
+                      .map((m) => Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: _AnswerPreviewCard(
+                              entry: m.entry,
+                              locale: locale,
+                              query: _query,
+                            ),
+                          ))
+                      .toList(),
+                ),
+              ),
+            ],
             const SizedBox(height: 16),
             // Result count
             Padding(
@@ -415,4 +455,87 @@ class _SearchResult {
     required this.tone,
     required this.category,
   });
+}
+
+/// Kartu ringkas satu jawaban Tanya SABINA di atas hasil pencarian layar.
+/// Tap membuka [TanyaSabinaScreen] dengan query yang sama untuk melihat
+/// jawaban lengkap (marker highlight, tombol layar terkait, jalur aman).
+class _AnswerPreviewCard extends StatelessWidget {
+  final TanyaSabinaEntry entry;
+  final String locale;
+  final String query;
+
+  const _AnswerPreviewCard({
+    required this.entry,
+    required this.locale,
+    required this.query,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    final question = locale == 'en' ? entry.questionEn : entry.questionId;
+    final answer = locale == 'en' ? entry.answerEn : entry.answerId;
+    const shape = BorderRadius.only(
+      topLeft: Radius.circular(24),
+      topRight: Radius.circular(24),
+      bottomLeft: Radius.circular(16),
+      bottomRight: Radius.circular(16),
+    );
+
+    return Material(
+      color: p.surface,
+      borderRadius: shape,
+      child: InkWell(
+        borderRadius: shape,
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => TanyaSabinaScreen(initialQuery: query)),
+        ),
+        child: Container(
+          decoration: BoxDecoration(borderRadius: shape, border: Border.all(color: p.line)),
+          padding: const EdgeInsets.all(14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(Icons.forum_rounded, size: 15, color: p.sage),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      question,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.fraunces(
+                        fontSize: 15.5,
+                        fontWeight: FontWeight.w500,
+                        color: p.ink,
+                      ),
+                    ),
+                  ),
+                  if (entry.isSafetyPath) ...[
+                    const SizedBox(width: 6),
+                    Icon(Icons.warning_rounded, size: 15, color: p.critical),
+                  ],
+                ],
+              ),
+              const SizedBox(height: 8),
+              Text(
+                answer.replaceAll('==', ''),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 13,
+                  color: p.inkMuted,
+                  height: 1.5,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }

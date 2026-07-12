@@ -4645,4 +4645,51 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get journalEntryDeleted => 'Catatan dihapus';
+
+  @override
+  String get tanyaSabinaCardTitle => 'Tanya SABINA';
+
+  @override
+  String get tanyaSabinaCardSubtitle => 'Punya pertanyaan seputar kehamilan?';
+
+  @override
+  String get tanyaSabinaScreenTitle => 'Tanya SABINA';
+
+  @override
+  String get tanyaSabinaInputPlaceholder => 'Tanya apa saja seputar kehamilan…';
+
+  @override
+  String get tanyaSabinaExampleQuestionsLabel => 'Contoh pertanyaan';
+
+  @override
+  String get tanyaSabinaSourcePrefix => 'Sumber: ';
+
+  @override
+  String get tanyaSabinaOpenPrefix => 'Buka: ';
+
+  @override
+  String get tanyaSabinaEmergencyTitle => 'Ini bisa jadi tanda bahaya';
+
+  @override
+  String get tanyaSabinaEmergencyDesc =>
+      'Isi kuesioner terkait dan segera hubungi bidan/dokter Anda.';
+
+  @override
+  String get tanyaSabinaFallbackTitle => 'SABINA belum punya jawaban untuk itu';
+
+  @override
+  String get tanyaSabinaFallbackDesc =>
+      'Coba topik lain di bawah ini, atau konsultasikan langsung ke bidan lewat WhatsApp.';
+
+  @override
+  String get tanyaSabinaFallbackSuggestionsLabel => 'Mungkin maksud Anda';
+
+  @override
+  String get tanyaSabinaResultsLabel => 'Kemungkinan jawaban';
+
+  @override
+  String get weeklyJournalTitle => 'Jurnal Mingguan';
+
+  @override
+  String get searchAnswersSectionLabel => 'Jawaban';
 }

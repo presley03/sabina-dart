@@ -24,6 +24,7 @@ import '../services/database_helper.dart';
 import '../utils/baby_fruit_emoji.dart';
 import 'baby_development_screen.dart';
 import 'weekly_journal_screen.dart';
+import 'tanya_sabina_screen.dart';
 
 // ---------------------------------------------------------------------------
 // Root screen — manages bottom navigation state
@@ -89,6 +90,8 @@ class HomeContent extends StatelessWidget {
             _PregnancyBanner(),
             const SizedBox(height: 14),
             _buildJournalCard(context),
+            const SizedBox(height: 14),
+            _buildTanyaSabinaCard(context),
             const SizedBox(height: 22),
             const _TipsCarousel(),
             const SizedBox(height: 20),
@@ -860,6 +863,77 @@ Widget _buildJournalCard(BuildContext context) {
             ),
           ),
         ],
+      ),
+    ),
+  );
+}
+
+// Kartu ajakan Tanya SABINA — retrieval Q&A kurasi offline (bukan LLM).
+Widget _buildTanyaSabinaCard(BuildContext context) {
+  final l10n = AppLocalizations.of(context)!;
+  final p = context.palette;
+  return GestureDetector(
+    onTap: () => Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const TanyaSabinaScreen()),
+    ),
+    child: Container(
+      decoration: BoxDecoration(
+        color: p.sageSoft,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+          bottomLeft: Radius.circular(16),
+          bottomRight: Radius.circular(16),
+        ),
+        border: Border.all(color: p.sage.withValues(alpha: 0.22)),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          children: [
+            Container(
+              width: 46,
+              height: 50,
+              decoration: BoxDecoration(
+                color: p.sage,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(23),
+                  topRight: Radius.circular(23),
+                  bottomLeft: Radius.circular(11),
+                  bottomRight: Radius.circular(11),
+                ),
+              ),
+              child: Icon(Icons.forum_rounded, color: p.surface, size: 22),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    l10n.tanyaSabinaCardTitle,
+                    style: GoogleFonts.fraunces(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: p.ink,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    l10n.tanyaSabinaCardSubtitle,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 12.5,
+                      color: p.inkMuted,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Icon(Icons.arrow_forward_rounded, color: p.sage, size: 18),
+          ],
+        ),
       ),
     ),
   );
