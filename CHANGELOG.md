@@ -7,6 +7,35 @@ mengikuti [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.1.0] - 2026-07-13
+
+### Ditambahkan
+- **Tanya SABINA**: tanya-jawab offline 72 entri tervalidasi ahli
+  (Bdn. Wahidah Sukriani, S.ST., M.Keb.), dwibahasa, jalur aman kata-bahaya
+  + tombol Konsultasi, log pertanyaan tak terjawab.
+- **Resep Gizi Ibu Hamil**: 5 resep + panduan porsi dari buku resep pemilik,
+  dengan foto, info gizi per porsi, dan entry point di Artikel & Makanan.
+- **Jurnal Mingguan**: CRUD lengkap (tambah/edit/hapus) + ilustrasi.
+- **Layar hasil premium**: busur severity, tabel jawaban, grafik tren
+  riwayat (fl_chart), rekomendasi + CTA WhatsApp — 8 layar hasil.
+- **Riwayat Pemeriksaan**: timeline semua hasil skrining/kuesioner.
+- Toggle tema Terang/Gelap/Sistem; splash orb animasi (referensi Clara);
+  ilustrasi beranda & ikon keluhan khusus; marker stabilo istilah medis.
+
+### Diubah
+- Redesign menyeluruh "Twilight Bloom / Jurnal": beranda, sistem baca
+  majalah (12 layar), niche Keluhan, tipografi hasil gaya Medium,
+  thumbnail artikel, konsistensi ikon lintas alur, dark mode diperluas.
+- Hero instal-pertama kini mengajak isi HPHT (bukan data placeholder).
+- Konfigurasi rilis: signing via key.properties, proguard-rules, versi
+  tunggal dari pubspec (1.1.0+47), Java 17.
+
+### Diperbaiki
+- Emoji ukuran janin salah ("Pisang 🌿"), overlap label busur severity,
+  crop carousel tips, teks bento terpotong, kontras dark mode
+  (beranda/skrining/artikel/callout), overflow bottom sheet & pencarian.
+
+
 ## [1.2.0] - Maret 2026
 
 ### Added
