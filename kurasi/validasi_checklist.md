@@ -57,3 +57,44 @@ hati) selalu ditampilkan bersama tombol kuesioner + Konsultasi WhatsApp.
 
 > Setelah checklist ini kembali, semua koreksi diterapkan ke data app,
 > penanda "draf" dihapus, lalu diterjemahkan ke EN. Terima kasih, Bu! 🙏
+
+
+1. Tidak usah dibuat pertanyaan ini
+2. Iya, tapi 90 tablet
+3. Iya, Minimal
+4. Iya
+5. Tidak tau jawabannya
+6. Benar
+7. Ya
+8. Iya
+9. Iya
+10. Iya
+11. Iya
+12. Iya
+13. Iya
+14 Iya
+15. Iya
+16. Iya
+17. Iya
+18. Iya
+19. Iya.
+20. Cek 3 point itu apa?
+21. Iya
+22. Pertanyaan tidak jelas
+2. iya
+24. Pertanyaan tidak jelas
+25. Pertanyaan tidak jelas
+
+
+B. Keputusan kebijakan konten (pilih sikap resmi)
+1. Durian nanas, boleh dalam porsi wajar
+2. boleh dengan konsultasi 
+3.Pertanayaan tidak jelas
+4. Pertanayaan tidak jelas
+
+C. Persetujuan sitasi
+1. Silahkan dicantumkan
+2. Setuju
+
+D. Jalur aman (safety)
+1. Itu saja tidak usah ditambah

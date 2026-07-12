@@ -1,13 +1,14 @@
 # Draf Q&A Tanya SABINA — v1 (73 entri, 8 klaster)
 
-> STATUS: DRAF untuk validasi **Bdn. Wahidah Sukriani, S.ST., M.Keb.**
+> STATUS: TERVALIDASI validator 2026-07-10 — kecuali 5 entri bertanda
+> `[MENUNGGU KONFIRMASI ULANG]` (Q10, Q13, Q33, Q70, Q72).
 > Bahasa Indonesia dulu; terjemahan EN dikerjakan Sonnet saat implementasi.
 > Format tiap entri: pertanyaan · kata kunci pencarian · jawaban (≤±120 kata,
 > `==istilah==` = marker stabilo) · sumber · rute layar terkait.
 > `⚠ JALUR AMAN` = pertanyaan mengandung kata-bahaya → app WAJIB menampilkan
 > jawaban + tombol kuesioner terkait + tombol Konsultasi WhatsApp.
-> `[VALIDASI]` = butuh konfirmasi/koreksi Bu Wahidah (klaim di luar teks
-> sumber yang sudah terverifikasi).
+> Koreksi yang diterapkan: TTD minimal 90 tablet (Q19); folat "minimal"
+> 400 mcg (Q21); metode hitung gerakan janin DIHAPUS (Q12, arahan validator).
 
 ---
 
@@ -16,19 +17,19 @@
 ### Q1. Mual muntah saat hamil itu normal?
 Kata kunci: mual, muntah, morning sickness, eneg
 Jawaban: Mual muntah ringan (*morning sickness*) dialami sebagian besar ibu di trimester pertama dan biasanya membaik setelah minggu ke-12–16. Pemicunya perubahan hormon. Makan porsi kecil tapi sering, hindari makanan berminyak/berbau tajam, dan cukupi cairan. Bila mual sampai tidak bisa makan-minum sama sekali, isi kuesioner Mual Muntah di SABINA dan konsultasikan ke bidan.
-Sumber: Konten SABINA (keluhan mual) `[VALIDASI: Asuhan Kebidanan Kehamilan, 2022]`
+Sumber: Konten SABINA (keluhan mual) + Asuhan Kebidanan Kehamilan (2022)
 Rute: keluhan/mual_muntah
 
 ### Q2. ⚠ JALUR AMAN — Muntah terus-menerus sampai lemas, bahayakah?
 Kata kunci: muntah terus, tidak bisa makan, lemas, hiperemesis
 Jawaban: Muntah berlebihan hingga tidak bisa makan-minum, badan lemas, atau berat badan turun bisa menandakan ==hiperemesis gravidarum== yang butuh penanganan medis — jangan ditunda. Segera isi kuesioner Mual Muntah untuk menilai tingkatnya, lalu hubungi bidan/dokter. Sambil menunggu, coba seruput cairan sedikit-sedikit tapi sering.
-Sumber: `[VALIDASI: Asuhan Kebidanan Kehamilan, 2022]`
+Sumber: Asuhan Kebidanan Kehamilan (2022)
 Rute: keluhan/mual_muntah + Konsultasi
 
 ### Q3. Cara alami meredakan mual?
 Kata kunci: redakan mual, jahe, mual alami, tips mual
 Jawaban: Yang banyak membantu: makan porsi kecil 5–6 kali sehari, biskuit/kraker sebelum bangun dari tempat tidur, minuman jahe hangat, hindari perut kosong dan bau menyengat, serta istirahat cukup. Vitamin B6 dapat membantu tetapi konsumsinya harus atas anjuran bidan/dokter.
-Sumber: Konten SABINA (keluhan mual) `[VALIDASI]`
+Sumber: Konten SABINA (keluhan mual) + Asuhan Kebidanan Kehamilan (2022)
 Rute: keluhan/mual_muntah
 
 ### Q4. Sakit kepala saat hamil, normalkah?
@@ -70,7 +71,7 @@ Rute: keluhan/keluar_cairan + Konsultasi
 ### Q10. Keputihan saat hamil normal?
 Kata kunci: keputihan, cairan putih, lendir
 Jawaban: Keputihan bening/putih susu tanpa bau menyengat dan tanpa gatal umumnya normal saat hamil — produksinya memang meningkat. Yang perlu diperiksakan: bila berbau, berwarna kehijauan/keabu-abuan, gatal, atau perih — bisa jadi infeksi yang perlu diobati agar tidak memengaruhi kehamilan.
-Sumber: `[VALIDASI: Asuhan Kebidanan Kehamilan, 2022]`
+Sumber: `[MENUNGGU KONFIRMASI ULANG — A24: keputihan normal vs infeksi]`
 Rute: keluhan/keluar_cairan
 
 ### Q11. Kapan gerakan janin mulai terasa?
@@ -81,14 +82,14 @@ Rute: keluhan/pergerakan_janin
 
 ### Q12. ⚠ JALUR AMAN — Gerakan janin berkurang, harus bagaimana?
 Kata kunci: janin tidak bergerak, gerakan berkurang, bayi diam
-Jawaban: Bila gerakan janin terasa jauh berkurang dari biasanya, berbaring miring kiri, makan/minum sesuatu, lalu hitung: ==minimal 10 gerakan dalam 2 jam==. Bila kurang, atau tidak ada gerakan sama sekali, JANGAN menunggu — isi kuesioner Pergerakan Janin dan segera ke fasilitas kesehatan sekarang.
-Sumber: Konten SABINA (keluhan pergerakan janin) `[VALIDASI ambang hitung]`
+Jawaban: Bila gerakan janin terasa jauh berkurang dari biasanya, berbaring miring kiri, makan/minum sesuatu, dan rasakan kembali gerakannya. Bila tetap terasa jauh berkurang atau tidak ada gerakan sama sekali, JANGAN menunggu — isi kuesioner Pergerakan Janin dan segera ke fasilitas kesehatan sekarang.
+Sumber: Konten SABINA (keluhan pergerakan janin) — divalidasi 2026-07-10 (metode hitung dihapus atas arahan validator)
 Rute: keluhan/pergerakan_janin + Konsultasi
 
 ### Q13. Kram perut ringan saat hamil?
 Kata kunci: kram perut, nyeri perut bawah, perut kencang
 Jawaban: Kram ringan sesekali bisa normal — rahim yang membesar menarik ligamen di sekitarnya (nyeri ligamen bundar), terutama saat berubah posisi. Istirahat dan ubah posisi perlahan biasanya membantu. Waspadai bila kram hebat, menetap, atau disertai perdarahan/keluar cairan — segera periksakan.
-Sumber: `[VALIDASI: Asuhan Kebidanan Kehamilan, 2022]`
+Sumber: `[MENUNGGU KONFIRMASI ULANG — A25: nyeri ligamen bundar]`
 Rute: keluhan (menu)
 
 ### Q14. Nyeri punggung saat hamil, bagaimana mengatasinya?
@@ -100,7 +101,7 @@ Rute: care/perawatan_sehari_hari
 ### Q15. Susah BAB (sembelit) saat hamil?
 Kata kunci: sembelit, susah bab, konstipasi, wasir
 Jawaban: Sembelit umum saat hamil — hormon memperlambat usus, dan tablet tambah darah juga bisa memperberat. Atasi dengan banyak serat (sayur, buah, kacang), minum air lebih banyak, dan tetap aktif bergerak. Jangan minum obat pencahar tanpa anjuran bidan/dokter. Sembelit menahun bisa memicu wasir, jadi jangan dibiarkan.
-Sumber: `[VALIDASI: Asuhan Kebidanan Kehamilan, 2022]`
+Sumber: Asuhan Kebidanan Kehamilan (2022)
 Rute: care/makanan
 
 ## K2 — Nutrisi & Suplemen
@@ -125,26 +126,26 @@ Rute: care/makanan
 
 ### Q19. Bagaimana cara minum Tablet Tambah Darah yang benar?
 Kata kunci: tablet tambah darah, TTD, zat besi, obat penambah darah
-Jawaban: ==Tablet Tambah Darah (TTD)== diminum ==1 tablet setiap hari== selama kehamilan untuk mencegah anemia. Tips: minum dengan air putih atau jus buah (vitamin C membantu penyerapan), JANGAN bersamaan teh/kopi/susu karena menghambat penyerapan. Lebih nyaman diminum malam bila membuat mual.
-Sumber: Konten SABINA (perawatan sehari-hari) `[VALIDASI dosis program: riset edukasi anemia, 2023]`
+Jawaban: ==Tablet Tambah Darah (TTD)== diminum ==1 tablet setiap hari== — program nasional menargetkan ==minimal 90 tablet== selama kehamilan — untuk mencegah anemia. Tips: minum dengan air putih atau jus buah (vitamin C membantu penyerapan), JANGAN bersamaan teh/kopi/susu karena menghambat penyerapan. Lebih nyaman diminum malam bila membuat mual.
+Sumber: Konten SABINA (perawatan sehari-hari) + riset edukasi anemia (2023) — divalidasi 2026-07-10
 Rute: care/perawatan_sehari_hari
 
 ### Q20. TTD bikin mual, bagaimana?
 Kata kunci: mual minum ttd, tablet besi mual, sembelit ttd
 Jawaban: Efek samping TTD (mual, sembelit, BAB kehitaman) umum dan tidak berbahaya. Siasati: minum sesudah makan malam atau menjelang tidur, jangan dengan perut kosong, dan perbanyak serat + air untuk sembelit. Jangan berhenti minum TTD tanpa konsultasi — anemia jauh lebih berisiko bagi ibu dan janin.
-Sumber: `[VALIDASI: riset edukasi anemia remaja, 2023 / buku kehamilan]`
+Sumber: Asuhan Kebidanan Kehamilan (2022) + riset edukasi anemia (2023)
 Rute: care/perawatan_sehari_hari
 
 ### Q21. Asam folat itu apa dan kenapa penting?
 Kata kunci: asam folat, folat, vitamin hamil
-Jawaban: ==Asam folat== adalah vitamin B yang mencegah cacat tabung saraf pada janin — paling krusial di trimester pertama, bahkan sejak merencanakan kehamilan. Sumber alami: sayuran hijau, kacang-kacangan, jeruk. Suplemen biasanya dianjurkan ==400 mikrogram/hari== — ikuti anjuran bidan/dokter Anda.
-Sumber: Konten SABINA (makanan) `[VALIDASI dosis]`
+Jawaban: ==Asam folat== adalah vitamin B yang mencegah cacat tabung saraf pada janin — paling krusial di trimester pertama, bahkan sejak merencanakan kehamilan. Sumber alami: sayuran hijau, kacang-kacangan, jeruk. Suplemen dianjurkan ==minimal 400 mikrogram/hari== — ikuti anjuran bidan/dokter Anda.
+Sumber: Konten SABINA (makanan) — divalidasi 2026-07-10
 Rute: care/makanan
 
 ### Q22. Berapa kenaikan berat badan yang normal saat hamil?
 Kata kunci: naik berat badan, kenaikan bb, berat badan hamil
 Jawaban: Tergantung IMT sebelum hamil: IMT normal umumnya naik ==11,5–16 kg==; kurus lebih banyak (12,5–18 kg); berlebih lebih sedikit (7–11,5 kg). Gunakan kalkulator IMT di SABINA untuk tahu titik awal Anda, dan pantau bersama bidan di tiap pemeriksaan.
-Sumber: Kalkulator IMT SABINA `[VALIDASI rentang: buku kehamilan]`
+Sumber: Kalkulator IMT SABINA + Asuhan Kebidanan Kehamilan (2022) — divalidasi
 Rute: imt_calculator
 
 ### Q23. Apakah ibu hamil harus makan porsi dua orang?
@@ -156,7 +157,7 @@ Rute: artikel/makanan_trimester2
 ### Q24. Bolehkah makan durian/nanas saat hamil?
 Kata kunci: durian, nanas, mitos makanan
 Jawaban: Dalam jumlah wajar, nanas matang dan durian tidak terbukti membahayakan kehamilan — larangan mutlaknya lebih ke mitos. Yang perlu dijaga: porsi (durian tinggi gula & kalori; hati-hati bila ada diabetes gestasional) dan kebersihan buah. Bila ragu dengan kondisi khusus Anda, tanyakan ke bidan.
-Sumber: `[VALIDASI — mohon konfirmasi sikap resmi]`
+Sumber: Sikap resmi validator (2026-07-10): boleh dalam porsi wajar
 Rute: care/makanan
 
 ### Q25. Berapa banyak air putih yang harus diminum?
@@ -176,13 +177,13 @@ Rute: preeclampsia + Konsultasi
 ### Q27. ⚠ Tekanan darah saya tinggi saat periksa, bahayakah?
 Kata kunci: tekanan darah tinggi, hipertensi, tensi tinggi
 Jawaban: Tekanan darah ==≥140/90== saat hamil perlu dipantau ketat karena bisa berkembang menjadi preeklampsia. Jangan panik, tapi jangan diabaikan: rutin kontrol sesuai jadwal bidan, kurangi garam berlebih, cukup istirahat, dan kenali tanda bahaya (sakit kepala hebat, pandangan kabur). Lakukan Skrining Preeklampsia di SABINA.
-Sumber: Konten SABINA (skrining) `[VALIDASI ambang]`
+Sumber: Konten SABINA (skrining) — divalidasi
 Rute: preeclampsia + Konsultasi
 
 ### Q28. ⚠ Demam saat hamil, kapan harus ke dokter?
 Kata kunci: demam, panas, meriang
 Jawaban: Demam ringan boleh dikompres dan istirahat, tetapi demam ==≥38°C==, demam yang tidak turun 1–2 hari, atau demam disertai nyeri/keluhan lain perlu diperiksakan — infeksi saat hamil harus ditangani benar. Jangan minum obat penurun panas sembarangan; parasetamol umumnya aman tetapi tetap konfirmasi ke bidan/dokter.
-Sumber: `[VALIDASI: buku kehamilan]`
+Sumber: Asuhan Kebidanan Kehamilan (2022)
 Rute: Konsultasi
 
 ### Q29. ⚠ Ketuban pecah tapi belum ada mulas, harus bagaimana?
@@ -212,7 +213,7 @@ Rute: preeclampsia + Konsultasi
 ### Q33. ⚠ Gatal hebat di telapak tangan/kaki?
 Kata kunci: gatal telapak, gatal seluruh badan
 Jawaban: Gatal ringan karena kulit meregang itu biasa. Namun gatal ==hebat di telapak tangan dan kaki==, terutama malam hari tanpa ruam, perlu diperiksakan — bisa terkait gangguan empedu kehamilan (kolestasis) yang memerlukan pemantauan. Sampaikan ke bidan/dokter pada kunjungan secepatnya.
-Sumber: `[VALIDASI: buku kehamilan — perlu konfirmasi dimasukkan/tidak]`
+Sumber: `[MENUNGGU KONFIRMASI ULANG — B3: dimasukkan/tidak]`
 Rute: Konsultasi
 
 ## K4 — Trimester & Perkembangan Janin
@@ -220,7 +221,7 @@ Rute: Konsultasi
 ### Q34. Kapan sebaiknya USG dan berapa kali?
 Kata kunci: usg, periksa kandungan, kapan usg
 Jawaban: Program pemerintah menganjurkan pemeriksaan kehamilan (ANC) ==minimal 6 kali==, dengan USG oleh dokter minimal ==2 kali==: di trimester pertama (memastikan usia kehamilan) dan trimester ketiga (persiapan persalinan). Bidan Anda akan mengatur jadwal sesuai kondisi. Catat setiap hasil di Riwayat Pemeriksaan SABINA.
-Sumber: `[VALIDASI: standar ANC terkini — mohon konfirmasi jumlah]`
+Sumber: standar ANC nasional — divalidasi 2026-07-10
 Rute: user_profile/riwayat
 
 ### Q35. Apa saja yang terjadi di trimester pertama?
@@ -244,7 +245,7 @@ Rute: trimester/tiga
 ### Q38. Kapan jenis kelamin bayi bisa diketahui?
 Kata kunci: jenis kelamin, laki-laki atau perempuan, usg kelamin
 Jawaban: Lewat USG umumnya mulai terlihat di usia ==18–22 minggu==, tergantung posisi bayi dan kejelasan gambar. Tidak selalu langsung kelihatan — kadang perlu USG ulang. Yang lebih penting dari jenis kelamin: pertumbuhan dan kesejahteraan janin yang dipantau tiap pemeriksaan.
-Sumber: `[VALIDASI]`
+Sumber: Asuhan Kebidanan Kehamilan (2022) — divalidasi
 Rute: baby_development
 
 ### Q39. Apakah HPL pasti tepat?
@@ -256,7 +257,7 @@ Rute: home
 ### Q40. Bayi sungsang, apakah masih bisa berputar?
 Kata kunci: sungsang, posisi bayi, kepala di atas
 Jawaban: Banyak bayi masih berubah posisi hingga minggu ==34–36==. Bila mendekati persalinan masih sungsang, bidan/dokter akan mendiskusikan pilihan yang aman (termasuk kemungkinan persalinan caesar). Jangan mencoba "memutar" bayi dengan pijat sendiri — selalu lewat tenaga kesehatan.
-Sumber: `[VALIDASI: buku persalinan]`
+Sumber: Buku Ajar Asuhan Persalinan & BBL (2023) — divalidasi
 Rute: Konsultasi
 
 ### Q41. Perut sering kencang sebentar lalu hilang, apa itu?
@@ -282,19 +283,19 @@ Rute: artikel/tidur_nyaman
 ### Q44. Bolehkah ibu hamil berpuasa?
 Kata kunci: puasa, ramadhan, puasa hamil
 Jawaban: Tergantung kondisi — ibu hamil sehat dengan kehamilan tanpa penyulit sebagian bisa berpuasa dengan pengaturan makan sahur-berbuka yang baik, tetapi ibu dengan mual berat, anemia, diabetes, atau kehamilan berisiko sebaiknya tidak. Agama pun memberi keringanan. Diskusikan kondisi spesifik Anda dengan bidan/dokter sebelum memutuskan.
-Sumber: `[VALIDASI — mohon panduan resmi]`
+Sumber: Sikap resmi validator (2026-07-10): boleh dengan syarat + konsultasi
 Rute: Konsultasi
 
 ### Q45. Bolehkah naik pesawat/perjalanan jauh saat hamil?
 Kata kunci: naik pesawat, mudik, perjalanan jauh, travel
 Jawaban: Umumnya aman di kehamilan sehat, ternyaman di trimester kedua. Maskapai biasanya membatasi setelah ==28–36 minggu== (perlu surat dokter). Tips: banyak minum, gerakkan kaki tiap jam, sabuk di bawah perut, bawa buku pemeriksaan/catatan SABINA. Konsultasikan dulu bila ada penyulit.
-Sumber: `[VALIDASI]`
+Sumber: praktik umum perjalanan kehamilan — divalidasi
 Rute: Konsultasi
 
 ### Q46. Bolehkah berhubungan intim saat hamil?
 Kata kunci: hubungan intim, hubungan suami istri, berhubungan
 Jawaban: Pada kehamilan sehat, umumnya aman sepanjang ibu nyaman — janin terlindung oleh rahim dan cairan ketuban. Perlu dihindari/dikonsultasikan dulu bila ada riwayat perdarahan, plasenta previa, ketuban rembes, atau risiko persalinan prematur. Komunikasikan dengan pasangan dan jangan ragu bertanya ke bidan.
-Sumber: `[VALIDASI: buku kehamilan]`
+Sumber: Asuhan Kebidanan Kehamilan (2022)
 Rute: Konsultasi
 
 ### Q47. Apakah stres memengaruhi janin?
@@ -326,7 +327,7 @@ Rute: (klaster menyusui)
 ### Q51. ASI belum keluar padahal sudah hamil tua, normalkah?
 Kata kunci: asi belum keluar, kolostrum saat hamil, payudara rembes
 Jawaban: Dua-duanya normal: sebagian ibu mengeluarkan sedikit kolostrum sejak trimester akhir, sebagian tidak sama sekali — keduanya TIDAK menentukan keberhasilan menyusui nanti. Produksi ASI penuh baru dipicu setelah plasenta lahir. Fokus saat hamil: pelajari posisi & perlekatan, dan niatkan IMD.
-Sumber: `[VALIDASI]` + sapabidan.com (3 Jenis ASI)
+Sumber: sapabidan.com (3 Jenis ASI) — divalidasi
 Rute: (klaster menyusui)
 
 ### Q52. Apa arti ASI eksklusif?
@@ -362,7 +363,7 @@ Rute: (klaster menyusui)
 ### Q57. Puting saya datar/masuk ke dalam, bisakah menyusui?
 Kata kunci: puting datar, puting terbenam, puting masuk
 Jawaban: Umumnya tetap bisa — bayi menyusu pada ==areola==, bukan puting. Perlekatan dalam yang benar sering menyelesaikan masalah; memerah sedikit ASI sebelum menyusui juga membantu bayi melekat. Minta bidan menilai dan mendampingi di hari-hari pertama — jangan buru-buru menyerah ke botol.
-Sumber: sapabidan.com (teknik + ASI perah) `[VALIDASI]`
+Sumber: sapabidan.com (teknik + ASI perah) — divalidasi
 Rute: (klaster menyusui) + Konsultasi
 
 ### Q58. Bagaimana tahu bayi cukup ASI?
@@ -412,19 +413,19 @@ Rute: persiapan_persalinan
 ### Q65. Kapan harus berangkat ke tempat bersalin?
 Kata kunci: kapan ke rumah sakit, kapan berangkat, kontraksi berapa menit
 Jawaban: Umumnya saat kontraksi teratur ==tiap 5 menit, berlangsung ±1 menit, selama 1 jam== (aturan 5-1-1) — atau LEBIH AWAL bila: ketuban pecah, perdarahan, gerakan janin berkurang, atau jarak ke faskes jauh. Kehamilan risiko tinggi: ikuti rencana khusus dari bidan/dokter Anda.
-Sumber: `[VALIDASI aturan 5-1-1: buku persalinan]`
+Sumber: Buku Ajar Asuhan Persalinan & BBL (2023) — divalidasi
 Rute: persiapan_persalinan + Konsultasi
 
 ### Q66. Bagaimana mengurangi nyeri saat persalinan?
 Kata kunci: nyeri persalinan, mengurangi sakit melahirkan, teknik napas
 Jawaban: Yang terbukti membantu: teknik ==napas dalam== dan relaksasi, berjalan/berganti posisi di awal persalinan, pijatan punggung bawah oleh pendamping, kompres hangat, dan dukungan pendamping yang menenangkan. Diskusikan pilihan manajemen nyeri lain dengan penolong persalinan Anda.
-Sumber: Konten SABINA (persiapan persalinan) `[VALIDASI]`
+Sumber: Konten SABINA (persiapan persalinan) — divalidasi
 Rute: persiapan_persalinan
 
 ### Q67. Apa itu IMD (Inisiasi Menyusu Dini)?
 Kata kunci: imd, inisiasi menyusu dini, skin to skin
 Jawaban: ==IMD== adalah meletakkan bayi di dada ibu segera setelah lahir (kontak kulit-ke-kulit) selama minimal ==1 jam==, membiarkan bayi mencari payudara sendiri. Manfaat: bayi mendapat kolostrum, menyusui lebih berhasil, ikatan ibu-bayi kuat, dan membantu rahim berkontraksi. Sampaikan keinginan IMD ke penolong persalinan sejak sebelum bersalin.
-Sumber: sapabidan.com (ASI eksklusif) `[VALIDASI durasi]`
+Sumber: sapabidan.com (ASI eksklusif) — divalidasi
 Rute: persiapan_persalinan
 
 ### Q68. Melahirkan di mana yang sebaiknya dipilih?
@@ -438,31 +439,31 @@ Rute: penapisan + persiapan_persalinan
 ### Q69. Kapan bisa hamil lagi setelah melahirkan?
 Kata kunci: hamil lagi, kesuburan setelah melahirkan, jarak kehamilan
 Jawaban: Kesuburan bisa kembali ==sebelum haid pertama== pasca melahirkan — jadi kehamilan bisa terjadi lebih cepat dari dugaan. Jarak antar kehamilan yang dianjurkan minimal ==2 tahun== demi pemulihan ibu dan kesehatan bayi. Rencanakan KB sejak masa nifas bersama bidan.
-Sumber: Buku "KB dan Kesehatan Reproduksi" (Sukriani, 2023) `[VALIDASI]`
+Sumber: Buku "KB dan Kesehatan Reproduksi" (Sukriani, 2023) — divalidasi
 Rute: Konsultasi
 
 ### Q70. Benarkah menyusui bisa jadi KB alami?
 Kata kunci: kb alami, mal, menyusui mencegah hamil
 Jawaban: Metode Amenorea Laktasi (==MAL==) efektif hingga ==98%== HANYA bila tiga syarat terpenuhi sekaligus: ASI eksklusif (siang-malam, tanpa selingan), belum haid, DAN bayi belum 6 bulan. Bila satu saja tidak terpenuhi, perlindungannya turun — siapkan metode KB lanjutan.
-Sumber: sapabidan.com (Manfaat ASI) + buku KB & Kespro (2023)
+Sumber: sapabidan.com (Manfaat ASI) + buku KB & Kespro (2023) `[MENUNGGU KONFIRMASI ULANG — A20: 3 syarat MAL]`
 Rute: Konsultasi
 
 ### Q71. KB apa yang aman untuk ibu menyusui?
 Kata kunci: kb menyusui, kontrasepsi asi, kb pasca melahirkan
 Jawaban: Beberapa pilihan yang tidak mengganggu produksi ASI antara lain: metode nonhormonal (IUD/AKDR, kondom) dan KB progestin (pil mini, suntik 3 bulan, implan). KB kombinasi (mengandung estrogen) umumnya ditunda dulu. Pilihan terbaik tergantung kondisi Anda — konsultasikan dengan bidan.
-Sumber: Buku "KB dan Kesehatan Reproduksi" (Sukriani, 2023) `[VALIDASI daftar]`
+Sumber: Buku "KB dan Kesehatan Reproduksi" (Sukriani, 2023) — divalidasi
 Rute: Konsultasi
 
 ### Q72. Apa itu masa nifas dan berapa lama?
 Kata kunci: nifas, masa nifas, darah nifas
 Jawaban: Masa nifas adalah pemulihan setelah persalinan, berlangsung sekitar ==6 minggu (42 hari)==. Darah nifas (lokia) normal berangsur berubah dari merah → kecokelatan → kekuningan → bening. Waspadai: darah kembali banyak, berbau busuk, demam, atau nyeri hebat — segera periksa. Jadwalkan kunjungan nifas sesuai anjuran bidan.
-Sumber: Buku "Asuhan Kebidanan Pada Nifas" (2023) + "Asuhan Holistik Masa Nifas dan Menyusui" (2024) `[VALIDASI]`
+Sumber: Buku Nifas (2023, 2024) `[MENUNGGU KONFIRMASI ULANG — A22]`
 Rute: Konsultasi
 
 ### Q73. Sedih terus setelah melahirkan, apakah baby blues?
 Kata kunci: baby blues, sedih setelah melahirkan, depresi pasca melahirkan
 Jawaban: Perasaan sedih/mudah menangis di ==2 minggu pertama== pasca melahirkan (*baby blues*) dialami banyak ibu dan biasanya membaik sendiri dengan istirahat & dukungan keluarga. Bila berlangsung ==lebih dari 2 minggu==, makin berat, atau muncul pikiran menyakiti diri/bayi — itu tanda perlu bantuan profesional SEGERA. Bercerita bukan kelemahan.
-Sumber: Artikel SABINA (stres) + buku Nifas `[VALIDASI]`
+Sumber: Artikel SABINA (stres) + buku Nifas — divalidasi
 Rute: artikel/stres_kehamilan + Konsultasi
 
 ---
@@ -472,9 +473,9 @@ Rute: artikel/stres_kehamilan + Konsultasi
   8 aktivitas/stres, 13 menyusui, 6 persalinan, 5 KB/nifas).
 - **9 entri JALUR AMAN** (Q2, Q5, Q7, Q8, Q9, Q12, Q26–Q33) — wajib tampil
   dengan tombol kuesioner + Konsultasi.
-- **±25 entri bertanda `[VALIDASI]`** — angka/klaim yang mohon dicek Bu
-  Wahidah terhadap buku ajar/standar terkini; sisanya bersumber langsung dari
-  konten SABINA atau artikel sapabidan.com yang telah diringkas
-  (lihat `kurasi/bahan_sapabidan.md`).
+- **Validasi 2026-07-10 selesai** (lihat `kurasi/validasi_checklist.md`):
+  19 item angka dikonfirmasi, 3 koreksi diterapkan, sitasi buku/riset
+  disetujui, daftar jalur aman disetujui tanpa tambahan. **5 entri menunggu
+  konfirmasi ulang** (pertanyaan disederhanakan): Q10, Q13, Q33, Q70, Q72.
 - Setelah validasi: Sonnet menerjemahkan ke EN + implementasi mesin retrieval
   (kata kunci + sinonim + jalur aman) sesuai memory `tanya-sabina-qna-direction`.
