@@ -215,7 +215,7 @@ class _TipsCarousel extends StatefulWidget {
 class _TipsCarouselState extends State<_TipsCarousel> {
   final PageController _ctrl = PageController();
   int _current = 0;
-  late final List<_TipSlide> _slides;
+  late List<_TipSlide> _slides;
 
   @override
   void initState() {
