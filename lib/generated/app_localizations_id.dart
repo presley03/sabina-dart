@@ -4755,4 +4755,39 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get heroEmptyCta => 'Isi Data Kehamilan';
+
+  @override
+  String get resepCategory => 'Resep';
+
+  @override
+  String get resepScreenTitle => 'Resep Gizi Ibu Hamil';
+
+  @override
+  String get resepScreenSubtitle =>
+      '5 resep untuk 3 porsi, arsip digital dari buku resep keluarga.';
+
+  @override
+  String get resepPorsiLabel => 'Resep untuk';
+
+  @override
+  String get resepInfoGiziLabel => 'Informasi Nilai Gizi per Porsi';
+
+  @override
+  String get resepBahanLabel => 'Bahan';
+
+  @override
+  String get resepCaraMembuatLabel => 'Cara Membuat';
+
+  @override
+  String get resepBuahLabel => 'Buah Pendamping';
+
+  @override
+  String get resepPanduanPorsiTitle => 'Panduan Porsi Ibu Hamil';
+
+  @override
+  String get resepLihatResepCta => 'Lihat Resep Bergizi';
+
+  @override
+  String get resepLihatResepDesc =>
+      '5 resep keluarga, lengkap dengan bahan dan cara membuat.';
 }

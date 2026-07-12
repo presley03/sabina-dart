@@ -5197,5 +5197,49 @@
   },
   "heroEmptyTitle": "Mulai Perjalanan 40 Minggu Anda",
   "heroEmptyDesc": "Isi tanggal haid terakhir (HPHT) untuk melihat usia kehamilan, ukuran si kecil, dan panduan tiap minggu.",
-  "heroEmptyCta": "Isi Data Kehamilan"
+  "heroEmptyCta": "Isi Data Kehamilan",
+  "resepCategory": "Resep",
+  "@resepCategory": {
+    "description": "Kategori resep pada chip filter artikel"
+  },
+  "resepScreenTitle": "Resep Gizi Ibu Hamil",
+  "@resepScreenTitle": {
+    "description": "Judul layar daftar resep gizi ibu hamil"
+  },
+  "resepScreenSubtitle": "5 resep untuk 3 porsi, arsip digital dari buku resep keluarga.",
+  "@resepScreenSubtitle": {
+    "description": "Subjudul pembuka layar daftar resep"
+  },
+  "resepPorsiLabel": "Resep untuk",
+  "@resepPorsiLabel": {
+    "description": "Label porsi pada kartu dan detail resep, mis. 'Resep untuk 3 porsi'"
+  },
+  "resepInfoGiziLabel": "Informasi Nilai Gizi per Porsi",
+  "@resepInfoGiziLabel": {
+    "description": "Label panel informasi energi/protein/lemak per porsi resep"
+  },
+  "resepBahanLabel": "Bahan",
+  "@resepBahanLabel": {
+    "description": "Label seksi bahan-bahan resep"
+  },
+  "resepCaraMembuatLabel": "Cara Membuat",
+  "@resepCaraMembuatLabel": {
+    "description": "Label seksi langkah cara membuat resep"
+  },
+  "resepBuahLabel": "Buah Pendamping",
+  "@resepBuahLabel": {
+    "description": "Label buah pendamping yang disajikan bersama resep"
+  },
+  "resepPanduanPorsiTitle": "Panduan Porsi Ibu Hamil",
+  "@resepPanduanPorsiTitle": {
+    "description": "Judul panel panduan porsi makan harian ibu hamil"
+  },
+  "resepLihatResepCta": "Lihat Resep Bergizi",
+  "@resepLihatResepCta": {
+    "description": "Tombol/tautan menuju layar daftar resep gizi dari layar makanan"
+  },
+  "resepLihatResepDesc": "5 resep keluarga, lengkap dengan bahan dan cara membuat.",
+  "@resepLihatResepDesc": {
+    "description": "Deskripsi singkat di bawah tautan menuju layar resep dari layar makanan"
+  }
 }

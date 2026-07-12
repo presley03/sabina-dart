@@ -8401,6 +8401,72 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Isi Data Kehamilan'**
   String get heroEmptyCta;
+
+  /// Kategori resep pada chip filter artikel
+  ///
+  /// In id, this message translates to:
+  /// **'Resep'**
+  String get resepCategory;
+
+  /// Judul layar daftar resep gizi ibu hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Resep Gizi Ibu Hamil'**
+  String get resepScreenTitle;
+
+  /// Subjudul pembuka layar daftar resep
+  ///
+  /// In id, this message translates to:
+  /// **'5 resep untuk 3 porsi, arsip digital dari buku resep keluarga.'**
+  String get resepScreenSubtitle;
+
+  /// Label porsi pada kartu dan detail resep, mis. 'Resep untuk 3 porsi'
+  ///
+  /// In id, this message translates to:
+  /// **'Resep untuk'**
+  String get resepPorsiLabel;
+
+  /// Label panel informasi energi/protein/lemak per porsi resep
+  ///
+  /// In id, this message translates to:
+  /// **'Informasi Nilai Gizi per Porsi'**
+  String get resepInfoGiziLabel;
+
+  /// Label seksi bahan-bahan resep
+  ///
+  /// In id, this message translates to:
+  /// **'Bahan'**
+  String get resepBahanLabel;
+
+  /// Label seksi langkah cara membuat resep
+  ///
+  /// In id, this message translates to:
+  /// **'Cara Membuat'**
+  String get resepCaraMembuatLabel;
+
+  /// Label buah pendamping yang disajikan bersama resep
+  ///
+  /// In id, this message translates to:
+  /// **'Buah Pendamping'**
+  String get resepBuahLabel;
+
+  /// Judul panel panduan porsi makan harian ibu hamil
+  ///
+  /// In id, this message translates to:
+  /// **'Panduan Porsi Ibu Hamil'**
+  String get resepPanduanPorsiTitle;
+
+  /// Tombol/tautan menuju layar daftar resep gizi dari layar makanan
+  ///
+  /// In id, this message translates to:
+  /// **'Lihat Resep Bergizi'**
+  String get resepLihatResepCta;
+
+  /// Deskripsi singkat di bawah tautan menuju layar resep dari layar makanan
+  ///
+  /// In id, this message translates to:
+  /// **'5 resep keluarga, lengkap dengan bahan dan cara membuat.'**
+  String get resepLihatResepDesc;
 }
 
 class _AppLocalizationsDelegate

@@ -5197,5 +5197,49 @@
   },
   "heroEmptyTitle": "Begin Your 40-Week Journey",
   "heroEmptyDesc": "Enter your last menstrual period (LMP) date to see your pregnancy week, your baby's size, and weekly guidance.",
-  "heroEmptyCta": "Fill In Pregnancy Data"
+  "heroEmptyCta": "Fill In Pregnancy Data",
+  "resepCategory": "Recipes",
+  "@resepCategory": {
+    "description": "Recipes category on the article filter chip"
+  },
+  "resepScreenTitle": "Maternal Nutrition Recipes",
+  "@resepScreenTitle": {
+    "description": "Title of the maternal nutrition recipe list screen"
+  },
+  "resepScreenSubtitle": "5 recipes for 3 servings, a digital archive from a family recipe book.",
+  "@resepScreenSubtitle": {
+    "description": "Opening subtitle of the recipe list screen"
+  },
+  "resepPorsiLabel": "Recipe for",
+  "@resepPorsiLabel": {
+    "description": "Serving-size label on the recipe card and detail screen, e.g. 'Recipe for 3 servings'"
+  },
+  "resepInfoGiziLabel": "Nutrition Information per Serving",
+  "@resepInfoGiziLabel": {
+    "description": "Label for the energy/protein/fat information panel per serving"
+  },
+  "resepBahanLabel": "Ingredients",
+  "@resepBahanLabel": {
+    "description": "Label for the recipe ingredients section"
+  },
+  "resepCaraMembuatLabel": "Instructions",
+  "@resepCaraMembuatLabel": {
+    "description": "Label for the recipe cooking steps section"
+  },
+  "resepBuahLabel": "Side Fruit",
+  "@resepBuahLabel": {
+    "description": "Label for the side fruit served with the recipe"
+  },
+  "resepPanduanPorsiTitle": "Pregnancy Daily Portion Guide",
+  "@resepPanduanPorsiTitle": {
+    "description": "Title of the daily portion guide panel for pregnant women"
+  },
+  "resepLihatResepCta": "See Nutritious Recipes",
+  "@resepLihatResepCta": {
+    "description": "Button/link to the recipe list screen from the food screen"
+  },
+  "resepLihatResepDesc": "5 family recipes, complete with ingredients and instructions.",
+  "@resepLihatResepDesc": {
+    "description": "Short description under the link to the recipe screen from the food screen"
+  }
 }

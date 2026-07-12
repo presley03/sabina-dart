@@ -4747,4 +4747,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get heroEmptyCta => 'Fill In Pregnancy Data';
+
+  @override
+  String get resepCategory => 'Recipes';
+
+  @override
+  String get resepScreenTitle => 'Maternal Nutrition Recipes';
+
+  @override
+  String get resepScreenSubtitle =>
+      '5 recipes for 3 servings, a digital archive from a family recipe book.';
+
+  @override
+  String get resepPorsiLabel => 'Recipe for';
+
+  @override
+  String get resepInfoGiziLabel => 'Nutrition Information per Serving';
+
+  @override
+  String get resepBahanLabel => 'Ingredients';
+
+  @override
+  String get resepCaraMembuatLabel => 'Instructions';
+
+  @override
+  String get resepBuahLabel => 'Side Fruit';
+
+  @override
+  String get resepPanduanPorsiTitle => 'Pregnancy Daily Portion Guide';
+
+  @override
+  String get resepLihatResepCta => 'See Nutritious Recipes';
+
+  @override
+  String get resepLihatResepDesc =>
+      '5 family recipes, complete with ingredients and instructions.';
 }
