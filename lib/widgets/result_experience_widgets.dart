@@ -125,33 +125,24 @@ class ResultHeroArch extends StatelessWidget {
           ),
           const SizedBox(height: 14),
           SizedBox(
-            height: 112,
+            height: 90,
             width: double.infinity,
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Positioned.fill(
-                  child: CustomPaint(
-                    painter: _SeverityArcPainter(severity: severity, palette: p),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    severityLabel,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.fraunces(
-                      fontSize: 23,
-                      fontWeight: FontWeight.w500,
-                      height: 1.2,
-                      color: c,
-                    ),
-                  ),
-                ),
-              ],
+            child: CustomPaint(
+              painter: _SeverityArcPainter(severity: severity, palette: p),
             ),
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 16),
+          Text(
+            severityLabel,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.fraunces(
+              fontSize: 23,
+              fontWeight: FontWeight.w500,
+              height: 1.2,
+              color: c,
+            ),
+          ),
+          const SizedBox(height: 14),
           Text(
             severityDesc,
             textAlign: TextAlign.center,
