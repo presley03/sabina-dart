@@ -323,9 +323,30 @@ busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
   SABINA, dan seluruh layar Jurnal Mingguan — screenshot di
   `screenshots_batch9/`. `flutter analyze` = 0 issues, `flutter test` =
   29/29 lulus. Komit `d245195` (ARB+migrasi) & `80f084c` (fix crash).
-- [ ] **B. Dark mode tidak mengubah tab Skrining & Artikel** — kedua layar
+- [x] **B. Dark mode tidak mengubah tab Skrining & Artikel** — kedua layar
   tab (skrining_screen header gradien + kartu; artikel_screen filter chip +
   kartu daftar) masih hardcode warna terang -> migrasi context.palette.
+  (skrining_screen.dart: scaffold, label seksi, kartu (Material/shadow/
+  judul/deskripsi/chevron/divider), tag pill severity, info tip -> semua
+  `context.palette`; warna aksen per kartu (rust preeklampsia, sage
+  penapisan, amber keluhan) dipetakan ke token palet yang sudah persis
+  senilai (`p.critical`/`p.sage`/`p.amber` + varian `*Soft`), jadi otomatis
+  terbalik dengan benar di gelap. Header gradien mulberry TIDAK diubah
+  (sesuai instruksi) — teks putih di atasnya sudah benar di kedua tema
+  karena gradien tetap fixed. artikel_screen.dart: scaffold/SliverAppBar,
+  judul, chip kategori (aktif: bg `p.primary` + teks `p.surface` agar
+  kontras terjaga walau `p.primary` gelap jadi terang; nonaktif: border
+  `p.line` + teks `p.inkMuted`), kartu unggulan & kartu daftar (Material
+  surface/shadow/judul/waktu-baca/chevron) -> `context.palette`; warna
+  kategori dipetakan ke token (amber/critical/sage/primary) kecuali
+  Persalinan yang tetap biru off-palette (isu terpisah, di luar cakupan,
+  sama seperti dicatat di §10 roadmap). Diverifikasi live emulator: kedua
+  tab terang & gelap, filter chip aktif/nonaktif, screenshot di
+  `screenshots_batch9/` (29_skrining_light, 35_skrining_dark,
+  30_artikel_light, 36_artikel_dark, 37_artikel_dark_filtered). Halaman
+  Profil sendiri sengaja TIDAK disentuh — sudah tercatat sebagai isu
+  terpisah di §"Tindak lanjut minor putaran 3". `flutter analyze` = 0
+  issues, `flutter test` = 29/29. Komit `d624f01`.)
 - [ ] **C. USULAN splash "orb"** — splash sekarang: logo statis + fade
   0,8 dtk lalu diam 3 dtk. Buat pembuka lebih hidup ala orb Siri versi
   SABINA: 3-4 bola gradien radial lembut warna Twilight (mulberry/koral/
