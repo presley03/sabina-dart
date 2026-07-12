@@ -347,11 +347,37 @@ busur severity sage & pill "Tidak"). `flutter analyze` = 0 issues,
   Profil sendiri sengaja TIDAK disentuh — sudah tercatat sebagai isu
   terpisah di §"Tindak lanjut minor putaran 3". `flutter analyze` = 0
   issues, `flutter test` = 29/29. Komit `d624f01`.)
-- [ ] **C. USULAN splash "orb"** — splash sekarang: logo statis + fade
+- [x] **C. USULAN splash "orb"** — splash sekarang: logo statis + fade
   0,8 dtk lalu diam 3 dtk. Buat pembuka lebih hidup ala orb Siri versi
   SABINA: 3-4 bola gradien radial lembut warna Twilight (mulberry/koral/
   sage/ochre) yang bernapas & berputar pelan di belakang logo, wordmark
   Fraunces. TANPA package baru, TANPA ImageFilter blur (Impeller off,
   jaga perangkat kelas bawah) — cukup RadialGradient + AnimatedBuilder.
+  (Arah final berubah saat implementasi atas instruksi langsung Presley:
+  bukan bola-radial-mengorbit sederhana, melainkan pola blob wobbly
+  aditif diadaptasi dari overlay Clara/JARVIS milik Presley — logo &
+  wordmark SABINA DIHAPUS total, orb jadi satu-satunya elemen splash.
+  4 layer blob (mulberry/sage/peach/amber, `context.palette`) tiap layer
+  berupa polygon 72-titik yang goyang lewat 2 gelombang sinus + berputar
+  pelan + bernapas bersama (breathe amplitude 0.09, siklus dari waktu
+  monoton `AnimationController` 1-jam ber-repeat dikali `value` — bukan
+  siklus 0..1 yang dibaca berulang, supaya beberapa suku sinus
+  berfrekuensi tak-senada tidak pernah lompat saat wrap). Digambar
+  berurutan dengan `BlendMode.plus` (aditif, TANPA saveLayer — blend
+  langsung terhadap kanvas yang sama) di atas disc backdrop gelap
+  (kontras di latar terang, nyaris menyatu di latar gelap) + halo lembut
+  + core hangat kecil. Alpha per-layer diturunkan signifikan dari
+  referensi Clara (0.55/0.45/0.40 → ~0.24-0.30) karena palet Twilight
+  lebih hangat/kurang tersebar di roda warna dibanding violet/cyan/pink
+  Clara — alpha tinggi bikin overlap jenuh ke putih polos, dua iterasi
+  tuning diverifikasi live sebelum pas. TANPA ImageFilter/blur (sesuai
+  batasan) — kelembutan murni dari RadialGradient. Latar scaffold tetap
+  `context.palette.ground` (sadar tema). Logika 3 detik + cek identitas
+  TIDAK diubah. Diverifikasi live emulator mode terang & gelap (cold-start
+  burst-capture karena splash hanya tampil ±3 detik) —
+  screenshots_batch9/orb3_4.png, orb3_6.png (terang, dua fase animasi
+  berbeda), orbdark_4.png (gelap — backdrop menyatu, core & fringe warna
+  tetap terbaca). `flutter analyze` = 0 issues, `flutter test` = 29/29.
+  Komit `ec631a6`.)
 
 ## (tambahkan temuan berikutnya di bawah ini)
