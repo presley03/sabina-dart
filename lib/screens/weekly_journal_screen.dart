@@ -513,8 +513,8 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
     final l = AppLocalizations.of(context)!;
     final c = _moodColor(e.mood, p);
     final isEditing = _editingWeek == e.week;
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12),
+
+    final card = Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: p.surface,
@@ -591,24 +591,220 @@ class _WeeklyJournalScreenState extends State<WeeklyJournalScreen> {
               ],
             ),
           ),
-          const SizedBox(width: 8),
-          IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            visualDensity: VisualDensity.compact,
-            icon: Icon(Icons.edit_rounded, size: 18, color: p.inkMuted),
-            tooltip: l.journalEditTooltip,
-            onPressed: () => _startEditing(e),
+        ],
+      ),
+    );
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: _SwipeableJournalTile(
+        palette: p,
+        onEdit: () => _startEditing(e),
+        onDelete: () => _confirmDelete(e),
+        onLongPress: () => _showEntryActions(e, p, l),
+        child: card,
+      ),
+    );
+  }
+
+  Future<void> _showEntryActions(
+      JournalEntry e, SabinaPalette p, AppLocalizations l) async {
+    HapticFeedback.mediumImpact();
+    await showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) => Container(
+        decoration: BoxDecoration(
+          color: p.surface,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        ),
+        child: SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 12),
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: p.line,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.edit_rounded, color: p.ink),
+                title: Text(l.edit,
+                    style: GoogleFonts.plusJakartaSans(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: p.ink)),
+                onTap: () {
+                  Navigator.pop(ctx);
+                  _startEditing(e);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.delete_outline_rounded, color: p.critical),
+                title: Text(l.delete,
+                    style: GoogleFonts.plusJakartaSans(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: p.critical)),
+                onTap: () {
+                  Navigator.pop(ctx);
+                  _confirmDelete(e);
+                },
+              ),
+              const SizedBox(height: 8),
+            ],
           ),
-          IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            visualDensity: VisualDensity.compact,
-            icon: Icon(Icons.delete_outline_rounded, size: 18, color: p.inkMuted),
-            tooltip: l.journalDeleteTooltip,
-            onPressed: () => _confirmDelete(e),
+        ),
+      ),
+    );
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Swipe-to-reveal journal tile — geser kiri untuk Edit/Hapus, atau tekan lama
+// untuk membuka menu aksi yang sama. Icon edit/hapus sengaja tidak permanen
+// tampil di kartu agar timeline tetap bersih.
+// ---------------------------------------------------------------------------
+
+class _SwipeableJournalTile extends StatefulWidget {
+  final Widget child;
+  final SabinaPalette palette;
+  final VoidCallback onEdit;
+  final VoidCallback onDelete;
+  final VoidCallback onLongPress;
+
+  const _SwipeableJournalTile({
+    required this.child,
+    required this.palette,
+    required this.onEdit,
+    required this.onDelete,
+    required this.onLongPress,
+  });
+
+  @override
+  State<_SwipeableJournalTile> createState() => _SwipeableJournalTileState();
+}
+
+class _SwipeableJournalTileState extends State<_SwipeableJournalTile>
+    with SingleTickerProviderStateMixin {
+  static const double _actionWidth = 68;
+  static const double _maxDrag = _actionWidth * 2;
+
+  late final AnimationController _snapCtrl;
+  double _dragX = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _snapCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 220),
+    );
+  }
+
+  @override
+  void dispose() {
+    _snapCtrl.dispose();
+    super.dispose();
+  }
+
+  void _animateTo(double target) {
+    final start = _dragX;
+    _snapCtrl
+      ..reset()
+      ..addListener(() {
+        setState(() {
+          _dragX = start + (target - start) * Curves.easeOut.transform(_snapCtrl.value);
+        });
+      })
+      ..forward();
+  }
+
+  void _close() {
+    if (_dragX != 0) _animateTo(0);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final p = widget.palette;
+    return GestureDetector(
+      onLongPress: () {
+        _close();
+        widget.onLongPress();
+      },
+      onHorizontalDragUpdate: (details) {
+        setState(() {
+          _dragX = (_dragX + details.delta.dx).clamp(-_maxDrag, 0.0);
+        });
+      },
+      onHorizontalDragEnd: (details) {
+        final shouldOpen = _dragX < -_maxDrag / 2;
+        _animateTo(shouldOpen ? -_maxDrag : 0);
+      },
+      onTap: _dragX != 0 ? _close : null,
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(26),
+                topRight: Radius.circular(26),
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              ),
+              child: Row(
+                children: [
+                  const Spacer(),
+                  _actionButton(
+                    icon: Icons.edit_rounded,
+                    bg: p.primarySoft,
+                    fg: p.primary,
+                    onTap: () {
+                      _close();
+                      widget.onEdit();
+                    },
+                  ),
+                  _actionButton(
+                    icon: Icons.delete_outline_rounded,
+                    bg: p.criticalSoft,
+                    fg: p.critical,
+                    onTap: () {
+                      _close();
+                      widget.onDelete();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Transform.translate(
+            offset: Offset(_dragX, 0),
+            child: widget.child,
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _actionButton({
+    required IconData icon,
+    required Color bg,
+    required Color fg,
+    required VoidCallback onTap,
+  }) {
+    return SizedBox(
+      width: _actionWidth,
+      height: double.infinity,
+      child: Material(
+        color: bg,
+        child: InkWell(
+          onTap: onTap,
+          child: Center(child: Icon(icon, color: fg, size: 22)),
+        ),
       ),
     );
   }
