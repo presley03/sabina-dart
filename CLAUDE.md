@@ -184,17 +184,18 @@ Play App Signing **aktif** → keystore upload yang hilang bisa di-reset dari Pl
 Console (App integrity → Upload key reset). Tapi ada beberapa isu yang harus
 dibereskan sebelum build rilis:
 
-- [ ] **Password signing ter-hardcode & ter-commit** di `android/app/build.gradle`
-  → pindahkan ke `android/key.properties` (sudah di-`.gitignore`), rotasi kunci.
-- [ ] **`android/app/proguard-rules.pro` tidak ada** padahal `minifyEnabled true` +
-  `shrinkResources true` → buat file (minimal rules default Flutter) agar build
-  `appbundle` tidak gagal.
-- [ ] **Versi tidak sinkron:** `pubspec.yaml` `1.0.6+9` vs `build.gradle`
-  `versionCode 10 / versionName 1.0.10` (build.gradle meng-override). Samakan &
-  pastikan `versionCode` > yang live di Play Console.
-- [ ] **Verifikasi `applicationId`** cocok dengan listing live (`...sabina2`).
+- [x] **Password signing ter-hardcode & ter-commit** — sudah dipindah ke
+  `android/key.properties` (di-`.gitignore`, `build.gradle` membaca dari sana).
+  Verifikasi ulang: 2026-07-14.
+- [x] **`android/app/proguard-rules.pro` tidak ada** — sudah ada, berisi rules
+  default Flutter + Play Core. Verifikasi ulang: 2026-07-14.
+- [x] **Versi tidak sinkron** — `build.gradle` kini `versionCode/versionName =
+  flutter.versionCode/versionName`, sumber tunggal `pubspec.yaml` (`1.1.0+47`).
+  Verifikasi ulang: 2026-07-14.
+- [x] **Verifikasi `applicationId`** — terkonfirmasi cocok dengan listing live
+  (`...sabina2`), screenshot Play Console. Verifikasi: 2026-07-09.
 - [ ] **Bundle font TTF** (Fraunces + Plus Jakarta Sans) daripada fetch runtime
-  `google_fonts` — agar teks sempurna saat offline.
+  `google_fonts` — belum ada entri `fonts:` di `pubspec.yaml`, masih fetch runtime.
 
 Detail audit rilis tersimpan di memory `audit-2026-07-release-config`.
 
@@ -238,12 +239,28 @@ Detail audit rilis tersimpan di memory `audit-2026-07-release-config`.
 ## 11. Isu diketahui & jebakan
 
 - `notification_service.dart` hanya **stub** (debugPrint) — fitur reminder belum
-  berfungsi; `flutter_local_notifications` dinonaktifkan.
-- **Tidak ada test** (`test/` kosong).
+  berfungsi; `flutter_local_notifications` dinonaktifkan. Masih berlaku per 2026-07-14.
+- `test/` **tidak lagi kosong** — 6 file (`app_smoke_test`, `imt_calculator_test`,
+  `marked_text_test`, `result_experience_widgets_test`, `sakit_kepala_model_test`,
+  `tanya_sabina_service_test`), tapi belum mencakup semua alur kritis.
 - README menyebut versi lama (drift dokumentasi).
 - Beberapa aset di-reorganisasi ke subfolder — pastikan pubspec & path kode sinkron.
 - Nested Scaffold di tab (KeluhanMenuScreen punya AppBar sendiri di dalam
   SabinaAppBar) — sudah dibuat menyatu, tapi hati-hati saat mengubah header.
+
+### Performa (audit 2026-07-14)
+- **[FIXED]** `user_profile_screen.dart` memanggil `_loadData()` (2 query SQLite +
+  8 baca SharedPreferences) langsung di `build()` → ganti/muat foto memicu refetch
+  total. Sudah diperbaiki: `_dataFuture` di-cache via `late Future` di `initState`,
+  hanya di-refresh eksplisit setelah kembali dari `IdentityScreen`/`PregnancyHistoryScreen`.
+- `secure_storage_helper.dart` (health record & kontak darurat): pola read-modify-write
+  penuh — decode seluruh list JSON, ubah satu elemen, encode+tulis ulang semuanya.
+  O(n) per operasi tunggal; makin terasa jika daftar bertumbuh. Belum diperbaiki.
+- `history_screen.dart`: `HistoryService.getAll()` dipanggil inline di `build()`
+  (StatelessWidget) → rebuild dari ancestor (locale/theme) memicu decode ulang
+  seluruh riwayat. Belum diperbaiki.
+- `screening_result_service.dart.getAll()`: loop sekuensial 8× `await get(t)`,
+  bisa diganti `Future.wait` untuk paralelisasi. Dampak kecil, belum diperbaiki.
 
 ---
 

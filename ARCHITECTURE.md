@@ -29,8 +29,10 @@ Dokumentasi teknis tentang arsitektur, komponen, dan alur data aplikasi SABINA.
                      ▼
 ┌─────────────────────────────────────────────────────────┐
 │                   STATE MANAGEMENT                      │
-│      (Provider Pattern - lib/providers/)                │
-│  - HealthProvider, IdentityProvider, etc.              │
+│   (ChangeNotifier - lib/models/ + lib/providers/)        │
+│  - BengkakModel, PenapisanModel, HealthMonitoringModel,  │
+│    etc. (lib/models/); ThemeProvider, LocaleProvider     │
+│    (lib/providers/)                                      │
 └────────────────────┬────────────────────────────────────┘
                      │
                      ▼
@@ -75,7 +77,7 @@ Database:
 
 Storage:
   - flutter_secure_storage ^9.0.0
-  - for sensitive data (credentials)
+  - for sensitive data (health records, kontak darurat — app tidak punya login/credentials)
   - SharedPreferences for app settings
 
 Networking:
@@ -148,55 +150,60 @@ class ExampleScreen extends StatelessWidget {
 }
 ```
 
-### 2. State Management Layer (lib/providers/)
+### 2. State Management Layer (lib/models/ + lib/providers/)
 
 #### Provider Architecture
 
+Tidak ada base class bersama (`BaseProvider`) — setiap model kuesioner
+meng-extend `ChangeNotifier` langsung dan didaftarkan sebagai sibling di
+`MultiProvider` (`lib/main.dart`). Belum ada state `isLoading`/`error`
+bersama; masing-masing model mengelola state-nya sendiri sesuai kebutuhan.
+
 ```dart
-// Base provider
-class BaseProvider extends ChangeNotifier {
-  bool _isLoading = false;
-  String? _error;
-  
-  bool get isLoading => _isLoading;
-  String? get error => _error;
-  
-  Future<void> load() async {
-    setLoading(true);
-    try {
-      // Business logic
-    } catch (e) {
-      setError(e.toString());
-    } finally {
-      setLoading(false);
-    }
-  }
-  
-  void setLoading(bool value) {
-    _isLoading = value;
+// Pola aktual — setiap model kuesioner independen, tanpa base class
+class BengkakModel extends ChangeNotifier {
+  int currentQuestionIndex = 0;
+  final Map<int, bool> answers = {};
+
+  void answerQuestion(int index, bool value) {
+    answers[index] = value;
     notifyListeners();
   }
-  
-  void setError(String? error) {
-    _error = error;
-    notifyListeners();
-  }
+
+  ScreeningResult getResult() { ... }
 }
 ```
 
-#### Provider Instances
+> **Belum diimplementasikan:** sebuah `BaseProvider` bersama (dengan
+> `isLoading`/`error` terpusat) pernah direncanakan tapi belum dibuat.
+> Jika 9 model kuesioner mulai butuh loading/error state yang seragam,
+> pertimbangkan menambah base class ini — sampai saat itu, jangan asumsikan
+> ia ada.
+
+#### Provider & Model Instances (aktual)
 
 ```
 lib/providers/
-├── health_provider.dart          # Health data & records
-├── identity_provider.dart        # User profile data
-├── screening_provider.dart       # Screening results
-├── trimester_provider.dart       # Trimester guides
-├── care_provider.dart            # Care & wellness
-├── locale_provider.dart          # Language/localization
-├── notification_provider.dart    # Reminder settings
-└── app_state_provider.dart       # Global app state
+├── theme_provider.dart           # ThemeProvider — light/dark/system (with ChangeNotifier)
+└── locale_provider.dart          # LocaleProvider — bahasa ID/EN (with ChangeNotifier)
+
+lib/models/
+├── bengkak_model.dart            # BengkakModel
+├── keluar_cairan_model.dart      # KeluarCairanModel
+├── keluar_darah_model.dart       # KeluarDarahModel
+├── mual_muntah_model.dart        # MualMuntahModel
+├── penapisan_model.dart          # PenapisanModel
+├── pergerakan_janin_model.dart   # PergerakanJaninModel
+├── preeclampsia_model.dart       # PreeclampsiaScreeningModel
+├── sakit_kepala_model.dart       # SakitKepalaModel
+├── health_monitoring_model.dart  # HealthMonitoringModel
+├── user_identity.dart            # UserIdentity (plain data model, bukan ChangeNotifier)
+└── pregnancy_history.dart        # PregnancyHistory (plain data model, bukan ChangeNotifier)
 ```
+
+Semua 9 model kuesioner + `HealthMonitoringModel` didaftarkan langsung di
+`MultiProvider` pada `lib/main.dart` — tidak ada folder terpisah per fitur
+(`health_provider.dart`, `identity_provider.dart`, dst. di bawah tidak ada).
 
 ### 3. Business Logic Layer (lib/services/)
 
@@ -395,45 +402,36 @@ Provider.setLoading(false)
 
 ### Contoh: Health Record Input
 
+Contoh berikut mengikuti pola aktual `HealthMonitoringModel`
+(`lib/models/health_monitoring_model.dart`) — bukan `HealthProvider` yang
+tidak ada di kode.
+
 ```dart
 // 1. User interacts
 GestureDetector(
   onTap: () async {
-    // 2. Call provider method
-    await provider.saveHealthRecord(record);
+    // 2. Call model method
+    await model.addHealthRecord(record);
   },
   child: Text('Save'),
 );
 
-// 3. Provider method
-class HealthProvider extends ChangeNotifier {
-  Future<void> saveHealthRecord(HealthRecord record) async {
-    setLoading(true);
-    try {
-      // 4. Call service
-      final id = await databaseHelper.insertHealthRecord(record);
-      
-      // 5. Update local state
-      _records.add(record);
-      
-      // 6. Notify listeners (UI rebuilds)
-      notifyListeners();
-    } catch (e) {
-      setError(e.toString());
-    } finally {
-      setLoading(false);
-    }
+// 3. Model method (extends ChangeNotifier langsung, tanpa base class)
+class HealthMonitoringModel extends ChangeNotifier {
+  Future<void> addHealthRecord(HealthRecord record) async {
+    // 4. Update local state
+    _records.add(record);
+
+    // 5. Notify listeners (UI rebuilds)
+    notifyListeners();
   }
 }
 
-// 7. Screen rebuilds with Consumer
-Consumer<HealthProvider>(
-  builder: (context, provider, _) {
-    if (provider.isLoading) {
-      return LoadingWidget();
-    }
+// 6. Screen rebuilds with Consumer
+Consumer<HealthMonitoringModel>(
+  builder: (context, model, _) {
     return ListView(
-      children: provider.records.map(_buildCard).toList(),
+      children: model.records.map(_buildCard).toList(),
     );
   },
 )
@@ -696,19 +694,39 @@ try {
 
 ### Data Protection
 
+Aplikasi tidak punya login/akun pengguna dan tidak memanggil API eksternal —
+semua data tersimpan lokal di perangkat (lihat §1 CLAUDE.md). Beberapa poin
+di bawah ini sebelumnya diklaim "IMPLEMENTED" di dokumen ini padahal tidak
+ada di kode; sudah diperbaiki agar sesuai kondisi sebenarnya.
+
 ```
 ✅ IMPLEMENTED:
-- Database encryption (SQLCipher)
-- Secure storage for credentials
-- Input validation & sanitization
-- HTTPS for API calls
-- Password hashing (bcrypt)
+- Secure storage untuk data sensitif (flutter_secure_storage — health
+  records, kontak darurat; via SecureStorageHelper), BUKAN "credentials"
+  karena tidak ada login/password di aplikasi ini
+- Input validation & sanitization (SecureStorageHelper.sanitizeInput,
+  isValidEmail, isValidPhoneNumber, isValidDate; MedicalValidators di
+  lib/utils/validators.dart)
+- Parameterized queries (default sqflite/SQLite — mencegah SQL injection)
+- Data lokal-only by design — tidak ada transmisi data ke server (lihat
+  prinsip "Privasi dulu" di CLAUDE.md §12)
 
-⚠️ TODO:
-- API authentication tokens
-- Rate limiting
-- Certificate pinning
-- Obfuscation for release builds
+❌ TIDAK RELEVAN (dihapus dari daftar — app tidak punya login/API):
+- ~~Password hashing (bcrypt)~~ — tidak ada field password di aplikasi ini
+- ~~HTTPS untuk API calls~~ — tidak ada backend API; satu-satunya URL
+  eksternal adalah tautan `url_launcher` ke WhatsApp/website (bukan
+  panggilan API terautentikasi)
+- ~~API authentication tokens~~ / ~~Rate limiting~~ / ~~Certificate
+  pinning~~ — semua mengasumsikan ada API, yang tidak ada di arsitektur ini
+
+⚠️ TODO (celah nyata):
+- Enkripsi database at rest — `database_helper.dart` memakai `sqflite`
+  polos tanpa enkripsi (bukan SQLCipher seperti yang diklaim sebelumnya).
+  Data sensitif yang perlu dienkripsi sebaiknya lewat
+  `flutter_secure_storage`, bukan tabel SQLite biasa.
+- Obfuscation untuk release build — `minifyEnabled true` sudah diset di
+  `android/app/build.gradle`, tapi `proguard-rules.pro` belum ada (lihat
+  isu rilis di CLAUDE.md §9) sehingga build `appbundle` berisiko gagal.
 ```
 
 ### Safe Defaults
