@@ -73,3 +73,8 @@ clean.ps1
 *.apk
 *.aab
 /release/
+
+# AI tooling artifacts
+.agents/
+graphify-out/
+skills-lock.json
