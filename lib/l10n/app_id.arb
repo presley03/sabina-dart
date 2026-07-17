@@ -564,7 +564,7 @@
   "@trimesterOne_week3": {
     "description": "Label untuk minggu 3"
   },
-  "trimesterOne_week3_desc": "Pembuahan terjadi. Zigot bergerak menuju rahim.",
+  "trimesterOne_week3_desc": "Pembuahan terjadi. ==Zigot== bergerak menuju rahim.",
   "@trimesterOne_week3_desc": {
     "description": "Deskripsi perkembangan janin pada minggu 3"
   },
@@ -572,7 +572,7 @@
   "@trimesterOne_week4": {
     "description": "Label untuk minggu 4"
   },
-  "trimesterOne_week4_desc": "Embrio terbentuk. Plasenta mulai berkembang.",
+  "trimesterOne_week4_desc": "Embrio terbentuk. ==Plasenta== mulai berkembang.",
   "@trimesterOne_week4_desc": {
     "description": "Deskripsi perkembangan janin pada minggu 4"
   },
@@ -580,7 +580,7 @@
   "@trimesterOne_week5": {
     "description": "Label untuk minggu 5"
   },
-  "trimesterOne_week5_desc": "Sistem saraf pusat mulai berkembang. Jantung embrio mulai berdetak.",
+  "trimesterOne_week5_desc": "==Sistem saraf pusat== mulai berkembang. Jantung embrio mulai berdetak.",
   "@trimesterOne_week5_desc": {
     "description": "Deskripsi perkembangan janin pada minggu 5"
   },
@@ -3597,6 +3597,14 @@
   "@recommendedAndAvoidLabel": {
     "description": "Label bagian yang dianjurkan dan dihindari"
   },
+  "doLabel": "Dianjurkan",
+  "@doLabel": {
+    "description": "Sub-label kecil di atas daftar hal yang dianjurkan"
+  },
+  "avoidLabel": "Dihindari",
+  "@avoidLabel": {
+    "description": "Sub-label kecil di atas daftar hal yang dihindari"
+  },
   "babyDevelopmentTitle": "Perkembangan Bayi",
   "@babyDevelopmentTitle": {
     "description": "Judul layar perkembangan bayi"
@@ -5241,5 +5249,73 @@
   "resepLihatResepDesc": "5 resep keluarga, lengkap dengan bahan dan cara membuat.",
   "@resepLihatResepDesc": {
     "description": "Deskripsi singkat di bawah tautan menuju layar resep dari layar makanan"
+  },
+  "fertileWindowBentoLabel": "Masa Subur",
+  "@fertileWindowBentoLabel": {
+    "description": "Label kartu akses cepat di beranda menuju kalkulator masa subur"
+  },
+  "fertileWindowScreenTitle": "Kalkulator Masa Subur",
+  "@fertileWindowScreenTitle": {
+    "description": "Judul layar kalkulator masa subur"
+  },
+  "fertileWindowIntro": "Rentang hari dengan peluang terbesar untuk hamil.",
+  "@fertileWindowIntro": {
+    "description": "Teks banner penjelasan singkat tentang masa subur"
+  },
+  "fertileWindowLastPeriodLabel": "Hari Pertama Haid Terakhir",
+  "@fertileWindowLastPeriodLabel": {
+    "description": "Label input tanggal HPHT di kalkulator masa subur"
+  },
+  "fertileWindowCycleLengthLabel": "Rata-rata Panjang Siklus",
+  "@fertileWindowCycleLengthLabel": {
+    "description": "Label input panjang siklus haid di kalkulator masa subur"
+  },
+  "fertileWindowCycleLengthUnit": "hari",
+  "@fertileWindowCycleLengthUnit": {
+    "description": "Satuan hari untuk panjang siklus haid"
+  },
+  "fertileWindowCalculateButton": "Hitung Masa Subur",
+  "@fertileWindowCalculateButton": {
+    "description": "Tombol hitung pada kalkulator masa subur"
+  },
+  "fertileWindowFillPrompt": "Isi tanggal haid terakhir untuk melihat perkiraan masa subur kamu.",
+  "@fertileWindowFillPrompt": {
+    "description": "Prompt sebelum hasil kalkulator masa subur dihitung"
+  },
+  "fertileWindowResultHeader": "Masa Subur Kamu",
+  "@fertileWindowResultHeader": {
+    "description": "Judul kartu hasil kalkulator masa subur"
+  },
+  "fertileWindowOvulationLabel": "Perkiraan Ovulasi",
+  "@fertileWindowOvulationLabel": {
+    "description": "Label perkiraan tanggal ovulasi"
+  },
+  "fertileWindowRangeLabel": "Rentang Masa Subur",
+  "@fertileWindowRangeLabel": {
+    "description": "Label rentang tanggal masa subur"
+  },
+  "fertileWindowNextPeriodLabel": "Haid berikutnya",
+  "@fertileWindowNextPeriodLabel": {
+    "description": "Label perkiraan tanggal haid berikutnya"
+  },
+  "fertileWindowDisclaimer": "Perkiraan umum, bukan pengganti konsultasi bidan/dokter.",
+  "@fertileWindowDisclaimer": {
+    "description": "Disclaimer medis pada kalkulator masa subur"
+  },
+  "fertileWindowTipsTitle": "Tips Seputar Masa Subur",
+  "@fertileWindowTipsTitle": {
+    "description": "Judul kartu tips pada kalkulator masa subur"
+  },
+  "fertileWindowTip1": "Peluang hamil tertinggi terjadi 1-2 hari sebelum ovulasi.",
+  "@fertileWindowTip1": {
+    "description": "Tip 1 kalkulator masa subur"
+  },
+  "fertileWindowTip2": "Siklus yang tidak teratur membuat perkiraan ini kurang akurat — pantau siklus beberapa bulan untuk hasil lebih tepat.",
+  "@fertileWindowTip2": {
+    "description": "Tip 2 kalkulator masa subur"
+  },
+  "fertileWindowTip3": "Kombinasikan dengan tanda tubuh lain seperti suhu basal atau lendir serviks untuk keakuratan lebih baik.",
+  "@fertileWindowTip3": {
+    "description": "Tip 3 kalkulator masa subur"
   }
 }

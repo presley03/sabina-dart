@@ -449,21 +449,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get trimesterOne_week3_desc =>
-      'Fertilization occurs. The zygote moves towards the uterus.';
+      'Fertilization occurs. The ==zygote== moves towards the uterus.';
 
   @override
   String get trimesterOne_week4 => 'Week 4';
 
   @override
   String get trimesterOne_week4_desc =>
-      'The embryo forms. The placenta begins to develop.';
+      'The embryo forms. The ==placenta== begins to develop.';
 
   @override
   String get trimesterOne_week5 => 'Week 5';
 
   @override
   String get trimesterOne_week5_desc =>
-      'The central nervous system starts developing. The embryo\'\'s heart begins to beat.';
+      'The ==central nervous system== starts developing. The embryo\'\'s heart begins to beat.';
 
   @override
   String get trimesterOne_week6 => 'Week 6';
@@ -2987,6 +2987,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get recommendedAndAvoidLabel => 'Recommended & Avoid';
 
   @override
+  String get doLabel => 'Recommended';
+
+  @override
+  String get avoidLabel => 'Avoid';
+
+  @override
   String get babyDevelopmentTitle => 'Baby Development';
 
   @override
@@ -4782,4 +4788,61 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get resepLihatResepDesc =>
       '5 family recipes, complete with ingredients and instructions.';
+
+  @override
+  String get fertileWindowBentoLabel => 'Fertile Window';
+
+  @override
+  String get fertileWindowScreenTitle => 'Fertile Window Calculator';
+
+  @override
+  String get fertileWindowIntro =>
+      'The days with the highest chance of conceiving.';
+
+  @override
+  String get fertileWindowLastPeriodLabel => 'First Day of Last Period';
+
+  @override
+  String get fertileWindowCycleLengthLabel => 'Average Cycle Length';
+
+  @override
+  String get fertileWindowCycleLengthUnit => 'days';
+
+  @override
+  String get fertileWindowCalculateButton => 'Calculate Fertile Window';
+
+  @override
+  String get fertileWindowFillPrompt =>
+      'Fill in your last period date to see your estimated fertile window.';
+
+  @override
+  String get fertileWindowResultHeader => 'Your Fertile Window';
+
+  @override
+  String get fertileWindowOvulationLabel => 'Estimated Ovulation';
+
+  @override
+  String get fertileWindowRangeLabel => 'Fertile Window Range';
+
+  @override
+  String get fertileWindowNextPeriodLabel => 'Next period';
+
+  @override
+  String get fertileWindowDisclaimer =>
+      'A general estimate, not a substitute for medical advice.';
+
+  @override
+  String get fertileWindowTipsTitle => 'Fertile Window Tips';
+
+  @override
+  String get fertileWindowTip1 =>
+      'The highest chance of conceiving is 1-2 days before ovulation.';
+
+  @override
+  String get fertileWindowTip2 =>
+      'Irregular cycles make this estimate less accurate — track your cycle for a few months for a more precise result.';
+
+  @override
+  String get fertileWindowTip3 =>
+      'Combine this with other body signs like basal temperature or cervical mucus for better accuracy.';
 }

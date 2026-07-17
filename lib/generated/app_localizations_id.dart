@@ -452,21 +452,21 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get trimesterOne_week3_desc =>
-      'Pembuahan terjadi. Zigot bergerak menuju rahim.';
+      'Pembuahan terjadi. ==Zigot== bergerak menuju rahim.';
 
   @override
   String get trimesterOne_week4 => 'Minggu 4';
 
   @override
   String get trimesterOne_week4_desc =>
-      'Embrio terbentuk. Plasenta mulai berkembang.';
+      'Embrio terbentuk. ==Plasenta== mulai berkembang.';
 
   @override
   String get trimesterOne_week5 => 'Minggu 5';
 
   @override
   String get trimesterOne_week5_desc =>
-      'Sistem saraf pusat mulai berkembang. Jantung embrio mulai berdetak.';
+      '==Sistem saraf pusat== mulai berkembang. Jantung embrio mulai berdetak.';
 
   @override
   String get trimesterOne_week6 => 'Minggu 6';
@@ -2989,6 +2989,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get recommendedAndAvoidLabel => 'Yang Dianjurkan & Dihindari';
 
   @override
+  String get doLabel => 'Dianjurkan';
+
+  @override
+  String get avoidLabel => 'Dihindari';
+
+  @override
   String get babyDevelopmentTitle => 'Perkembangan Bayi';
 
   @override
@@ -4790,4 +4796,61 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get resepLihatResepDesc =>
       '5 resep keluarga, lengkap dengan bahan dan cara membuat.';
+
+  @override
+  String get fertileWindowBentoLabel => 'Masa Subur';
+
+  @override
+  String get fertileWindowScreenTitle => 'Kalkulator Masa Subur';
+
+  @override
+  String get fertileWindowIntro =>
+      'Rentang hari dengan peluang terbesar untuk hamil.';
+
+  @override
+  String get fertileWindowLastPeriodLabel => 'Hari Pertama Haid Terakhir';
+
+  @override
+  String get fertileWindowCycleLengthLabel => 'Rata-rata Panjang Siklus';
+
+  @override
+  String get fertileWindowCycleLengthUnit => 'hari';
+
+  @override
+  String get fertileWindowCalculateButton => 'Hitung Masa Subur';
+
+  @override
+  String get fertileWindowFillPrompt =>
+      'Isi tanggal haid terakhir untuk melihat perkiraan masa subur kamu.';
+
+  @override
+  String get fertileWindowResultHeader => 'Masa Subur Kamu';
+
+  @override
+  String get fertileWindowOvulationLabel => 'Perkiraan Ovulasi';
+
+  @override
+  String get fertileWindowRangeLabel => 'Rentang Masa Subur';
+
+  @override
+  String get fertileWindowNextPeriodLabel => 'Haid berikutnya';
+
+  @override
+  String get fertileWindowDisclaimer =>
+      'Perkiraan umum, bukan pengganti konsultasi bidan/dokter.';
+
+  @override
+  String get fertileWindowTipsTitle => 'Tips Seputar Masa Subur';
+
+  @override
+  String get fertileWindowTip1 =>
+      'Peluang hamil tertinggi terjadi 1-2 hari sebelum ovulasi.';
+
+  @override
+  String get fertileWindowTip2 =>
+      'Siklus yang tidak teratur membuat perkiraan ini kurang akurat — pantau siklus beberapa bulan untuk hasil lebih tepat.';
+
+  @override
+  String get fertileWindowTip3 =>
+      'Kombinasikan dengan tanda tubuh lain seperti suhu basal atau lendir serviks untuk keakuratan lebih baik.';
 }

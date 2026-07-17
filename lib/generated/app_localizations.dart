@@ -947,7 +947,7 @@ abstract class AppLocalizations {
   /// Deskripsi perkembangan janin pada minggu 3
   ///
   /// In id, this message translates to:
-  /// **'Pembuahan terjadi. Zigot bergerak menuju rahim.'**
+  /// **'Pembuahan terjadi. ==Zigot== bergerak menuju rahim.'**
   String get trimesterOne_week3_desc;
 
   /// Label untuk minggu 4
@@ -959,7 +959,7 @@ abstract class AppLocalizations {
   /// Deskripsi perkembangan janin pada minggu 4
   ///
   /// In id, this message translates to:
-  /// **'Embrio terbentuk. Plasenta mulai berkembang.'**
+  /// **'Embrio terbentuk. ==Plasenta== mulai berkembang.'**
   String get trimesterOne_week4_desc;
 
   /// Label untuk minggu 5
@@ -971,7 +971,7 @@ abstract class AppLocalizations {
   /// Deskripsi perkembangan janin pada minggu 5
   ///
   /// In id, this message translates to:
-  /// **'Sistem saraf pusat mulai berkembang. Jantung embrio mulai berdetak.'**
+  /// **'==Sistem saraf pusat== mulai berkembang. Jantung embrio mulai berdetak.'**
   String get trimesterOne_week5_desc;
 
   /// Label untuk minggu 6
@@ -5354,6 +5354,18 @@ abstract class AppLocalizations {
   /// **'Yang Dianjurkan & Dihindari'**
   String get recommendedAndAvoidLabel;
 
+  /// Sub-label kecil di atas daftar hal yang dianjurkan
+  ///
+  /// In id, this message translates to:
+  /// **'Dianjurkan'**
+  String get doLabel;
+
+  /// Sub-label kecil di atas daftar hal yang dihindari
+  ///
+  /// In id, this message translates to:
+  /// **'Dihindari'**
+  String get avoidLabel;
+
   /// Judul layar perkembangan bayi
   ///
   /// In id, this message translates to:
@@ -8467,6 +8479,108 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'5 resep keluarga, lengkap dengan bahan dan cara membuat.'**
   String get resepLihatResepDesc;
+
+  /// Label kartu akses cepat di beranda menuju kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Masa Subur'**
+  String get fertileWindowBentoLabel;
+
+  /// Judul layar kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Kalkulator Masa Subur'**
+  String get fertileWindowScreenTitle;
+
+  /// Teks banner penjelasan singkat tentang masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Rentang hari dengan peluang terbesar untuk hamil.'**
+  String get fertileWindowIntro;
+
+  /// Label input tanggal HPHT di kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Hari Pertama Haid Terakhir'**
+  String get fertileWindowLastPeriodLabel;
+
+  /// Label input panjang siklus haid di kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Rata-rata Panjang Siklus'**
+  String get fertileWindowCycleLengthLabel;
+
+  /// Satuan hari untuk panjang siklus haid
+  ///
+  /// In id, this message translates to:
+  /// **'hari'**
+  String get fertileWindowCycleLengthUnit;
+
+  /// Tombol hitung pada kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Hitung Masa Subur'**
+  String get fertileWindowCalculateButton;
+
+  /// Prompt sebelum hasil kalkulator masa subur dihitung
+  ///
+  /// In id, this message translates to:
+  /// **'Isi tanggal haid terakhir untuk melihat perkiraan masa subur kamu.'**
+  String get fertileWindowFillPrompt;
+
+  /// Judul kartu hasil kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Masa Subur Kamu'**
+  String get fertileWindowResultHeader;
+
+  /// Label perkiraan tanggal ovulasi
+  ///
+  /// In id, this message translates to:
+  /// **'Perkiraan Ovulasi'**
+  String get fertileWindowOvulationLabel;
+
+  /// Label rentang tanggal masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Rentang Masa Subur'**
+  String get fertileWindowRangeLabel;
+
+  /// Label perkiraan tanggal haid berikutnya
+  ///
+  /// In id, this message translates to:
+  /// **'Haid berikutnya'**
+  String get fertileWindowNextPeriodLabel;
+
+  /// Disclaimer medis pada kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Perkiraan umum, bukan pengganti konsultasi bidan/dokter.'**
+  String get fertileWindowDisclaimer;
+
+  /// Judul kartu tips pada kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Tips Seputar Masa Subur'**
+  String get fertileWindowTipsTitle;
+
+  /// Tip 1 kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Peluang hamil tertinggi terjadi 1-2 hari sebelum ovulasi.'**
+  String get fertileWindowTip1;
+
+  /// Tip 2 kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Siklus yang tidak teratur membuat perkiraan ini kurang akurat — pantau siklus beberapa bulan untuk hasil lebih tepat.'**
+  String get fertileWindowTip2;
+
+  /// Tip 3 kalkulator masa subur
+  ///
+  /// In id, this message translates to:
+  /// **'Kombinasikan dengan tanda tubuh lain seperti suhu basal atau lendir serviks untuk keakuratan lebih baik.'**
+  String get fertileWindowTip3;
 }
 
 class _AppLocalizationsDelegate
