@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_view/photo_view.dart';
@@ -11,13 +12,16 @@ import 'package:sabina/core/theme/app_theme.dart';
 ///   ArticleStandfirst     — opening paragraph (larger, slightly bolder)
 ///   ArticleBody           — standard body paragraph
 ///   ArticleCallout        — left-bordered insight / warning box
+///   ArticlePullQuote      — large editorial pulled-out quote
 ///   ArticleHighlightText  — body text with keyword highlighting
 ///   ArticleNumberedItem   — numbered section, circle badge (legacy; kept for
 ///                           screens outside the "Jurnal" reading redesign)
-///   ArticleBulletList     — uniform sage-dot bullet list, ink text
+///   ArticleBulletList     — uniform dash-marker bullet list, ink text
 ///   MarkedText            — body text with `==term==` stabilo highlighting
 ///   ArticleMagazineNumber — large thin serif number + ink title
 ///   ArticleMagazineSection— magazine number + paragraph/bullets, no divider
+///   ArticleWeekTimeline   — dot+line timeline for week-by-week sections
+///   ArticleMiniLabel      — small caps sub-heading above a bullet list
 ///   ArticleInlineImage    — image with caption + tap-to-zoom
 ///   ArticleReferenceList  — numbered reference list
 ///   ArticleDivider        — thin section separator with vertical spacing
@@ -197,12 +201,60 @@ class ArticleHeader extends StatelessWidget {
 
 // ── Inline markup renderer ───────────────────────────────────────────────────
 
+/// Fixed highlighter-marker colors — deliberately NOT theme-derived. A real
+/// yellow marker always shows dark ink underneath regardless of paper color,
+/// so both the mark and the text on it stay the same in light and dark mode
+/// (an ink-toned marker text would vanish against the marker in dark mode).
+const _markerYellow = Color(0xFFFDE24A);
+const _markerTextDark = Color(0xFF2A2113);
+
 /// Punctuation that should sit flush against a highlight span instead of
 /// floating behind its right padding (e.g. "…2 minggu, kondisi" must not
 /// render as "…2 minggu , kondisi").
 final RegExp _trailingPunctuation = RegExp(r'^[,.;:!?]');
 
-/// Builds the rounded "stabilo" highlight span for a single marked term.
+/// Paints a highlighter-marker stroke behind its child: a rough, faintly
+/// wavy quadrilateral with tapered ends — like a real felt-tip swipe, not a
+/// perfect rounded rectangle. Deterministic per [seed] (the term's hashCode)
+/// so it never flickers or reshuffles across rebuilds.
+class _HighlighterMarkerPainter extends CustomPainter {
+  final Color color;
+  final int seed;
+  const _HighlighterMarkerPainter({required this.color, required this.seed});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rnd = math.Random(seed);
+    final w = size.width;
+    final h = size.height;
+    double j(double scale) => (rnd.nextDouble() - 0.5) * h * scale;
+
+    canvas.save();
+    canvas.translate(w / 2, h / 2);
+    canvas.rotate((rnd.nextDouble() - 0.5) * 0.05);
+    canvas.translate(-w / 2, -h / 2);
+
+    final path = Path()
+      ..moveTo(-2, h * 0.5 + j(0.3))
+      ..quadraticBezierTo(w * 0.08, j(0.22), w * 0.32, j(0.18))
+      ..quadraticBezierTo(w * 0.55, j(0.22), w * 0.78, j(0.18))
+      ..quadraticBezierTo(w * 0.95, j(0.2), w + 2, h * 0.5 + j(0.3))
+      ..quadraticBezierTo(
+          w * 0.95, h - j(0.2), w * 0.78, h - j(0.18))
+      ..quadraticBezierTo(w * 0.55, h - j(0.22), w * 0.32, h - j(0.18))
+      ..quadraticBezierTo(w * 0.08, h - j(0.22), -2, h * 0.5 + j(0.3))
+      ..close();
+
+    canvas.drawPath(path, Paint()..color = color);
+    canvas.restore();
+  }
+
+  @override
+  bool shouldRepaint(_HighlighterMarkerPainter old) =>
+      old.color != color || old.seed != seed;
+}
+
+/// Builds the hand-drawn "highlighter marker" span for a single marked term.
 /// Shared by [parseMarkedText] (public, unit-tested) and [_buildInlineSpans]
 /// (internal, also supports **bold**) so the two never visually drift apart.
 ///
@@ -218,13 +270,15 @@ WidgetSpan _highlightSpan(
 }) {
   return WidgetSpan(
     alignment: PlaceholderAlignment.middle,
-    child: Container(
-      padding: EdgeInsets.fromLTRB(3, 1, tightRight ? 0 : 3, 1),
-      decoration: BoxDecoration(
+    child: CustomPaint(
+      painter: _HighlighterMarkerPainter(
         color: highlightBg,
-        borderRadius: BorderRadius.circular(4),
+        seed: term.hashCode,
       ),
-      child: Text(term, style: base.copyWith(color: textColor)),
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(4, 2, tightRight ? 2 : 4, 2),
+        child: Text(term, style: base.copyWith(color: textColor)),
+      ),
     ),
   );
 }
@@ -280,7 +334,7 @@ class MarkedText extends StatelessWidget {
   Widget build(BuildContext context) {
     final palette = context.palette;
     final base = style ??
-        GoogleFonts.plusJakartaSans(
+        GoogleFonts.literata(
           fontSize: 16,
           fontWeight: FontWeight.w400,
           color: palette.ink,
@@ -289,8 +343,8 @@ class MarkedText extends StatelessWidget {
     final spans = parseMarkedText(
       text,
       base: base,
-      highlightBg: palette.peach.withValues(alpha: 0.28),
-      textColor: palette.ink,
+      highlightBg: _markerYellow,
+      textColor: _markerTextDark,
     );
     if (spans.length == 1 && spans.single is TextSpan) {
       return Text(text, style: base);
@@ -316,7 +370,6 @@ List<InlineSpan> _buildInlineSpans(
     color: palette.ink,
     background: null,
   );
-  final highlightBg = palette.peach.withValues(alpha: 0.28);
 
   final pattern = RegExp(r'\*\*(.*?)\*\*|==(.*?)==');
   final spans = <InlineSpan>[];
@@ -335,8 +388,8 @@ List<InlineSpan> _buildInlineSpans(
       spans.add(_highlightSpan(
         match.group(2)!,
         base,
-        highlightBg,
-        palette.ink,
+        _markerYellow,
+        _markerTextDark,
         tightRight: _trailingPunctuation.hasMatch(following),
       ));
     }
@@ -358,7 +411,7 @@ class ArticleSectionLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = accentColor ?? context.palette.primary;
+    final color = accentColor ?? context.palette.ink;
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
       child: Text(
@@ -386,11 +439,11 @@ class ArticleStandfirst extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base = GoogleFonts.plusJakartaSans(
-      fontSize: 17,
+    final base = GoogleFonts.literata(
+      fontSize: 18,
       fontWeight: FontWeight.w500,
       color: context.palette.ink,
-      height: 1.7,
+      height: 1.6,
     );
     final spans = _buildInlineSpans(text, base, context.palette);
     if (spans.length == 1) return Text(text, style: base);
@@ -401,7 +454,8 @@ class ArticleStandfirst extends StatelessWidget {
 // ── 3. Body text ──────────────────────────────────────────────────────────────
 
 /// Standard body paragraph. Use for secondary prose sections.
-/// Reading voice: Plus Jakarta Sans ~16px, line-height 1.6–1.7, always ink.
+/// Reading voice: Literata (serif dibaca nyaman, ala Medium) ~16px,
+/// line-height 1.6–1.7, always ink.
 class ArticleBody extends StatelessWidget {
   final String text;
 
@@ -409,7 +463,7 @@ class ArticleBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base = GoogleFonts.plusJakartaSans(
+    final base = GoogleFonts.literata(
       fontSize: 16,
       fontWeight: FontWeight.w400,
       color: context.palette.ink,
@@ -463,14 +517,55 @@ class ArticleCallout extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 14,
+              style: GoogleFonts.literata(
+                fontSize: 14.5,
+                fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w500,
                 color: context.palette.ink,
                 height: 1.75,
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+// ── 4b. Pull quote ────────────────────────────────────────────────────────────
+
+/// Large pulled-out quote — an excerpt already present in the surrounding
+/// body text, set big and editorial (Medium-style) as a visual breather.
+/// Use once, maybe twice per article; never introduce new copy here — pull
+/// an existing sentence out, don't write one.
+class ArticlePullQuote extends StatelessWidget {
+  final String text;
+
+  const ArticlePullQuote(this.text, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 22),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(width: 32, height: 3, color: p.primary),
+          const SizedBox(height: 16),
+          Text(
+            text,
+            style: GoogleFonts.fraunces(
+              fontSize: 23,
+              fontWeight: FontWeight.w500,
+              fontStyle: FontStyle.italic,
+              color: p.ink,
+              height: 1.4,
+              letterSpacing: -0.2,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Container(width: 32, height: 3, color: p.primary),
         ],
       ),
     );
@@ -509,7 +604,7 @@ class ArticleHighlightText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final base = baseStyle ??
-        GoogleFonts.plusJakartaSans(
+        GoogleFonts.literata(
           fontSize: 15,
           color: SabinaColors.neutral700,
           height: 1.8,
@@ -740,13 +835,18 @@ class ArticleBulletList extends StatelessWidget {
   final double gap;
   final TextStyle? textStyle;
 
-  const ArticleBulletList(this.items, {super.key, this.gap = 10, this.textStyle});
+  /// Warna marker (dash). Default ink netral hitam-putih — boleh dioverride
+  /// saat bullet ditampilkan di dalam kotak bertema warna lain.
+  final Color? dotColor;
+
+  const ArticleBulletList(this.items,
+      {super.key, this.gap = 10, this.textStyle, this.dotColor});
 
   @override
   Widget build(BuildContext context) {
     final palette = context.palette;
     final base = textStyle ??
-        GoogleFonts.plusJakartaSans(
+        GoogleFonts.literata(
           fontSize: 16,
           color: palette.ink,
           height: 1.65,
@@ -759,15 +859,13 @@ class ArticleBulletList extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Container(
-                        width: 5,
-                        height: 5,
-                        decoration: BoxDecoration(
-                          color: palette.sage,
-                          shape: BoxShape.circle,
-                        ),
+                    // Tanda hubung editorial — bukan bulatan padat yang
+                    // terasa seperti bullet UI, lebih menyatu dengan bacaan.
+                    Text(
+                      '–',
+                      style: base.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: dotColor ?? palette.inkMuted,
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -777,8 +875,8 @@ class ArticleBulletList extends StatelessWidget {
                           children: parseMarkedText(
                             item,
                             base: base,
-                            highlightBg: palette.peach.withValues(alpha: 0.28),
-                            textColor: palette.ink,
+                            highlightBg: _markerYellow,
+                            textColor: _markerTextDark,
                           ),
                         ),
                       ),
@@ -816,9 +914,9 @@ class ArticleMagazineNumber extends StatelessWidget {
         Text(
           number.toString().padLeft(2, '0'),
           style: GoogleFonts.fraunces(
-            fontSize: 42,
+            fontSize: 26,
             fontWeight: FontWeight.w300,
-            color: palette.primary,
+            color: palette.ink,
             height: 1.0,
           ),
         ),
@@ -981,6 +1079,120 @@ class ArticleInlineImage extends StatelessWidget {
                 ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+// ── 7b. Week timeline ─────────────────────────────────────────────────────────
+
+/// One row of [ArticleWeekTimeline]: a week-range label + its description.
+class ArticleWeekEntry {
+  final String week;
+  final String desc;
+  const ArticleWeekEntry(this.week, this.desc);
+}
+
+/// Vertical timeline for "week-by-week development" sections — a dot + line
+/// per entry instead of a flat, visually monotonous stack of rows. Node,
+/// connector and week-badge are deliberately monochrome (ink/groundAlt), not
+/// per-topic accent colors.
+class ArticleWeekTimeline extends StatelessWidget {
+  final List<ArticleWeekEntry> entries;
+  const ArticleWeekTimeline(this.entries, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    return Column(
+      children: entries.asMap().entries.map((e) {
+        final isLast = e.key == entries.length - 1;
+        return IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    width: 9,
+                    height: 9,
+                    margin: const EdgeInsets.only(top: 5),
+                    decoration: BoxDecoration(
+                      color: p.ink,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                  if (!isLast)
+                    Expanded(
+                      child: Container(
+                        width: 2,
+                        margin: const EdgeInsets.symmetric(vertical: 4),
+                        color: p.ink.withValues(alpha: 0.25),
+                      ),
+                    ),
+                ],
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: isLast ? 0 : 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: p.groundAlt,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          e.value.week,
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w700,
+                            color: p.ink,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      MarkedText(e.value.desc),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      }).toList(),
+    );
+  }
+}
+
+// ── 7c. Mini label ────────────────────────────────────────────────────────────
+
+/// Small caps sub-heading above a bullet list, for when a single
+/// [ArticleSectionLabel] covers two contrasting lists (e.g. "Recommended &
+/// Avoid") and a plain [ArticleBulletList] alone would blur the two together.
+/// Deliberately lightweight — no box, no icon, just type and color.
+class ArticleMiniLabel extends StatelessWidget {
+  final String text;
+  final Color color;
+
+  const ArticleMiniLabel(this.text, {super.key, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Text(
+        text.toUpperCase(),
+        style: GoogleFonts.plusJakartaSans(
+          fontSize: 11,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 1.0,
+          color: color,
         ),
       ),
     );

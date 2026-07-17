@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/data/resep_data.dart';
 import 'package:sabina/utils/constants.dart';
-import 'package:sabina/widgets/resep_card.dart';
 import 'care/makanan_screen.dart';
 import 'care/yang_perlu_dihindari_screen.dart';
 import 'care/perawatan_sehari_hari_screen.dart';
 import 'care/aktivitas_fisik_ibu_hamil_screen.dart';
 import 'persiapan_persalinan_screen.dart';
+import 'resep/resep_screen.dart';
 import 'trimester/trimester_satu.dart';
 import 'trimester/trimester_dua.dart';
 import 'trimester/trimester_tiga.dart';
@@ -100,6 +100,16 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           thumbnailAsset: ArticleImages.nutrisiHero,
         ),
         _Article(
+          icon: Icons.restaurant_menu_rounded,
+          iconColor: p.peach,
+          iconBg: p.peachSoft,
+          categoryCode: 'Resep',
+          title: l10n.resepScreenTitle,
+          readTime: l10n.readTimeMinutes(10),
+          screen: const ResepScreen(),
+          thumbnailAsset: resepGiziList.first.gambar,
+        ),
+        _Article(
           icon: Icons.block_rounded,
           iconColor: p.critical,
           iconBg: p.criticalSoft,
@@ -175,7 +185,6 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final p = context.palette;
-    final showResep = _selectedCategory == 'Resep';
     final articles = _buildArticles(l10n, p);
     final filtered = _selectedCategory == 'Semua'
         ? articles
@@ -272,20 +281,13 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
               const SizedBox(height: 16),
             ],
 
-            if (showResep)
-              // Resep chip — daftar 5 kartu resep gizi ibu hamil
-              ...resepGiziList.map((r) => Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: ResepCard(resep: r),
-                  ))
-            else
-              // Article list
-              ...filtered
-                  .where((a) => showFeatured ? !a.featured : true)
-                  .map((a) => Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: _ArticleListItem(article: a),
-                      )),
+            // Article list (Resep kini kartu biasa juga, menuju ResepScreen)
+            ...filtered
+                .where((a) => showFeatured ? !a.featured : true)
+                .map((a) => Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: _ArticleListItem(article: a),
+                    )),
 
             const SizedBox(height: 16),
           ],

@@ -32,8 +32,8 @@ void main() {
       expect(spans, hasLength(3));
       expect((spans[0] as TextSpan).text, 'Batasi ');
       expect(spans[1], isA<WidgetSpan>());
-      final highlighted = (spans[1] as WidgetSpan).child as Container;
-      final label = highlighted.child as Text;
+      final highlighted = (spans[1] as WidgetSpan).child as CustomPaint;
+      final label = (highlighted.child as Padding).child as Text;
       expect(label.data, '200 mg');
       expect((spans[2] as TextSpan).text, ' per hari.');
     });
@@ -48,14 +48,10 @@ void main() {
 
       final widgetSpans = spans.whereType<WidgetSpan>().toList();
       expect(widgetSpans, hasLength(2));
-      expect(
-        ((widgetSpans[0].child as Container).child as Text).data,
-        'Preeklampsia',
-      );
-      expect(
-        ((widgetSpans[1].child as Container).child as Text).data,
-        'SIDS',
-      );
+      Text labelOf(WidgetSpan span) =>
+          ((span.child as CustomPaint).child as Padding).child as Text;
+      expect(labelOf(widgetSpans[0]).data, 'Preeklampsia');
+      expect(labelOf(widgetSpans[1]).data, 'SIDS');
       // "dan " and " perlu diwaspadai." surround/between the two markers.
       final plain = spans.whereType<TextSpan>().map((s) => s.text).toList();
       expect(plain, [' dan ', ' perlu diwaspadai.']);
@@ -70,10 +66,10 @@ void main() {
       );
 
       final highlight = spans.whereType<WidgetSpan>().single;
-      final container = highlight.child as Container;
-      final padding = container.padding as EdgeInsets;
-      expect(padding.right, 0);
-      expect(padding.left, 3);
+      final paint = highlight.child as CustomPaint;
+      final padding = (paint.child as Padding).padding as EdgeInsets;
+      expect(padding.right, 2);
+      expect(padding.left, 4);
     });
 
     test('a marker NOT followed by punctuation keeps right padding', () {
@@ -85,9 +81,9 @@ void main() {
       );
 
       final highlight = spans.whereType<WidgetSpan>().single;
-      final container = highlight.child as Container;
-      final padding = container.padding as EdgeInsets;
-      expect(padding.right, 3);
+      final paint = highlight.child as CustomPaint;
+      final padding = (paint.child as Padding).padding as EdgeInsets;
+      expect(padding.right, 4);
     });
   });
 }
