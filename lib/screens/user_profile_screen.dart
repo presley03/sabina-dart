@@ -16,6 +16,7 @@ import '../models/user_identity.dart';
 import '../providers/locale_provider.dart';
 import '../providers/theme_provider.dart';
 import '../services/database_helper.dart';
+import '../utils/severity_labels.dart';
 import 'history_screen.dart';
 import 'identity_screen.dart';
 import 'pregnancy_history_screen.dart';
@@ -31,10 +32,12 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   File? _image;
   final picker = ImagePicker();
   final logger = Logger();
+  late Future<Map<String, dynamic>> _dataFuture;
 
   @override
   void initState() {
     super.initState();
+    _dataFuture = _loadData();
     _loadImage();
   }
 
@@ -53,6 +56,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     final saved = await File(picked.path).copy('${dir.path}/user_avatar.jpg');
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('avatar_path', saved.path);
+    // FileImage caches decoded bytes keyed by path; since the path is reused
+    // for every new photo, the stale bitmap must be evicted or the old photo
+    // keeps showing until the app restarts and the cache is cleared.
+    await FileImage(saved).evict();
     if (mounted) setState(() => _image = saved);
   }
 
@@ -73,10 +80,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final p = context.palette;
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: p.ground,
       body: FutureBuilder<Map<String, dynamic>>(
-        future: _loadData(),
+        future: _dataFuture,
         builder: (context, snap) {
           if (snap.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -126,36 +134,39 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         _MenuItem(
                           icon: Icons.manage_accounts_rounded,
                           color: const Color(0xFF1D4ED8),
+                          bg: const Color(0xFF1D4ED8).withValues(alpha: 0.14),
                           label: l10n.identity,
-                          trailing: const Icon(Icons.chevron_right_rounded,
-                              size: 18, color: Color(0xFF888888)),
+                          trailing: Icon(Icons.chevron_right_rounded,
+                              size: 18, color: p.inkMuted),
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (_) =>
                                   IdentityScreen(userIdentity: identity),
                             ),
-                          ).then((_) => setState(() {})),
+                          ).then((_) => setState(() => _dataFuture = _loadData())),
                         ),
                         _MenuItem(
                           icon: Icons.child_care_rounded,
-                          color: const Color(0xFF6F937D),
+                          color: p.sage,
+                          bg: p.sageSoft,
                           label: l10n.pregnancyHistory,
-                          trailing: const Icon(Icons.chevron_right_rounded,
-                              size: 18, color: Color(0xFF888888)),
+                          trailing: Icon(Icons.chevron_right_rounded,
+                              size: 18, color: p.inkMuted),
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (_) => const PregnancyHistoryScreen(),
                             ),
-                          ).then((_) => setState(() {})),
+                          ).then((_) => setState(() => _dataFuture = _loadData())),
                         ),
                         _MenuItem(
                           icon: Icons.history_rounded,
-                          color: SabinaColors.primary700,
+                          color: p.primary,
+                          bg: p.primarySoft,
                           label: l10n.historyMenuLabel,
-                          trailing: const Icon(Icons.chevron_right_rounded,
-                              size: 18, color: Color(0xFF888888)),
+                          trailing: Icon(Icons.chevron_right_rounded,
+                              size: 18, color: p.inkMuted),
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -171,7 +182,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       _buildMenuCard([
                         _MenuItem(
                           icon: Icons.public_rounded,
-                          color: SabinaColors.primary700,
+                          color: p.primary,
+                          bg: p.primarySoft,
                           label: l10n.language,
                           trailing: Consumer<LocaleProvider>(
                             builder: (ctx, lp, _) => DropdownButton<Locale>(
@@ -179,7 +191,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               underline: const SizedBox(),
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 13,
-                                color: SabinaColors.neutral700,
+                                color: p.ink,
                               ),
                               items: const [
                                 DropdownMenuItem(
@@ -198,25 +210,28 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         ),
                         _MenuItem(
                           icon: Icons.dark_mode_rounded,
-                          color: SabinaColors.primary700,
+                          color: p.primary,
+                          bg: p.primarySoft,
                           label: l10n.appearance,
                           onTap: null,
                           extra: const _ThemeModeSelector(),
                         ),
                         _MenuItem(
                           icon: Icons.lock_rounded,
-                          color: const Color(0xFFC08A3C),
+                          color: p.amber,
+                          bg: p.amberSoft,
                           label: l10n.privacyPolicy,
-                          trailing: const Icon(Icons.chevron_right_rounded,
-                              size: 18, color: Color(0xFF888888)),
+                          trailing: Icon(Icons.chevron_right_rounded,
+                              size: 18, color: p.inkMuted),
                           onTap: () => _showPrivacySheet(context),
                         ),
                         _MenuItem(
                           icon: Icons.info_rounded,
-                          color: SabinaColors.neutral500,
+                          color: p.inkMuted,
+                          bg: p.line,
                           label: l10n.aboutSabinaTitle,
-                          trailing: const Icon(Icons.chevron_right_rounded,
-                              size: 18, color: Color(0xFF888888)),
+                          trailing: Icon(Icons.chevron_right_rounded,
+                              size: 18, color: p.inkMuted),
                           onTap: () => _showAboutSheet(context),
                         ),
                       ]),
@@ -235,14 +250,16 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   // ── AppBar dengan hero photo ─────────────────────────────────────────────
 
   Widget _buildAppBar(UserIdentity identity) {
+    final p = context.palette;
     return SliverAppBar(
-      expandedHeight: 220,
+      expandedHeight: 208,
       pinned: true,
-      backgroundColor: SabinaColors.white,
+      backgroundColor: p.surface,
       surfaceTintColor: Colors.transparent,
+      elevation: 0,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
-        color: SabinaColors.neutral900,
+        color: p.ink,
         onPressed: () => Navigator.of(context).pop(),
       ),
       title: Text(
@@ -250,26 +267,26 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         style: GoogleFonts.plusJakartaSans(
           fontSize: 16,
           fontWeight: FontWeight.w700,
-          color: SabinaColors.neutral900,
+          color: p.ink,
         ),
-      ),
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(1),
-        child: Divider(height: 1, color: SabinaColors.neutral300),
       ),
       flexibleSpace: FlexibleSpaceBar(
         background: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [SabinaColors.primary700, const Color(0xFF9E5A6E)],
+              colors: [p.primary, p.peach],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
+            ),
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(34),
+              bottomRight: Radius.circular(34),
             ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 40),
+              const SizedBox(height: 28),
               GestureDetector(
                 onTap: () {
                   HapticFeedback.lightImpact();
@@ -277,43 +294,50 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 },
                 child: Stack(
                   children: [
-                    CircleAvatar(
-                      radius: 44,
-                      backgroundColor: Colors.white.withValues(alpha: 0.3),
-                      backgroundImage:
-                          _image != null ? FileImage(_image!) : null,
-                      child: _image == null
-                          ? const Icon(Icons.person,
-                              size: 36, color: Colors.white)
-                          : null,
+                    Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white.withValues(alpha: 0.22),
+                      ),
+                      child: CircleAvatar(
+                        radius: 40,
+                        backgroundColor: Colors.white.withValues(alpha: 0.22),
+                        backgroundImage:
+                            _image != null ? FileImage(_image!) : null,
+                        child: _image == null
+                            ? const Icon(Icons.person_rounded,
+                                size: 34, color: Colors.white)
+                            : null,
+                      ),
                     ),
                     Positioned(
-                      bottom: 0,
-                      right: 0,
+                      bottom: 2,
+                      right: 2,
                       child: Container(
                         width: 26,
                         height: 26,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
-                          border: Border.all(
-                              color: SabinaColors.primary700, width: 2),
+                          border: Border.all(color: p.primary, width: 2),
                         ),
-                        child: Icon(Icons.edit,
-                            size: 13, color: SabinaColors.primary700),
+                        child: Icon(Icons.edit_rounded,
+                            size: 12, color: p.primary),
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 12),
               Text(
                 identity.nama.isEmpty
                     ? AppLocalizations.of(context)!.nameNotSet
                     : identity.nama,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
+                style: GoogleFonts.fraunces(
+                  fontSize: 19,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w500,
                   color: Colors.white,
                 ),
               ),
@@ -336,7 +360,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       onEdit: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (_) => const PregnancyHistoryScreen()),
-      ).then((_) => setState(() {})),
+      ).then((_) => setState(() => _dataFuture = _loadData())),
     );
   }
 
@@ -393,6 +417,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   Widget _buildStatRow(UserIdentity identity, PregnancyHistory? pregnancy) {
     final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
     final age = _calcAge(identity.tanggalLahir, l10n);
     final weeks = pregnancy != null
         ? _calcWeeksFromHPHT(pregnancy.tanggalHaidTerakhir, l10n)
@@ -401,11 +426,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16),
       decoration: BoxDecoration(
-        color: SabinaColors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: SabinaColors.neutral900.withValues(alpha: 0.05),
+            color: p.cardShadow,
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -415,12 +440,12 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         child: Row(
           children: [
             _buildStat(l10n.age, age, Icons.cake_rounded),
-            VerticalDivider(width: 1, color: SabinaColors.neutral300),
+            VerticalDivider(width: 1, color: p.line),
             _buildStat(
                 l10n.bloodTypeShort,
                 identity.golonganDarah.isEmpty ? '--' : identity.golonganDarah,
                 Icons.water_drop_rounded),
-            VerticalDivider(width: 1, color: SabinaColors.neutral300),
+            VerticalDivider(width: 1, color: p.line),
             _buildStat(l10n.gestationalAgeShort, weeks, Icons.child_care_rounded),
           ],
         ),
@@ -429,17 +454,18 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   }
 
   Widget _buildStat(String label, String value, IconData icon) {
+    final p = context.palette;
     return Expanded(
       child: Column(
         children: [
-          Icon(icon, size: 16, color: SabinaColors.primary700),
+          Icon(icon, size: 16, color: p.primary),
           const SizedBox(height: 6),
           Text(
             value,
             style: GoogleFonts.plusJakartaSans(
               fontSize: 16,
               fontWeight: FontWeight.w800,
-              color: SabinaColors.neutral900,
+              color: p.ink,
             ),
           ),
           const SizedBox(height: 2),
@@ -447,7 +473,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             label,
             style: GoogleFonts.plusJakartaSans(
               fontSize: 11,
-              color: SabinaColors.neutral500,
+              color: p.inkMuted,
             ),
           ),
         ],
@@ -458,13 +484,15 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   // ── Hasil skrining ────────────────────────────────────────────────────────
 
   Widget _buildScreeningResults(List<ScreeningResult> results) {
+    final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
     return Container(
       decoration: BoxDecoration(
-        color: SabinaColors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: SabinaColors.neutral900.withValues(alpha: 0.05),
+            color: p.cardShadow,
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -484,15 +512,15 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 child: Row(
                   children: [
                     Container(
-                      width: 36,
-                      height: 36,
+                      width: 48,
+                      height: 48,
                       decoration: BoxDecoration(
                         color: colors['bg'],
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(14),
                       ),
                       child: Icon(
                         _sevIcon(r.severity),
-                        size: 16,
+                        size: 22,
                         color: colors['fg'],
                       ),
                     ),
@@ -502,18 +530,18 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            r.typeLabel,
+                            translateScreeningType(l10n, r.type),
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
-                              color: SabinaColors.neutral900,
+                              color: p.ink,
                             ),
                           ),
                           Text(
-                            r.timeAgoLabel,
+                            translateTimeAgo(l10n, r.timestamp),
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 11,
-                              color: SabinaColors.neutral500,
+                              color: p.inkMuted,
                             ),
                           ),
                         ],
@@ -527,7 +555,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
-                        r.label,
+                        translateSeverityLabel(l10n, r.label),
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
@@ -541,8 +569,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               if (!isLast)
                 Divider(
                   height: 1,
-                  indent: 64,
-                  color: SabinaColors.neutral300,
+                  indent: 76,
+                  color: p.line,
                 ),
             ],
           );
@@ -554,13 +582,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   // ── Menu card ─────────────────────────────────────────────────────────────
 
   Widget _buildMenuCard(List<_MenuItem> items) {
+    final p = context.palette;
     return Container(
       decoration: BoxDecoration(
-        color: SabinaColors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: SabinaColors.neutral900.withValues(alpha: 0.05),
+            color: p.cardShadow,
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -589,14 +618,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   child: Row(
                     children: [
                       Container(
-                        width: 36,
-                        height: 36,
+                        width: 48,
+                        height: 48,
                         decoration: BoxDecoration(
-                          color: item.color.withValues(alpha: 0.12),
-                          borderRadius: BorderRadius.circular(10),
+                          color: item.bg ?? item.color.withValues(alpha: 0.14),
+                          borderRadius: BorderRadius.circular(14),
                         ),
                         child: Center(
-                          child: Icon(item.icon, size: 16, color: item.color),
+                          child: Icon(item.icon, size: 22, color: item.color),
                         ),
                       ),
                       const SizedBox(width: 14),
@@ -606,7 +635,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: SabinaColors.neutral900,
+                            color: p.ink,
                           ),
                         ),
                       ),
@@ -623,8 +652,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               if (!isLast)
                 Divider(
                   height: 1,
-                  indent: 66,
-                  color: SabinaColors.neutral300,
+                  indent: 78,
+                  color: p.line,
                 ),
             ],
           );
@@ -638,7 +667,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         style: GoogleFonts.plusJakartaSans(
           fontSize: 10,
           fontWeight: FontWeight.w700,
-          color: SabinaColors.neutral500,
+          color: context.palette.inkMuted,
           letterSpacing: 1.2,
         ),
       );
@@ -646,6 +675,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   // ── Bottom sheets ─────────────────────────────────────────────────────────
 
   void _showPrivacySheet(BuildContext context) {
+    final p = context.palette;
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -667,7 +697,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   width: 40,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: SabinaColors.neutral300,
+                    color: p.line,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -675,7 +705,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               const SizedBox(height: 20),
               Text(AppLocalizations.of(context)!.privacyPolicy,
                   style: GoogleFonts.plusJakartaSans(
-                      fontSize: 18, fontWeight: FontWeight.w700)),
+                      fontSize: 18, fontWeight: FontWeight.w700, color: p.ink)),
               const SizedBox(height: 12),
               Expanded(
                 child: SingleChildScrollView(
@@ -685,7 +715,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     style: GoogleFonts.plusJakartaSans(
                         fontSize: 13,
                         height: 1.7,
-                        color: SabinaColors.neutral700),
+                        color: p.inkMuted),
                   ),
                 ),
               ),
@@ -698,6 +728,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   void _showAboutSheet(BuildContext context) {
     final l = AppLocalizations.of(context)!;
+    final p = context.palette;
     showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -714,7 +745,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: SabinaColors.neutral300,
+                  color: p.line,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -722,20 +753,20 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             const SizedBox(height: 20),
             Text(l.aboutSabinaTitle,
                 style: GoogleFonts.plusJakartaSans(
-                    fontSize: 18, fontWeight: FontWeight.w700)),
+                    fontSize: 18, fontWeight: FontWeight.w700, color: p.ink)),
             const SizedBox(height: 12),
             Text(l.aboutSabina,
                 style: GoogleFonts.plusJakartaSans(
-                    fontSize: 13, height: 1.7, color: SabinaColors.neutral700)),
+                    fontSize: 13, height: 1.7, color: p.inkMuted)),
             const SizedBox(height: 12),
             Text(l.initiatedBy,
                 style: GoogleFonts.plusJakartaSans(
-                    fontSize: 12, color: SabinaColors.neutral500)),
+                    fontSize: 12, color: p.inkMuted)),
             Text(l.initiatorNames,
                 style: GoogleFonts.plusJakartaSans(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
-                    color: SabinaColors.neutral700)),
+                    color: p.ink)),
             const SizedBox(height: 24),
           ],
         ),
@@ -816,6 +847,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 class _MenuItem {
   final IconData icon;
   final Color color;
+  final Color? bg;
   final String label;
   final Widget? trailing;
   final VoidCallback? onTap;
@@ -824,6 +856,7 @@ class _MenuItem {
   const _MenuItem({
     required this.icon,
     required this.color,
+    this.bg,
     required this.label,
     this.trailing,
     this.onTap,
@@ -832,11 +865,6 @@ class _MenuItem {
 }
 
 // ── Selektor mode tema (Terang/Gelap/Sistem) ─────────────────────────────────
-//
-// Warna sengaja diambil dari `SabinaColors` (bukan `context.palette`): layar
-// profil ini masih memakai latar putih hardcoded di kedua tema (di luar
-// cakupan migrasi §10), jadi selektor ini dibuat konsisten dengan gaya
-// hardcoded sekitarnya agar tetap terbaca jelas terlepas dari tema aktif.
 class _ThemeModeSelector extends StatelessWidget {
   const _ThemeModeSelector();
 
@@ -844,6 +872,7 @@ class _ThemeModeSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final themeProvider = context.watch<ThemeProvider>();
+    final p = context.palette;
 
     final options = <(ThemeMode, IconData, String)>[
       (ThemeMode.light, Icons.light_mode_rounded, l10n.themeLight),
@@ -854,7 +883,7 @@ class _ThemeModeSelector extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: SabinaColors.neutral100,
+        color: p.ground,
         borderRadius: BorderRadius.circular(14),
       ),
       child: Row(
@@ -871,7 +900,7 @@ class _ThemeModeSelector extends StatelessWidget {
                 duration: const Duration(milliseconds: 180),
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 decoration: BoxDecoration(
-                  color: selected ? SabinaColors.primary700 : Colors.transparent,
+                  color: selected ? p.primary : Colors.transparent,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
@@ -880,9 +909,7 @@ class _ThemeModeSelector extends StatelessWidget {
                     Icon(
                       icon,
                       size: 16,
-                      color: selected
-                          ? SabinaColors.white
-                          : SabinaColors.neutral500,
+                      color: selected ? p.surface : p.inkMuted,
                     ),
                     const SizedBox(height: 4),
                     Text(
@@ -890,9 +917,7 @@ class _ThemeModeSelector extends StatelessWidget {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 11,
                         fontWeight: FontWeight.w600,
-                        color: selected
-                            ? SabinaColors.white
-                            : SabinaColors.neutral700,
+                        color: selected ? p.surface : p.ink,
                       ),
                     ),
                   ],
@@ -958,6 +983,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final pal = context.palette;
     final p = widget.pregnancy;
     final weeks = widget.calcWeeks(p.tanggalHaidTerakhir);
     final taksiran = widget.calcDueDate(p.tanggalHaidTerakhir);
@@ -973,7 +999,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 10,
                 fontWeight: FontWeight.w700,
-                color: SabinaColors.neutral500,
+                color: pal.inkMuted,
                 letterSpacing: 1.2,
               ),
             ),
@@ -984,7 +1010,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
-                  color: SabinaColors.primary700,
+                  color: pal.primary,
                 ),
               ),
             ),
@@ -993,11 +1019,11 @@ class _PregnancyCardState extends State<_PregnancyCard>
         const SizedBox(height: 10),
         Container(
           decoration: BoxDecoration(
-            color: SabinaColors.white,
+            color: pal.surface,
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.05),
+                color: pal.cardShadow,
                 blurRadius: 8,
                 offset: const Offset(0, 2),
               ),
@@ -1021,27 +1047,27 @@ class _PregnancyCardState extends State<_PregnancyCard>
                         padding: const EdgeInsets.symmetric(
                             horizontal: 12, vertical: 8),
                         decoration: BoxDecoration(
-                          color: SabinaColors.primary100,
+                          color: pal.primarySoft,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Column(
                           children: [
                             Icon(Icons.child_care_rounded,
-                                size: 16, color: SabinaColors.primary700),
+                                size: 16, color: pal.primary),
                             const SizedBox(height: 4),
                             Text(
                               weeks,
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w800,
-                                color: SabinaColors.primary700,
+                                color: pal.primary,
                               ),
                             ),
                             Text(
                               l10n.gestationalAgeShort,
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 9,
-                                color: SabinaColors.primary700,
+                                color: pal.primary,
                               ),
                             ),
                           ],
@@ -1067,7 +1093,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
                       RotationTransition(
                         turns: _rotateAnim,
                         child: Icon(Icons.keyboard_arrow_down_rounded,
-                            color: SabinaColors.neutral500, size: 20),
+                            color: pal.inkMuted, size: 20),
                       ),
                     ],
                   ),
@@ -1079,7 +1105,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
                 sizeFactor: _expandAnim,
                 child: Column(
                   children: [
-                    Divider(height: 1, color: SabinaColors.neutral300),
+                    Divider(height: 1, color: pal.line),
                     _detailRow(
                         l10n.hphtLabel,
                         p.tanggalHaidTerakhir.isEmpty
@@ -1145,15 +1171,16 @@ class _PregnancyCardState extends State<_PregnancyCard>
   }
 
   Widget _infoChip(IconData icon, String label, String value) {
+    final pal = context.palette;
     return Row(
       children: [
-        Icon(icon, size: 11, color: SabinaColors.neutral500),
+        Icon(icon, size: 11, color: pal.inkMuted),
         const SizedBox(width: 6),
         Text(
           '$label: ',
           style: GoogleFonts.plusJakartaSans(
             fontSize: 11,
-            color: SabinaColors.neutral500,
+            color: pal.inkMuted,
           ),
         ),
         Text(
@@ -1161,7 +1188,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
           style: GoogleFonts.plusJakartaSans(
             fontSize: 11,
             fontWeight: FontWeight.w700,
-            color: SabinaColors.neutral900,
+            color: pal.ink,
           ),
         ),
       ],
@@ -1169,6 +1196,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
   }
 
   Widget _detailRow(String label, String value) {
+    final pal = context.palette;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
       child: Row(
@@ -1178,7 +1206,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
             label,
             style: GoogleFonts.plusJakartaSans(
               fontSize: 13,
-              color: SabinaColors.neutral500,
+              color: pal.inkMuted,
             ),
           ),
           const SizedBox(width: 16),
@@ -1189,7 +1217,7 @@ class _PregnancyCardState extends State<_PregnancyCard>
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
-                color: SabinaColors.neutral900,
+                color: pal.ink,
               ),
             ),
           ),
@@ -1202,6 +1230,6 @@ class _PregnancyCardState extends State<_PregnancyCard>
         height: 1,
         indent: 16,
         endIndent: 16,
-        color: SabinaColors.neutral300,
+        color: context.palette.line,
       );
 }

@@ -82,17 +82,18 @@ class IdentityScreenState extends State<IdentityScreen>
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
 
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: p.ground,
       appBar: AppBar(
-        backgroundColor: SabinaColors.white,
+        backgroundColor: p.surface,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         centerTitle: false,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
-          color: SabinaColors.neutral900,
+          color: p.ink,
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
@@ -100,7 +101,7 @@ class IdentityScreenState extends State<IdentityScreen>
           style: GoogleFonts.plusJakartaSans(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: SabinaColors.neutral900,
+            color: p.ink,
           ),
         ),
         actions: [
@@ -111,7 +112,7 @@ class IdentityScreenState extends State<IdentityScreen>
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
-                color: SabinaColors.primary700,
+                color: p.primary,
               ),
             ),
           ),
@@ -119,7 +120,7 @@ class IdentityScreenState extends State<IdentityScreen>
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
-          child: Divider(height: 1, color: SabinaColors.neutral300),
+          child: Divider(height: 1, color: p.line),
         ),
       ),
       body: SafeArea(
@@ -153,13 +154,14 @@ class IdentityScreenState extends State<IdentityScreen>
   // ---------------------------------------------------------------------------
 
   Widget _buildFormCard(AppLocalizations l10n) {
+    final p = context.palette;
     return Container(
       decoration: BoxDecoration(
-        color: SabinaColors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: SabinaColors.neutral900.withValues(alpha: 0.05),
+            color: p.ink.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -232,6 +234,7 @@ class IdentityScreenState extends State<IdentityScreen>
     int maxLines = 1,
     bool isFirst = false,
   }) {
+    final p = context.palette;
     final radius = isFirst
         ? const BorderRadius.vertical(top: Radius.circular(18))
         : BorderRadius.zero;
@@ -244,27 +247,27 @@ class IdentityScreenState extends State<IdentityScreen>
         validator: validator,
         style: GoogleFonts.plusJakartaSans(
           fontSize: 14,
-          color: SabinaColors.neutral900,
+          color: p.ink,
         ),
         decoration: InputDecoration(
           labelText: label,
           labelStyle: GoogleFonts.plusJakartaSans(
             fontSize: 13,
-            color: SabinaColors.neutral500,
+            color: p.inkMuted,
           ),
           hintText: hint,
           hintStyle: GoogleFonts.plusJakartaSans(
             fontSize: 14,
-            color: SabinaColors.neutral300,
+            color: p.line,
           ),
           prefixIcon: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Icon(icon, size: 15, color: SabinaColors.primary700),
+            child: Icon(icon, size: 15, color: p.primary),
           ),
           prefixIconConstraints:
               const BoxConstraints(minWidth: 48, minHeight: 48),
           filled: true,
-          fillColor: SabinaColors.white,
+          fillColor: p.surface,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           border: InputBorder.none,
@@ -272,7 +275,7 @@ class IdentityScreenState extends State<IdentityScreen>
           focusedBorder: InputBorder.none,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(0),
-            borderSide: BorderSide(color: SabinaColors.error700, width: 1.5),
+            borderSide: BorderSide(color: p.critical, width: 1.5),
           ),
           floatingLabelBehavior: FloatingLabelBehavior.always,
         ),
@@ -288,6 +291,7 @@ class IdentityScreenState extends State<IdentityScreen>
     required VoidCallback onTap,
     bool isLast = false,
   }) {
+    final p = context.palette;
     final radius = isLast
         ? const BorderRadius.vertical(bottom: Radius.circular(18))
         : BorderRadius.zero;
@@ -299,7 +303,7 @@ class IdentityScreenState extends State<IdentityScreen>
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         child: Row(
           children: [
-            Icon(icon, size: 15, color: SabinaColors.primary700),
+            Icon(icon, size: 15, color: p.primary),
             const SizedBox(width: 14),
             Expanded(
               child: Column(
@@ -309,7 +313,7 @@ class IdentityScreenState extends State<IdentityScreen>
                     label,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 12,
-                      color: SabinaColors.neutral500,
+                      color: p.inkMuted,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -318,7 +322,7 @@ class IdentityScreenState extends State<IdentityScreen>
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: SabinaColors.neutral900,
+                      color: p.ink,
                     ),
                   ),
                 ],
@@ -327,7 +331,7 @@ class IdentityScreenState extends State<IdentityScreen>
             Icon(
               Icons.chevron_right_rounded,
               size: 12,
-              color: SabinaColors.neutral300,
+              color: p.line,
             ),
           ],
         ),
@@ -337,6 +341,7 @@ class IdentityScreenState extends State<IdentityScreen>
 
   // Date row
   Widget _buildDateRow(AppLocalizations l10n) {
+    final p = context.palette;
     final hasDate = _tanggalLahirController.text.isNotEmpty;
     return InkWell(
       onTap: () => _selectDate(context),
@@ -347,7 +352,7 @@ class IdentityScreenState extends State<IdentityScreen>
             Icon(
               Icons.calendar_month_rounded,
               size: 15,
-              color: SabinaColors.primary700,
+              color: p.primary,
             ),
             const SizedBox(width: 14),
             Expanded(
@@ -358,7 +363,7 @@ class IdentityScreenState extends State<IdentityScreen>
                     l10n.dateOfBirth,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 12,
-                      color: SabinaColors.neutral500,
+                      color: p.inkMuted,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -370,8 +375,8 @@ class IdentityScreenState extends State<IdentityScreen>
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       color: hasDate
-                          ? SabinaColors.neutral900
-                          : SabinaColors.neutral300,
+                          ? p.ink
+                          : p.line,
                     ),
                   ),
                 ],
@@ -380,7 +385,7 @@ class IdentityScreenState extends State<IdentityScreen>
             Icon(
               Icons.chevron_right_rounded,
               size: 12,
-              color: SabinaColors.neutral300,
+              color: p.line,
             ),
           ],
         ),
@@ -389,19 +394,20 @@ class IdentityScreenState extends State<IdentityScreen>
   }
 
   Widget _buildDivider() =>
-      Divider(height: 1, color: SabinaColors.neutral300, indent: 18);
+      Divider(height: 1, color: context.palette.line, indent: 18);
 
   // ---------------------------------------------------------------------------
   // Privacy note
   // ---------------------------------------------------------------------------
 
   Widget _buildPrivacyNote(AppLocalizations l10n) {
+    final p = context.palette;
     return Row(
       children: [
         Icon(
           Icons.lock_rounded,
           size: 12,
-          color: SabinaColors.neutral500,
+          color: p.inkMuted,
         ),
         const SizedBox(width: 6),
         Expanded(
@@ -409,7 +415,7 @@ class IdentityScreenState extends State<IdentityScreen>
             l10n.localDataNote,
             style: GoogleFonts.plusJakartaSans(
               fontSize: 11,
-              color: SabinaColors.neutral500,
+              color: p.inkMuted,
             ),
           ),
         ),
@@ -422,12 +428,13 @@ class IdentityScreenState extends State<IdentityScreen>
   // ---------------------------------------------------------------------------
 
   Widget _sectionLabel(String label) {
+    final p = context.palette;
     return Text(
       label,
       style: GoogleFonts.plusJakartaSans(
         fontSize: 10,
         fontWeight: FontWeight.w700,
-        color: SabinaColors.neutral500,
+        color: p.inkMuted,
         letterSpacing: 1.0,
       ),
     );
@@ -445,6 +452,7 @@ class IdentityScreenState extends State<IdentityScreen>
     String title,
   ) {
     final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
@@ -457,7 +465,7 @@ class IdentityScreenState extends State<IdentityScreen>
       ),
       builder: (_) => Container(
         decoration: BoxDecoration(
-          color: SabinaColors.white,
+          color: p.surface,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: SafeArea(
@@ -470,7 +478,7 @@ class IdentityScreenState extends State<IdentityScreen>
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: SabinaColors.neutral300,
+                  color: p.line,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -487,30 +495,35 @@ class IdentityScreenState extends State<IdentityScreen>
                         l10n.cancel,
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
-                          color: SabinaColors.neutral500,
+                          color: p.inkMuted,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                    Text(
-                      title,
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                        color: SabinaColors.neutral900,
+                    Expanded(
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          color: p.ink,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 60),
                   ],
                 ),
               ),
-              Divider(height: 1, color: SabinaColors.neutral300),
+              Divider(height: 1, color: p.line),
               Flexible(
                 child: ListView.separated(
                   shrinkWrap: true,
                   itemCount: items.length,
                   separatorBuilder: (_, __) =>
-                      Divider(height: 1, color: SabinaColors.neutral300),
+                      Divider(height: 1, color: p.line),
                   itemBuilder: (context, index) {
                     final item = items[index];
                     final isSelected = selectedValue == item;
@@ -522,14 +535,14 @@ class IdentityScreenState extends State<IdentityScreen>
                           fontWeight:
                               isSelected ? FontWeight.w600 : FontWeight.w400,
                           color: isSelected
-                              ? SabinaColors.primary700
-                              : SabinaColors.neutral900,
+                              ? p.primary
+                              : p.ink,
                         ),
                       ),
                       trailing: isSelected
                           ? Icon(
                               Icons.check_rounded,
-                              color: SabinaColors.primary700,
+                              color: p.primary,
                               size: 16,
                             )
                           : null,
@@ -555,6 +568,7 @@ class IdentityScreenState extends State<IdentityScreen>
 
   void _selectDate(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
@@ -563,7 +577,7 @@ class IdentityScreenState extends State<IdentityScreen>
       ),
       builder: (_) => Container(
         decoration: BoxDecoration(
-          color: SabinaColors.white,
+          color: p.surface,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: SafeArea(
@@ -575,7 +589,7 @@ class IdentityScreenState extends State<IdentityScreen>
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: SabinaColors.neutral300,
+                  color: p.line,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -591,17 +605,22 @@ class IdentityScreenState extends State<IdentityScreen>
                         l10n.cancel,
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
-                          color: SabinaColors.neutral500,
+                          color: p.inkMuted,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                    Text(
-                      l10n.dateOfBirth,
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                        color: SabinaColors.neutral900,
+                    Expanded(
+                      child: Text(
+                        l10n.dateOfBirth,
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          color: p.ink,
+                        ),
                       ),
                     ),
                     TextButton(
@@ -618,7 +637,7 @@ class IdentityScreenState extends State<IdentityScreen>
                         l10n.done,
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
-                          color: SabinaColors.primary700,
+                          color: p.primary,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -626,7 +645,7 @@ class IdentityScreenState extends State<IdentityScreen>
                   ],
                 ),
               ),
-              Divider(height: 1, color: SabinaColors.neutral300),
+              Divider(height: 1, color: p.line),
               SizedBox(
                 height: 220,
                 child: CupertinoDatePicker(
@@ -670,6 +689,7 @@ class IdentityScreenState extends State<IdentityScreen>
 
       if (mounted) {
         final l10n = AppLocalizations.of(context)!;
+        final p = context.palette;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
@@ -679,7 +699,7 @@ class IdentityScreenState extends State<IdentityScreen>
                 fontWeight: FontWeight.w500,
               ),
             ),
-            backgroundColor: SabinaColors.primary700,
+            backgroundColor: p.primary,
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),

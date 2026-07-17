@@ -73,16 +73,17 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
 
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: p.ground,
       appBar: AppBar(
-        backgroundColor: SabinaColors.white,
+        backgroundColor: p.surface,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
-          color: SabinaColors.neutral900,
+          color: p.ink,
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
@@ -90,7 +91,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: SabinaColors.neutral900,
+            color: p.ink,
           ),
         ),
         actions: [
@@ -101,7 +102,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
-                color: SabinaColors.primary700,
+                color: p.primary,
               ),
             ),
           ),
@@ -109,7 +110,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
-          child: Divider(height: 1, color: SabinaColors.neutral300),
+          child: Divider(height: 1, color: p.line),
         ),
       ),
       body: Form(
@@ -142,7 +143,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                     value:
                         '$_pregnancyWeeks ${l10n.weekUnit} $_pregnancyDays ${l10n.dayUnit}',
                     icon: Icons.history_rounded,
-                    valueColor: SabinaColors.primary700,
+                    valueColor: p.primary,
                   ),
                   _divider(),
                   _infoRow(
@@ -339,28 +340,29 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     String? Function(String?)? validator,
     bool isFirst = false,
   }) {
+    final p = context.palette;
     return TextFormField(
       controller: controller,
       readOnly: true,
       onTap: onTap,
       validator: validator,
       style: GoogleFonts.plusJakartaSans(
-          fontSize: 14, color: SabinaColors.neutral900),
+          fontSize: 14, color: p.ink),
       decoration: InputDecoration(
         labelText: label,
         labelStyle: GoogleFonts.plusJakartaSans(
-            fontSize: 12, color: SabinaColors.neutral500),
+            fontSize: 12, color: p.inkMuted),
         hintText: hint,
         hintStyle: GoogleFonts.plusJakartaSans(
-            fontSize: 14, color: SabinaColors.neutral300),
+            fontSize: 14, color: p.line),
         prefixIcon: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Icon(icon, size: 15, color: SabinaColors.primary700),
+          child: Icon(icon, size: 15, color: p.primary),
         ),
         prefixIconConstraints:
             const BoxConstraints(minWidth: 48, minHeight: 48),
         filled: true,
-        fillColor: SabinaColors.white,
+        fillColor: p.surface,
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         border: InputBorder.none,
@@ -370,7 +372,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         suffixIcon: Padding(
           padding: const EdgeInsets.only(right: 16),
           child: Icon(Icons.chevron_right_rounded,
-              size: 12, color: SabinaColors.neutral300),
+              size: 12, color: p.line),
         ),
       ),
     );
@@ -382,11 +384,12 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     required IconData icon,
     Color? valueColor,
   }) {
+    final p = context.palette;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
-          Icon(icon, size: 15, color: SabinaColors.primary700),
+          Icon(icon, size: 15, color: p.primary),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
@@ -394,13 +397,13 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               children: [
                 Text(label,
                     style: GoogleFonts.plusJakartaSans(
-                        fontSize: 12, color: SabinaColors.neutral500)),
+                        fontSize: 12, color: p.inkMuted)),
                 const SizedBox(height: 2),
                 Text(value,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      color: valueColor ?? SabinaColors.neutral900,
+                      color: valueColor ?? p.ink,
                     )),
               ],
             ),
@@ -417,27 +420,28 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     required String suffix,
     String? Function(String?)? validator,
   }) {
+    final p = context.palette;
     return TextFormField(
       controller: controller,
       keyboardType: TextInputType.number,
       validator: validator,
       style: GoogleFonts.plusJakartaSans(
-          fontSize: 14, color: SabinaColors.neutral900),
+          fontSize: 14, color: p.ink),
       decoration: InputDecoration(
         labelText: label,
         labelStyle: GoogleFonts.plusJakartaSans(
-            fontSize: 12, color: SabinaColors.neutral500),
+            fontSize: 12, color: p.inkMuted),
         prefixIcon: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Icon(icon, size: 15, color: SabinaColors.primary700),
+          child: Icon(icon, size: 15, color: p.primary),
         ),
         prefixIconConstraints:
             const BoxConstraints(minWidth: 48, minHeight: 48),
         suffixText: suffix,
         suffixStyle: GoogleFonts.plusJakartaSans(
-            fontSize: 13, color: SabinaColors.neutral500),
+            fontSize: 13, color: p.inkMuted),
         filled: true,
-        fillColor: SabinaColors.white,
+        fillColor: p.surface,
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         border: InputBorder.none,
@@ -458,11 +462,12 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     required Function(int) onChanged,
     bool isFirst = false,
   }) {
+    final p = context.palette;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
-          Icon(icon, size: 15, color: SabinaColors.primary700),
+          Icon(icon, size: 15, color: p.primary),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
@@ -470,7 +475,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               children: [
                 Text(label,
                     style: GoogleFonts.plusJakartaSans(
-                        fontSize: 12, color: SabinaColors.neutral500)),
+                        fontSize: 12, color: p.inkMuted)),
                 const SizedBox(height: 6),
                 Row(
                   children: [
@@ -484,7 +489,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
-                        color: SabinaColors.neutral900,
+                        color: p.ink,
                       ),
                     ),
                     const SizedBox(width: 16),
@@ -503,6 +508,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   }
 
   Widget _countButton({required IconData icon, VoidCallback? onTap}) {
+    final p = context.palette;
     final enabled = onTap != null;
     return GestureDetector(
       onTap: onTap,
@@ -510,14 +516,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         width: 32,
         height: 32,
         decoration: BoxDecoration(
-          color: enabled ? SabinaColors.primary100 : SabinaColors.neutral100,
+          color: enabled ? p.primarySoft : p.groundAlt,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Center(
           child: Icon(
             icon,
             size: 12,
-            color: enabled ? SabinaColors.primary700 : SabinaColors.neutral300,
+            color: enabled ? p.primary : p.line,
           ),
         ),
       ),
@@ -530,13 +536,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     required int value,
     required VoidCallback onTap,
   }) {
+    final p = context.palette;
     return InkWell(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         child: Row(
           children: [
-            Icon(icon, size: 15, color: SabinaColors.primary700),
+            Icon(icon, size: 15, color: p.primary),
             const SizedBox(width: 14),
             Expanded(
               child: Column(
@@ -544,21 +551,21 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 children: [
                   Text(label,
                       style: GoogleFonts.plusJakartaSans(
-                          fontSize: 12, color: SabinaColors.neutral500)),
+                          fontSize: 12, color: p.inkMuted)),
                   const SizedBox(height: 2),
                   Text(
                     value.toString(),
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: SabinaColors.neutral900,
+                      color: p.ink,
                     ),
                   ),
                 ],
               ),
             ),
             Icon(Icons.chevron_right_rounded,
-                size: 12, color: SabinaColors.neutral300),
+                size: 12, color: p.line),
           ],
         ),
       ),
@@ -573,6 +580,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     required VoidCallback onTap,
     bool isLast = false,
   }) {
+    final p = context.palette;
     final radius = isLast
         ? const BorderRadius.vertical(bottom: Radius.circular(18))
         : BorderRadius.zero;
@@ -583,7 +591,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         child: Row(
           children: [
-            Icon(icon, size: 15, color: SabinaColors.primary700),
+            Icon(icon, size: 15, color: p.primary),
             const SizedBox(width: 14),
             Expanded(
               child: Column(
@@ -591,7 +599,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 children: [
                   Text(label,
                       style: GoogleFonts.plusJakartaSans(
-                          fontSize: 12, color: SabinaColors.neutral500)),
+                          fontSize: 12, color: p.inkMuted)),
                   const SizedBox(height: 2),
                   Text(
                     value ?? AppLocalizations.of(context)!.selectPlaceholder,
@@ -599,15 +607,15 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       color: value != null
-                          ? SabinaColors.neutral900
-                          : SabinaColors.neutral300,
+                          ? p.ink
+                          : p.line,
                     ),
                   ),
                 ],
               ),
             ),
             Icon(Icons.chevron_right_rounded,
-                size: 12, color: SabinaColors.neutral300),
+                size: 12, color: p.line),
           ],
         ),
       ),
@@ -622,6 +630,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     String? Function(String?)? validator,
     bool isLast = false,
   }) {
+    final p = context.palette;
     return Padding(
       padding: const EdgeInsets.only(bottom: 4),
       child: TextFormField(
@@ -629,22 +638,22 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
         maxLines: 3,
         validator: validator,
         style: GoogleFonts.plusJakartaSans(
-            fontSize: 14, color: SabinaColors.neutral900),
+            fontSize: 14, color: p.ink),
         decoration: InputDecoration(
           labelText: label,
           labelStyle: GoogleFonts.plusJakartaSans(
-              fontSize: 12, color: SabinaColors.neutral500),
+              fontSize: 12, color: p.inkMuted),
           hintText: hint,
           hintStyle: GoogleFonts.plusJakartaSans(
-              fontSize: 13, color: SabinaColors.neutral300),
+              fontSize: 13, color: p.line),
           prefixIcon: Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-            child: Icon(icon, size: 15, color: SabinaColors.primary700),
+            child: Icon(icon, size: 15, color: p.primary),
           ),
           prefixIconConstraints:
               const BoxConstraints(minWidth: 48, minHeight: 48),
           filled: true,
-          fillColor: SabinaColors.white,
+          fillColor: p.surface,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           border: InputBorder.none,
@@ -661,13 +670,14 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   // ---------------------------------------------------------------------------
 
   Widget _buildCard(List<Widget> children) {
+    final p = context.palette;
     return Container(
       decoration: BoxDecoration(
-        color: SabinaColors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: SabinaColors.neutral900.withValues(alpha: 0.05),
+            color: p.cardShadow,
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -678,7 +688,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   }
 
   Widget _divider() =>
-      Divider(height: 1, color: SabinaColors.neutral300, indent: 18);
+      Divider(height: 1, color: context.palette.line, indent: 18);
 
   Widget _sectionLabel(String label) {
     return Text(
@@ -686,7 +696,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       style: GoogleFonts.plusJakartaSans(
         fontSize: 10,
         fontWeight: FontWeight.w700,
-        color: SabinaColors.neutral500,
+        color: context.palette.inkMuted,
         letterSpacing: 1.0,
       ),
     );
@@ -697,6 +707,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   // ---------------------------------------------------------------------------
 
   void _pickDate(BuildContext context, TextEditingController controller) {
+    final p = context.palette;
     DateTime tempDate = DateTime.now();
     showModalBottomSheet(
       context: context,
@@ -704,7 +715,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       isScrollControlled: true,
       builder: (_) => Container(
         decoration: BoxDecoration(
-          color: SabinaColors.white,
+          color: p.surface,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: SafeArea(
@@ -716,7 +727,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: SabinaColors.neutral300,
+                  color: p.line,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -731,16 +742,21 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                       child: Text(AppLocalizations.of(context)!.cancel,
                           style: GoogleFonts.plusJakartaSans(
                               fontSize: 14,
-                              color: SabinaColors.neutral500,
+                              color: p.inkMuted,
                               fontWeight: FontWeight.w500)),
                     ),
-                    Text(
-                        AppLocalizations.of(context)!
-                            .pregnancyHistory_lastPeriodDate,
-                        style: GoogleFonts.plusJakartaSans(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700,
-                            color: SabinaColors.neutral900)),
+                    Expanded(
+                      child: Text(
+                          AppLocalizations.of(context)!
+                              .pregnancyHistory_lastPeriodDate,
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.plusJakartaSans(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: p.ink)),
+                    ),
                     TextButton(
                       onPressed: () {
                         setState(() {
@@ -752,13 +768,13 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                       child: Text(AppLocalizations.of(context)!.done,
                           style: GoogleFonts.plusJakartaSans(
                               fontSize: 14,
-                              color: SabinaColors.primary700,
+                              color: p.primary,
                               fontWeight: FontWeight.w700)),
                     ),
                   ],
                 ),
               ),
-              Divider(height: 1, color: SabinaColors.neutral300),
+              Divider(height: 1, color: p.line),
               SizedBox(
                 height: 220,
                 child: CupertinoDatePicker(
@@ -782,6 +798,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   // ---------------------------------------------------------------------------
 
   void _showYearPicker(BuildContext context) {
+    final p = context.palette;
     int tempYear = _lastChildBirthYear;
     showModalBottomSheet(
       context: context,
@@ -789,7 +806,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       isScrollControlled: true,
       builder: (_) => Container(
         decoration: BoxDecoration(
-          color: SabinaColors.white,
+          color: p.surface,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: SafeArea(
@@ -801,7 +818,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: SabinaColors.neutral300,
+                  color: p.line,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -816,16 +833,21 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                       child: Text(AppLocalizations.of(context)!.cancel,
                           style: GoogleFonts.plusJakartaSans(
                               fontSize: 14,
-                              color: SabinaColors.neutral500,
+                              color: p.inkMuted,
                               fontWeight: FontWeight.w500)),
                     ),
-                    Text(
-                        AppLocalizations.of(context)!
-                            .pregnancyHistory_lastChildBirthYear,
-                        style: GoogleFonts.plusJakartaSans(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700,
-                            color: SabinaColors.neutral900)),
+                    Expanded(
+                      child: Text(
+                          AppLocalizations.of(context)!
+                              .pregnancyHistory_lastChildBirthYear,
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.plusJakartaSans(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: p.ink)),
+                    ),
                     TextButton(
                       onPressed: () {
                         setState(() => _lastChildBirthYear = tempYear);
@@ -834,13 +856,13 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                       child: Text(AppLocalizations.of(context)!.done,
                           style: GoogleFonts.plusJakartaSans(
                               fontSize: 14,
-                              color: SabinaColors.primary700,
+                              color: p.primary,
                               fontWeight: FontWeight.w700)),
                     ),
                   ],
                 ),
               ),
-              Divider(height: 1, color: SabinaColors.neutral300),
+              Divider(height: 1, color: p.line),
               SizedBox(
                 height: 200,
                 child: CupertinoDatePicker(
@@ -870,6 +892,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
     Function(String) onSelected,
     String title,
   ) {
+    final p = context.palette;
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
@@ -881,7 +904,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
       ),
       builder: (_) => Container(
         decoration: BoxDecoration(
-          color: SabinaColors.white,
+          color: p.surface,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: SafeArea(
@@ -893,7 +916,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: SabinaColors.neutral300,
+                  color: p.line,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -908,25 +931,30 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                       child: Text(AppLocalizations.of(context)!.cancel,
                           style: GoogleFonts.plusJakartaSans(
                               fontSize: 14,
-                              color: SabinaColors.neutral500,
+                              color: p.inkMuted,
                               fontWeight: FontWeight.w500)),
                     ),
-                    Text(title,
-                        style: GoogleFonts.plusJakartaSans(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700,
-                            color: SabinaColors.neutral900)),
+                    Expanded(
+                      child: Text(title,
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.plusJakartaSans(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: p.ink)),
+                    ),
                     const SizedBox(width: 60),
                   ],
                 ),
               ),
-              Divider(height: 1, color: SabinaColors.neutral300),
+              Divider(height: 1, color: p.line),
               Flexible(
                 child: ListView.separated(
                   shrinkWrap: true,
                   itemCount: items.length,
                   separatorBuilder: (_, __) =>
-                      Divider(height: 1, color: SabinaColors.neutral300),
+                      Divider(height: 1, color: p.line),
                   itemBuilder: (ctx, i) {
                     final item = items[i];
                     final isSelected = selectedValue == item;
@@ -937,12 +965,12 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
                             fontWeight:
                                 isSelected ? FontWeight.w600 : FontWeight.w400,
                             color: isSelected
-                                ? SabinaColors.primary700
-                                : SabinaColors.neutral900,
+                                ? p.primary
+                                : p.ink,
                           )),
                       trailing: isSelected
                           ? Icon(Icons.check_rounded,
-                              color: SabinaColors.primary700, size: 16)
+                              color: p.primary, size: 16)
                           : null,
                       onTap: () {
                         onSelected(item);
@@ -965,6 +993,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
   // ---------------------------------------------------------------------------
 
   void _submitForm(AppLocalizations l10n) async {
+    final p = context.palette;
     if (_formKey.currentState!.validate()) {
       final data = {
         'tanggal_haid_terakhir': _lastPeriodDateController.text,
@@ -994,7 +1023,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
               content: Text(l10n.pregnancyHistory_saveSuccess,
                   style: GoogleFonts.plusJakartaSans(
                       color: Colors.white, fontWeight: FontWeight.w500)),
-              backgroundColor: SabinaColors.primary700,
+              backgroundColor: p.primary,
               behavior: SnackBarBehavior.floating,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
@@ -1006,7 +1035,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
             SnackBar(
               content: Text(l10n.pregnancyHistory_saveFailed,
                   style: GoogleFonts.plusJakartaSans(color: Colors.white)),
-              backgroundColor: SabinaColors.error700,
+              backgroundColor: p.critical,
               behavior: SnackBarBehavior.floating,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
@@ -1019,7 +1048,7 @@ class _PregnancyHistoryScreenState extends State<PregnancyHistoryScreen> {
           SnackBar(
             content: Text(l10n.pregnancyHistory_errorOccurred(e.toString()),
                 style: GoogleFonts.plusJakartaSans(color: Colors.white)),
-            backgroundColor: SabinaColors.error700,
+            backgroundColor: p.critical,
             behavior: SnackBarBehavior.floating,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
