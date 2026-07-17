@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
+import 'package:sabina/widgets/trimester_icons.dart';
 import 'trimester_satu.dart';
 import 'trimester_dua.dart';
 import 'trimester_tiga.dart';
@@ -12,16 +13,17 @@ class TrimesterMenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final p = context.palette;
 
     return Scaffold(
-      backgroundColor: SabinaColors.neutral100,
+      backgroundColor: p.ground,
       appBar: AppBar(
-        backgroundColor: SabinaColors.white,
+        backgroundColor: p.surface,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
-          color: SabinaColors.neutral900,
+          color: p.ink,
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
@@ -29,13 +31,13 @@ class TrimesterMenuScreen extends StatelessWidget {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: SabinaColors.neutral900,
+            color: p.ink,
           ),
         ),
         centerTitle: false,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
-          child: Divider(height: 1, color: SabinaColors.neutral300),
+          child: Divider(height: 1, color: p.line),
         ),
       ),
       body: SafeArea(
@@ -55,7 +57,7 @@ class TrimesterMenuScreen extends StatelessWidget {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 10,
                   fontWeight: FontWeight.w700,
-                  color: SabinaColors.neutral500,
+                  color: p.inkMuted,
                   letterSpacing: 1.0,
                 ),
               ),
@@ -67,9 +69,10 @@ class TrimesterMenuScreen extends StatelessWidget {
                 subtitle: l10n.trimesterOneSubtitle,
                 tip: l10n.trimesterOneTip,
                 weekRange: l10n.trimesterOneSubtitle,
-                icon: Icons.pregnant_woman_outlined,
-                accentColor: SabinaColors.primary700,
-                accentBg: SabinaColors.primary100,
+                icon: GrowthIcon(GrowthStage.seed,
+                    color: context.palette.primary, size: 26),
+                accentColor: context.palette.primary,
+                accentBg: context.palette.primarySoft,
                 number: '01',
                 onTap: () => _navigate(context, const TrimesterSatuScreen()),
               ),
@@ -79,9 +82,10 @@ class TrimesterMenuScreen extends StatelessWidget {
                 subtitle: l10n.trimesterTwoSubtitle,
                 tip: l10n.trimesterTwoTip,
                 weekRange: l10n.trimesterTwoSubtitle,
-                icon: Icons.child_friendly_outlined,
-                accentColor: const Color(0xFF6F937D),
-                accentBg: const Color(0xFFE2EBE4),
+                icon: GrowthIcon(GrowthStage.sprout,
+                    color: context.palette.sage, size: 26),
+                accentColor: context.palette.sage,
+                accentBg: context.palette.sageSoft,
                 number: '02',
                 onTap: () => _navigate(context, const TrimesterDuaScreen()),
               ),
@@ -91,9 +95,10 @@ class TrimesterMenuScreen extends StatelessWidget {
                 subtitle: l10n.trimesterThreeSubtitle,
                 tip: l10n.trimesterThreeTip,
                 weekRange: l10n.trimesterThreeSubtitle,
-                icon: Icons.family_restroom_outlined,
-                accentColor: const Color(0xFFC08A3C),
-                accentBg: const Color(0xFFF5E8D2),
+                icon: GrowthIcon(GrowthStage.bloom,
+                    color: context.palette.amber, size: 26),
+                accentColor: context.palette.amber,
+                accentBg: context.palette.amberSoft,
                 number: '03',
                 onTap: () => _navigate(context, const TrimesterTigaScreen()),
               ),
@@ -129,17 +134,18 @@ class TrimesterMenuScreen extends StatelessWidget {
 class _InfoBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final p = context.palette;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: SabinaColors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border(
-          left: BorderSide(color: SabinaColors.primary700, width: 3),
+          left: BorderSide(color: p.primary, width: 3),
         ),
         boxShadow: [
           BoxShadow(
-            color: SabinaColors.neutral900.withValues(alpha: 0.05),
+            color: p.cardShadow,
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -149,19 +155,15 @@ class _InfoBanner extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 36,
-            height: 36,
+            width: 48,
+            height: 48,
             decoration: BoxDecoration(
-              color: SabinaColors.primary100,
-              borderRadius: BorderRadius.circular(10),
+              color: p.primarySoft,
+              borderRadius: BorderRadius.circular(14),
             ),
-            child: Icon(
-              Icons.menu_book_outlined,
-              color: SabinaColors.primary700,
-              size: 18,
-            ),
+            child: Center(child: BookIcon(color: p.primary, size: 22)),
           ),
-          const SizedBox(width: 12),
+          const SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,7 +173,7 @@ class _InfoBanner extends StatelessWidget {
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 10,
                     fontWeight: FontWeight.w700,
-                    color: SabinaColors.primary700,
+                    color: p.primary,
                     letterSpacing: 0.8,
                   ),
                 ),
@@ -181,7 +183,7 @@ class _InfoBanner extends StatelessWidget {
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
-                    color: SabinaColors.neutral700,
+                    color: p.inkMuted,
                     height: 1.5,
                   ),
                 ),
@@ -203,7 +205,7 @@ class _TrimesterCard extends StatelessWidget {
   final String subtitle;
   final String tip;
   final String weekRange;
-  final IconData icon;
+  final Widget icon;
   final Color accentColor;
   final Color accentBg;
   final String number;
@@ -223,8 +225,9 @@ class _TrimesterCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final p = context.palette;
     return Material(
-      color: SabinaColors.white,
+      color: p.surface,
       borderRadius: BorderRadius.circular(18),
       child: InkWell(
         onTap: onTap,
@@ -236,7 +239,7 @@ class _TrimesterCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(18),
             boxShadow: [
               BoxShadow(
-                color: SabinaColors.neutral900.withValues(alpha: 0.06),
+                color: p.cardShadow,
                 blurRadius: 10,
                 offset: const Offset(0, 2),
               ),
@@ -254,7 +257,7 @@ class _TrimesterCard extends StatelessWidget {
                       color: accentBg,
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: Icon(icon, color: accentColor, size: 26),
+                    child: Center(child: icon),
                   ),
                   const SizedBox(height: 6),
                   Text(
@@ -282,7 +285,7 @@ class _TrimesterCard extends StatelessWidget {
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 16,
                             fontWeight: FontWeight.w800,
-                            color: SabinaColors.neutral900,
+                            color: p.ink,
                           ),
                         ),
                         const Spacer(),
@@ -309,12 +312,12 @@ class _TrimesterCard extends StatelessWidget {
                       subtitle,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 12,
-                        color: SabinaColors.neutral500,
+                        color: p.inkMuted,
                       ),
                     ),
                     const SizedBox(height: 8),
                     // Divider
-                    Divider(height: 1, color: SabinaColors.neutral300),
+                    Divider(height: 1, color: p.line),
                     const SizedBox(height: 8),
                     Row(
                       children: [
@@ -330,7 +333,7 @@ class _TrimesterCard extends StatelessWidget {
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 12,
                               fontStyle: FontStyle.italic,
-                              color: SabinaColors.neutral700,
+                              color: p.inkMuted,
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -338,7 +341,7 @@ class _TrimesterCard extends StatelessWidget {
                         ),
                         Icon(
                           Icons.chevron_right_rounded,
-                          color: SabinaColors.neutral500,
+                          color: p.inkMuted,
                           size: 20,
                         ),
                       ],
