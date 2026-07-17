@@ -89,28 +89,4 @@ class ScreeningResult {
 
   /// Berapa hari lalu pemeriksaan dilakukan.
   int get daysAgo => DateTime.now().difference(timestamp).inDays;
-
-  String get timeAgoLabel {
-    final hours = DateTime.now().difference(timestamp).inHours;
-    if (hours < 1) return 'Baru saja';
-    if (hours < 24) return '$hours jam lalu';
-    if (daysAgo == 1) return 'Kemarin';
-    if (daysAgo < 30) return '$daysAgo hari lalu';
-    final months = (daysAgo / 30).floor();
-    return '$months bulan lalu';
-  }
-
-  String get typeLabel {
-    switch (type) {
-      case ScreeningResultService.preeklampsia:   return 'Preeklampsia';
-      case ScreeningResultService.penapisan:      return 'Penapisan';
-      case ScreeningResultService.mualMuntah:     return 'Mual Muntah';
-      case ScreeningResultService.sakitKepala:    return 'Sakit Kepala';
-      case ScreeningResultService.keluarDarah:    return 'Keluar Darah';
-      case ScreeningResultService.keluarCairan:   return 'Keluar Cairan';
-      case ScreeningResultService.bengkak:        return 'Bengkak';
-      case ScreeningResultService.pergerakanJanin: return 'Pergerakan Janin';
-      default: return type;
-    }
-  }
 }

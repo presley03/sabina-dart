@@ -22,35 +22,42 @@ class ResultScreen extends StatelessWidget {
         final l10n = AppLocalizations.of(context)!;
         ResultSeverity severity;
         String severityLabel;
+        String severityLabelKey;
         String severityDesc;
         if (result == 'Risiko Tinggi') {
           severity = ResultSeverity.high;
           severityLabel = l10n.sevHighRisk;
+          severityLabelKey = 'sevHighRisk';
           severityDesc = l10n.preeklampsiaSevHighDesc;
         } else if (result == 'Risiko Sedang') {
           severity = ResultSeverity.medium;
           severityLabel = l10n.sevMediumRisk;
+          severityLabelKey = 'sevMediumRisk';
           severityDesc = l10n.preeklampsiaSevMedDesc;
         } else if (result == 'Risiko Rendah') {
           severity = ResultSeverity.low;
           severityLabel = l10n.sevLowRisk;
+          severityLabelKey = 'sevLowRisk';
           severityDesc = l10n.preeklampsiaSevLowDesc;
         } else {
           severity = ResultSeverity.low;
           severityLabel = l10n.sevNoRisk;
+          severityLabelKey = 'sevNoRisk';
           severityDesc = l10n.preeklampsiaSevNoRiskDesc;
         }
 
-        // Simpan hasil ke SharedPreferences
+        // Simpan hasil ke SharedPreferences — `label` menyimpan kunci ARB
+        // locale-independent (bukan teks yang sudah dirender) agar riwayat
+        // tetap terjemah benar walau bahasa berganti setelahnya.
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           await ScreeningResultService.save(
             type: ScreeningResultService.preeklampsia,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
           await HistoryService.add(
             type: ScreeningResultService.preeklampsia,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
         });

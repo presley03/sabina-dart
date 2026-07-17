@@ -5,6 +5,7 @@ import 'package:sabina/core/theme/app_theme.dart';
 import 'package:sabina/generated/app_localizations.dart';
 import 'package:sabina/services/history_service.dart';
 import 'package:sabina/services/screening_result_service.dart';
+import 'package:sabina/utils/severity_labels.dart';
 
 /// Timeline riwayat seluruh pemeriksaan (skrining & kuesioner keluhan),
 /// terekam berwaktu lewat [HistoryService]. Gaya mengikuti layar panutan
@@ -310,7 +311,7 @@ class _HistoryCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(
-              entry.label,
+              translateSeverityLabel(l10n, entry.label),
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,

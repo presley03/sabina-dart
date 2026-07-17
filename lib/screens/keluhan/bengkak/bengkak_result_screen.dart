@@ -22,31 +22,37 @@ class BengkakResultScreen extends StatelessWidget {
         final l10n = AppLocalizations.of(context)!;
         ResultSeverity severity;
         String severityLabel;
+        String severityLabelKey;
         String severityDesc;
         if (recommendation.contains('Segera')) {
           severity = ResultSeverity.high;
           severityLabel = l10n.sevImmediateCheck;
+          severityLabelKey = 'sevImmediateCheck';
           severityDesc = l10n.bengkakSevHighDesc;
         } else if (recommendation.contains('beristirahat')) {
           severity = ResultSeverity.medium;
           severityLabel = l10n.sevNeedRest;
+          severityLabelKey = 'sevNeedRest';
           severityDesc = l10n.bengkakSevMedDesc;
         } else {
           severity = ResultSeverity.low;
           severityLabel = l10n.sevStayAlert;
+          severityLabelKey = 'sevStayAlert';
           severityDesc = l10n.bengkakSevLowDesc;
         }
 
-        // Simpan hasil ke SharedPreferences
+        // Simpan hasil ke SharedPreferences — `label` menyimpan kunci ARB
+        // locale-independent (bukan teks yang sudah dirender) agar riwayat
+        // tetap terjemah benar walau bahasa berganti setelahnya.
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           await ScreeningResultService.save(
             type: ScreeningResultService.bengkak,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
           await HistoryService.add(
             type: ScreeningResultService.bengkak,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
         });

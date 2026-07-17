@@ -22,32 +22,38 @@ class MualMuntahResultScreen extends StatelessWidget {
         final l10n = AppLocalizations.of(context)!;
         ResultSeverity severity;
         String severityLabel;
+        String severityLabelKey;
         String severityDesc;
         if (recommendation.contains('morning sickness')) {
           severity = ResultSeverity.low;
           severityLabel = l10n.sevNormal;
+          severityLabelKey = 'sevNormal';
           severityDesc = l10n.mualMuntahSevNormalDesc;
         } else if (recommendation.contains('tidak memiliki masalah') ||
             recommendation.contains('bergizi')) {
           severity = ResultSeverity.low;
           severityLabel = l10n.sevNoIssue;
+          severityLabelKey = 'sevNoIssue';
           severityDesc = l10n.mualMuntahSevNoIssueDesc;
         } else {
           severity = ResultSeverity.high;
           severityLabel = l10n.sevNeedAttention;
+          severityLabelKey = 'sevNeedAttention';
           severityDesc = l10n.mualMuntahSevAttentionDesc;
         }
 
-        // Simpan hasil ke SharedPreferences
+        // Simpan hasil ke SharedPreferences — `label` menyimpan kunci ARB
+        // locale-independent (bukan teks yang sudah dirender) agar riwayat
+        // tetap terjemah benar walau bahasa berganti setelahnya.
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           await ScreeningResultService.save(
             type: ScreeningResultService.mualMuntah,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
           await HistoryService.add(
             type: ScreeningResultService.mualMuntah,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
         });

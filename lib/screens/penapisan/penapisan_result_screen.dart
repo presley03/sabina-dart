@@ -22,27 +22,32 @@ class PenapisanResultScreen extends StatelessWidget {
         final l10n = AppLocalizations.of(context)!;
         ResultSeverity severity;
         String severityLabel;
+        String severityLabelKey;
         String severityDesc;
         if (score <= 8) {
           severity = ResultSeverity.low;
           severityLabel = l10n.sevLowRisk;
+          severityLabelKey = 'sevLowRisk';
           severityDesc = l10n.penapisanSevLowDesc;
         } else {
           severity = ResultSeverity.high;
           severityLabel = l10n.sevHighRisk;
+          severityLabelKey = 'sevHighRisk';
           severityDesc = l10n.penapisanSevHighDesc;
         }
 
-        // Simpan hasil ke SharedPreferences
+        // Simpan hasil ke SharedPreferences — `label` menyimpan kunci ARB
+        // locale-independent (bukan teks yang sudah dirender) agar riwayat
+        // tetap terjemah benar walau bahasa berganti setelahnya.
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           await ScreeningResultService.save(
             type: ScreeningResultService.penapisan,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
           await HistoryService.add(
             type: ScreeningResultService.penapisan,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
         });

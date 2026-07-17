@@ -22,27 +22,32 @@ class SakitKepalaResultScreen extends StatelessWidget {
         final l10n = AppLocalizations.of(context)!;
         ResultSeverity severity;
         String severityLabel;
+        String severityLabelKey;
         String severityDesc;
         if (score == 0) {
           severity = ResultSeverity.medium;
           severityLabel = l10n.sevNeedRest;
+          severityLabelKey = 'sevNeedRest';
           severityDesc = l10n.sakitKepalaSevRestDesc;
         } else {
           severity = ResultSeverity.high;
           severityLabel = l10n.sevNeedAttention;
+          severityLabelKey = 'sevNeedAttention';
           severityDesc = l10n.sakitKepalaSevAttentionDesc;
         }
 
-        // Simpan hasil ke SharedPreferences
+        // Simpan hasil ke SharedPreferences — `label` menyimpan kunci ARB
+        // locale-independent (bukan teks yang sudah dirender) agar riwayat
+        // tetap terjemah benar walau bahasa berganti setelahnya.
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           await ScreeningResultService.save(
             type: ScreeningResultService.sakitKepala,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
           await HistoryService.add(
             type: ScreeningResultService.sakitKepala,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
         });

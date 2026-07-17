@@ -22,27 +22,32 @@ class KeluarDarahResultScreen extends StatelessWidget {
         final l10n = AppLocalizations.of(context)!;
         ResultSeverity severity;
         String severityLabel;
+        String severityLabelKey;
         String severityDesc;
         if (recommendation.contains('baik')) {
           severity = ResultSeverity.low;
           severityLabel = l10n.sevGoodCondition;
+          severityLabelKey = 'sevGoodCondition';
           severityDesc = l10n.keluarDarahSevGoodDesc;
         } else {
           severity = ResultSeverity.high;
           severityLabel = l10n.sevImmediateCheck;
+          severityLabelKey = 'sevImmediateCheck';
           severityDesc = l10n.keluarDarahSevImmDesc;
         }
 
-        // Simpan hasil ke SharedPreferences
+        // Simpan hasil ke SharedPreferences — `label` menyimpan kunci ARB
+        // locale-independent (bukan teks yang sudah dirender) agar riwayat
+        // tetap terjemah benar walau bahasa berganti setelahnya.
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           await ScreeningResultService.save(
             type: ScreeningResultService.keluarDarah,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
           await HistoryService.add(
             type: ScreeningResultService.keluarDarah,
-            label: severityLabel,
+            label: severityLabelKey,
             severity: severity.name,
           );
         });
