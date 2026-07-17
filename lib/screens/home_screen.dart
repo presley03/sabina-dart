@@ -9,7 +9,7 @@ import '../generated/app_localizations.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/bottom_navigation.dart';
 import 'preeclampsia/preeclampsia_screening_screen.dart';
-import 'penapisan/penapisan_screen.dart';
+import 'fertile_window_calculator_screen.dart';
 import 'keluhan/keluhan_menu_screen.dart';
 import 'pregnancy_history_screen.dart';
 import 'trimester/trimester_menu_screen.dart';
@@ -655,11 +655,24 @@ class _CheckItem {
 // 3. Onboarding prompt card — hanya tampil jika riwayat kehamilan belum diisi
 // ---------------------------------------------------------------------------
 
-class _PromptCardConditional extends StatelessWidget {
+class _PromptCardConditional extends StatefulWidget {
+  @override
+  State<_PromptCardConditional> createState() =>
+      _PromptCardConditionalState();
+}
+
+class _PromptCardConditionalState extends State<_PromptCardConditional> {
+  late Future<bool> _future = _hasHistory();
+
+  Future<bool> _hasHistory() async {
+    final history = await DatabaseHelper.instance.getLatestPregnancyHistory();
+    return history != null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<bool>(
-      future: _hasHistory(),
+      future: _future,
       builder: (context, snap) {
         // Sudah diisi → sembunyikan card sepenuhnya (tanpa SizedBox)
         if (snap.data == true) return const SizedBox.shrink();
@@ -667,11 +680,6 @@ class _PromptCardConditional extends StatelessWidget {
         return _buildCard(context);
       },
     );
-  }
-
-  Future<bool> _hasHistory() async {
-    final history = await DatabaseHelper.instance.getLatestPregnancyHistory();
-    return history != null;
   }
 
   Widget _buildCard(BuildContext context) {
@@ -723,7 +731,9 @@ class _PromptCardConditional extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (_) => const PregnancyHistoryScreen()),
-                  ),
+                  ).then((_) {
+                    if (mounted) setState(() => _future = _hasHistory());
+                  }),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 14, vertical: 8),
@@ -955,14 +965,15 @@ Widget _buildQuickActionsCard(BuildContext context) {
       ),
     ),
     _BentoItem(
-      icon: Icons.verified_user_rounded,
+      icon: Icons.favorite_rounded,
       iconColor: p.sage,
       iconBg: p.sageSoft,
-      label: l10n.screeningAndPenapisan,
-      illustrationAsset: 'assets/images/home/bento_skrining.png',
+      label: l10n.fertileWindowBentoLabel,
+      illustrationAsset: 'assets/images/home/bento_masa_subur.png',
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) => const PenapisanScreen()),
+        MaterialPageRoute(
+            builder: (_) => const FertileWindowCalculatorScreen()),
       ),
     ),
     _BentoItem(
@@ -1286,7 +1297,7 @@ class _PregnancyBannerState extends State<_PregnancyBanner> {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (_) => const PregnancyHistoryScreen()),
-      ),
+      ).then((_) => _loadWeek()),
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.fromLTRB(28, 44, 28, 30),
