@@ -137,7 +137,7 @@ abstract class AppLocalizations {
   /// Teks lengkap kebijakan privasi
   ///
   /// In id, this message translates to:
-  /// **'Sabina menghormati dan melindungi privasi Anda. Kami mengumpulkan dan menggunakan informasi pribadi Anda hanya untuk tujuan memberikan layanan kesehatan ibu yang terbaik. Data Anda disimpan dengan aman dan tidak dibagikan kepada pihak ketiga tanpa persetujuan eksplisit Anda. Anda memiliki hak untuk mengakses, mengubah, atau menghapus informasi pribadi Anda kapan saja.'**
+  /// **'Sabina menghormati dan melindungi privasi Anda. Kami mengumpulkan dan menggunakan informasi pribadi Anda hanya untuk tujuan memberikan edukasi dan skrining mandiri kehamilan yang terbaik. Data Anda disimpan dengan aman dan tidak dibagikan kepada pihak ketiga tanpa persetujuan eksplisit Anda. Anda memiliki hak untuk mengakses, mengubah, atau menghapus informasi pribadi Anda kapan saja.'**
   String get privacyPolicyText;
 
   /// Label untuk pemilihan bahasa
@@ -815,7 +815,7 @@ abstract class AppLocalizations {
   /// Deskripsi aplikasi SABINA untuk bagian 'Tentang'
   ///
   /// In id, this message translates to:
-  /// **'SABINA - Pemantau Kesehatan Ibu Hamil adalah aplikasi pemantauan yang membantu ibu hamil untuk mencatat dan melacak perkembangan kehamilan, memberikan informasi kesehatan kehamilan yang terpercaya, serta panduan pemeriksaan rutin selama masa kehamilan.'**
+  /// **'SABINA - Sahabat Ibu Hamil & Keluarga adalah aplikasi edukasi dan skrining mandiri yang membantu ibu hamil untuk mencatat dan melacak perkembangan kehamilan, memberikan informasi edukasi kehamilan yang terpercaya, serta panduan pemeriksaan rutin selama masa kehamilan.'**
   String get aboutSabina;
 
   /// Label untuk menunjukkan siapa yang memprakarsai aplikasi SABINA

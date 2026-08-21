@@ -28,7 +28,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get privacyPolicyText =>
-      'Sabina respects and protects your privacy. We collect and use your personal information solely for the purpose of providing the best maternal health services. Your data is securely stored and not shared with third parties without your explicit consent. You have the right to access, modify, or delete your personal information at any time.';
+      'Sabina respects and protects your privacy. We collect and use your personal information solely for the purpose of providing the best pregnancy education and self-screening experience. Your data is securely stored and not shared with third parties without your explicit consent. You have the right to access, modify, or delete your personal information at any time.';
 
   @override
   String get language => 'Language';
@@ -378,7 +378,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutSabina =>
-      'SABINA - Maternal Health Monitor is a monitoring application that helps pregnant women track and record their pregnancy progress, provides reliable pregnancy health information, and guidance for routine prenatal check-ups.';
+      'SABINA - Pregnant Mother\'s Companion is a pregnancy education and self-screening app that helps pregnant women track and record their pregnancy progress, provides reliable pregnancy education content, and guidance for routine prenatal check-ups.';
 
   @override
   String get initiatedBy => 'Initiated by:';

@@ -24,7 +24,7 @@
   "@privacyPolicy": {
     "description": "Judul untuk bagian kebijakan privasi"
   },
-  "privacyPolicyText": "Sabina menghormati dan melindungi privasi Anda. Kami mengumpulkan dan menggunakan informasi pribadi Anda hanya untuk tujuan memberikan layanan kesehatan ibu yang terbaik. Data Anda disimpan dengan aman dan tidak dibagikan kepada pihak ketiga tanpa persetujuan eksplisit Anda. Anda memiliki hak untuk mengakses, mengubah, atau menghapus informasi pribadi Anda kapan saja.",
+  "privacyPolicyText": "Sabina menghormati dan melindungi privasi Anda. Kami mengumpulkan dan menggunakan informasi pribadi Anda hanya untuk tujuan memberikan edukasi dan skrining mandiri kehamilan yang terbaik. Data Anda disimpan dengan aman dan tidak dibagikan kepada pihak ketiga tanpa persetujuan eksplisit Anda. Anda memiliki hak untuk mengakses, mengubah, atau menghapus informasi pribadi Anda kapan saja.",
   "@privacyPolicyText": {
     "description": "Teks lengkap kebijakan privasi"
   },
@@ -476,7 +476,7 @@
   "@about": {
     "description": "Label untuk bagian 'Tentang' di aplikasi"
   },
-  "aboutSabina": "SABINA - Pemantau Kesehatan Ibu Hamil adalah aplikasi pemantauan yang membantu ibu hamil untuk mencatat dan melacak perkembangan kehamilan, memberikan informasi kesehatan kehamilan yang terpercaya, serta panduan pemeriksaan rutin selama masa kehamilan.",
+  "aboutSabina": "SABINA - Sahabat Ibu Hamil & Keluarga adalah aplikasi edukasi dan skrining mandiri yang membantu ibu hamil untuk mencatat dan melacak perkembangan kehamilan, memberikan informasi edukasi kehamilan yang terpercaya, serta panduan pemeriksaan rutin selama masa kehamilan.",
   "@aboutSabina": {
     "description": "Deskripsi aplikasi SABINA untuk bagian 'Tentang'"
   },

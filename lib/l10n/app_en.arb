@@ -24,7 +24,7 @@
   "@privacyPolicy": {
     "description": "Title for privacy policy section"
   },
-  "privacyPolicyText": "Sabina respects and protects your privacy. We collect and use your personal information solely for the purpose of providing the best maternal health services. Your data is securely stored and not shared with third parties without your explicit consent. You have the right to access, modify, or delete your personal information at any time.",
+  "privacyPolicyText": "Sabina respects and protects your privacy. We collect and use your personal information solely for the purpose of providing the best pregnancy education and self-screening experience. Your data is securely stored and not shared with third parties without your explicit consent. You have the right to access, modify, or delete your personal information at any time.",
   "@privacyPolicyText": {
     "description": "Full text of privacy policy"
   },
@@ -476,7 +476,7 @@
   "@about": {
     "description": "Label for 'About' section in the app"
   },
-  "aboutSabina": "SABINA - Maternal Health Monitor is a monitoring application that helps pregnant women track and record their pregnancy progress, provides reliable pregnancy health information, and guidance for routine prenatal check-ups.",
+  "aboutSabina": "SABINA - Pregnant Mother's Companion is a pregnancy education and self-screening app that helps pregnant women track and record their pregnancy progress, provides reliable pregnancy education content, and guidance for routine prenatal check-ups.",
   "@aboutSabina": {
     "description": "Description of SABINA app for 'About' section"
   },
