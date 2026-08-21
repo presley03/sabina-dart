@@ -1,8 +1,8 @@
 name: sabina
-description: "SABINA - Pemantau Kesehatan Ibu Hamil"
+description: "SABINA - Sahabat Ibu Hamil & Keluarga"
 publish_to: 'none'  # Jangan publish ke pub.dev
 
-version: 1.1.0+47
+version: 1.1.0+48
 
 environment:
   sdk: '>=3.3.0 <4.0.0'  # Fleksibel untuk Flutter 3.22+ hingga 3.27+

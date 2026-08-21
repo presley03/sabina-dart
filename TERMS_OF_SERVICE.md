@@ -15,11 +15,13 @@ Dengan mengunduh, menginstal, atau menggunakan aplikasi SABINA ("Aplikasi"), And
 
 ## 2. Tentang Aplikasi
 
-SABINA adalah aplikasi monitoring kesehatan ibu hamil yang berjalan sepenuhnya **secara lokal di perangkat Anda**. Aplikasi ini menyediakan:
+SABINA adalah aplikasi edukasi dan skrining mandiri untuk ibu hamil yang
+berjalan sepenuhnya **secara lokal di perangkat Anda**. Aplikasi ini
+menyediakan:
 
 - Pencatatan data identitas dan riwayat kehamilan
-- Kuesioner skrining risiko kesehatan (preeklampsia, penapisan, keluhan)
-- Panduan kesehatan per trimester
+- Kuesioner skrining mandiri untuk faktor risiko (preeklampsia, penapisan, keluhan)
+- Panduan edukasi per trimester
 - Kalkulator IMT (Indeks Massa Tubuh)
 - Panduan perawatan dan nutrisi kehamilan
 
@@ -29,12 +31,12 @@ SABINA adalah aplikasi monitoring kesehatan ibu hamil yang berjalan sepenuhnya *
 
 ### 3.1 Persyaratan
 ✅ Berusia 18 tahun atau lebih
-✅ Menggunakan Aplikasi untuk kepentingan kesehatan pribadi
+✅ Menggunakan Aplikasi untuk kepentingan edukasi dan pencatatan pribadi
 ✅ Menyetujui bahwa Aplikasi adalah alat bantu, bukan pengganti dokter
 
 ### 3.2 Tanggung Jawab Pengguna
 Anda bertanggung jawab untuk:
-- Keakuratan data kesehatan yang Anda masukkan
+- Keakuratan data yang Anda masukkan
 - Menjaga keamanan perangkat yang menjalankan Aplikasi
 - Tetap berkonsultasi dengan tenaga kesehatan untuk keputusan medis
 
@@ -43,16 +45,16 @@ Anda bertanggung jawab untuk:
 ## 4. Penggunaan yang Dapat Diterima
 
 ### Yang BOLEH
-✅ Menggunakan Aplikasi untuk monitoring kesehatan pribadi selama kehamilan
+✅ Menggunakan Aplikasi untuk edukasi dan pencatatan pribadi selama kehamilan
 ✅ Mengisi kuesioner dan membaca hasil sebagai panduan awal
-✅ Mengakses artikel dan panduan kesehatan
+✅ Mengakses artikel dan panduan edukasi
 ✅ Memberikan feedback untuk peningkatan Aplikasi
 
 ### Yang TIDAK BOLEH
 ❌ Memodifikasi, reverse-engineer, atau mendistribusikan ulang Aplikasi
 ❌ Menggunakan Aplikasi untuk tujuan komersial tanpa izin tertulis
 ❌ Mengandalkan Aplikasi sebagai satu-satunya sumber keputusan medis
-❌ Memasukkan data kesehatan orang lain tanpa izin mereka
+❌ Memasukkan data pribadi orang lain tanpa izin mereka
 
 ---
 
@@ -60,7 +62,7 @@ Anda bertanggung jawab untuk:
 
 🚨 **PERNYATAAN PENTING — HARAP DIBACA**
 
-SABINA adalah **alat bantu monitoring kesehatan**, BUKAN:
+SABINA adalah **alat bantu edukasi dan skrining mandiri**, BUKAN:
 - Pengganti konsultasi dokter kandungan atau bidan
 - Alat diagnosis medis
 - Layanan darurat medis
@@ -81,7 +83,7 @@ SABINA adalah **alat bantu monitoring kesehatan**, BUKAN:
 Kami berusaha memberikan informasi yang akurat namun:
 - TIDAK menjamin akurasi 100% dari semua konten
 - TIDAK bertanggung jawab atas keputusan medis yang diambil berdasarkan Aplikasi
-- TIDAK bertanggung jawab atas kondisi kesehatan yang tidak terdeteksi
+- TIDAK bertanggung jawab atas kondisi yang tidak terdeteksi lewat skrining mandiri
 
 ### 6.2 Keterbatasan Teknis
 - Kami tidak menjamin Aplikasi bebas dari bug sepenuhnya
@@ -91,13 +93,13 @@ Kami berusaha memberikan informasi yang akurat namun:
 ### 6.3 Data Lokal
 Karena semua data tersimpan di perangkat Anda:
 - Kami tidak bertanggung jawab atas kehilangan data akibat kerusakan, reset, atau penggantian perangkat
-- Sangat disarankan untuk mencatat informasi kesehatan penting secara terpisah
+- Sangat disarankan untuk mencatat informasi penting secara terpisah
 
 ---
 
 ## 7. Kekayaan Intelektual
 
-Semua konten dalam Aplikasi (kode, desain, grafis, teks, konten medis):
+Semua konten dalam Aplikasi (kode, desain, grafis, teks, konten edukasi):
 - Adalah milik SABINA Development Team © 2026
 - Dilindungi oleh hukum hak cipta Indonesia
 - Tidak boleh direproduksi atau didistribusikan tanpa izin tertulis
@@ -109,9 +111,9 @@ Semua konten dalam Aplikasi (kode, desain, grafis, teks, konten medis):
 Kami dapat merilis pembaruan untuk:
 - Memperbaiki bug
 - Menambahkan fitur baru
-- Memperbarui konten medis sesuai panduan terbaru
+- Memperbarui konten edukasi sesuai panduan terbaru
 
-Pembaruan direkomendasikan untuk memastikan Anda mendapatkan informasi kesehatan yang akurat dan terkini.
+Pembaruan direkomendasikan untuk memastikan Anda mendapatkan informasi edukasi yang akurat dan terkini.
 
 ---
 
@@ -142,7 +144,7 @@ Jika ada perubahan material, kami akan memberitahukan melalui notifikasi in-app.
 
 Untuk pertanyaan terkait syarat & ketentuan:
 
-📧 **Email**: legal@sabina-app.id
+📧 **Email**: wahidahsukriani@gmail.com
 🏢 **Tim**: SABINA Development Team
 
 ---
@@ -150,7 +152,7 @@ Untuk pertanyaan terkait syarat & ketentuan:
 🚨 **RINGKASAN DISCLAIMER FINAL**:
 
 Anda memahami bahwa:
-- SABINA adalah alat monitoring, **bukan pengganti dokter**
+- SABINA adalah alat bantu edukasi dan skrining mandiri, **bukan pengganti dokter**
 - Semua keputusan medis tetap menjadi tanggung jawab Anda bersama tenaga kesehatan
 - Untuk kondisi darurat: **hubungi 118** atau kunjungi fasilitas kesehatan terdekat
 

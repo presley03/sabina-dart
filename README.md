@@ -6,23 +6,23 @@
 
 ## 📱 Tentang Aplikasi
 
-SABINA adalah aplikasi pendamping kesehatan ibu hamil di Indonesia: skrining
-risiko, kuesioner keluhan, kalkulator IMT, panduan trimester, jurnal mingguan,
-dan artikel edukasi. **Bilingual (Indonesia/English)** dengan dukungan tema
-terang & gelap. Seluruh data tersimpan **lokal di perangkat** — tidak ada
-server eksternal.
+SABINA adalah aplikasi edukasi dan skrining mandiri untuk ibu hamil di
+Indonesia: skrining risiko, kuesioner keluhan, kalkulator IMT, panduan
+trimester, jurnal mingguan, dan artikel edukasi. **Bilingual
+(Indonesia/English)** dengan dukungan tema terang & gelap. Seluruh data
+tersimpan **lokal di perangkat** — tidak ada server eksternal.
 
 Arah desain: **"jurnal keibuan yang art-directed"** (design system
 *Twilight Bloom*), bukan dashboard klinis — menenangkan, hangat, dan personal.
 
 ### Visi
-Memberikan akses mudah dan terpercaya kepada ibu hamil untuk memantau kesehatan
-diri sendiri dan berkomunikasi dengan tenaga kesehatan.
+Memberikan akses mudah dan terpercaya kepada ibu hamil untuk mencatat
+perjalanan kehamilannya sendiri dan berkomunikasi dengan tenaga kesehatan.
 
 ### Misi
-- Memberikan informasi kesehatan yang akurat dan evidence-based
+- Memberikan informasi edukasi kehamilan yang akurat dan evidence-based
 - Memfasilitasi komunikasi antara ibu hamil dan tenaga kesehatan
-- Mendeteksi dini risiko kesehatan maternal
+- Membantu deteksi dini faktor risiko lewat skrining mandiri
 - Memberdayakan keluarga dalam mendukung kehamilan yang sehat
 
 ---
@@ -213,7 +213,7 @@ Panduan pengembangan lengkap: [CLAUDE.md](CLAUDE.md).
 
 ## 🔐 Keamanan & Privasi
 
-- Seluruh data kesehatan tersimpan **lokal di perangkat** (SQLite /
+- Seluruh data pengguna tersimpan **lokal di perangkat** (SQLite /
   SharedPreferences / SecureStorage terenkripsi)
 - **Tidak ada data yang dikirim ke server eksternal**
 - Kredensial signing tidak pernah di-commit (`android/key.properties`)
@@ -225,8 +225,8 @@ Lihat [PRIVACY_POLICY.md](PRIVACY_POLICY.md) dan
 
 ## 📞 Dukungan & Kontak
 
-- **Lead Developer**: Presley
-- **Email**: support@sabina-app.id
+- **Content Expert & Kontak Privasi**: Bdn. Wahidah Sukriani — wahidahsukriani@gmail.com
+- **Lead Developer**: Presley — presleyfelly@gmail.com
 
 ---
 
@@ -239,9 +239,9 @@ Lihat [PRIVACY_POLICY.md](PRIVACY_POLICY.md) dan
 
 ## 🔬 Referensi Ilmiah & Standar
 
-Konten edukasi dan skrining disusun serta **divalidasi langsung oleh
+Konten edukasi dan skrining disusun serta **ditinjau langsung oleh
 Bdn. Wahidah Sukriani, S.ST., M.Keb.** (dosen kebidanan Poltekkes Kemenkes
-Palangka Raya), merujuk pada:
+Palangka Raya) sebagai content expert, merujuk pada:
 - Sukriani, W. — *Asuhan Kebidanan Kehamilan* (2022); *Buku Ajar Asuhan
   Persalinan & Bayi Baru Lahir* (2023); *Asuhan Kebidanan Pada Nifas*
   (2023); *KB dan Kesehatan Reproduksi* (2023); *Asuhan Holistik Masa
@@ -253,7 +253,7 @@ Palangka Raya), merujuk pada:
 
 ## 👥 Tim Pengembang
 
-- **Pemilik & Validator Medis**: Bdn. Wahidah Sukriani, S.ST., M.Keb. —
+- **Content Expert**: Bdn. Wahidah Sukriani, S.ST., M.Keb. —
   [sapabidan.com](https://sapabidan.com)
 - **Pengembang**: Presley
 
@@ -265,6 +265,6 @@ informatif dan tidak menggantikan pemeriksaan tenaga kesehatan. Untuk
 kondisi darurat, segera hubungi fasilitas kesehatan terdekat. Lihat
 [PRIVACY_POLICY.md](PRIVACY_POLICY.md) & [TERMS_OF_SERVICE.md](TERMS_OF_SERVICE.md).
 
-**Dibuat dengan ❤️ untuk kesehatan ibu hamil di Indonesia**
+**Dibuat dengan ❤️ untuk ibu hamil di Indonesia**
 
 *Last Updated: Juli 2026 — v1.1.0 (versionCode 47)*

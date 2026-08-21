@@ -9,7 +9,7 @@
 
 ## 1. Pengenalan
 
-SABINA ("Aplikasi", "kami") adalah aplikasi mobile yang didedikasikan untuk memantau kesehatan ibu hamil. Kami sangat menghargai privasi Anda dan berkomitmen untuk transparan tentang bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi kesehatan Anda.
+SABINA ("Aplikasi", "kami") adalah aplikasi mobile edukasi dan skrining mandiri untuk ibu hamil. Kami sangat menghargai privasi Anda dan berkomitmen untuk transparan tentang bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi yang Anda masukkan.
 
 Kebijakan Privasi ini menjelaskan praktik data kami dan hak Anda. Silakan baca dengan cermat.
 
@@ -60,7 +60,7 @@ Informasi yang Anda masukkan secara langsung:
 | Preferensi bahasa | SharedPreferences (lokal) | — |
 
 **Kami TIDAK mengirim data Anda ke server eksternal manapun.**
-**Kami TIDAK menggunakan layanan cloud pihak ketiga untuk menyimpan data kesehatan Anda.**
+**Kami TIDAK menggunakan layanan cloud pihak ketiga untuk menyimpan data Anda.**
 
 ---
 
@@ -68,7 +68,7 @@ Informasi yang Anda masukkan secara langsung:
 
 Informasi yang Anda berikan digunakan **hanya** untuk:
 
-✅ Menampilkan informasi kesehatan yang personal dan relevan
+✅ Menampilkan informasi edukasi kehamilan yang personal dan relevan
 ✅ Menghitung usia kehamilan real-time dari HPHT
 ✅ Menghitung usia Anda dari tanggal lahir
 ✅ Menampilkan riwayat hasil skrining di profil Anda
@@ -77,7 +77,7 @@ Informasi yang Anda berikan digunakan **hanya** untuk:
 
 ### Kami TIDAK Akan
 ❌ Menjual data pribadi Anda kepada pihak ketiga
-❌ Membagikan data kesehatan Anda kepada siapapun
+❌ Membagikan data Anda kepada siapapun
 ❌ Menggunakan data untuk tujuan iklan atau komersial
 ❌ Melacak lokasi Anda
 ❌ Mengakses kamera/mikrofon tanpa izin Anda
@@ -136,7 +136,7 @@ Aplikasi ini diperuntukkan bagi **wanita hamil dewasa (18+ tahun)**. Kami tidak 
 
 ## 10. Disclaimer Medis
 
-🚨 **PENTING**: SABINA adalah **alat bantu monitoring kesehatan**, bukan pengganti konsultasi medis profesional.
+🚨 **PENTING**: SABINA adalah **alat bantu edukasi dan skrining mandiri**, bukan pengganti konsultasi medis profesional.
 
 - Hasil skrining dan kuesioner dalam aplikasi ini **bukan diagnosis medis**
 - Selalu konsultasikan kondisi Anda dengan dokter kandungan atau bidan
@@ -154,7 +154,7 @@ Jika ada perubahan material pada kebijakan ini, kami akan memberitahukan melalui
 
 Jika Anda memiliki pertanyaan tentang privasi:
 
-📧 **Email**: privacy@sabina-app.id
+📧 **Email**: wahidahsukriani@gmail.com
 🏢 **Tim**: SABINA Development Team
 
 ---
