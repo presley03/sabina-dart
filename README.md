@@ -27,6 +27,22 @@ perjalanan kehamilannya sendiri dan berkomunikasi dengan tenaga kesehatan.
 
 ---
 
+## 📸 Screenshot
+
+| Beranda | Skrining | Artikel |
+|---|---|---|
+| ![Beranda](assets/images/screenshots/01_beranda.png) | ![Skrining](assets/images/screenshots/02_skrining.png) | ![Artikel](assets/images/screenshots/03_artikel.png) |
+
+| Keluhan | Kalkulator IMT | Profil |
+|---|---|---|
+| ![Keluhan](assets/images/screenshots/04_keluhan.png) | ![Kalkulator IMT](assets/images/screenshots/05_imt_calculator.png) | ![Profil](assets/images/screenshots/07_profil.png) |
+
+| Pembaca Artikel | Beranda (Gelap) |
+|---|---|
+| ![Pembaca Artikel](assets/images/screenshots/06_artikel_reader.png) | ![Beranda Gelap](assets/images/screenshots/08_beranda_dark.png) |
+
+---
+
 ## ✨ Fitur Utama
 
 ### 1. **Beranda Editorial**
